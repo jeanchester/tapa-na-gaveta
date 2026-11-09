@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#0C1210">
+  <title>Football Draft</title>
+  <link rel="icon" type="image/png" href="icons/favicon.png">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <script>
+    // Faixa vermelha com o erro, só no desenvolvimento (a versão da loja grava DEZ_RELEASE).
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (window.DEZ_RELEASE) return false;
+      var d = document.createElement('div');
+      d.className = 'erro-dev';
+      d.innerText = 'ERRO: ' + message + '\n' + (source || '').split('/').pop() + ' L' + lineno + ':' + colno + '\n' + (error && error.stack ? error.stack : '');
+      d.onclick = function () { d.remove(); };
+      document.body.appendChild(d);
+      return false;
+    };
+  </script>
+  <div id="splash"><img class="splash-titulo" id="splash-titulo" alt=""></div>
+  <script>
+    // título da abertura no idioma do aparelho (enquanto a versão do idioma não existe, vale a inglesa)
+    (function () {
+      var l = String(navigator.language || 'en').slice(0, 2).toLowerCase(), img = document.getElementById('splash-titulo');
+      img.onerror = function () { img.onerror = null; img.src = 'img/logo-en.png'; };
+      img.src = 'img/logo-' + (l === 'pt' || l === 'es' ? l : 'en') + '.png';
+    })();
+  </script>
+  <div id="app">
+    <main id="tela"></main>
+    <div id="modal" hidden></div>
+    <div id="toast" hidden></div>
+  </div>
+  <script src="../shared/dados/selecoes.js"></script>
+  <script src="../shared/dados/brasileirao.js"></script>
+  <script src="../shared/dados/premier.js"></script>
+  <script src="../shared/dados/laliga.js"></script>
+  <script src="../shared/dados/seriea.js"></script>
+  <script src="../shared/dados/bundesliga.js"></script>
+  <script src="../shared/dados/ligue1.js"></script>
+  <script src="../shared/dez-dados.js"></script>
+  <script src="../shared/dez-core.js"></script>
+  <script src="../shared/dez-partida.js"></script>
+  <script src="../shared/estadios.js"></script>
+  <script src="../shared/logo.js"></script>
+  <script src="../shared/i18n/pt.js"></script>
+  <script src="../shared/i18n/en.js"></script>
+  <script src="../shared/i18n/es.js"></script>
+  <script src="servicos.js"></script>
+  <script src="visual.js"></script>
+  <script src="campinho.js"></script>
+  <script src="telas.js"></script>
+  <script src="telas-jogo.js"></script>
+  <script src="telas-extras.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

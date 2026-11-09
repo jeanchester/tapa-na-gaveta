@@ -1,0 +1,36 @@
+# Mantém frescas as reservas publicadas com o site (o site busca a ESPN ao vivo; estas cópias são o
+# que ele usa quando a ESPN falha ou demora). Roda todo dia e, nas sextas, atualiza também os elencos.
+name: Atualizar dados de reserva
+on:
+  schedule:
+    - cron: '0 9,21 * * *'          # 6h e 18h em Brasília
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Retrato do Brasileirão (ESPN)
+        run: python ferramentas/baixar_espn.py 2026 dados/brasileirao-2026.json
+      - name: Testes do núcleo com os dados novos
+        run: node tools/testar-core.js || echo "::warning::testes do núcleo falharam com os dados novos (ver o log)"
+      - name: Elencos (sextas-feiras)
+        run: |
+          if [ "$(date -u +%u)" = "5" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            curl -fsS -o dados/elencos.json https://raw.githubusercontent.com/jujubs333/futebol-elencos/main/data/elencos.json
+            curl -fsS -o dados/elencos_copa_2026.json https://raw.githubusercontent.com/jujubs333/futebol-elencos/main/data/elencos_copa_2026.json
+            node tools/elencos.js
+          fi
+      - name: Gravar se mudou
+        run: |
+          git config user.name "tapa-na-gaveta-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dados/
+          git diff --cached --quiet || git commit -m "Dados de reserva atualizados ($(date -u +%F))"
+          git push

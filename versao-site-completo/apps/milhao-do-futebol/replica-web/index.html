@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Show do Milhão do Futebol (vídeo)</title>
+<style>
+  /* fontes do app original: Roboto (padrão do Android) e os ícones do @expo/vector-icons */
+  @font-face { font-family: Roboto; font-weight: 400; src: url(fonts/roboto-400-normal.woff2) format('woff2'); }
+  @font-face { font-family: Roboto; font-weight: 400; font-style: italic; src: url(fonts/roboto-400-italic.woff2) format('woff2'); }
+  @font-face { font-family: Roboto; font-weight: 500; src: url(fonts/roboto-500-normal.woff2) format('woff2'); }
+  @font-face { font-family: Roboto; font-weight: 700; src: url(fonts/roboto-700-normal.woff2) format('woff2'); }
+  @font-face { font-family: Ionicons; src: url(fonts/Ionicons.ttf) format('truetype'); }
+  @font-face { font-family: MaterialCommunityIcons; src: url(fonts/MaterialCommunityIcons.ttf) format('truetype'); }
+  html, body { margin: 0; height: 100%; background: #06140f; overflow: hidden; touch-action: none; }
+  #game { position: fixed; top: env(safe-area-inset-top, 0); bottom: env(safe-area-inset-bottom, 0);
+          left: 50%; transform: translateX(-50%); height: 100%; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<script src="vendor/phaser-3.80.1.min.js"></script>
+<script src="dados.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

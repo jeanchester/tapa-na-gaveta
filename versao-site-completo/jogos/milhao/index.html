@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07110b">
+  <title>Jogo do Milhão do Futebol · Tapa na Gaveta</title>
+  <link rel="icon" type="image/png" href="../../midia/icones/milhao-do-futebol.png">
+  <link rel="stylesheet" href="milhao.css">
+</head>
+<body>
+  <div id="jogo" aria-live="polite"></div>
+  <div id="janela" hidden></div>
+  <script>
+    // faixa vermelha de erro: só no desenvolvimento (o build do site grava TNG_RELEASE)
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (window.TNG_RELEASE || (window.parent && window.parent.TNG_RELEASE)) return false;
+      var d = document.createElement('pre');
+      d.className = 'dev-error';
+      d.textContent = message + '\n' + (source || '') + ':' + lineno + '\n' + ((error && error.stack) || '');
+      document.body.appendChild(d);
+      return false;
+    };
+  </script>
+  <script src="milhao-core.js"></script>
+  <script src="milhao.js"></script>
+</body>
+</html>

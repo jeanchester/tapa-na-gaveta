@@ -1,0 +1,26 @@
+# Publica o site no GitHub Pages a cada mudança na branch principal (opção de hospedagem; ver
+# README, "Publicar"). Defina a variável do repositório SITE_URL (ex.: https://tapanagaveta.com.br).
+name: Publicar no GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: true }
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment: { name: github-pages, url: '${{ steps.deploy.outputs.page_url }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: node tools/testar-core.js && node tools/testar-milhao.js
+      - run: node tools/build.js --release --site "${{ vars.SITE_URL }}"
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: dist }
+      - id: deploy
+        uses: actions/deploy-pages@v4

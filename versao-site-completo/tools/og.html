@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Imagem de compartilhamento</title>
+<style>
+@font-face { font-family: 'Manrope'; font-weight: 700; src: url(../shared/fonts/manrope-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 800; src: url(../shared/fonts/manrope-latin-800-normal.woff2) format('woff2'); }
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body { background: #0f5132; color: #f4f8f2; font-family: Manrope, sans-serif; position: relative;
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 100px, transparent 100px 200px); }
+.marca { position: absolute; left: 72px; top: 60px; display: flex; align-items: center; gap: 16px; font-weight: 800; font-size: 34px; letter-spacing: -.5px; }
+.marca svg { width: 64px; height: 64px; }
+.txt { position: absolute; left: 72px; right: 400px; bottom: 96px; }
+.kicker { font-size: 22px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: #e8f0a0; margin-bottom: 14px; }
+h1 { margin: 0; font-size: 76px; line-height: 1.02; font-weight: 800; letter-spacing: -2px; }
+p { margin: 18px 0 0; font-size: 28px; color: rgba(244,248,242,.82); font-weight: 700; }
+.lado { position: absolute; right: 72px; top: 50%; transform: translateY(-50%); width: 280px; height: 280px; display: grid; place-items: center; }
+.lado img { width: 230px; height: 230px; object-fit: contain; filter: drop-shadow(0 12px 30px rgba(0,0,0,.35)); }
+.lado img[src*="icones"] { border-radius: 48px; }
+.lado .gol { width: 280px; height: 280px; }
+.rodape { position: absolute; left: 0; right: 0; bottom: 0; height: 44px; background: rgba(0,0,0,.22); }
+</style>
+</head>
+<body>
+  <div class="marca"><svg viewBox="0 0 40 40"><g fill="none" stroke="#f4f8f2" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="3.2"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#e8f0a0"/></svg>tapa na gaveta</div>
+  <div class="txt"><div class="kicker" id="k"></div><h1 id="t"></h1><p id="s"></p></div>
+  <div class="lado" id="lado"></div>
+  <div class="rodape"></div>
+  <script>
+    var q = new URLSearchParams(location.search);
+    document.getElementById('k').textContent = q.get('k') || '';
+    document.getElementById('t').textContent = q.get('t') || '';
+    document.getElementById('s').textContent = q.get('s') || '';
+    var img = q.get('img');
+    document.getElementById('lado').innerHTML = img ? '<img src="../' + img + '" alt="">' :
+      '<svg class="gol" viewBox="0 0 40 40"><g fill="none" stroke="#f4f8f2" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="2.4"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width=".8" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#e8f0a0"/></svg>';
+  </script>
+</body>
+</html>

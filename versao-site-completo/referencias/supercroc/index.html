@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f3d2a">
+  <title>SuperCroc · Vestibulares Resolvidos</title>
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icone-192.png">
+  <link rel="preload" as="image" href="../shared/images/croc/cabeca.webp">
+  <link rel="stylesheet" href="../shared/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div id="splash" aria-hidden="true">
+    <div class="splash-in">
+      <div class="splash-croc" id="splash-croc"></div>
+      <div class="splash-name">SuperCroc</div>
+      <div class="splash-tag">Vestibulares resolvidos</div>
+    </div>
+  </div>
+  <div id="app">
+    <header id="topbar"></header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script>
+    // faixa vermelha de erro: só no desenvolvimento (o build de publicação grava SUPERCROC_RELEASE antes)
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (window.SUPERCROC_RELEASE) return false;
+      var d = document.createElement('pre');
+      d.className = 'dev-error';
+      d.textContent = message + '\n' + (source || '') + ':' + lineno + '\n' + ((error && error.stack) || '');
+      document.body.appendChild(d);
+      return false;
+    };
+  </script>
+  <script src="../shared/vendor/katex/katex.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

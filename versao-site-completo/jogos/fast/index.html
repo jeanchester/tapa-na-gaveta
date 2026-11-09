@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07110b">
+  <title>Fast Football · Tapa na Gaveta</title>
+  <link rel="icon" type="image/png" href="../../midia/icones/fast-football.png">
+  <link rel="stylesheet" href="fast.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    // faixa vermelha de erro: só no desenvolvimento (o build do site grava TNG_RELEASE)
+    window.onerror = function (message, source, lineno, colno, error) {
+      if (window.TNG_RELEASE || (window.parent && window.parent.TNG_RELEASE)) return false;
+      var d = document.createElement('pre');
+      d.className = 'dev-error';
+      d.textContent = message + '\n' + (source || '') + ':' + lineno + '\n' + ((error && error.stack) || '');
+      document.body.appendChild(d);
+      return false;
+    };
+  </script>
+  <script src="../../shared/vendor/matter-0.19.0.min.js"></script>
+  <script src="times.js"></script>
+  <script src="fast.js"></script>
+</body>
+</html>

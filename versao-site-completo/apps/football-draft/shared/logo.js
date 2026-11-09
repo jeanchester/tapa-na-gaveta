@@ -1,0 +1,2 @@
+// GERADO por tools/logo.py: medidas das camadas do logo (não editar à mão).
+window.DEZ_LOGO = {"idiomas": {"en": {"w": 1400, "h": 654, "bola": {"x": 0.3469, "y": 0.2261, "r": 0.0862}}, "pt": {"w": 1400, "h": 653, "bola": {"x": 0.3469, "y": 0.2278, "r": 0.0862}}, "es": {"w": 1400, "h": 685, "bola": {"x": 0.3471, "y": 0.2175, "r": 0.0863}}}, "fundo": {"w": 1600, "h": 893, "cx": 0.5004, "cy": 0.5309}, "bolaRef": {"x": 0.3442, "y": 0.2134, "r": 0.0884}};
