@@ -178,5 +178,51 @@ grupo('dados da ESPN: conversão e mescla', () => {
   ok(L2.jogos.filter((j) => !j.feito).length === 40, 'um jogo a menos para simular');
 });
 
+grupo('dados das versões antigas (arquivo único)', () => {
+  const chave = (h, a) => { const j = L.jogos.find((x) => !x.feito && L.times[x.h].abrev === h && L.times[x.a].abrev === a); return j && j.chave; };
+  ok(chave('FLA', 'CAP') === 'flamengo-athletico', 'FLA-CAP vira flamengo-athletico');
+  // v4: chaves por siglas; jogo já disputado, sigla desconhecida e lixo ficam de fora; gols até 15
+  const v4 = C.placaresAntigos(L, { 'FLA-CAP': [2, 1], 'CHA-VAS': [20, 0], 'FLA-GRE': [1, 0], 'XXX-FLA': [1, 1], 'PAL-FLA': ['a', 1], 'CRU-PAL': [0, 0, 1] }, { 'CHA-VAS': true });
+  ok(JSON.stringify(v4.p) === JSON.stringify({ 'flamengo-athletico': [2, 1], 'chapecoense-vasco': [15, 0] }), 'v4: só jogos em aberto e placares válidos: ' + JSON.stringify(v4.p));
+  ok(JSON.stringify(v4.sim) === JSON.stringify({ 'chapecoense-vasco': 1 }), 'v4: sorteados continuam marcados');
+  // v3: chave é o índice na lista fixa (0 = Vitória x Fluminense, já disputado; 6 = Flamengo x Athletico)
+  ok(C.LEGADO_V3.length === 42 && C.LEGADO_V3[6] === 'FLA-CAP', 'lista da v3 com 42 jogos');
+  const v3 = C.placaresAntigos(L, { 0: [1, 1], 6: [3, 0], 41: [2, 2] }, {});
+  ok(JSON.stringify(v3.p) === JSON.stringify({ 'flamengo-athletico': [3, 0], 'vasco-vitoria': [2, 2] }), 'v3: índices viram chaves novas: ' + JSON.stringify(v3.p));
+  // migração completa: o rascunho da v4 vale mais que o da v3; cenários das duas, sem repetir
+  const mig = C.migrarAntigos(L, {
+    agora: '2026-11-09T12:00:00Z',
+    rascunhos: [{ picks: { 'FLA-CAP': [1, 0] }, auto: {}, prefs: { formaN: 3, ordem: 'cima', n: 50000, modoRev: 'manual' } }, { picks: { 6: [0, 3] } }],
+    cenarios: [
+      [{ nome: 'Fla tropeça', quando: Date.UTC(2026, 10, 9), picks: { 'FLA-CAP': [0, 1] } }, { nome: 'Fla tropeça', quando: Date.UTC(2026, 10, 9), picks: {} }],
+      [{ nome: 'Velho', quando: Date.UTC(2026, 10, 6), picks: { 6: [2, 2] } }, null, { nome: 'sem placares' }],
+    ],
+  });
+  ok(JSON.stringify(mig.placares.p) === JSON.stringify({ 'flamengo-athletico': [1, 0] }), 'rascunho da v4 tem prioridade');
+  ok(JSON.stringify(mig.prefs) === JSON.stringify({ forma: 3, ordem: 'cima', N: 50000, revelacao: 'manual' }), 'preferências convertidas: ' + JSON.stringify(mig.prefs));
+  ok(mig.cenarios.length === 2 && mig.cenarios[0].nome === 'Fla tropeça' && mig.cenarios[1].p['flamengo-athletico'][0] === 2, 'cenários da v4 e da v3, sem repetir: ' + mig.cenarios.map((c) => c.nome).join(', '));
+  ok(mig.cenarios.every((c) => c.criado && c.temporada === L.temporada && c.migrado), 'cenários no formato novo');
+  const vazio = C.migrarAntigos(L, { rascunhos: [null, 'lixo'], cenarios: [{}, 'x'] });
+  ok(vazio.placares === null && vazio.prefs === null && vazio.cenarios.length === 0, 'nada salvo, nada migrado');
+  // link da v4: mesmo formato de bytes, pares em ordem alfabética das siglas (codificador copiado da v4)
+  const B64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+  const IDS_ALFA = L.times.map((x) => x.abrev).sort();
+  const FIX = L.jogos.filter((j) => !j.feito).map((j) => ({ k: L.times[j.h].abrev + '-' + L.times[j.a].abrev, h: L.times[j.h].abrev, a: L.times[j.a].abrev, chave: j.chave }));
+  function codificarV4(picks) {
+    const n = IDS_ALFA.length, bits = new Uint8Array(Math.ceil(n * n / 8)), pares = [];
+    for (const f of FIX) { const p = picks[f.k]; if (!p) continue; pares.push([IDS_ALFA.indexOf(f.h) * n + IDS_ALFA.indexOf(f.a), p]); }
+    pares.sort((a, b) => a[0] - b[0]);
+    const bytes = [1, ...bits]; for (const [i, p] of pares) { bytes[1 + (i >> 3)] |= 1 << (i & 7); bytes.push(Math.min(15, p[0]) * 16 + Math.min(15, p[1])); }
+    let s = ''; for (let i = 0; i < bytes.length; i += 3) { const a = bytes[i], b = bytes[i + 1], c = bytes[i + 2]; s += B64[a >> 2] + B64[((a & 3) << 4) | ((b || 0) >> 4)]; if (i + 1 < bytes.length) s += B64[((b & 15) << 2) | ((c || 0) >> 6)]; if (i + 2 < bytes.length) s += B64[c & 63]; }
+    return s;
+  }
+  const M = C.modelo(L, {});
+  const novo = C.simularRestantes(L, {}, M, C.rng(9));
+  const picksV4 = {}; FIX.forEach((f) => { picksV4[f.k] = novo[f.chave]; });
+  const lido = C.decodificarAntigo(L, codificarV4(picksV4));
+  ok(lido && Object.keys(novo).every((k) => lido[k] && lido[k][0] === novo[k][0] && lido[k][1] === novo[k][1]), 'link da v4 abre com os mesmos placares');
+  ok(C.decodificarAntigo(L, '!!') === null, 'link antigo quebrado não quebra o site');
+});
+
 console.log(`\n${total - falhas}/${total} conferências passaram`);
 process.exit(falhas ? 1 : 0);

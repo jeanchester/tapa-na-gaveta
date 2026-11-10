@@ -571,9 +571,97 @@
     return minimas.slice(0, maxRes).map((lst) => lst.slice().sort((x, y) => (y.proprio - x.proprio) || (x.g - y.g)).map((x) => ({ jogo: relevantes[x.g], conj: x.conj })));
   }
 
+  // ================================================================== dados das versões antigas
+  // Antes da unificação o simulador era um arquivo único (index.html na raiz). Ele guardava os
+  // placares com outras chaves: v3 pelo índice do jogo numa lista fixa (LEGADO_V3), v4 pelo par de
+  // siglas da ESPN ("FLA-PAL"). Aqui eles viram as chaves deste núcleo ("flamengo-palmeiras").
+  const LEGADO_V3 = ['VIT-FLU', 'CHA-VAS', 'MIR-CAM', 'CFC-SAN', 'REMO-CHA', 'CRU-PAL', 'FLA-CAP', 'COR-BOT', 'GRE-BAH', 'VAS-INT',
+    'VIT-BRA', 'SAO-FLU', 'PAL-FLA', 'BAH-CFC', 'CHA-CRU', 'CAP-REMO', 'FLU-MIR', 'BRA-VAS', 'INT-VIT', 'BOT-SAO', 'SAN-GRE',
+    'CAM-COR', 'CAM-VAS', 'BOT-BAH', 'CHA-PAL', 'COR-GRE', 'CFC-FLA', 'FLU-CRU', 'INT-BRA', 'MIR-CAP', 'SAO-REMO', 'VIT-SAN',
+    'CAP-SAO', 'BAH-CAM', 'CRU-INT', 'FLA-CHA', 'GRE-MIR', 'PAL-CFC', 'BRA-FLU', 'REMO-COR', 'SAN-BOT', 'VAS-VIT'];
+
+  function porSiglas(L) {
+    const ab = {}, par = {};
+    L.times.forEach((t) => { if (t.abrev) ab[t.abrev] = t.i; });
+    L.jogos.forEach((j) => { if (!j.feito) par[j.h + ':' + j.a] = j; });
+    return (k) => {
+      const m = /^([A-Z]{2,5})-([A-Z]{2,5})$/.exec(k || '');
+      if (!m || ab[m[1]] == null || ab[m[2]] == null) return null;
+      return par[ab[m[1]] + ':' + ab[m[2]]] || null;
+    };
+  }
+
+  // placares antigos → { p, sim } com as chaves novas. Jogo que já aconteceu (ou que não existe
+  // mais) fica de fora: vale o resultado real.
+  function placaresAntigos(L, picks, auto) {
+    const achar = porSiglas(L), p = {}, sim = {};
+    Object.keys(picks || {}).forEach((k) => {
+      const v = picks[k];
+      if (!Array.isArray(v) || v.length !== 2) return;
+      const x = Math.floor(+v[0]), y = Math.floor(+v[1]);
+      if (!(x >= 0) || !(y >= 0)) return;
+      const j = achar(/^\d+$/.test(k) ? LEGADO_V3[+k] : k);
+      if (!j) return;
+      p[j.chave] = [Math.min(15, x), Math.min(15, y)];
+      if (auto && auto[k]) sim[j.chave] = 1;
+    });
+    return { p, sim };
+  }
+
+  // antigos: { rascunhos: [v4, v3], cenarios: [lista v4, lista v3], agora: ISO }
+  // devolve o que gravar nas chaves novas (null quando não havia nada)
+  function migrarAntigos(L, antigos) {
+    const out = { placares: null, prefs: null, cenarios: [] };
+    (antigos.rascunhos || []).some((r) => {
+      if (!r || typeof r !== 'object' || !r.picks) return false;
+      const pl = placaresAntigos(L, r.picks, r.auto);
+      out.placares = pl;
+      const pr = r.prefs || {};
+      const prefs = {};
+      if (pr.formaN === 3 || pr.formaN === 5) prefs.forma = pr.formaN;
+      if (pr.ordem === 'cima' || pr.ordem === 'baixo') prefs.ordem = pr.ordem;
+      if ([2000, 10000, 50000].indexOf(pr.n) >= 0) prefs.N = pr.n;
+      if (pr.modoRev === 'manual' || pr.modoRev === 'auto') prefs.revelacao = pr.modoRev;
+      if (Object.keys(prefs).length) out.prefs = prefs;
+      return true;
+    });
+    const vistos = {};
+    (antigos.cenarios || []).forEach((lista) => {
+      if (!Array.isArray(lista)) return;
+      lista.forEach((c) => {
+        if (!c || typeof c !== 'object' || !c.picks) return;
+        const nome = String(c.nome || 'Cenário').slice(0, 40);
+        const criado = new Date(typeof c.quando === 'number' ? c.quando : Date.parse(antigos.agora || '') || 0).toISOString();
+        const id = nome + '|' + criado;
+        if (vistos[id]) return;
+        vistos[id] = 1;
+        out.cenarios.push({ nome, criado, temporada: L.temporada, p: placaresAntigos(L, c.picks, null).p, migrado: true });
+      });
+    });
+    return out;
+  }
+
+  // link de cenário da v4 (?c=...#simular): mesmo formato do codificar(), mas os pares seguem a
+  // ordem alfabética das siglas da ESPN, e não a dos nomes
+  function decodificarAntigo(L, cod) {
+    const bytes = deB64url(cod);
+    const siglas = L.times.map((t) => t.abrev).filter(Boolean).sort();
+    const n = siglas.length, nb = Math.ceil(n * n / 8);
+    if (!bytes || bytes[0] !== 1 || n !== L.n || bytes.length < 1 + nb) return null;
+    const achar = porSiglas(L), out = {};
+    let g = 1 + nb;
+    for (let par = 0; par < n * n; par++) {
+      if (!(bytes[1 + (par >> 3)] & (1 << (par & 7)))) continue;
+      if (g >= bytes.length) return null;
+      const b = bytes[g++], j = achar(siglas[Math.floor(par / n)] + '-' + siglas[par % n]);
+      if (j) out[j.chave] = [b >> 4, b & 15];
+    }
+    return out;
+  }
+
   return {
     rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, forma,
     PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, simularRestantes, monteCarlo, chances,
-    codificar, decodificar, objetivos, situacao, jogosRelevantes, enumerar, resumir,
+    codificar, decodificar, decodificarAntigo, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
   };
 });

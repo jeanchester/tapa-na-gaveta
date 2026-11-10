@@ -65,7 +65,34 @@
       const salvo = loadJson(KEY.placares, {});
       if (salvo && salvo.temporada === liga.temporada) { st.p = salvo.p || {}; st.sim = salvo.sim || {}; }
       recalcular();
+      migrarAntigos();
     });
+  }
+
+  // Placares, cenários e preferências da versão antiga em arquivo único (chaves tng-rascunho-v1/v2 e
+  // tng-cenarios-v1/v2) passam para as chaves novas uma vez; as antigas só saem depois de gravar.
+  const ANTIGAS = ['tng-rascunho-v2', 'tng-rascunho-v1', 'tng-cenarios-v2', 'tng-cenarios-v1'];
+  function migrarAntigos() {
+    const ler = (k) => { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } };
+    const v = ANTIGAS.map(ler);
+    if (v.every((x) => x == null)) return;
+    try {
+      const mig = window.TNGCore.migrarAntigos(st.L, { rascunhos: [v[0], v[1]], cenarios: [v[2], v[3]], agora: new Date().toISOString() });
+      if (mig.placares && !Object.keys(st.p).length) { st.p = mig.placares.p; st.sim = mig.placares.sim; salvarPlacares(); }
+      if (mig.prefs && !loadJson(KEY.prefs, null)) { Object.assign(st.prefs, mig.prefs); salvarPrefs(); }
+      if (mig.cenarios.length) {
+        const todos = loadJson(KEY.cenarios, { itens: [] });
+        todos.itens = todos.itens || [];
+        const ja = {};
+        todos.itens.forEach((c) => { if (c) ja[c.nome + '|' + c.criado] = 1; });
+        todos.itens = todos.itens.concat(mig.cenarios.filter((c) => !ja[c.nome + '|' + c.criado]));
+        saveJson(KEY.cenarios, todos);
+        const conferido = loadJson(KEY.cenarios, { itens: [] }).itens || [];
+        if (conferido.length < todos.itens.length) return;      // não gravou: mantém as chaves antigas
+      }
+      ANTIGAS.forEach((k) => { try { localStorage.removeItem(k); } catch (e) { /* sem armazenamento */ } });
+      st.versao++;
+    } catch (e) { T.reportError(e, 'migrar'); }
   }
 
   let buscandoESPN = false, ultimaBusca = 0;
@@ -1021,8 +1048,9 @@
         st.meu = params[0] ? timePorSlug(params[0]) : null;
         if (params[0] && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
         st.compartilhado = null;
-        if (ctx.c) {
-          const dec = window.TNGCore.decodificar(st.L, ctx.c);
+        if (ctx.c || ctx.cv4) {
+          // cv4: link da versão antiga em arquivo único (outra ordem dos pares)
+          const dec = ctx.c ? window.TNGCore.decodificar(st.L, ctx.c) : window.TNGCore.decodificarAntigo(st.L, ctx.cv4);
           if (dec) st.compartilhado = dec; else aviso('Esse link de cenário está incompleto');
         }
         if (ctx.aba && /^(jogos|tabela|chances)$/.test(ctx.aba)) st.aba = ctx.aba;

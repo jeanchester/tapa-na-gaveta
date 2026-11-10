@@ -153,8 +153,11 @@
 
   // aceita "#/jogos/milhao" e também a forma simples "#jogos-milhao" (a única que um link de
   // Artifact do claude.ai carrega; os slugs dos times e dos jogos não têm hífen)
+  // endereços da versão antiga em arquivo único (#simular, #numeros...) continuam abrindo
+  const ANTIGAS = { simular: '/simulador', chances: '/simulador?aba=chances', 'meu-time': '/simulador', salvos: '/simulador', numeros: '/estatisticas' };
   function parse(hash) {
     let h = String(hash || '').replace(/^#/, '');
+    if (ANTIGAS[h]) h = ANTIGAS[h];
     if (h && h[0] !== '/' && h.indexOf('?') < 0) h = '/' + h.split('-').join('/');
     const [path, query] = (h || '/').split('?');
     const ctx = {};
@@ -287,7 +290,14 @@
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {
     const q = new URLSearchParams(location.search);
-    if (q.get('c') && (!location.hash || location.hash === '#/')) {
+    const antigo = /^#[a-z-]+$/.test(location.hash) && !/^#(simulador|escalacao|jogos|estatisticas)/.test(location.hash);
+    if (q.get('c') && antigo) {
+      // link da versão em arquivo único: site/?c=...#simular (r=1: abria com a tabela escondida)
+      const c = q.get('c'), rev = q.get('r');
+      q.delete('c'); q.delete('r');
+      const resto = q.toString();
+      history.replaceState(null, '', location.pathname + (resto ? '?' + resto : '') + '#/simulador?cv4=' + encodeURIComponent(c) + (rev ? '&revelar' : ''));
+    } else if (q.get('c') && (!location.hash || location.hash === '#/')) {
       q.delete('c');
       const resto = q.toString();
       history.replaceState(null, '', location.pathname + (resto ? '?' + resto : '') + '#/simulador?c=' + encodeURIComponent(new URLSearchParams(location.search).get('c')));
