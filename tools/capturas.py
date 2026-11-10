@@ -33,7 +33,7 @@ def site(pagina, saida, inteira):
     erros = []
     for t in TEMAS:
         # o tema entra como se o usuário já o tivesse escolhido (tng.tema), antes de a página carregar
-        ctx = pagina.context.browser.new_context(device_scale_factor=2)
+        ctx = pagina.context.browser.new_context(device_scale_factor=2, reduced_motion='reduce')
         pg = ctx.new_page()
         pg.on('console', lambda m: m.type == 'error' and erros.append(m.text))
         pg.on('pageerror', lambda e: erros.append(str(e)))
@@ -68,7 +68,7 @@ def site(pagina, saida, inteira):
 def navegacao(pagina):
     """Voltar para uma tela enquanto outra ainda carrega tem de redesenhar (defeito achado em 07/11)."""
     erros = []
-    ctx = pagina.context.browser.new_context()
+    ctx = pagina.context.browser.new_context(reduced_motion='reduce')
     pg = ctx.new_page()
     pg.route('**/abas/jogos.js', lambda r: (pg.wait_for_timeout(900), r.continue_()))
     pg.goto(f'{BASE}#/simulador/flamengo')

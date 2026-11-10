@@ -199,6 +199,7 @@
       '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : 'Simulador do Brasileirão') + '</h1>' +
       '<p id="sim-frase">' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
+      letreiro() +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes">' +
@@ -225,6 +226,15 @@
     desenharTabela();
     desenharChances();
     atualizarBarraRevelar();
+  }
+
+  // Letreiro dos próximos jogos (corre sozinho; parado e rolável quando o aparelho pede menos movimento)
+  function letreiro() {
+    const prox = restantes().slice().sort((x, y) => (x.data < y.data ? -1 : x.data > y.data ? 1 : 0)).slice(0, 12);
+    if (prox.length < 3) return '';
+    const item = (j) => '<li><span class="lt-dia">' + esc(fmtDia(j.data)) + '</span>' + crest(st.L.times[j.h]) + '<b>' + esc(st.L.times[j.h].abrev || '') + '</b><i>x</i><b>' + esc(st.L.times[j.a].abrev || '') + '</b>' + crest(st.L.times[j.a]) + '</li>';
+    const lista = prox.map(item).join('');
+    return '<div class="letreiro" role="region" aria-label="Próximos jogos"><ul class="lt-trilho">' + lista + '</ul><ul class="lt-trilho" aria-hidden="true">' + lista + '</ul></div>';
   }
 
   // Resumo no topo: líder (ou campeão), quem mais vai à Libertadores e quem cai, mudando a cada
