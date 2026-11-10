@@ -1,6 +1,7 @@
 /* Aba Monte sua escalação (a partir do Você Escala: esquemas, times, cores e elencos).
-   Toque numa vaga para escolher o jogador (ou escrever um nome); arraste para mudar a posição no
-   campo. A escalação atual e as salvas ficam em tng.escalacoes; a imagem sai pelo app/compartilhar.js.
+   Toque numa vaga para escolher o jogador; arraste para mudar a posição no campo. Jogadores
+   personalizados: nome e número livres, guardados para usar de novo. A escalação atual, as salvas
+   e os personalizados ficam em tng.escalacoes; a imagem sai pelo app/compartilhar.js.
    Elencos: GitHub do Julio ao vivo → cópia no aparelho (tng.elencos.cache) → dados/elencos-escalacao.json. */
 (function () {
   'use strict';
@@ -66,6 +67,29 @@
     st.pos = a && Array.isArray(a.pos) && a.pos.length === 11 ? a.pos : null;
   }
   const posicoes = () => st.pos || ESQUEMAS[st.esquema];
+
+  // ------------------------------------------------------------------ jogadores personalizados
+  // nome e número que o usuário quiser; valem para qualquer time (tng.escalacoes.personalizados)
+  const MAX_PERS = 40;
+  function lerPers() {
+    const p = (loadJson(KEY.escalacoes, {}) || {}).personalizados;
+    return Array.isArray(p) ? p.filter((x) => x && typeof x.n === 'string' && x.n) : [];
+  }
+  function gravarPers(lista) {
+    const todos = loadJson(KEY.escalacoes, {}) || {};
+    todos.personalizados = lista.slice(0, MAX_PERS);
+    saveJson(KEY.escalacoes, todos);
+  }
+  // o mais novo primeiro; repetir o nome só troca o número
+  function guardarPers(jog) {
+    const chave = jog.n.toLowerCase();
+    gravarPers([{ n: jog.n, num: jog.num }].concat(lerPers().filter((x) => x.n.toLowerCase() !== chave)));
+  }
+  // "07" → 7; vazio ou fora de 0 a 99 → sem número
+  function lerNumero(txt) {
+    const m = /^\d{1,2}$/.exec(String(txt == null ? '' : txt).trim());
+    return m ? +m[0] : null;
+  }
 
   // ------------------------------------------------------------------ cores legíveis
   function luz(hex) {
@@ -134,23 +158,34 @@
 
   function desenharElenco(filtro) {
     const el = st.view.querySelector('#painel-elenco');
+    // o painel é redesenhado a cada busca: o que já foi digitado no jogador personalizado não se perde
+    const antes = el.querySelector('[data-e="livre"]');
+    const rascunho = antes ? [antes.elements.nome.value, antes.elements.num.value] : ['', ''];
     const naVaga = {};
     st.jogadores.forEach((j, i) => { if (j) naVaga[j.n] = i; });
     const vagaPos = st.vaga >= 0 ? posDaVaga(ESQUEMAS[st.esquema][st.vaga][1]) : null;
     const q = (filtro || '').trim().toLowerCase();
     const lista = st.time.jogadores.filter((p) => !q || p[0].toLowerCase().includes(q));
+    const pers = lerPers().filter((p) => !q || p.n.toLowerCase().includes(q));
     const ordem = vagaPos ? [vagaPos].concat(['G', 'D', 'M', 'A'].filter((x) => x !== vagaPos)) : ['G', 'D', 'M', 'A'];
     el.innerHTML = '<div class="sec-title"><h2>' + (st.vaga >= 0 ? 'Escolha o ' + { G: 'goleiro', D: 'defensor', M: 'meio-campista', A: 'atacante' }[vagaPos] : 'Elenco ' + (st.time.grupo === 'Copa do Mundo 2026' ? 'da seleção' : 'do time')) + '</h2>' +
       '<small>' + st.time.jogadores.length + ' jogadores</small></div>' +
       '<div class="busca"><input type="search" data-e="busca" placeholder="Buscar jogador" aria-label="Buscar jogador" value="' + esc(filtro || '') + '"></div>' +
-      (st.vaga >= 0 ? '<form class="nome-livre" data-e="livre"><input maxlength="24" placeholder="Ou escreva um nome" aria-label="Escrever um nome"><button class="btn">Pôr na vaga</button></form>' : '<p class="nota">Toque numa posição do campo e depois no jogador. Também dá para escrever um nome.</p>') +
+      '<form class="nome-livre" data-e="livre"><input name="nome" maxlength="24" required placeholder="Jogador personalizado" aria-label="Nome do jogador personalizado" value="' + esc(rascunho[0]) + '">' +
+      '<input name="num" class="nl-num" inputmode="numeric" pattern="[0-9]{1,2}" maxlength="2" autocomplete="off" placeholder="Nº" aria-label="Número da camisa, de 0 a 99 (opcional)" title="Número de 0 a 99" value="' + esc(rascunho[1]) + '">' +
+      '<button class="btn">' + (st.vaga >= 0 ? 'Pôr na vaga' : 'Adicionar') + '</button></form>' +
+      (st.vaga >= 0 ? '' : '<p class="nota">Toque numa posição do campo e depois no jogador. Ou crie o seu: escreva o nome e, se quiser, o número.</p>') +
+      (pers.length ? '<h3 class="el-grupo">Seus jogadores</h3><ul class="elenco">' + pers.map((x) =>
+        '<li class="pers"><button data-e="pegar" data-n="' + esc(x.n) + '" data-num="' + (x.num == null ? '' : x.num) + '"' + (naVaga[x.n] != null ? ' class="usado"' : '') + '>' +
+        '<span class="num">' + (x.num == null ? '' : x.num) + '</span><span class="el-nome">' + esc(x.n) + '</span>' + (naVaga[x.n] != null ? '<em>no campo</em>' : '') + '</button>' +
+        '<button class="icon-btn tirar" data-e="tirar" data-n="' + esc(x.n) + '" aria-label="Apagar ' + esc(x.n) + ' dos seus jogadores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></li>').join('') + '</ul>' : '') +
       ordem.map((p) => {
         const js = lista.filter((x) => x[1] === p);
         if (!js.length) return '';
         return '<h3 class="el-grupo">' + NOME_POS[p] + '</h3><ul class="elenco">' + js.map((x) =>
           '<li><button data-e="pegar" data-n="' + esc(x[0]) + '" data-num="' + (x[2] == null ? '' : x[2]) + '"' + (naVaga[x[0]] != null ? ' class="usado"' : '') + '>' +
           '<span class="num">' + (x[2] == null ? '' : x[2]) + '</span><span class="el-nome">' + esc(x[0]) + '</span>' + (naVaga[x[0]] != null ? '<em>no campo</em>' : '') + '</button></li>').join('') + '</ul>';
-      }).join('') + (lista.length ? '' : '<p class="nota">Ninguém com esse nome.</p>');
+      }).join('') + (lista.length || pers.length ? '' : '<p class="nota">Ninguém com esse nome.</p>');
   }
 
   // ------------------------------------------------------------------ ações
@@ -173,15 +208,17 @@
       const base = ESQUEMAS[st.esquema];
       i = st.jogadores.findIndex((j, k) => !j && posDaVaga(base[k][1]) === pj);
       if (i < 0) i = st.jogadores.findIndex((j) => !j);
-      if (i < 0) { aviso('O time já tem 11: toque numa posição para trocar'); return; }
+      if (i < 0) { aviso('O time já tem 11: toque numa posição para trocar'); return false; }
     }
-    const ja = st.jogadores.findIndex((j) => j && j.n === jog.n);
+    const igual = jog.n.toLowerCase();
+    const ja = st.jogadores.findIndex((j) => j && j.n.toLowerCase() === igual);
     if (ja >= 0 && ja !== i) st.jogadores[ja] = st.jogadores[i];     // já estava no campo: troca de lugar
     st.jogadores[i] = jog;
     // segue para a próxima vaga vazia, para escalar o time inteiro em sequência
     const prox = st.jogadores.findIndex((j, k) => !j && k > i);
     st.vaga = prox >= 0 ? prox : st.jogadores.findIndex((j) => !j);
     salvarAtual(); desenharFichas(); desenharElenco();
+    return true;
   }
   function autoEscalar() {
     const base = ESQUEMAS[st.esquema], usados = {};
@@ -249,7 +286,12 @@
       if (!b || b.tagName === 'SELECT' || b.tagName === 'INPUT' || b.tagName === 'FORM') return;
       const a = b.dataset.e;
       if (a === 'pegar') porNaVaga({ n: b.dataset.n, num: b.dataset.num === '' ? null : +b.dataset.num });
-      else if (a === 'auto') autoEscalar();
+      else if (a === 'tirar') {
+        // sai só da lista: se estiver no campo, continua escalado
+        const chave = b.dataset.n.toLowerCase();
+        gravarPers(lerPers().filter((x) => x.n.toLowerCase() !== chave));
+        desenharElenco(v.querySelector('[data-e="busca"]').value);
+      } else if (a === 'auto') autoEscalar();
       else if (a === 'limpar') {
         const antes = { j: st.jogadores.slice(), p: st.pos };
         st.jogadores = new Array(11).fill(null); st.pos = null; st.vaga = -1; salvarAtual(); montar();
@@ -273,8 +315,17 @@
     const onSubmit = (e) => {
       if (e.target.dataset.e !== 'livre') return;
       e.preventDefault();
-      const n = e.target.querySelector('input').value.trim();
-      if (n) porNaVaga({ n, num: null });
+      const f = e.target, n = f.elements.nome.value.trim().replace(/\s+/g, ' ');
+      if (!n) return;
+      const jog = { n, num: lerNumero(f.elements.num.value) };
+      guardarPers(jog);
+      f.reset();                                                       // o rascunho não volta no redesenho
+      const noCampo = st.jogadores.findIndex((j) => j && j.n.toLowerCase() === n.toLowerCase());
+      if (st.vaga < 0 && noCampo >= 0) {                               // já escalado: só troca o número, no lugar
+        st.jogadores[noCampo] = jog; salvarAtual(); desenharFichas(); desenharElenco();
+      } else if (!porNaVaga(jog)) desenharElenco();                    // time cheio: fica nos "Seus jogadores"
+      const nome = st.view.querySelector('[data-e="livre"] [name="nome"]');
+      if (nome && window.matchMedia('(min-width: 900px)').matches) nome.focus({ preventScroll: true });
     };
     v.addEventListener('click', onClick);
     v.addEventListener('change', onChange);

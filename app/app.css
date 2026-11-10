@@ -540,6 +540,9 @@ dialog.janela::backdrop { background: rgba(5, 10, 30, .6); }
 .busca input, .nome-livre input { width: 100%; min-height: 44px; border: 1.5px solid var(--line-2); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0 12px; font-size: 15px; }
 .nome-livre { display: flex; gap: 8px; margin-top: 8px; }
 .nome-livre input { flex: 1; min-width: 0; }
+.nome-livre .nl-num { flex: none; width: 56px; padding: 0 4px; text-align: center; font-variant-numeric: tabular-nums; }
+.nome-livre .btn { flex: none; }
+@media (max-width: 420px) { .nome-livre { flex-wrap: wrap; } .nome-livre input[name="nome"] { flex-basis: 100%; } .nome-livre .btn { flex: 1; } }
 .el-grupo { font-size: 12px; font-weight: 800; color: var(--ink-3); margin: 16px 0 6px; }
 .elenco { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px 12px; }
 .elenco button { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 0 10px; border-radius: var(--r); text-align: left; font-weight: 600; font-size: 14px; }
@@ -547,6 +550,10 @@ dialog.janela::backdrop { background: rgba(5, 10, 30, .6); }
 .elenco .num { width: 24px; text-align: right; color: var(--ink-3); font-weight: 800; font-size: 13px; flex: none; }
 .el-nome { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .elenco button.usado { color: var(--ink-3); }
+.elenco li.pers { display: flex; align-items: center; min-width: 0; }
+.elenco li.pers > button:first-child { flex: 1; min-width: 0; }
+.elenco .tirar { display: grid; width: 44px; padding: 0; color: var(--ink-3); }
+.elenco .tirar svg { width: 18px; height: 18px; }
 .elenco em { font-style: normal; font-size: 11px; font-weight: 800; color: var(--brand-ink); flex: none; }
 .cta-app { display: flex; gap: 14px; align-items: flex-start; margin-top: 28px; padding: 16px; border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--line); }
 .cta-app img { width: 56px; height: 56px; border-radius: 14px; flex: none; }
