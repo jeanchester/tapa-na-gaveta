@@ -40,7 +40,7 @@
     precisa: null, precisaVersao: '',
     view: null, worker: null, pedidos: {}, nPedido: 0,
   };
-  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', N: 10000 };
+  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000 };
 
   function carregarPrefs() { st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {})); }
   function salvarPrefs() { saveJson(KEY.prefs, st.prefs); }
@@ -750,23 +750,46 @@
     }).join('');
     ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">Brasileirão 2026</div><h2>Tabela final</h2></div>' +
       '<button class="icon-btn" data-rv="fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
-      '<div class="rv-ordem" role="group" aria-label="Ordem da revelação"><button data-rv="baixo" aria-pressed="' + (st.prefs.ordem !== 'cima') + '">De baixo para cima</button><button data-rv="cima" aria-pressed="' + (st.prefs.ordem === 'cima') + '">De cima para baixo</button></div>' +
+      '<div class="rv-opcoes"><div class="rv-ordem" role="group" aria-label="Ordem da revelação"><button data-rv="baixo" aria-pressed="' + (st.prefs.ordem !== 'cima') + '">De baixo para cima</button><button data-rv="cima" aria-pressed="' + (st.prefs.ordem === 'cima') + '">De cima para baixo</button></div>' +
+      '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, no toque</button></div></div>' +
       '<ol class="rv-lista">' + linhas + '</ol>' +
-      '<div class="rv-fim"><button class="btn" data-rv="pular">Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
+      '<div class="rv-fim"><button class="btn primario" data-rv="proximo" hidden></button><button class="btn" data-rv="pular">Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="video" hidden>Gerar vídeo</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
     document.body.appendChild(ov);
     document.body.classList.add('sem-rolagem');
     const lista = ov.querySelector('.rv-lista');
     const linhasEl = Array.from(lista.children);
     const botao = (k) => ov.querySelector('[data-rv="' + k + '"]');
-    let timers = [];
+    let timers = [], ordem = [], passoManual = 0;
     const limparTimers = () => { timers.forEach(clearTimeout); timers = []; };
     const fim = () => {
       limparTimers();
+      const jaAcabou = ov.classList.contains('acabou');
       linhasEl.forEach((li) => { li.classList.add('on'); li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; });
-      botao('pular').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
+      botao('pular').hidden = true; botao('proximo').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
+      botao('video').hidden = !window.TNGVideo || !window.TNGVideo.disponivel();
       ov.classList.add('acabou');
       lista.scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });       // termina mostrando o campeão
+      // depois da revelação, a tabela fica à mostra no simulador
+      if (st.prefs.esconder) { st.prefs.esconder = false; salvarPrefs(); }
+      if (!reduz && !jaAcabou) confete(ov);
     };
+    // mostra uma linha: aparece, acende (campeão e rebaixados) e os pontos contam
+    function mostrar(li) {
+      li.classList.add('on');
+      if (+li.dataset.pos === 1 || li.classList.contains('z-rb')) li.classList.add('acende');
+      if (reduz) li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; else contar(li.querySelector('.rv-pts'));
+      li.scrollIntoView({ block: 'nearest', behavior: reduz ? 'auto' : 'smooth' });
+    }
+    function rotuloProximo() {
+      const b = botao('proximo');
+      b.textContent = 'Revelar o próximo (' + (passoManual + 1) + ' de ' + ordem.length + ')';
+    }
+    function proximo() {
+      if (passoManual >= ordem.length) return;
+      mostrar(ordem[passoManual++]);
+      if (passoManual >= ordem.length) timers.push(setTimeout(fim, reduz ? 0 : 700));
+      else rotuloProximo();
+    }
     function contar(el) {
       const alvo = +el.dataset.pts, t0 = performance.now(), dur = 420;
       const passo = (agora) => {
@@ -780,11 +803,16 @@
       limparTimers();
       ov.classList.remove('acabou');
       linhasEl.forEach((li) => { li.classList.remove('on', 'acende'); li.querySelector('.rv-pts').textContent = '0'; });
-      botao('pular').hidden = false; botao('partilhar').hidden = true; botao('denovo').hidden = true;
-      if (reduz) { fim(); return; }
+      botao('pular').hidden = false; botao('partilhar').hidden = true; botao('denovo').hidden = true; botao('video').hidden = true;
       const debaixo = st.prefs.ordem !== 'cima';
+      ordem = debaixo ? linhasEl.slice().reverse() : linhasEl.slice();
       lista.scrollTop = debaixo ? lista.scrollHeight : 0;
-      const ordem = debaixo ? linhasEl.slice().reverse() : linhasEl.slice();
+      // um a um: cada toque revela a próxima linha (o "Pular" vira "Mostrar o resto")
+      const manual = st.prefs.revelacao === 'manual';
+      botao('proximo').hidden = !manual;
+      botao('pular').textContent = manual ? 'Mostrar o resto' : 'Pular';
+      if (manual) { passoManual = 0; rotuloProximo(); botao('proximo').focus({ preventScroll: true }); return; }
+      if (reduz) { fim(); return; }
       // ritmo: as fronteiras de zona seguram um pouco; antes do campeão (de baixo para cima), mais
       let tempo = 600;
       ordem.forEach((li, k) => {
@@ -792,10 +820,7 @@
         const fronteira = st.regras.zonas.some((z) => pos === z.de || pos === z.ate);
         if (pos === 1 && debaixo) tempo += 1100;
         timers.push(setTimeout(() => {
-          li.classList.add('on');
-          if (pos === 1 || li.classList.contains('z-rb')) li.classList.add('acende');
-          contar(li.querySelector('.rv-pts'));
-          li.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          mostrar(li);
           if (k === ordem.length - 1) timers.push(setTimeout(fim, 1000));
         }, tempo));
         tempo += pos === 1 ? 1300 : fronteira ? 560 : 270;
@@ -806,7 +831,11 @@
       document.removeEventListener('keydown', teclas); st.fecharRevela = null;
       if (st.view) { desenharTabela(); desenharResumo(); atualizarResumoMeu(); }
     };
-    const teclas = (e) => { if (e.key === 'Escape') fechar(); };
+    // no modo um a um, espaço e seta também revelam o próximo
+    const teclas = (e) => {
+      if (e.key === 'Escape') fechar();
+      else if ((e.key === 'ArrowRight' || e.key === 'ArrowDown') && !botao('proximo').hidden) { e.preventDefault(); proximo(); }
+    };
     document.addEventListener('keydown', teclas);
     ov.addEventListener('click', (e) => {
       const b = e.target.closest('[data-rv]');
@@ -814,17 +843,39 @@
       const a = b.dataset.rv;
       if (a === 'fechar') fechar();
       else if (a === 'pular') fim();
+      else if (a === 'proximo') proximo();
       else if (a === 'denovo') tocar();
-      else if (a === 'baixo' || a === 'cima') {
-        st.prefs.ordem = a; salvarPrefs();
-        ov.querySelectorAll('.rv-ordem button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.rv === a));
+      else if (a === 'baixo' || a === 'cima' || a === 'auto' || a === 'manual') {
+        if (a === 'baixo' || a === 'cima') st.prefs.ordem = a; else st.prefs.revelacao = a;
+        salvarPrefs();
+        b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.rv === a));
         tocar();
-      } else if (a === 'partilhar') imagemTabela();
+      } else if (a === 'partilhar') { fechar(); abrirCompartilhar(); }
+      else if (a === 'video') { fechar(); gerarVideo(); }
     });
     st.fecharRevela = fechar;
     botao('pular').focus({ preventScroll: true });
     tocar();
     window.TNG_REVELA = { fim, tocar, fechar };          // para o roteiro de capturas
+  }
+
+  function gerarVideo() { /* etapa 7 */ }
+
+  function confete(onde) {
+    const box = document.createElement('div');
+    box.className = 'confete';
+    box.setAttribute('aria-hidden', 'true');
+    const cores = ['#ffc23d', '#4f6bff', '#3fcf95', '#ff6b6f', '#ffffff'];
+    for (let i = 0; i < 90; i++) {
+      const c = document.createElement('i');
+      c.style.left = Math.random() * 100 + '%';
+      c.style.background = cores[i % cores.length];
+      c.style.animationDuration = (1.6 + Math.random() * 1.8) + 's';
+      c.style.animationDelay = (Math.random() * 0.6) + 's';
+      box.appendChild(c);
+    }
+    (onde || document.body).appendChild(box);
+    setTimeout(() => box.remove(), 4200);
   }
 
   // ================================================================== cenários (salvos e por link)

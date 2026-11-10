@@ -380,22 +380,27 @@ body.sem-rolagem { overflow: hidden; }
 .rv-ordem { display: inline-flex; align-self: flex-start; border: 1px solid rgba(255,255,255,.18); border-radius: var(--r); padding: 2px; margin: 0 4px 10px; }
 .rv-ordem button { min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 12.5px; font-weight: 700; color: rgba(244,246,251,.7); }
 .rv-ordem button[aria-pressed="true"] { background: rgba(255,255,255,.12); color: #fff; }
+.rv-opcoes { display: flex; flex-wrap: wrap; gap: 0 8px; }
+.confete { position: absolute; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+.confete i { position: absolute; top: -20px; width: 9px; height: 14px; border-radius: 2px; animation: rv-confete linear forwards; }
+@keyframes rv-confete { to { transform: translateY(110vh) rotate(720deg); } }
 .rv-lista { list-style: none; margin: 0; padding: 0 4px; overflow-y: auto; flex: 1; min-height: 0; scrollbar-width: none; }
 .rv-lista::-webkit-scrollbar { display: none; }
 .rv-l { display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 10px 0 12px; position: relative; border-bottom: 1px solid rgba(255,255,255,.07); opacity: 0; transform: translateY(10px); transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
 .rv-l::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 2px; background: var(--zc); }
 .rv-l.on { opacity: 1; transform: none; }
 .rv-pos { width: 24px; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; color: rgba(244,246,251,.75); }
-.rv-crest { width: 28px; height: 28px; object-fit: contain; }
+.rv-crest { width: 30px; height: 30px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; box-sizing: border-box; flex: none; }   /* escudo numa placa clara: legível no fundo escuro */
 .rv-nome { flex: 1; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rv-pts { font: 900 26px/1 var(--f-num); min-width: 36px; text-align: right; }
 .rv-tag { font-size: 10.5px; font-weight: 800; padding: 3px 7px; border-radius: 99px; background: var(--gold); color: #0b1640; }
 .rv-tag.rb { background: rgba(255,107,92,.18); color: #ff9b8f; }
 .rv-l.campeao { height: 72px; background: linear-gradient(90deg, rgba(255,194,61,.18), transparent 70%); border-radius: 10px; border-bottom: 0; margin-bottom: 4px; }
-.rv-l.campeao .rv-crest { width: 46px; height: 46px; }
+.rv-l.campeao .rv-crest { width: 48px; height: 48px; padding: 5px; border-radius: 12px; }
 .rv-l.campeao .rv-nome { font-size: 22px; font-weight: 800; }
 .rv-l.campeao .rv-pts { font-size: 38px; color: var(--chalk); }
 .rv-l.campeao .rv-pos { color: var(--chalk); }
+@media (max-width: 419px) { .rv-l.campeao .rv-nome { font-size: 17px; } .rv-l.campeao .rv-pts { font-size: 30px; } .rv-l .rv-tag { padding: 3px 6px; font-size: 10px; } }
 .rv-l.acende.campeao { animation: rv-campeao 1.1s ease; }
 @keyframes rv-campeao { 0% { transform: scale(.94); } 45% { transform: scale(1.03); } 100% { transform: none; } }
 .rv-l.acende.z-rb { animation: rv-cai .6s ease; }
