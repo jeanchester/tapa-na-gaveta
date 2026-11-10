@@ -157,7 +157,7 @@
         titulo = 'Semana de ' + seg.toLocaleDateString('pt-BR', Object.assign({ day: '2-digit', month: '2-digit' }, BR));
       } else if (j.atrasado) { k = 'atr'; titulo = 'Jogo atrasado'; }
       else { k = 'r' + String(j.rodada).padStart(2, '0'); titulo = 'Rodada ' + j.rodada; }
-      if (!porChave[k]) { porChave[k] = { k, titulo, jogos: [] }; out.push(porChave[k]); }
+      if (!porChave[k]) { porChave[k] = { k, titulo, rodada: j.rodada, jogos: [] }; out.push(porChave[k]); }
       porChave[k].jogos.push(j);
     });
     out.sort((a, b) => (a.k === 'atr' ? -1 : b.k === 'atr' ? 1 : a.k < b.k ? -1 : a.k > b.k ? 1 : 0));
@@ -180,10 +180,10 @@
     const opcoes = st.L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR')).map((t) =>
       '<option value="' + esc(t.slug) + '"' + (meu && meu.i === t.i ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('');
     v.innerHTML =
-      '<div class="page-head"><div class="kicker">Brasileirão 2026 · Série A</div>' +
+      '<div class="sim-topo"><div class="page-head"><div class="kicker">Brasileirão 2026 · Série A</div>' +
       '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : 'Simulador do Brasileirão') + '</h1>' +
-      '<p>' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
-      '<div class="carimbo" id="carimbo"></div></div>' +
+      '<p id="sim-frase">' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
+      '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes">' +
@@ -205,10 +205,45 @@
       '</div><div id="painel-tabela"></div><div id="painel-chances"></div></section></div>' +
       '<div class="barra-revelar" id="barra-revelar" hidden><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela final</button></div>';
     desenharCarimbo();
+    desenharResumo();
     desenharJogos();
     desenharTabela();
     desenharChances();
     atualizarBarraRevelar();
+  }
+
+  // Resumo no topo: líder (ou campeão), quem mais vai à Libertadores e quem cai, mudando a cada
+  // placar. Com a tabela escondida, não entrega nada.
+  let resumoAntes = '';
+  function desenharResumo() {
+    const el = st.view && st.view.querySelector('#resumo'), frase = st.view && st.view.querySelector('#sim-frase');
+    if (!el) return;
+    const tot = restantes().length, feitos = restantes().filter((j) => placarDe(j)).length;
+    if (st.prefs.esconder) {
+      el.innerHTML = '<div class="rs-oculto"><b>?</b><span>Tabela escondida. Sem espiar.</span></div>';
+      if (frase) frase.innerHTML = feitos < tot ? 'Faltam <b class="num">' + (tot - feitos) + '</b> placares. Preencha tudo e revele a tabela, time a time.' : 'Tudo preenchido. Hora da revelação!';
+      resumoAntes = '';
+      return;
+    }
+    const tab = tabelaAtual(), lider = st.L.times[tab[0].i], fim = !tot || feitos === tot;
+    const lib = st.regras.zonas.find((z) => z.id === 'lib'), rb = st.regras.zonas.find((z) => z.id === 'rb');
+    const g = tab.slice(1, lib ? lib.ate : 4), z = rb ? tab.slice(rb.de - 1, rb.ate) : [];
+    const placa = (x) => '<span class="rs-placa" title="' + esc(nome(st.L.times[x.i])) + '">' + crest(st.L.times[x.i]) + '</span>';
+    if (frase) {
+      frase.innerHTML = !tot ? 'O campeonato terminou. Esta é a tabela final.'
+        : feitos === tot ? 'Na sua simulação, <b>' + esc(o_(lider)) + '</b> é ' + (art(lider) === 'a' ? 'a campeã' : 'o campeão') + '.'
+          : feitos ? 'Com os seus palpites, <b>' + esc(o_(lider)) + '</b> lidera. Faltam <b class="num">' + (tot - feitos) + '</b> placares.'
+            : 'Faltam <b class="num">' + tot + '</b> jogos. Chute os placares e veja como termina a tabela.';
+    }
+    el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? (art(lider) === 'a' ? 'Campeã' : 'Campeão') + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
+      '<div class="rs-time"><span class="rs-placa g">' + crest(lider) + '</span><div><b>' + esc(nome(lider)) + '</b><span class="num">' + tab[0].pts + ' pontos</span></div></div></div>' +
+      '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>Também na Libertadores</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
+      '<div><small><i style="background:var(--z-rb)"></i>' + (fim && tot ? 'Rebaixados' : 'Caem') + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
+    const chave = [tab[0].i].concat(g.map((x) => x.i), z.map((x) => x.i)).join();
+    if (resumoAntes && chave !== resumoAntes && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
+      el.querySelectorAll('.rs-placa').forEach((c, k) => c.animate([{ transform: 'scale(.6)', opacity: 0.2 }, { transform: 'none', opacity: 1 }], { duration: 380, delay: k * 25, easing: 'cubic-bezier(.3,1.5,.5,1)', fill: 'backwards' }));
+    }
+    resumoAntes = chave;
   }
 
   function desenharCarimbo() {
@@ -238,7 +273,11 @@
         '<a class="link-btn" href="#/simulador">Sair</a></div></div>';
     }
     if (gs.length > 1) {
-      html += '<nav class="rodadas" aria-label="Ir para a rodada"><span>Ir para</span>' + gs.map((g) => '<a href="#" data-ir="' + g.k + '">' + (g.k === 'atr' ? 'Atrasado' : g.titulo.replace('Rodada ', 'R')) + '</a>').join('') + '</nav>';
+      html += '<nav class="rodadas" aria-label="Ir para a rodada">' + gs.map((g) => {
+        const f = g.jogos.filter((j) => placarDe(j)).length;
+        const rot = g.k === 'atr' ? (g.jogos.length > 1 ? 'Atrasados' : 'Atrasado') : g.k[0] === 's' ? g.titulo.replace('Semana de ', '') : g.rodada + 'ª';
+        return '<a href="#" data-ir="' + g.k + '" aria-label="' + esc(g.titulo) + ', ' + f + ' de ' + g.jogos.length + ' preenchidos"><b>' + esc(rot) + '</b><small>' + f + '/' + g.jogos.length + '</small><span class="rd-prog"><i style="width:' + (100 * f / g.jogos.length) + '%"></i></span></a>';
+      }).join('') + '</nav>';
     }
     if (!total) html += '<p class="nota">Todos os jogos já foram disputados.</p>';
     gs.forEach((g) => {
@@ -271,6 +310,10 @@
       '<div class="placar"><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="0" aria-label="Gols ' + esc(de_(h)) + '" value="' + (f ? f[0] : '') + '">' +
       '<i aria-hidden="true">×</i><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="1" aria-label="Gols ' + esc(de_(a)) + '" value="' + (f ? f[1] : '') + '"></div>' +
       time(a) + '</div>' +
+      '<div class="pm" role="group" aria-label="Ajustar o placar">' +
+      '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
+      '<span></span>' +
+      '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
       '<div class="prob">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
   }
 
@@ -298,6 +341,18 @@
   function atualizarProgresso() {
     const el = st.view.querySelector('.progresso');
     if (!el) return;
+    // progresso de cada rodada no seletor
+    const meu = st.meu;
+    let lista = restantes();
+    if (meu && st.soMeus) lista = lista.filter((j) => j.h === meu.i || j.a === meu.i);
+    grupos(lista).forEach((g) => {
+      const a = st.view.querySelector('.rodadas [data-ir="' + g.k + '"]');
+      if (!a) return;
+      const f = g.jogos.filter((j) => placarDe(j)).length;
+      a.querySelector('small').textContent = f + '/' + g.jogos.length;
+      a.querySelector('.rd-prog i').style.width = (100 * f / g.jogos.length) + '%';
+      a.setAttribute('aria-label', g.titulo + ', ' + f + ' de ' + g.jogos.length + ' preenchidos');
+    });
     const tot = restantes().length, feitos = restantes().filter((j) => placarDe(j)).length;
     el.querySelector('.prog-txt b').textContent = feitos;
     const bar = el.querySelector('.prog-barra');
@@ -327,7 +382,29 @@
     } else {
       html += tabelaHtml(tabelaAtual(), { destaque: st.meu && st.meu.i, delta: true });
     }
+    // as linhas que mudam de lugar deslizam até o novo lugar, e os pontos contam (FLIP)
+    const reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const antes = {};
+    if (!reduz) el.querySelectorAll('tr[data-i]').forEach((tr) => { antes[tr.dataset.i] = { y: tr.getBoundingClientRect().top, pts: +tr.querySelector('.pts').textContent }; });
     el.innerHTML = html;
+    if (reduz || !Object.keys(antes).length) return;
+    el.querySelectorAll('tr[data-i]').forEach((tr) => {
+      const a = antes[tr.dataset.i];
+      if (!a) return;
+      const dy = a.y - tr.getBoundingClientRect().top;
+      if (Math.abs(dy) > 1 && tr.animate) tr.animate([{ transform: 'translateY(' + dy + 'px)' }, { transform: 'none' }], { duration: 520, easing: 'cubic-bezier(.2,1.1,.3,1)' });
+      const td = tr.querySelector('.pts'), alvo = +td.textContent;
+      if (a.pts !== alvo) contarPts(td, a.pts, alvo);
+    });
+  }
+  function contarPts(el, de, ate) {
+    const t0 = performance.now(), dur = 520;
+    const passo = (agora) => {
+      const k = Math.min(1, (agora - t0) / dur);
+      el.textContent = Math.round(de + (ate - de) * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
   }
 
   function tabelaHtml(tab, opc) {
@@ -338,7 +415,7 @@
       const t = st.L.times[x.i], z = window.TNGCore.zonaDe(st.regras, x.pos);
       const d = opc.delta ? posReal[x.i] - x.pos : 0;
       const fm = window.TNGCore.forma(st.L, placares(), x.i, 5);
-      return '<tr' + (opc.destaque === x.i ? ' class="meu"' : '') + '><td class="pos" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' + x.pos + '</td>' +
+      return '<tr data-i="' + x.i + '"' + (opc.destaque === x.i ? ' class="meu"' : '') + '><td class="pos" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' + x.pos + '</td>' +
         '<th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span>' +
         (d ? '<em class="delta ' + (d > 0 ? 'sobe' : 'desce') + '" title="' + (d > 0 ? 'sobe ' : 'desce ') + Math.abs(d) + ' em relação à tabela atual">' + (d > 0 ? '▲' : '▼') + Math.abs(d) + '</em>' : '') + '</div></th>' +
         '<td class="pts">' + x.pts + '</td><td>' + x.j + '</td><td class="hide-s">' + x.v + '</td><td class="hide-s">' + x.e + '</td><td class="hide-s">' + x.d + '</td>' +
@@ -373,12 +450,13 @@
     tAtualizar = setTimeout(() => {
       if (!st.view) return;
       desenharTabela();
+      desenharResumo();
       atualizarResumoMeu();
       if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
     }, 160);
   }
   function redesenharTudo() {
-    st.versao++; salvarPlacares(); desenharJogos(); desenharTabela(); atualizarBarraRevelar();
+    st.versao++; salvarPlacares(); desenharJogos(); desenharTabela(); desenharResumo(); atualizarBarraRevelar();
     if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
   }
 
@@ -726,7 +804,7 @@
     const fechar = () => {
       limparTimers(); ov.remove(); document.body.classList.remove('sem-rolagem');
       document.removeEventListener('keydown', teclas); st.fecharRevela = null;
-      if (st.view) { desenharTabela(); atualizarResumoMeu(); }
+      if (st.view) { desenharTabela(); desenharResumo(); atualizarResumoMeu(); }
     };
     const teclas = (e) => { if (e.key === 'Escape') fechar(); };
     document.addEventListener('keydown', teclas);
@@ -952,6 +1030,18 @@
         else definir(chave, (k === 0 ? p.tipico.h : k === 1 ? p.tipico.d : p.tipico.a).slice(), false);
         return;
       }
+      const pm = e.target.closest('.pm button');
+      if (pm) {
+        const li = pm.closest('.jogo'), chave = li.dataset.c, j = st.L.jogos.find((x) => x.chave === chave);
+        const atual = placarDe(j), g = +pm.dataset.g, d = +pm.dataset.d;
+        if (!atual && d < 0) return;
+        const novo = atual ? atual.slice() : [0, 0];
+        novo[g] = Math.max(0, Math.min(15, novo[g] + (atual || d < 0 ? d : 1)));
+        definir(chave, novo, false);
+        const inp = li.querySelectorAll('.placar input')[g];
+        if (inp && inp.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) inp.animate([{ transform: 'translateY(-5px) scale(1.1)' }, { transform: 'none' }], { duration: 260, easing: 'cubic-bezier(.3,1.6,.5,1)' });
+        return;
+      }
       const tr = e.target.closest('table.chances tbody tr[data-t]');
       if (tr) { abrirDistribuicao(tr); return; }
       const b = e.target.closest('[data-a]');
@@ -959,7 +1049,7 @@
       const a = b.dataset.a;
       if (a === 'simular') simularResto();
       else if (a === 'limpar') limpar();
-      else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); atualizarResumoMeu(); atualizarBarraRevelar(); }
+      else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
       else if (a === 'revelar') revelar();
       else if (a === 'partilhar') abrirCompartilhar();
       else if (a === 'cenarios') abrirCenarios();
