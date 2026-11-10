@@ -340,13 +340,13 @@
           ctx.fillStyle = j ? cor.fundo : 'rgba(255,255,255,.12)'; ctx.fill();
           ctx.lineWidth = 3; ctx.strokeStyle = j ? (cor.claro ? 'rgba(0,0,0,.4)' : 'rgba(255,255,255,.85)') : 'rgba(255,255,255,.5)'; ctx.stroke();
           ctx.textAlign = 'center';
-          if (j && j.num != null) { ctx.fillStyle = cor.tinta; ctx.font = '900 34px "Big Shoulders"'; ctx.fillText(String(j.num), px, py + 12); }
+          if (j && j.num != null) { ctx.fillStyle = cor.tinta; ctx.font = '900 34px "Archivo Largo"'; ctx.fillText(String(j.num), px, py + 12); }
           const nm = j ? curto(j.n) : SIGLA[posDaVaga(ESQUEMAS[st.esquema][i][1])];
-          ctx.font = '800 25px Manrope';
+          ctx.font = '800 25px Archivo';
           const larg = Math.min(220, ctx.measureText(nm).width + 18);
           ctx.fillStyle = 'rgba(8,19,13,.72)';
           ctx.fillRect(px - larg / 2, py + 42, larg, 34);
-          ctx.fillStyle = '#f4f8f2';
+          ctx.fillStyle = '#f4f6fb';
           S.textoCabe(ctx, nm, px, py + 66, 204, '800', 25);
         });
         ctx.textAlign = 'left';

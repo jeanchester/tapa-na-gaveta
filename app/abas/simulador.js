@@ -859,21 +859,21 @@
         const n = Object.keys(placares()).length;
         S.moldura(ctx, W, H, 'Minha tabela final', 'Brasileirão 2026' + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
         const x0 = 64, y0 = 340, lh = 43;
-        ctx.textAlign = 'right'; ctx.font = '700 22px Manrope'; ctx.fillStyle = 'rgba(244,248,242,.6)';
+        ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
         ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
         tab.forEach((x, k) => {
           const y = y0 + k * lh, t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
           if (k % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(232,240,160,.16)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (z) { ctx.fillStyle = S.COR.zonas[z]; ctx.fillRect(x0 - 16, y + 7, 6, lh - 14); }
-          ctx.textAlign = 'right'; ctx.fillStyle = '#f4f8f2'; ctx.font = '800 25px Manrope';
+          ctx.textAlign = 'right'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 25px Archivo';
           ctx.fillText(String(x.pos), x0 + 36, y + 30);
           if (escudos[k]) ctx.drawImage(escudos[k], x0 + 54, y + 6, 31, 31);
           ctx.textAlign = 'left';
           S.textoCabe(ctx, nome(t), x0 + 100, y + 30, 520, x.pos === 1 ? '800' : '700', 26);
-          ctx.textAlign = 'right'; ctx.font = '800 26px Manrope'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f8f2';
+          ctx.textAlign = 'right'; ctx.font = '800 26px Archivo'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f6fb';
           ctx.fillText(String(x.pts), W - 300, y + 30);
-          ctx.fillStyle = 'rgba(244,248,242,.82)'; ctx.font = '600 24px Manrope';
+          ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 24px Archivo';
           ctx.fillText(String(x.v), W - 200, y + 30);
           ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, y + 30);
         });
@@ -904,7 +904,7 @@
           const col = k < porCol ? 0 : 1, row = col ? k - porCol : k;
           const x = 64 + col * (colW + 40), y = top + row * lh;
           if (it.titulo) {
-            ctx.fillStyle = S.COR.giz; ctx.font = '800 23px Manrope'; ctx.textAlign = 'left';
+            ctx.fillStyle = S.COR.giz; ctx.font = '800 23px Archivo'; ctx.textAlign = 'left';
             ctx.fillText(it.titulo.toUpperCase(), x + 4, y + lh * 0.66);
             return;
           }
@@ -913,10 +913,10 @@
           ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.fillRect(x, y + 4, colW, lh - 8);
           if (img[j.h]) ctx.drawImage(img[j.h], x + 12, cy - sz / 2, sz, sz);
           if (img[j.a]) ctx.drawImage(img[j.a], x + colW - 12 - sz, cy - sz / 2, sz, sz);
-          ctx.fillStyle = '#f4f8f2';
+          ctx.fillStyle = '#f4f6fb';
           ctx.textAlign = 'left'; S.textoCabe(ctx, (h.abrev || nome(h)).toUpperCase(), x + 20 + sz, cy + 8, colW / 2 - sz - 66, '700', 22);
           ctx.textAlign = 'right'; S.textoCabe(ctx, (a.abrev || nome(a)).toUpperCase(), x + colW - 20 - sz, cy + 8, colW / 2 - sz - 66, '700', 22);
-          ctx.textAlign = 'center'; ctx.font = '900 34px "Big Shoulders"'; ctx.fillStyle = st.sim[j.chave] ? 'rgba(244,248,242,.85)' : S.COR.giz;
+          ctx.textAlign = 'center'; ctx.font = '900 34px "Archivo Largo"'; ctx.fillStyle = st.sim[j.chave] ? 'rgba(244,246,251,.85)' : S.COR.giz;
           ctx.fillText(p[0] + ' × ' + p[1], x + colW / 2, cy + 12);
         });
         ctx.textAlign = 'left';

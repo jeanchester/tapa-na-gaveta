@@ -5,8 +5,8 @@
   'use strict';
   const T = window.TNG;
 
-  const COR = { fundo: '#0f5132', fundo2: '#0b3d26', papel: '#f3f5f1', tinta: '#0f2219', tinta2: '#4d6157', giz: '#e8f0a0', linha: 'rgba(255,255,255,.14)',
-    zonas: { lib: '#2563b0', pre: '#86a9dc', sula: '#e2b23a', rb: '#ff6b5c' } };
+  const COR = { fundo: '#0b1640', fundo2: '#070d26', papel: '#eef0f4', tinta: '#0b1640', tinta2: '#4a5675', giz: '#ffc23d', linha: 'rgba(255,255,255,.14)',
+    zonas: { lib: '#4f6bff', pre: '#8fb0ff', sula: '#3fcf95', rb: '#ff6b6f' } };
 
   const imagens = {};
   function imagem(src) {
@@ -23,7 +23,7 @@
 
   function fontes() {
     if (!document.fonts || !document.fonts.load) return Promise.resolve();
-    return Promise.all(['800 40px Manrope', '700 40px Manrope', '600 40px Manrope', '900 40px "Big Shoulders"'].map((f) => document.fonts.load(f).catch(() => null)));
+    return Promise.all(['800 40px Archivo', '700 40px Archivo', '600 40px Archivo', '900 40px "Archivo Largo"'].map((f) => document.fonts.load(f).catch(() => null)));
   }
 
   function canvas(w, h) {
@@ -54,26 +54,28 @@
   function moldura(ctx, w, h, titulo, sub, chamada) {
     ctx.fillStyle = COR.fundo;
     ctx.fillRect(0, 0, w, h);
-    ctx.fillStyle = 'rgba(255,255,255,.035)';
-    for (let x = 0; x < w; x += 144) ctx.fillRect(x, 0, 72, h);
-    marca(ctx, 64, 58, 2.1, '#f4f8f2');
-    ctx.fillStyle = '#f4f8f2';
-    ctx.font = '800 40px Manrope';
+    // linhas de campo bem apagadas: meio-campo e círculo central
+    ctx.strokeStyle = 'rgba(255,255,255,.06)'; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(w / 2, 0); ctx.lineTo(w / 2, h); ctx.stroke();
+    ctx.beginPath(); ctx.arc(w / 2, h / 2, 190, 0, Math.PI * 2); ctx.stroke();
+    marca(ctx, 64, 58, 2.1, '#f4f6fb');
+    ctx.fillStyle = '#f4f6fb';
+    ctx.font = 'italic 900 36px "Archivo Largo"';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText('tapa na gaveta', 160, 112);
-    ctx.font = '800 64px Manrope';
+    ctx.font = '900 60px "Archivo Largo"';
     ctx.fillText(titulo, 64, 232);
-    if (sub) { ctx.font = '600 32px Manrope'; ctx.fillStyle = 'rgba(244,248,242,.75)'; ctx.fillText(sub, 64, 284); }
+    if (sub) { ctx.font = '600 32px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.75)'; ctx.fillText(sub, 64, 284); }
     // rodapé com o endereço (marca-d'água)
     ctx.fillStyle = 'rgba(0,0,0,.22)';
     ctx.fillRect(0, h - 104, w, 104);
-    ctx.fillStyle = '#f4f8f2';
-    ctx.font = '700 30px Manrope';
+    ctx.fillStyle = '#f4f6fb';
+    ctx.font = '700 30px Archivo';
     const cham = chamada || 'Simule o seu em';
     ctx.fillText(cham, 64, h - 42);
     const ini = 64 + ctx.measureText(cham + ' ').width;
     ctx.fillStyle = COR.giz;
-    ctx.font = '800 30px Manrope';
+    ctx.font = '800 30px Archivo';
     ctx.fillText(T.enderecoSite(), ini, h - 42);
   }
 
@@ -125,8 +127,8 @@
   // texto que cabe numa largura (encolhe a fonte até caber, depois corta com reticências)
   function textoCabe(ctx, txt, x, y, larg, peso, tam, min) {
     let t = tam;
-    ctx.font = peso + ' ' + t + 'px Manrope';
-    while (ctx.measureText(txt).width > larg && t > (min || tam * 0.7)) { t--; ctx.font = peso + ' ' + t + 'px Manrope'; }
+    ctx.font = peso + ' ' + t + 'px Archivo';
+    while (ctx.measureText(txt).width > larg && t > (min || tam * 0.7)) { t--; ctx.font = peso + ' ' + t + 'px Archivo'; }
     let s = txt;
     while (ctx.measureText(s).width > larg && s.length > 2) s = s.slice(0, -2) + '…';
     ctx.fillText(s, x, y);

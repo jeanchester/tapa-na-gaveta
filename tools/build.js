@@ -86,9 +86,9 @@ paginas.filter((p) => p.caminho).forEach((p) => {
   const nivel = p.caminho.split('/').filter(Boolean).length;
   const volta = '../'.repeat(nivel);
   gravar(p.caminho + 'index.html', '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  ' +
-    meta(p) + '\n  <meta name="theme-color" content="#0f5132">\n  <meta http-equiv="refresh" content="0; url=' + volta + p.rota + '">\n' +
+    meta(p) + '\n  <meta name="theme-color" content="#0b1640">\n  <meta http-equiv="refresh" content="0; url=' + volta + p.rota + '">\n' +
     '  <script>location.replace("' + volta + '" + "' + p.rota + '" + (location.search ? "?" + location.search.slice(1) : ""));</script>\n' +
-    '</head>\n<body style="background:#0f5132;color:#f4f8f2;font:16px system-ui;padding:24px"><a href="' + volta + p.rota + '" style="color:#e8f0a0">Abrir o Tapa na Gaveta</a></body>\n</html>\n');
+    '</head>\n<body style="background:#0b1640;color:#f4f6fb;font:16px system-ui;padding:24px"><a href="' + volta + p.rota + '" style="color:#ffc23d">Abrir o Tapa na Gaveta</a></body>\n</html>\n');
   n++;
 });
 
@@ -112,7 +112,7 @@ walk(dist);
 let pagina = 0, gz = 0;
 const zlib = require('zlib');
 for (const f of ['index.html', 'app/app.css', 'app/app.js', 'app/abas/simulador.js', 'shared/simulador-core.js', 'shared/espn.js', 'shared/regras-brasileirao-2026.json', 'dados/brasileirao-2026.json',
-  'shared/fonts/manrope-latin-500-normal.woff2', 'shared/fonts/manrope-latin-600-normal.woff2', 'shared/fonts/manrope-latin-700-normal.woff2', 'shared/fonts/manrope-latin-800-normal.woff2', 'shared/fonts/big-shoulders-display-latin-900-normal.woff2']) {
+  'shared/fonts/archivo-latin-variable.woff2']) {
   pagina += fs.statSync(path.join(dist, f)).size;
   gz += zlib.gzipSync(fs.readFileSync(path.join(dist, f))).length;
 }
