@@ -20,7 +20,8 @@ self.onmessage = function (ev) {
       const mc = TNGCore.monteCarlo(L, msg.placares, M, msg.N, msg.seed, (feitas) => self.postMessage({ id: msg.id, progresso: feitas / msg.N }));
       self.postMessage({ id: msg.id, fim: true, chances: TNGCore.chances(L, mc), N: mc.N });
     } else if (msg.tipo === 'precisa') {
-      self.postMessage({ id: msg.id, fim: true, precisa: precisa(L, M, msg) });
+      const dist = new Array(L.n).fill(0);
+      self.postMessage({ id: msg.id, fim: true, precisa: precisa(L, M, msg, dist), dist: dist.map((c) => c / msg.N) });
     }
   } catch (e) {
     self.postMessage({ id: msg.id, erro: String((e && e.message) || e) });
@@ -29,7 +30,8 @@ self.onmessage = function (ev) {
 
 // Para o time escolhido e cada objetivo em aberto: chance atual, chance por pontos que o time
 // fizer, e os jogos de outros times que mais mudam a chance ("torça por").
-function precisa(L, M, msg) {
+// dist (opcional): recebe quantas vezes o time terminou em cada posição
+function precisa(L, M, msg, dist) {
   const C = TNGCore, t = msg.time, N = msg.N, r = C.rng(msg.seed || 7);
   const objs = msg.objetivos;
   const livres = L.jogos.filter((j) => !j.feito && !C.placarDe(j, msg.placares));
@@ -58,6 +60,7 @@ function precisa(L, M, msg) {
     const tab = C.ordenar(L, s, Object.assign({}, msg.placares, plac), sorteio);
     let pos = 0;
     for (let q = 0; q < tab.length; q++) if (tab[q].i === t) { pos = q + 1; break; }
+    if (dist) dist[pos - 1]++;
     for (let o = 0; o < objs.length; o++) {
       const ok = pos >= objs[o].de && pos <= objs[o].ate ? 1 : 0;
       sim[o] += ok;

@@ -12,6 +12,21 @@
   const CURTO = { athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
   const FEMININO = { chapecoense: 1, pontepreta: 1, portuguesa: 1, ferroviaria: 1 };
   const nome = (t) => CURTO[t.slug] || t.nome;
+  // cor principal e secundária de cada clube (só no cartão do meu time; nos jogos, só o escudo)
+  const CORES = {
+    flamengo: ['#c8102e', '#111111'], palmeiras: ['#006437', '#ffffff'], cruzeiro: ['#0038a8', '#ffffff'], fluminense: ['#7a0f2a', '#00613c'],
+    athletico: ['#c8102e', '#111111'], bahia: ['#0047ab', '#e30613'], atleticomg: ['#111111', '#ffffff'], bragantino: ['#ffffff', '#e30613'],
+    santos: ['#ffffff', '#111111'], sp: ['#e30613', '#111111'], botafogo: ['#111111', '#ffffff'], coritiba: ['#00593c', '#ffffff'],
+    vasco: ['#111111', '#ffffff'], mirassol: ['#ffd200', '#00843d'], vitoria: ['#e30613', '#111111'], internacional: ['#e30613', '#ffffff'],
+    corinthians: ['#111111', '#ffffff'], gremio: ['#0d80bf', '#111111'], remo: ['#0b1f4b', '#ffffff'], chapecoense: ['#00843d', '#ffffff'],
+  };
+  const claro = (c) => { const n = parseInt(c.slice(1), 16); return ((n >> 16) * 0.299 + ((n >> 8) & 255) * 0.587 + (n & 255) * 0.114) > 160; };
+  // cor que funciona sobre o azul-noite: a principal, a secundária se a principal for clara demais
+  function corDo(t) {
+    const c = CORES[t.slug];
+    if (!c) return '#2b4bff';
+    return claro(c[0]) ? (claro(c[1]) ? '#2b4bff' : c[1]) : c[0];
+  }
   const art = (t) => (FEMININO[t.slug] ? 'a' : 'o');
   const o_ = (t) => art(t) + ' ' + nome(t);                       // "o Palmeiras"
   const de_ = (t) => (art(t) === 'a' ? 'da ' : 'do ') + nome(t);
@@ -268,7 +283,16 @@
     let html = '<div class="progresso"><div class="prog-txt"><b class="num">' + feitos + '</b> de <span class="num">' + total + '</span> jogos com placar</div>' +
       '<div class="prog-barra" role="progressbar" aria-valuemin="0" aria-valuemax="' + total + '" aria-valuenow="' + feitos + '" aria-label="Jogos preenchidos"><i style="width:' + (total ? (100 * feitos / total) : 100) + '%"></i></div></div>';
     if (meu) {
-      html += '<div class="meu-card">' + crest(meu, 'crest-g') + '<div class="meu-txt"><b>' + esc(nome(meu)) + '</b><span id="meu-resumo"></span></div>' +
+      // cartão do time na cor do clube, com a situação real de hoje
+      const real = tabelaReal().find((x) => x.i === meu.i);
+      const jogosMeu = total ? restantes().filter((j) => j.h === meu.i || j.a === meu.i).length : 0;
+      const f5 = window.TNGCore.forma(st.L, {}, meu.i, 5);
+      const NOME_F = { V: 'vitória', E: 'empate', D: 'derrota' };
+      html += '<div class="meu-heroi" style="--clube:' + corDo(meu) + '"><span class="rs-placa g">' + crest(meu) + '</span><div class="mh-txt"><b>' + esc(nome(meu)) + '</b>' +
+        '<dl><div><dt>Hoje</dt><dd class="num">' + real.pos + 'º</dd></div><div><dt>Pontos</dt><dd class="num">' + real.pts + '</dd></div>' +
+        '<div><dt>Faltam</dt><dd class="num">' + jogosMeu + (jogosMeu === 1 ? ' jogo' : ' jogos') + '</dd></div><div><dt>Em disputa</dt><dd class="num">' + (3 * jogosMeu) + ' pts</dd></div>' +
+        '<div><dt>Últimos 5</dt><dd><span class="forma" role="img" aria-label="' + f5.map((r) => NOME_F[r]).join(', ') + '">' + f5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></dd></div></dl>' +
+        '<span id="meu-resumo"></span></div>' +
         '<div class="meu-acoes"><button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
         '<a class="link-btn" href="#/simulador">Sair</a></div></div>';
     }
@@ -366,7 +390,7 @@
     const tab = tabelaAtual(), x = tab.find((q) => q.i === st.meu.i);
     const jogos = restantes().filter((j) => j.h === st.meu.i || j.a === st.meu.i);
     const meus = jogos.filter((j) => placarDe(j)).length;
-    el.textContent = (st.prefs.esconder ? '' : x.pos + 'º lugar, ' + x.pts + ' pontos · ') + meus + ' de ' + jogos.length + ' jogos preenchidos';
+    el.textContent = (st.prefs.esconder || !meus ? '' : 'Com os seus palpites: ' + x.pos + 'º lugar, ' + x.pts + ' pontos · ') + meus + ' de ' + jogos.length + ' jogos preenchidos';
   }
 
   // ---------------------------------------------------------------- tabela
@@ -589,11 +613,11 @@
 
   // ================================================================== o que o meu time precisa
   const VERBO = {
-    titulo: ['é campeão', 'não é campeão', 'Título'],
-    lib: ['vai direto à Libertadores', 'fica fora do G4', 'Libertadores direta (1º a 4º)'],
-    pre: ['garante ao menos a pré-Libertadores', 'fica fora do G5', 'Libertadores ou pré (1º a 5º)'],
-    sula: ['garante vaga em copa continental', 'fica fora das copas', 'Copa continental (1º a 11º)'],
-    escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda'],
+    titulo: ['é campeão', 'não é campeão', 'Título', 'Título'],
+    lib: ['vai direto à Libertadores', 'fica fora do G4', 'Libertadores direta (1º a 4º)', 'G4'],
+    pre: ['garante ao menos a pré-Libertadores', 'fica fora do G5', 'Libertadores ou pré (1º a 5º)', 'Até a pré-Liberta'],
+    sula: ['garante vaga em copa continental', 'fica fora das copas', 'Copa continental (1º a 11º)', 'Vaga em copa'],
+    escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda', 'Escapar da queda'],
   };
   function pedirPrecisa() {
     const versao = st.versao + ':' + st.meu.i;
@@ -601,7 +625,7 @@
     const objs = window.TNGCore.objetivos(st.regras);
     mostrarProgresso(0);
     pedir({ tipo: 'precisa', placares: placares(), N: 8000, seed: 7, time: st.meu.i, objetivos: objs }, mostrarProgresso).then((m) => {
-      st.precisa = { mc: m.precisa, versao }; st.precisaVersao = versao;
+      st.precisa = { mc: m.precisa, dist: m.dist, versao }; st.precisaVersao = versao;
       if (st.view) desenharChances();
     }).catch((e) => { T.reportError(e, 'precisa'); });
   }
@@ -614,13 +638,23 @@
     const mc = st.precisa && st.precisa.versao === st.versao + ':' + t.i ? st.precisa.mc : null;
     let html = '<div class="sec-title"><h2>O que ' + esc(o_(t)) + ' precisa</h2><small>' + (mc ? 'pelas regras e em 8.000 simulações' : 'calculando…') + '</small></div>' +
       '<div class="prog-fina" id="chances-prog"' + (mc ? ' hidden' : '') + '><i></i></div>';
+    // todos os objetivos de uma vez, com a chance de cada um (tocar leva ao detalhe)
+    html += '<div class="obj-chips" role="list">' + sit.map(({ o, s: sx }) => {
+      const m = mc && mc.find((x) => x.id === o.id);
+      const v = sx === 'garantido' ? '100%' : sx === 'impossivel' ? '0%' : m ? (m.chance <= 0 ? '0%' : pct(m.chance)) : '…';
+      const txt = '<span>' + esc(VERBO[o.id][3]) + '</span><b class="num">' + v + '</b>';
+      return sx === 'aberto' ? '<a role="listitem" class="obj-chip" href="#" data-obj="' + o.id + '">' + txt + '</a>'
+        : '<span role="listitem" class="obj-chip ' + (sx === 'garantido' ? 'sim' : 'nao') + '">' + txt + '</span>';
+    }).join('') + '</div>';
+    const dist = mc && st.precisa.dist;
+    if (dist && restantes().some((j) => !window.TNGCore.placarDe(j, plac))) html += '<p class="c-sub">Onde ' + esc(o_(t)) + ' termina</p>' + distribuicaoHtml({ dist }, t);
     // basta o objetivo mais alto já garantido e o mais modesto já impossível
     if (garantidos.length) html += '<p class="garante sim"><b>Já garantiu</b> ' + esc(SUBST[garantidos[0].o.id]) + '.</p>';
     if (impossiveis.length) html += '<p class="garante nao"><b>Já não alcança</b> ' + esc(SUBST[impossiveis[impossiveis.length - 1].o.id]) + '.</p>';
     if (!abertos.length) html += '<p class="nota">Nada mais em jogo para ' + esc(o_(t)) + ' nos objetivos do campeonato.</p>';
     abertos.forEach(({ o }) => {
       const m = mc && mc.find((x) => x.id === o.id);
-      html += '<div class="obj"><div class="obj-topo"><h3>' + esc(VERBO[o.id][2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
+      html += '<div class="obj" id="obj-' + o.id + '"><div class="obj-topo"><h3>' + esc(VERBO[o.id][2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
       // poucos jogos que importam: condições exatas; muitos: o que mais pesa nas simulações
       const rel = jogosDoObjetivo(o, t);
       if (rel.length <= 10) {
@@ -1069,6 +1103,8 @@
   function ligar() {
     const v = st.view;
     const onClick = (e) => {
+      const chip = e.target.closest('[data-obj]');
+      if (chip) { e.preventDefault(); const alvo = v.querySelector('#obj-' + chip.dataset.obj); if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
       const ir = e.target.closest('[data-ir]');
       if (ir) { e.preventDefault(); const alvo = v.querySelector('#g-' + ir.dataset.ir); if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
       const aba = e.target.closest('button[data-aba]');   // (o contêiner .sim-cols também tem data-aba)
