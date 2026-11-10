@@ -114,7 +114,7 @@
   let inicioJaAnimou = false;
   function heroHTML() {
     const L = window.DEZ_LOGO;
-    const lang = L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en';
+    const lang = window.DEZ_WEB ? 'pt' : L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en';   // no site só vai a arte em português
     const m = L && L.idiomas[lang];
     if (!m) return `<div class="logo">${V.logoHTML()}<div class="nome">${t('app.nome')}</div><div class="slogan">${t('app.slogan')}</div></div>`;
     const src = `img/logo-${lang}.png`;

@@ -26,6 +26,9 @@ def esperar_imagens(pagina):
     pagina.wait_for_timeout(150)
 
 
+ROTAS = [('simulador', '#/'), ('meu-time', '#/simulador/sp'), ('escalacao', '#/escalacao'), ('jogos', '#/jogos'), ('jogo-draft', '#/jogos/draft'), ('jogo-milhao', '#/jogos/milhao'), ('jogo-fast', '#/jogos/fast'), ('estatisticas', '#/estatisticas'), ('404', '#/nao-existe')]
+
+
 def site(pagina, saida, inteira):
     erros = []
     for t in TEMAS:
@@ -92,7 +95,7 @@ def main():
     os.makedirs(saida, exist_ok=True)
     console = []
     with sync_playwright() as p:
-        nav = p.chromium.launch()
+        nav = p.chromium.launch(executable_path=os.environ.get('TNG_CHROME') or None)  # TNG_CHROME: outro Chrome, se o do Playwright não estiver instalado
         pagina = nav.new_page(device_scale_factor=2)
         pagina.on('console', lambda m: m.type == 'error' and console.append(m.text))
         pagina.on('pageerror', lambda e: console.append(str(e)))

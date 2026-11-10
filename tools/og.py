@@ -28,7 +28,7 @@ def main():
         paginas = json.load(f)['paginas']
     feitos = set()
     with sync_playwright() as p:
-        nav = p.chromium.launch()
+        nav = p.chromium.launch(executable_path=os.environ.get('TNG_CHROME') or None)
         pg = nav.new_page(viewport={'width': 1200, 'height': 630})
 
         def foto(nome, k, t, s, img=None):

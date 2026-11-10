@@ -364,7 +364,7 @@
     g.fillStyle = brilho; g.fillRect(0, 0, W, H);
     g.textAlign = 'center'; g.textBaseline = 'alphabetic';
     // o título do jogo (a arte do logo, no idioma do jogador); sem a arte, a marca em texto
-    const L = window.DEZ_LOGO, lang = L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en', ml = L && L.idiomas[lang];
+    const L = window.DEZ_LOGO, lang = window.DEZ_WEB ? 'pt' : L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en', ml = L && L.idiomas[lang];
     const logo = ml ? await carregarImagem(`img/logo-${lang}.png`) : null;
     if (logo) {
       const lw = 640, lh = lw * logo.naturalHeight / logo.naturalWidth;

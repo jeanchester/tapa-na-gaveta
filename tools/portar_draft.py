@@ -102,6 +102,9 @@ def main():
         ("const srcEscudo = (id) => 'img/escudos/' + id + '.png';", "const srcEscudo = (id) => '../../../midia/escudos/' + id + '.png';"),
         ("im.src = '../shared/estadios/' + (mini ? 'mini/' : '') + id + '.jpg';", "im.src = '../shared/estadios/' + (mini ? 'mini/' : '') + id + '.webp';"),
     ])
+    # no site só vai a arte do título em português (a inglesa não é publicada)
+    trocar(os.path.join(app, 'telas.js'), [("    const lang = L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en';", "    const lang = window.DEZ_WEB ? 'pt' : L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en';   // no site só vai a arte em português")])
+    trocar(os.path.join(app, 'telas-jogo.js'), [("const L = window.DEZ_LOGO, lang = L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en', ml = L && L.idiomas[lang];", "const L = window.DEZ_LOGO, lang = window.DEZ_WEB ? 'pt' : L && L.idiomas[D.I18N.lang] ? D.I18N.lang : 'en', ml = L && L.idiomas[lang];")])
     trocar(os.path.join(app, 'telas-extras.js'), [
         ('src="../shared/estadios/mini/${e.id}.jpg"', 'src="../shared/estadios/mini/${e.id}.webp"'),
         ('src="../shared/estadios/${e.id}.jpg"', 'src="../shared/estadios/${e.id}.webp"'),
