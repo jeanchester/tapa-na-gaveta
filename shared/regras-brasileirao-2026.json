@@ -1,0 +1,20 @@
+{
+  "competicao": "Campeonato Brasileiro Série A 2026",
+  "formato": "liga",
+  "pontos": { "vitoria": 3, "empate": 1, "derrota": 0 },
+  "rodadas": 38,
+  "desempate": ["pontos", "vitorias", "saldo", "gols_pro", "confronto_direto", "vermelhos", "amarelos", "sorteio"],
+  "desempate_obs": "REC da CBF (art. 15), mesma ordem de 2025. O confronto direto só vale quando DOIS clubes estão empatados; com três ou mais, pula para o critério seguinte. A ESPN não informa cartões: o simulador passa direto ao sorteio.",
+  "zonas": [
+    { "id": "lib", "nome": "Libertadores", "de": 1, "ate": 4 },
+    { "id": "pre", "nome": "Pré-Libertadores", "de": 5, "ate": 5 },
+    { "id": "sula", "nome": "Sul-Americana", "de": 6, "ate": 11 },
+    { "id": "rb", "nome": "Rebaixamento", "de": 17, "ate": 20 }
+  ],
+  "zonas_provisorias": true,
+  "zonas_obs": "Vagas iniciais divulgadas pela CBF em dez/2025 (Band, 16/12/2025; TecMundo): 4 diretas, 1 na fase preliminar, Sul-Americana do 6º ao 11º. Mudam com os finalistas da Copa do Brasil e com um título brasileiro na Libertadores.",
+  "fontes": [
+    "https://www.band.com.br/esportes/brasileirao-2026-novidades-nas-vagas-da-libertadores-e-para-transferencias-sao-confirmadas-202512160027",
+    "https://trivela.com.br/brasil/brasileirao-criterios-desempate/"
+  ]
+}

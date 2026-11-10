@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Imagem de compartilhamento</title>
+<style>
+@font-face { font-family: 'Archivo'; font-weight: 100 900; font-stretch: 62% 125%; src: url(../shared/fonts/archivo-latin-variable.woff2) format('woff2'); }
+html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+body { background: #0b1640; color: #f4f6fb; font-family: Archivo, sans-serif; position: relative;
+  background-image: linear-gradient(90deg, transparent 599px, rgba(255,255,255,.06) 599px 601px, transparent 601px),
+    radial-gradient(circle at 50% 50%, transparent 0 159px, rgba(255,255,255,.06) 159px 161px, transparent 161px); }
+.marca { position: absolute; left: 72px; top: 60px; display: flex; align-items: center; gap: 16px; font-weight: 900; font-stretch: 125%; font-style: italic; font-size: 32px; letter-spacing: -.5px; }
+.marca svg { width: 64px; height: 64px; }
+.txt { position: absolute; left: 72px; right: 400px; bottom: 96px; }
+.kicker { font-size: 24px; font-weight: 700; color: #ffc23d; margin-bottom: 14px; }
+h1 { margin: 0; font-size: 70px; line-height: 1.02; font-weight: 900; font-stretch: 125%; letter-spacing: -2px; }
+p { margin: 18px 0 0; font-size: 28px; color: rgba(244,246,251,.82); font-weight: 600; }
+.lado { position: absolute; right: 72px; top: 50%; transform: translateY(-50%); width: 280px; height: 280px; display: grid; place-items: center; }
+.lado img { width: 200px; height: 200px; object-fit: contain; background: #fff; border-radius: 48px; padding: 30px; box-sizing: content-box; }
+.lado img[src*="icones"] { border-radius: 48px; background: none; padding: 0; width: 230px; height: 230px; }
+.lado .gol { width: 280px; height: 280px; }
+.rodape { position: absolute; left: 0; right: 0; bottom: 0; height: 44px; background: #ffc23d; }
+</style>
+</head>
+<body>
+  <div class="marca"><svg viewBox="0 0 40 40"><g fill="none" stroke="#f4f6fb" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="3.2"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#ffc23d"/></svg>tapa na gaveta</div>
+  <div class="txt"><div class="kicker" id="k"></div><h1 id="t"></h1><p id="s"></p></div>
+  <div class="lado" id="lado"></div>
+  <div class="rodape"></div>
+  <script>
+    var q = new URLSearchParams(location.search);
+    document.getElementById('k').textContent = q.get('k') || '';
+    document.getElementById('t').textContent = q.get('t') || '';
+    document.getElementById('s').textContent = q.get('s') || '';
+    var img = q.get('img');
+    document.getElementById('lado').innerHTML = img ? '<img src="../' + img + '" alt="">' :
+      '<svg class="gol" viewBox="0 0 40 40"><g fill="none" stroke="#f4f6fb" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="2.4"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width=".8" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#ffc23d"/></svg>';
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* Fast Football · identidade do Tapa na Gaveta (Prancheta): verde-escuro, giz-limão, Big Shoulders. */
+@font-face { font-family: 'Manrope'; font-weight: 600; font-display: swap; src: url(../../shared/fonts/manrope-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 700; font-display: swap; src: url(../../shared/fonts/manrope-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 800; font-display: swap; src: url(../../shared/fonts/manrope-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Big Shoulders'; font-weight: 900; font-display: swap; src: url(../../shared/fonts/big-shoulders-display-latin-900-normal.woff2) format('woff2'); }
+:root { --fundo: #07110b; --sup: #0f2016; --sup2: #163020; --linha: rgba(238,245,239,.12); --linha2: rgba(238,245,239,.24); --texto: #eef5ef; --suave: #a5b8ad; --giz: #e8f0a0; --num: 'Big Shoulders', 'Arial Narrow', sans-serif; color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--fundo); color: var(--texto); font: 600 15px/1.45 'Manrope', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+button:disabled { opacity: .3; cursor: default; }
+:focus-visible { outline: 2.5px solid var(--giz); outline-offset: 2px; border-radius: 8px; }
+.btn { min-height: 46px; padding: 0 18px; border-radius: 12px; border: 1.5px solid var(--linha2); font-weight: 800; display: inline-flex; align-items: center; justify-content: center; }
+.btn.sim { background: var(--giz); color: #12220f; border-color: var(--giz); }
+
+/* ------------------------------------------------------------------ menu */
+.menu { max-width: 640px; margin: 0 auto; padding: 22px 16px calc(28px + env(safe-area-inset-bottom, 0)); }
+.marca { display: flex; flex-direction: column; line-height: .86; margin-bottom: 10px; }
+.marca span { font: 900 64px/0.86 var(--num); text-transform: uppercase; }
+.marca span:last-child { color: var(--giz); }
+.marca.pequena span { font-size: 40px; }
+.lead { color: var(--suave); margin: 0 0 16px; }
+.menu h2 { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--suave); margin: 20px 0 8px; }
+.sortear { font-size: 13px; letter-spacing: 0; text-transform: none; color: var(--giz); min-height: 36px; padding: 0 4px; }
+.seg { display: inline-flex; border: 1px solid var(--linha2); border-radius: 12px; padding: 3px; }
+.seg button { min-height: 40px; padding: 0 20px; border-radius: 9px; font-weight: 800; color: var(--suave); }
+.seg button[aria-checked="true"] { background: var(--sup2); color: var(--texto); }
+.dica { font-size: 13.5px; color: var(--suave); margin: 10px 0 0; }
+.ligas { display: flex; flex-wrap: wrap; gap: 6px; }
+.ligas button { min-height: 40px; padding: 0 14px; border-radius: 99px; border: 1.5px solid var(--linha2); font-weight: 700; font-size: 14px; }
+.ligas button[aria-pressed="true"] { border-color: var(--giz); color: var(--giz); background: var(--sup2); }
+.grade { display: flex; gap: 6px; overflow-x: auto; padding: 4px 2px 8px; scrollbar-width: thin; }
+.grade button { flex: none; width: 76px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px; border: 1.5px solid transparent; }
+.grade button[aria-checked="true"] { border-color: var(--giz); background: var(--sup2); }
+.grade img { width: 40px; height: 40px; object-fit: contain; }
+.grade span { font-size: 11px; font-weight: 700; color: var(--suave); width: 100%; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.grade button[aria-checked="true"] span { color: var(--texto); }
+.acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.acoes .btn { flex: 1 1 180px; }
+.acoes.fixo { position: sticky; bottom: calc(8px + env(safe-area-inset-bottom, 0)); background: var(--fundo); padding-top: 8px; }
+.ajustes { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 20px; font-size: 14px; color: var(--suave); }
+.ajustes label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+.ajustes select { font: inherit; font-weight: 700; color: var(--texto); background: var(--sup); border: 1px solid var(--linha2); border-radius: 10px; min-height: 40px; padding: 0 8px; }
+.ajustes input { width: 18px; height: 18px; accent-color: var(--giz); }
+.app { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--linha); color: var(--texto); text-decoration: none; margin-top: 24px; }
+.app img { border-radius: 11px; flex: none; }
+.app b { display: block; }
+.app small { display: block; color: var(--suave); font-size: 12.5px; }
+
+/* ------------------------------------------------------------------ partida */
+.jogo { height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
+.placar { flex: none; display: grid; grid-template-columns: 44px minmax(0, 1fr) auto minmax(0, 1fr) 44px; align-items: center; gap: 6px; padding: calc(6px + env(safe-area-inset-top, 0)) 8px 6px; }
+.sair { width: 44px; height: 44px; display: grid; place-items: center; color: var(--suave); }
+.sair svg { width: 24px; height: 24px; }
+.lado { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
+.lado img { width: 34px; height: 34px; object-fit: contain; }
+.lado span { font-size: 12px; font-weight: 800; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gols { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; justify-content: center; width: 110px; }
+.gols b { font: 900 40px/1 var(--num); font-variant-numeric: tabular-nums; }
+.gols i { font-style: normal; color: var(--suave); }
+.gols small { width: 100%; text-align: center; font-size: 12px; font-weight: 800; color: var(--giz); letter-spacing: .04em; }
+.arena { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+#tela { display: block; touch-action: none; }
+.ctrl { position: absolute; bottom: 0; top: 30%; width: 50%; display: flex; align-items: flex-end; padding: 0 0 calc(16px + env(safe-area-inset-bottom, 0)); color: rgba(238,245,239,.55); touch-action: manipulation; }
+.ctrl svg { width: 52px; height: 52px; background: rgba(255,255,255,.08); border-radius: 50%; padding: 10px; }
+.ctrl.esq { left: 0; justify-content: flex-start; padding-left: 16px; }
+.ctrl.dir { right: 0; justify-content: flex-end; padding-right: 16px; }
+.ctrl:active svg { background: rgba(232,240,160,.3); color: var(--giz); }
+.aviso-gol { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; pointer-events: none; opacity: 0; transform: scale(.9); transition: opacity .2s, transform .25s; }
+.aviso-gol.on { opacity: 1; transform: none; }
+.aviso-gol img { width: 84px; height: 84px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,.5)); }
+.aviso-gol b { font: 900 64px/1 var(--num); text-transform: uppercase; color: var(--giz); text-shadow: 0 4px 18px rgba(0,0,0,.6); }
+.aviso-gol small { font-weight: 800; color: var(--texto); text-shadow: 0 2px 8px rgba(0,0,0,.7); }
+.fim { position: absolute; inset: 0; background: rgba(4,10,7,.82); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 20px; text-align: center; }
+.fim img { width: 96px; height: 96px; object-fit: contain; margin-bottom: 6px; }
+.fim b { font: 900 46px/1 var(--num); text-transform: uppercase; color: var(--giz); }
+.fim span { color: var(--suave); font-weight: 700; }
+.fim .acoes { width: min(420px, 100%); }
+
+/* ------------------------------------------------------------------ campeonato */
+.chave .jogos { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.chave .jogos li { background: var(--sup); border: 1px solid var(--linha); border-radius: 12px; padding: 6px 10px; position: relative; }
+.chave .jogos li.meu { border-color: var(--giz); }
+.chave .jogos em { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-style: normal; font-size: 10px; font-weight: 800; color: var(--giz); text-transform: uppercase; letter-spacing: .06em; display: none; }
+.lt { display: flex; align-items: center; gap: 8px; min-height: 30px; font-weight: 700; font-size: 14px; color: var(--suave); }
+.lt img { width: 22px; height: 22px; object-fit: contain; }
+.lt b { margin-left: auto; font: 900 20px/1 var(--num); color: var(--suave); }
+.lt.ganhou { color: var(--texto); }
+.lt.ganhou b { color: var(--giz); }
+.campeao { text-align: center; padding: 18px 0 8px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.campeao img { width: 110px; height: 110px; object-fit: contain; }
+.campeao b { font: 900 48px/1 var(--num); text-transform: uppercase; color: var(--giz); }
+.campeao span { color: var(--suave); }
+.campeao .acoes { width: 100%; }
+.dev-error { position: fixed; left: 0; right: 0; bottom: 0; z-index: 99; margin: 0; max-height: 40vh; overflow: auto; background: #b3261e; color: #fff; font: 12px/1.4 ui-monospace, Consolas, monospace; padding: 10px; white-space: pre-wrap; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

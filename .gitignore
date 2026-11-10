@@ -1,0 +1,7 @@
+dist/
+tools/saida/
+__pycache__/
+node_modules/
+# material de consulta grande (fica fora do repositório do site)
+tapa-na-gaveta-midia/
+dist-artifact/
