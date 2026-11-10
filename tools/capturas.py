@@ -1,9 +1,8 @@
 """Capturas automáticas em 320x568, 390x844 e 1280x800, claro e escuro.
 
 Uso (com o serve.py no ar):
-  python tools/capturas.py direcoes            # as três direções visuais do protótipo
-  python tools/capturas.py direcoes --pagina   # página inteira, não só a primeira tela
-  python tools/capturas.py site [--pagina]     # as telas do site (todas as rotas da fase atual)
+  python tools/capturas.py site [--pagina]     # as telas do site (--pagina: página inteira)
+  python tools/capturas.py simulador           # o simulador de ponta a ponta
 
 Saída em tools/saida/<roteiro>/. Também confere o console: qualquer erro faz o roteiro falhar.
 """
@@ -25,31 +24,6 @@ def esperar_imagens(pagina):
         const r = i.getBoundingClientRect(); return r.top < innerHeight && r.bottom > 0;
       }).map(i => i.complete ? 0 : new Promise(ok => { i.onload = i.onerror = ok; })))''')
     pagina.wait_for_timeout(150)
-
-
-def direcoes(pagina, saida, inteira):
-    erros = []
-    for d in 'abc':
-        for w, h in TAMANHOS:
-            for t in TEMAS:
-                pagina.set_viewport_size({'width': w, 'height': h})
-                pagina.goto(f'{BASE}docs/direcoes/?d={d}&t={t}&cap=1')
-                pagina.wait_for_selector('body[data-pronto="1"]')
-                pagina.evaluate('document.fonts.ready')
-                esperar_imagens(pagina)
-                larg = pagina.evaluate('document.documentElement.scrollWidth')
-                if larg > w:
-                    erros.append(f'{d} {w}px {t}: rolagem horizontal ({larg}px)')
-                nome = os.path.join(saida, f'{d}-{w}-{t}.png')
-                pagina.screenshot(path=nome, full_page=inteira)
-                if w < 900 and t == 'light':  # a aba "Tabela" no celular
-                    pagina.click('.seg button[data-tab="tabela"]')
-                    esperar_imagens(pagina)
-                    pagina.screenshot(path=os.path.join(saida, f'{d}-{w}-{t}-tabela.png'), full_page=inteira)
-    return erros
-
-
-ROTAS = [('simulador', '#/'), ('meu-time', '#/simulador/sp'), ('escalacao', '#/escalacao'), ('jogos', '#/jogos'), ('jogo-draft', '#/jogos/draft'), ('jogo-milhao', '#/jogos/milhao'), ('jogo-fast', '#/jogos/fast'), ('estatisticas', '#/estatisticas'), ('404', '#/nao-existe')]
 
 
 def site(pagina, saida, inteira):
@@ -112,7 +86,7 @@ def navegacao(pagina):
 
 
 def main():
-    roteiro = sys.argv[1] if len(sys.argv) > 1 else 'direcoes'
+    roteiro = sys.argv[1] if len(sys.argv) > 1 else 'site'
     inteira = '--pagina' in sys.argv
     saida = os.path.join(AQUI, 'saida', roteiro)
     os.makedirs(saida, exist_ok=True)
@@ -126,7 +100,7 @@ def main():
             from roteiro_simulador import simulador
             erros = simulador(pagina, saida, inteira)
         else:
-            erros = {'direcoes': direcoes, 'site': site}[roteiro](pagina, saida, inteira)
+            erros = site(pagina, saida, inteira)
         nav.close()
     for e in erros + console:
         print('ERRO:', e)
