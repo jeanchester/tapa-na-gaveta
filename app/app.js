@@ -148,6 +148,11 @@
   // #/                       → simulador (a aba principal)
   // #/simulador/flamengo     → simulador com o time escolhido
   // #/escalacao  #/jogos  #/jogos/draft
+  // os 20 clubes de 2026, para os atalhos do rodapé (slug = nome do escudo em midia/escudos)
+  const TIMES_RODAPE = [['athletico', 'do Athletico'], ['atleticomg', 'do Atlético-MG'], ['bahia', 'do Bahia'], ['botafogo', 'do Botafogo'], ['chapecoense', 'da Chapecoense'],
+    ['corinthians', 'do Corinthians'], ['coritiba', 'do Coritiba'], ['cruzeiro', 'do Cruzeiro'], ['flamengo', 'do Flamengo'], ['fluminense', 'do Fluminense'],
+    ['gremio', 'do Grêmio'], ['internacional', 'do Internacional'], ['mirassol', 'do Mirassol'], ['palmeiras', 'do Palmeiras'], ['bragantino', 'do Bragantino'],
+    ['remo', 'do Remo'], ['santos', 'do Santos'], ['sp', 'do São Paulo'], ['vasco', 'do Vasco'], ['vitoria', 'do Vitória']];
   const MENU = [['simulador', 'Simulador'], ['escalacao', 'Escalação'], ['jogos', 'Jogos'], ['estatisticas', 'Estatísticas']];
   const ABAS = { simulador: 1, escalacao: 1, jogos: 1, estatisticas: 1 };
 
@@ -184,9 +189,17 @@
     const t = temaAtual();
     const op = (v, n) => '<button data-tema="' + v + '" aria-pressed="' + (t === v) + '">' + n + '</button>';
     $('#rodape').innerHTML = '<div class="wrap">' +
-      '<h3>Nossos apps de futebol</h3><div class="apps">' + APPS.map((a) =>
+      '<div class="foot-cols">' +
+      '<div class="foot-col foot-cta"><h3>Faça a sua tabela</h3><p>Chute os jogos que faltam, revele a tabela time a time e mande pro grupo.</p>' +
+      '<a class="btn primario" href="#/simulador">Simular agora<svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>' +
+      '<div class="foot-col"><h3>Site</h3><ul class="foot-links">' + MENU.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul></div>' +
+      '<div class="foot-col foot-times"><h3>Simule pelo seu time</h3><div class="foot-escudos">' + TIMES_RODAPE.map(([slug, n]) =>
+        '<a href="#/simulador/' + slug + '" title="Simulador ' + esc(n) + '" aria-label="Simulador ' + esc(n) + '"><img src="midia/escudos/' + slug + '.png" alt="" width="28" height="28" loading="lazy"></a>').join('') + '</div></div>' +
+      '<div class="foot-col"><h3>Nossos apps de futebol</h3><div class="apps">' + APPS.map((a) =>
         '<a class="app" href="' + esc(playUrl(a.pacote, aba)) + '" target="_blank" rel="noopener">' +
-        '<img src="midia/icones/' + a.id + '.png" alt="" width="44" height="44" loading="lazy"><span><b>' + esc(a.nome) + '</b><small>' + esc(a.sub) + '</small></span></a>').join('') + '</div>' +
+        '<img src="midia/icones/' + a.id + '.png" alt="" width="44" height="44" loading="lazy"><span><b>' + esc(a.nome) + '</b><small>' + esc(a.sub) + '</small></span></a>').join('') + '</div></div>' +
+      '</div>' +
+      '<div class="foot-marca" aria-hidden="true"><span>tapa na gaveta</span><i></i></div>' +
       '<div class="foot-base"><p>Tapa na Gaveta · Resultados e calendário: ESPN (dados não oficiais). As probabilidades são calculadas pelo site e não são palpites de aposta.</p>' +
       '<div class="tema-sel" role="group" aria-label="Tema">' + op('auto', 'Automático') + op('light', 'Claro') + op('dark', 'Escuro') + '</div></div></div>';
   }
