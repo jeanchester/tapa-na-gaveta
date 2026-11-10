@@ -134,5 +134,38 @@
     ctx.fillText(s, x, y);
   }
 
-  window.TNGCompartilhar = { COR, imagem, fontes, canvas, marca, moldura, enviar, whatsapp, copiar, textoCabe, blob };
+  // escudo numa placa branca de cantos arredondados: legível no fundo azul-noite das imagens
+  function escudoPlaca(ctx, img, x, y, s) {
+    const pad = Math.round(s * 0.14), r = Math.round(s * 0.24), X = x - pad, Y = y - pad, W = s + 2 * pad;
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath(); ctx.moveTo(X + r, Y); ctx.arcTo(X + W, Y, X + W, Y + W, r); ctx.arcTo(X + W, Y + W, X, Y + W, r); ctx.arcTo(X, Y + W, X, Y, r); ctx.arcTo(X, Y, X + W, Y, r); ctx.closePath(); ctx.fill();
+    if (img) ctx.drawImage(img, x, y, s, s);
+  }
+
+  // várias imagens de uma vez: o menu de compartilhar do celular leva todas juntas;
+  // sem suporte, baixa uma por uma e abre o WhatsApp com o texto
+  function enviarVarias(lista, texto, url) {
+    if (T.ARTIFACT) { T.aviso('Para salvar, toque e segure cada imagem (no computador, botão direito)'); return Promise.resolve('artifact'); }
+    return Promise.all(lista.map((x) => blob(x.c))).then((bs) => {
+      const arquivos = typeof File === 'undefined' ? [] : bs.map((b, k) => (b ? new File([b], lista[k].nome, { type: 'image/png' }) : null)).filter(Boolean);
+      if (arquivos.length === lista.length && navigator.canShare && navigator.canShare({ files: arquivos })) {
+        return navigator.share({ files: arquivos, text: texto + (url ? '\n' + url : '') }).then(() => 'compartilhado')
+          .catch((e) => (e && e.name === 'AbortError' ? 'cancelado' : baixarTodas(lista, bs)));
+      }
+      return baixarTodas(lista, bs);
+    });
+  }
+  function baixarTodas(lista, bs) {
+    lista.forEach((x, k) => {
+      const a = document.createElement('a');
+      a.download = x.nome;
+      a.href = bs[k] ? URL.createObjectURL(bs[k]) : x.c.toDataURL('image/png');
+      document.body.appendChild(a); a.click(); a.remove();
+      if (bs[k]) setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    });
+    T.aviso(lista.length > 1 ? 'Imagens baixadas. Agora é só anexar no WhatsApp.' : 'Imagem baixada. Agora é só anexar no WhatsApp.');
+    return 'baixado';
+  }
+
+  window.TNGCompartilhar = { COR, imagem, fontes, canvas, marca, moldura, enviar, enviarVarias, whatsapp, copiar, textoCabe, blob, escudoPlaca };
 })();

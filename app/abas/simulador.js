@@ -800,7 +800,7 @@
       const jaAcabou = ov.classList.contains('acabou');
       linhasEl.forEach((li) => { li.classList.add('on'); li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; });
       botao('pular').hidden = true; botao('proximo').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
-      botao('video').hidden = !window.TNGVideo || !window.TNGVideo.disponivel();
+      botao('video').hidden = !Object.keys(placares()).length;
       ov.classList.add('acabou');
       lista.scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });       // termina mostrando o campeão
       // depois da revelação, a tabela fica à mostra no simulador
@@ -893,7 +893,29 @@
     window.TNG_REVELA = { fim, tocar, fechar };          // para o roteiro de capturas
   }
 
-  function gerarVideo() { /* etapa 7 */ }
+  // vídeo da tabela mudando placar a placar, na ordem das datas dos jogos
+  function gerarVideo() {
+    const C = window.TNGCore, plac = placares();
+    const jogos = restantes().filter((j) => placarDe(j)).sort((x, y) => (x.data < y.data ? -1 : x.data > y.data ? 1 : 0));
+    if (!jogos.length) { aviso('Preencha pelo menos um placar para gerar o vídeo'); return; }
+    return Promise.all([carregarComp(), T.script('app/video.js')]).then(() => {
+      const S = window.TNGCompartilhar;
+      return Promise.all(st.L.times.map((t) => S.imagem('midia/escudos/' + t.escudo + '.png'))).then((imgs) => {
+        const estados = [C.tabela(st.L, {})], acc = {};
+        jogos.forEach((j) => { acc[j.chave] = plac[j.chave]; estados.push(C.tabela(st.L, acc)); });
+        const base = {}; estados[0].forEach((x) => { base[x.i] = x.pos; });
+        window.TNGVideo.gerar({
+          jogos: jogos.map((j) => ({ h: j.h, a: j.a, p: plac[j.chave], sorteado: !!st.sim[j.chave] && !st.compartilhado, rotulo: j.atrasado ? 'jogo atrasado' : j.rodada ? 'rodada ' + j.rodada : fmtDia(j.data) })),
+          estados, base, meu: st.meu ? st.meu.i : -1,
+          times: st.L.times.map((t, k) => ({ nome: nome(t), img: imgs[k] })),
+          zona: (pos) => C.zonaDe(st.regras, pos),
+          completo: jogos.length === restantes().length,
+          endereco: T.enderecoSite(),
+          texto: textoPartilha() + ' ' + linkCenario(),
+        });
+      });
+    }).catch((e) => { T.reportError(e, 'video'); aviso('Não consegui gerar o vídeo'); });
+  }
 
   function confete(onde) {
     const box = document.createElement('div');
@@ -935,8 +957,12 @@
       '<div class="link-linha"><input readonly value="' + esc(url) + '" aria-label="Link do cenário"><button class="btn" data-j="copiar">Copiar</button></div>' +
       '<div class="j-acoes"><a class="btn" href="https://wa.me/?text=' + encodeURIComponent(textoPartilha() + '\n' + url) + '" target="_blank" rel="noopener">Enviar no WhatsApp</a></div>' +
       (T.ARTIFACT && n ? '<p class="nota">Nesta prévia, o link abre o simulador, mas não leva os seus placares. Para mostrar o seu cenário, mande a imagem.</p>' : '') +
-      '<h3 class="j-sub">Imagens prontas</h3><div class="j-acoes"><button class="btn primario" data-j="img-tabela">Tabela final (feed)</button><button class="btn" data-j="img-jogos"' + (n ? '' : ' disabled') + '>Os meus placares (stories)</button></div>' +
-      '<div class="previa" id="previa"></div>');
+      '<h3 class="j-sub">Imagens prontas</h3>' +
+      (n ? '<div class="j-acoes"><button class="btn primario" data-j="img-todas">' + ICON.partilha + 'Enviar as duas imagens</button></div>' : '') +
+      '<div class="j-acoes"><button class="btn' + (n ? '' : ' primario') + '" data-j="img-tabela">Tabela final (feed)</button><button class="btn" data-j="img-jogos"' + (n ? '' : ' disabled') + '>Os meus placares (stories)</button></div>' +
+      '<div class="previa" id="previa"></div>' +
+      '<h3 class="j-sub">Vídeo</h3><p class="nota">A tabela mudando placar a placar, com o seu campeão no fim (cerca de ' + Math.round(1.6 + 4.2 + n * Math.min(1.5, Math.max(0.6, 34 / Math.max(1, n)))) + ' segundos).</p>' +
+      '<div class="j-acoes"><button class="btn" data-j="video"' + (n ? '' : ' disabled') + '>Gerar o vídeo</button></div>');
     corpo.addEventListener('click', (e) => {
       const b = e.target.closest('[data-j]');
       if (!b) return;
@@ -945,7 +971,19 @@
       else if (a === 'whats') carregarComp().then(() => window.TNGCompartilhar.whatsapp(textoPartilha(), url));
       else if (a === 'img-tabela') imagemTabela(corpo.querySelector('#previa'));
       else if (a === 'img-jogos') imagemJogos(corpo.querySelector('#previa'));
+      else if (a === 'img-todas') enviarImagens(b);
+      else if (a === 'video') gerarVideo();
     });
+  }
+
+  // as duas imagens (tabela e placares) num envio só
+  function enviarImagens(botao) {
+    if (botao) botao.disabled = true;
+    return Promise.all([imagemTabela('so'), imagemJogos('so')]).then((xs) => {
+      const lista = xs.filter((x) => x && x.c);
+      if (!lista.length) return null;
+      return window.TNGCompartilhar.enviarVarias(lista, textoPartilha(), linkCenario());
+    }).catch((e) => { T.reportError(e, 'imagens'); aviso('Não consegui gerar as imagens'); }).then(() => { if (botao) botao.disabled = false; });
   }
 
   function abrirCenarios() {
@@ -1027,11 +1065,11 @@
         tab.forEach((x, k) => {
           const y = y0 + k * lh, t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
           if (k % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
-          if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(232,240,160,.16)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
+          if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,.32)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (z) { ctx.fillStyle = S.COR.zonas[z]; ctx.fillRect(x0 - 16, y + 7, 6, lh - 14); }
           ctx.textAlign = 'right'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 25px Archivo';
           ctx.fillText(String(x.pos), x0 + 36, y + 30);
-          if (escudos[k]) ctx.drawImage(escudos[k], x0 + 54, y + 6, 31, 31);
+          S.escudoPlaca(ctx, escudos[k], x0 + 56, y + 8, 27);
           ctx.textAlign = 'left';
           S.textoCabe(ctx, nome(t), x0 + 100, y + 30, 520, x.pos === 1 ? '800' : '700', 26);
           ctx.textAlign = 'right'; ctx.font = '800 26px Archivo'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f6fb';
@@ -1068,14 +1106,15 @@
           const x = 64 + col * (colW + 40), y = top + row * lh;
           if (it.titulo) {
             ctx.fillStyle = S.COR.giz; ctx.font = '800 23px Archivo'; ctx.textAlign = 'left';
-            ctx.fillText(it.titulo.toUpperCase(), x + 4, y + lh * 0.66);
+            ctx.fillText(it.titulo, x + 4, y + lh * 0.66);
             return;
           }
           const j = it.j, p = placarDe(j), h = st.L.times[j.h], a = st.L.times[j.a];
           const cy = y + lh / 2, sz = Math.min(36, lh - 16);
           ctx.fillStyle = 'rgba(255,255,255,.07)'; ctx.fillRect(x, y + 4, colW, lh - 8);
-          if (img[j.h]) ctx.drawImage(img[j.h], x + 12, cy - sz / 2, sz, sz);
-          if (img[j.a]) ctx.drawImage(img[j.a], x + colW - 12 - sz, cy - sz / 2, sz, sz);
+          const ps = Math.round(sz * 0.8);
+          S.escudoPlaca(ctx, img[j.h], x + 14 + (sz - ps) / 2, cy - ps / 2, ps);
+          S.escudoPlaca(ctx, img[j.a], x + colW - 14 - sz + (sz - ps) / 2, cy - ps / 2, ps);
           ctx.fillStyle = '#f4f6fb';
           ctx.textAlign = 'left'; S.textoCabe(ctx, (h.abrev || nome(h)).toUpperCase(), x + 20 + sz, cy + 8, colW / 2 - sz - 66, '700', 22);
           ctx.textAlign = 'right'; S.textoCabe(ctx, (a.abrev || nome(a)).toUpperCase(), x + colW - 20 - sz, cy + 8, colW / 2 - sz - 66, '700', 22);
@@ -1093,6 +1132,7 @@
     const S = window.TNGCompartilhar;
     const url = linkCenario(), texto = textoPartilha();
     window.TNG_IMAGEM = c;                       // para o roteiro de capturas
+    if (previa === 'so') return { c, nome: nomeArq };   // só a imagem (envio em lote)
     if (!previa) return S.enviar(c, nomeArq, texto, url);
     previa.innerHTML = '<img alt="Prévia da imagem" src="' + c.toDataURL('image/png') + '"><div class="j-acoes"><button class="btn primario" data-p="enviar">' + ICON.partilha + 'Compartilhar a imagem</button></div>';
     previa.querySelector('[data-p="enviar"]').onclick = () => S.enviar(c, nomeArq, texto, url);
