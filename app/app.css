@@ -975,3 +975,7 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 .comp-sel.claro a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: #0b1640; }
 .btn.primario.sim-outros { width: 100%; justify-content: center; margin: 0 0 8px; background: var(--gold); border-color: var(--gold); color: #0b1640; }
 @media (max-width: 899px) { .sim-cols.compacto.lado .sim-outros { min-height: 40px; font-size: 13px; padding: 0 6px; gap: 4px; } .sim-cols.compacto.lado .sim-outros svg { width: 14px; height: 14px; } }
+.seg button { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reiniciar { margin: 8px 0 0; display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 10px; border-radius: 99px; border: 1.5px solid var(--line-2); font-size: 12.5px; font-weight: 800; color: var(--ink-2); background: var(--surface); }
+.reiniciar svg { width: 14px; height: 14px; }
+.reiniciar:hover { color: var(--z-rb); border-color: var(--z-rb); }
