@@ -86,6 +86,32 @@ def sem_acento(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn').lower().strip()
 
 
+def escudo_novo(nome, logo):
+    """Time sem escudo nos nossos arquivos (recém-promovido, por exemplo): baixa o da ESPN para
+    midia/escudos/<nome>.png e passa a usar esse arquivo."""
+    if not logo:
+        return None
+    slug = ''.join(c for c in sem_acento(nome).replace(' ', '_') if c.isalnum() or c == '_').strip('_')
+    pasta = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'midia', 'escudos')
+    destino = os.path.join(pasta, slug + '.png')
+    if not os.path.exists(destino):
+        try:
+            req = urllib.request.Request(logo.replace('/500/', '/200/'), headers={'User-Agent': 'tapa-na-gaveta/1.0'})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                png = r.read()
+            if png[:8] != b'\x89PNG\r\n\x1a\n':
+                return None
+            with open(destino, 'wb') as f:
+                f.write(png)
+            print('escudo novo:', nome, '->', slug + '.png')
+        except Exception as e:  # noqa: BLE001
+            print('escudo de', nome, 'não baixou:', e)
+            return None
+    if _ARQUIVOS is not None:
+        _ARQUIVOS.add(slug)
+    return slug
+
+
 def baixar(url):
     req = urllib.request.Request(url, headers={'User-Agent': 'tapa-na-gaveta/1.0', 'Accept-Encoding': 'gzip'})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -317,6 +343,9 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
         if extras:
             print('::warning::escalações não saíram:', e)
 
+    for t in times.values():
+        if not t['escudo']:
+            t['escudo'] = escudo_novo(t['nome'], t.get('logo_espn'))
     sem_escudo = [t['nome'] for t in times.values() if not t['escudo']]
     out = {
         'fonte': 'ESPN (site.api.espn.com, não oficial)', 'liga': LIGA, 'temporada': ano,
