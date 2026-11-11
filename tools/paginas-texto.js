@@ -248,9 +248,9 @@ function gerar(o) {
 
   // ================================================================ jogos
   const JOGOS = [
-    { id: 'draft', rota: '#/jogos/draft', og: 'draft', titulo: 'Football Draft: monte o seu XI e tente a campanha perfeita', descricao: 'Como jogar o Football Draft: sorteie times de várias épocas, escolha um jogador de cada e dispute Copa, Champions ou ligas. Grátis, no navegador e no Android.' },
-    { id: 'milhao', rota: '#/jogos/milhao', og: 'milhao', titulo: 'Jogo do Milhão do Futebol: quiz com 16 perguntas valendo R$ 1 milhão', descricao: 'Como jogar o Jogo do Milhão do Futebol: 16 perguntas, quatro ajudas e mais de mil perguntas sobre futebol brasileiro, europeu e Copa do Mundo. Grátis.' },
-    { id: 'fast', rota: '#/jogos/fast', og: 'fast', titulo: 'Fast Football: partidas relâmpago numa arena redonda', descricao: 'Como jogar o Fast Football: partidas rápidas numa arena redonda com uma barra giratória, partida avulsa ou campeonato em mata-mata. Grátis, no navegador.' },
+    { id: 'draft', rota: '#/jogos/draft', og: 'draft', titulo: 'Football Draft: monte o seu XI e tente a campanha perfeita', descricao: 'Como jogar o Football Draft: sorteie times de várias épocas, escolha um jogador de cada e dispute Copa, Champions ou ligas. Grátis no computador e no Android.' },
+    { id: 'milhao', rota: '#/jogos/milhao', og: 'milhao', titulo: 'Jogo do Milhão do Futebol: quiz com 16 perguntas valendo R$ 1 milhão', descricao: 'Como jogar o Jogo do Milhão do Futebol: 16 perguntas, quatro ajudas e mais de mil perguntas sobre futebol brasileiro, europeu e Copa do Mundo. Grátis no computador e no Android.' },
+    { id: 'fast', rota: '#/jogos/fast', og: 'fast', titulo: 'Fast Football: partidas relâmpago numa arena redonda', descricao: 'Como jogar o Fast Football: partidas rápidas numa arena redonda com uma barra giratória, partida avulsa ou campeonato em mata-mata. Grátis no computador e no Android.' },
   ];
   JOGOS.forEach((g) => {
     const volta = '../../';
