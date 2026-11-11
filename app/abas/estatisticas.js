@@ -7,13 +7,21 @@
   const { esc, loadJson, KEY } = T;
   const CURTO = { athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
   const nome = (t) => CURTO[t.slug] || t.nome;
-  const crest = (t) => '<img class="crest" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">';
+  const crest = (t) => (t.escudo ? '<img class="crest" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
+    : '<span class="crest disco" aria-hidden="true">' + esc(String(t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => Math.round(x * 100) + '%';
   const dec = (x) => x.toFixed(2).replace('.', ',');
 
-  function dados() {
-    return Promise.all([T.script('shared/simulador-core.js'), fetch('dados/brasileirao-2026.json').then((r) => r.json()), fetch('shared/regras-brasileirao-2026.json').then((r) => r.json())]).then(([, base, regras]) => {
-      const cache = loadJson(KEY.espnCache, null);
+  // competições com dados publicados (as mesmas do simulador)
+  let comps = null;
+  function carregarComps() {
+    if (comps) return Promise.resolve(comps);
+    return fetch('shared/competicoes.json').then((r) => r.json()).then((c) => Promise.all(c.lista.map((x) => (x.id === 'seriea' ? true
+      : fetch(x.dados, { method: 'HEAD' }).then((r) => r.ok, () => false)))).then((ok) => (comps = c.lista.filter((x, k) => ok[k]))));
+  }
+  function dados(comp) {
+    return Promise.all([T.script('shared/simulador-core.js'), fetch(comp.dados).then((r) => r.json()), fetch(comp.regras).then((r) => r.json())]).then(([, base, regras]) => {
+      const cache = loadJson(comp.id === 'seriea' ? KEY.espnCache : KEY.espnCache + '.' + comp.id, null);
       const liga = cache && cache.liga && cache.liga.temporada === base.temporada && cache.liga.baixado_em > base.baixado_em ? cache.liga : base;
       return window.TNGCore.preparar(liga, regras);
     });
@@ -62,16 +70,40 @@
       '<li' + (k === 0 ? ' class="um"' : '') + '>' + crest(x.t) + '<span>' + esc(nome(x.t)) + '</span><b class="num">' + valor(x) + '</b></li>').join('') + '</ol>' +
       (rotulo ? '<small>' + esc(rotulo) + '</small>' : '') + '</div>';
   }
+  // artilheiros e garçons: 10 primeiros, "ver todos" e filtro por time
+  const vj = { time: '', todos: {} };
   function jogadoresHtml(J, L) {
     if (!J) return '';
-    const porEscudo = {};
-    L.times.forEach((t) => { porEscudo[t.escudo] = t; });
-    const lista = (titulo, xs, unid) => !xs || !xs.length ? '' : '<section class="ranking-j"><div class="sec-title"><h2>' + titulo + '</h2></div><ol>' + xs.slice(0, 10).map((x, k) => {
-      const t = porEscudo[x.escudo];
-      return '<li' + (k === 0 ? ' class="um"' : '') + '><span class="rk">' + (k + 1) + '</span>' + (t ? crest(t) : '<i class="crest"></i>') + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(t ? nome(t) : '') + '</small></span><b class="num">' + x.n + '</b><small class="rk-u">' + (x.n === 1 ? unid[0] : unid[1]) + '</small></li>';
-    }).join('') + '</ol></section>';
-    const html = lista('Artilheiros', J.artilheiros, ['gol', 'gols']) + lista('Garçons', J.assistencias, ['assist.', 'assist.']);
-    return html ? '<div class="est-cols jogadores">' + html + '</div>' : '';
+    const porEscudo = {}, porId = {};
+    L.times.forEach((t) => { porEscudo[t.escudo] = t; porId[t.id] = t; });
+    const timeDe = (x) => porEscudo[x.escudo] || porId[x.time];
+    const lista = (chave, titulo, xs, unid) => {
+      xs = (xs || []).slice();
+      if (vj.time) {
+        xs = xs.filter((x) => { const t = timeDe(x); return t && t.slug === vj.time; });
+        // artilharia por time: completa com todos os autores de gol daquele time
+        if (chave === 'art' && J.gols_por_jogador) {
+          const ja = {};
+          xs.forEach((x) => { ja[x.nome] = 1; });
+          J.gols_por_jogador.forEach((x) => { const t = timeDe(x); if (t && t.slug === vj.time && !ja[x.nome]) xs.push(x); });
+          xs.sort((a, b) => b.n - a.n);
+        }
+      }
+      if (!xs.length) return vj.time ? '<section class="ranking-j"><div class="sec-title"><h2>' + titulo + '</h2></div><p class="nota">Ninguém deste time na lista.</p></section>' : '';
+      const todos = vj.todos[chave] || vj.time, mostra = todos ? xs : xs.slice(0, 10);
+      let pos = 0, ant = null;
+      return '<section class="ranking-j"><div class="sec-title"><h2>' + titulo + '</h2></div><ol>' + mostra.map((x, k) => {
+        if (x.n !== ant) { pos = k + 1; ant = x.n; }
+        const t = timeDe(x);
+        return '<li' + (pos === 1 ? ' class="um"' : '') + '><span class="rk">' + pos + '</span>' + (t ? crest(t) : '<i class="crest"></i>') + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(t ? nome(t) : '') + '</small></span><b class="num">' + x.n + '</b><small class="rk-u">' + (x.n === 1 ? unid[0] : unid[1]) + '</small></li>';
+      }).join('') + '</ol>' + (!vj.time && xs.length > 10 ? '<button class="link-btn mais-j" data-mais="' + chave + '">' + (vj.todos[chave] ? 'Ver só os 10 primeiros' : 'Ver todos (' + xs.length + ')') + '</button>' : '') + '</section>';
+    };
+    const html = lista('art', 'Artilheiros', J.artilheiros, ['gol', 'gols']) + lista('ass', 'Garçons', J.assistencias, ['assist.', 'assist.']);
+    if (!html && !vj.time) return '';
+    const opcoes = L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR'));
+    return '<div id="jogadores"><label class="btn sel-time filtro-j"><select data-jt aria-label="Filtrar por time"><option value="">Todos os times</option>' +
+      opcoes.map((t) => '<option value="' + esc(t.slug) + '"' + (vj.time === t.slug ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('') + '</select></label>' +
+      '<div class="est-cols jogadores">' + html + '</div></div>';
   }
 
   // Prêmio ESPN Bola de Prata (dados/bola-de-prata.json, preenchido à mão)
@@ -92,10 +124,17 @@
   T.aba('estatisticas', {
     titulo: 'Estatísticas do Brasileirão 2026',
     descricao: 'Campanhas em casa e fora, ataque e defesa, sequências e forma dos times do Brasileirão 2026.',
-    render(view) {
-      const J = fetch('dados/estatisticas-jogadores.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
-      const BP = fetch('dados/bola-de-prata.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
-      return Promise.all([dados(), J, BP]).then(([L, jog, bp]) => {
+    render(view, params) {
+      return carregarComps().then((cs) => {
+      const comp = cs.find((c) => c.id === params[0]) || cs[0];
+      const ehA = comp.id === 'seriea';
+      const J = fetch(comp.jogadores).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      const BP = ehA ? fetch('dados/bola-de-prata.json').then((r) => (r.ok ? r.json() : null)).catch(() => null) : Promise.resolve(null);
+      vj.time = ''; vj.todos = {};
+      return Promise.all([dados(comp), J, BP]).then(([L, jog, bp]) => {
+        document.title = 'Estatísticas · ' + comp.rotulo + ' · Tapa na Gaveta';
+        const chips = cs.length > 1 ? '<nav class="comp-sel claro" aria-label="Competição">' + cs.map((c) => '<a href="#/estatisticas' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>' : '';
+        const rotaSim = '#/simulador' + (ehA ? '' : '/' + comp.id);
         const E = calcular(L);
         const casaFora = E.s.slice().sort((a, b) => (b.casa.pts / Math.max(1, b.casa.j)) - (a.casa.pts / Math.max(1, a.casa.j)));
         const atq = E.s.slice().sort((a, b) => b.total.gp / b.total.j - a.total.gp / a.total.j);
@@ -105,7 +144,7 @@
         const maxAt = Math.max.apply(null, E.s.map((x) => x.total.gp / x.total.j)), maxDf = Math.max.apply(null, E.s.map((x) => x.total.gc / x.total.j));
         const F = { V: 'vitória', E: 'empate', D: 'derrota' };
         view.innerHTML =
-          '<div class="page-head"><div class="kicker">Brasileirão 2026 · Série A</div><h1>Estatísticas</h1>' +
+          '<div class="page-head">' + chips + '<div class="kicker">' + esc(ehA ? 'Brasileirão 2026 · Série A' : comp.rotulo) + '</div><h1>Estatísticas</h1>' +
           '<p>' + E.n + ' jogos disputados. Tudo calculado a partir dos resultados, os mesmos do simulador.</p></div>' +
           '<div class="destaques">' +
           '<div class="dq"><b class="num">' + dec(E.gols / E.n) + '</b><span>gols por jogo</span></div>' +
@@ -137,7 +176,12 @@
           forma.map((x) => '<tr><th scope="row" class="t"><div>' + crest(x.t) + '<span>' + esc(nome(x.t)) + '</span></div></th><td class="pts">' + x.forma5 + '</td><td><span class="forma" role="img" aria-label="Últimos jogos: ' + x.u5.map((r) => F[r]).join(', ') + '">' + x.u5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></td><td class="hide-s">' + x.invicto + '</td></tr>').join('') +
           '</tbody></table></div>' +
           '<p class="nota">Aproveitamento: pontos ganhos divididos pelos pontos disputados. "Sem perder" conta os jogos seguidos sem derrota, do mais recente para trás.</p>' +
-          '<p><a class="btn" href="#/simulador">Simular os jogos que faltam</a></p>';
+          '<p><a class="btn" href="' + rotaSim + '">Simular os jogos que faltam</a></p>';
+        // filtro por time e "ver todos" redesenham só a parte dos jogadores
+        const redesenhar = () => { const el = view.querySelector('#jogadores'); if (el) el.outerHTML = jogadoresHtml(jog, L); };
+        view.onchange = (e) => { if (e.target.matches('[data-jt]')) { vj.time = e.target.value; redesenhar(); } };
+        view.onclick = (e) => { const b = e.target.closest('[data-mais]'); if (b) { vj.todos[b.dataset.mais] = !vj.todos[b.dataset.mais]; redesenhar(); } };
+      });
       });
     },
   });
