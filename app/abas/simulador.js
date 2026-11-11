@@ -237,8 +237,8 @@
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
-      '<div class="acoes sim-acoes' + (meu ? ' so-time' : '') + '">' +
-      (meu ? '' : '<button class="btn primario" data-a="simular">' + ICON.play + 'Simular o resto</button>') +
+      '<div class="acoes sim-acoes so-time">' +
+
       '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
@@ -466,8 +466,8 @@
         (faltam ? 'Faltam <b class="num">' + faltam + '</b> placares. Preencha tudo e revele a tabela final, time a time.' : 'Tudo preenchido. Hora da revelação!') + '</span>' +
         '<button class="btn primario" data-a="revelar">' + ICON.revela + (faltam ? 'Sortear o que falta e revelar' : 'Revelar a tabela final') + '</button></div></div>';
     } else {
-      // com time escolhido, "Simular os outros" fica em cima da tabela (que acompanha a rolagem)
-      if (st.meu) html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + 'Simular os outros</button>';
+      // "Simular" fica em cima da tabela (que acompanha a rolagem), com ou sem time escolhido
+      html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + (st.meu ? 'Simular os outros' : 'Simular o resto') + '</button>';
       html += tabelaHtml(tabelaAtual(), { destaque: st.meu && st.meu.i, delta: true });
     }
     // as linhas que mudam de lugar deslizam até o novo lugar, e os pontos contam (FLIP)
