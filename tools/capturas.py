@@ -26,7 +26,7 @@ def esperar_imagens(pagina):
     pagina.wait_for_timeout(150)
 
 
-ROTAS = [('simulador', '#/'), ('meu-time', '#/simulador/sp'), ('escalacao', '#/escalacao'), ('jogos', '#/jogos'), ('jogo-draft', '#/jogos/draft'), ('jogo-milhao', '#/jogos/milhao'), ('jogo-fast', '#/jogos/fast'), ('estatisticas', '#/estatisticas'), ('404', '#/nao-existe')]
+ROTAS = [('inicio', '#/'), ('simulador', '#/simulador'), ('sobre', '#/sobre'), ('privacidade', '#/privacidade'), ('meu-time', '#/simulador/sp'), ('escalacao', '#/escalacao'), ('jogos', '#/jogos'), ('jogo-draft', '#/jogos/draft'), ('jogo-milhao', '#/jogos/milhao'), ('jogo-fast', '#/jogos/fast'), ('estatisticas', '#/estatisticas'), ('404', '#/nao-existe')]
 
 
 def site(pagina, saida, inteira):

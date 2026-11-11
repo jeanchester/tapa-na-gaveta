@@ -32,6 +32,16 @@
 
   // cor de cada time tirada do próprio escudo (a média dos pixels mais saturados): veste o goleiro
   const imgs = {}, cores = {};
+  // estádio do mandante (as mesmas imagens do Football Draft); seleção joga numa sede da Copa
+  const ESTADIOS_BR = { athletico: 1, atleticomg: 1, bahia: 1, botafogo: 1, bragantino: 1, chapecoense: 1, corinthians: 'curintia', coritiba: 1, cruzeiro: 1, flamengo: 1, fluminense: 1, gremio: 1, internacional: 1, mirassol: 1, palmeiras: 1, remo: 1, santos: 1, sp: 1, vasco: 1, vitoria: 1 };
+  const SEDES = ['atlanta', 'boston', 'dallas', 'bc_place'];
+  const estadios = {};
+  function estadioDe(t) {
+    const br = ESTADIOS_BR[t];
+    const id = br ? (br === 1 ? t : br) : SEDES[Array.from(String(t)).reduce((s, c) => s + c.charCodeAt(0), 0) % SEDES.length];
+    if (!estadios[id]) { estadios[id] = new Image(); estadios[id].src = '../draft/shared/estadios/' + id + '.webp'; }
+    return estadios[id];
+  }
   function imagem(t) {
     if (!imgs[t]) {
       imgs[t] = new Image();
@@ -100,6 +110,7 @@
       (cfg.modo === 'jogar' ? '<button class="ctrl esq" data-giro="1" aria-label="Girar a barra para a esquerda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button><button class="ctrl dir" data-giro="-1" aria-label="Girar a barra para a direita"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>' : '') +
       '</div></div>';
     P = criarMundo(a, b, opc || {});
+    P.estadio = estadioDe(a);
     ajustarTela();
     som('apito');
     P.raf = requestAnimationFrame(laco);
@@ -265,10 +276,19 @@
   function desenhar(p) {
     if (!ctx) return;
     ctx.clearRect(0, 0, W, H);
+    // estádio do mandante ao fundo (cobre a tela, um pouco escurecido para a arena aparecer)
+    const est = p.estadio;
+    if (est && est.complete && est.naturalWidth) {
+      const s = Math.max(W / est.naturalWidth, H / est.naturalHeight), ew = est.naturalWidth * s, eh = est.naturalHeight * s;
+      ctx.drawImage(est, (W - ew) / 2, (H - eh) / 2, ew, eh);
+      ctx.fillStyle = 'rgba(4,10,28,.38)'; ctx.fillRect(0, 0, W, H);
+    }
     // gramado listrado dentro da arena
     ctx.save();
     ctx.beginPath(); ctx.arc(CX, CY, RAIO + 8, 0, Math.PI * 2); ctx.clip();
+    ctx.globalAlpha = est && est.naturalWidth ? 0.88 : 1;
     for (let k = -6; k < 6; k++) { ctx.fillStyle = k % 2 ? '#14512f' : '#175c36'; ctx.fillRect(0, CY + k * 40, W, 40); }
+    ctx.globalAlpha = 1;
     ctx.strokeStyle = 'rgba(255,255,255,.28)'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(CX - RAIO, CY); ctx.lineTo(CX + RAIO, CY); ctx.stroke();
     ctx.beginPath(); ctx.arc(CX, CY, 50, 0, Math.PI * 2); ctx.stroke();
@@ -408,7 +428,7 @@
 
   function partilhar(txt) {
     const url = (window.parent !== window ? window.parent.location.origin + window.parent.location.pathname : location.origin + '/') + '#/jogos/fast';
-    if (navigator.share) { navigator.share({ text: txt, url }).catch(() => null); return; }
+    if (navigator.share) { navigator.share({ text: txt + '\n' + url }).catch(() => null); return; }
     window.open('https://wa.me/?text=' + encodeURIComponent(txt + '\n' + url), '_blank', 'noopener');
   }
 

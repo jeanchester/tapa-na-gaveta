@@ -22,6 +22,18 @@
   window.addEventListener('scroll', aoRolar, { passive: true });
   aoRolar();
 
+  // quanto do topo fica grudado na tela (no celular só a linha das abas): o que for grudado
+  // abaixo dele (as abas Jogos/Tabela do simulador) usa --topo-fixo para não ficar escondido
+  function medirTopo() {
+    const head = document.querySelector('.head');
+    if (!head) return;
+    const topo = parseFloat(getComputedStyle(head).top) || 0;
+    document.documentElement.style.setProperty('--topo-fixo', Math.max(0, head.offsetHeight + topo) + 'px');
+  }
+  window.addEventListener('resize', medirTopo);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(medirTopo);
+  medirTopo();
+
   // ---------------------------------------------------------------- campo de pontos
   function campo(host) {
     if (host.querySelector('canvas.campo-pontos')) return;
@@ -102,7 +114,7 @@
   }
 
   // ---------------------------------------------------------------- entrada suave dos blocos
-  const ALVOS = '.sim-cols .jogo, .rodadas, .sec-title, .painel-lado > *, .destaques .dq, .marcos li, .est-cols section, .jogo-card, .escala-grid > *, .foot-col, .foot-marca';
+  const ALVOS = '.sim-cols .jogo, .rodadas, .sec-title, .painel-lado > *, .destaques .dq, .marcos li, .est-cols section, .jogo-card, .escala-grid > *, .foot-col, .foot-marca, .podio, .ranking-j li';
   let io = null;
   function preparar(raiz) {
     if (parado() || !('IntersectionObserver' in window)) return;

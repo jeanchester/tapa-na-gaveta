@@ -22,12 +22,17 @@ fs.mkdirSync(dist, { recursive: true });
 const PUBLICAR = [
   'index.html', 'app', 'shared',
   'dados/brasileirao-2026.json', 'dados/elencos-escalacao.json', 'dados/times-voce-escala.json',
-  'midia/escudos', 'midia/icones', 'midia/og', 'jogos',
+  'midia/escudos', 'midia/icones', 'midia/og', 'jogos', 'textos',
 ];
 for (const item of PUBLICAR) {
   const de = path.join(raiz, item);
   if (!fs.existsSync(de)) throw new Error('falta ' + item);
   fs.cpSync(de, path.join(dist, item), { recursive: true });
+}
+// dados opcionais (saem do Actions; o site funciona sem eles)
+const COMPETICOES = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/competicoes.json'), 'utf8')).lista;
+for (const f of ['dados/ultimas-escalacoes.json', 'dados/estatisticas-jogadores.json'].concat(COMPETICOES.map((c) => c.dados))) {
+  if (fs.existsSync(path.join(raiz, f))) fs.cpSync(path.join(raiz, f), path.join(dist, f));
 }
 // JSON publicados sem espaços (o retrato da ESPN é gravado indentado para ser legível no repositório)
 for (const f of ['dados/brasileirao-2026.json', 'dados/elencos-escalacao.json', 'dados/times-voce-escala.json', 'shared/regras-brasileirao-2026.json', 'jogos/milhao/perguntas.json']) {
@@ -90,6 +95,33 @@ paginas.filter((p) => p.caminho).forEach((p) => {
     '  <script>location.replace("' + volta + '" + "' + p.rota + '" + (location.search ? "?" + location.search.slice(1) : ""));</script>\n' +
     '</head>\n<body style="background:#0b1640;color:#f4f6fb;font:16px system-ui;padding:24px"><a href="' + volta + p.rota + '" style="color:#ffc23d">Abrir o Tapa na Gaveta</a></body>\n</html>\n');
   n++;
+});
+
+// ------------------------------------------------------------------ páginas de texto estáticas
+// Quem somos, Como funciona, Privacidade e Termos também saem como HTML de verdade (sem
+// redirecionar): é o que o Google e a revisão do AdSense leem sem rodar JavaScript.
+const TEXTOS = [
+  { id: 'sobre', caminho: 'sobre/', titulo: 'Quem somos', descricao: 'Quem faz o Tapa na Gaveta, o simulador do Brasileirão feito por torcedores, e de onde vêm os dados.' },
+  { id: 'modelo', caminho: 'como-funciona/', titulo: 'Como funciona o simulador', descricao: 'Como o Tapa na Gaveta calcula as chances de cada jogo e de título, Libertadores e rebaixamento: Poisson, forma recente, mando de campo e Monte Carlo.' },
+  { id: 'privacidade', caminho: 'privacidade/', titulo: 'Política de privacidade', descricao: 'Quais dados o Tapa na Gaveta usa, cookies, publicidade e como controlar os seus dados.' },
+  { id: 'termos', caminho: 'termos/', titulo: 'Termos de uso', descricao: 'Termos de uso do Tapa na Gaveta, simulador do Brasileirão.' },
+];
+const appSrc = fs.readFileSync(path.join(raiz, 'app/app.js'), 'utf8');
+const mEmail = /CONTATO = \{ email: '([^']*)', github: '([^']*)'/.exec(appSrc);
+const contato = mEmail && mEmail[1] ? 'Escreva para <a href="mailto:' + mEmail[1] + '">' + mEmail[1] + '</a>.' : 'Mande uma mensagem pelo <a href="' + (mEmail ? mEmail[2] : '#') + '">GitHub do projeto</a>.';
+TEXTOS.forEach((t) => {
+  const corpo = fs.readFileSync(path.join(raiz, 'textos', t.id + '.html'), 'utf8').replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<span data-contato><\/span>/g, contato)
+    .replace(/href="#\/(sobre|modelo|privacidade|termos)"/g, (m, k) => 'href="../' + TEXTOS.find((x) => x.id === k).caminho + '"')
+    .replace(/href="#\//g, 'href="../#/');
+  const p = { caminho: t.caminho, og: 'simulador', titulo: t.titulo, descricao: t.descricao };
+  gravar(t.caminho + 'index.html', '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  ' + meta(p) +
+    '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="../app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="../app/app.css">\n</head>\n<body>\n' +
+    '  <header class="head"><div class="wrap head-row"><a class="marca" href="../" aria-label="Tapa na Gaveta, início"><b style="font:italic 900 19px var(--f-num);color:#fff;white-space:nowrap">tapa na gaveta</b></a><span class="sp"></span><a class="btn primario" style="background:var(--gold);border-color:var(--gold);color:#0b1640;white-space:nowrap" href="../#/simulador">Simular</a></div></header>\n' +
+    '  <main class="wrap"><article class="texto">' + corpo + '<nav class="texto-nav" aria-label="Sobre o site">' +
+    TEXTOS.map((x) => '<a href="../' + x.caminho + '"' + (x.id === t.id ? ' aria-current="page"' : '') + '>' + x.titulo.replace('Como funciona o simulador', 'Como funciona') + '</a>').join('') +
+    '<a href="../">Início</a></nav></article></main>\n</body>\n</html>\n');
+  paginas.push(p);
 });
 
 // ------------------------------------------------------------------ sitemap e robots

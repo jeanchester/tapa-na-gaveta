@@ -41,12 +41,14 @@
     partilha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>',
     pasta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
     lixo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+    dado: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="9" cy="9" r=".6" fill="currentColor"/><circle cx="15" cy="15" r=".6" fill="currentColor"/><circle cx="15" cy="9" r=".6" fill="currentColor"/><circle cx="9" cy="15" r=".6" fill="currentColor"/></svg>',
     revela: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16V9M12 16V5M17 16v-4"/></svg>',
   };
 
   // ================================================================== estado
   const st = {
     base: null, liga: null, regras: null, fonte: 'publicado', quando: null,
+    comps: null, comp: null,        // competições (shared/competicoes.json) e a escolhida
     L: null, M: null,
     p: {}, sim: {},                 // placares do usuário e quais foram sorteados
     prefs: null, aba: 'jogos', meu: null, soMeus: true,
@@ -57,30 +59,51 @@
   };
   const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000 };
 
+  // Série A usa as chaves de sempre; as outras competições ganham um sufixo
+  const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
+  const rotaBase = () => '#/simulador' + (st.comp && st.comp.id !== 'seriea' ? '/' + st.comp.id : '');
+  const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês' };
+  const ehSerieA = () => !st.comp || st.comp.id === 'seriea';
+
   function carregarPrefs() { st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {})); }
   function salvarPrefs() { saveJson(KEY.prefs, st.prefs); }
   function salvarPlacares() {
     if (st.compartilhado) return;            // olhando um cenário de outra pessoa: não grava por cima do seu
-    saveJson(KEY.placares, { temporada: st.liga.temporada, p: st.p, sim: st.sim });
+    saveJson(k_(KEY.placares), { temporada: st.liga.temporada, p: st.p, sim: st.sim });
   }
 
   // ================================================================== dados (três camadas)
   function json(url) { return fetch(url).then((r) => { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }); }
 
-  function carregarDados() {
-    if (st.base) return Promise.resolve();
-    return Promise.all([json('dados/brasileirao-2026.json'), json('shared/regras-brasileirao-2026.json')]).then(([liga, regras]) => {
+  function carregarComps() {
+    if (st.comps) return Promise.resolve(st.comps);
+    // só aparecem as competições que já têm o retrato publicado (o Actions grava os arquivos)
+    return json('shared/competicoes.json').then((c) => Promise.all(c.lista.map((x) => (x.id === 'seriea' ? true
+      : fetch(x.dados, { method: 'HEAD' }).then((r) => r.ok, () => false)))).then((ok) => {
+      st.todas = c.lista;
+      st.comps = c.lista.filter((x, k) => ok[k]);
+      return st.todas;
+    }));
+  }
+  function carregarDados(id) {
+    const comp = st.todas.find((c) => c.id === id) || st.todas[0];
+    if (st.base && st.comp && st.comp.id === comp.id) return Promise.resolve();
+    const antes = st.comp;
+    return Promise.all([json(comp.dados), json(comp.regras)]).then(([liga, regras]) => {
+      if (antes && antes !== comp && st.worker) { st.worker.terminate(); st.worker = null; st.pedidos = {}; }
+      st.comp = comp; st.p = {}; st.sim = {}; st.chances = null; st.precisa = null; st.chancesVersao = -1; st.precisaVersao = '';
       st.base = liga; st.regras = regras;
-      const cache = loadJson(KEY.espnCache, null);
+      ultimaBusca = 0;
+      const cache = loadJson(k_(KEY.espnCache), null);
       if (cache && cache.liga && cache.liga.temporada === liga.temporada && cache.liga.baixado_em > liga.baixado_em && Array.isArray(cache.liga.jogos) && cache.liga.jogos.length >= liga.jogos.length - 5) {
         st.liga = cache.liga; st.fonte = 'guardado'; st.quando = cache.liga.baixado_em;
       } else {
         st.liga = liga; st.fonte = 'publicado'; st.quando = liga.baixado_em;
       }
-      const salvo = loadJson(KEY.placares, {});
+      const salvo = loadJson(k_(KEY.placares), {});
       if (salvo && salvo.temporada === liga.temporada) { st.p = salvo.p || {}; st.sim = salvo.sim || {}; }
       recalcular();
-      migrarAntigos();
+      if (ehSerieA()) migrarAntigos();
     });
   }
 
@@ -115,10 +138,12 @@
     if (/[?&]offline\b/.test(location.search) || T.ARTIFACT || buscandoESPN || Date.now() - ultimaBusca < 5 * 60000 || !window.TNGEspn) return;
     buscandoESPN = true;
     desenharCarimbo();
-    window.TNGEspn.atualizar(st.liga).then((m) => {
+    const comp = st.comp;
+    window.TNGEspn.atualizar(st.liga, { liga: comp.espn }).then((m) => {
+      if (st.comp !== comp) { buscandoESPN = false; return; }      // trocou de competição no meio
       ultimaBusca = Date.now();
       delete m.mudou;
-      saveJson(KEY.espnCache, { liga: m });
+      saveJson(k_(KEY.espnCache), { liga: m });
       const mudou = JSON.stringify(m.jogos) !== JSON.stringify(st.liga.jogos);
       st.liga = m; st.fonte = 'ao vivo'; st.quando = m.baixado_em;
       buscandoESPN = false;
@@ -145,7 +170,8 @@
   const alvoPlacares = () => st.compartilhado || st.p;
   const placarDe = (j) => window.TNGCore.placarDe(j, placares());
   const timePorSlug = (s) => st.L.times.find((t) => t.slug === s) || null;
-  const crest = (t, cls) => '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo || 'vazio') + '.png" alt="" width="24" height="24" loading="lazy">';
+  const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
+    : '<span class="' + (cls || 'crest') + ' disco" aria-hidden="true">' + esc((t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => (x == null ? '–' : x <= 0 ? '–' : x < 0.005 ? '<1%' : x > 0.995 && x < 1 ? '>99%' : Math.round(x * 100) + '%');
   const BR = { timeZone: 'America/Sao_Paulo' };
   const fmtDia = (iso) => new Date(iso).toLocaleDateString('pt-BR', Object.assign({ weekday: 'short', day: '2-digit', month: '2-digit' }, BR)).replace('.', '').replace(/^./, (c) => c.toUpperCase());
@@ -195,8 +221,8 @@
     const opcoes = st.L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR')).map((t) =>
       '<option value="' + esc(t.slug) + '"' + (meu && meu.i === t.i ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('');
     v.innerHTML =
-      '<div class="sim-topo"><div class="page-head"><div class="kicker">Brasileirão 2026 · Série A</div>' +
-      '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : 'Simulador do Brasileirão') + '</h1>' +
+      '<div class="sim-topo"><div class="page-head">' + seletorComp() + '<div class="kicker">' + (ehSerieA() ? 'Brasileirão 2026 · Série A' : esc(st.comp.rotulo)) + '</div>' +
+      '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : esc(TITULO[st.comp.id] || 'Simulador')) + '</h1>' +
       '<p id="sim-frase">' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       letreiro() +
@@ -204,7 +230,7 @@
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes">' +
       '<button class="btn primario" data-a="simular">' + ICON.play + (meu ? 'Simular os outros' : 'Simular o resto') + '</button>' +
-      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Meu time</option>' + opcoes + '</select></label>' +
+      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
@@ -226,6 +252,13 @@
     desenharTabela();
     desenharChances();
     atualizarBarraRevelar();
+  }
+
+  // troca de competição: chips no topo (a Série A é a casa)
+  function seletorComp() {
+    if (st.comps.length < 2) return '';
+    return '<nav class="comp-sel" aria-label="Competição">' + st.comps.map((c) =>
+      '<a href="#/simulador' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === st.comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>';
   }
 
   // Letreiro dos próximos jogos (corre sozinho; parado e rolável quando o aparelho pede menos movimento)
@@ -262,7 +295,7 @@
     }
     el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? (art(lider) === 'a' ? 'Campeã' : 'Campeão') + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
       '<div class="rs-time"><span class="rs-placa g">' + crest(lider) + '</span><div><b>' + esc(nome(lider)) + '</b><span class="num">' + tab[0].pts + ' pontos</span></div></div></div>' +
-      '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>Também na Libertadores</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
+      '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>' + esc(st.regras.rotulo_grupo || 'Também na Libertadores') + '</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
       '<div><small><i style="background:var(--z-rb)"></i>' + (fim && tot ? 'Rebaixados' : 'Caem') + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
     const chave = [tab[0].i].concat(g.map((x) => x.i), z.map((x) => x.i)).join();
     if (resumoAntes && chave !== resumoAntes && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
@@ -275,10 +308,10 @@
     const el = st.view && st.view.querySelector('#carimbo');
     if (!el) return;
     const quando = quandoTxt(st.quando);
-    const txt = st.fonte === 'ao vivo' ? 'Atualizado ' + quando + ' · ESPN'
-      : 'Dados de ' + quando.replace(/^em /, '') + (buscandoESPN ? ' · atualizando…' : st.fonte === 'guardado' ? ' · sem conexão com a ESPN' : '');
-    el.className = 'carimbo' + (st.fonte === 'ao vivo' ? ' ao-vivo' : '');
-    el.innerHTML = '<i></i>' + esc(txt);
+    // com a ESPN respondendo, nada de carimbo; sem conexão, avisa de quando são os dados
+    el.hidden = st.fonte !== 'guardado' || buscandoESPN;
+    el.className = 'carimbo';
+    el.innerHTML = el.hidden ? '' : '<i></i>' + esc('Dados de ' + quando.replace(/^em /, '') + ' · sem conexão com a ESPN');
   }
 
   // ---------------------------------------------------------------- jogos
@@ -346,7 +379,7 @@
       time(a) + '</div>' +
       '<div class="pm" role="group" aria-label="Ajustar o placar">' +
       '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
-      '<span></span>' +
+      '<button type="button" class="dado" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button>' +
       '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
       '<div class="prob">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
   }
@@ -602,11 +635,11 @@
     } else {
       const cs = st.chances.chances.slice().sort((a, b) => a.posMedia - b.posMedia);
       html += '<div class="tbl-box' + (st.chancesVersao !== st.versao ? ' desat' : '') + '"><table class="tbl chances"><caption class="sr">Chances de cada time</caption><thead><tr><th class="t" scope="col">Time</th>' +
-        '<th scope="col" title="1º lugar">Título</th><th scope="col" title="1º ao 5º (fase de grupos ou preliminar)">Liberta</th><th scope="col" title="6º ao 11º">Sula</th><th scope="col" title="17º ao 20º">Queda</th></tr></thead><tbody>' +
+        '<th scope="col" title="1º lugar">Título</th>' + colunas().map((k) => '<th scope="col" title="' + esc(k.titulo || '') + '">' + esc(k.rotulo) + '</th>').join('') + '</tr></thead><tbody>' +
         cs.map((c) => {
-          const t = st.L.times[c.i], lib = (c.lib || 0) + (c.pre || 0);
+          const t = st.L.times[c.i];
           return '<tr data-t="' + c.i + '" tabindex="0" aria-expanded="false"><th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span></div></th>' +
-            '<td>' + pct(c.titulo) + '</td><td>' + pct(lib) + '</td><td>' + pct(c.sula) + '</td><td class="queda">' + pct(c.rb) + '</td></tr>';
+            '<td>' + pct(c.titulo) + '</td>' + colunas().map((k) => '<td' + (k.zonas.indexOf('rb') >= 0 ? ' class="queda"' : '') + '>' + pct(k.zonas.reduce((s, z) => s + (c[z] || 0), 0)) + '</td>').join('') + '</tr>';
         }).join('') + '</tbody></table></div>' +
         '<p class="nota">Cada simulação sorteia os placares que faltam pelas probabilidades, respeitando os que você preencheu. Toque num time para ver em que posições ele costuma terminar.</p>';
     }
@@ -629,6 +662,15 @@
     sula: ['garante vaga em copa continental', 'fica fora das copas', 'Copa continental (1º a 11º)', 'Vaga em copa'],
     escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda', 'Escapar da queda'],
   };
+  // colunas da tabela de chances: as do regulamento (regras.colunas) ou as do Brasileirão
+  function colunas() {
+    return st.regras.colunas || [{ rotulo: 'Liberta', zonas: ['lib', 'pre'], titulo: '1º ao 5º (fase de grupos ou preliminar)' }, { rotulo: 'Sula', zonas: ['sula'], titulo: '6º ao 11º' }, { rotulo: 'Queda', zonas: ['rb'], titulo: '17º ao 20º' }];
+  }
+  // frases de cada objetivo: as da competição (zona.verbo / zona.subst) ou as do Brasileirão
+  const zonaDoObj = (id) => st.regras.zonas.find((z) => z.id === (id === 'escapar' ? 'rb' : id));
+  const verbo = (id) => { const z = zonaDoObj(id); return (z && z.verbo) || VERBO[id] || [id, id, id, id]; };
+  const subst = (id) => { const z = zonaDoObj(id); return (z && z.subst) || SUBST[id] || id; };
+
   function pedirPrecisa() {
     const versao = st.versao + ':' + st.meu.i;
     if (st.precisaVersao === versao) return;
@@ -652,19 +694,19 @@
     html += '<div class="obj-chips" role="list">' + sit.map(({ o, s: sx }) => {
       const m = mc && mc.find((x) => x.id === o.id);
       const v = sx === 'garantido' ? '100%' : sx === 'impossivel' ? '0%' : m ? (m.chance <= 0 ? '0%' : pct(m.chance)) : '…';
-      const txt = '<span>' + esc(VERBO[o.id][3]) + '</span><b class="num">' + v + '</b>';
+      const txt = '<span>' + esc(verbo(o.id)[3]) + '</span><b class="num">' + v + '</b>';
       return sx === 'aberto' ? '<a role="listitem" class="obj-chip" href="#" data-obj="' + o.id + '">' + txt + '</a>'
         : '<span role="listitem" class="obj-chip ' + (sx === 'garantido' ? 'sim' : 'nao') + '">' + txt + '</span>';
     }).join('') + '</div>';
     const dist = mc && st.precisa.dist;
     if (dist && restantes().some((j) => !window.TNGCore.placarDe(j, plac))) html += '<p class="c-sub">Onde ' + esc(o_(t)) + ' termina</p>' + distribuicaoHtml({ dist }, t);
     // basta o objetivo mais alto já garantido e o mais modesto já impossível
-    if (garantidos.length) html += '<p class="garante sim"><b>Já garantiu</b> ' + esc(SUBST[garantidos[0].o.id]) + '.</p>';
-    if (impossiveis.length) html += '<p class="garante nao"><b>Já não alcança</b> ' + esc(SUBST[impossiveis[impossiveis.length - 1].o.id]) + '.</p>';
+    if (garantidos.length) html += '<p class="garante sim"><b>Já garantiu</b> ' + esc(subst(garantidos[0].o.id)) + '.</p>';
+    if (impossiveis.length) html += '<p class="garante nao"><b>Já não alcança</b> ' + esc(subst(impossiveis[impossiveis.length - 1].o.id)) + '.</p>';
     if (!abertos.length) html += '<p class="nota">Nada mais em jogo para ' + esc(o_(t)) + ' nos objetivos do campeonato.</p>';
     abertos.forEach(({ o }) => {
       const m = mc && mc.find((x) => x.id === o.id);
-      html += '<div class="obj" id="obj-' + o.id + '"><div class="obj-topo"><h3>' + esc(VERBO[o.id][2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
+      html += '<div class="obj" id="obj-' + o.id + '"><div class="obj-topo"><h3>' + esc(verbo(o.id)[2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
       // poucos jogos que importam: condições exatas; muitos: o que mais pesa nas simulações
       const rel = jogosDoObjetivo(o, t);
       if (rel.length <= 10) {
@@ -723,13 +765,13 @@
   }
 
   function condicoesHtml(o, t, rel, m) {
-    const C = window.TNGCore, plac = placares(), V = VERBO[o.id];
+    const C = window.TNGCore, plac = placares(), V = verbo(o.id);
     const en = C.enumerar(st.L, plac, t.i, o, rel);
     const pp = C.porPontos(en);
     let html = '';
     const nJ = en.jogosT;
     if (pp.garante != null && pp.garante > 0) {
-      html += '<p class="c-pts">Garante ' + esc(SUBST[o.id]) + ' se somar <b class="num">' + pp.garante + ' ' + (pp.garante === 1 ? 'ponto' : 'pontos') + '</b> ' +
+      html += '<p class="c-pts">Garante ' + esc(subst(o.id)) + ' se somar <b class="num">' + pp.garante + ' ' + (pp.garante === 1 ? 'ponto' : 'pontos') + '</b> ' +
         (nJ === 1 ? 'no jogo que falta' : 'nos ' + nJ + ' jogos que faltam') + ' (de ' + pp.max + ' possíveis).</p>';
     } else if (pp.garante === 0) {
       html += '<p class="c-pts">Já garantido nos resultados que importam.</p>';
@@ -792,12 +834,12 @@
         (x.pos === 1 ? '<span class="rv-tag">Campeão</span>' : z === 'rb' ? '<span class="rv-tag rb">Rebaixado</span>' : '') +
         '<span class="rv-pts" data-pts="' + x.pts + '">' + (reduz ? x.pts : 0) + '</span></li>';
     }).join('');
-    ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">Brasileirão 2026</div><h2>Tabela final</h2></div>' +
+    ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">' + esc(st.comp.rotulo) + '</div><h2>Tabela final</h2></div>' +
       '<button class="icon-btn" data-rv="fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
       '<div class="rv-opcoes"><div class="rv-ordem" role="group" aria-label="Ordem da revelação"><button data-rv="baixo" aria-pressed="' + (st.prefs.ordem !== 'cima') + '">De baixo para cima</button><button data-rv="cima" aria-pressed="' + (st.prefs.ordem === 'cima') + '">De cima para baixo</button></div>' +
-      '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, no toque</button></div></div>' +
+      '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, eu toco</button></div></div>' +
       '<ol class="rv-lista">' + linhas + '</ol>' +
-      '<div class="rv-fim"><button class="btn primario" data-rv="proximo" hidden></button><button class="btn" data-rv="pular">Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="video" hidden>Gerar vídeo</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
+      '<div class="rv-fim"><button class="btn primario" data-rv="comecar">' + ICON.revela + 'Revelar</button><button class="btn primario" data-rv="proximo" hidden></button><button class="btn" data-rv="pular" hidden>Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="video" hidden>Gerar vídeo</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
     document.body.appendChild(ov);
     document.body.classList.add('sem-rolagem');
     const lista = ov.querySelector('.rv-lista');
@@ -809,8 +851,9 @@
       limparTimers();
       const jaAcabou = ov.classList.contains('acabou');
       linhasEl.forEach((li) => { li.classList.add('on'); li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; });
-      botao('pular').hidden = true; botao('proximo').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
-      botao('video').hidden = !Object.keys(placares()).length;
+      botao('pular').hidden = true; botao('proximo').hidden = true; botao('comecar').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
+      ov.classList.remove('preparando');
+      botao('video').hidden = !Object.keys(placares()).length || !T.criador();
       ov.classList.add('acabou');
       lista.scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });       // termina mostrando o campeão
       // depois da revelação, a tabela fica à mostra no simulador
@@ -843,9 +886,20 @@
       };
       requestAnimationFrame(passo);
     }
-    function tocar() {
+    // antes de começar: as opções ficam à mostra e nada se mexe até o toque em "Revelar"
+    function preparar() {
       limparTimers();
       ov.classList.remove('acabou');
+      ov.classList.add('preparando');
+      linhasEl.forEach((li) => { li.classList.remove('on', 'acende'); li.querySelector('.rv-pts').textContent = '0'; });
+      ['pular', 'proximo', 'partilhar', 'denovo', 'video'].forEach((k) => { botao(k).hidden = true; });
+      botao('comecar').hidden = false;
+      lista.scrollTop = st.prefs.ordem !== 'cima' ? lista.scrollHeight : 0;
+    }
+    function tocar() {
+      limparTimers();
+      ov.classList.remove('acabou', 'preparando');
+      botao('comecar').hidden = true;
       linhasEl.forEach((li) => { li.classList.remove('on', 'acende'); li.querySelector('.rv-pts').textContent = '0'; });
       botao('pular').hidden = false; botao('partilhar').hidden = true; botao('denovo').hidden = true; botao('video').hidden = true;
       const debaixo = st.prefs.ordem !== 'cima';
@@ -888,23 +942,24 @@
       if (a === 'fechar') fechar();
       else if (a === 'pular') fim();
       else if (a === 'proximo') proximo();
-      else if (a === 'denovo') tocar();
+      else if (a === 'denovo') preparar();
+      else if (a === 'comecar') tocar();
       else if (a === 'baixo' || a === 'cima' || a === 'auto' || a === 'manual') {
         if (a === 'baixo' || a === 'cima') st.prefs.ordem = a; else st.prefs.revelacao = a;
         salvarPrefs();
         b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.rv === a));
-        tocar();
+        preparar();
       } else if (a === 'partilhar') { fechar(); abrirCompartilhar(); }
-      else if (a === 'video') { fechar(); gerarVideo(); }
+      else if (a === 'video') { fechar(); gerarVideo(2); }
     });
     st.fecharRevela = fechar;
-    botao('pular').focus({ preventScroll: true });
-    tocar();
+    preparar();
+    botao('comecar').focus({ preventScroll: true });
     window.TNG_REVELA = { fim, tocar, fechar };          // para o roteiro de capturas
   }
 
   // vídeo da tabela mudando placar a placar, na ordem das datas dos jogos
-  function gerarVideo() {
+  function gerarVideo(vel) {
     const C = window.TNGCore, plac = placares();
     const jogos = restantes().filter((j) => placarDe(j)).sort((x, y) => (x.data < y.data ? -1 : x.data > y.data ? 1 : 0));
     if (!jogos.length) { aviso('Preencha pelo menos um placar para gerar o vídeo'); return; }
@@ -922,6 +977,7 @@
           completo: jogos.length === restantes().length,
           endereco: T.enderecoSite(),
           texto: textoPartilha() + ' ' + linkCenario(),
+          vel: vel || 2,
         });
       });
     }).catch((e) => { T.reportError(e, 'video'); aviso('Não consegui gerar o vídeo'); });
@@ -951,13 +1007,13 @@
     // no Artifact o link só leva um nome simples: vai a aba (e o time), sem os placares
     if (T.ARTIFACT) return T.urlBase() + '#simulador' + (st.meu ? '-' + st.meu.slug : '');
     // na versão publicada, o link usa as páginas de entrada (título e imagem do time no WhatsApp)
-    if (T.RELEASE) return T.urlBase().replace(/index\.html$/, '') + (st.meu ? 'simulador/' + st.meu.slug + '/' : '') + c;
-    return T.urlBase() + '#/simulador' + (st.meu ? '/' + st.meu.slug : '') + c;
+    if (T.RELEASE && ehSerieA()) return T.urlBase().replace(/index\.html$/, '') + (st.meu ? 'simulador/' + st.meu.slug + '/' : '') + c;
+    return T.urlBase() + rotaBase() + (st.meu ? '/' + st.meu.slug : '') + c;
   }
   function carregarComp() { return T.script('app/compartilhar.js'); }
   function textoPartilha() {
     const tab = tabelaAtual(), camp = st.L.times[tab[0].i];
-    return 'Na minha simulação do Brasileirão 2026, ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
+    return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
   }
 
   function abrirCompartilhar() {
@@ -970,9 +1026,10 @@
       '<h3 class="j-sub">Imagens prontas</h3>' +
       (n ? '<div class="j-acoes"><button class="btn primario" data-j="img-todas">' + ICON.partilha + 'Enviar as duas imagens</button></div>' : '') +
       '<div class="j-acoes"><button class="btn' + (n ? '' : ' primario') + '" data-j="img-tabela">Tabela final (feed)</button><button class="btn" data-j="img-jogos"' + (n ? '' : ' disabled') + '>Os meus placares (stories)</button></div>' +
+      '<div class="j-acoes"><button class="btn" data-j="gif">GIF da tabela batendo</button></div>' +
       '<div class="previa" id="previa"></div>' +
-      '<h3 class="j-sub">Vídeo</h3><p class="nota">A tabela mudando placar a placar, com o seu campeão no fim (cerca de ' + Math.round(1.6 + 4.2 + n * Math.min(1.5, Math.max(0.6, 34 / Math.max(1, n)))) + ' segundos).</p>' +
-      '<div class="j-acoes"><button class="btn" data-j="video"' + (n ? '' : ' disabled') + '>Gerar o vídeo</button></div>');
+      (T.criador() ? '<h3 class="j-sub">Vídeo (modo criador)</h3><p class="nota">A tabela mudando placar a placar. Em 2x fica com cerca de ' + Math.round((1.6 + 4.2 + n * Math.min(1.5, Math.max(0.6, 34 / Math.max(1, n)))) / 2) + ' segundos.</p>' +
+        '<div class="j-acoes"><button class="btn primario" data-j="video2"' + (n ? '' : ' disabled') + '>Vídeo 2x</button><button class="btn" data-j="video"' + (n ? '' : ' disabled') + '>Vídeo 1x</button></div>' : ''));
     corpo.addEventListener('click', (e) => {
       const b = e.target.closest('[data-j]');
       if (!b) return;
@@ -982,7 +1039,9 @@
       else if (a === 'img-tabela') imagemTabela(corpo.querySelector('#previa'));
       else if (a === 'img-jogos') imagemJogos(corpo.querySelector('#previa'));
       else if (a === 'img-todas') enviarImagens(b);
-      else if (a === 'video') gerarVideo();
+      else if (a === 'video') gerarVideo(1);
+      else if (a === 'video2') gerarVideo(2);
+      else if (a === 'gif') gifTabela(corpo.querySelector('#previa'));
     });
   }
 
@@ -997,7 +1056,7 @@
   }
 
   function abrirCenarios() {
-    const lista = (loadJson(KEY.cenarios, { itens: [] }).itens || []).filter((c) => c && c.p);
+    const lista = (loadJson(k_(KEY.cenarios), { itens: [] }).itens || []).filter((c) => c && c.p);
     const n = Object.keys(placares()).length;
     const nomePadrao = 'Cenário ' + (lista.length + 1);
     const html = '<form class="salvar"><label for="cen-nome">Salvar os placares atuais (' + n + ')</label><div class="link-linha"><input id="cen-nome" maxlength="40" value="' + esc(nomePadrao) + '"><button class="btn primario"' + (n ? '' : ' disabled') + '>Salvar</button></div></form>' +
@@ -1011,9 +1070,9 @@
     corpo.addEventListener('submit', (e) => {
       e.preventDefault();
       const nm = (corpo.querySelector('#cen-nome').value || nomePadrao).trim().slice(0, 40) || nomePadrao;
-      const todos = loadJson(KEY.cenarios, { itens: [] });
+      const todos = loadJson(k_(KEY.cenarios), { itens: [] });
       todos.itens = (todos.itens || []).concat([{ nome: nm, criado: new Date().toISOString(), temporada: st.liga.temporada, p: Object.assign({}, placares()) }]);
-      saveJson(KEY.cenarios, todos);
+      saveJson(k_(KEY.cenarios), todos);
       aviso('Cenário "' + nm + '" salvo');
       abrirCenarios();
     });
@@ -1025,7 +1084,7 @@
     corpo.addEventListener('click', (e) => {
       const b = e.target.closest('[data-j]');
       if (!b) return;
-      const todos = loadJson(KEY.cenarios, { itens: [] }), k = +b.dataset.k;
+      const todos = loadJson(k_(KEY.cenarios), { itens: [] }), k = +b.dataset.k;
       todos.itens = (todos.itens || []).filter((c) => c && c.p);
       if (b.dataset.j === 'abrir') {
         const c = todos.itens[k];
@@ -1037,9 +1096,9 @@
         aviso('Cenário "' + c.nome + '" aberto');
       } else if (b.dataset.j === 'apagar') {
         const c = todos.itens.splice(k, 1)[0];
-        saveJson(KEY.cenarios, todos);
+        saveJson(k_(KEY.cenarios), todos);
         abrirCenarios();
-        aviso('Cenário apagado', { rotulo: 'Desfazer', acao: () => { const t2 = loadJson(KEY.cenarios, { itens: [] }); t2.itens.splice(k, 0, c); saveJson(KEY.cenarios, t2); abrirCenarios(); } });
+        aviso('Cenário apagado', { rotulo: 'Desfazer', acao: () => { const t2 = loadJson(k_(KEY.cenarios), { itens: [] }); t2.itens.splice(k, 0, c); saveJson(k_(KEY.cenarios), t2); abrirCenarios(); } });
       } else if (b.dataset.j === 'comparar') {
         const ks = Array.from(corpo.querySelectorAll('[data-cmp]:checked')).map((x) => +x.dataset.cmp);
         corpo.querySelector('#comparacao').innerHTML = comparar(todos.itens[ks[0]], todos.itens[ks[1]]);
@@ -1068,12 +1127,29 @@
         const escudos = res.slice(1);
         const W = 1080, H = 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
         const n = Object.keys(placares()).length;
-        S.moldura(ctx, W, H, 'Minha tabela final', 'Brasileirão 2026' + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
-        const x0 = 64, y0 = 340, lh = 43;
-        ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
-        ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
-        tab.forEach((x, k) => {
+        S.moldura(ctx, W, H, 'Minha tabela final', st.comp.rotulo + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
+        linhasTabela(ctx, W, tab, escudos);
+        return entregar(c, 'tabela-final-' + st.comp.id + '.png', previa);
+      });
+    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
+  }
+
+  // as linhas da tabela final; anim(k) devolve { a: opacidade, s: escala, dy } para o GIF
+  function linhasTabela(ctx, W, tab, escudos, anim, brilho) {
+    const S = window.TNGCompartilhar, C = window.TNGCore;
+    const x0 = 64, y0 = 340, lh = 43;
+    ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
+    ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
+    tab.forEach((x, k) => {
           const y = y0 + k * lh, t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
+          const an = anim ? anim(k) : null;
+          if (an && an.a <= 0) return;
+          ctx.save();
+          if (an) {
+            ctx.globalAlpha = Math.min(1, an.a);
+            ctx.translate(W / 2, y + lh / 2 + (an.dy || 0)); ctx.scale(an.s, an.s); ctx.translate(-W / 2, -(y + lh / 2));
+          }
+          if (brilho && st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,' + (0.32 + 0.4 * brilho) + ')'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (k % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,.32)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (z) { ctx.fillStyle = S.COR.zonas[z]; ctx.fillRect(x0 - 16, y + 7, 6, lh - 14); }
@@ -1087,11 +1163,52 @@
           ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 24px Archivo';
           ctx.fillText(String(x.v), W - 200, y + 30);
           ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, y + 30);
+          ctx.restore();
         });
-        ctx.textAlign = 'left';
-        return entregar(c, 'tabela-final-brasileirao-2026.png', previa);
+    ctx.textAlign = 'left';
+  }
+
+  // GIF curto: as linhas batendo de baixo para cima (o "tapa") e o seu time piscando no fim
+  function gifTabela(previa) {
+    return Promise.all([carregarComp(), T.script('app/gif.js')]).then(() => {
+      const S = window.TNGCompartilhar;
+      const tab = tabelaAtual();
+      return Promise.all([S.fontes()].concat(tab.map((x) => S.imagem('midia/escudos/' + st.L.times[x.i].escudo + '.png')))).then((res) => {
+        const escudos = res.slice(1);
+        const W = 1080, H = 1350, GW = 432, GH = 540;
+        const c = S.canvas(W, H), ctx = c.getContext('2d'), p = S.canvas(GW, GH), pc = p.getContext('2d', { willReadFrequently: true });
+        const n = Object.keys(placares()).length;
+        const sub = st.comp.rotulo + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : '');
+        const PASSO = 0.07, BATE = 0.18, FPS = 14, N = tab.length;
+        const ini = (k) => 0.25 + (N - 1 - k) * PASSO;                 // de baixo para cima
+        const quadros = [];
+        const foto = (atraso) => { pc.drawImage(c, 0, 0, GW, GH); quadros.push({ img: pc.getImageData(0, 0, GW, GH), atraso }); };
+        const tFim = ini(0) + BATE + 0.1;
+        for (let f = 0; f * (1 / FPS) <= tFim; f++) {
+          const t = f / FPS;
+          S.moldura(ctx, W, H, 'Minha tabela final', sub);
+          linhasTabela(ctx, W, tab, escudos, (k) => {
+            const u = (t - ini(k)) / BATE;
+            if (u <= 0) return { a: 0 };
+            if (u >= 1) return { a: 1, s: 1, dy: 0 };
+            return { a: u * 1.6, s: 1 + 0.35 * (1 - u) * (1 - u), dy: -18 * (1 - u) };
+          });
+          foto(Math.round(100 / FPS));
+        }
+        // seu time pisca duas vezes; depois o quadro final fica parado
+        const brilhos = st.meu ? [1, 0, 1, 0.4] : [];
+        brilhos.forEach((b) => { S.moldura(ctx, W, H, 'Minha tabela final', sub); linhasTabela(ctx, W, tab, escudos, null, b); foto(18); });
+        S.moldura(ctx, W, H, 'Minha tabela final', sub); linhasTabela(ctx, W, tab, escudos);
+        foto(260);
+        const gif = window.TNGGif.codificar(quadros, quadros[quadros.length - 1].img);
+        const nomeArq = 'tabela-final-' + st.comp.id + '.gif';
+        if (!previa) return S.enviar(gif, nomeArq, textoPartilha(), linkCenario());
+        previa.innerHTML = '<img alt="Prévia do GIF" src="' + URL.createObjectURL(gif) + '"><div class="j-acoes"><button class="btn primario" data-p="enviar">' + ICON.partilha + 'Compartilhar o GIF</button></div>';
+        previa.querySelector('[data-p="enviar"]').onclick = () => S.enviar(gif, nomeArq, textoPartilha(), linkCenario());
+        window.TNG_GIF = gif;
+        return gif;
       });
-    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
+    }).catch((e) => { T.reportError(e, 'gif'); aviso('Não consegui gerar o GIF'); });
   }
 
   function imagemJogos(previa) {
@@ -1103,7 +1220,7 @@
       return Promise.all([S.fontes()].concat(ids.map((i) => S.imagem('midia/escudos/' + st.L.times[i].escudo + '.png')))).then((res) => {
         const img = {}; ids.forEach((i, k) => { img[i] = res[k + 1]; });
         const W = 1080, H = 1920, c = S.canvas(W, H), ctx = c.getContext('2d');
-        S.moldura(ctx, W, H, 'Os meus placares', 'Brasileirão 2026 · ' + lista.length + (lista.length === 1 ? ' jogo' : ' jogos'));
+        S.moldura(ctx, W, H, 'Os meus placares', st.comp.rotulo + ' · ' + lista.length + (lista.length === 1 ? ' jogo' : ' jogos'));
         const itens = [];
         grupos(lista).forEach((g) => { itens.push({ titulo: g.titulo }); g.jogos.forEach((j) => itens.push({ j })); });
         // as colunas quebram no começo de uma rodada (nunca no meio dela), o mais perto possível da metade
@@ -1132,7 +1249,7 @@
           ctx.fillText(p[0] + ' × ' + p[1], x + colW / 2, cy + 12);
         });
         ctx.textAlign = 'left';
-        return entregar(c, 'meus-placares-brasileirao-2026.png', previa);
+        return entregar(c, 'meus-placares-' + st.comp.id + '.png', previa);
       });
     }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
   }
@@ -1150,6 +1267,30 @@
   }
 
   // ================================================================== eventos
+  // Põe o cartão do próximo jogo no meio da parte visível da tela (descontando o topo fixo e o
+  // teclado do celular, que encolhe o visualViewport); repete quando o teclado termina de abrir.
+  function enquadrar(li) {
+    const vv = window.visualViewport;
+    const reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ajustar = (suave) => {
+      const fixos = ['.head', '.seg-cel'].map((s) => document.querySelector(s)).filter((x) => x && x.offsetParent);
+      const topo = fixos.reduce((m, x) => Math.max(m, x.getBoundingClientRect().bottom), 0);
+      const alto = vv ? vv.height + vv.offsetTop : window.innerHeight;
+      const r = li.getBoundingClientRect();
+      const livre = alto - topo;
+      const alvo = topo + Math.max(8, (livre - r.height) / 2);
+      const delta = r.top - alvo;
+      if (Math.abs(delta) > 6) window.scrollBy({ top: delta, behavior: suave && !reduz ? 'smooth' : 'auto' });
+    };
+    requestAnimationFrame(() => ajustar(true));
+    if (vv) {
+      let feito = false;
+      const uma = () => { if (feito) return; feito = true; vv.removeEventListener('resize', uma); setTimeout(() => ajustar(false), 60); };
+      vv.addEventListener('resize', uma);
+      setTimeout(() => vv.removeEventListener('resize', uma), 900);
+    }
+  }
+
   function ligar() {
     const v = st.view;
     const onClick = (e) => {
@@ -1165,6 +1306,14 @@
         const p = st.M.prob(j.h, j.a), k = +r.dataset.r, atual = placarDe(j);
         if (atual && resultado(atual) === k && !st.sim[chave]) definir(chave, null);           // tocar de novo desfaz
         else definir(chave, (k === 0 ? p.tipico.h : k === 1 ? p.tipico.d : p.tipico.a).slice(), false);
+        return;
+      }
+      const dado = e.target.closest('[data-sortear]');
+      if (dado) {
+        const li = dado.closest('.jogo'), chave = li.dataset.c;
+        const novo = window.TNGCore.simularRestantes(st.L, {}, st.M, sorteio(), (j) => j.chave === chave);
+        if (novo[chave]) definir(chave, novo[chave], true);
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && dado.animate) dado.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 420, easing: 'cubic-bezier(.3,1.3,.5,1)' });
         return;
       }
       const pm = e.target.closest('.pm button');
@@ -1193,9 +1342,9 @@
       else if (a === 'so-meus') { st.soMeus = !st.soMeus; desenharJogos(); }
       else if (a === 'usar-comp') {
         st.p = Object.assign({}, st.compartilhado); st.sim = {}; st.compartilhado = null; salvarPlacares();
-        history.replaceState(history.state, '', '#/simulador' + (st.meu ? '/' + st.meu.slug : ''));
+        history.replaceState(history.state, '', rotaBase() + (st.meu ? '/' + st.meu.slug : ''));
         montar(); aviso('O cenário agora é seu: pode editar');
-      } else if (a === 'sair-comp') { st.compartilhado = null; location.hash = '#/simulador' + (st.meu ? '/' + st.meu.slug : ''); }
+      } else if (a === 'sair-comp') { st.compartilhado = null; location.hash = rotaBase() + (st.meu ? '/' + st.meu.slug : ''); }
     };
     const onKey = (e) => {
       const tr = e.target.closest && e.target.closest('table.chances tbody tr[data-t]');
@@ -1215,12 +1364,16 @@
       if (limpo.length === 1) {
         const todos = Array.from(v.querySelectorAll('.placar input'));
         const prox = todos[todos.indexOf(inp) + 1];
-        if (prox) prox.focus();
+        if (prox) {
+          const outro = prox.closest('.jogo') !== li;
+          prox.focus({ preventScroll: outro });
+          if (outro) enquadrar(prox.closest('.jogo'));
+        }
       }
     };
     const onFocus = (e) => { const inp = e.target.closest && e.target.closest('.placar input'); if (inp) setTimeout(() => { if (document.activeElement === inp) inp.select(); }, 0); };   // select() atrasado puxaria o foco de volta
     const onChange = (e) => {
-      if (e.target.matches('select[data-a="meu"]')) { location.hash = e.target.value ? '#/simulador/' + e.target.value : '#/simulador'; return; }
+      if (e.target.matches('select[data-a="meu"]')) { location.hash = rotaBase() + (e.target.value ? '/' + e.target.value : ''); return; }
       if (e.target.matches('select[data-a="n"]')) { st.prefs.N = +e.target.value; salvarPrefs(); st.chancesVersao = -1; pedirChances(); return; }
       if (e.target.name === 'forma') {
         st.prefs.forma = +e.target.value; salvarPrefs();
@@ -1269,11 +1422,21 @@
     render(view, params, ctx) {
       return Promise.all([T.script('shared/simulador-core.js'), T.script('shared/espn.js')]).then(() => {
         carregarPrefs();
-        return carregarDados();
-      }).then(() => {
+        return carregarComps();
+      }).then((comps) => {
+        // #/simulador/<competição>/<time>; sem competição na rota, Série A
+        const ehComp = params[0] && comps.some((c) => c.id === params[0]);
+        const id = ehComp ? params[0] : 'seriea', timeSlug = ehComp ? params[1] : params[0];
+        return carregarDados(id).catch((e) => {
+          T.reportError(e, 'competicao');
+          if (id === 'seriea') throw e;
+          aviso('Essa competição ainda não tem dados: mostrando a Série A');
+          return carregarDados('seriea').then(() => null);
+        }).then((ok) => (ok === null ? null : timeSlug));
+      }).then((timeSlug) => {
         st.view = view;
-        st.meu = params[0] ? timePorSlug(params[0]) : null;
-        if (params[0] && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
+        st.meu = timeSlug ? timePorSlug(timeSlug) : null;
+        if (timeSlug && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
         st.compartilhado = null;
         if (ctx.c || ctx.cv4) {
           // cv4: link da versão antiga em arquivo único (outra ordem dos pares)
@@ -1283,7 +1446,7 @@
         if (ctx.aba && /^(jogos|tabela|chances)$/.test(ctx.aba)) st.aba = ctx.aba;
         st.versao++;
         st.chancesVersao = -1;
-        if (st.meu) document.title = 'Simulador ' + de_(st.meu) + ' no Brasileirão 2026 · Tapa na Gaveta';
+        document.title = (st.meu ? 'Simulador ' + de_(st.meu) + ' · ' + st.comp.rotulo : (TITULO[st.comp.id] || 'Simulador') + (ehSerieA() ? ' 2026' : ' ' + st.comp.rotulo.replace(/^.* /, ''))) + ' · Tapa na Gaveta';
         montar();
         const desligar = ligar();
         if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
