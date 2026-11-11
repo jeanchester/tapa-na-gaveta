@@ -575,6 +575,12 @@ body.modo-jogo main.wrap { max-width: none; padding: 0; }
 .nav { gap: 20px; }
 .destaques { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 6px 0 8px; }
 @media (min-width: 900px) { .destaques { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.so-app { max-width: 460px; margin: 24px auto 40px; text-align: center; }
+.so-app img { border-radius: 26px; box-shadow: 0 10px 30px rgba(11,22,64,.25); }
+.so-app h1 { font: 900 clamp(30px, 8vw, 44px)/1.02 var(--f-num); letter-spacing: -.02em; margin: 18px 0 8px; }
+.so-app p { color: var(--ink-2); margin: 0 0 18px; }
+.so-app .acoes { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.so-app-nota { font-size: 12.5px; color: var(--ink-3); align-self: center; }
 .dq { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 14px; }
 .dq b { display: block; font: 900 40px/1 var(--f-num); color: var(--brand-ink); }
 .dq span { display: block; font-size: 13px; color: var(--ink-2); margin-top: 6px; line-height: 1.35; }
