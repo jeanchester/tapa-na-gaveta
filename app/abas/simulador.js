@@ -77,10 +77,16 @@
 
   function carregarComps() {
     if (st.comps) return Promise.resolve(st.comps);
-    return json('shared/competicoes.json').then((c) => (st.comps = c.lista));
+    // só aparecem as competições que já têm o retrato publicado (o Actions grava os arquivos)
+    return json('shared/competicoes.json').then((c) => Promise.all(c.lista.map((x) => (x.id === 'seriea' ? true
+      : fetch(x.dados, { method: 'HEAD' }).then((r) => r.ok, () => false)))).then((ok) => {
+      st.todas = c.lista;
+      st.comps = c.lista.filter((x, k) => ok[k]);
+      return st.todas;
+    }));
   }
   function carregarDados(id) {
-    const comp = st.comps.find((c) => c.id === id) || st.comps[0];
+    const comp = st.todas.find((c) => c.id === id) || st.todas[0];
     if (st.base && st.comp && st.comp.id === comp.id) return Promise.resolve();
     const antes = st.comp;
     return Promise.all([json(comp.dados), json(comp.regras)]).then(([liga, regras]) => {
@@ -250,6 +256,7 @@
 
   // troca de competição: chips no topo (a Série A é a casa)
   function seletorComp() {
+    if (st.comps.length < 2) return '';
     return '<nav class="comp-sel" aria-label="Competição">' + st.comps.map((c) =>
       '<a href="#/simulador' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === st.comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>';
   }
