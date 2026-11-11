@@ -106,16 +106,29 @@ def gols_do_jogo(c, gols):
     for d in c.get('details') or []:
         if not d.get('scoringPlay') or d.get('ownGoal'):
             continue
-        quem = (d.get('athletesInvolved') or [{}])[0]
+        envolvidos = d.get('athletesInvolved') or [{}]
+        quem = envolvidos[0]
         nome = quem.get('displayName') or quem.get('shortName')
+        time_do_gol = str((d.get('team') or {}).get('id') or (quem.get('team') or {}).get('id') or '')
         if nome:
-            gols.append({'id': str(quem.get('id') or nome), 'nome': nome, 'time': str((d.get('team') or {}).get('id') or (quem.get('team') or {}).get('id') or ''),
-                         'penalti': bool(d.get('penaltyKick'))})
+            gols.append({'id': str(quem.get('id') or nome), 'nome': nome, 'time': time_do_gol,
+                         'penalti': bool(d.get('penaltyKick')),
+                         # quem mais aparece no lance (a assistência, quando a ESPN informa): serve para
+                         # conferir o time de cada jogador pelo jogo, e não só pelo cadastro dele
+                         'outros': [str(x.get('id')) for x in envolvidos[1:] if x.get('id')]})
 
 
 def lideres(ano, gols, times, LIGA='bra.1'):
     """Artilheiros e garçons. Tenta o quadro de líderes da ESPN; sem ele, conta os gols do placar."""
     out = {'atualizado': datetime.datetime.now().isoformat(timespec='seconds'), 'artilheiros': [], 'assistencias': []}
+    # time de cada jogador pelos lances (o último gol ou assistência dele no campeonato); o cadastro
+    # da ESPN às vezes aponta outro clube, e há homônimos (dois Matheus Pereira, por exemplo)
+    time_pelo_lance = {}
+    for g in gols or []:
+        if g['time']:
+            time_pelo_lance[g['id']] = g['time']
+            for o in g.get('outros', []):
+                time_pelo_lance[o] = g['time']
     try:
         st = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/statistics?season={ano}')
         for cat in st.get('stats') or []:
@@ -125,7 +138,7 @@ def lideres(ano, gols, times, LIGA='bra.1'):
                 continue
             for l in (cat.get('leaders') or [])[:15]:
                 a = l.get('athlete') or {}
-                tid = str((a.get('team') or l.get('team') or {}).get('id') or '')
+                tid = time_pelo_lance.get(str(a.get('id') or '')) or str((a.get('team') or l.get('team') or {}).get('id') or '')
                 out[alvo].append({'nome': a.get('displayName') or a.get('shortName'), 'time': tid,
                                   'escudo': (times.get(tid) or {}).get('escudo'), 'n': int(float(l.get('value') or 0))})
     except Exception as e:  # noqa: BLE001
