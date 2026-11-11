@@ -183,18 +183,6 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 .vazio h1 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
 .vazio p { color: var(--ink-2); margin: 0 0 18px; }
 
-/* ===================================================================== rodapé */
-.foot { margin-top: 48px; border-top: 1px solid var(--line); padding: 22px 0 calc(28px + var(--safe-bottom)); }
-.foot h3 { margin: 0 0 12px; font-size: 12px; color: var(--ink-3); font-weight: 800; }
-.apps { display: grid; grid-template-columns: 1fr; gap: 12px 16px; }
-@media (min-width: 420px) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 900px) { .apps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.app { display: flex; gap: 10px; align-items: center; color: inherit; text-decoration: none; min-width: 0; min-height: 44px; }
-.app img { width: 44px; height: 44px; border-radius: 11px; flex: none; }
-.app b { display: block; font-size: 13.5px; line-height: 1.2; }
-.app small { display: block; color: var(--ink-3); font-size: 12px; line-height: 1.3; }
-.foot-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3); }
-.foot-base p { margin: 0; max-width: 40em; }
 .tema-sel { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r); padding: 2px; }
 .tema-sel button { min-height: 36px; padding: 0 12px; border-radius: 8px; font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
 .tema-sel button[aria-pressed="true"] { background: var(--surface-2); color: var(--ink); }
@@ -595,3 +583,96 @@ body.modo-jogo main.wrap { max-width: none; padding: 0; }
 .tbl.est td.sofre .bar { background: linear-gradient(90deg, var(--bad) var(--w), var(--surface-2) var(--w)); }
 .ferr .so-estreito { display: none; }
 @media (max-width: 379px) { .ferr .so-estreito { display: inline-flex; } }
+
+/* ===================================================================== rodapé */
+.foot { margin-top: 56px; background: var(--head-bg); color: var(--head-ink); padding: 40px 0 calc(24px + var(--safe-bottom)); overflow: hidden; }
+.foot h3 { margin: 0 0 12px; font-size: 13px; color: #aeb8da; font-weight: 700; }
+.apps { display: grid; grid-template-columns: 1fr; gap: 12px 16px; }
+.app { display: flex; gap: 10px; align-items: center; color: inherit; text-decoration: none; min-width: 0; min-height: 44px; }
+.app img { width: 44px; height: 44px; border-radius: 11px; flex: none; }
+.app b { display: block; font-size: 13.5px; line-height: 1.2; }
+.app small { display: block; color: var(--ink-3); font-size: 12px; line-height: 1.3; }
+.foot-base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-3); }
+.foot-base p { margin: 0; max-width: 40em; }
+.foot-cols { display: grid; gap: 28px; }
+@media (min-width: 760px) { .foot-cols { grid-template-columns: 1.3fr .7fr 1.2fr 1.4fr; gap: 32px; } }
+.foot-cta p { margin: 0 0 14px; color: rgba(244,246,251,.78); max-width: 26em; }
+.foot-cta .btn.primario { background: var(--gold); border-color: var(--gold); color: var(--on-gold); }
+.foot-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.foot-links a { display: inline-flex; align-items: center; min-height: 36px; color: var(--head-ink); text-decoration: none; font-weight: 700; }
+.foot-links a:hover { color: var(--gold); }
+.foot-escudos { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; max-width: 320px; }
+.foot-escudos a { display: grid; place-items: center; height: 40px; border-radius: 10px; background: #fff; transition: transform .2s cubic-bezier(.3,1.6,.5,1), box-shadow .2s; }
+.foot-escudos a:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 0 0 2px var(--gold); }
+.foot-escudos img { width: 28px; height: 28px; object-fit: contain; }
+.foot .apps { grid-template-columns: 1fr; gap: 10px; }
+.foot .app small { color: #aeb8da; }
+/* o nome gigante, de ponta a ponta */
+.foot > .wrap { container-type: inline-size; }
+.foot-marca { position: relative; width: max-content; max-width: 100%; margin: 36px 0 0; font: italic 900 clamp(36px, 10vw, 124px)/.86 var(--f-num); letter-spacing: -.045em; white-space: nowrap; color: transparent;
+  -webkit-text-stroke: 1.5px rgba(244,246,251,.16); user-select: none; }
+.foot-marca span { display: inline-block; padding-right: .06em; background: linear-gradient(var(--gold), var(--gold)) 0 100% / 100% 0 no-repeat; -webkit-background-clip: text; background-clip: text; transition: background-size 1.4s cubic-bezier(.2,.8,.2,1); }
+.foot-marca.visto span, .foot-marca:not(.entra) span { background-size: 100% 38%; }
+@supports (width: 1cqi) { .foot-marca { font-size: calc(100cqi / 9.25); } }
+.foot-marca i { position: absolute; right: -.02em; top: 2%; width: .13em; height: .13em; border-radius: 50%; background: var(--gold); }
+.foot .foot-base { border-top-color: rgba(255,255,255,.12); color: #aeb8da; }
+.foot .tema-sel { border-color: rgba(255,255,255,.18); }
+.foot .tema-sel button { color: #aeb8da; }
+.foot .tema-sel button[aria-pressed="true"] { background: rgba(255,255,255,.12); color: #fff; }
+
+/* ===================================================================== movimento e acabamento */
+/* topo fixo: no celular só a linha das abas fica presa; ao rolar, vira vidro e encolhe */
+.head { position: sticky; top: calc(-60px - var(--safe-top)); z-index: 40; transition: background-color .25s; }
+@media (min-width: 760px) { .head { top: 0; } .head-row, .nav-top a { transition: min-height .25s ease; } body.rolou .head-row, body.rolou .nav-top a { min-height: 56px; } }
+body.rolou .head { background-color: rgba(11,22,64,.86); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { body.rolou .head { background-color: var(--head-bg); } }
+/* barra dourada de progresso da página, guiada pela rolagem (onde o navegador sabe fazer isso) */
+@supports (animation-timeline: scroll()) {
+  .head::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--gold); transform-origin: 0 50%; transform: scaleX(0);
+    animation: tng-progresso linear both; animation-timeline: scroll(root); }
+  @keyframes tng-progresso { to { transform: scaleX(1); } }
+}
+/* campo de pontos animado atrás do topo do simulador */
+.sim-topo { position: relative; isolation: isolate; }
+.sim-topo:has(.campo-pontos) { background-image: none; }
+.campo-pontos { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.sim-topo > :not(canvas) { position: relative; }
+/* letreiro dos próximos jogos */
+.letreiro { display: flex; overflow: hidden; margin: -18px calc(50% - 50vw) 18px; background: #070d26; color: #e8ecf7; border-block: 1px solid rgba(255,255,255,.08);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.lt-trilho { display: flex; flex: none; gap: 28px; margin: 0; padding: 10px 14px; list-style: none; animation: tng-letreiro 60s linear infinite; }
+.letreiro:hover .lt-trilho { animation-play-state: paused; }
+.lt-trilho li { display: flex; align-items: center; gap: 7px; white-space: nowrap; font-size: 13px; }
+.lt-trilho .crest { width: 20px; height: 20px; padding: 2px; background: #fff; border-radius: 5px; box-sizing: content-box; }
+.lt-trilho b { font: 900 13px/1 var(--f-num); }
+.lt-trilho i { font-style: normal; color: #8a94b5; }
+.lt-dia { color: var(--gold); font-weight: 700; margin-right: 2px; }
+@keyframes tng-letreiro { to { transform: translateX(calc(-100% - 28px)); } }
+/* blocos que sobem ao entrar na tela */
+.entra { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .65s cubic-bezier(.2,.8,.2,1); }
+.entra.visto { opacity: 1; transform: none; }
+/* brilho que segue o cursor nos cartões dos jogos */
+@media (hover: hover) and (pointer: fine) {
+  .jogo { position: relative; }
+  .jogo::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .25s;
+    background: radial-gradient(220px circle at var(--mx, 50%) var(--my, 50%), rgba(255,194,61,.16), transparent 60%); }
+  .jogo:hover::before { opacity: 1; }
+  .jogo:hover { border-color: var(--line-2); }
+}
+/* botão principal: leve elevação e um reflexo que atravessa */
+.btn { transition: transform .18s cubic-bezier(.3,1.6,.5,1), filter .18s, border-color .15s, background-color .15s; }
+.btn:active { transform: scale(.97); }
+.btn.primario { position: relative; overflow: hidden; }
+.btn.primario::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.28) 50%, transparent 65%); transform: translateX(-120%); pointer-events: none; }
+@media (hover: hover) { .btn.primario:hover { transform: translateY(-1px); } .btn.primario:hover::after { transform: translateX(120%); transition: transform .7s ease; } }
+.btn .seta { width: 18px; height: 18px; transition: transform .2s; }
+.btn:hover .seta { transform: translateX(3px); }
+/* tudo parado quando o aparelho pede menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .lt-trilho { animation: none; }
+  .letreiro { overflow-x: auto; }
+  .lt-trilho[aria-hidden] { display: none; }
+  .entra { opacity: 1; transform: none; transition: none; }
+  .head::after { display: none; }
+  .btn, .btn.primario::after, .foot-marca span, .foot-escudos a { transition: none; }
+}
