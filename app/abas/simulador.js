@@ -239,7 +239,7 @@
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes so-time">' +
 
-      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
+      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="" disabled hidden' + (meu ? '' : ' selected') + '>Escolher time</option><option value="-">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="salvar-cen">' + ICON.salvar + 'Salvar cenário</button>' +
@@ -251,13 +251,13 @@
         '<button type="button" data-vis="' + k + '" aria-pressed="' + (st.prefs.visual === k) + '">' + n + '</button>').join('') + '</div>' +
       '<div class="seg seg-cel" role="tablist" aria-label="Partes do simulador">' +
       (!ladoALado() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
-        : [['jogos', 'Jogos e tabela'], ['chances', meu ? 'O que precisa' : 'Chances']]).map(([k, n]) =>
+        : [['jogos', 'Jogos e tabela'], ['chances', meu ? 'O que ' + o_(meu) + ' precisa' : 'Chances']]).map(([k, n]) =>
         '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && ladoALado())) + '">' + n + '</button>').join('') + '</div>' +
       '<div id="meu-topo"></div>' +
       '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + (ladoALado() ? ' lado' : '') + '" data-aba="' + st.aba + '">' +
       '<section class="col-jogos" aria-label="Jogos que faltam" id="col-jogos"></section>' +
       '<section class="col-lado" id="col-lado"><div class="seg seg-lado" role="tablist" aria-label="Tabela ou chances">' +
-      [['tabela', 'Classificação'], ['chances', meu ? 'O que precisa' : 'Chances']].map(([k, n]) =>
+      [['tabela', 'Classificação'], ['chances', meu ? 'O que ' + o_(meu) + ' precisa' : 'Chances']].map(([k, n]) =>
         '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'tabela' && st.aba === 'jogos')) + '">' + esc(n) + '</button>').join('') +
       '</div><div id="painel-tabela"></div><div id="painel-chances"></div></section></div>' +
       '<div class="barra-revelar" id="barra-revelar" hidden><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela final</button></div>';
@@ -1416,7 +1416,7 @@
     };
     const onFocus = (e) => { const inp = e.target.closest && e.target.closest('.placar input'); if (inp) setTimeout(() => { if (document.activeElement === inp) inp.select(); }, 0); };   // select() atrasado puxaria o foco de volta
     const onChange = (e) => {
-      if (e.target.matches('select[data-a="meu"]')) { location.hash = rotaBase() + (e.target.value ? '/' + e.target.value : ''); return; }
+      if (e.target.matches('select[data-a="meu"]')) { location.hash = rotaBase() + (e.target.value && e.target.value !== '-' ? '/' + e.target.value : ''); return; }
       if (e.target.matches('select[data-a="n"]')) { st.prefs.N = +e.target.value; salvarPrefs(); st.chancesVersao = -1; pedirChances(); return; }
       if (e.target.name === 'forma') {
         st.prefs.forma = +e.target.value; salvarPrefs();
