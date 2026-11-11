@@ -1,0 +1,1443 @@
+{
+ "atualizado": "2026-11-11T19:28:31",
+ "artilheiros": [
+  {
+   "nome": "Niclas Füllkrug",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 9
+  },
+  {
+   "nome": "Patrik Schick",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 8
+  },
+  {
+   "nome": "Michael Olise",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 6
+  },
+  {
+   "nome": "Phillip Tietz",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 6
+  },
+  {
+   "nome": "Younes Ebnoutalib",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 6
+  },
+  {
+   "nome": "Jonathan Burkardt",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 5
+  },
+  {
+   "nome": "Ermedin Demirovic",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 5
+  },
+  {
+   "nome": "Yuito Suzuki",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 5
+  },
+  {
+   "nome": "Michael Gregoritsch",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 5
+  },
+  {
+   "nome": "Christopher Nkunku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 5
+  },
+  {
+   "nome": "Rômulo",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 5
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Felix Nmecha",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 4
+  },
+  {
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 4
+  },
+  {
+   "nome": "Igor Matanovic",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 4
+  },
+  {
+   "nome": "Maurice Krattenmacher",
+   "time": "10388",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Luis Díaz",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Maximilian Eggestein",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 3
+  },
+  {
+   "nome": "Ibrahim Maza",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 3
+  },
+  {
+   "nome": "Dayot Upamecano",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
+   "nome": "Joe Scally",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 3
+  },
+  {
+   "nome": "Anthony Caci",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 3
+  },
+  {
+   "nome": "Robin Fellhauer",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 3
+  },
+  {
+   "nome": "Tidiam Gomis",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 3
+  },
+  {
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 3
+  },
+  {
+   "nome": "Said El Mala",
+   "time": "122",
+   "escudo": "koln",
+   "n": 3
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 3
+  },
+  {
+   "nome": "Miro Muheim",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 3
+  },
+  {
+   "nome": "Fabian Rieder",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Lukas Petkov",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Felix Keidel",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Marco Grüll",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Ludovit Reis",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Ezechiel Banzuzi",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Sheraldo Becker",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 2
+  },
+  {
+   "nome": "Derry Scherhant",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  },
+  {
+   "nome": "David Mokwa",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Adam Daghim",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Stefano Marino",
+   "time": "3307",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Maximilian Beier",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Eren Dinkci",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Wael Mohya",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Janik Haberer",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 2
+  },
+  {
+   "nome": "Adam Hlozek",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Bilal El Khannouss",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Tim Skarke",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 2
+  },
+  {
+   "nome": "Terem Moffi",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 2
+  },
+  {
+   "nome": "Steffen Tigges",
+   "time": "3307",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Rodrigo Ribeiro",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Yannick Engelhardt",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  }
+ ],
+ "assistencias": [
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 8
+  },
+  {
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 7
+  },
+  {
+   "nome": "Marco Grüll",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 6
+  },
+  {
+   "nome": "Fabian Rieder",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 5
+  },
+  {
+   "nome": "Miguel Gutiérrez",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 4
+  },
+  {
+   "nome": "Sheraldo Becker",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 4
+  },
+  {
+   "nome": "Albert Grønbaek",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 4
+  },
+  {
+   "nome": "Brajan Gruda",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 4
+  },
+  {
+   "nome": "Matthias Ginter",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 3
+  },
+  {
+   "nome": "Ibrahim Maza",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 3
+  },
+  {
+   "nome": "Michael Olise",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
+   "nome": "Anthony Caci",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 3
+  },
+  {
+   "nome": "Derry Scherhant",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 3
+  },
+  {
+   "nome": "Joshua Kimmich",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
+   "nome": "Hennes Behrens",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Jordy Makengo",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  },
+  {
+   "nome": "Lukas Petkov",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Aleix García",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 2
+  },
+  {
+   "nome": "Kaishu Sano",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 2
+  },
+  {
+   "nome": "Patrik Schick",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 2
+  },
+  {
+   "nome": "Ezechiel Banzuzi",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Joe Scally",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Chuki",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Jobe Bellingham",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Linton Maina",
+   "time": "122",
+   "escudo": "koln",
+   "n": 2
+  },
+  {
+   "nome": "Adam Daghim",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Maximilian Beier",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Nathaniel Brown",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Tidiam Gomis",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Vladimír Coufal",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Lukas Ullrich",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Alphonso Davies",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Ismael Saibari",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Tom Bischof",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Vincenzo Grifo",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  },
+  {
+   "nome": "Angelo Stiller",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Christopher Nkunku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Bambasé Conté",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Fisnik Asllani",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Konstantinos Karetsas",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Ellyes Skhiri",
+   "time": "122",
+   "escudo": "koln",
+   "n": 2
+  },
+  {
+   "nome": "Franck Honorat",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Josip Juranovic",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 2
+  },
+  {
+   "nome": "Karl Hein",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 1
+  },
+  {
+   "nome": "Edmond Tapsoba",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Waldemar Anton",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 1
+  },
+  {
+   "nome": "Felix Keidel",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Laurin Curda",
+   "time": "3307",
+   "escudo": null,
+   "n": 1
+  }
+ ],
+ "gols_por_jogador": [
+  {
+   "nome": "Niclas Füllkrug",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 9
+  },
+  {
+   "nome": "Patrik Schick",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 8
+  },
+  {
+   "nome": "Michael Olise",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 6
+  },
+  {
+   "nome": "Phillip Tietz",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 6
+  },
+  {
+   "nome": "Younes Ebnoutalib",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 6
+  },
+  {
+   "nome": "Christopher Nkunku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 5
+  },
+  {
+   "nome": "Ermedin Demirovic",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 5
+  },
+  {
+   "nome": "Jonathan Burkardt",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 5
+  },
+  {
+   "nome": "Rômulo",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 5
+  },
+  {
+   "nome": "Yuito Suzuki",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 5
+  },
+  {
+   "nome": "Michael Gregoritsch",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 5
+  },
+  {
+   "nome": "Felix Nmecha",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 4
+  },
+  {
+   "nome": "Igor Matanovic",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 4
+  },
+  {
+   "nome": "Luis Díaz",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Maurice Krattenmacher",
+   "time": "10388",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 4
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Anthony Caci",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 3
+  },
+  {
+   "nome": "Dayot Upamecano",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 3
+  },
+  {
+   "nome": "Ibrahim Maza",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 3
+  },
+  {
+   "nome": "Joe Scally",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 3
+  },
+  {
+   "nome": "Maximilian Eggestein",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 3
+  },
+  {
+   "nome": "Miro Muheim",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 3
+  },
+  {
+   "nome": "Robin Fellhauer",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 3
+  },
+  {
+   "nome": "Said El Mala",
+   "time": "122",
+   "escudo": "koln",
+   "n": 3
+  },
+  {
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 3
+  },
+  {
+   "nome": "Tidiam Gomis",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 3
+  },
+  {
+   "nome": "Adam Daghim",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Adam Hlozek",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Aleksandar Pavlovic",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Alexander Prass",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Anton Kade",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Bambasé Conté",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Benedict Hollerbach",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 2
+  },
+  {
+   "nome": "Bilal El Khannouss",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Can Uzun",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 2
+  },
+  {
+   "nome": "Christian Kofane",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 2
+  },
+  {
+   "nome": "Christoph Baumgartner",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Cole Campbell",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "David Mokwa",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Derry Scherhant",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  },
+  {
+   "nome": "Eren Dinkci",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Ezechiel Banzuzi",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Felix Keidel",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Hugo Bolin",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Ismael Saibari",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Janik Haberer",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 2
+  },
+  {
+   "nome": "Josha Vagnoman",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Lennart Karl",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Ludovit Reis",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Lukas Petkov",
+   "time": "10388",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Marco Grüll",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Maximilian Beier",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Maximilian Mittelstädt",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Ridle Baku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Rodrigo Ribeiro",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Sheraldo Becker",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 2
+  },
+  {
+   "nome": "Stefano Marino",
+   "time": "3307",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Steffen Tigges",
+   "time": "3307",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Terem Moffi",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 2
+  },
+  {
+   "nome": "Thijs Dallinga",
+   "time": "122",
+   "escudo": "koln",
+   "n": 2
+  },
+  {
+   "nome": "Tim Lemperle",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Tim Skarke",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 2
+  },
+  {
+   "nome": "Wael Mohya",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Yannick Engelhardt",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 2
+  },
+  {
+   "nome": "Yussuf Poulsen",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 2
+  },
+  {
+   "nome": "Fabian Rieder",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
+   "nome": "Shuto Machino",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 2
+  },
+  {
+   "nome": "Adil Aouchiche",
+   "time": "133",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Albert Grønbaek",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 1
+  },
+  {
+   "nome": "Aleix García",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Alexis Claude-Maurice",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 1
+  },
+  {
+   "nome": "Andrija Maksimovic",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Calvin Brackelmann",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 1
+  },
+  {
+   "nome": "Chris Führich",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Cyriaque Irié",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 1
+  },
+  {
+   "nome": "Daniel Svensson",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 1
+  },
+  {
+   "nome": "Danny da Costa",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 1
+  },
+  {
+   "nome": "Dariusz Stalmach",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 1
+  },
+  {
+   "nome": "David Raum",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Emmanuel Latte Lath",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 1
+  },
+  {
+   "nome": "Eric Martel",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 1
+  },
+  {
+   "nome": "Ezequiel Fernández",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Facundo Medina",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Fisnik Asllani",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 1
+  },
+  {
+   "nome": "Florian Neuhaus",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 1
+  },
+  {
+   "nome": "Francis-Ikechukwu Onyeka",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Frederik Schmahl",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Grischa Prömel",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Han-Noah Massengo",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 1
+  },
+  {
+   "nome": "Isac Lidberg",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 1
+  },
+  {
+   "nome": "Jamal Musiala",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Jamie Leweling",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Jarell Quansah",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Jeff Chabot",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Joshua Kimmich",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Junior Adamu",
+   "time": "133",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Keisuke Goto",
+   "time": "126",
+   "escudo": "freiburg",
+   "n": 1
+  },
+  {
+   "nome": "Kenan Karaman",
+   "time": "133",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Konrad Laimer",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Lasse Günther",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Lee Jae-Sung",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 1
+  },
+  {
+   "nome": "Leon Avdullahu",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 1
+  },
+  {
+   "nome": "Leopold Querfeld",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 1
+  },
+  {
+   "nome": "Linton Maina",
+   "time": "122",
+   "escudo": "koln",
+   "n": 1
+  },
+  {
+   "nome": "Livan Burcu",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 1
+  },
+  {
+   "nome": "Malek El Mala",
+   "time": "122",
+   "escudo": "koln",
+   "n": 1
+  },
+  {
+   "nome": "Marius Bulter",
+   "time": "122",
+   "escudo": "koln",
+   "n": 1
+  },
+  {
+   "nome": "Max Moerstedt",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 1
+  },
+  {
+   "nome": "Maximilian Rohr",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Maximilian Wöber",
+   "time": "133",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Mert Kömür",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 1
+  },
+  {
+   "nome": "Miguel Gutiérrez",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Mitchell Weiser",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 1
+  },
+  {
+   "nome": "Moussa Diaby",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Nathaniel Brown",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Nico Schlotterbeck",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 1
+  },
+  {
+   "nome": "Nicolás Capaldo",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 1
+  },
+  {
+   "nome": "Noel Futkeu",
+   "time": "10388",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Ozan Kabak",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 1
+  },
+  {
+   "nome": "Phillipp Mwene",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 1
+  },
+  {
+   "nome": "Ragnar Ache",
+   "time": "122",
+   "escudo": "koln",
+   "n": 1
+  },
+  {
+   "nome": "Ransford-Yeboah Königsdörffer",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 1
+  },
+  {
+   "nome": "Raphael Obermair",
+   "time": "3307",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Raphael Onyedika",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 1
+  },
+  {
+   "nome": "Rayan Philippe",
+   "time": "3307",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Robert Andrich",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 1
+  },
+  {
+   "nome": "Robin Gosens",
+   "time": "133",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Robin Hack",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 1
+  },
+  {
+   "nome": "Rocco Reitz",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Santiago Castaneda",
+   "time": "3307",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Serge Gnabry",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Shafiq Nandja",
+   "time": "127",
+   "escudo": "hamburger",
+   "n": 1
+  },
+  {
+   "nome": "Uchenna Ogundu",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 1
+  },
+  {
+   "nome": "Willi Orbán",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Ísak Jóhannesson",
+   "time": "122",
+   "escudo": "koln",
+   "n": 1
+  },
+  {
+   "nome": "Andrej Kramaric",
+   "time": "7911",
+   "escudo": "hoffenheim",
+   "n": 1
+  },
+  {
+   "nome": "Marvin Pieringer",
+   "time": "3307",
+   "escudo": null,
+   "n": 1
+  }
+ ]
+}

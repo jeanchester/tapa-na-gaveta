@@ -136,21 +136,25 @@ def lideres(ano, gols, times, LIGA='bra.1'):
             alvo = 'artilheiros' if 'goal' in nome else 'assistencias' if 'assist' in nome else None
             if not alvo:
                 continue
-            for l in (cat.get('leaders') or [])[:15]:
+            for l in (cat.get('leaders') or [])[:50]:
                 a = l.get('athlete') or {}
                 tid = time_pelo_lance.get(str(a.get('id') or '')) or str((a.get('team') or l.get('team') or {}).get('id') or '')
                 out[alvo].append({'nome': a.get('displayName') or a.get('shortName'), 'time': tid,
                                   'escudo': (times.get(tid) or {}).get('escudo'), 'n': int(float(l.get('value') or 0))})
     except Exception as e:  # noqa: BLE001
         print('quadro de líderes indisponível:', e)
-    if not out['artilheiros'] and gols:
-        conta = {}
-        for g in gols:
-            x = conta.setdefault(g['id'], {'nome': g['nome'], 'time': g['time'], 'n': 0, 'pen': 0})
-            x['n'] += 1
-            x['pen'] += g['penalti']
-        top = sorted(conta.values(), key=lambda x: (-x['n'], x['pen'], x['nome']))[:15]
-        out['artilheiros'] = [dict(x, escudo=(times.get(x['time']) or {}).get('escudo')) for x in top]
+    # todos os autores de gol, contados pelos placares: completa o quadro da ESPN (que só traz os
+    # primeiros) quando se filtra por time
+    conta = {}
+    for g in gols or []:
+        x = conta.setdefault(g['id'], {'nome': g['nome'], 'time': g['time'], 'n': 0, 'pen': 0})
+        x['n'] += 1
+        x['pen'] += g['penalti']
+        x['time'] = g['time'] or x['time']
+    todos = sorted(conta.values(), key=lambda x: (-x['n'], x['pen'], x['nome']))
+    out['gols_por_jogador'] = [{'nome': x['nome'], 'time': x['time'], 'escudo': (times.get(x['time']) or {}).get('escudo'), 'n': x['n']} for x in todos]
+    if not out['artilheiros'] and todos:
+        out['artilheiros'] = out['gols_por_jogador'][:50]
         out['fonte_artilharia'] = 'placares'
     return out
 
@@ -298,15 +302,13 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     # artilharia, assistências e a última escalação de cada time (arquivos à parte: o simulador
     # não precisa deles e eles podem falhar sem derrubar o retrato principal)
     pasta = os.path.dirname(saida) or '.'
-    if not extras:
-        gols = None
+    # artilharia de todas as competições: estatisticas-jogadores.json (Série A) ou -<arquivo>.json
+    base = os.path.splitext(os.path.basename(saida))[0]
+    arq_jog = 'estatisticas-jogadores.json' if extras else 'estatisticas-jogadores-' + base + '.json'
     try:
-        if gols is None:
-            raise RuntimeError('só na Série A')
-        gravar(os.path.join(pasta, 'estatisticas-jogadores.json'), lideres(ano, gols, times, LIGA))
+        gravar(os.path.join(pasta, arq_jog), lideres(ano, gols, times, LIGA))
     except Exception as e:  # noqa: BLE001
-        if extras:
-            print('::warning::artilharia não saiu:', e)
+        print('::warning::artilharia não saiu:', e)
     try:
         if not extras:
             raise RuntimeError('só na Série A')

@@ -1,12 +1,117 @@
 {
   "observacao": "Competições do simulador. 'id' vai na rota (#/simulador/<id>/<time>); a Série A é a padrão e não aparece na rota. 'meses' é o intervalo que o ferramentas/baixar_espn.py percorre na ESPN.",
   "lista": [
-    { "id": "seriea", "espn": "bra.1", "temporada": 2026, "meses": ["2026-01", "2026-12"], "nome": "Brasileirão Série A", "curto": "Série A", "rotulo": "Brasileirão 2026", "dados": "dados/brasileirao-2026.json", "regras": "shared/regras-brasileirao-2026.json", "pais": "brasil" },
-    { "id": "serieb", "espn": "bra.2", "temporada": 2026, "meses": ["2026-03", "2026-12"], "nome": "Brasileirão Série B", "curto": "Série B", "rotulo": "Série B 2026", "dados": "dados/serie-b-2026.json", "regras": "shared/regras-serie-b-2026.json", "pais": "brasil" },
-    { "id": "premier", "espn": "eng.1", "temporada": 2026, "meses": ["2026-08", "2027-05"], "nome": "Premier League", "curto": "Premier League", "rotulo": "Premier League 2026/27", "dados": "dados/premier-2026.json", "regras": "shared/regras-europa-20.json", "pais": "europa" },
-    { "id": "laliga", "espn": "esp.1", "temporada": 2026, "meses": ["2026-08", "2027-05"], "nome": "La Liga", "curto": "La Liga", "rotulo": "La Liga 2026/27", "dados": "dados/laliga-2026.json", "regras": "shared/regras-laliga.json", "pais": "europa" },
-    { "id": "italiano", "espn": "ita.1", "temporada": 2026, "meses": ["2026-08", "2027-05"], "nome": "Campeonato Italiano", "curto": "Italiano", "rotulo": "Italiano 2026/27", "dados": "dados/italiano-2026.json", "regras": "shared/regras-italiano.json", "pais": "europa" },
-    { "id": "bundesliga", "espn": "ger.1", "temporada": 2026, "meses": ["2026-08", "2027-05"], "nome": "Bundesliga", "curto": "Bundesliga", "rotulo": "Bundesliga 2026/27", "dados": "dados/bundesliga-2026.json", "regras": "shared/regras-europa-18.json", "pais": "europa" },
-    { "id": "frances", "espn": "fra.1", "temporada": 2026, "meses": ["2026-08", "2027-05"], "nome": "Campeonato Francês", "curto": "Francês", "rotulo": "Francês 2026/27", "dados": "dados/frances-2026.json", "regras": "shared/regras-europa-18.json", "pais": "europa" }
+    {
+      "id": "seriea",
+      "espn": "bra.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-01",
+        "2026-12"
+      ],
+      "nome": "Brasileirão Série A",
+      "curto": "Série A",
+      "rotulo": "Brasileirão 2026",
+      "dados": "dados/brasileirao-2026.json",
+      "regras": "shared/regras-brasileirao-2026.json",
+      "pais": "brasil",
+      "jogadores": "dados/estatisticas-jogadores.json"
+    },
+    {
+      "id": "serieb",
+      "espn": "bra.2",
+      "temporada": 2026,
+      "meses": [
+        "2026-03",
+        "2026-12"
+      ],
+      "nome": "Brasileirão Série B",
+      "curto": "Série B",
+      "rotulo": "Série B 2026",
+      "dados": "dados/serie-b-2026.json",
+      "regras": "shared/regras-serie-b-2026.json",
+      "pais": "brasil",
+      "jogadores": "dados/estatisticas-jogadores-serie-b-2026.json"
+    },
+    {
+      "id": "premier",
+      "espn": "eng.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-08",
+        "2027-05"
+      ],
+      "nome": "Premier League",
+      "curto": "Premier League",
+      "rotulo": "Premier League 2026/27",
+      "dados": "dados/premier-2026.json",
+      "regras": "shared/regras-europa-20.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-premier-2026.json"
+    },
+    {
+      "id": "laliga",
+      "espn": "esp.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-08",
+        "2027-05"
+      ],
+      "nome": "La Liga",
+      "curto": "La Liga",
+      "rotulo": "La Liga 2026/27",
+      "dados": "dados/laliga-2026.json",
+      "regras": "shared/regras-laliga.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-laliga-2026.json"
+    },
+    {
+      "id": "italiano",
+      "espn": "ita.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-08",
+        "2027-05"
+      ],
+      "nome": "Campeonato Italiano",
+      "curto": "Italiano",
+      "rotulo": "Italiano 2026/27",
+      "dados": "dados/italiano-2026.json",
+      "regras": "shared/regras-italiano.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-italiano-2026.json"
+    },
+    {
+      "id": "bundesliga",
+      "espn": "ger.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-08",
+        "2027-05"
+      ],
+      "nome": "Bundesliga",
+      "curto": "Bundesliga",
+      "rotulo": "Bundesliga 2026/27",
+      "dados": "dados/bundesliga-2026.json",
+      "regras": "shared/regras-europa-18.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-bundesliga-2026.json"
+    },
+    {
+      "id": "frances",
+      "espn": "fra.1",
+      "temporada": 2026,
+      "meses": [
+        "2026-08",
+        "2027-05"
+      ],
+      "nome": "Campeonato Francês",
+      "curto": "Francês",
+      "rotulo": "Francês 2026/27",
+      "dados": "dados/frances-2026.json",
+      "regras": "shared/regras-europa-18.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-frances-2026.json"
+    }
   ]
 }
