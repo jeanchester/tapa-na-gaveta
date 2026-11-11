@@ -14,7 +14,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-concurrency: { group: pages, cancel-in-progress: true }
+concurrency: { group: pages-publicar, cancel-in-progress: true }   # nome trocado em 11/11: execuções presas no grupo antigo travavam a fila
 jobs:
   publicar:
     runs-on: ubuntu-latest
