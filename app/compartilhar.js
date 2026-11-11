@@ -96,14 +96,16 @@
   }
 
   // compartilha a imagem; sem suporte a arquivos, baixa e abre o WhatsApp com o texto
+  // aceita um canvas (vira PNG) ou um Blob pronto (o GIF animado)
   function enviar(c, nome, texto, url) {
     url = url || T.enderecoSite();
     const txt = legenda(texto, url), copiou = copiarCalado(txt);
+    const pronto = typeof Blob !== 'undefined' && c instanceof Blob;
     // no Artifact do claude.ai, baixar arquivo e o menu de compartilhar do sistema são bloqueados:
     // a imagem fica na tela, e a pessoa salva tocando e segurando (ou com o botão direito)
     if (T.ARTIFACT) { T.aviso('Para salvar, toque e segure a imagem (no computador, botão direito)'); return Promise.resolve('artifact'); }
-    return blob(c).then((b) => {
-      const arquivo = b && typeof File !== 'undefined' ? new File([b], nome, { type: 'image/png' }) : null;
+    return (pronto ? Promise.resolve(c) : blob(c)).then((b) => {
+      const arquivo = b && typeof File !== 'undefined' ? new File([b], nome, { type: b.type || 'image/png' }) : null;
       if (arquivo && navigator.canShare && navigator.canShare({ files: [arquivo] })) {
         return navigator.share({ files: [arquivo], text: txt }).then(() => 'compartilhado').catch((e) => (e && e.name === 'AbortError' ? 'cancelado' : baixar(c, b, nome, copiou)));
       }
@@ -113,7 +115,7 @@
   function baixar(c, b, nome, copiou) {
     const a = document.createElement('a');
     a.download = nome;
-    a.href = b ? URL.createObjectURL(b) : c.toDataURL('image/png');
+    a.href = b ? URL.createObjectURL(b) : c.toDataURL('image/png');   // (c é canvas quando não há blob)
     document.body.appendChild(a); a.click(); a.remove();
     if (b) setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     Promise.resolve(copiou).then((ok) => T.aviso(ok ? 'Imagem baixada e texto com o link copiado: é só colar no WhatsApp' : 'Imagem baixada. Agora é só anexar no WhatsApp.'));

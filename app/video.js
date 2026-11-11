@@ -144,13 +144,13 @@
           rec.start(250);
         } catch (e) { rec = null; }
       }
-      const t0 = performance.now();
+      const t0 = performance.now(), vel = d.vel || 1;      // 2x: a mesma animação na metade do tempo
       return new Promise((fim) => {
         const passo = () => {
           if (eu.cancelar) { fim(); return; }
-          const t = (performance.now() - t0) / 1000;
+          const t = (performance.now() - t0) / 1000 * vel;
           quadro(x, V, Math.min(t, V.total));
-          status.textContent = rec ? 'Gravando: ' + Math.min(Math.round(t), Math.round(V.total)) + ' de ' + Math.round(V.total) + ' segundos. Deixe esta janela aberta.'
+          status.textContent = rec ? 'Gravando: ' + Math.min(Math.round(t / vel), Math.round(V.total / vel)) + ' de ' + Math.round(V.total / vel) + ' segundos. Deixe esta janela aberta.'
             : 'Este navegador não grava vídeo. A animação toca aqui e você pode gravar a tela.';
           if (t < V.total) requestAnimationFrame(passo); else fim();
         };
@@ -165,7 +165,7 @@
           v.src = URL.createObjectURL(eu.blob);
           palco.innerHTML = ''; palco.appendChild(v);
           v.play().catch(() => null);
-          status.textContent = 'Vídeo pronto: ' + Math.round(V.total) + ' segundos.' + (eu.ext === 'webm' ? ' Se o WhatsApp recusar, mande como documento ou grave a tela.' : '') +
+          status.textContent = 'Vídeo pronto: ' + Math.round(V.total / vel) + ' segundos.' + (eu.ext === 'webm' ? ' Se o WhatsApp recusar, mande como documento ou grave a tela.' : '') +
             (T.ARTIFACT ? ' Nesta prévia, para salvar, toque e segure o vídeo.' : '');
           bt('enviar').disabled = !!T.ARTIFACT; bt('baixar').disabled = !!T.ARTIFACT;
         } else {

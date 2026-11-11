@@ -195,19 +195,11 @@
     const aba = parse(location.hash).parts[0];
     const t = temaAtual();
     const op = (v, n) => '<button data-tema="' + v + '" aria-pressed="' + (t === v) + '">' + n + '</button>';
+    // rodapé enxuto: o que interessa é a simulação; aqui só os links obrigatórios e os apps
     $('#rodape').innerHTML = '<div class="wrap">' +
-      '<div class="foot-cols">' +
-      '<div class="foot-col foot-cta"><h3>Faça a sua tabela</h3><p>Chute os jogos que faltam, revele a tabela time a time e mande pro grupo.</p>' +
-      '<a class="btn primario" href="#/simulador">Simular agora<svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>' +
-      '<div class="foot-col"><h3>Site</h3><ul class="foot-links">' + MENU.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul>' +
-      '<ul class="foot-links foot-inst">' + INSTITUCIONAL.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul></div>' +
-      '<div class="foot-col foot-times"><h3>Simule pelo seu time</h3><div class="foot-escudos">' + TIMES_RODAPE.map(([slug, n]) =>
-        '<a href="#/simulador/' + slug + '" title="Simulador ' + esc(n) + '" aria-label="Simulador ' + esc(n) + '"><img src="midia/escudos/' + slug + '.png" alt="" width="28" height="28" loading="lazy"></a>').join('') + '</div></div>' +
-      '<div class="foot-col"><h3>Nossos apps de futebol</h3><div class="apps">' + APPS.map((a) =>
-        '<a class="app" href="' + esc(playUrl(a.pacote, aba)) + '" target="_blank" rel="noopener">' +
-        '<img src="midia/icones/' + a.id + '.png" alt="" width="44" height="44" loading="lazy"><span><b>' + esc(a.nome) + '</b><small>' + esc(a.sub) + '</small></span></a>').join('') + '</div></div>' +
-      '</div>' +
-      '<div class="foot-marca" aria-hidden="true"><span>tapa na gaveta</span><i></i></div>' +
+      '<div class="foot-linha"><nav class="foot-inst" aria-label="Sobre o site">' + INSTITUCIONAL.map(([id, n]) => '<a href="#/' + id + '">' + n + '</a>').join('') + '</nav>' +
+      '<div class="foot-apps" aria-label="Nossos apps">' + APPS.map((a) =>
+        '<a href="' + esc(playUrl(a.pacote, aba)) + '" target="_blank" rel="noopener" title="' + esc(a.nome) + ' na Google Play" aria-label="' + esc(a.nome) + ' na Google Play"><img src="midia/icones/' + a.id + '.png" alt="" width="36" height="36" loading="lazy"></a>').join('') + '</div></div>' +
       '<div class="foot-base"><p>Tapa na Gaveta · Resultados e calendário: ESPN (dados não oficiais). As probabilidades são calculadas pelo site e não são palpites de aposta.</p>' +
       '<div class="tema-sel" role="group" aria-label="Tema">' + op('auto', 'Automático') + op('light', 'Claro') + op('dark', 'Escuro') + '</div></div></div>';
   }
@@ -307,7 +299,15 @@
   try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (temaAtual() === 'auto') desenharTopo(); }); } catch (e) { /* navegador antigo */ }
 
   // ================================================================== para as abas, testes e capturas
-  window.TNG = { CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  // modo criador (?criador na URL, ?criador=0 desliga): libera o vídeo, que fica só para a gente
+  // fazer conteúdo; o público compartilha imagem e GIF
+  try {
+    const q = new URLSearchParams(location.search).get('criador');
+    if (q !== null) { if (q === '0') localStorage.removeItem('tng.criador'); else localStorage.setItem('tng.criador', '1'); }
+  } catch (e) { /* sem armazenamento */ }
+  const criador = () => { try { return localStorage.getItem('tng.criador') === '1'; } catch (e) { return false; } };
+
+  window.TNG = { criador, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {

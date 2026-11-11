@@ -766,3 +766,27 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .crest.disco, .rv-crest.disco { display: inline-grid; place-items: center; border-radius: 50%; background: #dfe5f7; color: #0b1640; font: 800 9px/1 var(--f-text); letter-spacing: -.02em; text-transform: none; }
 .ini-links a { display: inline-flex; align-items: center; min-height: 44px; }
 .texto p a, .texto li a { display: inline-block; padding: 4px 0; }
+
+/* ===================================================================== rodapé enxuto */
+.foot { padding: 22px 0 calc(22px + var(--safe-bottom, 0px)); }
+.foot-linha { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.foot .foot-inst { display: flex; flex-wrap: wrap; gap: 0 18px; margin: 0; }
+.foot .foot-inst a { display: inline-flex; align-items: center; min-height: 36px; font-size: 13.5px; font-weight: 700; color: #dfe5f7; opacity: .85; text-decoration: none; }
+.foot .foot-inst a:hover { opacity: 1; text-decoration: underline; }
+.foot-apps { display: flex; gap: 8px; }
+.foot-apps a { display: block; border-radius: 10px; overflow: hidden; transition: transform .15s; }
+.foot-apps a:hover { transform: translateY(-2px); }
+.foot-apps img { display: block; width: 36px; height: 36px; }
+.foot .foot-base { padding-top: 14px; }
+
+/* ===================================================================== simulação primeiro no celular */
+@media (max-width: 759px) {
+  .sim-topo { padding-bottom: 14px; }
+  .sim-topo h1 { font-size: clamp(28px, 8.4vw, 36px); }
+  .sim-topo #sim-frase { font-size: 14.5px; margin-bottom: 0; }
+  .sim-topo .resumo, .letreiro, .sim-topo .kicker { display: none; }
+  .sim-topo .comp-sel { margin-bottom: 10px; }
+  .sim-acoes { margin-top: 14px; }
+}
+.foot .foot-base { border-top: 0; margin-top: 0; }
+@media (max-width: 759px) { body.rolou .head { background-color: #0b1640; -webkit-backdrop-filter: none; backdrop-filter: none; } }

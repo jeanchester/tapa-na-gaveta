@@ -853,7 +853,7 @@
       linhasEl.forEach((li) => { li.classList.add('on'); li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; });
       botao('pular').hidden = true; botao('proximo').hidden = true; botao('comecar').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
       ov.classList.remove('preparando');
-      botao('video').hidden = !Object.keys(placares()).length;
+      botao('video').hidden = !Object.keys(placares()).length || !T.criador();
       ov.classList.add('acabou');
       lista.scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });       // termina mostrando o campeão
       // depois da revelação, a tabela fica à mostra no simulador
@@ -950,7 +950,7 @@
         b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.rv === a));
         preparar();
       } else if (a === 'partilhar') { fechar(); abrirCompartilhar(); }
-      else if (a === 'video') { fechar(); gerarVideo(); }
+      else if (a === 'video') { fechar(); gerarVideo(2); }
     });
     st.fecharRevela = fechar;
     preparar();
@@ -959,7 +959,7 @@
   }
 
   // vídeo da tabela mudando placar a placar, na ordem das datas dos jogos
-  function gerarVideo() {
+  function gerarVideo(vel) {
     const C = window.TNGCore, plac = placares();
     const jogos = restantes().filter((j) => placarDe(j)).sort((x, y) => (x.data < y.data ? -1 : x.data > y.data ? 1 : 0));
     if (!jogos.length) { aviso('Preencha pelo menos um placar para gerar o vídeo'); return; }
@@ -977,6 +977,7 @@
           completo: jogos.length === restantes().length,
           endereco: T.enderecoSite(),
           texto: textoPartilha() + ' ' + linkCenario(),
+          vel: vel || 2,
         });
       });
     }).catch((e) => { T.reportError(e, 'video'); aviso('Não consegui gerar o vídeo'); });
@@ -1025,9 +1026,10 @@
       '<h3 class="j-sub">Imagens prontas</h3>' +
       (n ? '<div class="j-acoes"><button class="btn primario" data-j="img-todas">' + ICON.partilha + 'Enviar as duas imagens</button></div>' : '') +
       '<div class="j-acoes"><button class="btn' + (n ? '' : ' primario') + '" data-j="img-tabela">Tabela final (feed)</button><button class="btn" data-j="img-jogos"' + (n ? '' : ' disabled') + '>Os meus placares (stories)</button></div>' +
+      '<div class="j-acoes"><button class="btn" data-j="gif">GIF da tabela batendo</button></div>' +
       '<div class="previa" id="previa"></div>' +
-      '<h3 class="j-sub">Vídeo</h3><p class="nota">A tabela mudando placar a placar, com o seu campeão no fim (cerca de ' + Math.round(1.6 + 4.2 + n * Math.min(1.5, Math.max(0.6, 34 / Math.max(1, n)))) + ' segundos).</p>' +
-      '<div class="j-acoes"><button class="btn" data-j="video"' + (n ? '' : ' disabled') + '>Gerar o vídeo</button></div>');
+      (T.criador() ? '<h3 class="j-sub">Vídeo (modo criador)</h3><p class="nota">A tabela mudando placar a placar. Em 2x fica com cerca de ' + Math.round((1.6 + 4.2 + n * Math.min(1.5, Math.max(0.6, 34 / Math.max(1, n)))) / 2) + ' segundos.</p>' +
+        '<div class="j-acoes"><button class="btn primario" data-j="video2"' + (n ? '' : ' disabled') + '>Vídeo 2x</button><button class="btn" data-j="video"' + (n ? '' : ' disabled') + '>Vídeo 1x</button></div>' : ''));
     corpo.addEventListener('click', (e) => {
       const b = e.target.closest('[data-j]');
       if (!b) return;
@@ -1037,7 +1039,9 @@
       else if (a === 'img-tabela') imagemTabela(corpo.querySelector('#previa'));
       else if (a === 'img-jogos') imagemJogos(corpo.querySelector('#previa'));
       else if (a === 'img-todas') enviarImagens(b);
-      else if (a === 'video') gerarVideo();
+      else if (a === 'video') gerarVideo(1);
+      else if (a === 'video2') gerarVideo(2);
+      else if (a === 'gif') gifTabela(corpo.querySelector('#previa'));
     });
   }
 
@@ -1124,11 +1128,28 @@
         const W = 1080, H = 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
         const n = Object.keys(placares()).length;
         S.moldura(ctx, W, H, 'Minha tabela final', st.comp.rotulo + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
-        const x0 = 64, y0 = 340, lh = 43;
-        ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
-        ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
-        tab.forEach((x, k) => {
+        linhasTabela(ctx, W, tab, escudos);
+        return entregar(c, 'tabela-final-' + st.comp.id + '.png', previa);
+      });
+    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
+  }
+
+  // as linhas da tabela final; anim(k) devolve { a: opacidade, s: escala, dy } para o GIF
+  function linhasTabela(ctx, W, tab, escudos, anim, brilho) {
+    const S = window.TNGCompartilhar, C = window.TNGCore;
+    const x0 = 64, y0 = 340, lh = 43;
+    ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
+    ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
+    tab.forEach((x, k) => {
           const y = y0 + k * lh, t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
+          const an = anim ? anim(k) : null;
+          if (an && an.a <= 0) return;
+          ctx.save();
+          if (an) {
+            ctx.globalAlpha = Math.min(1, an.a);
+            ctx.translate(W / 2, y + lh / 2 + (an.dy || 0)); ctx.scale(an.s, an.s); ctx.translate(-W / 2, -(y + lh / 2));
+          }
+          if (brilho && st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,' + (0.32 + 0.4 * brilho) + ')'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (k % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,.32)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
           if (z) { ctx.fillStyle = S.COR.zonas[z]; ctx.fillRect(x0 - 16, y + 7, 6, lh - 14); }
@@ -1142,11 +1163,52 @@
           ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 24px Archivo';
           ctx.fillText(String(x.v), W - 200, y + 30);
           ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, y + 30);
+          ctx.restore();
         });
-        ctx.textAlign = 'left';
-        return entregar(c, 'tabela-final-' + st.comp.id + '.png', previa);
+    ctx.textAlign = 'left';
+  }
+
+  // GIF curto: as linhas batendo de baixo para cima (o "tapa") e o seu time piscando no fim
+  function gifTabela(previa) {
+    return Promise.all([carregarComp(), T.script('app/gif.js')]).then(() => {
+      const S = window.TNGCompartilhar;
+      const tab = tabelaAtual();
+      return Promise.all([S.fontes()].concat(tab.map((x) => S.imagem('midia/escudos/' + st.L.times[x.i].escudo + '.png')))).then((res) => {
+        const escudos = res.slice(1);
+        const W = 1080, H = 1350, GW = 432, GH = 540;
+        const c = S.canvas(W, H), ctx = c.getContext('2d'), p = S.canvas(GW, GH), pc = p.getContext('2d', { willReadFrequently: true });
+        const n = Object.keys(placares()).length;
+        const sub = st.comp.rotulo + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : '');
+        const PASSO = 0.07, BATE = 0.18, FPS = 14, N = tab.length;
+        const ini = (k) => 0.25 + (N - 1 - k) * PASSO;                 // de baixo para cima
+        const quadros = [];
+        const foto = (atraso) => { pc.drawImage(c, 0, 0, GW, GH); quadros.push({ img: pc.getImageData(0, 0, GW, GH), atraso }); };
+        const tFim = ini(0) + BATE + 0.1;
+        for (let f = 0; f * (1 / FPS) <= tFim; f++) {
+          const t = f / FPS;
+          S.moldura(ctx, W, H, 'Minha tabela final', sub);
+          linhasTabela(ctx, W, tab, escudos, (k) => {
+            const u = (t - ini(k)) / BATE;
+            if (u <= 0) return { a: 0 };
+            if (u >= 1) return { a: 1, s: 1, dy: 0 };
+            return { a: u * 1.6, s: 1 + 0.35 * (1 - u) * (1 - u), dy: -18 * (1 - u) };
+          });
+          foto(Math.round(100 / FPS));
+        }
+        // seu time pisca duas vezes; depois o quadro final fica parado
+        const brilhos = st.meu ? [1, 0, 1, 0.4] : [];
+        brilhos.forEach((b) => { S.moldura(ctx, W, H, 'Minha tabela final', sub); linhasTabela(ctx, W, tab, escudos, null, b); foto(18); });
+        S.moldura(ctx, W, H, 'Minha tabela final', sub); linhasTabela(ctx, W, tab, escudos);
+        foto(260);
+        const gif = window.TNGGif.codificar(quadros, quadros[quadros.length - 1].img);
+        const nomeArq = 'tabela-final-' + st.comp.id + '.gif';
+        if (!previa) return S.enviar(gif, nomeArq, textoPartilha(), linkCenario());
+        previa.innerHTML = '<img alt="Prévia do GIF" src="' + URL.createObjectURL(gif) + '"><div class="j-acoes"><button class="btn primario" data-p="enviar">' + ICON.partilha + 'Compartilhar o GIF</button></div>';
+        previa.querySelector('[data-p="enviar"]').onclick = () => S.enviar(gif, nomeArq, textoPartilha(), linkCenario());
+        window.TNG_GIF = gif;
+        return gif;
       });
-    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
+    }).catch((e) => { T.reportError(e, 'gif'); aviso('Não consegui gerar o GIF'); });
   }
 
   function imagemJogos(previa) {
