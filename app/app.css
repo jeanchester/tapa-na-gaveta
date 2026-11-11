@@ -836,3 +836,59 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .bp-lista .crest { width: 22px; height: 22px; }
 .bp-lista b { font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .bp-lista small { font-size: 12px; color: var(--ink-3); }
+
+/* ===================================================================== lista: porcentagens e celular em duas colunas */
+.pnum { display: none; }
+.tbl .sig { display: none; }
+.sim-cols.compacto .pnum { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; font-weight: 700; color: var(--ink-3); font-variant-numeric: tabular-nums; line-height: 1; }
+.sim-cols.compacto .pnum span:nth-child(2) { font-weight: 600; }
+.sim-cols.compacto .prob { margin-top: 4px; }
+#meu-topo:empty { display: none; }
+#meu-topo { margin-bottom: 12px; }
+/* "Só os jogos do time" com cara de botão */
+.meu-acoes [data-a="so-meus"] { padding: 0 16px; border-radius: 99px; background: var(--gold); color: #0b1640; font-weight: 800; }
+.meu-acoes [data-a="so-meus"]:hover { filter: brightness(1.06); }
+
+@media (max-width: 899px) {
+  /* jogos à esquerda, tabela enxuta à direita, sem trocar de aba */
+  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 8px; align-items: start; }
+  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) .col-jogos, .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) .col-lado { display: block; }
+  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) #painel-tabela { display: block; }
+  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) #painel-chances { display: none; }
+  .duas-colunas .sim-cols.compacto .col-lado { position: sticky; top: calc(var(--topo-fixo, 0px) + 56px); }
+  .duas-colunas .sim-cols.compacto #painel-tabela .sec-title, .duas-colunas .sim-cols.compacto #painel-tabela .legenda, .duas-colunas .sim-cols.compacto #painel-tabela .nota { display: none; }
+  .duas-colunas .sim-cols.compacto .tbl-box { padding: 0 4px; }
+  .duas-colunas .sim-cols.compacto .tbl thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
+  .duas-colunas .sim-cols.compacto .tbl thead th.t { font-size: 0; }
+  .duas-colunas .sim-cols.compacto .tbl td, .duas-colunas .sim-cols.compacto .tbl tbody th { height: 30px; padding: 0 2px; font-size: 12.5px; }
+  .duas-colunas .sim-cols.compacto .tbl td.pos { width: 22px; padding-left: 6px; font-size: 12.5px; }
+  .duas-colunas .sim-cols.compacto .tbl td.pts { width: 26px; font-size: 13.5px; }
+  .duas-colunas .sim-cols.compacto .tbl .t div { gap: 4px; }
+  .duas-colunas .sim-cols.compacto .tbl .t span, .duas-colunas .sim-cols.compacto .tbl .delta { display: none; }
+  .duas-colunas .sim-cols.compacto .tbl .sig { display: inline; font-weight: 800; font-size: 12px; text-decoration: none; }
+  .duas-colunas .sim-cols.compacto .tbl .crest { width: 16px; height: 16px; }
+
+  /* jogo só com escudos */
+  .duas-colunas .sim-cols.compacto .jogos { grid-template-columns: 1fr; gap: 6px; }
+  .duas-colunas .sim-cols.compacto .jogo { padding: 5px 6px 6px; }
+  .duas-colunas .sim-cols.compacto .j-meta { font-size: 10px; margin-bottom: 2px; }
+  .duas-colunas .sim-cols.compacto .j-meta > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .duas-colunas .sim-cols.compacto .j-meta .tag { display: none; }
+  .duas-colunas .sim-cols.compacto .dado-mini { width: 28px; height: 28px; flex: none; }
+  .duas-colunas .sim-cols.compacto .time .sig { display: none; }
+  .duas-colunas .sim-cols.compacto .time .crest { width: 26px; height: 26px; }
+  .duas-colunas .sim-cols.compacto .j-linha { gap: 4px; }
+  .duas-colunas .sim-cols.compacto .placar input { width: 32px; height: 34px; font-size: 18px; }
+  .duas-colunas .sim-cols.compacto .placar { gap: 2px; }
+  .duas-colunas .sim-cols.compacto .pnum { font-size: 10px; }
+  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2) { font-size: 0; }
+  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2)::after { content: attr(data-x); }
+  .duas-colunas .sim-cols.compacto .col-jogos .sec-title h2 { font-size: 20px; }
+  .duas-colunas .sim-cols.compacto .col-jogos .sec-title small { display: none; }
+  .duas-colunas .sim-cols.compacto .progresso .prog-txt { font-size: 12px; }
+}
+@media (max-width: 899px) {
+  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2)::after { font-size: 10px; }
+  .duas-colunas .sim-cols.compacto .tbl thead tr > :nth-child(3) { display: none; }
+  .duas-colunas .sim-cols.compacto .tbl tbody tr > :nth-child(4) { display: none; }
+}

@@ -4,6 +4,11 @@ name: Publicar no GitHub Pages
 on:
   push:
     branches: [main]
+  # os dados atualizados pelo robô não disparam o push acima (commits do GITHUB_TOKEN não
+  # disparam outros fluxos): republica quando a atualização de dados termina
+  workflow_run:
+    workflows: ['Atualizar dados de reserva']
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read

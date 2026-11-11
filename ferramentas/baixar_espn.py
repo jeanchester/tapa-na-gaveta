@@ -267,6 +267,20 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     confrontos = {(j['mandante'], j['visitante']) for j in jogos if j['status'] != 'STATUS_POSTPONED'}
     jogos = [j for j in jogos if not (j['status'] == 'STATUS_POSTPONED' and (j['mandante'], j['visitante']) in confrontos)]
     jogos.sort(key=lambda j: j['data'])
+    # só a fase de pontos corridos: fora os jogos com time a definir (TBD) e os de playoff/
+    # mata-mata depois da última rodada (cada time joga no máximo 2 × (clubes − 1) vezes)
+    reais = {k for k, t in times.items() if not t['nome'].upper().startswith('TBD')}
+    limite = 2 * (len(reais) - 1)
+    conta, filtrados = {}, []
+    for j in jogos:
+        h, a = j['mandante'], j['visitante']
+        if h not in reais or a not in reais or conta.get(h, 0) >= limite or conta.get(a, 0) >= limite:
+            continue
+        conta[h] = conta.get(h, 0) + 1
+        conta[a] = conta.get(a, 0) + 1
+        filtrados.append(j)
+    jogos = filtrados
+    times = {k: t for k, t in times.items() if k in reais}
 
     # artilharia, assistências e a última escalação de cada time (arquivos à parte: o simulador
     # não precisa deles e eles podem falhar sem derrubar o retrato principal)
