@@ -710,3 +710,49 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
   .head::after { display: none; }
   .btn, .btn.primario::after, .foot-marca span, .foot-escudos a { transition: none; }
 }
+
+/* ===================================================================== tela inicial */
+.ini-topo { padding-bottom: 34px; }
+.ini-topo h1 { max-width: 15ch; }
+.ini-topo .page-head p { max-width: 56ch; font-size: 16.5px; }
+.ini-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }
+.link-btn.claro { color: #f4f6fb; text-decoration: underline; text-underline-offset: 3px; }
+.ini-times { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; margin-bottom: 26px; }
+.ini-times a { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 6px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); font-size: 12.5px; font-weight: 700; color: var(--ink-2); text-align: center; transition: transform .18s ease, border-color .18s; }
+.ini-times a:hover { transform: translateY(-2px); border-color: var(--gold); color: var(--ink); }
+.ini-times img { width: 40px; height: 40px; object-fit: contain; }
+.ini-secoes { list-style: none; margin: 0 0 30px; padding: 0; display: grid; gap: 10px; }
+@media (min-width: 760px) { .ini-secoes { grid-template-columns: 1fr 1fr; } }
+.ini-secoes a { position: relative; display: block; height: 100%; padding: 18px 48px 18px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); color: var(--ink); }
+.ini-secoes a:hover { border-color: var(--gold); }
+.ini-n { display: block; font: italic 900 30px/1 var(--f-num); color: var(--gold); -webkit-text-stroke: 1px var(--brand-ink); margin-bottom: 8px; }
+.ini-secoes b { font: 900 24px/1.05 var(--f-num); letter-spacing: -.01em; }
+.ini-secoes p { margin: 6px 0 0; color: var(--ink-2); font-size: 14.5px; }
+.ini-secoes .seta { position: absolute; right: 16px; top: 20px; width: 22px; height: 22px; color: var(--ink-3); transition: transform .2s; }
+.ini-secoes a:hover .seta { transform: translateX(4px); color: var(--ink); }
+.ini-sobre { background: var(--head-bg); color: var(--head-ink); margin: 8px calc(50% - 50vw) -1px; padding: 40px calc(50vw - 50%) 44px; }
+.ini-sobre-in { max-width: 680px; }
+.ini-sobre .kicker { color: #aeb8da; }
+.ini-sobre h2 { font: 900 clamp(28px, 7vw, 44px)/1.02 var(--f-num); letter-spacing: -.02em; margin: 6px 0 12px; }
+.ini-sobre p { color: rgba(244,246,251,.82); }
+.ini-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.ini-links a { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ===================================================================== páginas de texto */
+.texto { max-width: 680px; margin: 0 auto; padding: 18px 0 40px; }
+.texto h1 { font: 900 clamp(34px, 9vw, 54px)/1 var(--f-num); letter-spacing: -.02em; margin: 6px 0 14px; }
+.texto h2 { font: 900 22px/1.15 var(--f-num); margin: 28px 0 8px; }
+.texto p, .texto li { font-size: 16px; line-height: 1.65; color: var(--ink-2); }
+.texto .lead { font-size: 18px; color: var(--ink); }
+.texto ul { padding-left: 20px; }
+.texto li { margin-bottom: 8px; }
+.texto a { color: var(--brand-ink); text-decoration: underline; text-underline-offset: 3px; }
+.texto b { color: var(--ink); }
+.texto-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); }
+.texto-nav a { padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line-2); text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
+.texto-nav a[aria-current="page"] { background: var(--brand-ink); border-color: var(--brand-ink); color: #fff; }
+.foot-inst { margin-top: 14px; }
+.foot-inst a { font-size: 13.5px; opacity: .8; }
+.ini-topo .btn.primario { background: var(--gold); border-color: var(--gold); color: #0b1640; }
+.ini-times a, .ini-secoes a { text-decoration: none; }
+.ini-sobre { margin-bottom: -64px; }

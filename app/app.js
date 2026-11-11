@@ -154,7 +154,14 @@
     ['gremio', 'do Grêmio'], ['internacional', 'do Internacional'], ['mirassol', 'do Mirassol'], ['palmeiras', 'do Palmeiras'], ['bragantino', 'do Bragantino'],
     ['remo', 'do Remo'], ['santos', 'do Santos'], ['sp', 'do São Paulo'], ['vasco', 'do Vasco'], ['vitoria', 'do Vitória']];
   const MENU = [['simulador', 'Simulador'], ['escalacao', 'Escalação'], ['jogos', 'Jogos'], ['estatisticas', 'Estatísticas']];
-  const ABAS = { simulador: 1, escalacao: 1, jogos: 1, estatisticas: 1 };
+  const ABAS = { inicio: 1, simulador: 1, escalacao: 1, jogos: 1, estatisticas: 1, sobre: 1, privacidade: 1, termos: 1, modelo: 1 };
+  // as páginas de texto (textos/*.html) usam o mesmo módulo
+  const MODULO = { sobre: 'textos', privacidade: 'textos', termos: 'textos', modelo: 'textos' };
+  const INSTITUCIONAL = [['sobre', 'Quem somos'], ['modelo', 'Como funciona'], ['privacidade', 'Privacidade'], ['termos', 'Termos de uso']];
+  // contato que aparece em Quem somos, Privacidade e Termos: preencha o e-mail quando tiver um
+  const CONTATO = { email: '', github: 'https://github.com/jeanchester/tapa-na-gaveta/issues' };
+  const contatoHtml = () => (CONTATO.email ? 'Escreva para <a href="mailto:' + esc(CONTATO.email) + '">' + esc(CONTATO.email) + '</a>.'
+    : 'Mande uma mensagem pelo <a href="' + CONTATO.github + '" target="_blank" rel="noopener">GitHub do projeto</a>.');
 
   // aceita "#/jogos/milhao" e também a forma simples "#jogos-milhao" (a única que um link de
   // Artifact do claude.ai carrega; os slugs dos times e dos jogos não têm hífen)
@@ -168,7 +175,7 @@
     const ctx = {};
     (query || '').split('&').forEach((kv) => { const i = kv.indexOf('='); if (kv) ctx[i < 0 ? kv : kv.slice(0, i)] = i < 0 ? '' : decodeURIComponent(kv.slice(i + 1)); });
     const parts = path.split('/').filter(Boolean).map((p) => { try { return decodeURIComponent(p); } catch (e) { return p; } });
-    if (!parts.length) parts.push('simulador');
+    if (!parts.length) parts.push('inicio');
     return { parts, ctx };
   }
 
@@ -192,7 +199,8 @@
       '<div class="foot-cols">' +
       '<div class="foot-col foot-cta"><h3>Faça a sua tabela</h3><p>Chute os jogos que faltam, revele a tabela time a time e mande pro grupo.</p>' +
       '<a class="btn primario" href="#/simulador">Simular agora<svg class="seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>' +
-      '<div class="foot-col"><h3>Site</h3><ul class="foot-links">' + MENU.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul></div>' +
+      '<div class="foot-col"><h3>Site</h3><ul class="foot-links">' + MENU.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul>' +
+      '<ul class="foot-links foot-inst">' + INSTITUCIONAL.map(([id, n]) => '<li><a href="#/' + id + '">' + n + '</a></li>').join('') + '</ul></div>' +
       '<div class="foot-col foot-times"><h3>Simule pelo seu time</h3><div class="foot-escudos">' + TIMES_RODAPE.map(([slug, n]) =>
         '<a href="#/simulador/' + slug + '" title="Simulador ' + esc(n) + '" aria-label="Simulador ' + esc(n) + '"><img src="midia/escudos/' + slug + '.png" alt="" width="28" height="28" loading="lazy"></a>').join('') + '</div></div>' +
       '<div class="foot-col"><h3>Nossos apps de futebol</h3><div class="apps">' + APPS.map((a) =>
@@ -251,11 +259,12 @@
       return Promise.resolve(fim(alvo));
     }
     view.setAttribute('aria-busy', 'true');
-    if (!modulos[parts[0]]) view.innerHTML = '<div class="carregando">Carregando…</div>';
-    return carregarAba(parts[0]).then((m) => {
+    const nomeMod = MODULO[parts[0]] || parts[0];
+    if (!modulos[nomeMod]) view.innerHTML = '<div class="carregando">Carregando…</div>';
+    return carregarAba(nomeMod).then((m) => {
       if (alvo !== (location.hash || '#/')) return;             // o usuário já foi para outra tela
       setMeta(m.titulo, m.descricao);
-      return Promise.resolve(m.render(view, parts.slice(1), ctx)).then((limpar) => {
+      return Promise.resolve(m.render(view, MODULO[parts[0]] ? parts : parts.slice(1), ctx)).then((limpar) => {
         if (alvo !== (location.hash || '#/')) return;
         if (typeof limpar === 'function') saida = limpar;
         fim(alvo);
@@ -278,7 +287,7 @@
 
   const BOLA_FORA = '<svg viewBox="0 0 120 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M10 70V14h66v56"/><path d="M22 14l54 46M40 14l36 30M10 34h30" stroke-width="1" opacity=".5"/><circle cx="100" cy="22" r="9"/><path d="M84 30l-6 3M86 38l-5 1" opacity=".6"/></svg>';
   function naoEncontrada() {
-    return '<div class="vazio">' + BOLA_FORA + '<h1>Essa passou longe da gaveta</h1><p>A página que você procurou não existe ou mudou de endereço.</p><a class="btn primario" href="#/">Ir para o simulador</a></div>';
+    return '<div class="vazio">' + BOLA_FORA + '<h1>Essa passou longe da gaveta</h1><p>A página que você procurou não existe ou mudou de endereço.</p><a class="btn primario" href="#/simulador">Ir para o simulador</a></div>';
   }
 
   window.addEventListener('popstate', () => { voltando = true; });
@@ -298,7 +307,7 @@
   try { window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (temaAtual() === 'auto') desenharTopo(); }); } catch (e) { /* navegador antigo */ }
 
   // ================================================================== para as abas, testes e capturas
-  window.TNG = { ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  window.TNG = { CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {
