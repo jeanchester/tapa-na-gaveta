@@ -47,6 +47,88 @@ def baixar(url):
     return json.loads(dados.decode('utf-8'))
 
 
+def gravar(caminho, dados):
+    with open(caminho, 'w', encoding='utf-8') as f:
+        json.dump(dados, f, ensure_ascii=False, indent=1)
+    print(caminho, 'gravado')
+
+
+def gols_do_jogo(c, gols):
+    """Gols listados no placar do dia (competitions[0].details): autor e time; gol contra não conta."""
+    for d in c.get('details') or []:
+        if not d.get('scoringPlay') or d.get('ownGoal'):
+            continue
+        quem = (d.get('athletesInvolved') or [{}])[0]
+        nome = quem.get('displayName') or quem.get('shortName')
+        if nome:
+            gols.append({'id': str(quem.get('id') or nome), 'nome': nome, 'time': str((d.get('team') or {}).get('id') or (quem.get('team') or {}).get('id') or ''),
+                         'penalti': bool(d.get('penaltyKick'))})
+
+
+def lideres(ano, gols, times):
+    """Artilheiros e garçons. Tenta o quadro de líderes da ESPN; sem ele, conta os gols do placar."""
+    out = {'atualizado': datetime.datetime.now().isoformat(timespec='seconds'), 'artilheiros': [], 'assistencias': []}
+    try:
+        st = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/statistics?season={ano}')
+        for cat in st.get('stats') or []:
+            nome = (cat.get('name') or '').lower()
+            alvo = 'artilheiros' if 'goal' in nome else 'assistencias' if 'assist' in nome else None
+            if not alvo:
+                continue
+            for l in (cat.get('leaders') or [])[:15]:
+                a = l.get('athlete') or {}
+                tid = str((a.get('team') or l.get('team') or {}).get('id') or '')
+                out[alvo].append({'nome': a.get('displayName') or a.get('shortName'), 'time': tid,
+                                  'escudo': (times.get(tid) or {}).get('escudo'), 'n': int(float(l.get('value') or 0))})
+    except Exception as e:  # noqa: BLE001
+        print('quadro de líderes indisponível:', e)
+    if not out['artilheiros'] and gols:
+        conta = {}
+        for g in gols:
+            x = conta.setdefault(g['id'], {'nome': g['nome'], 'time': g['time'], 'n': 0, 'pen': 0})
+            x['n'] += 1
+            x['pen'] += g['penalti']
+        top = sorted(conta.values(), key=lambda x: (-x['n'], x['pen'], x['nome']))[:15]
+        out['artilheiros'] = [dict(x, escudo=(times.get(x['time']) or {}).get('escudo')) for x in top]
+        out['fonte_artilharia'] = 'placares'
+    return out
+
+
+def ultimas_escalacoes(jogos, times):
+    """Os 11 titulares de cada time no último jogo terminado (súmula da ESPN: rosters)."""
+    feitos = [j for j in jogos if j['status'] == 'STATUS_FULL_TIME']
+    out, sumulas = {'atualizado': datetime.datetime.now().isoformat(timespec='seconds'), 'times': {}}, {}
+    for tid, t in times.items():
+        if not t.get('escudo'):
+            continue
+        meus = [j for j in feitos if tid in (j['mandante'], j['visitante'])]
+        for j in reversed(meus[-3:]):          # se a súmula do último vier sem escalação, tenta o anterior
+            if j['id'] not in sumulas:
+                try:
+                    sumulas[j['id']] = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/summary?event={j["id"]}')
+                except Exception as e:  # noqa: BLE001
+                    print('súmula', j['id'], 'falhou:', e)
+                    sumulas[j['id']] = {}
+            r = next((x for x in sumulas[j['id']].get('rosters') or [] if str((x.get('team') or {}).get('id')) == tid), None)
+            tit = [p for p in (r or {}).get('roster') or [] if p.get('starter')]
+            if len(tit) < 11:
+                continue
+            outro = j['visitante'] if j['mandante'] == tid else j['mandante']
+            out['times'][t['escudo']] = {
+                'jogo': j['id'], 'data': j['data'], 'contra': (times.get(outro) or {}).get('nome'),
+                'esquema': (r.get('formation') or '').strip(),
+                'titulares': [{
+                    'n': (p.get('athlete') or {}).get('displayName') or (p.get('athlete') or {}).get('shortName'),
+                    'curto': (p.get('athlete') or {}).get('shortName'),
+                    'num': int(p['jersey']) if str(p.get('jersey') or '').isdigit() else None,
+                    'pos': (p.get('position') or {}).get('abbreviation') or '',
+                    'lugar': int(p['formationPlace']) if str(p.get('formationPlace') or '').isdigit() else None,
+                } for p in tit[:11]],
+            }
+            break
+    return out
+
+
 def main():
     ano = int(sys.argv[1]) if len(sys.argv) > 1 else datetime.date.today().year
     saida = sys.argv[2] if len(sys.argv) > 2 else os.path.join('dados', f'brasileirao-{ano}.json')
@@ -70,7 +152,7 @@ def main():
             'sg': int(st.get('pointDifferential') or 0),
         })
 
-    jogos, vistos = [], set()
+    jogos, vistos, gols = [], set(), []
     for mes in range(1, 13):
         sb = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/scoreboard?dates={ano}{mes:02d}&limit=300')
         for ev in sb.get('events', []):
@@ -88,6 +170,8 @@ def main():
             if chave in vistos:
                 continue
             vistos.add(chave)
+            if terminado:
+                gols_do_jogo(c, gols)
             jogos.append({
                 'id': ev['id'], 'data': ev['date'], 'horario_definido': c.get('timeValid', True),
                 'status': status, 'mandante': casa['team']['id'], 'visitante': fora['team']['id'],
@@ -101,6 +185,18 @@ def main():
     confrontos = {(j['mandante'], j['visitante']) for j in jogos if j['status'] != 'STATUS_POSTPONED'}
     jogos = [j for j in jogos if not (j['status'] == 'STATUS_POSTPONED' and (j['mandante'], j['visitante']) in confrontos)]
     jogos.sort(key=lambda j: j['data'])
+
+    # artilharia, assistências e a última escalação de cada time (arquivos à parte: o simulador
+    # não precisa deles e eles podem falhar sem derrubar o retrato principal)
+    pasta = os.path.dirname(saida) or '.'
+    try:
+        gravar(os.path.join(pasta, 'estatisticas-jogadores.json'), lideres(ano, gols, times))
+    except Exception as e:  # noqa: BLE001
+        print('::warning::artilharia não saiu:', e)
+    try:
+        gravar(os.path.join(pasta, 'ultimas-escalacoes.json'), ultimas_escalacoes(jogos, times))
+    except Exception as e:  # noqa: BLE001
+        print('::warning::escalações não saíram:', e)
 
     sem_escudo = [t['nome'] for t in times.values() if not t['escudo']]
     out = {

@@ -533,6 +533,15 @@ dialog.janela::backdrop { background: rgba(5, 10, 30, .6); }
 .busca input, .nome-livre input { width: 100%; min-height: 44px; border: 1.5px solid var(--line-2); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0 12px; font-size: 15px; }
 .nome-livre { display: flex; gap: 8px; margin-top: 8px; }
 .nome-livre input { flex: 1; min-width: 0; }
+.nome-livre.criar { margin: 10px 0 4px; flex-wrap: wrap; }
+.nome-livre.criar input[name="n"] { flex: 1 1 160px; }
+.nome-livre .num-in { flex: 0 0 56px; text-align: center; padding: 0 6px; }
+.nome-livre select { flex: 0 0 auto; min-height: 44px; border: 1.5px solid var(--line-2); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0 8px; font: inherit; font-size: 14px; }
+.elenco li { display: flex; align-items: center; }
+.elenco li > button[data-e="pegar"] { flex: 1; min-width: 0; }
+.el-apagar { flex: none; width: 36px; height: 36px; border-radius: 8px; color: var(--ink-3); font-size: 20px; line-height: 1; }
+.el-apagar:hover { background: var(--surface-2); color: var(--ink); }
+.elenco em.seu { color: var(--ink-3); }
 .el-grupo { font-size: 12px; font-weight: 800; color: var(--ink-3); margin: 16px 0 6px; }
 .elenco { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px 12px; }
 .elenco button { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 0 10px; border-radius: var(--r); text-align: left; font-weight: 600; font-size: 14px; }

@@ -29,6 +29,10 @@ for (const item of PUBLICAR) {
   if (!fs.existsSync(de)) throw new Error('falta ' + item);
   fs.cpSync(de, path.join(dist, item), { recursive: true });
 }
+// dados opcionais (saem do Actions; o site funciona sem eles)
+for (const f of ['dados/ultimas-escalacoes.json', 'dados/estatisticas-jogadores.json']) {
+  if (fs.existsSync(path.join(raiz, f))) fs.cpSync(path.join(raiz, f), path.join(dist, f));
+}
 // JSON publicados sem espaços (o retrato da ESPN é gravado indentado para ser legível no repositório)
 for (const f of ['dados/brasileirao-2026.json', 'dados/elencos-escalacao.json', 'dados/times-voce-escala.json', 'shared/regras-brasileirao-2026.json', 'jogos/milhao/perguntas.json']) {
   const p = path.join(dist, f);
