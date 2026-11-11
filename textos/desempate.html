@@ -1,0 +1,33 @@
+<!-- Critérios de desempate e vagas do Brasileirão 2026. Fonte: shared/regras-brasileirao-2026.json
+     (mantenha os dois iguais quando a CBF mudar algo). -->
+<h1>Critérios de desempate e vagas do Brasileirão 2026</h1>
+<p class="lead">No Brasileirão, dois times com os mesmos pontos quase nunca terminam empatados de verdade: o regulamento da CBF tem uma ordem de critérios para decidir quem fica na frente. Na reta final, essa ordem decide título, vaga na Libertadores e rebaixamento.</p>
+
+<h2>A ordem dos critérios</h2>
+<p>Quando dois ou mais clubes terminam com o mesmo número de pontos, vale o primeiro critério que separar os dois:</p>
+<ol>
+  <li><b>Número de vitórias.</b> Quem venceu mais fica na frente. É o critério que mais decide, porque dois times podem chegar aos mesmos pontos por caminhos diferentes: 3 vitórias e 3 derrotas dão 9 pontos, e 2 vitórias, 3 empates e 1 derrota também. No desempate, quem venceu mais leva.</li>
+  <li><b>Saldo de gols.</b> Gols marcados menos gols sofridos.</li>
+  <li><b>Gols marcados.</b> Quem fez mais gols.</li>
+  <li><b>Confronto direto.</b> O resultado dos dois jogos entre os clubes empatados. Este critério só vale quando o empate é entre <b>dois</b> clubes; com três ou mais, pula-se para o critério seguinte.</li>
+  <li><b>Menos cartões vermelhos.</b></li>
+  <li><b>Menos cartões amarelos.</b></li>
+  <li><b>Sorteio.</b> Se nada separar os clubes, a CBF sorteia.</li>
+</ol>
+
+<h2>Um exemplo</h2>
+<p>Imagine dois times que terminam com 60 pontos. O primeiro teve 17 vitórias e 9 empates; o segundo, 16 vitórias e 12 empates. O primeiro fica na frente pelo número de vitórias, mesmo que o segundo tenha saldo de gols melhor. Só se os dois tivessem o mesmo número de vitórias é que o saldo entraria na conta.</p>
+<p>Agora imagine três times empatados em pontos, vitórias, saldo e gols marcados. Como são três, o confronto direto não vale: a decisão vai para os cartões vermelhos.</p>
+
+<h2>As vagas e o rebaixamento</h2>
+<ul>
+  <li><b>Libertadores, direto:</b> do 1º ao 4º colocado.</li>
+  <li><b>Libertadores, fase preliminar:</b> o 5º colocado.</li>
+  <li><b>Sul-Americana:</b> do 6º ao 11º.</li>
+  <li><b>Rebaixamento para a Série B:</b> do 17º ao 20º.</li>
+</ul>
+<p>Essas são as vagas iniciais divulgadas pela CBF. Elas podem mudar: se o campeão da Copa do Brasil ou um time brasileiro campeão da Libertadores já estiver classificado pelo campeonato, a vaga "sobra" e desce para o próximo da tabela. Por isso, em algumas temporadas, até o 6º ou o 7º colocado vai à Libertadores.</p>
+
+<h2>Como o simulador trata os desempates</h2>
+<p>O simulador do Tapa na Gaveta aplica os critérios nessa ordem: pontos, vitórias, saldo, gols marcados e confronto direto (só entre dois clubes). Os dados de cartões não estão disponíveis na fonte que usamos, a API pública da ESPN, então, depois do confronto direto, o simulador passa direto ao sorteio. Na prática isso quase nunca muda nada: é raríssimo dois times empatarem em todos os critérios anteriores.</p>
+<p>Veja como isso entra nas contas em <a href="#/modelo">como funciona o simulador</a> e as chances de cada time em <a href="brasileirao-2026/">Brasileirão 2026: tabela e chances</a>.</p>

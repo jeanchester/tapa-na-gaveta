@@ -3,8 +3,8 @@
 //   node tools/build.js --release --site https://dominio  versão publicada
 // --release grava TNG_RELEASE (site, Milhão, Fast) e DEZ_RELEASE (Draft): some a faixa de erro.
 // --site    endereço definitivo: Open Graph com URL absoluta, sitemap.xml e robots.txt.
-// Páginas de entrada (tools/paginas.json + uma por time): título, descrição e imagem certos para o
-// WhatsApp, e um redirecionamento para a rota do site (os parâmetros do link vão junto).
+// Páginas de entrada (tools/paginas.json): título, descrição e imagem certos para o WhatsApp.
+// As de cada time (simulador/<time>/) e de cada jogo (jogar/<jogo>/) saem com texto (tools/paginas-texto.js).
 // Material de consulta (referencias/, apps/, ferramentas/, tapa-na-gaveta-midia/, docs/, tools/) não é publicado.
 const fs = require('fs');
 const path = require('path');
@@ -57,14 +57,7 @@ if (release) {
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const abs = (p) => (site ? site + p : p);
 const { paginas } = JSON.parse(fs.readFileSync(path.join(raiz, 'tools/paginas.json'), 'utf8'));
-const liga = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/brasileirao-2026.json'), 'utf8'));
-const CURTO = { athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
-liga.times.filter((t) => t.escudo).forEach((t) => {
-  const nome = CURTO[t.escudo] || t.nome, de = t.escudo === 'chapecoense' ? 'da' : 'do';
-  paginas.push({ caminho: 'simulador/' + t.escudo + '/', rota: '#/simulador/' + t.escudo, og: 'simulador-' + t.escudo,
-    titulo: 'Simulador ' + de + ' ' + nome + ' no Brasileirão 2026',
-    descricao: 'O que falta para ' + (de === 'da' ? 'a ' : 'o ') + nome + ': chute os placares, veja as chances de título, Libertadores e rebaixamento e o que o time precisa.' });
-});
+// as páginas de cada time entram pelo tools/paginas-texto.js (abaixo)
 
 function meta(p) {
   const img = abs('midia/og/' + p.og + '.png'), url = abs(p.caminho);
@@ -86,49 +79,75 @@ if (ini < 0 || fim < 0) throw new Error('index.html mudou: não achei o bloco de
 html = html.slice(0, ini) + meta(inicio) + html.slice(html.indexOf('\n', fim) + 1);
 gravar('index.html', html);
 
+// Só redirecionam as páginas sem texto próprio (simulador/, escalacao/, jogos/, estatisticas/):
+// ficam fora do sitemap e com noindex. As de cada time e de cada jogo têm conteúdo (abaixo).
+const COM_TEXTO = /^(simulador\/[^/]+|jogar\/[^/]+)\/$/;
 let n = 0;
-paginas.filter((p) => p.caminho).forEach((p) => {
+paginas.filter((p) => p.caminho && !COM_TEXTO.test(p.caminho)).forEach((p) => {
   const nivel = p.caminho.split('/').filter(Boolean).length;
   const volta = '../'.repeat(nivel);
   gravar(p.caminho + 'index.html', '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  ' +
-    meta(p) + '\n  <meta name="theme-color" content="#0b1640">\n  <meta http-equiv="refresh" content="0; url=' + volta + p.rota + '">\n' +
+    meta(p) + '\n  <meta name="robots" content="noindex, follow">\n  <meta name="theme-color" content="#0b1640">\n  <meta http-equiv="refresh" content="0; url=' + volta + p.rota + '">\n' +
     '  <script>location.replace("' + volta + '" + "' + p.rota + '" + (location.search ? "?" + location.search.slice(1) : ""));</script>\n' +
     '</head>\n<body style="background:#0b1640;color:#f4f6fb;font:16px system-ui;padding:24px"><a href="' + volta + p.rota + '" style="color:#ffc23d">Abrir o Tapa na Gaveta</a></body>\n</html>\n');
+  p.semIndice = true;
   n++;
 });
 
 // ------------------------------------------------------------------ páginas de texto estáticas
-// Quem somos, Como funciona, Privacidade e Termos também saem como HTML de verdade (sem
-// redirecionar): é o que o Google e a revisão do AdSense leem sem rodar JavaScript.
+// HTML de verdade, sem redirecionar: é o que o Google e a revisão do AdSense leem sem rodar
+// JavaScript. Os textos fixos moram em textos/*.html (os mesmos que o site mostra em #/sobre...);
+// as páginas de cada time, do campeonato e dos jogos saem de tools/paginas-texto.js.
 const TEXTOS = [
-  { id: 'sobre', caminho: 'sobre/', titulo: 'Quem somos', descricao: 'Quem faz o Tapa na Gaveta, o simulador do Brasileirão feito por torcedores, e de onde vêm os dados.' },
-  { id: 'modelo', caminho: 'como-funciona/', titulo: 'Como funciona o simulador', descricao: 'Como o Tapa na Gaveta calcula as chances de cada jogo e de título, Libertadores e rebaixamento: Poisson, forma recente, mando de campo e Monte Carlo.' },
-  { id: 'privacidade', caminho: 'privacidade/', titulo: 'Política de privacidade', descricao: 'Quais dados o Tapa na Gaveta usa, cookies, publicidade e como controlar os seus dados.' },
-  { id: 'termos', caminho: 'termos/', titulo: 'Termos de uso', descricao: 'Termos de uso do Tapa na Gaveta, simulador do Brasileirão.' },
+  { id: 'sobre', caminho: 'sobre/', titulo: 'Quem somos', curto: 'Quem somos', descricao: 'Quem faz o Tapa na Gaveta, o simulador do Brasileirão feito por torcedores, e de onde vêm os dados.' },
+  { id: 'modelo', caminho: 'como-funciona/', titulo: 'Como funciona o simulador', curto: 'Como funciona', descricao: 'Como o Tapa na Gaveta calcula as chances de cada jogo e de título, Libertadores e rebaixamento: Poisson, forma recente, mando de campo e Monte Carlo.' },
+  { id: 'desempate', caminho: 'criterios-de-desempate/', titulo: 'Critérios de desempate e vagas do Brasileirão 2026', curto: 'Desempates', descricao: 'A ordem dos critérios de desempate do Brasileirão 2026, as vagas para Libertadores e Sul-Americana, o rebaixamento e como o simulador trata cada um.' },
+  { id: 'contato', caminho: 'contato/', titulo: 'Contato', curto: 'Contato', descricao: 'Fale com o Tapa na Gaveta: erros nos dados, ideias, problemas no site e parcerias.' },
+  { id: 'privacidade', caminho: 'privacidade/', titulo: 'Política de privacidade', curto: 'Privacidade', descricao: 'Quais dados o Tapa na Gaveta usa, cookies, publicidade e como controlar os seus dados.' },
+  { id: 'termos', caminho: 'termos/', titulo: 'Termos de uso', curto: 'Termos de uso', descricao: 'Termos de uso do Tapa na Gaveta, simulador do Brasileirão.' },
 ];
 const appSrc = fs.readFileSync(path.join(raiz, 'app/app.js'), 'utf8');
 const mEmail = /CONTATO = \{ email: '([^']*)', github: '([^']*)'/.exec(appSrc);
 const contato = mEmail && mEmail[1] ? 'Escreva para <a href="mailto:' + mEmail[1] + '">' + mEmail[1] + '</a>.' : 'Mande uma mensagem pelo <a href="' + (mEmail ? mEmail[2] : '#') + '">GitHub do projeto</a>.';
+
+// casca comum: topo com a marca e um botão para o site, o texto e a navegação entre as páginas
+// cta.redirecionarComParametros: um link de cenário (?c=...) vai direto para o simulador
+function casca(p, corpo, volta, cta) {
+  cta = cta || { href: volta + '#/simulador', rotulo: 'Simular' };
+  const ir = cta.redirecionarComParametros
+    ? '  <script>if (location.search) location.replace("' + volta + cta.redirecionarComParametros + '?" + location.search.slice(1));</script>\n' : '';
+  const nav = [['brasileirao-2026/', 'Brasileirão 2026']].concat(TEXTOS.map((x) => [x.caminho, x.curto]), [['jogar/draft/', 'Football Draft'], ['jogar/milhao/', 'Jogo do Milhão'], ['jogar/fast/', 'Fast Football']]);
+  return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n' + ir + '  ' + meta(p) +
+    '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="' + volta + 'app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="' + volta + 'app/app.css">\n</head>\n<body>\n' +
+    '  <header class="head"><div class="wrap head-row"><a class="marca" href="' + volta + '" aria-label="Tapa na Gaveta, início"><b style="font:italic 900 19px var(--f-num);color:#fff;white-space:nowrap">tapa na gaveta</b></a><span class="sp"></span>' +
+    '<a class="btn primario" style="background:var(--gold);border-color:var(--gold);color:#0b1640;white-space:nowrap" href="' + esc(cta.href) + '">' + esc(cta.rotulo) + '</a></div></header>\n' +
+    '  <main class="wrap"><article class="texto">' + corpo + '<nav class="texto-nav" aria-label="Mais do Tapa na Gaveta">' +
+    nav.map(([c, nome]) => '<a href="' + volta + c + '"' + (c === p.caminho ? ' aria-current="page"' : '') + '>' + nome + '</a>').join('') +
+    '<a href="' + volta + '">Início</a></nav></article></main>\n</body>\n</html>\n';
+}
+
 TEXTOS.forEach((t) => {
   const corpo = fs.readFileSync(path.join(raiz, 'textos', t.id + '.html'), 'utf8').replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<span data-contato><\/span>/g, contato)
-    .replace(/href="#\/(sobre|modelo|privacidade|termos)"/g, (m, k) => 'href="../' + TEXTOS.find((x) => x.id === k).caminho + '"')
-    .replace(/href="#\//g, 'href="../#/');
+    .replace(/href="#\/(sobre|modelo|privacidade|termos|desempate|contato)"/g, (m, k) => 'href="../' + TEXTOS.find((x) => x.id === k).caminho + '"')
+    .replace(/href="#\//g, 'href="../#/')
+    .replace(/href="(brasileirao-2026|jogar|simulador)\//g, 'href="../$1/');
   const p = { caminho: t.caminho, og: 'simulador', titulo: t.titulo, descricao: t.descricao };
-  gravar(t.caminho + 'index.html', '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n  ' + meta(p) +
-    '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="../app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="../app/app.css">\n</head>\n<body>\n' +
-    '  <header class="head"><div class="wrap head-row"><a class="marca" href="../" aria-label="Tapa na Gaveta, início"><b style="font:italic 900 19px var(--f-num);color:#fff;white-space:nowrap">tapa na gaveta</b></a><span class="sp"></span><a class="btn primario" style="background:var(--gold);border-color:var(--gold);color:#0b1640;white-space:nowrap" href="../#/simulador">Simular</a></div></header>\n' +
-    '  <main class="wrap"><article class="texto">' + corpo + '<nav class="texto-nav" aria-label="Sobre o site">' +
-    TEXTOS.map((x) => '<a href="../' + x.caminho + '"' + (x.id === t.id ? ' aria-current="page"' : '') + '>' + x.titulo.replace('Como funciona o simulador', 'Como funciona') + '</a>').join('') +
-    '<a href="../">Início</a></nav></article></main>\n</body>\n</html>\n');
+  gravar(t.caminho + 'index.html', casca(p, corpo, '../'));
   paginas.push(p);
+});
+const geradas = require('./paginas-texto.js')({ raiz, gravar, casca, esc });
+// troca as entradas antigas (só redirecionamento) pelas páginas com texto
+geradas.forEach((g) => {
+  const k = paginas.findIndex((p) => p.caminho === g.caminho);
+  if (k >= 0) paginas[k] = g; else paginas.push(g);
 });
 
 // ------------------------------------------------------------------ sitemap e robots
 if (site) {
   const hoje = new Date().toISOString().slice(0, 10);
   gravar('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    paginas.map((p) => '  <url><loc>' + esc(abs(p.caminho)) + '</loc><lastmod>' + hoje + '</lastmod></url>').join('\n') + '\n</urlset>\n');
+    paginas.filter((p) => !p.semIndice).map((p) => '  <url><loc>' + esc(abs(p.caminho)) + '</loc><lastmod>' + hoje + '</lastmod></url>').join('\n') + '\n</urlset>\n');
   gravar('robots.txt', 'User-agent: *\nAllow: /\nSitemap: ' + site + 'sitemap.xml\n');
 } else {
   gravar('robots.txt', 'User-agent: *\nAllow: /\n');
@@ -149,5 +168,5 @@ for (const f of ['index.html', 'app/app.css', 'app/app.js', 'app/abas/simulador.
   gz += zlib.gzipSync(fs.readFileSync(path.join(dist, f))).length;
 }
 if (JSON.stringify(fs.readdirSync(dist)).includes('CHAVE')) throw new Error('algo com "CHAVE" no nome foi para o ar');
-console.log(`dist/ pronto: ${(bytes / 1048576).toFixed(1)} MB, ${n} páginas de entrada, página inicial (sem imagens) ${(pagina / 1024).toFixed(0)} KB, ${(gz / 1024).toFixed(0)} KB com gzip · ` +
+console.log(`dist/ pronto: ${(bytes / 1048576).toFixed(1)} MB, ${n} páginas de entrada, ${paginas.filter((p) => !p.semIndice && p.caminho).length} páginas com texto, página inicial (sem imagens) ${(pagina / 1024).toFixed(0)} KB, ${(gz / 1024).toFixed(0)} KB com gzip · ` +
   `${release ? 'versão publicada' : 'desenvolvimento'}${site ? ' · ' + site : ' · sem --site (Open Graph com endereço relativo)'}`);

@@ -1,9 +1,9 @@
-/* Páginas de texto: Quem somos, Como funciona, Privacidade e Termos. O texto mora em textos/*.html
+/* Páginas de texto: Quem somos, Como funciona, Desempates, Contato, Privacidade e Termos. O texto mora em textos/*.html
    (o mesmo arquivo vira página estática no build, para o Google e o AdSense lerem sem JavaScript). */
 (function () {
   'use strict';
   const T = window.TNG;
-  const TITULOS = { sobre: 'Quem somos', modelo: 'Como funciona o simulador', privacidade: 'Política de privacidade', termos: 'Termos de uso' };
+  const TITULOS = { sobre: 'Quem somos', modelo: 'Como funciona o simulador', desempate: 'Critérios de desempate', contato: 'Contato', privacidade: 'Política de privacidade', termos: 'Termos de uso' };
   const cache = {};
 
   T.aba('textos', {
