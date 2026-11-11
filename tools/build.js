@@ -30,7 +30,8 @@ for (const item of PUBLICAR) {
   fs.cpSync(de, path.join(dist, item), { recursive: true });
 }
 // dados opcionais (saem do Actions; o site funciona sem eles)
-for (const f of ['dados/ultimas-escalacoes.json', 'dados/estatisticas-jogadores.json']) {
+const COMPETICOES = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/competicoes.json'), 'utf8')).lista;
+for (const f of ['dados/ultimas-escalacoes.json', 'dados/estatisticas-jogadores.json'].concat(COMPETICOES.map((c) => c.dados))) {
   if (fs.existsSync(path.join(raiz, f))) fs.cpSync(path.join(raiz, f), path.join(dist, f));
 }
 // JSON publicados sem espaços (o retrato da ESPN é gravado indentado para ser legível no repositório)

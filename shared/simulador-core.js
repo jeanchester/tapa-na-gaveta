@@ -117,7 +117,27 @@
 
   // ordena pelos critérios do regulamento. sorteio: chave por time (menor primeiro); sem ela,
   // ordem alfabética (estável para a tela; o Monte Carlo passa chaves sorteadas).
+  // Critérios simples do regulamento (o resto, como cartões, a ESPN não informa: pula)
+  const CRIT = { pontos: (x) => x.pts, vitorias: (x) => x.v, saldo: (x) => x.gp - x.gc, gols_pro: (x) => x.gp, gols_fora: (x) => x.gf || 0 };
+  const BRASIL = ['pontos', 'vitorias', 'saldo', 'gols_pro', 'confronto_direto'];
+  // mini-tabela só com os jogos entre os clubes empatados: [pontos, saldo, gols] de cada um
+  function miniTabela(L, placares, ids) {
+    const dentro = {}, r = {};
+    ids.forEach((i) => { dentro[i] = 1; r[i] = [0, 0, 0]; });
+    L.jogos.forEach((j) => {
+      if (!dentro[j.h] || !dentro[j.a]) return;
+      const p = placarDe(j, placares);
+      if (!p) return;
+      const H = r[j.h], A = r[j.a];
+      H[1] += p[0] - p[1]; A[1] += p[1] - p[0]; H[2] += p[0]; A[2] += p[1];
+      if (p[0] > p[1]) H[0] += 3; else if (p[0] < p[1]) A[0] += 3; else { H[0]++; A[0]++; }
+    });
+    return r;
+  }
   function ordenar(L, s, placares, sorteio) {
+    const lista = (L.regras && L.regras.desempate) || BRASIL;
+    const ehBrasil = lista.slice(0, 5).join() === BRASIL.join() && !(L.regras && L.regras.confronto_so_dois === false);
+    if (!ehBrasil) return ordenarGeral(L, s, placares, sorteio, lista);
     const base = (x, y) => (y.pts - x.pts) || (y.v - x.v) || ((y.gp - y.gc) - (x.gp - x.gc)) || (y.gp - x.gp);
     const sorteioDe = (x) => (sorteio ? sorteio[x.i] : x.i);
     const out = s.slice().sort((x, y) => base(x, y) || (sorteioDe(x) - sorteioDe(y)));
@@ -134,6 +154,52 @@
       }
       k = f;
     }
+    out.forEach((x, p) => { x.pos = p + 1; x.sg = x.gp - x.gc; });
+    return out;
+  }
+
+  // Ordem genérica (ligas europeias e outras): critérios na ordem do regulamento; o confronto
+  // direto vale para qualquer número de empatados (mini-tabela: pontos, saldo e gols entre eles),
+  // a não ser que confronto_so_dois seja true.
+  function ordenarGeral(L, s, placares, sorteio, lista) {
+    const crit = lista.filter((c) => CRIT[c] || c === 'confronto_direto');
+    const soDois = !!(L.regras && L.regras.confronto_so_dois);
+    const sorteioDe = (x) => (sorteio ? sorteio[x.i] : x.i);
+    const cmpVet = (a, b) => (b[0] - a[0]) || (b[1] - a[1]) || (b[2] - a[2]);
+    function grupo(xs, k) {
+      if (xs.length <= 1) return xs;
+      if (k >= crit.length) { xs.forEach((x) => { x.criterio = x.criterio || 'sorteio'; }); return xs.slice().sort((a, b) => sorteioDe(a) - sorteioDe(b)); }
+      const c = crit[k];
+      let chave;
+      if (c === 'confronto_direto') {
+        if (soDois && xs.length !== 2) return grupo(xs, k + 1);
+        const mt = miniTabela(L, placares, xs.map((x) => x.i));
+        chave = (x) => mt[x.i];
+        const ord = xs.slice().sort((a, b) => cmpVet(chave(a), chave(b)));
+        const out = [];
+        for (let a = 0; a < ord.length;) {
+          let b = a + 1;
+          while (b < ord.length && cmpVet(chave(ord[a]), chave(ord[b])) === 0) b++;
+          const g = ord.slice(a, b);
+          if (g.length < ord.length) ord.forEach((x) => { if (!x.criterio) x.criterio = 'confronto_direto'; });
+          out.push.apply(out, grupo(g, k + 1));
+          a = b;
+        }
+        return out;
+      }
+      const f = CRIT[c];
+      const ord = xs.slice().sort((a, b) => f(b) - f(a));
+      const out = [];
+      for (let a = 0; a < ord.length;) {
+        let b = a + 1;
+        while (b < ord.length && f(ord[b]) === f(ord[a])) b++;
+        out.push.apply(out, grupo(ord.slice(a, b), k + 1));
+        a = b;
+      }
+      return out;
+    }
+    s.forEach((x) => { delete x.criterio; });
+    const out = grupo(s.slice(), 0);
     out.forEach((x, p) => { x.pos = p + 1; x.sg = x.gp - x.gc; });
     return out;
   }

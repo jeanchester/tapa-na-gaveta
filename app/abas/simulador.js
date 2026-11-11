@@ -48,6 +48,7 @@
   // ================================================================== estado
   const st = {
     base: null, liga: null, regras: null, fonte: 'publicado', quando: null,
+    comps: null, comp: null,        // competições (shared/competicoes.json) e a escolhida
     L: null, M: null,
     p: {}, sim: {},                 // placares do usuário e quais foram sorteados
     prefs: null, aba: 'jogos', meu: null, soMeus: true,
@@ -58,30 +59,45 @@
   };
   const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000 };
 
+  // Série A usa as chaves de sempre; as outras competições ganham um sufixo
+  const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
+  const rotaBase = () => '#/simulador' + (st.comp && st.comp.id !== 'seriea' ? '/' + st.comp.id : '');
+  const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês' };
+  const ehSerieA = () => !st.comp || st.comp.id === 'seriea';
+
   function carregarPrefs() { st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {})); }
   function salvarPrefs() { saveJson(KEY.prefs, st.prefs); }
   function salvarPlacares() {
     if (st.compartilhado) return;            // olhando um cenário de outra pessoa: não grava por cima do seu
-    saveJson(KEY.placares, { temporada: st.liga.temporada, p: st.p, sim: st.sim });
+    saveJson(k_(KEY.placares), { temporada: st.liga.temporada, p: st.p, sim: st.sim });
   }
 
   // ================================================================== dados (três camadas)
   function json(url) { return fetch(url).then((r) => { if (!r.ok) throw new Error(url + ' ' + r.status); return r.json(); }); }
 
-  function carregarDados() {
-    if (st.base) return Promise.resolve();
-    return Promise.all([json('dados/brasileirao-2026.json'), json('shared/regras-brasileirao-2026.json')]).then(([liga, regras]) => {
+  function carregarComps() {
+    if (st.comps) return Promise.resolve(st.comps);
+    return json('shared/competicoes.json').then((c) => (st.comps = c.lista));
+  }
+  function carregarDados(id) {
+    const comp = st.comps.find((c) => c.id === id) || st.comps[0];
+    if (st.base && st.comp && st.comp.id === comp.id) return Promise.resolve();
+    const antes = st.comp;
+    return Promise.all([json(comp.dados), json(comp.regras)]).then(([liga, regras]) => {
+      if (antes && antes !== comp && st.worker) { st.worker.terminate(); st.worker = null; st.pedidos = {}; }
+      st.comp = comp; st.p = {}; st.sim = {}; st.chances = null; st.precisa = null; st.chancesVersao = -1; st.precisaVersao = '';
       st.base = liga; st.regras = regras;
-      const cache = loadJson(KEY.espnCache, null);
+      ultimaBusca = 0;
+      const cache = loadJson(k_(KEY.espnCache), null);
       if (cache && cache.liga && cache.liga.temporada === liga.temporada && cache.liga.baixado_em > liga.baixado_em && Array.isArray(cache.liga.jogos) && cache.liga.jogos.length >= liga.jogos.length - 5) {
         st.liga = cache.liga; st.fonte = 'guardado'; st.quando = cache.liga.baixado_em;
       } else {
         st.liga = liga; st.fonte = 'publicado'; st.quando = liga.baixado_em;
       }
-      const salvo = loadJson(KEY.placares, {});
+      const salvo = loadJson(k_(KEY.placares), {});
       if (salvo && salvo.temporada === liga.temporada) { st.p = salvo.p || {}; st.sim = salvo.sim || {}; }
       recalcular();
-      migrarAntigos();
+      if (ehSerieA()) migrarAntigos();
     });
   }
 
@@ -116,10 +132,12 @@
     if (/[?&]offline\b/.test(location.search) || T.ARTIFACT || buscandoESPN || Date.now() - ultimaBusca < 5 * 60000 || !window.TNGEspn) return;
     buscandoESPN = true;
     desenharCarimbo();
-    window.TNGEspn.atualizar(st.liga).then((m) => {
+    const comp = st.comp;
+    window.TNGEspn.atualizar(st.liga, { liga: comp.espn }).then((m) => {
+      if (st.comp !== comp) { buscandoESPN = false; return; }      // trocou de competição no meio
       ultimaBusca = Date.now();
       delete m.mudou;
-      saveJson(KEY.espnCache, { liga: m });
+      saveJson(k_(KEY.espnCache), { liga: m });
       const mudou = JSON.stringify(m.jogos) !== JSON.stringify(st.liga.jogos);
       st.liga = m; st.fonte = 'ao vivo'; st.quando = m.baixado_em;
       buscandoESPN = false;
@@ -146,7 +164,8 @@
   const alvoPlacares = () => st.compartilhado || st.p;
   const placarDe = (j) => window.TNGCore.placarDe(j, placares());
   const timePorSlug = (s) => st.L.times.find((t) => t.slug === s) || null;
-  const crest = (t, cls) => '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo || 'vazio') + '.png" alt="" width="24" height="24" loading="lazy">';
+  const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
+    : '<span class="' + (cls || 'crest') + ' disco" aria-hidden="true">' + esc((t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => (x == null ? '–' : x <= 0 ? '–' : x < 0.005 ? '<1%' : x > 0.995 && x < 1 ? '>99%' : Math.round(x * 100) + '%');
   const BR = { timeZone: 'America/Sao_Paulo' };
   const fmtDia = (iso) => new Date(iso).toLocaleDateString('pt-BR', Object.assign({ weekday: 'short', day: '2-digit', month: '2-digit' }, BR)).replace('.', '').replace(/^./, (c) => c.toUpperCase());
@@ -196,8 +215,8 @@
     const opcoes = st.L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR')).map((t) =>
       '<option value="' + esc(t.slug) + '"' + (meu && meu.i === t.i ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('');
     v.innerHTML =
-      '<div class="sim-topo"><div class="page-head"><div class="kicker">Brasileirão 2026 · Série A</div>' +
-      '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : 'Simulador do Brasileirão') + '</h1>' +
+      '<div class="sim-topo"><div class="page-head">' + seletorComp() + '<div class="kicker">' + (ehSerieA() ? 'Brasileirão 2026 · Série A' : esc(st.comp.rotulo)) + '</div>' +
+      '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : esc(TITULO[st.comp.id] || 'Simulador')) + '</h1>' +
       '<p id="sim-frase">' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       letreiro() +
@@ -227,6 +246,12 @@
     desenharTabela();
     desenharChances();
     atualizarBarraRevelar();
+  }
+
+  // troca de competição: chips no topo (a Série A é a casa)
+  function seletorComp() {
+    return '<nav class="comp-sel" aria-label="Competição">' + st.comps.map((c) =>
+      '<a href="#/simulador' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === st.comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>';
   }
 
   // Letreiro dos próximos jogos (corre sozinho; parado e rolável quando o aparelho pede menos movimento)
@@ -263,7 +288,7 @@
     }
     el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? (art(lider) === 'a' ? 'Campeã' : 'Campeão') + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
       '<div class="rs-time"><span class="rs-placa g">' + crest(lider) + '</span><div><b>' + esc(nome(lider)) + '</b><span class="num">' + tab[0].pts + ' pontos</span></div></div></div>' +
-      '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>Também na Libertadores</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
+      '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>' + esc(st.regras.rotulo_grupo || 'Também na Libertadores') + '</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
       '<div><small><i style="background:var(--z-rb)"></i>' + (fim && tot ? 'Rebaixados' : 'Caem') + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
     const chave = [tab[0].i].concat(g.map((x) => x.i), z.map((x) => x.i)).join();
     if (resumoAntes && chave !== resumoAntes && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
@@ -603,11 +628,11 @@
     } else {
       const cs = st.chances.chances.slice().sort((a, b) => a.posMedia - b.posMedia);
       html += '<div class="tbl-box' + (st.chancesVersao !== st.versao ? ' desat' : '') + '"><table class="tbl chances"><caption class="sr">Chances de cada time</caption><thead><tr><th class="t" scope="col">Time</th>' +
-        '<th scope="col" title="1º lugar">Título</th><th scope="col" title="1º ao 5º (fase de grupos ou preliminar)">Liberta</th><th scope="col" title="6º ao 11º">Sula</th><th scope="col" title="17º ao 20º">Queda</th></tr></thead><tbody>' +
+        '<th scope="col" title="1º lugar">Título</th>' + colunas().map((k) => '<th scope="col" title="' + esc(k.titulo || '') + '">' + esc(k.rotulo) + '</th>').join('') + '</tr></thead><tbody>' +
         cs.map((c) => {
-          const t = st.L.times[c.i], lib = (c.lib || 0) + (c.pre || 0);
+          const t = st.L.times[c.i];
           return '<tr data-t="' + c.i + '" tabindex="0" aria-expanded="false"><th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span></div></th>' +
-            '<td>' + pct(c.titulo) + '</td><td>' + pct(lib) + '</td><td>' + pct(c.sula) + '</td><td class="queda">' + pct(c.rb) + '</td></tr>';
+            '<td>' + pct(c.titulo) + '</td>' + colunas().map((k) => '<td' + (k.zonas.indexOf('rb') >= 0 ? ' class="queda"' : '') + '>' + pct(k.zonas.reduce((s, z) => s + (c[z] || 0), 0)) + '</td>').join('') + '</tr>';
         }).join('') + '</tbody></table></div>' +
         '<p class="nota">Cada simulação sorteia os placares que faltam pelas probabilidades, respeitando os que você preencheu. Toque num time para ver em que posições ele costuma terminar.</p>';
     }
@@ -630,6 +655,15 @@
     sula: ['garante vaga em copa continental', 'fica fora das copas', 'Copa continental (1º a 11º)', 'Vaga em copa'],
     escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda', 'Escapar da queda'],
   };
+  // colunas da tabela de chances: as do regulamento (regras.colunas) ou as do Brasileirão
+  function colunas() {
+    return st.regras.colunas || [{ rotulo: 'Liberta', zonas: ['lib', 'pre'], titulo: '1º ao 5º (fase de grupos ou preliminar)' }, { rotulo: 'Sula', zonas: ['sula'], titulo: '6º ao 11º' }, { rotulo: 'Queda', zonas: ['rb'], titulo: '17º ao 20º' }];
+  }
+  // frases de cada objetivo: as da competição (zona.verbo / zona.subst) ou as do Brasileirão
+  const zonaDoObj = (id) => st.regras.zonas.find((z) => z.id === (id === 'escapar' ? 'rb' : id));
+  const verbo = (id) => { const z = zonaDoObj(id); return (z && z.verbo) || VERBO[id] || [id, id, id, id]; };
+  const subst = (id) => { const z = zonaDoObj(id); return (z && z.subst) || SUBST[id] || id; };
+
   function pedirPrecisa() {
     const versao = st.versao + ':' + st.meu.i;
     if (st.precisaVersao === versao) return;
@@ -653,19 +687,19 @@
     html += '<div class="obj-chips" role="list">' + sit.map(({ o, s: sx }) => {
       const m = mc && mc.find((x) => x.id === o.id);
       const v = sx === 'garantido' ? '100%' : sx === 'impossivel' ? '0%' : m ? (m.chance <= 0 ? '0%' : pct(m.chance)) : '…';
-      const txt = '<span>' + esc(VERBO[o.id][3]) + '</span><b class="num">' + v + '</b>';
+      const txt = '<span>' + esc(verbo(o.id)[3]) + '</span><b class="num">' + v + '</b>';
       return sx === 'aberto' ? '<a role="listitem" class="obj-chip" href="#" data-obj="' + o.id + '">' + txt + '</a>'
         : '<span role="listitem" class="obj-chip ' + (sx === 'garantido' ? 'sim' : 'nao') + '">' + txt + '</span>';
     }).join('') + '</div>';
     const dist = mc && st.precisa.dist;
     if (dist && restantes().some((j) => !window.TNGCore.placarDe(j, plac))) html += '<p class="c-sub">Onde ' + esc(o_(t)) + ' termina</p>' + distribuicaoHtml({ dist }, t);
     // basta o objetivo mais alto já garantido e o mais modesto já impossível
-    if (garantidos.length) html += '<p class="garante sim"><b>Já garantiu</b> ' + esc(SUBST[garantidos[0].o.id]) + '.</p>';
-    if (impossiveis.length) html += '<p class="garante nao"><b>Já não alcança</b> ' + esc(SUBST[impossiveis[impossiveis.length - 1].o.id]) + '.</p>';
+    if (garantidos.length) html += '<p class="garante sim"><b>Já garantiu</b> ' + esc(subst(garantidos[0].o.id)) + '.</p>';
+    if (impossiveis.length) html += '<p class="garante nao"><b>Já não alcança</b> ' + esc(subst(impossiveis[impossiveis.length - 1].o.id)) + '.</p>';
     if (!abertos.length) html += '<p class="nota">Nada mais em jogo para ' + esc(o_(t)) + ' nos objetivos do campeonato.</p>';
     abertos.forEach(({ o }) => {
       const m = mc && mc.find((x) => x.id === o.id);
-      html += '<div class="obj" id="obj-' + o.id + '"><div class="obj-topo"><h3>' + esc(VERBO[o.id][2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
+      html += '<div class="obj" id="obj-' + o.id + '"><div class="obj-topo"><h3>' + esc(verbo(o.id)[2]) + '</h3><b class="num" title="chance nas simulações">' + (m ? pct(m.chance) : '') + '</b></div>';
       // poucos jogos que importam: condições exatas; muitos: o que mais pesa nas simulações
       const rel = jogosDoObjetivo(o, t);
       if (rel.length <= 10) {
@@ -724,13 +758,13 @@
   }
 
   function condicoesHtml(o, t, rel, m) {
-    const C = window.TNGCore, plac = placares(), V = VERBO[o.id];
+    const C = window.TNGCore, plac = placares(), V = verbo(o.id);
     const en = C.enumerar(st.L, plac, t.i, o, rel);
     const pp = C.porPontos(en);
     let html = '';
     const nJ = en.jogosT;
     if (pp.garante != null && pp.garante > 0) {
-      html += '<p class="c-pts">Garante ' + esc(SUBST[o.id]) + ' se somar <b class="num">' + pp.garante + ' ' + (pp.garante === 1 ? 'ponto' : 'pontos') + '</b> ' +
+      html += '<p class="c-pts">Garante ' + esc(subst(o.id)) + ' se somar <b class="num">' + pp.garante + ' ' + (pp.garante === 1 ? 'ponto' : 'pontos') + '</b> ' +
         (nJ === 1 ? 'no jogo que falta' : 'nos ' + nJ + ' jogos que faltam') + ' (de ' + pp.max + ' possíveis).</p>';
     } else if (pp.garante === 0) {
       html += '<p class="c-pts">Já garantido nos resultados que importam.</p>';
@@ -793,7 +827,7 @@
         (x.pos === 1 ? '<span class="rv-tag">Campeão</span>' : z === 'rb' ? '<span class="rv-tag rb">Rebaixado</span>' : '') +
         '<span class="rv-pts" data-pts="' + x.pts + '">' + (reduz ? x.pts : 0) + '</span></li>';
     }).join('');
-    ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">Brasileirão 2026</div><h2>Tabela final</h2></div>' +
+    ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">' + esc(st.comp.rotulo) + '</div><h2>Tabela final</h2></div>' +
       '<button class="icon-btn" data-rv="fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
       '<div class="rv-opcoes"><div class="rv-ordem" role="group" aria-label="Ordem da revelação"><button data-rv="baixo" aria-pressed="' + (st.prefs.ordem !== 'cima') + '">De baixo para cima</button><button data-rv="cima" aria-pressed="' + (st.prefs.ordem === 'cima') + '">De cima para baixo</button></div>' +
       '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, eu toco</button></div></div>' +
@@ -965,13 +999,13 @@
     // no Artifact o link só leva um nome simples: vai a aba (e o time), sem os placares
     if (T.ARTIFACT) return T.urlBase() + '#simulador' + (st.meu ? '-' + st.meu.slug : '');
     // na versão publicada, o link usa as páginas de entrada (título e imagem do time no WhatsApp)
-    if (T.RELEASE) return T.urlBase().replace(/index\.html$/, '') + (st.meu ? 'simulador/' + st.meu.slug + '/' : '') + c;
-    return T.urlBase() + '#/simulador' + (st.meu ? '/' + st.meu.slug : '') + c;
+    if (T.RELEASE && ehSerieA()) return T.urlBase().replace(/index\.html$/, '') + (st.meu ? 'simulador/' + st.meu.slug + '/' : '') + c;
+    return T.urlBase() + rotaBase() + (st.meu ? '/' + st.meu.slug : '') + c;
   }
   function carregarComp() { return T.script('app/compartilhar.js'); }
   function textoPartilha() {
     const tab = tabelaAtual(), camp = st.L.times[tab[0].i];
-    return 'Na minha simulação do Brasileirão 2026, ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
+    return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
   }
 
   function abrirCompartilhar() {
@@ -1011,7 +1045,7 @@
   }
 
   function abrirCenarios() {
-    const lista = (loadJson(KEY.cenarios, { itens: [] }).itens || []).filter((c) => c && c.p);
+    const lista = (loadJson(k_(KEY.cenarios), { itens: [] }).itens || []).filter((c) => c && c.p);
     const n = Object.keys(placares()).length;
     const nomePadrao = 'Cenário ' + (lista.length + 1);
     const html = '<form class="salvar"><label for="cen-nome">Salvar os placares atuais (' + n + ')</label><div class="link-linha"><input id="cen-nome" maxlength="40" value="' + esc(nomePadrao) + '"><button class="btn primario"' + (n ? '' : ' disabled') + '>Salvar</button></div></form>' +
@@ -1025,9 +1059,9 @@
     corpo.addEventListener('submit', (e) => {
       e.preventDefault();
       const nm = (corpo.querySelector('#cen-nome').value || nomePadrao).trim().slice(0, 40) || nomePadrao;
-      const todos = loadJson(KEY.cenarios, { itens: [] });
+      const todos = loadJson(k_(KEY.cenarios), { itens: [] });
       todos.itens = (todos.itens || []).concat([{ nome: nm, criado: new Date().toISOString(), temporada: st.liga.temporada, p: Object.assign({}, placares()) }]);
-      saveJson(KEY.cenarios, todos);
+      saveJson(k_(KEY.cenarios), todos);
       aviso('Cenário "' + nm + '" salvo');
       abrirCenarios();
     });
@@ -1039,7 +1073,7 @@
     corpo.addEventListener('click', (e) => {
       const b = e.target.closest('[data-j]');
       if (!b) return;
-      const todos = loadJson(KEY.cenarios, { itens: [] }), k = +b.dataset.k;
+      const todos = loadJson(k_(KEY.cenarios), { itens: [] }), k = +b.dataset.k;
       todos.itens = (todos.itens || []).filter((c) => c && c.p);
       if (b.dataset.j === 'abrir') {
         const c = todos.itens[k];
@@ -1051,9 +1085,9 @@
         aviso('Cenário "' + c.nome + '" aberto');
       } else if (b.dataset.j === 'apagar') {
         const c = todos.itens.splice(k, 1)[0];
-        saveJson(KEY.cenarios, todos);
+        saveJson(k_(KEY.cenarios), todos);
         abrirCenarios();
-        aviso('Cenário apagado', { rotulo: 'Desfazer', acao: () => { const t2 = loadJson(KEY.cenarios, { itens: [] }); t2.itens.splice(k, 0, c); saveJson(KEY.cenarios, t2); abrirCenarios(); } });
+        aviso('Cenário apagado', { rotulo: 'Desfazer', acao: () => { const t2 = loadJson(k_(KEY.cenarios), { itens: [] }); t2.itens.splice(k, 0, c); saveJson(k_(KEY.cenarios), t2); abrirCenarios(); } });
       } else if (b.dataset.j === 'comparar') {
         const ks = Array.from(corpo.querySelectorAll('[data-cmp]:checked')).map((x) => +x.dataset.cmp);
         corpo.querySelector('#comparacao').innerHTML = comparar(todos.itens[ks[0]], todos.itens[ks[1]]);
@@ -1082,7 +1116,7 @@
         const escudos = res.slice(1);
         const W = 1080, H = 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
         const n = Object.keys(placares()).length;
-        S.moldura(ctx, W, H, 'Minha tabela final', 'Brasileirão 2026' + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
+        S.moldura(ctx, W, H, 'Minha tabela final', st.comp.rotulo + (n ? ' · ' + n + (n === 1 ? ' placar simulado' : ' placares simulados') : ''));
         const x0 = 64, y0 = 340, lh = 43;
         ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
         ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
@@ -1103,7 +1137,7 @@
           ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, y + 30);
         });
         ctx.textAlign = 'left';
-        return entregar(c, 'tabela-final-brasileirao-2026.png', previa);
+        return entregar(c, 'tabela-final-' + st.comp.id + '.png', previa);
       });
     }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
   }
@@ -1117,7 +1151,7 @@
       return Promise.all([S.fontes()].concat(ids.map((i) => S.imagem('midia/escudos/' + st.L.times[i].escudo + '.png')))).then((res) => {
         const img = {}; ids.forEach((i, k) => { img[i] = res[k + 1]; });
         const W = 1080, H = 1920, c = S.canvas(W, H), ctx = c.getContext('2d');
-        S.moldura(ctx, W, H, 'Os meus placares', 'Brasileirão 2026 · ' + lista.length + (lista.length === 1 ? ' jogo' : ' jogos'));
+        S.moldura(ctx, W, H, 'Os meus placares', st.comp.rotulo + ' · ' + lista.length + (lista.length === 1 ? ' jogo' : ' jogos'));
         const itens = [];
         grupos(lista).forEach((g) => { itens.push({ titulo: g.titulo }); g.jogos.forEach((j) => itens.push({ j })); });
         // as colunas quebram no começo de uma rodada (nunca no meio dela), o mais perto possível da metade
@@ -1146,7 +1180,7 @@
           ctx.fillText(p[0] + ' × ' + p[1], x + colW / 2, cy + 12);
         });
         ctx.textAlign = 'left';
-        return entregar(c, 'meus-placares-brasileirao-2026.png', previa);
+        return entregar(c, 'meus-placares-' + st.comp.id + '.png', previa);
       });
     }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
   }
@@ -1239,9 +1273,9 @@
       else if (a === 'so-meus') { st.soMeus = !st.soMeus; desenharJogos(); }
       else if (a === 'usar-comp') {
         st.p = Object.assign({}, st.compartilhado); st.sim = {}; st.compartilhado = null; salvarPlacares();
-        history.replaceState(history.state, '', '#/simulador' + (st.meu ? '/' + st.meu.slug : ''));
+        history.replaceState(history.state, '', rotaBase() + (st.meu ? '/' + st.meu.slug : ''));
         montar(); aviso('O cenário agora é seu: pode editar');
-      } else if (a === 'sair-comp') { st.compartilhado = null; location.hash = '#/simulador' + (st.meu ? '/' + st.meu.slug : ''); }
+      } else if (a === 'sair-comp') { st.compartilhado = null; location.hash = rotaBase() + (st.meu ? '/' + st.meu.slug : ''); }
     };
     const onKey = (e) => {
       const tr = e.target.closest && e.target.closest('table.chances tbody tr[data-t]');
@@ -1270,7 +1304,7 @@
     };
     const onFocus = (e) => { const inp = e.target.closest && e.target.closest('.placar input'); if (inp) setTimeout(() => { if (document.activeElement === inp) inp.select(); }, 0); };   // select() atrasado puxaria o foco de volta
     const onChange = (e) => {
-      if (e.target.matches('select[data-a="meu"]')) { location.hash = e.target.value ? '#/simulador/' + e.target.value : '#/simulador'; return; }
+      if (e.target.matches('select[data-a="meu"]')) { location.hash = rotaBase() + (e.target.value ? '/' + e.target.value : ''); return; }
       if (e.target.matches('select[data-a="n"]')) { st.prefs.N = +e.target.value; salvarPrefs(); st.chancesVersao = -1; pedirChances(); return; }
       if (e.target.name === 'forma') {
         st.prefs.forma = +e.target.value; salvarPrefs();
@@ -1319,11 +1353,21 @@
     render(view, params, ctx) {
       return Promise.all([T.script('shared/simulador-core.js'), T.script('shared/espn.js')]).then(() => {
         carregarPrefs();
-        return carregarDados();
-      }).then(() => {
+        return carregarComps();
+      }).then((comps) => {
+        // #/simulador/<competição>/<time>; sem competição na rota, Série A
+        const ehComp = params[0] && comps.some((c) => c.id === params[0]);
+        const id = ehComp ? params[0] : 'seriea', timeSlug = ehComp ? params[1] : params[0];
+        return carregarDados(id).catch((e) => {
+          T.reportError(e, 'competicao');
+          if (id === 'seriea') throw e;
+          aviso('Essa competição ainda não tem dados: mostrando a Série A');
+          return carregarDados('seriea').then(() => null);
+        }).then((ok) => (ok === null ? null : timeSlug));
+      }).then((timeSlug) => {
         st.view = view;
-        st.meu = params[0] ? timePorSlug(params[0]) : null;
-        if (params[0] && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
+        st.meu = timeSlug ? timePorSlug(timeSlug) : null;
+        if (timeSlug && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
         st.compartilhado = null;
         if (ctx.c || ctx.cv4) {
           // cv4: link da versão antiga em arquivo único (outra ordem dos pares)
@@ -1333,7 +1377,7 @@
         if (ctx.aba && /^(jogos|tabela|chances)$/.test(ctx.aba)) st.aba = ctx.aba;
         st.versao++;
         st.chancesVersao = -1;
-        if (st.meu) document.title = 'Simulador ' + de_(st.meu) + ' no Brasileirão 2026 · Tapa na Gaveta';
+        document.title = (st.meu ? 'Simulador ' + de_(st.meu) + ' · ' + st.comp.rotulo : (TITULO[st.comp.id] || 'Simulador') + (ehSerieA() ? ' 2026' : ' ' + st.comp.rotulo.replace(/^.* /, ''))) + ' · Tapa na Gaveta';
         montar();
         const desligar = ligar();
         if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
