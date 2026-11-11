@@ -41,6 +41,7 @@
     partilha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>',
     pasta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
     lixo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+    dado: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="9" cy="9" r=".6" fill="currentColor"/><circle cx="15" cy="15" r=".6" fill="currentColor"/><circle cx="15" cy="9" r=".6" fill="currentColor"/><circle cx="9" cy="15" r=".6" fill="currentColor"/></svg>',
     revela: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16V9M12 16V5M17 16v-4"/></svg>',
   };
 
@@ -204,7 +205,7 @@
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes">' +
       '<button class="btn primario" data-a="simular">' + ICON.play + (meu ? 'Simular os outros' : 'Simular o resto') + '</button>' +
-      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Meu time</option>' + opcoes + '</select></label>' +
+      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
@@ -275,10 +276,10 @@
     const el = st.view && st.view.querySelector('#carimbo');
     if (!el) return;
     const quando = quandoTxt(st.quando);
-    const txt = st.fonte === 'ao vivo' ? 'Atualizado ' + quando + ' · ESPN'
-      : 'Dados de ' + quando.replace(/^em /, '') + (buscandoESPN ? ' · atualizando…' : st.fonte === 'guardado' ? ' · sem conexão com a ESPN' : '');
-    el.className = 'carimbo' + (st.fonte === 'ao vivo' ? ' ao-vivo' : '');
-    el.innerHTML = '<i></i>' + esc(txt);
+    // com a ESPN respondendo, nada de carimbo; sem conexão, avisa de quando são os dados
+    el.hidden = st.fonte !== 'guardado' || buscandoESPN;
+    el.className = 'carimbo';
+    el.innerHTML = el.hidden ? '' : '<i></i>' + esc('Dados de ' + quando.replace(/^em /, '') + ' · sem conexão com a ESPN');
   }
 
   // ---------------------------------------------------------------- jogos
@@ -346,7 +347,7 @@
       time(a) + '</div>' +
       '<div class="pm" role="group" aria-label="Ajustar o placar">' +
       '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
-      '<span></span>' +
+      '<button type="button" class="dado" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button>' +
       '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
       '<div class="prob">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
   }
@@ -795,9 +796,9 @@
     ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">Brasileirão 2026</div><h2>Tabela final</h2></div>' +
       '<button class="icon-btn" data-rv="fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
       '<div class="rv-opcoes"><div class="rv-ordem" role="group" aria-label="Ordem da revelação"><button data-rv="baixo" aria-pressed="' + (st.prefs.ordem !== 'cima') + '">De baixo para cima</button><button data-rv="cima" aria-pressed="' + (st.prefs.ordem === 'cima') + '">De cima para baixo</button></div>' +
-      '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, no toque</button></div></div>' +
+      '<div class="rv-ordem" role="group" aria-label="Ritmo da revelação"><button data-rv="auto" aria-pressed="' + (st.prefs.revelacao !== 'manual') + '">Sozinha</button><button data-rv="manual" aria-pressed="' + (st.prefs.revelacao === 'manual') + '">Um a um, eu toco</button></div></div>' +
       '<ol class="rv-lista">' + linhas + '</ol>' +
-      '<div class="rv-fim"><button class="btn primario" data-rv="proximo" hidden></button><button class="btn" data-rv="pular">Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="video" hidden>Gerar vídeo</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
+      '<div class="rv-fim"><button class="btn primario" data-rv="comecar">' + ICON.revela + 'Revelar</button><button class="btn primario" data-rv="proximo" hidden></button><button class="btn" data-rv="pular" hidden>Pular</button><button class="btn primario" data-rv="partilhar" hidden>' + ICON.partilha + 'Compartilhar a tabela</button><button class="btn" data-rv="video" hidden>Gerar vídeo</button><button class="btn" data-rv="denovo" hidden>Ver de novo</button></div></div>';
     document.body.appendChild(ov);
     document.body.classList.add('sem-rolagem');
     const lista = ov.querySelector('.rv-lista');
@@ -809,7 +810,8 @@
       limparTimers();
       const jaAcabou = ov.classList.contains('acabou');
       linhasEl.forEach((li) => { li.classList.add('on'); li.querySelector('.rv-pts').textContent = li.querySelector('.rv-pts').dataset.pts; });
-      botao('pular').hidden = true; botao('proximo').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
+      botao('pular').hidden = true; botao('proximo').hidden = true; botao('comecar').hidden = true; botao('partilhar').hidden = false; botao('denovo').hidden = false;
+      ov.classList.remove('preparando');
       botao('video').hidden = !Object.keys(placares()).length;
       ov.classList.add('acabou');
       lista.scrollTo({ top: 0, behavior: reduz ? 'auto' : 'smooth' });       // termina mostrando o campeão
@@ -843,9 +845,20 @@
       };
       requestAnimationFrame(passo);
     }
-    function tocar() {
+    // antes de começar: as opções ficam à mostra e nada se mexe até o toque em "Revelar"
+    function preparar() {
       limparTimers();
       ov.classList.remove('acabou');
+      ov.classList.add('preparando');
+      linhasEl.forEach((li) => { li.classList.remove('on', 'acende'); li.querySelector('.rv-pts').textContent = '0'; });
+      ['pular', 'proximo', 'partilhar', 'denovo', 'video'].forEach((k) => { botao(k).hidden = true; });
+      botao('comecar').hidden = false;
+      lista.scrollTop = st.prefs.ordem !== 'cima' ? lista.scrollHeight : 0;
+    }
+    function tocar() {
+      limparTimers();
+      ov.classList.remove('acabou', 'preparando');
+      botao('comecar').hidden = true;
       linhasEl.forEach((li) => { li.classList.remove('on', 'acende'); li.querySelector('.rv-pts').textContent = '0'; });
       botao('pular').hidden = false; botao('partilhar').hidden = true; botao('denovo').hidden = true; botao('video').hidden = true;
       const debaixo = st.prefs.ordem !== 'cima';
@@ -888,18 +901,19 @@
       if (a === 'fechar') fechar();
       else if (a === 'pular') fim();
       else if (a === 'proximo') proximo();
-      else if (a === 'denovo') tocar();
+      else if (a === 'denovo') preparar();
+      else if (a === 'comecar') tocar();
       else if (a === 'baixo' || a === 'cima' || a === 'auto' || a === 'manual') {
         if (a === 'baixo' || a === 'cima') st.prefs.ordem = a; else st.prefs.revelacao = a;
         salvarPrefs();
         b.parentElement.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', x.dataset.rv === a));
-        tocar();
+        preparar();
       } else if (a === 'partilhar') { fechar(); abrirCompartilhar(); }
       else if (a === 'video') { fechar(); gerarVideo(); }
     });
     st.fecharRevela = fechar;
-    botao('pular').focus({ preventScroll: true });
-    tocar();
+    preparar();
+    botao('comecar').focus({ preventScroll: true });
     window.TNG_REVELA = { fim, tocar, fechar };          // para o roteiro de capturas
   }
 
@@ -1150,6 +1164,30 @@
   }
 
   // ================================================================== eventos
+  // Põe o cartão do próximo jogo no meio da parte visível da tela (descontando o topo fixo e o
+  // teclado do celular, que encolhe o visualViewport); repete quando o teclado termina de abrir.
+  function enquadrar(li) {
+    const vv = window.visualViewport;
+    const reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ajustar = (suave) => {
+      const fixos = ['.head', '.seg-cel'].map((s) => document.querySelector(s)).filter((x) => x && x.offsetParent);
+      const topo = fixos.reduce((m, x) => Math.max(m, x.getBoundingClientRect().bottom), 0);
+      const alto = vv ? vv.height + vv.offsetTop : window.innerHeight;
+      const r = li.getBoundingClientRect();
+      const livre = alto - topo;
+      const alvo = topo + Math.max(8, (livre - r.height) / 2);
+      const delta = r.top - alvo;
+      if (Math.abs(delta) > 6) window.scrollBy({ top: delta, behavior: suave && !reduz ? 'smooth' : 'auto' });
+    };
+    requestAnimationFrame(() => ajustar(true));
+    if (vv) {
+      let feito = false;
+      const uma = () => { if (feito) return; feito = true; vv.removeEventListener('resize', uma); setTimeout(() => ajustar(false), 60); };
+      vv.addEventListener('resize', uma);
+      setTimeout(() => vv.removeEventListener('resize', uma), 900);
+    }
+  }
+
   function ligar() {
     const v = st.view;
     const onClick = (e) => {
@@ -1165,6 +1203,14 @@
         const p = st.M.prob(j.h, j.a), k = +r.dataset.r, atual = placarDe(j);
         if (atual && resultado(atual) === k && !st.sim[chave]) definir(chave, null);           // tocar de novo desfaz
         else definir(chave, (k === 0 ? p.tipico.h : k === 1 ? p.tipico.d : p.tipico.a).slice(), false);
+        return;
+      }
+      const dado = e.target.closest('[data-sortear]');
+      if (dado) {
+        const li = dado.closest('.jogo'), chave = li.dataset.c;
+        const novo = window.TNGCore.simularRestantes(st.L, {}, st.M, sorteio(), (j) => j.chave === chave);
+        if (novo[chave]) definir(chave, novo[chave], true);
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && dado.animate) dado.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 420, easing: 'cubic-bezier(.3,1.3,.5,1)' });
         return;
       }
       const pm = e.target.closest('.pm button');
@@ -1215,7 +1261,11 @@
       if (limpo.length === 1) {
         const todos = Array.from(v.querySelectorAll('.placar input'));
         const prox = todos[todos.indexOf(inp) + 1];
-        if (prox) prox.focus();
+        if (prox) {
+          const outro = prox.closest('.jogo') !== li;
+          prox.focus({ preventScroll: outro });
+          if (outro) enquadrar(prox.closest('.jogo'));
+        }
       }
     };
     const onFocus = (e) => { const inp = e.target.closest && e.target.closest('.placar input'); if (inp) setTimeout(() => { if (document.activeElement === inp) inp.select(); }, 0); };   // select() atrasado puxaria o foco de volta

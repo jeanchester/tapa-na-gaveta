@@ -249,7 +249,7 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 .seg { display: flex; border-bottom: 1px solid var(--line); }
 .seg button { flex: 1; min-height: 44px; font-weight: 700; font-size: 14px; color: var(--ink-3); border-bottom: 3px solid transparent; margin-bottom: -1px; }
 .seg button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--brand); }
-.seg-cel { position: sticky; top: 0; z-index: 6; background: var(--bg); margin: 0 -16px 2px; padding: 0 16px; }
+.seg-cel { position: sticky; top: var(--topo-fixo, 0px); z-index: 6; background: var(--bg); margin: 0 -16px 2px; padding: 0 16px; }
 .seg-lado { display: none; margin-bottom: 4px; }
 .seg-lado button { flex: none; padding: 0 2px; margin-right: 22px; }
 
@@ -333,11 +333,13 @@ a.obj-chip:hover { border-color: var(--line-2); }
 .jogo.sorteado .placar input { color: var(--ink-2); }
 .placar i { font-style: normal; color: var(--ink-3); font-size: 12px; width: 10px; text-align: center; }
 /* − e + embaixo de cada placar */
-.pm { display: grid; grid-template-columns: minmax(0, 1fr) 32px 32px 0 32px 32px minmax(0, 1fr); margin-top: 2px; }
+.pm { display: grid; grid-template-columns: minmax(0, 1fr) 32px 32px 40px 32px 32px minmax(0, 1fr); margin-top: 2px; }
 .pm button:nth-child(1) { grid-column: 2; }
 .pm button { height: 32px; border-radius: 8px; color: var(--ink-3); font-weight: 800; font-size: 18px; line-height: 1; }
 .pm button:hover { background: var(--surface-2); color: var(--ink); }
-.pm span { grid-column: 4; }
+.pm .dado { display: grid; place-items: center; color: var(--ink-3); opacity: .8; }
+.pm .dado svg { width: 18px; height: 18px; }
+.pm .dado:hover { opacity: 1; color: var(--ink); }
 @media (max-width: 359px) { .time { font-size: 12px; } .time .crest { width: 26px; height: 26px; } .placar input { width: 36px; } .jogo { padding-left: 8px; padding-right: 8px; } .j-linha { gap: 4px; } .prob .lbl { display: none; } }
 
 /* barra de probabilidades: três botões que também preenchem o placar típico */
@@ -394,6 +396,8 @@ body.sem-rolagem { overflow: hidden; }
 .rv-l { display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 10px 0 12px; position: relative; border-bottom: 1px solid rgba(255,255,255,.07); opacity: 0; transform: translateY(10px); transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1); }
 .rv-l::before { content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px; border-radius: 2px; background: var(--zc); }
 .rv-l.on { opacity: 1; transform: none; }
+.revela.preparando .rv-l { opacity: .14; transform: none; }
+.revela.preparando .rv-l .rv-nome, .revela.preparando .rv-l .rv-crest, .revela.preparando .rv-l .rv-pts, .revela.preparando .rv-l .rv-tag { visibility: hidden; }
 .rv-pos { width: 24px; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; color: rgba(244,246,251,.75); }
 .rv-crest { width: 30px; height: 30px; object-fit: contain; background: #fff; border-radius: 8px; padding: 3px; box-sizing: border-box; flex: none; }   /* escudo numa placa clara: legível no fundo escuro */
 .rv-nome { flex: 1; font-weight: 700; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -507,13 +511,14 @@ dialog.janela::backdrop { background: rgba(5, 10, 30, .6); }
 .esc-ctrl .sel-time select { max-width: none; width: 100%; }
 .esc-ctrl .sel-esq { flex: 0 0 auto; }
 .esc-ctrl .sel-esq select { width: auto; font-variant-numeric: tabular-nums; }
-.campo-box { position: relative; width: 100%; aspect-ratio: 68 / 100; max-height: 78vh; margin: 0 auto; border-radius: var(--r-lg); background: #0b1640; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none;
+.campo-box { position: relative; width: 100%; aspect-ratio: 68 / 100; max-height: 78vh; margin: 0 auto; border-radius: var(--r-lg); background: #0b1640; overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none;
   background-image: repeating-linear-gradient(180deg, rgba(255,255,255,.045) 0 10%, transparent 10% 20%); }
 :root[data-theme="dark"] .campo-box { background-color: #0f1a45; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .campo-box { background-color: #0f1a45; } }
 .campo-linhas { position: absolute; inset: 0; width: 100%; height: 100%; }
 #fichas { position: absolute; inset: 0; }
-.ficha-j { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 3px; width: 84px; min-height: 44px; padding: 0; cursor: grab; touch-action: none; }
+.ficha-j { position: absolute; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 3px; width: 84px; min-height: 44px; padding: 0; cursor: grab; touch-action: pan-y; }
+.fj-bola { touch-action: none; }   /* arrasta pela bola; o resto do campo rola a página */
 .ficha-j.arrastando { cursor: grabbing; z-index: 3; }
 .ficha-j.arrastando .fj-bola { transform: scale(1.12); box-shadow: 0 8px 18px rgba(0,0,0,.35); }
 .fj-bola { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--fc); color: var(--ft); border: 2px solid var(--fb); font: 900 19px/1 var(--f-num); box-shadow: 0 2px 6px rgba(0,0,0,.25); transition: transform .12s; }
@@ -617,7 +622,7 @@ body.modo-jogo main.wrap { max-width: none; padding: 0; }
 /* topo fixo: no celular só a linha das abas fica presa; ao rolar, vira vidro e encolhe */
 .head { position: sticky; top: calc(-60px - var(--safe-top)); z-index: 40; transition: background-color .25s; }
 @media (min-width: 760px) { .head { top: 0; } .head-row, .nav-top a { transition: min-height .25s ease; } body.rolou .head-row, body.rolou .nav-top a { min-height: 56px; } }
-body.rolou .head { background-color: rgba(11,22,64,.86); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); }
+body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { body.rolou .head { background-color: var(--head-bg); } }
 /* barra dourada de progresso da página, guiada pela rolagem (onde o navegador sabe fazer isso) */
 @supports (animation-timeline: scroll()) {
