@@ -39,6 +39,7 @@
     olho: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
     olhoX: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7a12 12 0 0 1-2.6 3.6M6.3 6.3C4 7.7 2.6 9.9 2 12c1 2.5 5 7 10 7 1.6 0 3.1-.4 4.4-1.1"/></svg>',
     partilha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>',
+    salvar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 1-2z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/></svg>',
     pasta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
     lixo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
     dado: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="9" cy="9" r=".6" fill="currentColor"/><circle cx="15" cy="15" r=".6" fill="currentColor"/><circle cx="15" cy="9" r=".6" fill="currentColor"/><circle cx="9" cy="15" r=".6" fill="currentColor"/></svg>',
@@ -236,11 +237,12 @@
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
-      '<div class="acoes sim-acoes">' +
-      '<button class="btn primario" data-a="simular">' + ICON.play + (meu ? 'Simular os outros' : 'Simular o resto') + '</button>' +
+      '<div class="acoes sim-acoes' + (meu ? ' so-time' : '') + '">' +
+      (meu ? '' : '<button class="btn primario" data-a="simular">' + ICON.play + 'Simular o resto</button>') +
       '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
+      '<button class="link-btn" data-a="salvar-cen">' + ICON.salvar + 'Salvar cenário</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
       '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Limpar</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
@@ -350,8 +352,9 @@
         '<div><dt>Faltam</dt><dd class="num">' + jogosMeu + (jogosMeu === 1 ? ' jogo' : ' jogos') + '</dd></div><div><dt>Em disputa</dt><dd class="num">' + (3 * jogosMeu) + ' pts</dd></div>' +
         '<div><dt>Últimos 5</dt><dd><span class="forma" role="img" aria-label="' + f5.map((r) => NOME_F[r]).join(', ') + '">' + f5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></dd></div></dl>' +
         '<span id="meu-resumo"></span></div>' +
-        '<div class="meu-acoes"><button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
-        '<a class="link-btn" href="#/simulador">Sair</a></div></div>';
+        '<div class="meu-acoes"><button class="btn primario" data-a="simular">' + ICON.play + 'Simular os outros</button>' +
+        '<button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
+        '<a class="link-btn" href="' + rotaBase() + '">Sair</a></div></div>';
     }
     if (gs.length > 1) {
       html += '<nav class="rodadas" aria-label="Ir para a rodada">' + gs.map((g) => {
@@ -1071,6 +1074,19 @@
     }).catch((e) => { T.reportError(e, 'imagens'); aviso('Não consegui gerar as imagens'); }).then(() => { if (botao) botao.disabled = false; });
   }
 
+  // salvar sem abrir a janela: nome automático, com atalho para ver a lista
+  function salvarCenarioRapido() {
+    const n = Object.keys(placares()).length;
+    if (!n) { aviso('Preencha ou simule alguns placares antes de salvar'); return; }
+    const todos = loadJson(k_(KEY.cenarios), { itens: [] });
+    todos.itens = (todos.itens || []).filter((c) => c && c.p);
+    const camp = campeaoDe(placares());
+    const nm = 'Cenário ' + (todos.itens.length + 1) + (camp ? ' · ' + nome(camp) + (art(camp) === 'a' ? ' campeã' : ' campeão') : '');
+    todos.itens.push({ nome: nm, criado: new Date().toISOString(), temporada: st.liga.temporada, p: Object.assign({}, placares()) });
+    saveJson(k_(KEY.cenarios), todos);
+    aviso('"' + nm + '" salvo', { rotulo: 'Ver cenários', acao: abrirCenarios });
+  }
+
   function abrirCenarios() {
     const lista = (loadJson(k_(KEY.cenarios), { itens: [] }).itens || []).filter((c) => c && c.p);
     const n = Object.keys(placares()).length;
@@ -1357,6 +1373,7 @@
       if (!b || b.tagName === 'SELECT') return;
       const a = b.dataset.a;
       if (a === 'simular') simularResto();
+      else if (a === 'salvar-cen') salvarCenarioRapido();
       else if (a === 'limpar') limpar();
 
       else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
