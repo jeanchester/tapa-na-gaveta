@@ -1,5 +1,187 @@
 {
- "atualizado": "",
- "artilheiros": [],
- "assistencias": []
+ "atualizado": "2026-11-11T18:06:59",
+ "artilheiros": [
+  {
+   "nome": "Kevin Viveros",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 21
+  },
+  {
+   "nome": "Pedro",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 20
+  },
+  {
+   "nome": "Gabriel Barbosa",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 15
+  },
+  {
+   "nome": "Kaio Jorge",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 14
+  },
+  {
+   "nome": "Samuel Lino",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 12
+  },
+  {
+   "nome": "Carlos Vinícius",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 11
+  },
+  {
+   "nome": "Luciano Juba",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 11
+  },
+  {
+   "nome": "José Manuel López",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Maurício",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 10
+  },
+  {
+   "nome": "Renê",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 10
+  },
+  {
+   "nome": "Danilo Santos",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 10
+  },
+  {
+   "nome": "Pedro Rocha",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 9
+  },
+  {
+   "nome": "Matheus Pereira",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 9
+  },
+  {
+   "nome": "Jajá",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 9
+  }
+ ],
+ "assistencias": [
+  {
+   "nome": "Andreas Pereira",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Josué Pesqueira",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 10
+  },
+  {
+   "nome": "Samuel Lino",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 9
+  },
+  {
+   "nome": "Jorge Carrascal",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 9
+  },
+  {
+   "nome": "José Manuel López",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 7
+  },
+  {
+   "nome": "Rodrigo Garro",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 7
+  },
+  {
+   "nome": "Matheus Pereira",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 7
+  },
+  {
+   "nome": "Keny Arroyo",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 7
+  },
+  {
+   "nome": "Giovanni Augusto",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 7
+  },
+  {
+   "nome": "Pedro",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 6
+  },
+  {
+   "nome": "Erick",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 6
+  },
+  {
+   "nome": "Guillermo Varela",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 6
+  },
+  {
+   "nome": "Igor Marques",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 5
+  },
+  {
+   "nome": "Alesson",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 5
+  },
+  {
+   "nome": "Luciano Acosta",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 5
+  }
+ ]
 }
