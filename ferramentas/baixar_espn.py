@@ -96,7 +96,7 @@ def escudo_novo(nome, logo):
     destino = os.path.join(pasta, slug + '.png')
     if not os.path.exists(destino):
         try:
-            req = urllib.request.Request(logo.replace('/500/', '/200/'), headers={'User-Agent': 'tapa-na-gaveta/1.0'})
+            req = urllib.request.Request(logo, headers={'User-Agent': 'tapa-na-gaveta/1.0'})
             with urllib.request.urlopen(req, timeout=30) as r:
                 png = r.read()
             if png[:8] != b'\x89PNG\r\n\x1a\n':
