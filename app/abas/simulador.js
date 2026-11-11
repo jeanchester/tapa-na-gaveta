@@ -244,7 +244,7 @@
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="salvar-cen">' + ICON.salvar + 'Salvar cenário</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
-      '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Limpar</button>' +
+      '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Reiniciar placares</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
       '<div class="vis-sel" role="group" aria-label="Como ver os jogos"><span>Ver</span>' +
       [['lado', 'Jogos + tabela'], ['lista', 'Lista'], ['cartoes', 'Cartões']].map(([k, n]) =>
@@ -339,7 +339,7 @@
     const feitos = restantes().filter((j) => placarDe(j)).length;
     const gs = grupos(lista);
     let html = '<div class="progresso"><div class="prog-txt"><b class="num">' + feitos + '</b> de <span class="num">' + total + '</span> jogos com placar</div>' +
-      '<div class="prog-barra" role="progressbar" aria-valuemin="0" aria-valuemax="' + total + '" aria-valuenow="' + feitos + '" aria-label="Jogos preenchidos"><i style="width:' + (total ? (100 * feitos / total) : 100) + '%"></i></div></div>';
+      '<div class="prog-barra" role="progressbar" aria-valuemin="0" aria-valuemax="' + total + '" aria-valuenow="' + feitos + '" aria-label="Jogos preenchidos"><i style="width:' + (total ? (100 * feitos / total) : 100) + '%"></i></div>' + '<button class="reiniciar" data-a="limpar"' + (feitos ? '' : ' hidden') + '>' + ICON.lixo + 'Reiniciar placares</button>' + '</div>';
     let heroi = '';
     if (meu) {
       // cartão do time na cor do clube, com a situação real de hoje
@@ -444,6 +444,8 @@
     const bar = el.querySelector('.prog-barra');
     bar.setAttribute('aria-valuenow', feitos);
     bar.querySelector('i').style.width = (tot ? 100 * feitos / tot : 100) + '%';
+    const r = el.querySelector('.reiniciar');
+    if (r) r.hidden = !feitos;
   }
 
   function atualizarResumoMeu() {
