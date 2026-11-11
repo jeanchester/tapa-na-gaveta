@@ -170,6 +170,9 @@
   const alvoPlacares = () => st.compartilhado || st.p;
   const placarDe = (j) => window.TNGCore.placarDe(j, placares());
   const timePorSlug = (s) => st.L.times.find((t) => t.slug === s) || null;
+  // sigla de 3 letras (a ESPN às vezes manda 4, como REMO)
+  const SIGLA = { remo: 'REM', bragantino: 'RBB', athletico: 'CAP', atleticomg: 'CAM', sp: 'SAO', chapecoense: 'CHA', coritiba: 'CFC' };
+  const sig = (t) => esc(SIGLA[t.escudo] || String(t.abrev || nome(t)).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase());
   const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
     : '<span class="' + (cls || 'crest') + ' disco" aria-hidden="true">' + esc((t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => (x == null ? '–' : x <= 0 ? '–' : x < 0.005 ? '<1%' : x > 0.995 && x < 1 ? '>99%' : Math.round(x * 100) + '%');
@@ -225,7 +228,6 @@
       '<h1>' + (meu ? 'Simulador ' + esc(de_(meu)) : esc(TITULO[st.comp.id] || 'Simulador')) + '</h1>' +
       '<p id="sim-frase">' + (faltam ? 'Faltam <b class="num">' + faltam + '</b> jogos. Chute os placares e veja como termina a tabela.' : 'O campeonato terminou. Esta é a tabela final.') + '</p>' +
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
-      letreiro() +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes">' +
@@ -238,8 +240,10 @@
       '<button class="link-btn" data-a="visual" aria-pressed="' + (st.prefs.visual === 'cartoes') + '">' + (st.prefs.visual === 'cartoes' ? 'Ver em lista' : 'Ver em cartões') + '</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
       '<div class="seg seg-cel" role="tablist" aria-label="Partes do simulador">' +
-      [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']].map(([k, n]) =>
-        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k) + '">' + n + '</button>').join('') + '</div>' +
+      (st.prefs.visual === 'cartoes' || !T.duas() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
+        : [['jogos', 'Jogos e tabela'], ['chances', meu ? 'O que precisa' : 'Chances']]).map(([k, n]) =>
+        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && st.prefs.visual !== 'cartoes' && T.duas())) + '">' + n + '</button>').join('') + '</div>' +
+      '<div id="meu-topo"></div>' +
       '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + '" data-aba="' + st.aba + '">' +
       '<section class="col-jogos" aria-label="Jogos que faltam" id="col-jogos"></section>' +
       '<section class="col-lado" id="col-lado"><div class="seg seg-lado" role="tablist" aria-label="Tabela ou chances">' +
@@ -326,13 +330,14 @@
     const gs = grupos(lista);
     let html = '<div class="progresso"><div class="prog-txt"><b class="num">' + feitos + '</b> de <span class="num">' + total + '</span> jogos com placar</div>' +
       '<div class="prog-barra" role="progressbar" aria-valuemin="0" aria-valuemax="' + total + '" aria-valuenow="' + feitos + '" aria-label="Jogos preenchidos"><i style="width:' + (total ? (100 * feitos / total) : 100) + '%"></i></div></div>';
+    let heroi = '';
     if (meu) {
       // cartão do time na cor do clube, com a situação real de hoje
       const real = tabelaReal().find((x) => x.i === meu.i);
       const jogosMeu = total ? restantes().filter((j) => j.h === meu.i || j.a === meu.i).length : 0;
       const f5 = window.TNGCore.forma(st.L, {}, meu.i, 5);
       const NOME_F = { V: 'vitória', E: 'empate', D: 'derrota' };
-      html += '<div class="meu-heroi" style="--clube:' + corDo(meu) + '"><span class="rs-placa g">' + crest(meu) + '</span><div class="mh-txt"><b>' + esc(nome(meu)) + '</b>' +
+      heroi += '<div class="meu-heroi" style="--clube:' + corDo(meu) + '"><span class="rs-placa g">' + crest(meu) + '</span><div class="mh-txt"><b>' + esc(nome(meu)) + '</b>' +
         '<dl><div><dt>Hoje</dt><dd class="num">' + real.pos + 'º</dd></div><div><dt>Pontos</dt><dd class="num">' + real.pts + '</dd></div>' +
         '<div><dt>Faltam</dt><dd class="num">' + jogosMeu + (jogosMeu === 1 ? ' jogo' : ' jogos') + '</dd></div><div><dt>Em disputa</dt><dd class="num">' + (3 * jogosMeu) + ' pts</dd></div>' +
         '<div><dt>Últimos 5</dt><dd><span class="forma" role="img" aria-label="' + f5.map((r) => NOME_F[r]).join(', ') + '">' + f5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></dd></div></dl>' +
@@ -347,6 +352,7 @@
         return '<a href="#" data-ir="' + g.k + '" aria-label="' + esc(g.titulo) + ', ' + f + ' de ' + g.jogos.length + ' preenchidos"><b>' + esc(rot) + '</b><small>' + f + '/' + g.jogos.length + '</small><span class="rd-prog"><i style="width:' + (100 * f / g.jogos.length) + '%"></i></span></a>';
       }).join('') + '</nav>';
     }
+    st.view.querySelector('#meu-topo').innerHTML = heroi;
     if (!total) html += '<p class="nota">Todos os jogos já foram disputados.</p>';
     gs.forEach((g) => {
       html += '<div class="sec-title" id="g-' + g.k + '"><h2>' + esc(g.titulo) + '</h2><small>' + esc(g.periodo) + '</small></div><ul class="jogos">' + g.jogos.map(cardJogo).join('') + '</ul>';
@@ -370,7 +376,6 @@
       : j.status === 'STATUS_POSTPONED' ? '<span class="tag">adiado</span>'
         : f ? '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>' : '';
     const seg = (i, w, cor, txt, rot) => '<button type="button" data-r="' + i + '" style="flex:' + Math.max(w, 0.18).toFixed(3) + ';--c:var(' + cor + ')"' + (res === i ? ' class="pick" aria-pressed="true"' : ' aria-pressed="false"') + ' aria-label="' + esc(rot) + ', ' + pct(w) + '. Preencher o placar mais provável">' + txt + '</button>';
-    const sig = (t) => esc(t.abrev || nome(t).slice(0, 3).toUpperCase());
     const time = (t) => '<div class="time' + (meu && meu.i === t.i ? ' meu' : '') + '">' + crest(t) + '<span>' + esc(nome(t)) + '</span><abbr class="sig" title="' + esc(nome(t)) + '">' + sig(t) + '</abbr></div>';
     const quando = j.horario ? fmtDia(j.data) + ' · ' + fmtHora(j.data) : fmtDia(j.data) + ' · horário a definir';
     return '<li class="jogo' + (f ? (sorteado ? ' sorteado' : ' set') : '') + '" data-c="' + j.chave + '">' +
@@ -383,6 +388,7 @@
       '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
       '<button type="button" class="dado" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button>' +
       '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
+      '<div class="pnum" aria-hidden="true"><span>' + pct(p.ph) + '</span><span data-x="' + pct(p.pd) + '">empate ' + pct(p.pd) + '</span><span>' + pct(p.pa) + '</span></div>' +
       '<div class="prob" style="--ph:' + (100 * p.ph).toFixed(1) + '%;--pd:' + (100 * (p.ph + p.pd)).toFixed(1) + '%">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
   }
 
@@ -485,7 +491,7 @@
       const d = opc.delta ? posReal[x.i] - x.pos : 0;
       const fm = window.TNGCore.forma(st.L, placares(), x.i, 5);
       return '<tr data-i="' + x.i + '"' + (opc.destaque === x.i ? ' class="meu"' : '') + '><td class="pos" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' + x.pos + '</td>' +
-        '<th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span>' +
+        '<th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span><abbr class="sig" title="' + esc(nome(t)) + '">' + sig(t) + '</abbr>' +
         (d ? '<em class="delta ' + (d > 0 ? 'sobe' : 'desce') + '" title="' + (d > 0 ? 'sobe ' : 'desce ') + Math.abs(d) + ' em relação à tabela atual">' + (d > 0 ? '▲' : '▼') + Math.abs(d) + '</em>' : '') + '</div></th>' +
         '<td class="pts">' + x.pts + '</td><td>' + x.j + '</td><td class="hide-s">' + x.v + '</td><td class="hide-s">' + x.e + '</td><td class="hide-s">' + x.d + '</td>' +
         '<td class="hide-s">' + x.gp + '</td><td class="hide-s">' + x.gc + '</td><td class="sg">' + (x.sg > 0 ? '+' : '') + x.sg + '</td>' +

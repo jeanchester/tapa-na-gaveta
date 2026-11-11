@@ -306,8 +306,15 @@
     if (q !== null) { if (q === '0') localStorage.removeItem('tng.criador'); else localStorage.setItem('tng.criador', '1'); }
   } catch (e) { /* sem armazenamento */ }
   const criador = () => { try { return localStorage.getItem('tng.criador') === '1'; } catch (e) { return false; } };
+  // versão de teste: jogos e tabela lado a lado no celular (?duas liga, ?duas=0 desliga)
+  try {
+    const q = new URLSearchParams(location.search).get('duas');
+    if (q !== null) { if (q === '0') localStorage.removeItem('tng.duas'); else localStorage.setItem('tng.duas', '1'); }
+    if (localStorage.getItem('tng.duas') === '1') document.documentElement.classList.add('duas-colunas');
+  } catch (e) { /* sem armazenamento */ }
+  const duas = () => document.documentElement.classList.contains('duas-colunas');
 
-  window.TNG = { criador, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  window.TNG = { duas, criador, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {
