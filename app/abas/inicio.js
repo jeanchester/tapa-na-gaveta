@@ -28,8 +28,8 @@
         '<ul class="ini-secoes">' + SECOES.map((s) =>
           '<li><a href="#/' + s.id + '"><span class="ini-n">' + s.n + '</span><b>' + s.t + '</b><p>' + s.p + '</p>' + SETA + '</a></li>').join('') + '</ul>' +
         '<section class="ini-sobre"><div class="ini-sobre-in"><div class="kicker">Quem somos</div>' +
-        '<h2>Dois amigos, uma calculadora e muita reta final</h2>' +
-        '<p>A gente passava as últimas rodadas fazendo conta no guardanapo: quantos pontos faltam, quem pega quem, o que precisa acontecer. Montamos o simulador que queríamos usar, com dados atualizados todo dia e um modelo de probabilidades aberto.</p>' +
+        '<h2>Seis amigos, uma calculadora e muita reta final</h2>' +
+        '<p>Somos seis amigos, engenheiros civis formados na USP. A gente passava as últimas rodadas fazendo conta no guardanapo: quantos pontos faltam, quem pega quem, o que precisa acontecer. Montamos o simulador que queríamos usar, com dados atualizados todo dia e um modelo de probabilidades aberto.</p>' +
         '<p class="ini-links"><a href="#/sobre">Leia mais sobre o projeto</a><a href="#/modelo">Como as chances são calculadas</a></p></div></section>';
       return null;
     },
