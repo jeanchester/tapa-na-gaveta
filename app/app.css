@@ -917,3 +917,7 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
    baixo continua, para o puxar-para-atualizar do Android) */
 html { background: var(--head-bg); overscroll-behavior-x: none; }
 body { overscroll-behavior-x: none; }
+
+/* lista nativa do <select> (escolha do time e outras): no tema escuro alguns navegadores abrem a
+   lista branca com o texto claro herdado; fundo e texto explícitos nas opções */
+select option, select optgroup { background-color: var(--surface); color: var(--ink); }
