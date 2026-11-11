@@ -154,10 +154,10 @@
     ['gremio', 'do Grêmio'], ['internacional', 'do Internacional'], ['mirassol', 'do Mirassol'], ['palmeiras', 'do Palmeiras'], ['bragantino', 'do Bragantino'],
     ['remo', 'do Remo'], ['santos', 'do Santos'], ['sp', 'do São Paulo'], ['vasco', 'do Vasco'], ['vitoria', 'do Vitória']];
   const MENU = [['simulador', 'Simulador'], ['escalacao', 'Escalação'], ['jogos', 'Jogos'], ['estatisticas', 'Estatísticas']];
-  const ABAS = { inicio: 1, simulador: 1, escalacao: 1, jogos: 1, estatisticas: 1, sobre: 1, privacidade: 1, termos: 1, modelo: 1 };
+  const ABAS = { inicio: 1, simulador: 1, escalacao: 1, jogos: 1, estatisticas: 1, sobre: 1, privacidade: 1, termos: 1, modelo: 1, desempate: 1, contato: 1 };
   // as páginas de texto (textos/*.html) usam o mesmo módulo
-  const MODULO = { sobre: 'textos', privacidade: 'textos', termos: 'textos', modelo: 'textos' };
-  const INSTITUCIONAL = [['sobre', 'Quem somos'], ['modelo', 'Como funciona'], ['privacidade', 'Privacidade'], ['termos', 'Termos de uso']];
+  const MODULO = { sobre: 'textos', privacidade: 'textos', termos: 'textos', modelo: 'textos', desempate: 'textos', contato: 'textos' };
+  const INSTITUCIONAL = [['sobre', 'Quem somos'], ['modelo', 'Como funciona'], ['desempate', 'Desempates'], ['contato', 'Contato'], ['privacidade', 'Privacidade'], ['termos', 'Termos de uso']];
   // contato que aparece em Quem somos, Privacidade e Termos: preencha o e-mail quando tiver um
   const CONTATO = { email: '', github: 'https://github.com/jeanchester/tapa-na-gaveta/issues' };
   const contatoHtml = () => (CONTATO.email ? 'Escreva para <a href="mailto:' + esc(CONTATO.email) + '">' + esc(CONTATO.email) + '</a>.'

@@ -47,6 +47,9 @@ jogos/draft  jogos/milhao  jogos/fast  cada jogo isolado, aberto num <iframe>
 dados/                     reservas: brasileirao-2026.json, elencos-escalacao.json (+ as fontes delas)
 midia/escudos  icones  og  escudos, ícones dos apps e imagens de compartilhamento
 tools/                     build, testes, capturas, calibração, imagens og, porte do Draft
+textos/*.html              Quem somos, Como funciona, Desempates, Contato, Privacidade, Termos (site e páginas estáticas)
+textos/jogos/*.html        como jogar cada jogo (páginas jogar/draft/, jogar/milhao/, jogar/fast/)
+tools/paginas-texto.js     páginas com texto geradas no build: uma por time, o panorama do campeonato e os jogos
 ferramentas/baixar_espn.py gera dados/brasileirao-2026.json
 ```
 

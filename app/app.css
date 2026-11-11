@@ -751,6 +751,42 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .texto li { margin-bottom: 8px; }
 .texto a { color: var(--brand-ink); text-decoration: underline; text-underline-offset: 3px; }
 .texto b { color: var(--ink); }
+.texto .kicker { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0; }
+.texto h3 { font: 800 16px/1.2 var(--f-text); margin: 18px 0 6px; }
+.texto .cta { margin: 18px 0 6px; }
+.texto .cta a { text-decoration: none; }
+.texto .cta .btn { min-height: 48px; padding: 0 22px; font-size: 15px; line-height: 1.2; }
+.texto ol { padding-left: 22px; }
+.texto .crest { vertical-align: middle; object-fit: contain; }
+.h1-time { display: flex; align-items: center; gap: 12px; }
+.h1-time .crest { flex: none; }
+.texto .h1-time { font-size: clamp(28px, 8vw, 50px); }
+.h1-time span { min-width: 0; overflow-wrap: anywhere; }
+.tabela-rola { overflow-x: auto; margin: 10px 0; -webkit-overflow-scrolling: touch; }
+.texto .tab { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.texto .tab caption { text-align: left; font-size: 12.5px; color: var(--ink-3); padding-bottom: 6px; }
+.texto .tab th { font-size: 11.5px; font-weight: 800; color: var(--ink-3); text-align: center; padding: 6px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.texto .tab td { text-align: center; padding: 7px 6px; border-bottom: 1px solid var(--line); white-space: nowrap; color: var(--ink-2); }
+.texto .tab .esq { text-align: left; }
+.texto .tab td a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.texto .tab td a:hover { text-decoration: underline; }
+.texto .tab .crest { margin-right: 6px; }
+.texto .tab tr.eu td { background: var(--surface-2); }
+.texto .tab tr.z-lib td:first-child { box-shadow: inset 3px 0 var(--z-lib); }
+.texto .tab tr.z-pre td:first-child { box-shadow: inset 3px 0 var(--z-pre); }
+.texto .tab tr.z-sula td:first-child { box-shadow: inset 3px 0 var(--z-sula); }
+.texto .tab tr.z-rb td:first-child { box-shadow: inset 3px 0 var(--z-rb); }
+.texto .tab small { color: var(--ink-3); font-size: 12px; }
+.texto .legenda { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12.5px; color: var(--ink-3); margin: 4px 0 0; }
+.texto .legenda span { padding-left: 9px; box-shadow: inset 3px 0 var(--line-2); }
+.texto .legenda .z-lib { box-shadow: inset 3px 0 var(--z-lib); }
+.texto .legenda .z-pre { box-shadow: inset 3px 0 var(--z-pre); }
+.texto .legenda .z-sula { box-shadow: inset 3px 0 var(--z-sula); }
+.texto .legenda .z-rb { box-shadow: inset 3px 0 var(--z-rb); }
+.texto .nota-dados { font-size: 13.5px; color: var(--ink-3); margin-top: 22px; }
+.times-lista { list-style: none; padding: 0 !important; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2px 12px; }
+.times-lista li { margin: 0 !important; }
+.times-lista .crest { margin-right: 6px; }
 .texto-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); }
 .texto-nav a { padding: 8px 12px; border-radius: 99px; border: 1px solid var(--line-2); text-decoration: none; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
 .texto-nav a[aria-current="page"] { background: var(--brand-ink); border-color: var(--brand-ink); color: #fff; }
