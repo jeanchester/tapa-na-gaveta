@@ -314,6 +314,18 @@
   } catch (e) { /* sem armazenamento */ }
   const duas = () => document.documentElement.classList.contains('duas-colunas');
 
+  // escudo que não carrega (arquivo ausente, rede ruim): troca por um disco com as iniciais do clube
+  document.addEventListener('error', (e) => {
+    const im = e.target;
+    if (!im || im.tagName !== 'IMG' || !/midia\/escudos\//.test(im.getAttribute('src') || '') || im.dataset.semEscudo) return;
+    im.dataset.semEscudo = '1';
+    const f = (im.getAttribute('src').match(/escudos\/([^./]+)/) || [, '?'])[1];
+    const d = document.createElement('span');
+    d.className = (im.className || 'crest') + ' disco'; d.setAttribute('aria-hidden', 'true');
+    d.textContent = (im.dataset.n || f).replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase();
+    if (im.parentNode) im.parentNode.replaceChild(d, im);
+  }, true);
+
   window.TNG = { duas, criador, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador

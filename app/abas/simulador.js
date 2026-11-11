@@ -180,7 +180,7 @@
   // sigla de 3 letras (a ESPN às vezes manda 4, como REMO)
   const SIGLA = { remo: 'REM', bragantino: 'RBB', athletico: 'CAP', atleticomg: 'CAM', sp: 'SAO', chapecoense: 'CHA', coritiba: 'CFC' };
   const sig = (t) => esc(SIGLA[t.escudo] || String(t.abrev || nome(t)).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase());
-  const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
+  const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" data-n="' + esc(t.abrev || '') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
     : '<span class="' + (cls || 'crest') + ' disco" aria-hidden="true">' + esc((t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => (x == null ? '–' : x <= 0 ? '–' : x < 0.005 ? '<1%' : x > 0.995 && x < 1 ? '>99%' : Math.round(x * 100) + '%');
   const BR = { timeZone: 'America/Sao_Paulo' };
@@ -368,6 +368,7 @@
     gs.forEach((g) => {
       html += '<div class="sec-title" id="g-' + g.k + '"><h2>' + esc(g.titulo) + '</h2><small>' + esc(g.periodo) + '</small></div><ul class="jogos">' + g.jogos.map(cardJogo).join('') + '</ul>';
     });
+    html += anterioresHtml();
     html += '<details class="como"><summary>Como as probabilidades são calculadas</summary>' +
       '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time na temporada (em casa e fora, puxados para a média da liga), da campanha (pontos por jogo) e da forma recente. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates. Os pesos foram escolhidos testando o modelo nos 339 jogos já disputados, sempre só com o que se sabia antes de cada jogo.</p>' +
       '<fieldset class="opc"><legend>Forma recente</legend>' +
@@ -375,6 +376,31 @@
       '</fieldset><p class="nota">Toque numa das porcentagens de um jogo para preencher o placar mais provável daquele resultado; toque de novo para desfazer.</p></details>';
     col.innerHTML = html;
     atualizarResumoMeu();
+  }
+
+  // jogos já disputados, do mais recente para o mais antigo, para conferir os resultados
+  function anterioresHtml() {
+    let feitos = st.L.jogos.filter((j) => j.feito);
+    if (!feitos.length) return '';
+    const meu = st.meu;
+    if (meu && st.soMeus) feitos = feitos.filter((j) => j.h === meu.i || j.a === meu.i);
+    let html = '<button type="button" class="ant-btn" data-a="anteriores" aria-expanded="' + !!st.anteriores + '">' + (st.anteriores ? 'Esconder jogos anteriores' : 'Ver jogos anteriores (' + feitos.length + ')') + '</button>';
+    if (!st.anteriores) return html;
+    feitos = feitos.slice().sort((a, b) => (a.data < b.data ? 1 : a.data > b.data ? -1 : 0));
+    const mes = {};
+    feitos.forEach((j) => {
+      const m = new Date(j.data).toLocaleDateString('pt-BR', Object.assign({ month: 'long', year: 'numeric' }, BR));
+      (mes[m] = mes[m] || []).push(j);
+    });
+    html += '<div class="ant">' + Object.keys(mes).map((m) => '<h3>' + esc(m) + '</h3><ul class="ant-lista">' + mes[m].map((j) => {
+      const h = st.L.times[j.h], a = st.L.times[j.a];
+      const r = meu && (j.h === meu.i || j.a === meu.i) ? (j.gh === j.ga ? 'E' : ((j.h === meu.i) === (j.gh > j.ga) ? 'V' : 'D')) : '';
+      return '<li' + (r ? ' class="r' + r + '"' : '') + '><span class="ant-dia">' + esc(new Date(j.data).toLocaleDateString('pt-BR', Object.assign({ day: '2-digit', month: '2-digit' }, BR))) + '</span>' +
+        '<span class="ant-t" title="' + esc(nome(h)) + '">' + crest(h) + '<b>' + sig(h) + '</b></span>' +
+        '<span class="ant-p num">' + j.gh + ' × ' + j.ga + '</span>' +
+        '<span class="ant-t v" title="' + esc(nome(a)) + '"><b>' + sig(a) + '</b>' + crest(a) + '</span></li>';
+    }).join('') + '</ul>').join('') + '</div>';
+    return html;
   }
 
   function cardJogo(j) {
@@ -1380,6 +1406,7 @@
       else if (a === 'salvar-cen') salvarCenarioRapido();
       else if (a === 'limpar') limpar();
 
+      else if (a === 'anteriores') { st.anteriores = !st.anteriores; desenharJogos(); }
       else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
       else if (a === 'revelar') revelar();
       else if (a === 'partilhar') abrirCompartilhar();
