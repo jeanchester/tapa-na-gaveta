@@ -57,7 +57,7 @@
     precisa: null, precisaVersao: '',
     view: null, worker: null, pedidos: {}, nPedido: 0,
   };
-  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000, visual: 'lista' };
+  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000, visual: 'lado', visualV: 2 };
 
   // Série A usa as chaves de sempre; as outras competições ganham um sufixo
   const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
@@ -65,7 +65,13 @@
   const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês' };
   const ehSerieA = () => !st.comp || st.comp.id === 'seriea';
 
-  function carregarPrefs() { st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {})); }
+  function carregarPrefs() {
+    st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {}));
+    // 'lista' era o padrão antigo (gravado sem a pessoa escolher): passa para o novo padrão, lado a lado
+    if (st.prefs.visualV !== 2) { if (st.prefs.visual === 'lista') st.prefs.visual = 'lado'; st.prefs.visualV = 2; }
+  }
+  // lado a lado: jogos e tabela juntos também no celular; lista: uma coluna com abas; cartões: o formato grande
+  const ladoALado = () => st.prefs.visual === 'lado';
   function salvarPrefs() { saveJson(KEY.prefs, st.prefs); }
   function salvarPlacares() {
     if (st.compartilhado) return;            // olhando um cenário de outra pessoa: não grava por cima do seu
@@ -237,14 +243,16 @@
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
       '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Limpar</button>' +
-      '<button class="link-btn" data-a="visual" aria-pressed="' + (st.prefs.visual === 'cartoes') + '">' + (st.prefs.visual === 'cartoes' ? 'Ver em lista' : 'Ver em cartões') + '</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
+      '<div class="vis-sel" role="group" aria-label="Como ver os jogos"><span>Ver</span>' +
+      [['lado', 'Jogos + tabela'], ['lista', 'Lista'], ['cartoes', 'Cartões']].map(([k, n]) =>
+        '<button type="button" data-vis="' + k + '" aria-pressed="' + (st.prefs.visual === k) + '">' + n + '</button>').join('') + '</div>' +
       '<div class="seg seg-cel" role="tablist" aria-label="Partes do simulador">' +
-      (st.prefs.visual === 'cartoes' || !T.duas() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
+      (!ladoALado() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
         : [['jogos', 'Jogos e tabela'], ['chances', meu ? 'O que precisa' : 'Chances']]).map(([k, n]) =>
-        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && st.prefs.visual !== 'cartoes' && T.duas())) + '">' + n + '</button>').join('') + '</div>' +
+        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && ladoALado())) + '">' + n + '</button>').join('') + '</div>' +
       '<div id="meu-topo"></div>' +
-      '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + '" data-aba="' + st.aba + '">' +
+      '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + (ladoALado() ? ' lado' : '') + '" data-aba="' + st.aba + '">' +
       '<section class="col-jogos" aria-label="Jogos que faltam" id="col-jogos"></section>' +
       '<section class="col-lado" id="col-lado"><div class="seg seg-lado" role="tablist" aria-label="Tabela ou chances">' +
       [['tabela', 'Classificação'], ['chances', meu ? 'O que precisa' : 'Chances']].map(([k, n]) =>
@@ -1308,6 +1316,13 @@
       if (ir) { e.preventDefault(); const alvo = v.querySelector('#g-' + ir.dataset.ir); if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
       const aba = e.target.closest('button[data-aba]');   // (o contêiner .sim-cols também tem data-aba)
       if (aba) { trocarAba(aba.dataset.aba); return; }
+      const vis = e.target.closest('[data-vis]');
+      if (vis) {
+        st.prefs.visual = vis.dataset.vis; salvarPrefs();
+        if (st.aba === 'tabela' && ladoALado()) st.aba = 'jogos';
+        montar();
+        return;
+      }
       const r = e.target.closest('.prob button');
       if (r) {
         const li = r.closest('.jogo'), chave = li.dataset.c, j = st.L.jogos.find((x) => x.chave === chave);
@@ -1343,7 +1358,7 @@
       const a = b.dataset.a;
       if (a === 'simular') simularResto();
       else if (a === 'limpar') limpar();
-      else if (a === 'visual') { st.prefs.visual = st.prefs.visual === 'cartoes' ? 'lista' : 'cartoes'; salvarPrefs(); montar(); }
+
       else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
       else if (a === 'revelar') revelar();
       else if (a === 'partilhar') abrirCompartilhar();

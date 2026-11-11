@@ -854,44 +854,60 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 
 @media (max-width: 899px) {
   /* jogos à esquerda, tabela enxuta à direita, sem trocar de aba */
-  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 8px; align-items: start; }
-  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) .col-jogos, .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) .col-lado { display: block; }
-  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) #painel-tabela { display: block; }
-  .duas-colunas .sim-cols.compacto:not([data-aba="chances"]) #painel-chances { display: none; }
-  .duas-colunas .sim-cols.compacto .col-lado { position: sticky; top: calc(var(--topo-fixo, 0px) + 56px); }
-  .duas-colunas .sim-cols.compacto #painel-tabela .sec-title, .duas-colunas .sim-cols.compacto #painel-tabela .legenda, .duas-colunas .sim-cols.compacto #painel-tabela .nota { display: none; }
-  .duas-colunas .sim-cols.compacto .tbl-box { padding: 0 4px; }
-  .duas-colunas .sim-cols.compacto .tbl thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
-  .duas-colunas .sim-cols.compacto .tbl thead th.t { font-size: 0; }
-  .duas-colunas .sim-cols.compacto .tbl td, .duas-colunas .sim-cols.compacto .tbl tbody th { height: 30px; padding: 0 2px; font-size: 12.5px; }
-  .duas-colunas .sim-cols.compacto .tbl td.pos { width: 22px; padding-left: 6px; font-size: 12.5px; }
-  .duas-colunas .sim-cols.compacto .tbl td.pts { width: 26px; font-size: 13.5px; }
-  .duas-colunas .sim-cols.compacto .tbl .t div { gap: 4px; }
-  .duas-colunas .sim-cols.compacto .tbl .t span, .duas-colunas .sim-cols.compacto .tbl .delta { display: none; }
-  .duas-colunas .sim-cols.compacto .tbl .sig { display: inline; font-weight: 800; font-size: 12px; text-decoration: none; }
-  .duas-colunas .sim-cols.compacto .tbl .crest { width: 16px; height: 16px; }
+  .sim-cols.compacto.lado:not([data-aba="chances"]) { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 8px; align-items: start; }
+  .sim-cols.compacto.lado:not([data-aba="chances"]) .col-jogos, .sim-cols.compacto.lado:not([data-aba="chances"]) .col-lado { display: block; }
+  .sim-cols.compacto.lado:not([data-aba="chances"]) #painel-tabela { display: block; }
+  .sim-cols.compacto.lado:not([data-aba="chances"]) #painel-chances { display: none; }
+  .sim-cols.compacto.lado .col-lado { position: sticky; top: calc(var(--topo-fixo, 0px) + 56px); }
+  .sim-cols.compacto.lado #painel-tabela .sec-title, .sim-cols.compacto.lado #painel-tabela .legenda, .sim-cols.compacto.lado #painel-tabela .nota { display: none; }
+  .sim-cols.compacto.lado .tbl-box { padding: 0 4px; }
+  .sim-cols.compacto.lado .tbl thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
+  .sim-cols.compacto.lado .tbl thead th.t { font-size: 0; }
+  .sim-cols.compacto.lado .tbl td, .sim-cols.compacto.lado .tbl tbody th { height: 30px; padding: 0 2px; font-size: 12.5px; }
+  .sim-cols.compacto.lado .tbl td.pos { width: 22px; padding-left: 6px; font-size: 12.5px; }
+  .sim-cols.compacto.lado .tbl td.pts { width: 26px; font-size: 13.5px; }
+  .sim-cols.compacto.lado .tbl .t div { gap: 4px; }
+  .sim-cols.compacto.lado .tbl .t span, .sim-cols.compacto.lado .tbl .delta { display: none; }
+  .sim-cols.compacto.lado .tbl .sig { display: inline; font-weight: 800; font-size: 12px; text-decoration: none; }
+  .sim-cols.compacto.lado .tbl .crest { width: 16px; height: 16px; }
 
   /* jogo só com escudos */
-  .duas-colunas .sim-cols.compacto .jogos { grid-template-columns: 1fr; gap: 6px; }
-  .duas-colunas .sim-cols.compacto .jogo { padding: 5px 6px 6px; }
-  .duas-colunas .sim-cols.compacto .j-meta { font-size: 10px; margin-bottom: 2px; }
-  .duas-colunas .sim-cols.compacto .j-meta > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-  .duas-colunas .sim-cols.compacto .j-meta .tag { display: none; }
-  .duas-colunas .sim-cols.compacto .dado-mini { width: 28px; height: 28px; flex: none; }
-  .duas-colunas .sim-cols.compacto .time .sig { display: none; }
-  .duas-colunas .sim-cols.compacto .time .crest { width: 26px; height: 26px; }
-  .duas-colunas .sim-cols.compacto .j-linha { gap: 4px; }
-  .duas-colunas .sim-cols.compacto .placar input { width: 32px; height: 34px; font-size: 18px; }
-  .duas-colunas .sim-cols.compacto .placar { gap: 2px; }
-  .duas-colunas .sim-cols.compacto .pnum { font-size: 10px; }
-  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2) { font-size: 0; }
-  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2)::after { content: attr(data-x); }
-  .duas-colunas .sim-cols.compacto .col-jogos .sec-title h2 { font-size: 20px; }
-  .duas-colunas .sim-cols.compacto .col-jogos .sec-title small { display: none; }
-  .duas-colunas .sim-cols.compacto .progresso .prog-txt { font-size: 12px; }
+  .sim-cols.compacto.lado .jogos { grid-template-columns: 1fr; gap: 6px; }
+  .sim-cols.compacto.lado .jogo { padding: 5px 6px 6px; }
+  .sim-cols.compacto.lado .j-meta { font-size: 10px; margin-bottom: 2px; }
+  .sim-cols.compacto.lado .j-meta > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+  .sim-cols.compacto.lado .j-meta .tag { display: none; }
+  .sim-cols.compacto.lado .dado-mini { width: 28px; height: 28px; flex: none; }
+  .sim-cols.compacto.lado .time .sig { display: none; }
+  .sim-cols.compacto.lado .time .crest { width: 26px; height: 26px; }
+  .sim-cols.compacto.lado .j-linha { gap: 4px; }
+  .sim-cols.compacto.lado .placar input { width: 32px; height: 34px; font-size: 18px; }
+  .sim-cols.compacto.lado .placar { gap: 2px; }
+  .sim-cols.compacto.lado .pnum { font-size: 10px; }
+  .sim-cols.compacto.lado .pnum span:nth-child(2) { font-size: 0; }
+  .sim-cols.compacto.lado .pnum span:nth-child(2)::after { content: attr(data-x); }
+  .sim-cols.compacto.lado .col-jogos .sec-title h2 { font-size: 20px; }
+  .sim-cols.compacto.lado .col-jogos .sec-title small { display: none; }
+  .sim-cols.compacto.lado .progresso .prog-txt { font-size: 12px; }
 }
 @media (max-width: 899px) {
-  .duas-colunas .sim-cols.compacto .pnum span:nth-child(2)::after { font-size: 10px; }
-  .duas-colunas .sim-cols.compacto .tbl thead tr > :nth-child(3) { display: none; }
-  .duas-colunas .sim-cols.compacto .tbl tbody tr > :nth-child(4) { display: none; }
+  .sim-cols.compacto.lado .pnum span:nth-child(2)::after { font-size: 10px; }
+  .sim-cols.compacto.lado .tbl thead tr > :nth-child(3) { display: none; }
+  .sim-cols.compacto.lado .tbl tbody tr > :nth-child(4) { display: none; }
 }
+
+/* escolha de visualização: em destaque, principalmente no celular */
+.vis-sel { display: flex; align-items: center; gap: 4px; margin: 12px 0 14px; padding: 4px; border-radius: 99px; background: var(--surface); border: 1.5px solid var(--line-2); width: fit-content; max-width: 100%; }
+.vis-sel span { padding: 0 8px 0 10px; font-size: 13px; font-weight: 800; color: var(--ink-3); }
+.vis-sel button { min-height: 38px; padding: 0 14px; border-radius: 99px; font-size: 14px; font-weight: 800; color: var(--ink-2); white-space: nowrap; transition: background .15s, color .15s; }
+.vis-sel button:hover { color: var(--ink); }
+.vis-sel button[aria-pressed="true"] { background: var(--gold); color: #0b1640; box-shadow: 0 1px 0 rgba(0,0,0,.12); }
+@media (max-width: 899px) {
+  .vis-sel { width: 100%; justify-content: space-between; }
+  .vis-sel button { flex: 1; padding: 0 8px; font-size: 13.5px; }
+}
+/* no computador, "Jogos + tabela" e "Lista" dão no mesmo: fica só Lista e Cartões */
+@media (min-width: 900px) { .vis-sel button[data-vis="lado"] { display: none; } .vis-sel button[data-vis="lista"][aria-pressed="false"]:is(.vis-sel:has([data-vis="lado"][aria-pressed="true"]) *) { background: var(--gold); color: #0b1640; } }
+/* a fileira de competições rola sozinha; não pode alargar o topo (e o título) além da tela */
+.sim-topo > .page-head { min-width: 0; }
+.comp-sel { max-width: calc(100% + 2 * var(--pad, 16px)); }
