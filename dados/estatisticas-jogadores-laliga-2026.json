@@ -1,0 +1,1599 @@
+{
+ "atualizado": "2026-11-11T19:28:27",
+ "artilheiros": [
+  {
+   "nome": "Raphinha",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 15
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 13
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 10
+  },
+  {
+   "nome": "Yassir Zabiri",
+   "time": "87",
+   "escudo": null,
+   "n": 9
+  },
+  {
+   "nome": "Ante Budimir",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 8
+  },
+  {
+   "nome": "Sergio Camello",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 7
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 7
+  },
+  {
+   "nome": "Roberto Fernández",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 6
+  },
+  {
+   "nome": "Fer Niño",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 6
+  },
+  {
+   "nome": "Álex Baena",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 5
+  },
+  {
+   "nome": "Roger Brugué",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 5
+  },
+  {
+   "nome": "Lucas Boyé",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 5
+  },
+  {
+   "nome": "Pierre-Emerick Aubameyang",
+   "time": "90",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Adrián Niño",
+   "time": "99",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Giuliano Simeone",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 4
+  },
+  {
+   "nome": "Álex Berenguer",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 4
+  },
+  {
+   "nome": "Mariano Díaz",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 4
+  },
+  {
+   "nome": "Alejandro Grimaldo",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 4
+  },
+  {
+   "nome": "Luka Sucic",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 4
+  },
+  {
+   "nome": "Orri Óskarsson",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 4
+  },
+  {
+   "nome": "Martín Satriano",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 3
+  },
+  {
+   "nome": "Iván Romero",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 3
+  },
+  {
+   "nome": "Iñaki Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 3
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Georges Mikautadze",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Pape Gueye",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Álvaro García",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 3
+  },
+  {
+   "nome": "Rodrigo Riquelme",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Isaac Romero",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 3
+  },
+  {
+   "nome": "Abde Ezzalzouli",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Marc Bartra",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Jonathan David",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 3
+  },
+  {
+   "nome": "Gabriel Jesus",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Germán Valera",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
+   "nome": "Mario Soriano Carreno",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Bil Nsongo",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Lee Kang-In",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
+   "nome": "Alberto Moleiro",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Karim Adeyemi",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Enes Ünal",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 2
+  },
+  {
+   "nome": "Carlos Dotor",
+   "time": "99",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Adrián de la Fuente",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 2
+  },
+  {
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Ferran Jutglà",
+   "time": "85",
+   "escudo": "celta",
+   "n": 2
+  },
+  {
+   "nome": "Ander Barrenetxea",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Gonçalo Guedes",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  }
+ ],
+ "assistencias": [
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 8
+  },
+  {
+   "nome": "Javi Hernandez",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 6
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 5
+  },
+  {
+   "nome": "Álex Berenguer",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 4
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Alberto Moleiro",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 4
+  },
+  {
+   "nome": "Mariano Díaz",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 4
+  },
+  {
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 4
+  },
+  {
+   "nome": "Iñigo Vicente",
+   "time": "87",
+   "escudo": null,
+   "n": 3
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Unai López",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 3
+  },
+  {
+   "nome": "Álex Baena",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 3
+  },
+  {
+   "nome": "Ayoze Pérez",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "José Antonio Morente",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 3
+  },
+  {
+   "nome": "Raphinha",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Carlos Soler",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 3
+  },
+  {
+   "nome": "Ángel Pérez",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 3
+  },
+  {
+   "nome": "Youssouf Fofana",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 3
+  },
+  {
+   "nome": "Dani Olmo",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Job Ochieng",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 3
+  },
+  {
+   "nome": "Vinícius Júnior",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Javi Guerra",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 2
+  },
+  {
+   "nome": "Mario Soriano Carreno",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Dávid Hancko",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
+   "nome": "Martín Satriano",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 2
+  },
+  {
+   "nome": "Giuliano Simeone",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
+   "nome": "Pedri",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Iñaki Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
+   "nome": "Sergio Camello",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 2
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Luismi Cruz",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Robbie Ure",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Cepeda",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
+   "nome": "Karim Adeyemi",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Alejandro Grimaldo",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Álvaro García",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 2
+  },
+  {
+   "nome": "Ander Barrenetxea",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Jorge de Frutos",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 2
+  },
+  {
+   "nome": "Hugo Álvarez",
+   "time": "85",
+   "escudo": "celta",
+   "n": 2
+  },
+  {
+   "nome": "Marc Bernal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Pau Cubarsí",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Roy Revivo",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
+   "nome": "Moi Gómez",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 2
+  },
+  {
+   "nome": "Pierre-Emerick Aubameyang",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Cucho Hernández",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Ilias Akhomach",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Xavi Espart",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  }
+ ],
+ "gols_por_jogador": [
+  {
+   "nome": "Raphinha",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 15
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 13
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 10
+  },
+  {
+   "nome": "Yassir Zabiri",
+   "time": "87",
+   "escudo": null,
+   "n": 9
+  },
+  {
+   "nome": "Ante Budimir",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 8
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 7
+  },
+  {
+   "nome": "Sergio Camello",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 7
+  },
+  {
+   "nome": "Roberto Fernández",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 6
+  },
+  {
+   "nome": "Fer Niño",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 6
+  },
+  {
+   "nome": "Adrián Niño",
+   "time": "99",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Pierre-Emerick Aubameyang",
+   "time": "90",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Roger Brugué",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 5
+  },
+  {
+   "nome": "Álex Baena",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 5
+  },
+  {
+   "nome": "Lucas Boyé",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 5
+  },
+  {
+   "nome": "Giuliano Simeone",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 4
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Luka Sucic",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 4
+  },
+  {
+   "nome": "Mariano Díaz",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 4
+  },
+  {
+   "nome": "Orri Óskarsson",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 4
+  },
+  {
+   "nome": "Alejandro Grimaldo",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 4
+  },
+  {
+   "nome": "Álex Berenguer",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 4
+  },
+  {
+   "nome": "Abde Ezzalzouli",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Gabriel Jesus",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Isaac Romero",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 3
+  },
+  {
+   "nome": "Iván Romero",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 3
+  },
+  {
+   "nome": "Iñaki Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 3
+  },
+  {
+   "nome": "Jonathan David",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 3
+  },
+  {
+   "nome": "Marc Bartra",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Martín Satriano",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 3
+  },
+  {
+   "nome": "Rodrigo Riquelme",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Álvaro García",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 3
+  },
+  {
+   "nome": "Georges Mikautadze",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Pape Gueye",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Adrián de la Fuente",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 2
+  },
+  {
+   "nome": "Aitor Paredes",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
+   "nome": "Alberto Moleiro",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Ander Barrenetxea",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Bil Nsongo",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Carlos Dotor",
+   "time": "99",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Carlos Espí",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Cucho Hernández",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Enes Ünal",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 2
+  },
+  {
+   "nome": "Felix Correia",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 2
+  },
+  {
+   "nome": "Ferran Jutglà",
+   "time": "85",
+   "escudo": "celta",
+   "n": 2
+  },
+  {
+   "nome": "Germán Valera",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
+   "nome": "Gonçalo Guedes",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Jorge de Frutos",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 2
+  },
+  {
+   "nome": "Karim Adeyemi",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Lee Kang-In",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
+   "nome": "Mario Soriano Carreno",
+   "time": "90",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Miguel Sierra",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 2
+  },
+  {
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 2
+  },
+  {
+   "nome": "Nico Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
+   "nome": "Nicolas Pépé",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Pablo Durán",
+   "time": "85",
+   "escudo": "celta",
+   "n": 2
+  },
+  {
+   "nome": "Pablo García",
+   "time": "87",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Robert Navarro",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
+   "nome": "Umar Sadiq",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 2
+  },
+  {
+   "nome": "Gerard Moreno",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Aaron Mayol",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
+   "nome": "Abiel Osorio",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Ademola Lookman",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Adrià Pedrosa",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 1
+  },
+  {
+   "nome": "Aitor Mañas",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Alejandro Catena",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 1
+  },
+  {
+   "nome": "Alex Freeman",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 1
+  },
+  {
+   "nome": "Andrei Ratiu",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 1
+  },
+  {
+   "nome": "Antonio Rüdiger",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Arsen Zakharyan",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Asier Osambela",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 1
+  },
+  {
+   "nome": "Ayoze Pérez",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 1
+  },
+  {
+   "nome": "Beñat Turrientes",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Bryan Zaragoza",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Buba Sangaré",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Cala",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Carl Starfelt",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Carlos Romero",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 1
+  },
+  {
+   "nome": "Chidera Ejuke",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Cristian Romero",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Dani Olmo",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Dani Raba",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
+   "nome": "Dani Requena",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "David Otorbi",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
+   "nome": "Diego Villares",
+   "time": "90",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Edu Expósito",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Enrique Barja",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 1
+  },
+  {
+   "nome": "Enrique Salas",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Enzo Bardeli",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "Eric García",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Etta Eyong",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Hugo Novoa",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Iago Aspas",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Ifeanyi Ndukwe",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "Iker Luque",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Ilaix Moriba",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Ivan Azón",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 1
+  },
+  {
+   "nome": "Iván Martín",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Javi Rodríguez",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Jeanuël Belocian",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Job Ochieng",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Jon Ander Olasagasti",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "Jon Martín",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "José Morante",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "João Cancelo",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Juan Iglesias",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Jules Koundé",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Julián Álvarez",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Leandro Cabrera",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Stassin",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Luis Rioja",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
+   "nome": "Luismi Cruz",
+   "time": "90",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Maguette Gueye",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Manu Bueno",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Marc Aguado",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Marc Pubill",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Marcos Fernández",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Miguel Román",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Mikel Rodriguez",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Nacho Pérez",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 1
+  },
+  {
+   "nome": "Nahuel Tenaglia",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Natan",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Oihan Sancet",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 1
+  },
+  {
+   "nome": "Orel Mangala",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 1
+  },
+  {
+   "nome": "Oso",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Pablo Fornals",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Pablo Ibáñez",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Pablo Martínez",
+   "time": "99",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Pedri",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Ramón Terrats",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 1
+  },
+  {
+   "nome": "Raúl García",
+   "time": "97",
+   "escudo": "osasuna",
+   "n": 1
+  },
+  {
+   "nome": "Robbie Ure",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Robin Le Normand",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Rodri",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Sergio Canales",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Sergio Martínez",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Tajon Buchanan",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 1
+  },
+  {
+   "nome": "Takefusa Kubo",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Thomas Lemar",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Troy Parrott",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Tyrhys Dolan",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 1
+  },
+  {
+   "nome": "Unai López",
+   "time": "101",
+   "escudo": "rayo",
+   "n": 1
+  },
+  {
+   "nome": "Valentín Gómez",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Ville Koski",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
+   "nome": "Vinícius Júnior",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Xavi Espart",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Yangel Herrera",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Youssouf Fofana",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Yuri Berchiche",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 1
+  },
+  {
+   "nome": "Zakaria Eddahchouri",
+   "time": "90",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Álvaro Carreras",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Andrés Martín",
+   "time": "87",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Carlos Soler",
+   "time": "89",
+   "escudo": "sociedad",
+   "n": 1
+  },
+  {
+   "nome": "Chupete",
+   "time": "99",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Facundo Buonanotte",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Federico Redondo",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
+   "nome": "Hugo González",
+   "time": "85",
+   "escudo": "celta",
+   "n": 1
+  },
+  {
+   "nome": "Jon Guridi",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Pepelu",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
+   "nome": "Peque",
+   "time": "243",
+   "escudo": "sevilla",
+   "n": 1
+  },
+  {
+   "nome": "Yeremay Hernández",
+   "time": "90",
+   "escudo": null,
+   "n": 1
+  }
+ ]
+}

@@ -1,0 +1,2517 @@
+{
+ "atualizado": "2026-11-11T19:28:24",
+ "artilheiros": [
+  {
+   "nome": "Mikael",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 18
+  },
+  {
+   "nome": "Robson",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 17
+  },
+  {
+   "nome": "Gustavo Coutinho",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 15
+  },
+  {
+   "nome": "Pedro Perotti",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 14
+  },
+  {
+   "nome": "Chrystian",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 13
+  },
+  {
+   "nome": "Gabriel Boschilia",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 13
+  },
+  {
+   "nome": "Rômulo Simão",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 12
+  },
+  {
+   "nome": "Hygor",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 11
+  },
+  {
+   "nome": "Kadu",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 11
+  },
+  {
+   "nome": "Bruno Santos",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 11
+  },
+  {
+   "nome": "Janderson",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 10
+  },
+  {
+   "nome": "Everton Morelli",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 10
+  },
+  {
+   "nome": "Raí",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 9
+  },
+  {
+   "nome": "Maílton dos Santos",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 9
+  },
+  {
+   "nome": "Vinícius",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 9
+  },
+  {
+   "nome": "André Luis",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 9
+  },
+  {
+   "nome": "Melk",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 8
+  },
+  {
+   "nome": "Safira",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 7
+  },
+  {
+   "nome": "Vinícius Diniz",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 7
+  },
+  {
+   "nome": "Crystopher",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 7
+  },
+  {
+   "nome": "Matheus Bianqui",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 7
+  },
+  {
+   "nome": "Dadá",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Fellipe Mateus",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 6
+  },
+  {
+   "nome": "Kauan",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 6
+  },
+  {
+   "nome": "Thiago Fernandes",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Matías Segovia",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 6
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 6
+  },
+  {
+   "nome": "Pedrinho",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 6
+  },
+  {
+   "nome": "Daniel Penha",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 6
+  },
+  {
+   "nome": "Danielzinho",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 5
+  },
+  {
+   "nome": "Juninho",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Carlão",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Marcos Paulo",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 5
+  },
+  {
+   "nome": "Patrick Brey",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Ferreira",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
+   "nome": "Dudu",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 5
+  },
+  {
+   "nome": "Willian",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 5
+  },
+  {
+   "nome": "Caio Dantas",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 5
+  },
+  {
+   "nome": "Marrony",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 5
+  },
+  {
+   "nome": "Brandão",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 5
+  },
+  {
+   "nome": "Anselmo Ramon",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 5
+  },
+  {
+   "nome": "Pablo",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 5
+  },
+  {
+   "nome": "Juan Miritello",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 5
+  },
+  {
+   "nome": "Vinicius Rodrigues",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 5
+  },
+  {
+   "nome": "João Vitor",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 5
+  },
+  {
+   "nome": "Ronaldo Tavares",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 5
+  },
+  {
+   "nome": "Marcelo Hermes",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 4
+  },
+  {
+   "nome": "Geovany Soares",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Waguininho",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 4
+  },
+  {
+   "nome": "Marquinhos Gabriel",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  }
+ ],
+ "assistencias": [
+  {
+   "nome": "Rômulo Simão",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 10
+  },
+  {
+   "nome": "Janderson",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 9
+  },
+  {
+   "nome": "Geovany Soares",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 9
+  },
+  {
+   "nome": "Marquinhos Gabriel",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 7
+  },
+  {
+   "nome": "Rafael Gava",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 7
+  },
+  {
+   "nome": "Crystopher",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 7
+  },
+  {
+   "nome": "Dadá",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Jean Lucas Figueiredo",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 6
+  },
+  {
+   "nome": "Melk",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 6
+  },
+  {
+   "nome": "Patrick Brey",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 6
+  },
+  {
+   "nome": "Raí",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 5
+  },
+  {
+   "nome": "Mikael",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 5
+  },
+  {
+   "nome": "Eduardo",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
+   "nome": "Danielzinho",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 5
+  },
+  {
+   "nome": "Juninho",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 5
+  },
+  {
+   "nome": "Robson",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Rómulo Otero",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 5
+  },
+  {
+   "nome": "João Pedro Vieira",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 5
+  },
+  {
+   "nome": "Mikael",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 5
+  },
+  {
+   "nome": "Aderlan Silva",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 5
+  },
+  {
+   "nome": "João Vitor",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 5
+  },
+  {
+   "nome": "Everton Morelli",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 4
+  },
+  {
+   "nome": "Lucas Lima",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 4
+  },
+  {
+   "nome": "Chrystian",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 4
+  },
+  {
+   "nome": "Gabriel Feliciano",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 4
+  },
+  {
+   "nome": "Biel",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 4
+  },
+  {
+   "nome": "Hereda",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 4
+  },
+  {
+   "nome": "Bruno José",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Gabriel Boschilia",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 4
+  },
+  {
+   "nome": "Lino",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 4
+  },
+  {
+   "nome": "Max",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 4
+  },
+  {
+   "nome": "Vitinho Mota",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 4
+  },
+  {
+   "nome": "Jean",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 4
+  },
+  {
+   "nome": "Eliel",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 4
+  },
+  {
+   "nome": "Hugo",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 3
+  },
+  {
+   "nome": "Guilherme Almeida",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 3
+  },
+  {
+   "nome": "Safira",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 3
+  },
+  {
+   "nome": "Luis",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 3
+  },
+  {
+   "nome": "Kauan",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 3
+  },
+  {
+   "nome": "Higor Luiz De Souza",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 3
+  },
+  {
+   "nome": "Maílton dos Santos",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 3
+  },
+  {
+   "nome": "Aylon",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 3
+  },
+  {
+   "nome": "Willean Lepu",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 3
+  },
+  {
+   "nome": "Thiago Fernandes",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 3
+  },
+  {
+   "nome": "Matías Segovia",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 3
+  },
+  {
+   "nome": "Rodrigo Alves",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 3
+  },
+  {
+   "nome": "Jota",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
+   "nome": "Vinícius",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Diogo Batista",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  }
+ ],
+ "gols_por_jogador": [
+  {
+   "nome": "Mikael",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 19
+  },
+  {
+   "nome": "Robson",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 18
+  },
+  {
+   "nome": "Gustavo Coutinho",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 15
+  },
+  {
+   "nome": "Pedro Perotti",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 14
+  },
+  {
+   "nome": "Gabriel Boschilia",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 13
+  },
+  {
+   "nome": "Rômulo Simão",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 13
+  },
+  {
+   "nome": "Chrystian",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 13
+  },
+  {
+   "nome": "Everton Morelli",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 12
+  },
+  {
+   "nome": "Hygor",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 12
+  },
+  {
+   "nome": "Kadu",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 11
+  },
+  {
+   "nome": "Bruno Santos",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 11
+  },
+  {
+   "nome": "Janderson",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 10
+  },
+  {
+   "nome": "André Luis",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 9
+  },
+  {
+   "nome": "Raí",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 9
+  },
+  {
+   "nome": "Vinícius",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 9
+  },
+  {
+   "nome": "Maílton dos Santos",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 9
+  },
+  {
+   "nome": "Melk",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 8
+  },
+  {
+   "nome": "Crystopher",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 7
+  },
+  {
+   "nome": "Matheus Bianqui",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 7
+  },
+  {
+   "nome": "Vinícius Diniz",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 7
+  },
+  {
+   "nome": "Safira",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 7
+  },
+  {
+   "nome": "Dadá",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Dudu",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 6
+  },
+  {
+   "nome": "Fellipe Mateus",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 6
+  },
+  {
+   "nome": "Kauan",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 6
+  },
+  {
+   "nome": "Pedrinho",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 6
+  },
+  {
+   "nome": "Thiago Fernandes",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 6
+  },
+  {
+   "nome": "Daniel Penha",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 6
+  },
+  {
+   "nome": "Matías Segovia",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 6
+  },
+  {
+   "nome": "Brandão",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 5
+  },
+  {
+   "nome": "Caio Dantas",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 5
+  },
+  {
+   "nome": "Carlão",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Juan Miritello",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 5
+  },
+  {
+   "nome": "Juninho",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Lucas Lima",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
+   "nome": "Marcos Paulo",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 5
+  },
+  {
+   "nome": "Marrony",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 5
+  },
+  {
+   "nome": "Pablo",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 5
+  },
+  {
+   "nome": "Patrick Brey",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Ferreira",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
+   "nome": "Waguininho",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 5
+  },
+  {
+   "nome": "Anselmo Ramon",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 5
+  },
+  {
+   "nome": "Ronaldo Tavares",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 5
+  },
+  {
+   "nome": "Vinicius Rodrigues",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 5
+  },
+  {
+   "nome": "Willian",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 5
+  },
+  {
+   "nome": "João Vitor",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 5
+  },
+  {
+   "nome": "Alan Kardec",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 4
+  },
+  {
+   "nome": "Danielzinho",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 4
+  },
+  {
+   "nome": "Dixon Vera",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 4
+  },
+  {
+   "nome": "Everton",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  },
+  {
+   "nome": "Fábio Lima",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 4
+  },
+  {
+   "nome": "Geovany Soares",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Gonzalo Mastriani",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 4
+  },
+  {
+   "nome": "Hildeberto Pereira",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 4
+  },
+  {
+   "nome": "João Pedro",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Leo Jacó",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Luis",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 4
+  },
+  {
+   "nome": "Marcelo Hermes",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 4
+  },
+  {
+   "nome": "Pedro Vitor",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 4
+  },
+  {
+   "nome": "Ryan Lima",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  },
+  {
+   "nome": "Vilar",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 4
+  },
+  {
+   "nome": "Vinicius Peixoto Trindade Da Silva",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 4
+  },
+  {
+   "nome": "Fabrício Daniel",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 4
+  },
+  {
+   "nome": "Ian Luccas",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 4
+  },
+  {
+   "nome": "Marquinhos Gabriel",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  },
+  {
+   "nome": "William Pottker",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 4
+  },
+  {
+   "nome": "Felipe Garcia",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 4
+  },
+  {
+   "nome": "Wilinton Aponza",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 4
+  },
+  {
+   "nome": "Calebe",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 3
+  },
+  {
+   "nome": "Carlos De Peña",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 3
+  },
+  {
+   "nome": "César",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 3
+  },
+  {
+   "nome": "Dellatorre",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 3
+  },
+  {
+   "nome": "Derek",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Diego",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 3
+  },
+  {
+   "nome": "Diego Hernández",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 3
+  },
+  {
+   "nome": "Eduardo",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 3
+  },
+  {
+   "nome": "Foguinho",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 3
+  },
+  {
+   "nome": "Gabriel",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 3
+  },
+  {
+   "nome": "Herbert Mateus Almeida De Oliveira",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 3
+  },
+  {
+   "nome": "Iago Teles Da Silva",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 3
+  },
+  {
+   "nome": "Igor Bahia",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 3
+  },
+  {
+   "nome": "Jean Carlos Alves Ferreira",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 3
+  },
+  {
+   "nome": "Jean Dias",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 3
+  },
+  {
+   "nome": "Jean Lucas Figueiredo",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 3
+  },
+  {
+   "nome": "João Miguel Da Costa Pereira",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
+   "nome": "Juninho",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 3
+  },
+  {
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
+   "nome": "Kauan Lindes",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
+   "nome": "Lucas Sasha",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 3
+  },
+  {
+   "nome": "Luiz Claudio",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Luiz Otávio",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 3
+  },
+  {
+   "nome": "Maranhão",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Matheus Andrade",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 3
+  },
+  {
+   "nome": "Max",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
+   "nome": "Neto",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 3
+  },
+  {
+   "nome": "Nicolas Careca",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 3
+  },
+  {
+   "nome": "Pedro Castro",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 3
+  },
+  {
+   "nome": "Rafael Silva",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 3
+  },
+  {
+   "nome": "Silva",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 3
+  },
+  {
+   "nome": "Thayllon",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 3
+  },
+  {
+   "nome": "Todinho",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Vinicius",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 3
+  },
+  {
+   "nome": "Walace França",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 3
+  },
+  {
+   "nome": "Wesley Pinheiro",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 3
+  },
+  {
+   "nome": "Willean Lepu",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 3
+  },
+  {
+   "nome": "Cadu",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 3
+  },
+  {
+   "nome": "Guilherme",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 3
+  },
+  {
+   "nome": "João Pedro Vieira",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 3
+  },
+  {
+   "nome": "Luiz Fernando",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 3
+  },
+  {
+   "nome": "Luiz Henrique",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 3
+  },
+  {
+   "nome": "Rómulo Otero",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 3
+  },
+  {
+   "nome": "Saulo",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 3
+  },
+  {
+   "nome": "Jean",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 3
+  },
+  {
+   "nome": "Rafael Gava",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 3
+  },
+  {
+   "nome": "Adriano Martins",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 2
+  },
+  {
+   "nome": "André Luiz",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 2
+  },
+  {
+   "nome": "Aylon",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 2
+  },
+  {
+   "nome": "Benjamín Borasi",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 2
+  },
+  {
+   "nome": "Bilu",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 2
+  },
+  {
+   "nome": "Bressan",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 2
+  },
+  {
+   "nome": "Bruno Alves",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 2
+  },
+  {
+   "nome": "Bruno José",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 2
+  },
+  {
+   "nome": "Carlinhos",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 2
+  },
+  {
+   "nome": "Daniel Amorim",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Daniel Davi Simao Roque",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "David Conceição",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 2
+  },
+  {
+   "nome": "Eduardo Brock",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 2
+  },
+  {
+   "nome": "Enzo",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 2
+  },
+  {
+   "nome": "Esli Garcia",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 2
+  },
+  {
+   "nome": "Felipe Clemente",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 2
+  },
+  {
+   "nome": "Fernando Elizari",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 2
+  },
+  {
+   "nome": "Fábio",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 2
+  },
+  {
+   "nome": "Gegê",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 2
+  },
+  {
+   "nome": "Guilherme Almeida",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 2
+  },
+  {
+   "nome": "Hereda",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 2
+  },
+  {
+   "nome": "Hernandes Rodrigues Da Silva",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 2
+  },
+  {
+   "nome": "Hugo",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 2
+  },
+  {
+   "nome": "Jemerson",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Joao Basso",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 2
+  },
+  {
+   "nome": "João Gabriel",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 2
+  },
+  {
+   "nome": "João Vitor Oliveira",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 2
+  },
+  {
+   "nome": "Juan Alano",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 2
+  },
+  {
+   "nome": "Júlio César",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Alves",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Marques",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Rian Santos Oliveira",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Luciano Castan",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 2
+  },
+  {
+   "nome": "Luiz Phellype",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 2
+  },
+  {
+   "nome": "Luquinhas",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 2
+  },
+  {
+   "nome": "Marcos Paulo",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 2
+  },
+  {
+   "nome": "Mádson",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 2
+  },
+  {
+   "nome": "Mário Sérgio",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Nicolás",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 2
+  },
+  {
+   "nome": "Otávio Bruno",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 2
+  },
+  {
+   "nome": "Pablo Dyego",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Pará",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 2
+  },
+  {
+   "nome": "Patrick de Paula",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 2
+  },
+  {
+   "nome": "Paulo Baya",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 2
+  },
+  {
+   "nome": "Paulo Victor",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 2
+  },
+  {
+   "nome": "Pedro Henrique",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 2
+  },
+  {
+   "nome": "Rodriguinho",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 2
+  },
+  {
+   "nome": "Tarik",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 2
+  },
+  {
+   "nome": "Tavinho",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 2
+  },
+  {
+   "nome": "Victor Andrade",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 2
+  },
+  {
+   "nome": "Vitor Mendes",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 2
+  },
+  {
+   "nome": "Wallison",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 2
+  },
+  {
+   "nome": "Yuri",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 2
+  },
+  {
+   "nome": "Gilberto",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 2
+  },
+  {
+   "nome": "Luis Mandaca",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 2
+  },
+  {
+   "nome": "Élvis",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 2
+  },
+  {
+   "nome": "Tadeu",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 2
+  },
+  {
+   "nome": "Aderlan Silva",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Aiyran",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Allanzinho",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Allyson",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "André Cardoso",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Arthur Caike",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Assis",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Augusto Pucci",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Biel",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Breno Augusto De Azevedo Bora",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Bruno Cesar Xavier",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Bruno Sávio",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 1
+  },
+  {
+   "nome": "Bryan",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Caio",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Caio Suassuna",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Cauê",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 1
+  },
+  {
+   "nome": "Christian Ortiz",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Claudinho",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Clayson",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Daniel Goncalves Batista",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Daniel Santos",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Danilo",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Danilo Barcelos",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Del Piage",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Diego Galo",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Diego Tavares",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Diogo Batista",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Dodô",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Douglas",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Douglas Mendes",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Emerson Santos",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Emiliano Rodríguez",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Enzo",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Eric",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Ewerton",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 1
+  },
+  {
+   "nome": "Felipe Amaral",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Felipe Avenatti",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Felipe Negrucci",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Felipe Vieira",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Felipinho",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Fernando",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Francisco Reidiney Duarte Gomes",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Fábio Matheus",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel De Sousa Barros",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Feliciano",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Inocencio",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Lacerda",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Geovane",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 1
+  },
+  {
+   "nome": "Giulio",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Guilherme Maciel Dantas",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Guilherme Parede",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Guilherme Pato",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Felipe Almeida",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Henrique Da Silva",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Maia",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Puskas Pinheiro Lemos",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Silva",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Hayner",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Hebert Willian Badaró Oliveira",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Helder Gomes Maciel",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
+   "nome": "Henrique",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 1
+  },
+  {
+   "nome": "Hugo",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
+   "nome": "Hyan",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Hyoran",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
+   "nome": "Igor",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Iury",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Jefferson",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Jhan Torres",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Jonathan Costa",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Jonathan Lemos",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Joseph",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "José Cuenú",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Jota",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "João Vitor",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Juan Christian",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Juninho",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 1
+  },
+  {
+   "nome": "Kevin",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 1
+  },
+  {
+   "nome": "Klebert De Oliveira Pereira",
+   "time": "10357",
+   "escudo": "atleticogo",
+   "n": 1
+  },
+  {
+   "nome": "Leandro Maciel",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Lenny Lobato",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Leonardo Erig Daitx",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Lino",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
+   "nome": "Lorenzo",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Lourenco",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Belezi",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Fernandes",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
+   "nome": "Lucca",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Lucca",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Luis Amarilla",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Luis Eduardo",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Luis Phelipe",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Lyncon",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 1
+  },
+  {
+   "nome": "Léo Gamalho",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Léo Gomes",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Marcelo",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Marcelo Benevenuto",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Marlon",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 1
+  },
+  {
+   "nome": "Marlon Lopes",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Maxwell",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Messias",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Miguel",
+   "time": "3459",
+   "escudo": "pontepreta",
+   "n": 1
+  },
+  {
+   "nome": "Nathan",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Nathan Cardoso",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Neris",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Nicolas",
+   "time": "3395",
+   "escudo": "goias",
+   "n": 1
+  },
+  {
+   "nome": "Nicolás Ferreira",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Pablo",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Patrick",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Patryck",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Paulinho",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Paulo Sérgio",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Paulo Vitor",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Pedro Oliveira",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Pepê",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Reginaldo",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Rodrigo Piñeiro",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Rodrigo Sam",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Rodrigo Santos",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Ronald Barcellos",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Ronald Falkoski",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Ryan Bonfim De Santana",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Sanchez",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  },
+  {
+   "nome": "Sander",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Tobías Ostchega",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 1
+  },
+  {
+   "nome": "Tomás Cardona",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Trindade",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Vinicius Mingotti",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Vinicius Paiva",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Vitinho Mota",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Wadson",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 1
+  },
+  {
+   "nome": "Welliton",
+   "time": "6272",
+   "escudo": "fortaleza",
+   "n": 1
+  },
+  {
+   "nome": "Wenderson",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 1
+  },
+  {
+   "nome": "Wesley Dias",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Willian Prado Camargo",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 1
+  },
+  {
+   "nome": "Yago Lincoln Rocha Santos",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Yago Santos",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "Ángel Quiñones",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
+   "nome": "Índio",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
+   "nome": "Douglas Baggio",
+   "time": "9970",
+   "escudo": "crb",
+   "n": 1
+  },
+  {
+   "nome": "Jhonata Robert",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 1
+  },
+  {
+   "nome": "Leo Naldi",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 1
+  },
+  {
+   "nome": "Luiz Guilherme Vieira Da Silva",
+   "time": "10281",
+   "escudo": "botafogosp",
+   "n": 1
+  },
+  {
+   "nome": "Pedro",
+   "time": "17313",
+   "escudo": "cuiaba",
+   "n": 1
+  },
+  {
+   "nome": "Vinicius",
+   "time": "9969",
+   "escudo": "ceara",
+   "n": 1
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:23:00",
+ "atualizado": "2026-11-11T19:28:21",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -90,6 +90,216 @@
    "time": "4936",
    "escudo": "remo",
    "n": 9
+  },
+  {
+   "nome": "Luciano",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 9
+  },
+  {
+   "nome": "John Kennedy",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 9
+  },
+  {
+   "nome": "Breno",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 8
+  },
+  {
+   "nome": "Neymar",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 8
+  },
+  {
+   "nome": "Lucas Barbosa",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 7
+  },
+  {
+   "nome": "Johan Carbonero",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 7
+  },
+  {
+   "nome": "Arthur Cabral",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 7
+  },
+  {
+   "nome": "Jorge Carrascal",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 7
+  },
+  {
+   "nome": "Carlos Eduardo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 7
+  },
+  {
+   "nome": "Jefferson Savarino",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 7
+  },
+  {
+   "nome": "Lucas Paquetá",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 7
+  },
+  {
+   "nome": "Stiven Mendoza",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 6
+  },
+  {
+   "nome": "Luciano Acosta",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Jhon Arias",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 6
+  },
+  {
+   "nome": "Alan Patrick",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 6
+  },
+  {
+   "nome": "Agustín Canobbio",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Rodrigo Castillo",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Hulk",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Erick",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Matheus",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Marcinho",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 5
+  },
+  {
+   "nome": "Joaquín Lavega",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 5
+  },
+  {
+   "nome": "Thiago Mendes",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Alexander Bernabei",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
+   "nome": "Isidro Pitta",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 5
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Matheus Bidu",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 5
+  },
+  {
+   "nome": "Álvaro Barreal",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 5
+  },
+  {
+   "nome": "Alef Manga",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 5
+  },
+  {
+   "nome": "Bernard",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 5
+  },
+  {
+   "nome": "Tomás Cuello",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 5
+  },
+  {
+   "nome": "Renato Kayzer",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Leozinho",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 5
+  },
+  {
+   "nome": "Vitor Roque",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 5
+  },
+  {
+   "nome": "Edenilson",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 5
   }
  ],
  "assistencias": [
@@ -182,6 +392,2048 @@
    "time": "3445",
    "escudo": "fluminense",
    "n": 5
+  },
+  {
+   "nome": "Álvaro Montoro",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Nestor",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 5
+  },
+  {
+   "nome": "Alerrando",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
+   "nome": "João Cruz",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 5
+  },
+  {
+   "nome": "Gastón Benavídez",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 5
+  },
+  {
+   "nome": "Lucas Esquivel",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 5
+  },
+  {
+   "nome": "José Luis Rodríguez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Henry Mosquera",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 5
+  },
+  {
+   "nome": "Kevin Serna",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 4
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 4
+  },
+  {
+   "nome": "Reinaldo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 4
+  },
+  {
+   "nome": "Alex Telles",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 4
+  },
+  {
+   "nome": "Johan Carbonero",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 4
+  },
+  {
+   "nome": "Matheus",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 4
+  },
+  {
+   "nome": "Gerson",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 4
+  },
+  {
+   "nome": "Cristian Pavón",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 4
+  },
+  {
+   "nome": "Jean Lucas",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Francis Amuzu",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 4
+  },
+  {
+   "nome": "Gabriel Barbosa",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 4
+  },
+  {
+   "nome": "Agustín Canobbio",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 4
+  },
+  {
+   "nome": "Lucas Romero",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 4
+  },
+  {
+   "nome": "Cuiabano",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Éverton Ribeiro",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Fagner",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 4
+  },
+  {
+   "nome": "Joaquín Piquerez",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 4
+  },
+  {
+   "nome": "Kevin Viveros",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 3
+  },
+  {
+   "nome": "Lucas Barbosa",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
+   "nome": "Vitinho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 3
+  },
+  {
+   "nome": "Gabriel Bontempo",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 3
+  },
+  {
+   "nome": "Isidro Pitta",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
+   "nome": "José Enamorado",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 3
+  },
+  {
+   "nome": "Benjamín Rollheiser",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 3
+  },
+  {
+   "nome": "Renan Lodi",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 3
+  },
+  {
+   "nome": "Mateuzinho",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 3
+  }
+ ],
+ "gols_por_jogador": [
+  {
+   "nome": "Kevin Viveros",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 21
+  },
+  {
+   "nome": "Pedro",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 20
+  },
+  {
+   "nome": "Gabriel Barbosa",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 15
+  },
+  {
+   "nome": "Kaio Jorge",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 14
+  },
+  {
+   "nome": "Samuel Lino",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 12
+  },
+  {
+   "nome": "Carlos Vinícius",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 11
+  },
+  {
+   "nome": "Luciano Juba",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 11
+  },
+  {
+   "nome": "Danilo Santos",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 10
+  },
+  {
+   "nome": "José Manuel López",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Renê",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 10
+  },
+  {
+   "nome": "Maurício",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 10
+  },
+  {
+   "nome": "Jajá",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 9
+  },
+  {
+   "nome": "John Kennedy",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 9
+  },
+  {
+   "nome": "Matheus Pereira",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 9
+  },
+  {
+   "nome": "Pedro Rocha",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 9
+  },
+  {
+   "nome": "Luciano",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 9
+  },
+  {
+   "nome": "Breno",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 8
+  },
+  {
+   "nome": "Neymar",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 8
+  },
+  {
+   "nome": "Arthur Cabral",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 7
+  },
+  {
+   "nome": "Carlos Eduardo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 7
+  },
+  {
+   "nome": "Johan Carbonero",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 7
+  },
+  {
+   "nome": "Lucas Barbosa",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 7
+  },
+  {
+   "nome": "Lucas Paquetá",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 7
+  },
+  {
+   "nome": "Hulk",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 7
+  },
+  {
+   "nome": "Jefferson Savarino",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 7
+  },
+  {
+   "nome": "Jorge Carrascal",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 7
+  },
+  {
+   "nome": "Agustín Canobbio",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Edenilson",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 6
+  },
+  {
+   "nome": "Jhon Arias",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 6
+  },
+  {
+   "nome": "Luciano Acosta",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Rodrigo Castillo",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Stiven Mendoza",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 6
+  },
+  {
+   "nome": "Alan Patrick",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 6
+  },
+  {
+   "nome": "Alef Manga",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 5
+  },
+  {
+   "nome": "Alexander Bernabei",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Bernard",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 5
+  },
+  {
+   "nome": "Christian",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 5
+  },
+  {
+   "nome": "Isidro Pitta",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 5
+  },
+  {
+   "nome": "Joaquín Lavega",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 5
+  },
+  {
+   "nome": "Leozinho",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 5
+  },
+  {
+   "nome": "Marcinho",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 5
+  },
+  {
+   "nome": "Matheus Bidu",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 5
+  },
+  {
+   "nome": "Thiago Mendes",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Tomás Cuello",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 5
+  },
+  {
+   "nome": "Álvaro Barreal",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 5
+  },
+  {
+   "nome": "Erick",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Renato Kayzer",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Matheus",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Vitor Roque",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 5
+  },
+  {
+   "nome": "Allan Elias",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 4
+  },
+  {
+   "nome": "André",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 4
+  },
+  {
+   "nome": "Artur",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 4
+  },
+  {
+   "nome": "David",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Erick",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Erick Pulga",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Everaldo",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Ferreira",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 4
+  },
+  {
+   "nome": "Gabriel Taliari",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 4
+  },
+  {
+   "nome": "Gonzalo Plata",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 4
+  },
+  {
+   "nome": "Gustavo Gómez",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 4
+  },
+  {
+   "nome": "Gustavo Henrique",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 4
+  },
+  {
+   "nome": "Hércules",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 4
+  },
+  {
+   "nome": "Igor Marques",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 4
+  },
+  {
+   "nome": "Jean Lucas",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Keny Arroyo",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 4
+  },
+  {
+   "nome": "Kevin Serna",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 4
+  },
+  {
+   "nome": "Luiz Gustavo",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 4
+  },
+  {
+   "nome": "Matheus Martins",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 4
+  },
+  {
+   "nome": "Ramón Sosa",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 4
+  },
+  {
+   "nome": "Reiner",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 4
+  },
+  {
+   "nome": "Tiago",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 4
+  },
+  {
+   "nome": "Victor Hugo",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 4
+  },
+  {
+   "nome": "Vitinho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 4
+  },
+  {
+   "nome": "Alejo Veliz",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Alerrando",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 4
+  },
+  {
+   "nome": "Vitor Bueno",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 4
+  },
+  {
+   "nome": "Yuri Alberto",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 4
+  },
+  {
+   "nome": "Alex Telles",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 4
+  },
+  {
+   "nome": "Benjamín Rollheiser",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 4
+  },
+  {
+   "nome": "Agustín Giay",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 3
+  },
+  {
+   "nome": "André Luis",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 3
+  },
+  {
+   "nome": "Bruno Santos",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 3
+  },
+  {
+   "nome": "Cauan Barros",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 3
+  },
+  {
+   "nome": "Cristian Pavón",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 3
+  },
+  {
+   "nome": "David Duarte",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 3
+  },
+  {
+   "nome": "Edson Carioca",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 3
+  },
+  {
+   "nome": "Facundo Colidio",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 3
+  },
+  {
+   "nome": "Felipe Anderson",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 3
+  },
+  {
+   "nome": "Fernando",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
+   "nome": "Gustavo Martins",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 3
+  },
+  {
+   "nome": "Ignácio",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 3
+  },
+  {
+   "nome": "Juninho Capixaba",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
+   "nome": "Kaio",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 3
+  },
+  {
+   "nome": "Leonel Picco",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 3
+  },
+  {
+   "nome": "Mateo Casierra",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 3
+  },
+  {
+   "nome": "Maurício Garcez",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 3
+  },
+  {
+   "nome": "Neyser Villareal",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 3
+  },
+  {
+   "nome": "Philippe Coutinho",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 3
+  },
+  {
+   "nome": "Rodrigo Garro",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 3
+  },
+  {
+   "nome": "Rodrigo Moledo",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 3
+  },
+  {
+   "nome": "Túlio Eduardo Silva De Oliveira",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 3
+  },
+  {
+   "nome": "Vitor Hugo",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 3
+  },
+  {
+   "nome": "Wallace Yan",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
+   "nome": "Yago Pikachu",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 3
+  },
+  {
+   "nome": "Alan Lescano",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 3
+  },
+  {
+   "nome": "José Luis Rodríguez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 3
+  },
+  {
+   "nome": "Julimar",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 3
+  },
+  {
+   "nome": "Willian José",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 3
+  },
+  {
+   "nome": "Walter Clar",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 3
+  },
+  {
+   "nome": "Jorginho",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 3
+  },
+  {
+   "nome": "Alan Minda",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Alexander Barboza",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 2
+  },
+  {
+   "nome": "Breno Bidon",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 2
+  },
+  {
+   "nome": "Brian Aguirre",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 2
+  },
+  {
+   "nome": "Bruno Duarte",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 2
+  },
+  {
+   "nome": "Bruno Henrique",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 2
+  },
+  {
+   "nome": "Bruno Rodrigues",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Christian Oliva",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 2
+  },
+  {
+   "nome": "Cristian Olivera",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 2
+  },
+  {
+   "nome": "Diego Tarzia",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 2
+  },
+  {
+   "nome": "Dudu",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Eduardo Sasha",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
+   "nome": "Erick Pulgar",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 2
+  },
+  {
+   "nome": "Francis Amuzu",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 2
+  },
+  {
+   "nome": "Gabriel",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
+   "nome": "Gabriel Baralhas",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 2
+  },
+  {
+   "nome": "Gabriel Mec",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 2
+  },
+  {
+   "nome": "Giovanni Augusto",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
+   "nome": "Igor Gomes",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Jean",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
+   "nome": "José Herrera",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
+   "nome": "João Cruz",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 2
+  },
+  {
+   "nome": "João Marcelo",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "João Victor",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 2
+  },
+  {
+   "nome": "Kauã Moraes Silva",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Kerwin Vargas",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 2
+  },
+  {
+   "nome": "Luan Peres",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Esquivel",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Romero",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Villalba",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Luiz Araújo",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 2
+  },
+  {
+   "nome": "Léo Pereira",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 2
+  },
+  {
+   "nome": "Marcelinho",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 2
+  },
+  {
+   "nome": "Marino Hinestroza",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 2
+  },
+  {
+   "nome": "Marllon",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 2
+  },
+  {
+   "nome": "Marlon",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 2
+  },
+  {
+   "nome": "Marlon Freitas",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 2
+  },
+  {
+   "nome": "Mateo Sanabria",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 2
+  },
+  {
+   "nome": "Mateus Tetê",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 2
+  },
+  {
+   "nome": "Moisés",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 2
+  },
+  {
+   "nome": "Murilo",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 2
+  },
+  {
+   "nome": "Nathan Fogaça",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 2
+  },
+  {
+   "nome": "Negueba",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 2
+  },
+  {
+   "nome": "Neto",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
+   "nome": "Paulinho",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 2
+  },
+  {
+   "nome": "Paulo Roberto",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 2
+  },
+  {
+   "nome": "Rafael Borré",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 2
+  },
+  {
+   "nome": "Rafael Cavalheira",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
+   "nome": "Ramon",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 2
+  },
+  {
+   "nome": "Raniele",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 2
+  },
+  {
+   "nome": "Rodriguinho",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
+   "nome": "Ruan",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Santiago Rodríguez",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 2
+  },
+  {
+   "nome": "Tchê Tchê",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 2
+  },
+  {
+   "nome": "Thaciano",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 2
+  },
+  {
+   "nome": "Thiago Borbas",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Wallace",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 2
+  },
+  {
+   "nome": "Wanderson",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Yannick Bolasie",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
+   "nome": "Zé Lucas",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Bruno Henrique",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Moura",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 2
+  },
+  {
+   "nome": "Rodrigo Nestor",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 2
+  },
+  {
+   "nome": "Maycon",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 2
+  },
+  {
+   "nome": "Reinaldo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 2
+  },
+  {
+   "nome": "Tiago Volpi",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
+   "nome": "Ademir",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 1
+  },
+  {
+   "nome": "Adonis Frias",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Andreas Pereira",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 1
+  },
+  {
+   "nome": "Arthur Dias",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 1
+  },
+  {
+   "nome": "Brenner",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Bruno Melo",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
+  },
+  {
+   "nome": "Bruno Pacheco",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Cacá",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 1
+  },
+  {
+   "nome": "Claudio Spinelli",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Cristian Medina",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Cuiabano",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Damián Bobadilla",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Danielzinho",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Danilo",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 1
+  },
+  {
+   "nome": "David Francisco",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 1
+  },
+  {
+   "nome": "Denilson",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Diego Caito",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Dieguinho",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Dudu",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 1
+  },
+  {
+   "nome": "Dória",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Eduardo",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 1
+  },
+  {
+   "nome": "Eduardo Doma",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Emmanuel Martínez",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 1
+  },
+  {
+   "nome": "Erick Noriega",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Everton",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 1
+  },
+  {
+   "nome": "Fabinho",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
+  },
+  {
+   "nome": "Fabián Balbuena",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Fabrizio Angileri",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Fabrício Bruno",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Felipe Morais",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Félix Torres",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Justino",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Menino",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Mercado",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Paulista",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Pereira",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Gastón Benavídez",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 1
+  },
+  {
+   "nome": "Germán Cano",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 1
+  },
+  {
+   "nome": "Guga",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 1
+  },
+  {
+   "nome": "Gui Negão",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Guilherme Arana",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 1
+  },
+  {
+   "nome": "Guillermo Varela",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 1
+  },
+  {
+   "nome": "Gustavinho",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Marques",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Mosquito",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Santana",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Gustavo Scarpa",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Henry Mosquera",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "Higor Matheus Meritão",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Hugo Moura",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Iago",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Iván Román",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Jacy Maranhão",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
+  },
+  {
+   "nome": "Joaquín Piquerez",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 1
+  },
+  {
+   "nome": "Jordan Barrera",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Jorge Rivaldo",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 1
+  },
+  {
+   "nome": "José Hurtado",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "José Kadir",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "José Welison",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 1
+  },
+  {
+   "nome": "Jovane Cabral",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "João Paulo",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "João Pedro",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 1
+  },
+  {
+   "nome": "João Pedro",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "João Wellington",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Juan Felipe Aguirre",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 1
+  },
+  {
+   "nome": "Juan Nardoni",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Juninho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 1
+  },
+  {
+   "nome": "Júnior Santos",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Kaique Kenji",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Kauan",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Lautaro Díaz",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Lorran",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Emanuel Jales Do Nascimento",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Freitas",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Oliveira",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Ronier",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
+  },
+  {
+   "nome": "Luis Sinisterra",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Lyanco",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Léo Ortiz",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 1
+  },
+  {
+   "nome": "Mamady Cissé",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Marcos Antonio",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Marcos Victor",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 1
+  },
+  {
+   "nome": "Martin Braithwaite",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Mateuzinho",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Matheus Bahia",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 1
+  },
+  {
+   "nome": "Matheus Henrique",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Mathías Villasanti",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Memphis Depay",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Miguel Terceros",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Nahuel Ferraresi",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Nicolás Acevedo",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 1
+  },
+  {
+   "nome": "Nonato",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 1
+  },
+  {
+   "nome": "Nuno Moreira",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Pablo Maia",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Pedro Henrique",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "Pedro Lima",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Pedro Raúl",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Ramires",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 1
+  },
+  {
+   "nome": "Ramon Rique",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Renan Lodi",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Robert",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 1
+  },
+  {
+   "nome": "Román Gómez",
+   "time": "9967",
+   "escudo": "bahia",
+   "n": 1
+  },
+  {
+   "nome": "Ronaldo",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 1
+  },
+  {
+   "nome": "Rony",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Rubens Tadeu Hartmann Ricoldi",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Sabino",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Shaylon",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Tinga",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
+  },
+  {
+   "nome": "Tiquinho Soares",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Victor Hugo",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Viery",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Vitão",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 1
+  },
+  {
+   "nome": "Wesley Ribeiro",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 1
+  },
+  {
+   "nome": "Willian Arão",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Willian Machado",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Wálter Kannemann",
+   "time": "6273",
+   "escudo": "gremio",
+   "n": 1
+  },
+  {
+   "nome": "Zakaria Labyad",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 1
+  },
+  {
+   "nome": "Zé Rafael",
+   "time": "2674",
+   "escudo": "santos",
+   "n": 1
+  },
+  {
+   "nome": "Zé Ricardo",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 1
+  },
+  {
+   "nome": "Zé Vitor",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 1
+  },
+  {
+   "nome": "Álvaro Montoro",
+   "time": "6086",
+   "escudo": "botafogo",
+   "n": 1
+  },
+  {
+   "nome": "Ênio",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Carlos Eduardo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 1
+  },
+  {
+   "nome": "Cauly",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 1
+  },
+  {
+   "nome": "Josué Pesqueira",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 1
   }
  ]
 }
