@@ -911,3 +911,9 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 /* a fileira de competições rola sozinha; não pode alargar o topo (e o título) além da tela */
 .sim-topo > .page-head { min-width: 0; }
 .comp-sel { max-width: calc(100% + 2 * var(--pad, 16px)); }
+
+/* Safari no iPhone: o "elástico" ao puxar a página mostrava o fundo branco por trás dela. Agora o
+   fundo é o azul do topo e do rodapé, e o elástico para os lados fica desligado (o de cima e de
+   baixo continua, para o puxar-para-atualizar do Android) */
+html { background: var(--head-bg); overscroll-behavior-x: none; }
+body { overscroll-behavior-x: none; }
