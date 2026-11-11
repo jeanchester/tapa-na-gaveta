@@ -191,7 +191,7 @@
     try { if (navigator.clipboard && navigator.clipboard.writeText) copiou = navigator.clipboard.writeText(texto).then(() => true, () => false); } catch (e) { /* sem permissão */ }
     try {
       const f = new File([eu.blob], 'tapa-na-gaveta.' + eu.ext, { type: eu.blob.type });
-      if (navigator.canShare && navigator.canShare({ files: [f] })) {
+      if ((window.matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad/i.test(navigator.userAgent)) && navigator.canShare && navigator.canShare({ files: [f] })) {
         return navigator.share({ files: [f], text: texto }).catch((e) => (e && e.name === 'AbortError' ? null : baixar(eu, copiou)));
       }
     } catch (e) { /* sem compartilhar arquivos: baixa */ }

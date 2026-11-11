@@ -89,6 +89,8 @@
   // Todo compartilhamento leva um textinho com o link do site. Alguns apps (o WhatsApp no
   // iPhone, por exemplo) descartam o texto quando vão arquivos junto: por isso ele também vai
   // para a área de transferência, para colar na legenda.
+  // no computador, o menu de compartilhar do sistema (Windows/Mac) não tem "salvar": baixa direto
+  const celular = () => window.matchMedia('(pointer: coarse)').matches || /Android|iPhone|iPad/i.test(navigator.userAgent);
   function legenda(texto, url) { return (texto || 'Simule o Brasileirão:') + (url ? '\n' + url : ''); }
   function copiarCalado(txt) {
     try { if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(txt).then(() => true, () => false); } catch (e) { /* sem permissão */ }
@@ -106,7 +108,7 @@
     if (T.ARTIFACT) { T.aviso('Para salvar, toque e segure a imagem (no computador, botão direito)'); return Promise.resolve('artifact'); }
     return (pronto ? Promise.resolve(c) : blob(c)).then((b) => {
       const arquivo = b && typeof File !== 'undefined' ? new File([b], nome, { type: b.type || 'image/png' }) : null;
-      if (arquivo && navigator.canShare && navigator.canShare({ files: [arquivo] })) {
+      if (arquivo && celular() && navigator.canShare && navigator.canShare({ files: [arquivo] })) {
         return navigator.share({ files: [arquivo], text: txt }).then(() => 'compartilhado').catch((e) => (e && e.name === 'AbortError' ? 'cancelado' : baixar(c, b, nome, copiou)));
       }
       return baixar(c, b, nome, copiou);
@@ -163,7 +165,7 @@
     const txt = legenda(texto, url), copiou = copiarCalado(txt);
     return Promise.all(lista.map((x) => blob(x.c))).then((bs) => {
       const arquivos = typeof File === 'undefined' ? [] : bs.map((b, k) => (b ? new File([b], lista[k].nome, { type: 'image/png' }) : null)).filter(Boolean);
-      if (arquivos.length === lista.length && navigator.canShare && navigator.canShare({ files: arquivos })) {
+      if (arquivos.length === lista.length && celular() && navigator.canShare && navigator.canShare({ files: arquivos })) {
         return navigator.share({ files: arquivos, text: txt }).then(() => 'compartilhado')
           .catch((e) => (e && e.name === 'AbortError' ? 'cancelado' : baixarTodas(lista, bs, copiou)));
       }

@@ -39,6 +39,7 @@
     olho: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
     olhoX: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c5 0 9 4.5 10 7a12 12 0 0 1-2.6 3.6M6.3 6.3C4 7.7 2.6 9.9 2 12c1 2.5 5 7 10 7 1.6 0 3.1-.4 4.4-1.1"/></svg>',
     partilha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>',
+    salvar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l4 4v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 1-2z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/></svg>',
     pasta: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
     lixo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
     dado: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><circle cx="9" cy="9" r=".6" fill="currentColor"/><circle cx="15" cy="15" r=".6" fill="currentColor"/><circle cx="15" cy="9" r=".6" fill="currentColor"/><circle cx="9" cy="15" r=".6" fill="currentColor"/></svg>',
@@ -57,7 +58,7 @@
     precisa: null, precisaVersao: '',
     view: null, worker: null, pedidos: {}, nPedido: 0,
   };
-  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000, visual: 'lista' };
+  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000, visual: 'lado', visualV: 2 };
 
   // Série A usa as chaves de sempre; as outras competições ganham um sufixo
   const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
@@ -65,7 +66,13 @@
   const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês' };
   const ehSerieA = () => !st.comp || st.comp.id === 'seriea';
 
-  function carregarPrefs() { st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {})); }
+  function carregarPrefs() {
+    st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {}));
+    // 'lista' era o padrão antigo (gravado sem a pessoa escolher): passa para o novo padrão, lado a lado
+    if (st.prefs.visualV !== 2) { if (st.prefs.visual === 'lista') st.prefs.visual = 'lado'; st.prefs.visualV = 2; }
+  }
+  // lado a lado: jogos e tabela juntos também no celular; lista: uma coluna com abas; cartões: o formato grande
+  const ladoALado = () => st.prefs.visual === 'lado';
   function salvarPrefs() { saveJson(KEY.prefs, st.prefs); }
   function salvarPlacares() {
     if (st.compartilhado) return;            // olhando um cenário de outra pessoa: não grava por cima do seu
@@ -230,21 +237,24 @@
       '<div class="carimbo" id="carimbo"></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
       (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
-      '<div class="acoes sim-acoes">' +
-      '<button class="btn primario" data-a="simular">' + ICON.play + (meu ? 'Simular os outros' : 'Simular o resto') + '</button>' +
+      '<div class="acoes sim-acoes' + (meu ? ' so-time' : '') + '">' +
+      (meu ? '' : '<button class="btn primario" data-a="simular">' + ICON.play + 'Simular o resto</button>') +
       '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
+      '<button class="link-btn" data-a="salvar-cen">' + ICON.salvar + 'Salvar cenário</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
       '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Limpar</button>' +
-      '<button class="link-btn" data-a="visual" aria-pressed="' + (st.prefs.visual === 'cartoes') + '">' + (st.prefs.visual === 'cartoes' ? 'Ver em lista' : 'Ver em cartões') + '</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
+      '<div class="vis-sel" role="group" aria-label="Como ver os jogos"><span>Ver</span>' +
+      [['lado', 'Jogos + tabela'], ['lista', 'Lista'], ['cartoes', 'Cartões']].map(([k, n]) =>
+        '<button type="button" data-vis="' + k + '" aria-pressed="' + (st.prefs.visual === k) + '">' + n + '</button>').join('') + '</div>' +
       '<div class="seg seg-cel" role="tablist" aria-label="Partes do simulador">' +
-      (st.prefs.visual === 'cartoes' || !T.duas() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
+      (!ladoALado() ? [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']]
         : [['jogos', 'Jogos e tabela'], ['chances', meu ? 'O que precisa' : 'Chances']]).map(([k, n]) =>
-        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && st.prefs.visual !== 'cartoes' && T.duas())) + '">' + n + '</button>').join('') + '</div>' +
+        '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k || (k === 'jogos' && st.aba === 'tabela' && ladoALado())) + '">' + n + '</button>').join('') + '</div>' +
       '<div id="meu-topo"></div>' +
-      '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + '" data-aba="' + st.aba + '">' +
+      '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + (ladoALado() ? ' lado' : '') + '" data-aba="' + st.aba + '">' +
       '<section class="col-jogos" aria-label="Jogos que faltam" id="col-jogos"></section>' +
       '<section class="col-lado" id="col-lado"><div class="seg seg-lado" role="tablist" aria-label="Tabela ou chances">' +
       [['tabela', 'Classificação'], ['chances', meu ? 'O que precisa' : 'Chances']].map(([k, n]) =>
@@ -342,8 +352,9 @@
         '<div><dt>Faltam</dt><dd class="num">' + jogosMeu + (jogosMeu === 1 ? ' jogo' : ' jogos') + '</dd></div><div><dt>Em disputa</dt><dd class="num">' + (3 * jogosMeu) + ' pts</dd></div>' +
         '<div><dt>Últimos 5</dt><dd><span class="forma" role="img" aria-label="' + f5.map((r) => NOME_F[r]).join(', ') + '">' + f5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></dd></div></dl>' +
         '<span id="meu-resumo"></span></div>' +
-        '<div class="meu-acoes"><button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
-        '<a class="link-btn" href="#/simulador">Sair</a></div></div>';
+        '<div class="meu-acoes"><button class="btn primario" data-a="simular">' + ICON.play + 'Simular os outros</button>' +
+        '<button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
+        '<a class="link-btn" href="' + rotaBase() + '">Sair</a></div></div>';
     }
     if (gs.length > 1) {
       html += '<nav class="rodadas" aria-label="Ir para a rodada">' + gs.map((g) => {
@@ -1063,6 +1074,19 @@
     }).catch((e) => { T.reportError(e, 'imagens'); aviso('Não consegui gerar as imagens'); }).then(() => { if (botao) botao.disabled = false; });
   }
 
+  // salvar sem abrir a janela: nome automático, com atalho para ver a lista
+  function salvarCenarioRapido() {
+    const n = Object.keys(placares()).length;
+    if (!n) { aviso('Preencha ou simule alguns placares antes de salvar'); return; }
+    const todos = loadJson(k_(KEY.cenarios), { itens: [] });
+    todos.itens = (todos.itens || []).filter((c) => c && c.p);
+    const camp = campeaoDe(placares());
+    const nm = 'Cenário ' + (todos.itens.length + 1) + (camp ? ' · ' + nome(camp) + (art(camp) === 'a' ? ' campeã' : ' campeão') : '');
+    todos.itens.push({ nome: nm, criado: new Date().toISOString(), temporada: st.liga.temporada, p: Object.assign({}, placares()) });
+    saveJson(k_(KEY.cenarios), todos);
+    aviso('"' + nm + '" salvo', { rotulo: 'Ver cenários', acao: abrirCenarios });
+  }
+
   function abrirCenarios() {
     const lista = (loadJson(k_(KEY.cenarios), { itens: [] }).itens || []).filter((c) => c && c.p);
     const n = Object.keys(placares()).length;
@@ -1308,6 +1332,13 @@
       if (ir) { e.preventDefault(); const alvo = v.querySelector('#g-' + ir.dataset.ir); if (alvo) alvo.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
       const aba = e.target.closest('button[data-aba]');   // (o contêiner .sim-cols também tem data-aba)
       if (aba) { trocarAba(aba.dataset.aba); return; }
+      const vis = e.target.closest('[data-vis]');
+      if (vis) {
+        st.prefs.visual = vis.dataset.vis; salvarPrefs();
+        if (st.aba === 'tabela' && ladoALado()) st.aba = 'jogos';
+        montar();
+        return;
+      }
       const r = e.target.closest('.prob button');
       if (r) {
         const li = r.closest('.jogo'), chave = li.dataset.c, j = st.L.jogos.find((x) => x.chave === chave);
@@ -1342,8 +1373,9 @@
       if (!b || b.tagName === 'SELECT') return;
       const a = b.dataset.a;
       if (a === 'simular') simularResto();
+      else if (a === 'salvar-cen') salvarCenarioRapido();
       else if (a === 'limpar') limpar();
-      else if (a === 'visual') { st.prefs.visual = st.prefs.visual === 'cartoes' ? 'lista' : 'cartoes'; salvarPrefs(); montar(); }
+
       else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
       else if (a === 'revelar') revelar();
       else if (a === 'partilhar') abrirCompartilhar();

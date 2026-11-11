@@ -19,9 +19,8 @@
       view.innerHTML =
         '<section class="sim-topo ini-topo"><div class="page-head"><div class="kicker">Brasileirão 2026 · reta final</div>' +
         '<h1>A tabela do jeito que você acha que vai terminar</h1>' +
-        '<p>O Tapa na Gaveta é um simulador feito por torcedores, pra torcedores: você chuta os jogos que faltam e descobre onde o seu time termina, com as regras de desempate de verdade.</p>' +
         '<div class="ini-cta"><a class="btn primario" href="#/simulador">Simular agora' + SETA + '</a><a class="link-btn claro" href="#/modelo">Como funciona</a></div></div></section>' +
-        '<div class="sec-title"><h2>Simule pelo seu time</h2><small>o que falta para cada um</small></div>' +
+        '<div class="sec-title"><h2>Simule pelo seu time</h2></div>' +
         '<div class="ini-times">' + T.TIMES_RODAPE.map(([slug, n]) =>
           '<a href="#/simulador/' + slug + '" aria-label="Simulador ' + esc(n) + '"><img src="midia/escudos/' + slug + '.png" alt="" width="40" height="40" loading="lazy"><span>' + esc(n.replace(/^d[oa] /, '')) + '</span></a>').join('') + '</div>' +
         '<div class="sec-title"><h2>O que tem aqui</h2></div>' +
