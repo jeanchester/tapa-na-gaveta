@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "esp.1",
  "temporada": 2026,
- "baixado_em": "2026-11-11T19:37:38",
+ "baixado_em": "2026-11-11T19:38:55",
  "times": [
   {
    "id": "96",
@@ -43,7 +43,7 @@
    "id": "90",
    "nome": "Deportivo",
    "abrev": "DEP",
-   "escudo": null,
+   "escudo": "deportivo",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/90.png"
   },
   {
@@ -78,7 +78,7 @@
    "id": "99",
    "nome": "Málaga",
    "abrev": "MCF",
-   "escudo": null,
+   "escudo": "malaga",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/99.png"
   },
   {
@@ -92,7 +92,7 @@
    "id": "87",
    "nome": "Racing Santander",
    "abrev": "RAC",
-   "escudo": null,
+   "escudo": "racing_santander",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/87.png"
   },
   {

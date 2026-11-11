@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "ita.1",
  "temporada": 2026,
- "baixado_em": "2026-11-11T19:37:39",
+ "baixado_em": "2026-11-11T19:38:57",
  "times": [
   {
    "id": "103",
@@ -57,7 +57,7 @@
    "id": "4057",
    "nome": "Frosinone",
    "abrev": "FRO",
-   "escudo": null,
+   "escudo": "frosinone",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/4057.png"
   },
   {
@@ -99,7 +99,7 @@
    "id": "4007",
    "nome": "Monza",
    "abrev": "MON",
-   "escudo": null,
+   "escudo": "monza",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/4007.png"
   },
   {
@@ -141,7 +141,7 @@
    "id": "17530",
    "nome": "Venezia",
    "abrev": "VEN",
-   "escudo": null,
+   "escudo": "venezia",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png"
   }
  ],
