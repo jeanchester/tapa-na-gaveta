@@ -114,7 +114,7 @@
   }
 
   // ---------------------------------------------------------------- entrada suave dos blocos
-  const ALVOS = '.sim-cols .jogo, .rodadas, .sec-title, .painel-lado > *, .destaques .dq, .marcos li, .est-cols section, .jogo-card, .escala-grid > *, .foot-col, .foot-marca';
+  const ALVOS = '.sim-cols .jogo, .rodadas, .sec-title, .painel-lado > *, .destaques .dq, .marcos li, .est-cols section, .jogo-card, .escala-grid > *, .foot-col, .foot-marca, .podio, .ranking-j li';
   let io = null;
   function preparar(raiz) {
     if (parado() || !('IntersectionObserver' in window)) return;

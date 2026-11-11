@@ -584,6 +584,27 @@ body.modo-jogo main.wrap { max-width: none; padding: 0; }
 .pl-jogo { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 700; }
 .pl-jogo b { font-size: 16px; }
 .est-cols { display: grid; gap: 0 32px; }
+.podios { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-bottom: 8px; }
+.podio { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 12px 12px 10px; }
+.podio h3 { font-size: 13px; font-weight: 800; color: var(--ink-2); margin: 0 0 8px; }
+.podio ol { list-style: none; margin: 0; padding: 0; }
+.podio li { display: flex; align-items: center; gap: 8px; min-height: 30px; font-size: 13.5px; font-weight: 600; }
+.podio li span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.podio li .crest { width: 20px; height: 20px; }
+.podio li b { font: 900 18px/1 var(--f-num); color: var(--ink-2); }
+.podio li.um { font-weight: 800; }
+.podio li.um b { font-size: 24px; color: var(--brand-ink); }
+.podio small { display: block; font-size: 11.5px; color: var(--ink-3); margin-top: 4px; }
+.ranking-j ol { list-style: none; margin: 0 0 12px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.ranking-j li { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.ranking-j li:last-child { border-bottom: 0; }
+.ranking-j .rk { width: 18px; text-align: right; font-weight: 800; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.ranking-j .rk-nome { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.ranking-j .rk-nome b { font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ranking-j .rk-nome small { font-size: 12px; color: var(--ink-3); }
+.ranking-j li > b { font: 900 24px/1 var(--f-num); color: var(--brand-ink); }
+.ranking-j .rk-u { width: 40px; font-size: 11.5px; color: var(--ink-3); }
+.ranking-j li.um { background: linear-gradient(90deg, rgba(255,194,61,.16), transparent 70%); }
 @media (min-width: 900px) { .est-cols { grid-template-columns: 1fr 1fr; } }
 .tbl.est td { position: relative; width: 92px; padding-bottom: 6px; }
 .tbl.est td .bar { position: absolute; right: 4px; bottom: 9px; width: 60px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--brand) var(--w), var(--surface-2) var(--w)); }
