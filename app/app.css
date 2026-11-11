@@ -764,3 +764,5 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .comp-sel a:hover { border-color: rgba(255,255,255,.5); }
 .comp-sel a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: #0b1640; }
 .crest.disco, .rv-crest.disco { display: inline-grid; place-items: center; border-radius: 50%; background: #dfe5f7; color: #0b1640; font: 800 9px/1 var(--f-text); letter-spacing: -.02em; text-transform: none; }
+.ini-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.texto p a, .texto li a { display: inline-block; padding: 4px 0; }
