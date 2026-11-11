@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "ger.1",
  "temporada": 2026,
- "baixado_em": "2026-11-11T19:37:40",
+ "baixado_em": "2026-11-11T19:38:58",
  "times": [
   {
    "id": "598",
@@ -92,21 +92,21 @@
    "id": "3307",
    "nome": "SC Paderborn 07",
    "abrev": "SCP",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/3307.png"
   },
   {
    "id": "10388",
    "nome": "SV Elversberg",
    "abrev": "ELV",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/10388.png"
   },
   {
    "id": "133",
    "nome": "Schalke 04",
    "abrev": "S04",
-   "escudo": null,
+   "escudo": "schalke_04",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/133.png"
   },
   {

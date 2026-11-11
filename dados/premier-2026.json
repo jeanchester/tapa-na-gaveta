@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "eng.1",
  "temporada": 2026,
- "baixado_em": "2026-11-11T19:37:36",
+ "baixado_em": "2026-11-11T19:38:54",
  "times": [
   {
    "id": "349",
@@ -50,7 +50,7 @@
    "id": "388",
    "nome": "Coventry City",
    "abrev": "COV",
-   "escudo": null,
+   "escudo": "coventry_city",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/388.png"
   },
   {
@@ -78,14 +78,14 @@
    "id": "306",
    "nome": "Hull City",
    "abrev": "HUL",
-   "escudo": null,
+   "escudo": "hull_city",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/306.png"
   },
   {
    "id": "373",
    "nome": "Ipswich Town",
    "abrev": "IPS",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png"
   },
   {
