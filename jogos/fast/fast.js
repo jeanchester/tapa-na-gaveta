@@ -408,7 +408,7 @@
 
   function partilhar(txt) {
     const url = (window.parent !== window ? window.parent.location.origin + window.parent.location.pathname : location.origin + '/') + '#/jogos/fast';
-    if (navigator.share) { navigator.share({ text: txt, url }).catch(() => null); return; }
+    if (navigator.share) { navigator.share({ text: txt + '\n' + url }).catch(() => null); return; }
     window.open('https://wa.me/?text=' + encodeURIComponent(txt + '\n' + url), '_blank', 'noopener');
   }
 

@@ -175,24 +175,27 @@
     });
   }
 
-  function baixar(eu) {
+  function baixar(eu, copiou) {
     if (!eu.blob) return Promise.resolve();
     const a = document.createElement('a');
     a.href = URL.createObjectURL(eu.blob); a.download = 'tapa-na-gaveta.' + eu.ext;
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(() => URL.revokeObjectURL(a.href), 4000);
-    T.aviso('Vídeo baixado. Agora é só anexar no WhatsApp.');
+    Promise.resolve(copiou).then((ok) => T.aviso(ok ? 'Vídeo baixado e texto com o link copiado: é só colar no WhatsApp' : 'Vídeo baixado. Agora é só anexar no WhatsApp.'));
     return Promise.resolve();
   }
   function enviar(eu, texto) {
     if (!eu.blob) return Promise.resolve();
+    texto = texto || ('Simule o Brasileirão: ' + T.enderecoSite());
+    let copiou = false;
+    try { if (navigator.clipboard && navigator.clipboard.writeText) copiou = navigator.clipboard.writeText(texto).then(() => true, () => false); } catch (e) { /* sem permissão */ }
     try {
       const f = new File([eu.blob], 'tapa-na-gaveta.' + eu.ext, { type: eu.blob.type });
       if (navigator.canShare && navigator.canShare({ files: [f] })) {
-        return navigator.share({ files: [f], text: texto || '' }).catch((e) => (e && e.name === 'AbortError' ? null : baixar(eu)));
+        return navigator.share({ files: [f], text: texto }).catch((e) => (e && e.name === 'AbortError' ? null : baixar(eu, copiou)));
       }
     } catch (e) { /* sem compartilhar arquivos: baixa */ }
-    return baixar(eu);
+    return baixar(eu, copiou);
   }
 
   window.TNGVideo = { disponivel, gerar, roteiro, quadro, VW, VH };
