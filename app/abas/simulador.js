@@ -352,7 +352,7 @@
         '<div><dt>Faltam</dt><dd class="num">' + jogosMeu + (jogosMeu === 1 ? ' jogo' : ' jogos') + '</dd></div><div><dt>Em disputa</dt><dd class="num">' + (3 * jogosMeu) + ' pts</dd></div>' +
         '<div><dt>Últimos 5</dt><dd><span class="forma" role="img" aria-label="' + f5.map((r) => NOME_F[r]).join(', ') + '">' + f5.map((r) => '<i class="' + r + '"></i>').join('') + '</span></dd></div></dl>' +
         '<span id="meu-resumo"></span></div>' +
-        '<div class="meu-acoes"><button class="btn primario" data-a="simular">' + ICON.play + 'Simular os outros</button>' +
+        '<div class="meu-acoes">' +
         '<button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
         '<a class="link-btn" href="' + rotaBase() + '">Sair</a></div></div>';
     }
@@ -466,6 +466,8 @@
         (faltam ? 'Faltam <b class="num">' + faltam + '</b> placares. Preencha tudo e revele a tabela final, time a time.' : 'Tudo preenchido. Hora da revelação!') + '</span>' +
         '<button class="btn primario" data-a="revelar">' + ICON.revela + (faltam ? 'Sortear o que falta e revelar' : 'Revelar a tabela final') + '</button></div></div>';
     } else {
+      // com time escolhido, "Simular os outros" fica em cima da tabela (que acompanha a rolagem)
+      if (st.meu) html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + 'Simular os outros</button>';
       html += tabelaHtml(tabelaAtual(), { destaque: st.meu && st.meu.i, delta: true });
     }
     // as linhas que mudam de lugar deslizam até o novo lugar, e os pontos contam (FLIP)
