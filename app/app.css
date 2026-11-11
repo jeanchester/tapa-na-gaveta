@@ -927,6 +927,3 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 .meu-acoes { flex-wrap: wrap; align-items: center; }
 .meu-acoes .btn.primario { background: var(--gold); border-color: var(--gold); color: #0b1640; }
 .meu-acoes [data-a="so-meus"] { background: transparent; color: #f4f6fb; border: 1.5px solid rgba(255,255,255,.4); }
-/* celular estreito (360px): as quatro abas do menu cabem sem cortar "Estatísticas" */
-@media (max-width: 759px) { .head .nav { gap: 0; justify-content: space-between; } }
-@media (max-width: 370px) { .head .nav a { font-size: 13.5px; } }
