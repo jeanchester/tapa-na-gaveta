@@ -57,7 +57,7 @@
     precisa: null, precisaVersao: '',
     view: null, worker: null, pedidos: {}, nPedido: 0,
   };
-  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000 };
+  const PREFS_PADRAO = { forma: 5, esconder: false, ordem: 'baixo', revelacao: 'auto', N: 10000, visual: 'lista' };
 
   // Série A usa as chaves de sempre; as outras competições ganham um sufixo
   const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
@@ -235,11 +235,12 @@
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="cenarios">' + ICON.pasta + 'Cenários</button>' +
       '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Limpar</button>' +
+      '<button class="link-btn" data-a="visual" aria-pressed="' + (st.prefs.visual === 'cartoes') + '">' + (st.prefs.visual === 'cartoes' ? 'Ver em lista' : 'Ver em cartões') + '</button>' +
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
       '<div class="seg seg-cel" role="tablist" aria-label="Partes do simulador">' +
       [['jogos', 'Jogos'], ['tabela', 'Tabela'], ['chances', meu ? 'Precisa' : 'Chances']].map(([k, n]) =>
         '<button role="tab" data-aba="' + k + '" aria-selected="' + (st.aba === k) + '">' + n + '</button>').join('') + '</div>' +
-      '<div class="sim-cols" data-aba="' + st.aba + '">' +
+      '<div class="sim-cols' + (st.prefs.visual === 'cartoes' ? '' : ' compacto') + '" data-aba="' + st.aba + '">' +
       '<section class="col-jogos" aria-label="Jogos que faltam" id="col-jogos"></section>' +
       '<section class="col-lado" id="col-lado"><div class="seg seg-lado" role="tablist" aria-label="Tabela ou chances">' +
       [['tabela', 'Classificação'], ['chances', meu ? 'O que precisa' : 'Chances']].map(([k, n]) =>
@@ -369,10 +370,11 @@
       : j.status === 'STATUS_POSTPONED' ? '<span class="tag">adiado</span>'
         : f ? '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>' : '';
     const seg = (i, w, cor, txt, rot) => '<button type="button" data-r="' + i + '" style="flex:' + Math.max(w, 0.18).toFixed(3) + ';--c:var(' + cor + ')"' + (res === i ? ' class="pick" aria-pressed="true"' : ' aria-pressed="false"') + ' aria-label="' + esc(rot) + ', ' + pct(w) + '. Preencher o placar mais provável">' + txt + '</button>';
-    const time = (t) => '<div class="time' + (meu && meu.i === t.i ? ' meu' : '') + '">' + crest(t) + '<span>' + esc(nome(t)) + '</span></div>';
+    const sig = (t) => esc(t.abrev || nome(t).slice(0, 3).toUpperCase());
+    const time = (t) => '<div class="time' + (meu && meu.i === t.i ? ' meu' : '') + '">' + crest(t) + '<span>' + esc(nome(t)) + '</span><abbr class="sig" title="' + esc(nome(t)) + '">' + sig(t) + '</abbr></div>';
     const quando = j.horario ? fmtDia(j.data) + ' · ' + fmtHora(j.data) : fmtDia(j.data) + ' · horário a definir';
     return '<li class="jogo' + (f ? (sorteado ? ' sorteado' : ' set') : '') + '" data-c="' + j.chave + '">' +
-      '<div class="j-meta"><span>' + quando + '</span>' + tag + '</div>' +
+      '<div class="j-meta"><span>' + quando + '</span>' + tag + '<button type="button" class="dado-mini" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button></div>' +
       '<div class="j-linha">' + time(h) +
       '<div class="placar"><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="0" aria-label="Gols ' + esc(de_(h)) + '" value="' + (f ? f[0] : '') + '">' +
       '<i aria-hidden="true">×</i><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="1" aria-label="Gols ' + esc(de_(a)) + '" value="' + (f ? f[1] : '') + '"></div>' +
@@ -381,7 +383,7 @@
       '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
       '<button type="button" class="dado" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button>' +
       '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
-      '<div class="prob">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
+      '<div class="prob" style="--ph:' + (100 * p.ph).toFixed(1) + '%;--pd:' + (100 * (p.ph + p.pd)).toFixed(1) + '%">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
   }
 
   // atualiza um cartão sem redesenhar a lista (o teclado continua no lugar)
@@ -397,7 +399,7 @@
     const meta = li.querySelector('.j-meta');
     const velha = meta.querySelector('.tag:not(.vivo)');
     if (velha) velha.remove();
-    if (f && !meta.querySelector('.vivo')) meta.insertAdjacentHTML('beforeend', '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>');
+    if (f && !meta.querySelector('.vivo')) meta.querySelector('.dado-mini').insertAdjacentHTML('beforebegin', '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>');
     const ins = li.querySelectorAll('input');
     if (f) {
       if (document.activeElement !== ins[0]) ins[0].value = f[0];
@@ -1335,6 +1337,7 @@
       const a = b.dataset.a;
       if (a === 'simular') simularResto();
       else if (a === 'limpar') limpar();
+      else if (a === 'visual') { st.prefs.visual = st.prefs.visual === 'cartoes' ? 'lista' : 'cartoes'; salvarPrefs(); montar(); }
       else if (a === 'esconder') { st.prefs.esconder = !st.prefs.esconder; salvarPrefs(); desenharTabela(); desenharResumo(); atualizarResumoMeu(); atualizarBarraRevelar(); }
       else if (a === 'revelar') revelar();
       else if (a === 'partilhar') abrirCompartilhar();
