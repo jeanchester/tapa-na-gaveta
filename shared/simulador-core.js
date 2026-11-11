@@ -167,8 +167,10 @@
   // 2. ajuste pela forma recente (últimos nForma jogos) e pelos pontos por jogo, pesos pequenos
   // 3. gols esperados → Poisson com correção de Dixon-Coles (rho) nos placares baixos
   // Pesos escolhidos por calibração (tools/calibrar.js, Brier score nos jogos já disputados).
-  // calibrado em 07/11/2026 com 289 jogos (Brier 0,604; referência pelas frequências da liga: 0,632)
-  const PARAMS_PADRAO = { k: 32, nForma: 5, wForma: 0.3, wPPG: 1.2, rho: -0.1, maxGols: 10 };
+  // recalibrado em 11/11/2026 com 289 jogos (Brier 0,6036; antes 0,6042; referência pelas
+  // frequências da liga: 0,632). Testados e descartados por não melhorarem a previsão: reforço de
+  // empates (empate) e peso menor para jogos antigos (meiaVida, em dias); ficam desligados.
+  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity };
   // o usuário pode trocar a forma recente para os últimos 3 jogos (melhor peso para 3 jogos: 0,15)
   const PARAMS_FORMA3 = { nForma: 3, wForma: 0.15 };
 
@@ -180,14 +182,18 @@
     const pts = new Float64Array(n), jg = new Float64Array(n);
     const hist = []; for (let i = 0; i < n; i++) hist.push([]);
     let gH = 0, gA = 0, nJ = 0;
+    // jogos antigos pesam menos: peso 1/2 a cada "meiaVida" dias antes do último jogo conhecido
+    let ref = 0;
+    if (isFinite(P.meiaVida)) for (const j of L.jogos) { if (j.feito && !(ate && j.data >= ate)) { const t = Date.parse(j.data); if (t > ref) ref = t; } }
     for (const j of L.jogos) {
       if (!j.feito) continue;
       if (ate && j.data >= ate) continue;              // só o que se sabia antes da data
-      hf[j.h] += j.gh; ha[j.h] += j.ga; hn[j.h]++;
-      af[j.a] += j.ga; aa[j.a] += j.gh; an[j.a]++;
-      gH += j.gh; gA += j.ga; nJ++;
+      const w = isFinite(P.meiaVida) ? Math.pow(0.5, (ref - Date.parse(j.data)) / 864e5 / P.meiaVida) : 1;
+      hf[j.h] += w * j.gh; ha[j.h] += w * j.ga; hn[j.h] += w;
+      af[j.a] += w * j.ga; aa[j.a] += w * j.gh; an[j.a] += w;
+      gH += w * j.gh; gA += w * j.ga; nJ += w;
       const ph = j.gh > j.ga ? 3 : j.gh === j.ga ? 1 : 0, pa = j.gh < j.ga ? 3 : j.gh === j.ga ? 1 : 0;
-      pts[j.h] += ph; pts[j.a] += pa; jg[j.h]++; jg[j.a]++;
+      pts[j.h] += w * ph; pts[j.a] += w * pa; jg[j.h] += w; jg[j.a] += w;
       hist[j.h].push(ph); hist[j.a].push(pa);
     }
     const mH = nJ ? gH / nJ : 1.45, mA = nJ ? gA / nJ : 1.05;
@@ -212,7 +218,7 @@
       let la = mA * ataqueFora[a] * defesaCasa[h];
       const ajuste = P.wForma * (formaRel[h] - formaRel[a]) / 3 + P.wPPG * (ppg[h] - ppg[a]) / 3;
       lh *= Math.exp(ajuste); la *= Math.exp(-ajuste);
-      cache[ch] = matriz(lh, la, P.rho, P.maxGols);
+      cache[ch] = matriz(lh, la, P.rho, P.maxGols, P.empate);
       return cache[ch];
     }
     return { prob, params: P, mH, mA, ppg, formaRel, nJogos: nJ };
@@ -220,7 +226,7 @@
 
   function poisson(l, k) { let p = Math.exp(-l); for (let i = 1; i <= k; i++) p *= l / i; return p; }
 
-  function matriz(lh, la, rho, G) {
+  function matriz(lh, la, rho, G, empate) {
     const m = new Float64Array((G + 1) * (G + 1));
     const ph = [], pa = [];
     for (let x = 0; x <= G; x++) { ph[x] = poisson(lh, x); pa[x] = poisson(la, x); }
@@ -231,7 +237,8 @@
       else if (x === 0 && y === 1) tau = 1 + lh * rho;
       else if (x === 1 && y === 0) tau = 1 + la * rho;
       else if (x === 1 && y === 1) tau = 1 - rho;
-      const v = Math.max(0, ph[x] * pa[y] * tau);
+      // empates a mais do que a Poisson prevê (o Brasileirão empata muito): reforço na diagonal
+      const v = Math.max(0, ph[x] * pa[y] * tau) * (x === y && empate ? 1 + empate : 1);
       m[x * (G + 1) + y] = v; s += v;
     }
     let pH = 0, pD = 0, pA = 0;
