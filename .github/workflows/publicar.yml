@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - run: node tools/testar-core.js && node tools/testar-milhao.js
-      - run: node tools/build.js --release --site "${{ vars.SITE_URL }}"
+      - run: node tools/build.js --release --site "${{ vars.SITE_URL || 'https://jeanchester.github.io/tapa-na-gaveta' }}"
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - id: deploy
