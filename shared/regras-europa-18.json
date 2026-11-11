@@ -1,0 +1,103 @@
+{
+  "competicao": "Liga de 18 clubes (Bundesliga, Francês)",
+  "formato": "liga",
+  "pontos": {
+    "vitoria": 3,
+    "empate": 1,
+    "derrota": 0
+  },
+  "rodadas": 34,
+  "desempate": [
+    "pontos",
+    "saldo",
+    "gols_pro",
+    "confronto_direto",
+    "sorteio"
+  ],
+  "confronto_so_dois": false,
+  "zonas": [
+    {
+      "id": "lib",
+      "nome": "Champions League",
+      "curto": "Champions",
+      "de": 1,
+      "ate": 4,
+      "verbo": [
+        "vai à Champions",
+        "fica fora do G4",
+        "Champions League (1º a 4º)",
+        "Champions"
+      ],
+      "subst": "a vaga na Champions"
+    },
+    {
+      "id": "pre",
+      "nome": "Liga Europa",
+      "curto": "L. Europa",
+      "de": 5,
+      "ate": 5,
+      "verbo": [
+        "garante ao menos a Liga Europa",
+        "fica fora do G5",
+        "Champions ou Liga Europa (1º a 5º)",
+        "Até a Liga Europa"
+      ],
+      "subst": "ao menos a Liga Europa"
+    },
+    {
+      "id": "sula",
+      "nome": "Conference League",
+      "curto": "Conference",
+      "de": 6,
+      "ate": 6,
+      "verbo": [
+        "garante vaga europeia",
+        "fica fora da Europa",
+        "Vaga europeia (1º a 6º)",
+        "Vaga europeia"
+      ],
+      "subst": "vaga numa copa europeia"
+    },
+    {
+      "id": "rb",
+      "nome": "Rebaixamento",
+      "curto": "Queda",
+      "de": 17,
+      "ate": 18,
+      "verbo": [
+        "escapa do rebaixamento",
+        "é rebaixado",
+        "Escapar da queda",
+        "Escapar da queda"
+      ],
+      "subst": "a permanência na primeira divisão"
+    }
+  ],
+  "rotulo_grupo": "Também na Champions",
+  "zonas_provisorias": true,
+  "obs": "18 clubes: 16º joga playoff contra o 3º da segunda divisão (não simulado); 17º e 18º caem. Vagas europeias base, provisórias.",
+  "colunas": [
+    {
+      "rotulo": "Champions",
+      "zonas": [
+        "lib"
+      ],
+      "titulo": "1º ao 4º"
+    },
+    {
+      "rotulo": "Europa",
+      "zonas": [
+        "pre",
+        "sula"
+      ],
+      "titulo": "Liga Europa ou Conference (5º e 6º)"
+    },
+    {
+      "rotulo": "Queda",
+      "zonas": [
+        "rb"
+      ],
+      "titulo": "17º e 18º"
+    }
+  ]
+}

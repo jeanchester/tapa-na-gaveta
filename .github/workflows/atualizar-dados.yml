@@ -18,6 +18,8 @@ jobs:
         with: { node-version: '22' }
       - name: Retrato do Brasileirão (ESPN)
         run: python ferramentas/baixar_espn.py 2026 dados/brasileirao-2026.json
+      - name: Outras competições (Série B e ligas europeias)
+        run: python ferramentas/baixar_espn.py --todas || echo "::warning::alguma competição não saiu (ver o log)"
       - name: Testes do núcleo com os dados novos
         run: node tools/testar-core.js || echo "::warning::testes do núcleo falharam com os dados novos (ver o log)"
       - name: Elencos (sextas-feiras)

@@ -1,0 +1,18 @@
+<h1>Como funciona o simulador</h1>
+<p class="lead">Cada jogo que falta recebe uma chance de vitória do mandante, de empate e de vitória do visitante. Essas chances saem de um modelo estatístico simples e transparente, recalculado a cada rodada com os resultados reais.</p>
+<h2>1. Força de ataque e de defesa</h2>
+<p>Para cada time, o modelo compara os gols marcados e sofridos por jogo com a média da liga, separando os jogos em casa e fora. Um time que marca 1,8 gol por jogo numa liga que marca 1,2 tem ataque 50% acima da média.</p>
+<p>No começo do campeonato, poucos jogos enganam: uma goleada na primeira rodada não faz de ninguém um esquadrão. Por isso os números são <i>encolhidos</i> em direção à média da liga, e o peso de cada time cresce conforme ele acumula jogos.</p>
+<h2>2. Pontos por jogo e forma recente</h2>
+<p>Além dos gols, entram os pontos por jogo (quem vence jogos apertados ganha crédito) e a forma nos últimos cinco jogos, com mais peso para os mais recentes. Dá para trocar para os últimos três jogos nas opções do simulador.</p>
+<h2>3. Mando de campo</h2>
+<p>Jogar em casa ainda vale muito no Brasileirão: os mandantes vencem bem mais do que os visitantes (o número exato da temporada está em Estatísticas). O modelo usa as médias de gols em casa e fora medidas na própria temporada.</p>
+<h2>4. Do número de gols ao placar</h2>
+<p>Com a força dos dois times, o modelo estima quantos gols cada um deve marcar e usa a distribuição de Poisson (com um pequeno ajuste para placares baixos, que acontecem mais do que a Poisson pura prevê) para calcular a chance de cada placar: 0 × 0, 1 × 0, 2 × 1 e assim por diante. Somando os placares, saem as chances de vitória, empate e derrota.</p>
+<h2>5. Milhares de campeonatos</h2>
+<p>Para as chances de título, Libertadores e rebaixamento, o simulador sorteia os placares de todos os jogos restantes milhares de vezes (o método de Monte Carlo) e conta em quantas delas cada time termina em cada posição, aplicando os critérios de desempate do regulamento: pontos, vitórias, saldo de gols e gols marcados.</p>
+<p>Na reta final, quando faltam poucos jogos relevantes, o simulador para de sortear e percorre todas as combinações possíveis de resultado para dizer exatamente o que o seu time precisa.</p>
+<h2>O que o modelo não sabe</h2>
+<p>Lesões, suspensões, troca de técnico, time reserva por causa de outra competição e jogos que não valem mais nada. Use as chances como ponto de partida e o seu palpite como torcedor para o resto. As probabilidades não são dicas de aposta.</p>
+<h2>Testado com os jogos já disputados</h2>
+<p>Os parâmetros do modelo são ajustados comparando as chances que ele daria, rodada a rodada, com os resultados que de fato aconteceram na temporada.</p>

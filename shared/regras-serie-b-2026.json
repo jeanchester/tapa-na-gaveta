@@ -1,0 +1,92 @@
+{
+  "competicao": "Campeonato Brasileiro Série B 2026",
+  "formato": "liga",
+  "pontos": {
+    "vitoria": 3,
+    "empate": 1,
+    "derrota": 0
+  },
+  "rodadas": 38,
+  "desempate": [
+    "pontos",
+    "vitorias",
+    "saldo",
+    "gols_pro",
+    "confronto_direto",
+    "vermelhos",
+    "amarelos",
+    "sorteio"
+  ],
+  "zonas": [
+    {
+      "id": "lib",
+      "nome": "Acesso direto",
+      "curto": "Sobe",
+      "de": 1,
+      "ate": 2,
+      "verbo": [
+        "sobe direto",
+        "fica fora do G2",
+        "Acesso direto (1º e 2º)",
+        "Acesso direto"
+      ],
+      "subst": "o acesso direto"
+    },
+    {
+      "id": "pre",
+      "nome": "Playoff do acesso",
+      "curto": "Playoff",
+      "de": 3,
+      "ate": 6,
+      "verbo": [
+        "garante ao menos o playoff",
+        "fica fora do G6",
+        "Acesso ou playoff (1º a 6º)",
+        "Até o playoff"
+      ],
+      "subst": "ao menos o playoff do acesso"
+    },
+    {
+      "id": "rb",
+      "nome": "Rebaixamento",
+      "curto": "Queda",
+      "de": 17,
+      "ate": 20,
+      "verbo": [
+        "escapa do rebaixamento",
+        "cai para a Série C",
+        "Escapar da queda",
+        "Escapar da queda"
+      ],
+      "subst": "a permanência na Série B"
+    }
+  ],
+  "rotulo_grupo": "Também sobem",
+  "obs": "REC 2026: 1º e 2º sobem direto; 3º x 6º e 4º x 5º jogam o playoff (ida e volta) por duas vagas; 17º a 20º caem para a Série C.",
+  "fontes": [
+    "https://www.band.com.br/esportes/serie-b-do-brasileirao-tera-playoff-para-definir-acesso-entenda-202602051659"
+  ],
+  "colunas": [
+    {
+      "rotulo": "Sobe",
+      "zonas": [
+        "lib"
+      ],
+      "titulo": "1º e 2º"
+    },
+    {
+      "rotulo": "Playoff",
+      "zonas": [
+        "pre"
+      ],
+      "titulo": "3º ao 6º"
+    },
+    {
+      "rotulo": "Queda",
+      "zonas": [
+        "rb"
+      ],
+      "titulo": "17º ao 20º"
+    }
+  ]
+}

@@ -117,7 +117,27 @@
 
   // ordena pelos critérios do regulamento. sorteio: chave por time (menor primeiro); sem ela,
   // ordem alfabética (estável para a tela; o Monte Carlo passa chaves sorteadas).
+  // Critérios simples do regulamento (o resto, como cartões, a ESPN não informa: pula)
+  const CRIT = { pontos: (x) => x.pts, vitorias: (x) => x.v, saldo: (x) => x.gp - x.gc, gols_pro: (x) => x.gp, gols_fora: (x) => x.gf || 0 };
+  const BRASIL = ['pontos', 'vitorias', 'saldo', 'gols_pro', 'confronto_direto'];
+  // mini-tabela só com os jogos entre os clubes empatados: [pontos, saldo, gols] de cada um
+  function miniTabela(L, placares, ids) {
+    const dentro = {}, r = {};
+    ids.forEach((i) => { dentro[i] = 1; r[i] = [0, 0, 0]; });
+    L.jogos.forEach((j) => {
+      if (!dentro[j.h] || !dentro[j.a]) return;
+      const p = placarDe(j, placares);
+      if (!p) return;
+      const H = r[j.h], A = r[j.a];
+      H[1] += p[0] - p[1]; A[1] += p[1] - p[0]; H[2] += p[0]; A[2] += p[1];
+      if (p[0] > p[1]) H[0] += 3; else if (p[0] < p[1]) A[0] += 3; else { H[0]++; A[0]++; }
+    });
+    return r;
+  }
   function ordenar(L, s, placares, sorteio) {
+    const lista = (L.regras && L.regras.desempate) || BRASIL;
+    const ehBrasil = lista.slice(0, 5).join() === BRASIL.join() && !(L.regras && L.regras.confronto_so_dois === false);
+    if (!ehBrasil) return ordenarGeral(L, s, placares, sorteio, lista);
     const base = (x, y) => (y.pts - x.pts) || (y.v - x.v) || ((y.gp - y.gc) - (x.gp - x.gc)) || (y.gp - x.gp);
     const sorteioDe = (x) => (sorteio ? sorteio[x.i] : x.i);
     const out = s.slice().sort((x, y) => base(x, y) || (sorteioDe(x) - sorteioDe(y)));
@@ -134,6 +154,52 @@
       }
       k = f;
     }
+    out.forEach((x, p) => { x.pos = p + 1; x.sg = x.gp - x.gc; });
+    return out;
+  }
+
+  // Ordem genérica (ligas europeias e outras): critérios na ordem do regulamento; o confronto
+  // direto vale para qualquer número de empatados (mini-tabela: pontos, saldo e gols entre eles),
+  // a não ser que confronto_so_dois seja true.
+  function ordenarGeral(L, s, placares, sorteio, lista) {
+    const crit = lista.filter((c) => CRIT[c] || c === 'confronto_direto');
+    const soDois = !!(L.regras && L.regras.confronto_so_dois);
+    const sorteioDe = (x) => (sorteio ? sorteio[x.i] : x.i);
+    const cmpVet = (a, b) => (b[0] - a[0]) || (b[1] - a[1]) || (b[2] - a[2]);
+    function grupo(xs, k) {
+      if (xs.length <= 1) return xs;
+      if (k >= crit.length) { xs.forEach((x) => { x.criterio = x.criterio || 'sorteio'; }); return xs.slice().sort((a, b) => sorteioDe(a) - sorteioDe(b)); }
+      const c = crit[k];
+      let chave;
+      if (c === 'confronto_direto') {
+        if (soDois && xs.length !== 2) return grupo(xs, k + 1);
+        const mt = miniTabela(L, placares, xs.map((x) => x.i));
+        chave = (x) => mt[x.i];
+        const ord = xs.slice().sort((a, b) => cmpVet(chave(a), chave(b)));
+        const out = [];
+        for (let a = 0; a < ord.length;) {
+          let b = a + 1;
+          while (b < ord.length && cmpVet(chave(ord[a]), chave(ord[b])) === 0) b++;
+          const g = ord.slice(a, b);
+          if (g.length < ord.length) ord.forEach((x) => { if (!x.criterio) x.criterio = 'confronto_direto'; });
+          out.push.apply(out, grupo(g, k + 1));
+          a = b;
+        }
+        return out;
+      }
+      const f = CRIT[c];
+      const ord = xs.slice().sort((a, b) => f(b) - f(a));
+      const out = [];
+      for (let a = 0; a < ord.length;) {
+        let b = a + 1;
+        while (b < ord.length && f(ord[b]) === f(ord[a])) b++;
+        out.push.apply(out, grupo(ord.slice(a, b), k + 1));
+        a = b;
+      }
+      return out;
+    }
+    s.forEach((x) => { delete x.criterio; });
+    const out = grupo(s.slice(), 0);
     out.forEach((x, p) => { x.pos = p + 1; x.sg = x.gp - x.gc; });
     return out;
   }
@@ -167,8 +233,10 @@
   // 2. ajuste pela forma recente (últimos nForma jogos) e pelos pontos por jogo, pesos pequenos
   // 3. gols esperados → Poisson com correção de Dixon-Coles (rho) nos placares baixos
   // Pesos escolhidos por calibração (tools/calibrar.js, Brier score nos jogos já disputados).
-  // calibrado em 07/11/2026 com 289 jogos (Brier 0,604; referência pelas frequências da liga: 0,632)
-  const PARAMS_PADRAO = { k: 32, nForma: 5, wForma: 0.3, wPPG: 1.2, rho: -0.1, maxGols: 10 };
+  // recalibrado em 11/11/2026 com 289 jogos (Brier 0,6036; antes 0,6042; referência pelas
+  // frequências da liga: 0,632). Testados e descartados por não melhorarem a previsão: reforço de
+  // empates (empate) e peso menor para jogos antigos (meiaVida, em dias); ficam desligados.
+  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity };
   // o usuário pode trocar a forma recente para os últimos 3 jogos (melhor peso para 3 jogos: 0,15)
   const PARAMS_FORMA3 = { nForma: 3, wForma: 0.15 };
 
@@ -180,14 +248,18 @@
     const pts = new Float64Array(n), jg = new Float64Array(n);
     const hist = []; for (let i = 0; i < n; i++) hist.push([]);
     let gH = 0, gA = 0, nJ = 0;
+    // jogos antigos pesam menos: peso 1/2 a cada "meiaVida" dias antes do último jogo conhecido
+    let ref = 0;
+    if (isFinite(P.meiaVida)) for (const j of L.jogos) { if (j.feito && !(ate && j.data >= ate)) { const t = Date.parse(j.data); if (t > ref) ref = t; } }
     for (const j of L.jogos) {
       if (!j.feito) continue;
       if (ate && j.data >= ate) continue;              // só o que se sabia antes da data
-      hf[j.h] += j.gh; ha[j.h] += j.ga; hn[j.h]++;
-      af[j.a] += j.ga; aa[j.a] += j.gh; an[j.a]++;
-      gH += j.gh; gA += j.ga; nJ++;
+      const w = isFinite(P.meiaVida) ? Math.pow(0.5, (ref - Date.parse(j.data)) / 864e5 / P.meiaVida) : 1;
+      hf[j.h] += w * j.gh; ha[j.h] += w * j.ga; hn[j.h] += w;
+      af[j.a] += w * j.ga; aa[j.a] += w * j.gh; an[j.a] += w;
+      gH += w * j.gh; gA += w * j.ga; nJ += w;
       const ph = j.gh > j.ga ? 3 : j.gh === j.ga ? 1 : 0, pa = j.gh < j.ga ? 3 : j.gh === j.ga ? 1 : 0;
-      pts[j.h] += ph; pts[j.a] += pa; jg[j.h]++; jg[j.a]++;
+      pts[j.h] += w * ph; pts[j.a] += w * pa; jg[j.h] += w; jg[j.a] += w;
       hist[j.h].push(ph); hist[j.a].push(pa);
     }
     const mH = nJ ? gH / nJ : 1.45, mA = nJ ? gA / nJ : 1.05;
@@ -212,7 +284,7 @@
       let la = mA * ataqueFora[a] * defesaCasa[h];
       const ajuste = P.wForma * (formaRel[h] - formaRel[a]) / 3 + P.wPPG * (ppg[h] - ppg[a]) / 3;
       lh *= Math.exp(ajuste); la *= Math.exp(-ajuste);
-      cache[ch] = matriz(lh, la, P.rho, P.maxGols);
+      cache[ch] = matriz(lh, la, P.rho, P.maxGols, P.empate);
       return cache[ch];
     }
     return { prob, params: P, mH, mA, ppg, formaRel, nJogos: nJ };
@@ -220,7 +292,7 @@
 
   function poisson(l, k) { let p = Math.exp(-l); for (let i = 1; i <= k; i++) p *= l / i; return p; }
 
-  function matriz(lh, la, rho, G) {
+  function matriz(lh, la, rho, G, empate) {
     const m = new Float64Array((G + 1) * (G + 1));
     const ph = [], pa = [];
     for (let x = 0; x <= G; x++) { ph[x] = poisson(lh, x); pa[x] = poisson(la, x); }
@@ -231,7 +303,8 @@
       else if (x === 0 && y === 1) tau = 1 + lh * rho;
       else if (x === 1 && y === 0) tau = 1 + la * rho;
       else if (x === 1 && y === 1) tau = 1 - rho;
-      const v = Math.max(0, ph[x] * pa[y] * tau);
+      // empates a mais do que a Poisson prevê (o Brasileirão empata muito): reforço na diagonal
+      const v = Math.max(0, ph[x] * pa[y] * tau) * (x === y && empate ? 1 + empate : 1);
       m[x * (G + 1) + y] = v; s += v;
     }
     let pH = 0, pD = 0, pA = 0;

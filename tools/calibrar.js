@@ -51,12 +51,15 @@ function referencia() {
 
 const t0 = Date.now();
 const grade = [];
-for (const k of [4, 8, 12, 16, 24, 32, 48])
-  for (const nForma of [3, 5])
-    for (const wForma of [0, 0.15, 0.3, 0.45, 0.6])
-      for (const wPPG of [0, 0.3, 0.6, 0.9, 1.2, 1.6])
-        for (const rho of [0, -0.05, -0.1])
-          grade.push({ k, nForma, wForma, wPPG, rho });
+const so = process.argv.includes('--rapido');
+for (const k of so ? [32, 48] : [16, 24, 32, 48, 64])
+  for (const nForma of [5])
+    for (const wForma of [0.15, 0.3, 0.45])
+      for (const wPPG of [0.9, 1.2, 1.6, 2.0, 2.5])
+        for (const rho of [-0.05, -0.1])
+          for (const empate of [0, 0.05, 0.1, 0.15])
+            for (const meiaVida of [Infinity, 240, 150, 90])
+              grade.push({ k, nForma, wForma, wPPG, rho, empate, meiaVida });
 
 const res = grade.map((p) => Object.assign({ p }, avaliar(p))).sort((a, b) => a.brier - b.brier);
 const ref = referencia();
@@ -65,9 +68,10 @@ console.log(`${avaliados.length} jogos avaliados (de ${feitos.length}), ${grade.
 console.log(`referência (frequências da liga): Brier ${ref.toFixed(4)}`);
 console.log('\nmelhores:');
 res.slice(0, 8).forEach((r) => console.log('  ' + fmt(r)));
-console.log('\nmelhor com forma de 3 jogos:  ' + fmt(res.find((r) => r.p.nForma === 3)));
-console.log('melhor com forma de 5 jogos:  ' + fmt(res.find((r) => r.p.nForma === 5)));
-console.log('sem forma nem pontos por jogo: ' + fmt(res.find((r) => r.p.wForma === 0 && r.p.wPPG === 0)));
+const atual = Object.assign({ p: C.PARAMS_PADRAO }, avaliar(C.PARAMS_PADRAO));
+console.log('\nparâmetros em uso:            ' + fmt(atual));
+console.log('melhor com reforço de empate: ' + fmt(res.find((r) => r.p.empate > 0)));
+console.log('melhor com peso por data:     ' + fmt(res.find((r) => isFinite(r.p.meiaVida))));
 console.log('pior: ' + fmt(res[res.length - 1]));
 
 // calibração por faixas: quando o modelo diz 50–60% de vitória do mandante, acontece quanto?
