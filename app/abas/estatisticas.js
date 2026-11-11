@@ -74,6 +74,19 @@
     return html ? '<div class="est-cols jogadores">' + html + '</div>' : '';
   }
 
+  // Prêmio ESPN Bola de Prata (dados/bola-de-prata.json, preenchido à mão)
+  function bolaDePrataHtml(B, L) {
+    if (!B || !B.selecao || !B.selecao.length) return '';
+    const porEscudo = {};
+    L.times.forEach((t) => { porEscudo[t.escudo] = t; });
+    const linha = (x) => { const t = porEscudo[x.escudo]; return '<li><span class="bp-pos">' + esc(x.posicao) + '</span>' + (t ? crest(t) : '') + '<b>' + esc(x.nome) + '</b><small>' + esc(t ? nome(t) : (x.clube || '')) + '</small></li>'; };
+    const ouro = B.bola_de_ouro;
+    return '<div class="sec-title"><h2>Bola de Prata</h2><small>seleção provisória' + (B.apos_rodada ? ' após a ' + B.apos_rodada + 'ª rodada' : '') + ' · ESPN</small></div>' +
+      (ouro ? '<div class="bp-ouro">' + (porEscudo[ouro.escudo] ? crest(porEscudo[ouro.escudo]) : '') + '<div><small>Bola de Ouro (líder)</small><b>' + esc(ouro.nome) + '</b>' + (ouro.media ? '<span>nota média ' + esc(String(ouro.media).replace('.', ',')) + '</span>' : '') + '</div></div>' : '') +
+      '<ul class="bp-lista">' + B.selecao.map(linha).join('') + (B.tecnico ? linha(Object.assign({ posicao: 'Técnico' }, B.tecnico)) : '') + '</ul>' +
+      (B.fonte ? '<p class="nota">Fonte: <a href="' + esc(B.fonte) + '" target="_blank" rel="noopener">Prêmio ESPN Bola de Prata</a></p>' : '');
+  }
+
   function barra(v, max) { return '<i class="bar" style="--w:' + Math.round(100 * v / max) + '%"></i>'; }
 
   T.aba('estatisticas', {
@@ -81,7 +94,8 @@
     descricao: 'Campanhas em casa e fora, ataque e defesa, sequências e forma dos times do Brasileirão 2026.',
     render(view) {
       const J = fetch('dados/estatisticas-jogadores.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
-      return Promise.all([dados(), J]).then(([L, jog]) => {
+      const BP = fetch('dados/bola-de-prata.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      return Promise.all([dados(), J, BP]).then(([L, jog, bp]) => {
         const E = calcular(L);
         const casaFora = E.s.slice().sort((a, b) => (b.casa.pts / Math.max(1, b.casa.j)) - (a.casa.pts / Math.max(1, a.casa.j)));
         const atq = E.s.slice().sort((a, b) => b.total.gp / b.total.j - a.total.gp / a.total.j);
@@ -98,7 +112,7 @@
           '<div class="dq"><b class="num">' + pct(E.vm / E.n) + '</b><span>de vitórias dos mandantes (' + pct(E.emp / E.n) + ' de empates)</span></div>' +
           '<div class="dq"><b class="num">' + invicto.invicto + '</b><span>jogos sem perder: ' + esc(nome(invicto.t)) + ', a maior invencibilidade atual</span></div>' +
           '<div class="dq"><b class="num">' + jejum.semVencer + '</b><span>jogos sem vencer: ' + esc(nome(jejum.t)) + ', o maior jejum atual</span></div></div>' +
-          jogadoresHtml(jog, L) +
+          jogadoresHtml(jog, L) + bolaDePrataHtml(bp, L) +
           '<div class="sec-title"><h2>Times em números</h2><small>os três primeiros de cada lista</small></div><div class="podios">' +
           podio('Melhor ataque', E.s.slice().sort((a, b) => b.total.gp - a.total.gp), (x) => x.total.gp, 'gols marcados') +
           podio('Melhor defesa', E.s.slice().sort((a, b) => a.total.gc - b.total.gc), (x) => x.total.gc, 'gols sofridos') +

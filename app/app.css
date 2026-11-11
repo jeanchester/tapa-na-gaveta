@@ -790,3 +790,49 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 }
 .foot .foot-base { border-top: 0; margin-top: 0; }
 @media (max-width: 759px) { body.rolou .head { background-color: #0b1640; -webkit-backdrop-filter: none; backdrop-filter: none; } }
+
+/* ===================================================================== visão em lista (padrão)
+   Jogos e tabela juntos na mesma tela, no espírito da tabela do GE: uma linha por jogo, siglas,
+   placar no meio, sem os botões de mais/menos; a probabilidade vira uma barra fina. */
+.time .sig, .dado-mini { display: none; }
+.sim-cols.compacto .col-jogos { container-type: inline-size; }
+.sim-cols.compacto .jogos { gap: 6px; }
+@container (min-width: 500px) { .sim-cols.compacto .jogos { grid-template-columns: 1fr 1fr; } }
+.sim-cols.compacto .jogo { padding: 6px 10px 8px; border-radius: var(--r); }
+.sim-cols.compacto .j-meta { font-size: 11px; margin-bottom: 4px; min-height: 0; justify-content: flex-start; gap: 6px; }
+.sim-cols.compacto .j-meta .tag { font-size: 10.5px; padding: 1px 6px; }
+.sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; width: 32px; height: 32px; margin-top: -6px; margin-bottom: -6px; margin-right: -6px; color: var(--ink-3); border-radius: 8px; }
+.sim-cols.compacto .dado-mini:hover { color: var(--ink); background: var(--surface-2); }
+.sim-cols.compacto .dado-mini svg { width: 16px; height: 16px; }
+.sim-cols.compacto .j-linha { gap: 6px; }
+.sim-cols.compacto .time { flex-direction: row; gap: 6px; font-size: 15px; }
+.sim-cols.compacto .j-linha > .time:first-child { justify-content: flex-start; flex-direction: row-reverse; }
+.sim-cols.compacto .j-linha > .time:last-child { justify-content: flex-start; }
+.sim-cols.compacto .time span { display: none; }
+.sim-cols.compacto .time .sig { display: inline; font: 800 15px/1 var(--f-text); letter-spacing: .02em; text-decoration: none; }
+.sim-cols.compacto .time.meu .sig { color: var(--brand-ink); text-decoration: underline 2px var(--gold); text-underline-offset: 4px; }
+.sim-cols.compacto .time .crest { width: 24px; height: 24px; }
+.sim-cols.compacto .placar input { width: 36px; height: 36px; font-size: 20px; }
+.sim-cols.compacto .pm { display: none; }
+.sim-cols.compacto .prob { position: relative; height: 3px; margin-top: 7px; border-radius: 2px; overflow: hidden;
+  background: linear-gradient(90deg, var(--p-home) 0 var(--ph), var(--p-draw) var(--ph) var(--pd), var(--p-away) var(--pd) 100%); }
+.sim-cols.compacto .prob button { display: none; }
+.sim-cols.compacto .jogo.set .prob, .sim-cols.compacto .jogo.sorteado .prob { opacity: .35; }
+/* tabela mais baixa para caber inteira ao lado dos jogos */
+.sim-cols.compacto .tbl td, .sim-cols.compacto .tbl tbody th { height: 32px; font-size: 13.5px; }
+.sim-cols.compacto .tbl td.pts { font-size: 15px; }
+.sim-cols.compacto .tbl td.pos::before { top: 7px; bottom: 7px; }
+.sim-cols.compacto .tbl .crest { width: 20px; height: 20px; }
+.sim-cols.compacto .tbl th { padding: 6px 4px 4px; }
+.bp-ouro { display: flex; align-items: center; gap: 14px; padding: 14px 16px; margin-bottom: 10px; border-radius: var(--r-lg); background: linear-gradient(100deg, #0b1640, #1b2a6b); color: #f4f6fb; }
+.bp-ouro .crest { width: 44px; height: 44px; background: #fff; border-radius: 10px; padding: 5px; }
+.bp-ouro small { display: block; color: var(--gold); font-weight: 800; font-size: 12px; }
+.bp-ouro b { display: block; font: 900 26px/1.05 var(--f-num); }
+.bp-ouro span { font-size: 13px; color: #aeb8da; }
+.bp-lista { list-style: none; margin: 0 0 8px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.bp-lista li { display: grid; grid-template-columns: 92px 22px minmax(0, 1fr) auto; align-items: center; gap: 10px; min-height: 42px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.bp-lista li:last-child { border-bottom: 0; }
+.bp-pos { font-size: 12px; color: var(--ink-3); font-weight: 700; }
+.bp-lista .crest { width: 22px; height: 22px; }
+.bp-lista b { font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bp-lista small { font-size: 12px; color: var(--ink-3); }

@@ -1,0 +1,8 @@
+{
+  "observacao": "Preenchido à mão (a ESPN só publica o Prêmio Bola de Prata em matérias e artes, sem API). Atualize depois de cada rodada: 'apos_rodada', a seleção provisória (posicao, nome, escudo do clube em midia/escudos) e o líder da Bola de Ouro com a nota média. Com 'selecao' vazia, a seção não aparece no site.",
+  "apos_rodada": null,
+  "fonte": "https://www.espn.com.br/futebol/bola-de-prata/",
+  "bola_de_ouro": null,
+  "selecao": [],
+  "tecnico": null
+}
