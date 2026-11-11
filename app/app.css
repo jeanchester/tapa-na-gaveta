@@ -244,6 +244,7 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 .sel-time select { appearance: none; -webkit-appearance: none; border: 0; background: transparent; font-weight: 700; font-size: 14px; color: var(--ink); padding: 0 18px 0 0; min-height: 40px; cursor: pointer; max-width: 150px; }
 .sel-time::after { content: ""; position: absolute; right: 12px; top: 50%; width: 7px; height: 7px; border-right: 2px solid var(--ink-3); border-bottom: 2px solid var(--ink-3); transform: translateY(-70%) rotate(45deg); pointer-events: none; }
 .sel-time select:focus-visible { outline: none; }
+.sel-time .sel-crest { width: 24px; height: 24px; margin-right: 8px; }
 .sel-time:focus-within { outline: 2.5px solid var(--brand); outline-offset: 2px; }
 .ferr { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0 0 12px; }
 .ferr .link-btn { min-height: 44px; }
@@ -895,7 +896,16 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
   .sim-cols.compacto.lado:not([data-aba="chances"]) #painel-tabela { display: block; }
   .sim-cols.compacto.lado:not([data-aba="chances"]) #painel-chances { display: none; }
   .sim-cols.compacto.lado .col-lado { position: sticky; top: calc(var(--topo-fixo, 0px) + 56px); }
-  .sim-cols.compacto.lado #painel-tabela .sec-title, .sim-cols.compacto.lado #painel-tabela .legenda, .sim-cols.compacto.lado #painel-tabela .nota { display: none; }
+  .sim-cols.compacto.lado #painel-tabela .legenda, .sim-cols.compacto.lado #painel-tabela .nota { display: none; }
+  .sim-cols.compacto.lado #painel-tabela .sec-title { margin: 0 0 6px; padding: 0; border: 0; justify-content: flex-end; }
+  .sim-cols.compacto.lado #painel-tabela .sec-title h2 { display: none; }
+  .sim-cols.compacto.lado .capa { padding: 16px 8px; }
+  .sim-cols.compacto.lado .capa-in > b { font-size: 15px; }
+  .sim-cols.compacto.lado .capa span { font-size: 12.5px; margin: 4px 0 12px; line-height: 1.35; }
+  .sim-cols.compacto.lado .capa .btn { width: 100%; min-height: 40px; padding: 6px 6px; font-size: 12.5px; line-height: 1.2; gap: 4px; }
+  .sim-cols.compacto.lado .capa .btn svg { display: none; }
+  .sim-cols.compacto.lado #painel-tabela .sec-title .link-btn { font-size: 12px; min-height: 28px; padding: 0 2px; gap: 4px; }
+  .sim-cols.compacto.lado #painel-tabela .sec-title .link-btn svg { width: 14px; height: 14px; }
   .sim-cols.compacto.lado .tbl-box { padding: 0 4px; }
   .sim-cols.compacto.lado .tbl thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
   .sim-cols.compacto.lado .tbl thead th.t { font-size: 0; }

@@ -239,7 +239,7 @@
         '<div class="faixa-acoes"><button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela</button><button class="btn" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
       '<div class="acoes sim-acoes so-time">' +
 
-      '<label class="btn sel-time">' + ICON.escudo + '<select data-a="meu" aria-label="Escolher o meu time"><option value="" disabled hidden' + (meu ? '' : ' selected') + '>Escolher time</option><option value="-">Nenhum</option>' + opcoes + '</select></label>' +
+      '<label class="btn sel-time">' + (meu ? crest(meu, 'crest sel-crest') : ICON.escudo) + '<select data-a="meu" aria-label="Escolher o meu time"><option value="" disabled hidden' + (meu ? '' : ' selected') + '>Escolher time</option><option value="-">Nenhum</option>' + opcoes + '</select></label>' +
       '</div>' +
       '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
       '<button class="link-btn" data-a="salvar-cen">' + ICON.salvar + 'Salvar cenário</button>' +
