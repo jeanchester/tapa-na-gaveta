@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "bra.2",
  "temporada": 2026,
- "baixado_em": "2026-11-11T18:07:02",
+ "baixado_em": "2026-11-11T19:23:04",
  "times": [
   {
    "id": "6154",
@@ -136,20 +136,6 @@
    "abrev": "BER",
    "escudo": "saobernardo",
    "logo_espn": "https://a.espncdn.com/i/teamlogos/soccer/500/11268.png"
-  },
-  {
-   "id": "131554",
-   "nome": "TBD Away",
-   "abrev": "TBD Away",
-   "escudo": null,
-   "logo_espn": ""
-  },
-  {
-   "id": "131556",
-   "nome": "TBD Home",
-   "abrev": "TBD Home",
-   "escudo": null,
-   "logo_espn": ""
   },
   {
    "id": "9973",
@@ -4961,66 +4947,6 @@
    "gols_visitante": null,
    "forma_mandante": "LDWLD",
    "forma_visitante": "WWWDW"
-  },
-  {
-   "id": "401912682",
-   "data": "2026-11-21T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "131556",
-   "visitante": "131554",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": null,
-   "forma_visitante": null
-  },
-  {
-   "id": "401912708",
-   "data": "2026-11-21T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "131556",
-   "visitante": "131554",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": null,
-   "forma_visitante": null
-  },
-  {
-   "id": "401912683",
-   "data": "2026-11-28T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "131556",
-   "visitante": "131554",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": null,
-   "forma_visitante": null
-  },
-  {
-   "id": "401912709",
-   "data": "2026-11-28T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "131556",
-   "visitante": "131554",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": null,
-   "forma_visitante": null
-  },
-  {
-   "id": "401932611",
-   "data": "2026-11-28T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "131556",
-   "visitante": "131554",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": null,
-   "forma_visitante": null
   }
  ]
 }
