@@ -92,13 +92,45 @@
     avisoT = setTimeout(() => el.classList.remove('on'), opc && opc.rotulo ? 6000 : 1900);
   }
 
+  // ================================================================== versão (cache)
+  // Cada publicação tem uma versão (tools/build.js). Tudo que é do site é pedido com ?v=VERSÃO:
+  // o navegador guarda à vontade, mas nunca mistura arquivo velho com novo. Sem versão (rodando
+  // local), os endereços ficam como estão.
+  const VERSAO = window.TNG_V || '';
+  const comV = (u) => (VERSAO && typeof u === 'string' && /^(app|shared|dados|textos|jogos|midia)\//.test(u) && u.indexOf('?') < 0 ? u + '?v=' + VERSAO : u);
+  if (VERSAO && window.fetch) {
+    const fetch0 = window.fetch.bind(window);
+    window.fetch = (u, o) => fetch0(comV(u), o);
+  }
+  // Saiu versão nova com a página aberta (ou o index.html veio do cache do navegador): recarrega uma
+  // vez. Os placares, cenários e escalações ficam no aparelho e continuam lá depois de recarregar.
+  function conferirVersao() {
+    if (!VERSAO || /[?&]offline\b/.test(location.search)) return;
+    fetch('versao.json?t=' + Date.now(), { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).then((j) => {
+      if (!j || !j.v || j.v === VERSAO) return;
+      let ja = '';
+      try { ja = sessionStorage.getItem('tng.recarregou') || ''; sessionStorage.setItem('tng.recarregou', j.v); } catch (e) { return; }
+      if (ja === j.v) return;                       // já recarregou para essa versão: não entra em laço
+      if (document.visibilityState === 'visible' && document.querySelector('input:focus, textarea:focus, select:focus')) {
+        document.addEventListener('focusout', () => setTimeout(() => location.reload(), 300), { once: true });
+      } else location.reload();
+    }).catch(() => {});
+  }
+  window.addEventListener('load', conferirVersao);
+  // voltou para a aba depois de um tempo (celular com o site aberto desde ontem)
+  let escondidaEm = 0;
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') escondidaEm = Date.now();
+    else if (escondidaEm && Date.now() - escondidaEm > 5 * 60e3) conferirVersao();
+  });
+
   // ================================================================== scripts sob demanda
   const scripts = {};
   function script(src) {
     if (!scripts[src]) {
       scripts[src] = new Promise((ok, falha) => {
         const s = document.createElement('script');
-        s.src = src;
+        s.src = comV(src);
         s.onload = () => ok();
         s.onerror = () => { delete scripts[src]; falha(new Error('não carregou ' + src)); };
         document.head.appendChild(s);
@@ -213,7 +245,7 @@
     if (!carregando[nome]) {
       carregando[nome] = new Promise((ok, falha) => {
         const s = document.createElement('script');
-        s.src = 'app/abas/' + nome + '.js';
+        s.src = comV('app/abas/' + nome + '.js');
         s.onload = () => (modulos[nome] ? ok(modulos[nome]) : falha(new Error('a aba ' + nome + ' não se registrou')));
         s.onerror = () => { delete carregando[nome]; falha(new Error('não carregou app/abas/' + nome + '.js')); };
         document.head.appendChild(s);
@@ -318,6 +350,8 @@
   document.addEventListener('error', (e) => {
     const im = e.target;
     if (!im || im.tagName !== 'IMG' || !/midia\/escudos\//.test(im.getAttribute('src') || '') || im.dataset.semEscudo) return;
+    // 1ª falha: o navegador pode ter guardado um erro antigo; pede de novo, sem cache
+    if (!im.dataset.tentou) { im.dataset.tentou = '1'; im.src = im.getAttribute('src').replace(/\?.*$/, '') + '?r=' + Date.now(); return; }
     im.dataset.semEscudo = '1';
     const f = (im.getAttribute('src').match(/escudos\/([^./]+)/) || [, '?'])[1];
     const d = document.createElement('span');
@@ -342,7 +376,7 @@
     return '<span class="cartoes' + (x.suspenso ? ' susp' : '') + '" title="' + tit + '" aria-label="' + tit + '">' + ic + (x.suspenso && !curto ? '<em>suspenso</em>' : '') + '</span>';
   }
 
-  window.TNG = { duas, criador, cartoes, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  window.TNG = { duas, criador, cartoes, comV, VERSAO, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {
