@@ -344,7 +344,7 @@ a.obj-chip:hover { border-color: var(--line-2); }
 .pm button { height: 32px; border-radius: 8px; color: var(--ink-3); font-weight: 800; font-size: 18px; line-height: 1; }
 .pm button:hover { background: var(--surface-2); color: var(--ink); }
 .pm .dado { display: grid; place-items: center; color: var(--ink-3); opacity: .8; }
-.pm .dado { font-size: 12.5px; font-weight: 800; padding: 0 10px; width: auto; white-space: nowrap; }
+.pm .dado { font-size: 11.5px; font-weight: 700; padding: 0 8px; width: auto; white-space: nowrap; color: var(--ink-3); text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .pm .dado:hover { opacity: 1; color: var(--ink); }
 @media (max-width: 359px) { .time { font-size: 12px; } .time .crest { width: 26px; height: 26px; } .placar input { width: 36px; } .jogo { padding-left: 8px; padding-right: 8px; } .j-linha { gap: 4px; } .prob .lbl { display: none; } }
 
@@ -907,8 +907,10 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .sim-cols.compacto .jogo { padding: 6px 10px 8px; border-radius: var(--r); }
 .sim-cols.compacto .j-meta { font-size: 11px; margin-bottom: 4px; min-height: 0; justify-content: flex-start; gap: 6px; }
 .sim-cols.compacto .j-meta .tag { font-size: 10.5px; padding: 1px 6px; }
-.sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 30px; padding: 0 8px; margin-top: -6px; margin-bottom: -6px; margin-right: -6px; color: var(--ink-2); border: 1px solid var(--line-2); border-radius: 999px; font-size: 11.5px; font-weight: 800; white-space: nowrap; }
-.sim-cols.compacto .dado-mini:hover { color: var(--ink); background: var(--surface-2); }
+.sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 30px; padding: 0 2px; margin-top: -6px; margin-bottom: -6px; color: var(--ink-3); font-size: 11px; font-weight: 700; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.sim-cols.compacto .dado-mini:hover { color: var(--ink); text-decoration-color: currentColor; background: none; }
+.sim-outros .so-pc { display: none; }
+@media (min-width: 760px) { .sim-outros .so-pc { display: inline; } .sim-outros .so-cel { display: none; } }
 .sim-cols.compacto .dado-mini svg { width: 16px; height: 16px; }
 .sim-cols.compacto .j-linha { gap: 6px; }
 .sim-cols.compacto .time { flex-direction: row; gap: 6px; font-size: 15px; }
@@ -989,7 +991,7 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
   .sim-cols.compacto.lado .j-meta { font-size: 10px; margin-bottom: 2px; }
   .sim-cols.compacto.lado .j-meta > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .sim-cols.compacto.lado .j-meta .tag { display: none; }
-  .sim-cols.compacto.lado .dado-mini { min-height: 26px; padding: 0 6px; margin-right: -4px; font-size: 10.5px; flex: none; }
+  .sim-cols.compacto.lado .dado-mini { min-height: 26px; padding: 0 1px; font-size: 10px; flex: none; }
   .sim-cols.compacto.lado .j-meta { gap: 3px; }
   .sim-cols.compacto.lado .j-meta > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .sim-cols.compacto.lado .time .sig { display: none; }
