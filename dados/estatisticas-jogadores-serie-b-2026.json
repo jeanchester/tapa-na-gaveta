@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T11:32:34",
+ "atualizado": "2026-11-12T17:25:37",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -2877,21 +2877,6 @@
     }
    },
    {
-    "nome": "Bryan",
-    "time": "9969",
-    "escudo": "ceara",
-    "amarelos": 8,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-14T19:30Z",
-     "contra": "CRB",
-     "jogo": "401860439"
-    }
-   },
-   {
     "nome": "Chrystian",
     "time": "7635",
     "escudo": "sport",
@@ -3155,16 +3140,6 @@
      "contra": "São Bernardo",
      "jogo": "401860436"
     }
-   },
-   {
-    "nome": "Lucas Lima",
-    "time": "11268",
-    "escudo": "saobernardo",
-    "amarelos": 3,
-    "vermelhos": 2,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Lucas Mineiro",
@@ -3632,16 +3607,6 @@
     "pendurado": false
    },
    {
-    "nome": "Mádson",
-    "time": "18127",
-    "escudo": "novorizontino",
-    "amarelos": 6,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Pepê",
     "time": "17313",
     "escudo": "cuiaba",
@@ -3795,6 +3760,21 @@
      "data": "2026-11-14T19:30Z",
      "contra": "Cuiabá",
      "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Bryan",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
     }
    },
    {
@@ -4050,6 +4030,16 @@
    },
    {
     "nome": "Lucas Lima",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 2,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Lima",
     "time": "3395",
     "escudo": "goias",
     "amarelos": 5,
@@ -4275,16 +4265,6 @@
     "pendurado": false
    },
    {
-    "nome": "Tarik",
-    "time": "17333",
-    "escudo": "londrina",
-    "amarelos": 5,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true
-   },
-   {
     "nome": "Tomás Cardona",
     "time": "6272",
     "escudo": "fortaleza",
@@ -4324,16 +4304,6 @@
      "contra": "São Bernardo",
      "jogo": "401860436"
     }
-   },
-   {
-    "nome": "William Pottker",
-    "time": "17333",
-    "escudo": "londrina",
-    "amarelos": 5,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true
    },
    {
     "nome": "Willian Maranhão",
@@ -4896,16 +4866,6 @@
     "pendurado": false
    },
    {
-    "nome": "Alex",
-    "time": "6154",
-    "escudo": "americamg",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Alexis Alvariño",
     "time": "18127",
     "escudo": "novorizontino",
@@ -4939,6 +4899,16 @@
     "nome": "Bruno Baldini",
     "time": "9966",
     "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bryan",
+    "time": "3459",
+    "escudo": "pontepreta",
     "amarelos": 3,
     "vermelhos": 0,
     "ciclo": 0,
@@ -5528,6 +5498,26 @@
     "pendurado": false
    },
    {
+    "nome": "Mádson",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Mádson",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Nathan",
     "time": "9973",
     "escudo": "vilanova",
@@ -5706,6 +5696,16 @@
     "pendurado": false
    },
    {
+    "nome": "Tarik",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Thiaguinho",
     "time": "9971",
     "escudo": "criciuma",
@@ -5816,6 +5816,16 @@
     "pendurado": false
    },
    {
+    "nome": "William Pottker",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Willian",
     "time": "6154",
     "escudo": "americamg",
@@ -5883,6 +5893,21 @@
      "data": "2026-11-14T19:30Z",
      "contra": "Botafogo-SP",
      "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Alex",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
     }
    },
    {
@@ -6706,6 +6731,21 @@
     }
    },
    {
+    "nome": "Lucas Lima",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
     "nome": "Lucas Mugni",
     "time": "9969",
     "escudo": "ceara",
@@ -7266,6 +7306,21 @@
     }
    },
    {
+    "nome": "Tarik",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
     "nome": "Tavinho",
     "time": "18127",
     "escudo": "novorizontino",
@@ -7436,6 +7491,16 @@
     "pendurado": false
    },
    {
+    "nome": "William Pottker",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
     "nome": "Yuri",
     "time": "7633",
     "escudo": "nautico",
@@ -7499,6 +7564,16 @@
     "nome": "Alemão",
     "time": "18127",
     "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alex",
+    "time": "6154",
+    "escudo": "americamg",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,

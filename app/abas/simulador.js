@@ -435,19 +435,19 @@
     const ao = (st.liga.jogos.find((x) => String(x.id) === j.id) || {}).ao_vivo;
     const tag = ao ? '<span class="tag vivo">ao vivo ' + ao.gm + '×' + ao.gv + '</span>'
       : j.status === 'STATUS_POSTPONED' ? '<span class="tag">adiado</span>'
-        : f ? '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>' : '';
+        : f && !sorteado ? '<span class="tag">seu placar</span>' : '';
     const seg = (i, w, cor, txt, rot) => '<button type="button" data-r="' + i + '" style="flex:' + Math.max(w, 0.18).toFixed(3) + ';--c:var(' + cor + ')"' + (res === i ? ' class="pick" aria-pressed="true"' : ' aria-pressed="false"') + ' aria-label="' + esc(rot) + ', ' + pct(w) + '. Preencher o placar mais provável">' + txt + '</button>';
     const time = (t) => '<div class="time' + (meu && meu.i === t.i ? ' meu' : '') + '">' + crest(t) + '<span>' + esc(nome(t)) + '</span><abbr class="sig" title="' + esc(nome(t)) + '">' + sig(t) + '</abbr></div>';
     const quando = j.horario ? fmtDia(j.data) + ' · ' + fmtHora(j.data) : fmtDia(j.data) + ' · horário a definir';
     return '<li class="jogo' + (f ? (sorteado ? ' sorteado' : ' set') : '') + '" data-c="' + j.chave + '">' +
-      '<div class="j-meta"><span>' + quando + '</span>' + tag + '<button type="button" class="dado-mini" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button></div>' +
+      '<div class="j-meta"><span>' + quando + '</span>' + tag + '<button type="button" class="dado-mini" data-sortear aria-label="Preencher o placar deste jogo com um resultado provável">Preencher</button></div>' +
       '<div class="j-linha">' + time(h) +
       '<div class="placar"><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="0" aria-label="Gols ' + esc(de_(h)) + '" value="' + (f ? f[0] : '') + '">' +
       '<i aria-hidden="true">×</i><input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" autocomplete="off" data-l="1" aria-label="Gols ' + esc(de_(a)) + '" value="' + (f ? f[1] : '') + '"></div>' +
       time(a) + '</div>' +
       '<div class="pm" role="group" aria-label="Ajustar o placar">' +
       '<button type="button" data-g="0" data-d="-1" aria-label="Tirar um gol ' + esc(de_(h)) + '">−</button><button type="button" data-g="0" data-d="1" aria-label="Somar um gol ' + esc(de_(h)) + '">+</button>' +
-      '<button type="button" class="dado" data-sortear aria-label="Sortear o placar deste jogo">' + ICON.dado + '</button>' +
+      '<button type="button" class="dado" data-sortear aria-label="Preencher o placar deste jogo com um resultado provável">Preencher</button>' +
       '<button type="button" data-g="1" data-d="-1" aria-label="Tirar um gol ' + esc(de_(a)) + '">−</button><button type="button" data-g="1" data-d="1" aria-label="Somar um gol ' + esc(de_(a)) + '">+</button></div>' +
       '<div class="pnum" aria-hidden="true"><span>' + pct(p.ph) + '</span><span data-x="' + pct(p.pd) + '">empate ' + pct(p.pd) + '</span><span>' + pct(p.pa) + '</span></div>' +
       '<div class="prob" style="--ph:' + (100 * p.ph).toFixed(1) + '%;--pd:' + (100 * (p.ph + p.pd)).toFixed(1) + '%">' + seg(0, p.ph, '--p-home', pct(p.ph), 'Vitória ' + de_(h)) + seg(1, p.pd, '--p-draw', '<span class="lbl">empate </span>' + pct(p.pd), 'Empate') + seg(2, p.pa, '--p-away', pct(p.pa), 'Vitória ' + de_(a)) + '</div></li>';
@@ -466,7 +466,7 @@
     const meta = li.querySelector('.j-meta');
     const velha = meta.querySelector('.tag:not(.vivo)');
     if (velha) velha.remove();
-    if (f && !meta.querySelector('.vivo')) meta.querySelector('.dado-mini').insertAdjacentHTML('beforebegin', '<span class="tag' + (sorteado ? ' sorteado' : '') + '">' + (sorteado ? 'sorteado' : 'seu placar') + '</span>');
+    if (f && !sorteado && !meta.querySelector('.vivo')) meta.querySelector('.dado-mini').insertAdjacentHTML('beforebegin', '<span class="tag">seu placar</span>');
     const ins = li.querySelectorAll('input');
     if (f) {
       if (document.activeElement !== ins[0]) ins[0].value = f[0];
@@ -522,7 +522,7 @@
         '<button class="btn primario" data-a="revelar">' + ICON.revela + (faltam ? 'Sortear o que falta e revelar' : 'Revelar a tabela final') + '</button></div></div>';
     } else {
       // "Simular" fica em cima da tabela (que acompanha a rolagem), com ou sem time escolhido
-      html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + (st.meu ? 'Simular os outros' : 'Simular o resto') + '</button>';
+      html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + '<span class="so-pc">Simular demais resultados</span><span class="so-cel">Simular restantes</span></button>';
       html += tabelaHtml(tabelaAtual(), { destaque: st.meu && st.meu.i, delta: true });
     }
     // as linhas que mudam de lugar deslizam até o novo lugar, e os pontos contam (FLIP)
@@ -643,7 +643,7 @@
   function worker() {
     if (st.worker) return st.worker;
     try {
-      st.worker = new Worker('shared/simulador-worker.js');
+      st.worker = new Worker(T.comV('shared/simulador-worker.js'));
       st.worker.onmessage = (ev) => {
         const m = ev.data, ped = st.pedidos[m.id];
         if (!ped) return;

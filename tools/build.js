@@ -179,6 +179,45 @@ if (adsense) {
   console.log('AdSense ' + adsense + ' em ' + k + ' páginas, ads.txt gravado');
 }
 
+// ------------------------------------------------------------------ versão (cache)
+// O GitHub Pages manda o navegador guardar tudo por 10 min, sempre no mesmo endereço: depois de
+// publicar, o celular podia juntar app.js novo com app.css velho (ou o contrário). Agora cada
+// publicação tem uma versão (resumo do conteúdo) e os arquivos são pedidos como app.js?v=VERSÃO:
+// mudou um byte, muda o endereço e o navegador baixa de novo; não mudou, usa o que já tem.
+// versao.json (pedido sem cache) avisa a página aberta que saiu uma versão nova.
+const crypto = require('crypto');
+const VERSAO = (() => {
+  const h = crypto.createHash('sha1');
+  const ir = (d) => fs.readdirSync(path.join(dist, d), { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : 1)).forEach((e) => {
+    const rel = d ? d + '/' + e.name : e.name;
+    if (e.isDirectory()) return ir(rel);
+    if (/\.(html|xml|txt)$/.test(e.name)) return;           // as páginas apontam para a versão; não entram nela
+    h.update(rel); h.update(fs.readFileSync(path.join(dist, rel)));
+  });
+  ir('');
+  return h.digest('hex').slice(0, 10);
+})();
+{
+  let k = 0;
+  const comV = (s) => s.replace(/((?:\.\.\/)*app\/(?:app\.css|app\.js|efeitos\.js))(["'])/g, '$1?v=' + VERSAO + '$2');
+  const varrer = (d) => fs.readdirSync(path.join(dist, d), { withFileTypes: true }).forEach((e) => {
+    const rel = d ? d + '/' + e.name : e.name;
+    if (e.isDirectory()) { if (!/^(jogos|app|shared|dados|midia|textos)$/.test(rel)) varrer(rel); return; }
+    if (!e.name.endsWith('.html')) return;
+    let h = ler(rel);
+    const novo = comV(h).replace(/(<script src="(?:\.\.\/)*app\/app\.js)/, '<script>window.TNG_V = "' + VERSAO + '";</script>\n  $1');
+    if (novo !== h) { gravar(rel, novo); k++; }
+  });
+  varrer('');
+  // o worker carrega o modelo por conta própria
+  const w = ler('shared/simulador-worker.js');
+  if (!w.includes("importScripts('simulador-core.js')")) throw new Error('simulador-worker.js mudou: não achei o importScripts');
+  gravar('shared/simulador-worker.js', w.replace("importScripts('simulador-core.js')", "importScripts('simulador-core.js?v=" + VERSAO + "')"));
+  if (!ler('index.html').includes('window.TNG_V')) throw new Error('index.html sem a versão');
+  gravar('versao.json', JSON.stringify({ v: VERSAO, em: new Date().toISOString() }));
+  console.log('versão ' + VERSAO + ' em ' + k + ' páginas');
+}
+
 // ------------------------------------------------------------------ conferências
 let bytes = 0;
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).forEach((e) => {

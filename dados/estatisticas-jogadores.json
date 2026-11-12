@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T11:32:32",
+ "atualizado": "2026-11-12T17:25:34",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -2440,22 +2440,6 @@
   "limite_amarelos": 3,
   "jogadores": [
    {
-    "nome": "Matheus Pereira",
-    "time": "874",
-    "escudo": "corinthians",
-    "amarelos": 14,
-    "vermelhos": 1,
-    "motivo": "vermelho",
-    "ciclo": 2,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-19T00:30Z",
-     "contra": "Botafogo",
-     "jogo": "401841316"
-    }
-   },
-   {
     "nome": "Juninho Capixaba",
     "time": "6079",
     "escudo": "bragantino",
@@ -2466,12 +2450,12 @@
     "pendurado": false
    },
    {
-    "nome": "Alexander Barboza",
-    "time": "2029",
-    "escudo": "palmeiras",
-    "amarelos": 7,
-    "vermelhos": 2,
-    "ciclo": 1,
+    "nome": "Matheus Pereira",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 12,
+    "vermelhos": 0,
+    "ciclo": 0,
     "suspenso": false,
     "pendurado": false
    },
@@ -3124,21 +3108,6 @@
     "pendurado": false
    },
    {
-    "nome": "Wallison Luiz",
-    "time": "9169",
-    "escudo": "mirassol",
-    "amarelos": 5,
-    "vermelhos": 1,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
-    }
-   },
-   {
     "nome": "Wálter Kannemann",
     "time": "6273",
     "escudo": "gremio",
@@ -3152,16 +3121,6 @@
      "contra": "Bahia",
      "jogo": "401841312"
     }
-   },
-   {
-    "nome": "Zé Ivaldo",
-    "time": "4936",
-    "escudo": "remo",
-    "amarelos": 7,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Zé Ricardo",
@@ -3195,6 +3154,16 @@
     "amarelos": 6,
     "vermelhos": 0,
     "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alexander Barboza",
+    "time": "6086",
+    "escudo": "botafogo",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
     "suspenso": false,
     "pendurado": false
    },
@@ -3462,6 +3431,22 @@
     "pendurado": false
    },
    {
+    "nome": "Zé Ivaldo",
+    "time": "4936",
+    "escudo": "remo",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-18T23:00Z",
+     "contra": "Chapecoense",
+     "jogo": "401841310"
+    }
+   },
+   {
     "nome": "Álvaro Montoro",
     "time": "6086",
     "escudo": "botafogo",
@@ -3485,6 +3470,16 @@
      "contra": "Athletico Paranaense",
      "jogo": "401841313"
     }
+   },
+   {
+    "nome": "Alexander Barboza",
+    "time": "2029",
+    "escudo": "palmeiras",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Allan",
@@ -4218,16 +4213,6 @@
     }
    },
    {
-    "nome": "Everton",
-    "time": "2674",
-    "escudo": "santos",
-    "amarelos": 4,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Fabinho",
     "time": "6079",
     "escudo": "bragantino",
@@ -4424,16 +4409,6 @@
     "pendurado": false
    },
    {
-    "nome": "Lucas Villalba",
-    "time": "2022",
-    "escudo": "cruzeiro",
-    "amarelos": 4,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Luciano Juba",
     "time": "9967",
     "escudo": "bahia",
@@ -4469,21 +4444,6 @@
     "pendurado": false
    },
    {
-    "nome": "Matheus Cunha Queiroz",
-    "time": "1936",
-    "escudo": "internacional",
-    "amarelos": 2,
-    "vermelhos": 1,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
-    }
-   },
-   {
     "nome": "Matheus Henrique",
     "time": "2022",
     "escudo": "cruzeiro",
@@ -4492,6 +4452,22 @@
     "ciclo": 1,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Matheus Pereira",
+    "time": "874",
+    "escudo": "corinthians",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 2,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-19T00:30Z",
+     "contra": "Botafogo",
+     "jogo": "401841316"
+    }
    },
    {
     "nome": "Mathías Villasanti",
@@ -4619,6 +4595,21 @@
     "pendurado": false
    },
    {
+    "nome": "Wallison Luiz",
+    "time": "9169",
+    "escudo": "mirassol",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T21:30Z",
+     "contra": "Atlético-MG",
+     "jogo": "401841311"
+    }
+   },
+   {
     "nome": "Walter",
     "time": "9169",
     "escudo": "mirassol",
@@ -4743,16 +4734,6 @@
     "nome": "André Luis",
     "time": "9169",
     "escudo": "mirassol",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Antonio Galeano",
-    "time": "4936",
-    "escudo": "remo",
     "amarelos": 3,
     "vermelhos": 0,
     "ciclo": 0,
@@ -5258,6 +5239,16 @@
     "pendurado": false
    },
    {
+    "nome": "Matheus Cunha Queiroz",
+    "time": "1936",
+    "escudo": "internacional",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Matheus Piauí",
     "time": "4936",
     "escudo": "remo",
@@ -5296,22 +5287,6 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
-   },
-   {
-    "nome": "Newton",
-    "time": "2026",
-    "escudo": "sp",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "motivo": "amarelos",
-    "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
-    }
    },
    {
     "nome": "Nicolás de la Cruz",
@@ -5514,12 +5489,12 @@
     "pendurado": false
    },
    {
-    "nome": "Wallace Yan",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 1,
-    "vermelhos": 1,
-    "ciclo": 1,
+    "nome": "Wallison Luiz",
+    "time": "3456",
+    "escudo": "coritiba",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
     "suspenso": false,
     "pendurado": false
    },
@@ -5606,6 +5581,21 @@
      "data": "2026-11-19T22:30Z",
      "contra": "Vasco da Gama",
      "jogo": "401841308"
+    }
+   },
+   {
+    "nome": "Antonio Galeano",
+    "time": "4936",
+    "escudo": "remo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T23:00Z",
+     "contra": "Chapecoense",
+     "jogo": "401841310"
     }
    },
    {
@@ -5831,6 +5821,36 @@
      "data": "2026-11-19T00:30Z",
      "contra": "Grêmio",
      "jogo": "401841312"
+    }
+   },
+   {
+    "nome": "Everton",
+    "time": "819",
+    "escudo": "flamengo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T23:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841313"
+    }
+   },
+   {
+    "nome": "Everton",
+    "time": "2674",
+    "escudo": "santos",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T22:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841315"
     }
    },
    {
@@ -6096,21 +6116,6 @@
      "data": "2026-11-19T00:30Z",
      "contra": "Botafogo",
      "jogo": "401841316"
-    }
-   },
-   {
-    "nome": "Hulk",
-    "time": "3445",
-    "escudo": "fluminense",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
     }
    },
    {
@@ -6454,6 +6459,36 @@
     }
    },
    {
+    "nome": "Lucas Villalba",
+    "time": "6086",
+    "escudo": "botafogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-19T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841316"
+    }
+   },
+   {
+    "nome": "Lucas Villalba",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T23:30Z",
+     "contra": "Palmeiras",
+     "jogo": "401841314"
+    }
+   },
+   {
     "nome": "Luighi Hanri",
     "time": "2029",
     "escudo": "palmeiras",
@@ -6667,6 +6702,21 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Newton",
+    "time": "6086",
+    "escudo": "botafogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-19T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841316"
+    }
    },
    {
     "nome": "Nicolás Fonseca",
@@ -6984,6 +7034,16 @@
     }
    },
    {
+    "nome": "Wallace Yan",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Wesley Ribeiro",
     "time": "2022",
     "escudo": "cruzeiro",
@@ -7117,6 +7177,16 @@
     "nome": "Anderson Bispo Dos Santos",
     "time": "3457",
     "escudo": "vitoria",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Antonio Galeano",
+    "time": "9169",
+    "escudo": "mirassol",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
@@ -7574,6 +7644,26 @@
     "pendurado": false
    },
    {
+    "nome": "Hulk",
+    "time": "7632",
+    "escudo": "atleticomg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hulk",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Italo",
     "time": "9318",
     "escudo": "chapecoense",
@@ -7994,6 +8084,16 @@
     "pendurado": false
    },
    {
+    "nome": "Matheus Cunha Queiroz",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Mayke",
     "time": "2674",
     "escudo": "santos",
@@ -8027,6 +8127,16 @@
     "nome": "Neto",
     "time": "9318",
     "escudo": "chapecoense",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Newton",
+    "time": "2026",
+    "escudo": "sp",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
@@ -8404,6 +8514,16 @@
     "pendurado": false
    },
    {
+    "nome": "Wallace Yan",
+    "time": "819",
+    "escudo": "flamengo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Warleson",
     "time": "6086",
     "escudo": "botafogo",
@@ -8447,6 +8567,16 @@
     "nome": "Ze Marcos",
     "time": "3457",
     "escudo": "vitoria",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Zé Ivaldo",
+    "time": "2674",
+    "escudo": "santos",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
