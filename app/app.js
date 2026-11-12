@@ -326,7 +326,23 @@
     if (im.parentNode) im.parentNode.replaceChild(d, im);
   }, true);
 
-  window.TNG = { duas, criador, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  // cartões de um jogador: amarelos do ciclo atual (1, 2 ou 3) ou o vermelho; suspenso ganha o selo
+  function cartoes(x, curto) {
+    if (!x) return '';
+    let ic = '', tit = '';
+    const ciclo = x.ciclo != null ? x.ciclo : 0;
+    if (x.suspenso) {
+      const exp = x.motivo === 'vermelho';
+      ic = exp ? '<i class="cartao v"></i>' : '<i class="cartao"></i><i class="cartao"></i><i class="cartao"></i>';
+      tit = exp ? 'Suspenso: expulso no último jogo' : 'Suspenso: 3 amarelos';
+    } else if (ciclo) {
+      ic = new Array(ciclo + 1).join('<i class="cartao"></i>');
+      tit = ciclo + (ciclo === 1 ? ' amarelo' : ' amarelos') + (x.pendurado ? ': pendurado' : '');
+    } else return '';
+    return '<span class="cartoes' + (x.suspenso ? ' susp' : '') + '" title="' + tit + '" aria-label="' + tit + '">' + ic + (x.suspenso && !curto ? '<em>suspenso</em>' : '') + '</span>';
+  }
+
+  window.TNG = { duas, criador, cartoes, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {

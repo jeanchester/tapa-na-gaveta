@@ -34,6 +34,12 @@
       st.fonte = st.dados === cache ? 'guardado' : 'publicado';
       // última escalação de cada time (sai do Actions; sem o arquivo, o botão some)
       fetch('dados/ultimas-escalacoes.json').then((r) => (r.ok ? r.json() : null)).then((u) => { st.ultimas = (u && u.times) || {}; if (st.view) desenharBotaoUltima(); }).catch(() => { st.ultimas = {}; });
+      // cartões (amarelos do ciclo, suspensos): sai junto com a artilharia da Série A
+      fetch('dados/estatisticas-jogadores.json').then((r) => (r.ok ? r.json() : null)).then((J) => {
+        st.cart = {};
+        ((J && J.cartoes && J.cartoes.jogadores) || []).forEach((x) => { if (x.escudo) (st.cart[x.escudo] = st.cart[x.escudo] || []).push(Object.assign({ k: normNome(x.nome) }, x)); });
+        if (st.view && st.time) { desenharFichas(); const b = st.view.querySelector('[data-e=busca]'); desenharElenco(b ? b.value : ''); }
+      }).catch(() => {});
       st.escudos = {};
       (reserva.escudos || []).forEach((e) => { st.escudos[e] = 1; });
       atualizarAoVivo(reserva);
@@ -201,6 +207,35 @@
     desenharElenco();
     desenharBotaoUltima();
   }
+  // nomes de fontes diferentes (elenco do Você Escala × ESPN): sem acento, minúsculo, só palavras
+  function normNome(n) { return ' ' + String(n || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() + ' '; }
+  // cartões do jogador no time escolhido: nome igual, ou um nome contido no outro (palavras inteiras)
+  // 2 = mesmo nome; 1 = as palavras do nome curto aparecem, em ordem, no longo ("R. Garro" ~ "Rodrigo Garro")
+  function casaNome(a, b) {
+    if (a === b) return 2;
+    const dentro = (p, q) => {
+      let i = 0;
+      const ig = (x, y) => x === y || (x.length === 1 && y[0] === x) || (y.length === 1 && x[0] === y);
+      for (const w of q) { if (i < p.length && ig(p[i], w)) i++; }
+      return i === p.length && p.some((w) => w.length > 2);
+    };
+    const p = a.trim().split(' '), q = b.trim().split(' ');
+    return dentro(p, q) || dentro(q, p) ? 1 : 0;
+  }
+  function cartaoDe(nome) {
+    const lista = st.cart && st.time && st.cart[st.time.escudo];
+    if (!lista) return null;
+    const k = normNome(nome);
+    const melhor = (alvo, xs, chave) => {
+      const n2 = xs.filter((x) => casaNome(alvo, chave(x)) === 2);
+      return n2.length ? n2 : xs.filter((x) => casaNome(alvo, chave(x)) === 1);
+    };
+    const c = melhor(k, lista, (x) => x.k);
+    if (c.length !== 1) return null;                     // ambíguo (dois "Lucas"): melhor não marcar
+    // e o caminho de volta: esse jogador da ESPN só pode bater com um nome do elenco ("Hugo" × "Hugo Souza")
+    const volta = melhor(c[0].k, elencoDe(st.time), (x) => normNome(x[0]));
+    return volta.length === 1 && normNome(volta[0][0]) === k ? c[0] : null;
+  }
   function varsCor() { const c = cores(st.time); return '--fc:' + c.fundo + ';--ft:' + c.tinta + ';--fb:' + (c.claro ? 'rgba(0,0,0,.35)' : 'rgba(255,255,255,.75)'); }
 
   function desenharFichas() {
@@ -210,7 +245,7 @@
       const j = st.jogadores[i], vaga = posDaVaga(base[i][1]);
       return '<button class="ficha-j' + (j ? '' : ' vazia') + (st.vaga === i ? ' sel' : '') + '" data-i="' + i + '" style="left:' + (x * 100) + '%;top:' + (y * 100) + '%"' +
         ' aria-label="' + (j ? esc(j.n) + ', ' : 'Vaga vazia, ') + NOME_POS[vaga].replace(/s$/, '').toLowerCase() + '. Toque para escolher">' +
-        '<span class="fj-bola">' + (j ? (j.num != null ? esc(j.num) : '') : '+') + '</span><span class="fj-nome">' + (j ? esc(curto(j.n)) : SIGLA[vaga]) + '</span></button>';
+        '<span class="fj-bola">' + (j ? (j.num != null ? esc(j.num) : '') : '+') + (j ? T.cartoes(cartaoDe(j.n), true) : '') + '</span><span class="fj-nome">' + (j ? esc(curto(j.n)) : SIGLA[vaga]) + '</span></button>';
     }).join('');
   }
   // "J. C. Neres dos Santos I." → "Neres dos Santos": cabe embaixo da bola sem virar sopa de letras
@@ -241,7 +276,7 @@
         if (!js.length) return '';
         return '<h3 class="el-grupo">' + NOME_POS[p] + '</h3><ul class="elenco">' + js.map((x) =>
           '<li><button data-e="pegar" data-n="' + esc(x[0]) + '" data-num="' + (x[2] == null ? '' : x[2]) + '"' + (naVaga[x[0]] != null ? ' class="usado"' : '') + '>' +
-          '<span class="num">' + (x[2] == null ? '' : x[2]) + '</span><span class="el-nome">' + esc(x[0]) + '</span>' + (naVaga[x[0]] != null ? '<em>no campo</em>' : x[3] === 'seu' ? '<em class="seu">criado</em>' : '') + '</button>' +
+          '<span class="num">' + (x[2] == null ? '' : x[2]) + '</span><span class="el-nome">' + esc(x[0]) + '</span>' + T.cartoes(cartaoDe(x[0])) + (naVaga[x[0]] != null ? '<em>no campo</em>' : x[3] === 'seu' ? '<em class="seu">criado</em>' : '') + '</button>' +
           (x[3] === 'seu' ? '<button class="el-apagar" data-e="apagar-j" data-n="' + esc(x[0]) + '" aria-label="Apagar ' + esc(x[0]) + '">×</button>' : '') + '</li>').join('') + '</ul>';
       }).join('') + (lista.length ? '' : '<p class="nota">Ninguém com esse nome.</p>');
   }
