@@ -522,7 +522,7 @@
         '<button class="btn primario" data-a="revelar">' + ICON.revela + (faltam ? 'Sortear o que falta e revelar' : 'Revelar a tabela final') + '</button></div></div>';
     } else {
       // "Simular" fica em cima da tabela (que acompanha a rolagem), com ou sem time escolhido
-      html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + (st.meu ? 'Simular os outros' : 'Simular o resto') + '</button>';
+      html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + '<span class="so-pc">Simular demais resultados</span><span class="so-cel">Simular o resto</span></button>';
       html += tabelaHtml(tabelaAtual(), { destaque: st.meu && st.meu.i, delta: true });
     }
     // as linhas que mudam de lugar deslizam até o novo lugar, e os pontos contam (FLIP)
