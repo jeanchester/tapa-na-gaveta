@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T02:09:20",
+ "atualizado": "2026-11-12T11:32:40",
  "artilheiros": [
   {
    "nome": "Lassine Sinayoko",
@@ -1427,5 +1427,1508 @@
    "escudo": "troyes",
    "n": 1
   }
- ]
+ ],
+ "cartoes": {
+  "limite_amarelos": null,
+  "jogadores": [
+   {
+    "nome": "Michel Diaz",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 5,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alexandre Lauray",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ayumu Seko",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Christ Makosso",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Djibril Sidibé",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Elye Wahi",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gessime Yassine",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hamari Traoré",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jordan Lefort",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Kamory Doumbia",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ludovic Ajorque",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noa Boissé",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Adrien Thomasson",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aleksandr Golovin",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Anthony Rouault",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antoine Mille",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bradley Locko",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Branco van den Boomen",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cristian Cásseres Jr.",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Florian Thauvin",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kévin Danois",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lamfia Dioubaté",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Lamine Camara",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maurits Kjaergaard",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mohamed Abdelmoneim",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mohamed Amoura",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niko Sigur",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Názinho",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pape Diop",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Romain Perraud",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Timothy Weah",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Vanderson",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Youssouf Ndayishimiye",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ahmed Touba",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Angel Gomes",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Arsène Kouassi",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Calvin Verdonk",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Charlie Cresswell",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Christ Tapé",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Clément Akpa",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Denis Zakaria",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Djaoui Cissé",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Esteban Lepaul",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fodé Doucouré",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hákon Haraldsson",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jean-Victor Makengo",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Junior Mwanga",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Keito Nakamura",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Lassine Sinayoko",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matthieu Udol",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Maxima Goffi",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maxime López",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Michal Skoras",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mouhamed N'Diaye",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nathaniel Adjei",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niels Nkounkou",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niklas Schmidt",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noah Cadiou",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noah Nartey",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Otavio",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ousmane Camara",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pierre Lees-Melou",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Przemyslaw Frankowski",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Samir Chergui",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Samir El Mourabet",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Samson Baidoo",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Samuel Yohou",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santiago Hidalgo",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sinaly Diomande",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sofiane Diop",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Souleymane Sagnan",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Tanguy Nianzou",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Vitinha",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yassin Belkhdim",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yassine Titraoui",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Abdelhamid Aït Boudlal",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Abner",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Achraf Hakimi",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Adil Bourabaa",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alexis Vossah",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amadou Haidara",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amine Gouiri",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amine Harit",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amir Richardson",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Andrija Bulatovic",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Anthony Bermont",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aron Donnum",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Arthur Avom",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Arthur Piedfort",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Benjamin André",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Berke Özer",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Boulaye Dia",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Brahimi Bilal",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "CJ Egan-Riley",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cameron Archer",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Carlens Arcus",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Christian Mawissa",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Conrad Harder",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Corentin Tolisso",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dame Guèye",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dermane Karim",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Diego Coppola",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Diogo Sousa",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Djibril Coulibaly",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Djibril Ouziad",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dro Fernández",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dário Essugo",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Elikya Legros",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Emmanuel Biumla",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ernest Nuamah",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fabián Ruiz",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Felix Bacher",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Franjo Ivanovic",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Giovanni Reyna",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Habib Diallo",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hamza Koutoune",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Harold Voyer",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Himad Abdelli",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Igor Paixão",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ilan Kebbal",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Illia Zabarnyi",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Iron Gomis",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Isaak Touré",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Isak Jansson",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ismael Boura",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Issa Soumaré",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jacen Russell-Rowe",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jacobo Ortega Conde",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jean Vercruysse",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeffrey de Lange",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeremy Le Douaron",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeyland Mitchell",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jim Allevinah",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jonathan Gradit",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jordan Teze",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joseph Kalulu Kyatengwa",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kail Boudache",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Karim Coulibaly",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kenny Lala",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Keyliane Abdallah",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lamine Sy",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lionel Mpasi",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Louis Mafouta",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Loïs Openda",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luca Koleosho",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Buades",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Hernández",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Maronnier",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lukas Hradecky",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maghnes Akliouche",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mahdi Camara",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maik Nawrocki",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mama Baldé",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mamadou Coulibaly",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mamadou Simbakoli",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mark McKenzie",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marquinhos",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mathys Detourbet",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Michaël Cuisance",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mohammed Salisu",
+    "time": "174",
+    "escudo": "monaco",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Montassar Talbi",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mouhamed Diop",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mousa Al-Tamari",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Moussa Niakhaté",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Moustapha Mbow",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Naouirou Ahamada",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nathan Ngoy",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nayef Aguerd",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Neal Maupay",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nicolas Kocik",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nuno Mendes",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Olivier Giroud",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oso",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pablo Pagis",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Panos Katseris",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Paolo Gozzi Iweru",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pathé Mboup",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Patrick Beach",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Paul Nardi",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pavel Sulc",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pierre-Emile Højbjerg",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Prosper Peter",
+    "time": "7868",
+    "escudo": "angers",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Quentin Merlin",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rafik Messali",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rasmus Nicolaisen",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rassoul Ndiaye",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rayan Bamba",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rayan Mandengue",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Raúl Torrente",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Renaud Ripart",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Romain Faivre",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ruben Aguilar",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rudy Matondo",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Samuel Amo-Ameyaw",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Saud Abdulhamid",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Seny Koumbassa",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Simon Ebonog",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sion Oppong",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sota Nakamura",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Souleymane Faye",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sékou Mara",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tanner Tessmann",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Thibault De Smet",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Thomas Jørgensen",
+    "time": "179",
+    "escudo": "toulouse",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Timothé Nkada",
+    "time": "170",
+    "escudo": "troyes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tochukwu Nnadi",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tyler Morton",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Valentin Rongier",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Vincent Sasso",
+    "time": "3236",
+    "escudo": "le_havre",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Xavier Junior Mandza Tsiendi",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yehvann Diouf",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zabi Gueu",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zachary Athekame",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zoumana Diallo",
+    "time": "2502",
+    "escudo": "nice",
+    "amarelos": 1,
+    "vermelhos": 0
+   }
+  ]
+ }
 }

@@ -98,12 +98,34 @@
         return '<li' + (pos === 1 ? ' class="um"' : '') + '><span class="rk">' + pos + '</span>' + (t ? crest(t) : '<i class="crest"></i>') + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(t ? nome(t) : '') + '</small></span><b class="num">' + x.n + '</b><small class="rk-u">' + (x.n === 1 ? unid[0] : unid[1]) + '</small></li>';
       }).join('') + '</ol>' + (!vj.time && xs.length > 10 ? '<button class="link-btn mais-j" data-mais="' + chave + '">' + (vj.todos[chave] ? 'Ver só os 10 primeiros' : 'Ver todos (' + xs.length + ')') + '</button>' : '') + '</section>';
     };
-    const html = lista('art', 'Artilheiros', J.artilheiros, ['gol', 'gols']) + lista('ass', 'Garçons', J.assistencias, ['assist.', 'assist.']);
+    const html = lista('art', 'Artilheiros', J.artilheiros, ['gol', 'gols']) + lista('ass', 'Garçons', J.assistencias, ['assist.', 'assist.']) + cartoesHtml(J, timeDe);
     if (!html && !vj.time) return '';
     const opcoes = L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR'));
     return '<div id="jogadores"><label class="btn sel-time filtro-j"><select data-jt aria-label="Filtrar por time"><option value="">Todos os times</option>' +
       opcoes.map((t) => '<option value="' + esc(t.slug) + '"' + (vj.time === t.slug ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('') + '</select></label>' +
       '<div class="est-cols jogadores">' + html + '</div></div>';
+  }
+
+  // cartões: suspensos para o próximo jogo, pendurados (a um amarelo da suspensão) e mais cartões
+  function cartoesHtml(J, timeDe) {
+    const C = J.cartoes;
+    if (!C || !C.jogadores || !C.jogadores.length) return '';
+    let xs = C.jogadores.filter((x) => timeDe(x));
+    if (vj.time) xs = xs.filter((x) => timeDe(x).slug === vj.time);
+    const quando = (p) => p ? 'contra ' + esc(p.contra || '?') + ', ' + esc(new Date(p.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', timeZone: 'America/Sao_Paulo' })) : '';
+    const linha = (x, dir) => { const t = timeDe(x); return '<li>' + crest(t) + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(nome(t)) + (dir ? ' · ' + dir : '') + '</small></span>' + T.cartoes(x) + '</li>'; };
+    const susp = xs.filter((x) => x.suspenso), pend = xs.filter((x) => x.pendurado);
+    let html = '';
+    if (C.limite_amarelos) {
+      html += '<section class="ranking-j cart"><div class="sec-title"><h2>Suspensos</h2><small>fora do próximo jogo</small></div>' +
+        (susp.length ? '<ul>' + susp.map((x) => linha(x, 'fora ' + quando(x.proximo))).join('') + '</ul>' : '<p class="nota">Ninguém ' + (vj.time ? 'deste time ' : '') + 'suspenso para a próxima rodada.</p>') + '</section>';
+      html += '<section class="ranking-j cart"><div class="sec-title"><h2>Pendurados</h2><small>mais um amarelo e fica fora</small></div>' +
+        (pend.length ? '<ul>' + pend.slice(0, vj.time || vj.todos.pend ? 999 : 12).map((x) => linha(x)).join('') + '</ul>' + (!vj.time && pend.length > 12 ? '<button class="link-btn mais-j" data-mais="pend">' + (vj.todos.pend ? 'Ver menos' : 'Ver todos (' + pend.length + ')') + '</button>' : '') : '<p class="nota">Ninguém pendurado' + (vj.time ? ' neste time' : '') + '.</p>') + '</section>';
+    }
+    const mais = xs.slice().sort((a, b) => (b.amarelos + 2 * b.vermelhos) - (a.amarelos + 2 * a.vermelhos)).slice(0, vj.time ? 999 : 10);
+    if (mais.length) html += '<section class="ranking-j cart"><div class="sec-title"><h2>Mais cartões</h2><small>no campeonato</small></div><ol>' +
+      mais.map((x, k) => { const t = timeDe(x); return '<li><span class="rk">' + (k + 1) + '</span>' + crest(t) + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(nome(t)) + '</small></span><span class="cart-tot"><i class="cartao"></i><b class="num">' + x.amarelos + '</b>' + (x.vermelhos ? '<i class="cartao v"></i><b class="num">' + x.vermelhos + '</b>' : '') + '</span></li>'; }).join('') + '</ol></section>';
+    return html;
   }
 
   // Prêmio ESPN Bola de Prata (dados/bola-de-prata.json, preenchido à mão)

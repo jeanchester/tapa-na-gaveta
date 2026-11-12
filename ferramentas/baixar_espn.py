@@ -144,6 +144,71 @@ def gols_do_jogo(c, gols):
                          'outros': [str(x.get('id')) for x in envolvidos[1:] if x.get('id')]})
 
 
+def cartoes_do_jogo(c, jogo_id, data, cartoes):
+    """Cartões listados no placar do dia (details com yellowCard/redCard): jogador, time e jogo."""
+    for d in c.get('details') or []:
+        if not (d.get('yellowCard') or d.get('redCard')):
+            continue
+        quem = (d.get('athletesInvolved') or [{}])[0]
+        nome = quem.get('displayName') or quem.get('shortName')
+        if not nome:
+            continue
+        cartoes.append({'id': str(quem.get('id') or nome), 'nome': nome, 'jogo': jogo_id, 'data': data,
+                        'time': str((d.get('team') or {}).get('id') or (quem.get('team') or {}).get('id') or ''),
+                        'cor': 'v' if d.get('redCard') else 'a'})
+
+
+# amarelos que dão suspensão automática (CBF: a cada 3; o vermelho suspende o jogo seguinte)
+LIMITE_AMARELOS = {'bra.1': 3, 'bra.2': 3}
+
+
+def resumo_cartoes(cartoes, jogos, times, LIGA='bra.1'):
+    """Por jogador: amarelos e vermelhos no campeonato e, onde a regra é conhecida, quem está
+    suspenso para o próximo jogo do time e quem está pendurado (a um amarelo da suspensão)."""
+    limite = LIMITE_AMARELOS.get(LIGA)
+    feitos = [j for j in jogos if j['status'] == 'STATUS_FULL_TIME']
+    validos = {j['id'] for j in feitos}
+    ultimo = {}   # último jogo terminado de cada time
+    for j in feitos:
+        for t in (j['mandante'], j['visitante']):
+            ultimo[t] = j['id']
+    proximo = {}
+    for j in jogos:
+        if j['status'] == 'STATUS_FULL_TIME':
+            continue
+        for t, o in ((j['mandante'], j['visitante']), (j['visitante'], j['mandante'])):
+            proximo.setdefault(t, {'data': j['data'], 'contra': (times.get(o) or {}).get('nome'), 'jogo': j['id']})
+    por = {}
+    for c in sorted((c for c in cartoes if c['jogo'] in validos), key=lambda c: c['data']):
+        p = por.setdefault(c['id'], {'nome': c['nome'], 'time': c['time'], 'jogos': {}})
+        p['time'] = c['time'] or p['time']
+        p['jogos'].setdefault(c['jogo'], []).append(c['cor'])
+    out = []
+    for p in por.values():
+        am = vm = ciclo = 0
+        gatilho = motivo = None
+        for jid, cores in p['jogos'].items():   # em ordem de data
+            if 'v' in cores:                    # expulso: os amarelos do mesmo jogo não acumulam
+                vm += 1
+                gatilho, motivo = jid, 'vermelho'
+                continue
+            am += cores.count('a')
+            if limite:
+                ciclo += cores.count('a')
+                if ciclo >= limite:
+                    ciclo -= limite
+                    gatilho, motivo = jid, 'amarelos'
+        tid = p['time']
+        suspenso = bool(limite and gatilho and gatilho == ultimo.get(tid) and tid in proximo)
+        out.append({'nome': p['nome'], 'time': tid, 'escudo': (times.get(tid) or {}).get('escudo'),
+                    'amarelos': am, 'vermelhos': vm,
+                    **({'motivo': motivo} if suspenso else {}),
+                    **({'ciclo': ciclo, 'suspenso': suspenso, 'pendurado': (not suspenso) and ciclo == limite - 1} if limite else {}),
+                    **({'proximo': proximo[tid]} if suspenso or (limite and ciclo == limite - 1 and tid in proximo) else {})})
+    out.sort(key=lambda x: (-x['vermelhos'] * 2 - x['amarelos'], x['nome']))
+    return {'limite_amarelos': limite, 'jogadores': out}
+
+
 def lideres(ano, gols, times, LIGA='bra.1'):
     """Artilheiros e garçons. Tenta o quadro de líderes da ESPN; sem ele, conta os gols do placar."""
     out = {'atualizado': datetime.datetime.now().isoformat(timespec='seconds'), 'artilheiros': [], 'assistencias': []}
@@ -277,7 +342,7 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
             'sg': int(st.get('pointDifferential') or 0),
         })
 
-    jogos, vistos, gols = [], set(), []
+    jogos, vistos, gols, cartoes = [], set(), [], []
     for a_mes, mes in meses:
         sb = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/scoreboard?dates={a_mes}{mes:02d}&limit=300')
         for ev in sb.get('events', []):
@@ -297,6 +362,7 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
             vistos.add(chave)
             if terminado:
                 gols_do_jogo(c, gols)
+                cartoes_do_jogo(c, ev['id'], ev['date'], cartoes)
             jogos.append({
                 'id': ev['id'], 'data': ev['date'], 'horario_definido': c.get('timeValid', True),
                 'status': status, 'mandante': casa['team']['id'], 'visitante': fora['team']['id'],
@@ -332,7 +398,12 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     base = os.path.splitext(os.path.basename(saida))[0]
     arq_jog = 'estatisticas-jogadores.json' if extras else 'estatisticas-jogadores-' + base + '.json'
     try:
-        gravar(os.path.join(pasta, arq_jog), lideres(ano, gols, times, LIGA))
+        est = lideres(ano, gols, times, LIGA)
+        try:
+            est['cartoes'] = resumo_cartoes(cartoes, jogos, times, LIGA)
+        except Exception as e:  # noqa: BLE001
+            print('::warning::cartões não saíram:', e)
+        gravar(os.path.join(pasta, arq_jog), est)
     except Exception as e:  # noqa: BLE001
         print('::warning::artilharia não saiu:', e)
     try:

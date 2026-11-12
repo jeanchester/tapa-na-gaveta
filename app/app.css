@@ -77,10 +77,7 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ===================================================================== topo */
-.head { background: var(--head-bg); color: var(--head-ink); padding-top: var(--safe-top);
-  /* linhas de campo bem apagadas: meio-campo e o círculo central */
-  background-image: linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.06) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
-    radial-gradient(circle at 50% 100%, transparent 0 89px, rgba(255,255,255,.06) 89px 91px, transparent 91px); }
+.head { background: var(--head-bg); color: var(--head-ink); padding-top: var(--safe-top); }
 .head-row { display: flex; align-items: center; gap: 8px; min-height: 60px; }
 .marca { display: flex; align-items: center; color: var(--head-ink); text-decoration: none; min-height: 44px; margin-right: 12px; }
 .logo { display: block; height: 30px; width: auto; }
@@ -210,9 +207,7 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 /* ===================================================================== simulador: topo com o resumo */
 /* faixa azul-noite que continua o topo do site, de ponta a ponta da tela */
 .sim-topo { background: var(--head-bg); color: var(--head-ink); margin: 0 calc(50% - 50vw) 18px; padding: 2px calc(50vw - 50%) 22px;
-  display: grid; gap: 14px 40px; align-items: end;
-  background-image: radial-gradient(circle at 50% 0, transparent 0 89px, rgba(255,255,255,.06) 89px 91px, transparent 91px),
-    linear-gradient(90deg, transparent calc(50% - 1px), rgba(255,255,255,.06) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)); }
+  display: grid; gap: 14px 40px; align-items: end; }
 .sim-topo .page-head { padding-bottom: 0; }
 .sim-topo .kicker { color: #aeb8da; }
 .sim-topo .page-head p { color: rgba(244,246,251,.78); }
@@ -612,6 +607,19 @@ body.modo-jogo main.wrap { max-width: none; padding: 0; }
 .podio li.um { font-weight: 800; }
 .podio li.um b { font-size: 24px; color: var(--brand-ink); }
 .podio small { display: block; font-size: 11.5px; color: var(--ink-3); margin-top: 4px; }
+.cartoes { display: inline-flex; align-items: center; gap: 2px; flex: none; }
+.cartao { display: inline-block; width: 9px; height: 13px; border-radius: 2px; background: #ffd23f; box-shadow: 0 0 0 1px rgba(0,0,0,.18); transform: rotate(-8deg); }
+.cartao + .cartao { margin-left: -3px; }
+.cartao.v { background: #e8402e; }
+.fj-bola { position: relative; }
+.fj-bola .cartoes { position: absolute; top: -5px; right: -9px; }
+.ficha-j:has(.cartoes.susp) .fj-bola { outline: 2px solid #e8402e; outline-offset: 1px; }
+.elenco .cartoes { margin-left: 6px; }
+.cartoes em { font-style: normal; font-size: 10.5px; font-weight: 800; color: #fff; background: #e8402e; border-radius: 4px; padding: 1px 5px; margin-left: 5px; }
+.cart-tot { display: inline-flex; align-items: center; gap: 4px; } .cart-tot .num { min-width: 14px; margin-right: 4px; }
+.ranking-j.cart ul { list-style: none; margin: 0 0 12px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.ranking-j.cart ul li { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-bottom: 1px solid var(--line); }
+.ranking-j.cart ul li:last-child { border-bottom: 0; }
 .ranking-j ol { list-style: none; margin: 0 0 12px; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); }
 .ranking-j li { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-bottom: 1px solid var(--line); }
 .ranking-j li:last-child { border-bottom: 0; }
@@ -723,7 +731,15 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 }
 
 /* ===================================================================== tela inicial */
-.ini-topo { padding-bottom: 34px; }
+.ini-topo { padding-bottom: 34px; position: relative; overflow: hidden; isolation: isolate; }
+/* campo inteiro nas medidas oficiais (105 × 68 m): só escala, nunca estica */
+.ini-topo::before { content: ''; position: absolute; z-index: -1; pointer-events: none; opacity: .09;
+  background: url(../midia/campo-v.svg) center top / 100% auto no-repeat;
+  left: 16px; right: 16px; top: 18px; aspect-ratio: 70 / 107; }
+@media (min-width: 760px) {
+  .ini-topo::before { background-image: url(../midia/campo.svg); background-size: contain; background-position: right center;
+    left: auto; top: 22px; bottom: 22px; aspect-ratio: 107 / 70; right: max(16px, calc(50vw - 564px)); }
+}
 .ini-topo h1 { max-width: 15ch; }
 .ini-topo .page-head p { max-width: 56ch; font-size: 16.5px; }
 .ini-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 18px; }

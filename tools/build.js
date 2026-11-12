@@ -22,7 +22,7 @@ fs.mkdirSync(dist, { recursive: true });
 const PUBLICAR = [
   'index.html', 'app', 'shared',
   'dados/brasileirao-2026.json', 'dados/elencos-escalacao.json', 'dados/times-voce-escala.json',
-  'midia/escudos', 'midia/icones', 'midia/og', 'jogos', 'textos',
+  'midia/escudos', 'midia/icones', 'midia/og', 'midia/campo.svg', 'midia/campo-v.svg', 'jogos', 'textos',
 ];
 for (const item of PUBLICAR) {
   const de = path.join(raiz, item);

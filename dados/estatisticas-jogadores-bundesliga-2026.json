@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T02:09:17",
+ "atualizado": "2026-11-12T11:32:39",
  "artilheiros": [
   {
    "nome": "Niclas Füllkrug",
@@ -1439,5 +1439,1389 @@
    "escudo": "sc_paderborn_07",
    "n": 1
   }
- ]
+ ],
+ "cartoes": {
+  "limite_amarelos": null,
+  "jogadores": [
+   {
+    "nome": "Felix Uduokhai",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 3,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Phillipp Mwene",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 5,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Elias Baum",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Facundo Medina",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Raphael Onyedika",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zeno Van Den Bosch",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alexander Prass",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Felix Keidel",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ibrahim Maza",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jahmai Simpson-Pusey",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Janik Haberer",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jobe Bellingham",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kevin Diks",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Konrad Laimer",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Shafiq Nandja",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Shuto Machino",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Stefan Posch",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Tom Krauss",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Warmed Omari",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Wouter Burger",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yuito Suzuki",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Adil Aouchiche",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Afonso Moreira",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Albert Sambi Lokonga",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aleix García",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alexander Schwolow",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aljoscha Kemlein",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antonio Nusa",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Arthur",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Atakan Karazor",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bernardo",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Borna Sosa",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Chrislain Matsima",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dayot Upamecano",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Edmond Tapsoba",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ermedin Demirovic",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ezequiel Fernández",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Felix Nmecha",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Florian Neuhaus",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gideon Mensah",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Han-Noah Massengo",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hasan Kurucay",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hennes Behrens",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hwang Hee-Chan",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jano Horst",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeff Chabot",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joe Scally",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joey Veerman",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Julian Ryerson",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Juma Bah",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Junior Dina Ebimbe",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kou Itakura",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Lasse Günther",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Laurin Ulrich",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Leon Avdullahu",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Linton Maina",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Höler",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ludovit Reis",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lukas Ullrich",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marco Grüll",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mario Götze",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matthias Ginter",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maximilian Eggestein",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Neil El Aynaoui",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nicolas Kristof",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nicolás Capaldo",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nnamdi Collins",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noahkai Banks",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Olivier Deman",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Otto Stange",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ozan Kabak",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Paul Okon-Engstler",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ransford-Yeboah Königsdörffer",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rodrigo Ribeiro",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ron Schallenberg",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Samuele Inácio",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Sheraldo Becker",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tim Kleindienst",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Tim Skarke",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tjark Scheller",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Waldemar Anton",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yannick Engelhardt",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Youri Regeer",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zento Uno",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ísak Jóhannesson",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Adam Daghim",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Albert Grønbaek",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Albian Hajdari",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aleksandar Pavlovic",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alessio Castro-Montes",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amara Conde",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Andrej Kramaric",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Angelo Stiller",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ansgar Knauff",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Anthony Caci",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Benjamin Henrichs",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Castello Lukeba",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Chuki",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cole Campbell",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cyriaque Irié",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Daiki Hashioka",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Daniel Svensson",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Danny da Costa",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dariusz Stalmach",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "David Raum",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Deniz Zeitler",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Derrick Köhn",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ellyes Skhiri",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ethan Nwaneri",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fabian Rieder",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fabio Chiarodia",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Farès Chaïbi",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Finn Jeltsch",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fisnik Asllani",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Francis-Ikechukwu Onyeka",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Frederik Schmahl",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fábio Silva",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Grischa Prömel",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Guela Doué",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hugo Bolin",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Igor Matanovic",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jan Leszczynski",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jarell Quansah",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeffrey Gouweleeuw",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jens Castrop",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeong Woo-Yeong",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jeremiaha Maluze",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joel Schmied",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jonas Hofmann",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jonathan Tah",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Josip Stanisic",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kacper Potulski",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kaishu Sano",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kastriot Imeri",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Keisuke Goto",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Keita Kosugi",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kevin Stöger",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kim Min-Jae",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kouakou Gadou",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Laurin Curda",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lee Jae-Sung",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Leo Sauer",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Leopold Querfeld",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lilian Brassier",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Livan Burcu",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Loris Karius",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Loïc Badé",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luca Jaquez",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luca Reggiani",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luka Lochoshvili",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lukas Finn Pinckert",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marco Friedl",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marin Ljubicic",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marius Bulter",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Martin Adeline",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marvin Pieringer",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mathieu Nguefack",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mattes Hansen",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maurice Krattenmacher",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Max Moerstedt",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maximilian Beier",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maximilian Mittelstädt",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maximilian Rohr",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mekhi Anthony Gray",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Michel Aebischer",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Miguel Gutiérrez",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mikey Moore",
+    "time": "122",
+    "escudo": "koln",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mio Backhaus",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nadiem Amiri",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niclas Füllkrug",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nico Schlotterbeck",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niklas Beste",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nikola Katic",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noah Darvich",
+    "time": "10388",
+    "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oscar Højlund",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Otávio",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Patrik Schick",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Philipp Lienhart",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Philipp Sander",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Philipp Treu",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Phillip Tietz",
+    "time": "2950",
+    "escudo": "mainz",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rani Khedira",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Robin Fellhauer",
+    "time": "3841",
+    "escudo": "augsburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Robin Hack",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Robin Koch",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rocco Reitz",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santiago Castaneda",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Serhou Guirassy",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Stefano Marino",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Timo Becker",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tom Baack",
+    "time": "3307",
+    "escudo": "sc_paderborn_07",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tom Rothe",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Vincenzo Grifo",
+    "time": "126",
+    "escudo": "freiburg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Vitalie Becker",
+    "time": "133",
+    "escudo": "schalke_04",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Wael Mohya",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Younes Ebnoutalib",
+    "time": "125",
+    "escudo": "eintracht",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Zakaria El Ouahdi",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 1,
+    "vermelhos": 0
+   }
+  ]
+ }
 }
