@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:38:52",
+ "atualizado": "2026-11-12T11:32:34",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -1716,6 +1716,12 @@
    "n": 1
   },
   {
+   "nome": "Cachoeira",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
    "nome": "Caio",
    "time": "17333",
    "escudo": "londrina",
@@ -1992,6 +1998,12 @@
    "n": 1
   },
   {
+   "nome": "Halan",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
    "nome": "Hayner",
    "time": "9973",
    "escudo": "vilanova",
@@ -2085,6 +2097,12 @@
    "nome": "Jota",
    "time": "20851",
    "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "João Coni",
+   "time": "17333",
+   "escudo": "londrina",
    "n": 1
   },
   {
@@ -2513,5 +2531,6510 @@
    "escudo": "ceara",
    "n": 1
   }
- ]
+ ],
+ "cartoes": {
+  "limite_amarelos": 3,
+  "jogadores": [
+   {
+    "nome": "Douglas",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 15,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Pedro Vieira",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 10,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pierre",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 10,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "David Miguel De Souza Arcanjo",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 11,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Dudu",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 9,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "José Cuenú",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 7,
+    "vermelhos": 2,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcos Paulo",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 11,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Danilo Barcelos",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 8,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Eduardo",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 10,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jhonatan",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 6,
+    "vermelhos": 2,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Leandro Maciel",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 10,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Felipe",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 8,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Machado",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 8,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Patrick",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 8,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Paulo Vitor",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 10,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Sergio Palacios",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 6,
+    "vermelhos": 2,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Allyson",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 7,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bressan",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Cristiano",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Danielzinho",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diogo Batista",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 7,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gui Lobo",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Coutinho",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 7,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nicolas",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 7,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Patrick Brey",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Rafael Barcelos",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodriguinho",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 7,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Éder",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Arnaldo",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Bruno Alves",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Bryan",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Chrystian",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Gabriel Boschilia",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Guilherme Almeida",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Hildeberto Pereira",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ian Luccas",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 4,
+    "vermelhos": 2,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Cunha",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Lucas Lovat",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Xavier Gazal",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Luiz Fernando",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Samuel",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinícius Diniz",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Wenderson",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Aderlan Silva",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "André",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Vieira",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hayner",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Helder Gomes Maciel",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hereda",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Iago Teles Da Silva",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Jemerson",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Jota",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Lucas Lima",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 2,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Mineiro",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Ribeiro",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luciano Castan",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcelo Benevenuto",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 3,
+    "vermelhos": 2,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Matheus Sales",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Max",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 2,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Maílton dos Santos",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Pedro Romano",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 3,
+    "vermelhos": 2,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thiago Fernandes",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Willean Lepu",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Zé Ricardo",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Augusto",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Aylon",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Barreto",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Caio",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Daniel Penha",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Eduardo",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Everton Morelli",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Garcia",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Higor Luiz De Souza",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Iury",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jean Lucas Figueiredo",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Gabriel",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Miguel Da Costa Pereira",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juan Miritello",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 2,
+    "vermelhos": 2,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Juninho",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Júlio César",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kevyn",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Belezi",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 2,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Lucas Marques",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luis Fellipe",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Felipe Oliveira De Paula",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Henrique",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luquinhas",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcelo Hermes",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Marcio Silva",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Matheus Andrade",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Matheus Bianqui",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Messias",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Miranda",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Mádson",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pepê",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Tiago",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Victor Andrade",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Waguininho",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wallace Reis",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wallison",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wanderson Camelo Viana",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 4,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alex Alves",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "André Luis",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Augusto Pucci",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Betão",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Biel",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Bruno José",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Calebe",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Carlos De Peña",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Daniel Goncalves Batista",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Derek",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Dixon Vera",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Emanuel Britez",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipinho",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Foguinho",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Fábio Augusto Schirmann",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Guilherme Pato",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Gustavo",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Igor",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Joseph",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "José Domingo Moraes Neto",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Julio De Oliveira",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juninho",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Kadu",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Luan Martins Gonçalves",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Lucas Emanoel",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Lucas Lima",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Luis",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Luis Mandaca",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Luis Phelipe",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcelo",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 2,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marrony",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Matías Segovia",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Maurício Júnior",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Mikael",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Nicolas Careca",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Nilson Castrillón",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Paulo Victor",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Robson",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Rodrigo Ferreira",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Rodrigo Sam",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Sanchez",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Tarik",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Tomás Cardona",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Walace França",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wilinton Aponza",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "William Pottker",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Willian Maranhão",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Willian Prado Camargo",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Yago Lincoln Rocha Santos",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Zeca",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Anderson Jesus",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dadá",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego Tavares",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Douglas Baggio",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Emerson Lima",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Enzo",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Eric",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Esli Garcia",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Francisco Reidiney Duarte Gomes",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Gabriel Inocencio",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme Aquino",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Janderson",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jorge Roa",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Vitor",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Vitor",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kauan",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kauê Leonardo",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Leandro Vilela",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Leonai",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marlon",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marlon Lopes",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Mateus",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Otávio Bruno",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Otávio Gonçalves",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pablo",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Paraíba",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pará",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pedro Vitor",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Raul",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Reverson",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Richardson",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Alves",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Romarinho",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ryan Henrique Pereira Andrade",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Rómulo Otero",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Safira",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Silva",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thalis",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thayllon",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thiago Moraes",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vilar",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vitor Mendes",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wallace",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yuri",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Zé Lucas",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alex",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alexis Alvariño",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Benjamín Borasi",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Aparecido Reis Ezequiel",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Baldini",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Caio Marcelo Pinheiro Da Silva",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Clayson",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "César",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Daniel Davi Simao Roque",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Denis",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego Galo",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diogo Barbosa",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Douglas",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ericson",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fabrício Daniel",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Vizeu",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fellipe Mateus",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fernando",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fábio Lima",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Feliciano",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Gabriel Fuentes",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Simples",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gilberto",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme Estrella",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme Maciel Dantas",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Felipe Almeida",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Maia",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Teles",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Henri Santos",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Heron",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Igor Henrique",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jailson",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jandrei",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Jean",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jean",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jean Dias",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Jhonata Robert",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Joao Basso",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Jonathan Cafú",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Vitor",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juan Rodrigues Leopoldino",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Junior Barreto",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Klaus",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Leo Naldi",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lourenco",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Rian Santos Oliveira",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucca",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Luidy",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Luis Vinicius Nunes Cavalcante",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Otavio",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luizao",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luizão",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Maguinho",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Maranhão",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcão Silva",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Matheus Ribeiro",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Maykon",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Miguel",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nathan",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nathan Cardoso",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Patricio Núñez",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Paulinho",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Paulo Vítor",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pedro Castro",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Peixoto",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rafael Gava",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rai",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ramon Menezes",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Raí",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Richard",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Rodrigo",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Santos",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ryan",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ryan Lima",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thiaguinho",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Todinho",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Trindade",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vagner da Silva",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinicius",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinicius",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinicius",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinícius",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vitinho",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wenderson",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wesley Gasolina",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Willian",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yago Felipe",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Élvis",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Índio",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Adriano Martins",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Alan Kardec",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "André Dhominique",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "André Luiz",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Anselmo Ramon",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Assis",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Brandão",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Carlinhos",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Christian Ortiz",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Chumbinho",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Crystopher",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Dalberson",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Dalbert",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Darlan",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "David Braz",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "David Conceição",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Del Piage",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Dellatorre",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego Monteiro Leão",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Diego Porfirio",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Douglas Mendes",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Echaporã",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Edson Pereira",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Eduardo Luiz Person",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Elias",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Emanuell Silva Ferreira",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Emerson Santos",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Enzo",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Fabiano",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Felipe",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Felipe Amaral",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Felipe Clemente",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Gabriel",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Gabriel Caran",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Gebson",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Gian Cabezas",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Guilherme Baldória",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Gustavo Henrique Da Silva",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Gustavo Puskas Pinheiro Lemos",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Habraão",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Henrique",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Hernandes Rodrigues Da Silva",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Higor Matheus Meritão",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Hugo",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Hugo",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Hyoran",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Igor Cariús",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Igor Maduro De Oliveira",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Jefferson",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "José Gabriel",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "João Vitor Oliveira",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Kelvin",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Kevin",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Kevyson",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Leo Jacó",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Leonardo Erig Daitx",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Ponte Preta",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Leonardo de Campos",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lorenzo",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Lucas Crispim",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Lucas Mugni",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Lucas Sasha",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Luisão",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Luiz Guilherme Vieira Da Silva",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Léo Alaba",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Léo Gamalho",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Léo Jabá",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "Athletic",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Manoel",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Marcelo Henrique",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Marcos Vinicius",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Sport",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Matheus Souza Santos",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Mauricio Kozlinski",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Muriel",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Márcio Maranhão",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Nathan Fogaça",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Vila Nova",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Natã",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Cuiabá",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Nicolás",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Patrick de Lucca",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Paulo Sérgio",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Pedro",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Pedro",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pedro Henrique Souza Do Nascimento",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Pedro Perotti",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Rafael Monteiro",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Rafael Ramos",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Rafael Silva",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Fortaleza",
+     "jogo": "401860437"
+    }
+   },
+   {
+    "nome": "Railan",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "Reginaldo",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Reynaldo",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "América Mineiro",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Rodrigo Saravia",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Souza",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T22:00Z",
+     "contra": "Operário PR",
+     "jogo": "401860434"
+    }
+   },
+   {
+    "nome": "Ronald",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Ronald Barcellos",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Ruan Assis",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-12T23:00Z",
+     "contra": "São Bernardo",
+     "jogo": "401860436"
+    }
+   },
+   {
+    "nome": "Ruan Rodrigues Carvalho",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Ryan",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Ryan Bonfim De Santana",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Rômulo Simão",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Sander",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Saulo",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "CRB",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Tavinho",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Criciúma",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Thauan Willians Jesus Silva",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Titi",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Tobías Ostchega",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "Vitinho Mota",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Vitor Caetano",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Wadson",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Botafogo-SP",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Wallace",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Ceará",
+     "jogo": "401860439"
+    }
+   },
+   {
+    "nome": "Wesley Pinheiro",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Juventude",
+     "jogo": "401860441"
+    }
+   },
+   {
+    "nome": "Weverson",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Atlético Goianiense",
+     "jogo": "401860440"
+    }
+   },
+   {
+    "nome": "William",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Avaí",
+     "jogo": "401860432"
+    }
+   },
+   {
+    "nome": "William Fernando",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yuri",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
+    "nome": "Yuri",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Novorizontino",
+     "jogo": "401860438"
+    }
+   },
+   {
+    "nome": "Ze Marcos",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-14T19:30Z",
+     "contra": "Goiás",
+     "jogo": "401860433"
+    }
+   },
+   {
+    "nome": "Airton",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alan Empereur",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alemão",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Allanzinho",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alê",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "André Dantas",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ariel",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Artur",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bastos",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bilu",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Brenno",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Breno Augusto De Azevedo Bora",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Breno Ruan Melo Almeida",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Cesar Xavier",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Santos",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Sávio",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Cachoeira",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Cadu",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Cainã",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Caio",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Caio Dantas",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Caio De Oliveira Mendonça Soares",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Carlinhos",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Carlos Lora",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Carlão",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Carlão",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Claudinho",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dantas",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego Caito",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Diego Hernández",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dieguinho",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dodô",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dudu Teodora",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Edivan Juninho",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Enzo",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Everton Sidnei De Brito",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ewerton",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Augusto",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Di Mauro Reis Coutinho",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Guimarães Da Silva",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Felipe Vieira",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fernando",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fernando Elizari",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fernando Sobral",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Filipe Dahora",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Fábio",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Cicala De Andrade Santos",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel De Oliveira Da Silva",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Frederico Cipriano",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Lacerda",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gastón Guruceaga",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Geovane",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Geovany Soares",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Glauco",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gonzalo Mastriani",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme Mariano",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Guilherme Parede",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Halan",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Herbert Mateus Almeida De Oliveira",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hiago",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hyan",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Hélio",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Igor Bahia",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Indio",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Isaías",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jean Carlos Alves Ferreira",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jefferson Nem",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jhan Torres",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jhonatan",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jhonatan Lima",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jonathan Lemos",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jordan",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Jordi",
+    "time": "18127",
+    "escudo": "novorizontino",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Carlos",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Coni",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Pedro",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "João Ricardo",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juan Pablo Zuluaga",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juninho",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Juninho",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Júnior Oliveira",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Karl",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kaua",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kauan",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kauan Lindes",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kayke",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kayky",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lenny Lobato",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lino",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luan",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luan Polli",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucas Sosa",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucca",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luis Amarilla",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Claudio",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Fernando Souza Santos",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Luiz Otávio",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Léo Chú",
+    "time": "9966",
+    "escudo": "avai",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Léo Tocantins",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcelo Carné",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcinho",
+    "time": "9971",
+    "escudo": "criciuma",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marco Antônio",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marcos Júnior",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Marquinhos Gabriel",
+    "time": "9973",
+    "escudo": "vilanova",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Mateus Criciúma",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Matheus",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Matheus Rossetto",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Matheuzinho",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Maxwell",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Melk",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Mikael",
+    "time": "9970",
+    "escudo": "crb",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Murilo",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Murilo Sousa",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nathan",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Neris",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nicolas Schulz",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Nicolás Ferreira",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Otávio",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Patrick de Paula",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Patryck",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Paulinho",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Paulo Baya",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pedro",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Pedro Henrique",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Philipe Sampaio",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ramon",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Raí Ramos",
+    "time": "6270",
+    "escudo": "juventude",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Renzo López",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ricardo Silva",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Richarlyson Covre De Mello",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Piñeiro",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Rodrigo",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Rodriguinho",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ronaldo Tavares",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Tadeu",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thalys Victor Martins Sena",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thiago Couto",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Thiago Rodrigues",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Tomás Pochettino",
+    "time": "6272",
+    "escudo": "fortaleza",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Val",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Victor Souza",
+    "time": "10281",
+    "escudo": "botafogosp",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinicius Peixoto Trindade Da Silva",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Vinicius Rodrigues",
+    "time": "7633",
+    "escudo": "nautico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Warley",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wellington Rato",
+    "time": "3395",
+    "escudo": "goias",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wendel",
+    "time": "9969",
+    "escudo": "ceara",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Wesley Dias",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Weverton",
+    "time": "17333",
+    "escudo": "londrina",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Weverton",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Willian",
+    "time": "7635",
+    "escudo": "sport",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yago Souza",
+    "time": "6154",
+    "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yarlen",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Yuri",
+    "time": "10357",
+    "escudo": "atleticogo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Ángel Quiñones",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   }
+  ]
+ }
 }
