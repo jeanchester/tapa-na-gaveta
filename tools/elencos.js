@@ -1,5 +1,6 @@
 // Gera a reserva publicada dos elencos: node tools/elencos.js
 // Entrada: dados/times-voce-escala.json + dados/elencos.json + dados/elencos_copa_2026.json
+// (+ dados/elencos-espn.json, quando existe: os clubes da Série A são cruzados com a ESPN)
 // (atualize os dois últimos baixando do GitHub do Julio; ver shared/elencos.js, URLS)
 // Saída: dados/elencos-escalacao.json (o que a aba "Monte sua escalação" usa sem rede)
 const fs = require('fs');
@@ -11,6 +12,8 @@ const ler = (f) => JSON.parse(fs.readFileSync(path.join(raiz, f), 'utf8'));
 const existentes = {};
 fs.readdirSync(path.join(raiz, 'midia/escudos')).forEach((f) => { existentes[f.replace(/\.png$/, '')] = 1; });
 const out = E.converter(ler('dados/times-voce-escala.json'), ler('dados/elencos.json'), ler('dados/elencos_copa_2026.json'), existentes);
+// Série A: cruza com o elenco da ESPN (dados/elencos-espn.json, do robô de dados), se existir
+if (fs.existsSync(path.join(raiz, 'dados/elencos-espn.json'))) E.cruzarEspn(out, ler('dados/elencos-espn.json'));
 out.escudos = Object.keys(existentes);
 fs.writeFileSync(path.join(raiz, 'dados/elencos-escalacao.json'), JSON.stringify(out));
 const semEscudo = out.times.filter((t) => !t.escudo).map((t) => t.nome);
