@@ -1,16 +1,16 @@
 {
- "atualizado": "2026-11-11T19:38:56",
+ "atualizado": "2026-11-12T02:09:15",
  "artilheiros": [
   {
    "nome": "Gustavo Varela",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 9
   },
   {
    "nome": "Antonio Raimondo",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 8
   },
   {
@@ -34,7 +34,7 @@
   {
    "nome": "Giacomo Calo",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 5
   },
   {
@@ -148,7 +148,7 @@
   {
    "nome": "Giorgi Kvernadze",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 3
   },
   {
@@ -232,13 +232,13 @@
   {
    "nome": "Antoine Hainaut",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 2
   },
   {
    "nome": "Akor Adams",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 2
   },
   {
@@ -280,7 +280,7 @@
   {
    "nome": "Romano Schmid",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 2
   },
   {
@@ -318,13 +318,13 @@
   {
    "nome": "Giorgi Kvernadze",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 4
   },
   {
    "nome": "Romano Schmid",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 4
   },
   {
@@ -342,7 +342,7 @@
   {
    "nome": "Farès Ghedjemis",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 4
   },
   {
@@ -438,7 +438,7 @@
   {
    "nome": "Antoine Hainaut",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 2
   },
   {
@@ -462,7 +462,7 @@
   {
    "nome": "Ricardo Mangas",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 2
   },
   {
@@ -498,7 +498,7 @@
   {
    "nome": "Samuele Birindelli",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 2
   },
   {
@@ -608,13 +608,13 @@
   {
    "nome": "Gustavo Varela",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 9
   },
   {
    "nome": "Antonio Raimondo",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 8
   },
   {
@@ -662,7 +662,7 @@
   {
    "nome": "Giacomo Calo",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 5
   },
   {
@@ -752,7 +752,7 @@
   {
    "nome": "Giorgi Kvernadze",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 3
   },
   {
@@ -830,7 +830,7 @@
   {
    "nome": "Akor Adams",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 2
   },
   {
@@ -848,7 +848,7 @@
   {
    "nome": "Antoine Hainaut",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 2
   },
   {
@@ -878,7 +878,7 @@
   {
    "nome": "Daniel Birligea",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 2
   },
   {
@@ -920,7 +920,7 @@
   {
    "nome": "Jay Robinson",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 2
   },
   {
@@ -980,7 +980,7 @@
   {
    "nome": "Romano Schmid",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 2
   },
   {
@@ -1064,7 +1064,7 @@
   {
    "nome": "Aleksa Terzic",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 1
   },
   {
@@ -1088,7 +1088,7 @@
   {
    "nome": "Andrea Colpani",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 1
   },
   {
@@ -1154,7 +1154,7 @@
   {
    "nome": "Eddy Kouadio",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 1
   },
   {
@@ -1166,7 +1166,7 @@
   {
    "nome": "Enrique Perez",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 1
   },
   {
@@ -1178,13 +1178,13 @@
   {
    "nome": "Exequiel Zeballos",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 1
   },
   {
    "nome": "Farès Ghedjemis",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 1
   },
   {
@@ -1220,7 +1220,7 @@
   {
    "nome": "Gabriele Bracaglia",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 1
   },
   {
@@ -1298,7 +1298,7 @@
   {
    "nome": "John Yeboah",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 1
   },
   {
@@ -1394,7 +1394,7 @@
   {
    "nome": "Matteo Cichella",
    "time": "4057",
-   "escudo": null,
+   "escudo": "frosinone",
    "n": 1
   },
   {
@@ -1532,13 +1532,13 @@
   {
    "nome": "Ricardo Mangas",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 1
   },
   {
    "nome": "Richie Sagrado",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 1
   },
   {
@@ -1562,7 +1562,7 @@
   {
    "nome": "Saba Goglichidze",
    "time": "4007",
-   "escudo": null,
+   "escudo": "monza",
    "n": 1
   },
   {
@@ -1586,7 +1586,7 @@
   {
    "nome": "Toma Basic",
    "time": "17530",
-   "escudo": null,
+   "escudo": "venezia",
    "n": 1
   },
   {

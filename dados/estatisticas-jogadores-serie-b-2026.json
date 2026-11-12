@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:38:52",
+ "atualizado": "2026-11-12T02:09:06",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -1716,6 +1716,12 @@
    "n": 1
   },
   {
+   "nome": "Cachoeira",
+   "time": "17333",
+   "escudo": "londrina",
+   "n": 1
+  },
+  {
    "nome": "Caio",
    "time": "17333",
    "escudo": "londrina",
@@ -1992,6 +1998,12 @@
    "n": 1
   },
   {
+   "nome": "Halan",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 1
+  },
+  {
    "nome": "Hayner",
    "time": "9973",
    "escudo": "vilanova",
@@ -2085,6 +2097,12 @@
    "nome": "Jota",
    "time": "20851",
    "escudo": "athleticbr",
+   "n": 1
+  },
+  {
+   "nome": "João Coni",
+   "time": "17333",
+   "escudo": "londrina",
    "n": 1
   },
   {

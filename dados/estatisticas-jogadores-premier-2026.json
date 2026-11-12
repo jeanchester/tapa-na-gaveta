@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:38:54",
+ "atualizado": "2026-11-12T02:09:09",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -118,7 +118,7 @@
   {
    "nome": "Jack Rudoni",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 3
   },
   {
@@ -142,7 +142,7 @@
   {
    "nome": "Mohamed Belloumi",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 3
   },
   {
@@ -172,7 +172,7 @@
   {
    "nome": "Leif Davis",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -184,7 +184,7 @@
   {
    "nome": "Oliver McBurnie",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 2
   },
   {
@@ -208,7 +208,7 @@
   {
    "nome": "Julio Enciso",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -250,7 +250,7 @@
   {
    "nome": "Emersonn",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -298,7 +298,7 @@
   {
    "nome": "Jack Clarke",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   }
  ],
@@ -414,7 +414,7 @@
   {
    "nome": "Oliver McBurnie",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 2
   },
   {
@@ -432,7 +432,7 @@
   {
    "nome": "Julio Enciso",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -462,13 +462,13 @@
   {
    "nome": "Abdoul Ouattara",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
    "nome": "Brandon Thomas-Asante",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 2
   },
   {
@@ -480,7 +480,7 @@
   {
    "nome": "Mohamed Belloumi",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 2
   },
   {
@@ -546,13 +546,13 @@
   {
    "nome": "Carl Rushworth",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
    "nome": "Leif Davis",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -576,7 +576,7 @@
   {
    "nome": "Jay Da Silva",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
@@ -734,7 +734,7 @@
   {
    "nome": "Mohamed Belloumi",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 3
   },
   {
@@ -764,7 +764,7 @@
   {
    "nome": "Jack Rudoni",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 3
   },
   {
@@ -812,7 +812,7 @@
   {
    "nome": "Emersonn",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -866,7 +866,7 @@
   {
    "nome": "Julio Enciso",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -878,7 +878,7 @@
   {
    "nome": "Leif Davis",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -920,7 +920,7 @@
   {
    "nome": "Jack Clarke",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -932,19 +932,19 @@
   {
    "nome": "Oliver McBurnie",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 2
   },
   {
    "nome": "Zian Flemming",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
    "nome": "Abdoul Ouattara",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -1028,7 +1028,7 @@
   {
    "nome": "Chuba Akpom",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -1058,7 +1058,7 @@
   {
    "nome": "Daizen Maeda",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -1070,7 +1070,7 @@
   {
    "nome": "Dara O'Shea",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -1082,7 +1082,7 @@
   {
    "nome": "Ellis Simms",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
@@ -1106,7 +1106,7 @@
   {
    "nome": "Florentino",
    "time": "373",
-   "escudo": null,
+   "escudo": "ipswich_town",
    "n": 1
   },
   {
@@ -1190,7 +1190,7 @@
   {
    "nome": "Jay Da Silva",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
@@ -1202,7 +1202,7 @@
   {
    "nome": "Joe Gelhardt",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
@@ -1262,7 +1262,7 @@
   {
    "nome": "Liam Millar",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
@@ -1298,7 +1298,7 @@
   {
    "nome": "Mohamed-Ali Cho",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
@@ -1316,7 +1316,7 @@
   {
    "nome": "Nobel Mendy",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
@@ -1382,19 +1382,19 @@
   {
    "nome": "Semi Ajayi",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
    "nome": "Sidiki Cherif",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
    "nome": "Stephen Mfuni",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
@@ -1406,19 +1406,19 @@
   {
    "nome": "Taiwo Awoniyi",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
    "nome": "Tatsuhiro Sakamoto",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {
    "nome": "Tim Iroegbunam",
    "time": "306",
-   "escudo": null,
+   "escudo": "hull_city",
    "n": 1
   },
   {
@@ -1442,7 +1442,7 @@
   {
    "nome": "Yann Gboho",
    "time": "388",
-   "escudo": null,
+   "escudo": "coventry_city",
    "n": 1
   },
   {

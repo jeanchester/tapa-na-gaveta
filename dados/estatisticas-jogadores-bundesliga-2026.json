@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:38:58",
+ "atualizado": "2026-11-12T02:09:17",
  "artilheiros": [
   {
    "nome": "Niclas Füllkrug",
@@ -94,7 +94,7 @@
   {
    "nome": "Maurice Krattenmacher",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 4
   },
   {
@@ -178,13 +178,13 @@
   {
    "nome": "Lukas Petkov",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
    "nome": "Felix Keidel",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -220,7 +220,7 @@
   {
    "nome": "David Mokwa",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -232,7 +232,7 @@
   {
    "nome": "Stefano Marino",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 2
   },
   {
@@ -286,7 +286,7 @@
   {
    "nome": "Steffen Tigges",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 2
   },
   {
@@ -402,7 +402,7 @@
   {
    "nome": "Lukas Petkov",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -594,13 +594,13 @@
   {
    "nome": "Felix Keidel",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
    "nome": "Laurin Curda",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 1
   }
  ],
@@ -692,7 +692,7 @@
   {
    "nome": "Maurice Krattenmacher",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 4
   },
   {
@@ -842,13 +842,13 @@
   {
    "nome": "Cole Campbell",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
    "nome": "David Mokwa",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -872,7 +872,7 @@
   {
    "nome": "Felix Keidel",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -914,7 +914,7 @@
   {
    "nome": "Lukas Petkov",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 2
   },
   {
@@ -956,13 +956,13 @@
   {
    "nome": "Stefano Marino",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 2
   },
   {
    "nome": "Steffen Tigges",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 2
   },
   {
@@ -1022,7 +1022,7 @@
   {
    "nome": "Adil Aouchiche",
    "time": "133",
-   "escudo": null,
+   "escudo": "schalke_04",
    "n": 1
   },
   {
@@ -1130,13 +1130,13 @@
   {
    "nome": "Francis-Ikechukwu Onyeka",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
    "nome": "Frederik Schmahl",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
@@ -1190,7 +1190,7 @@
   {
    "nome": "Junior Adamu",
    "time": "133",
-   "escudo": null,
+   "escudo": "schalke_04",
    "n": 1
   },
   {
@@ -1202,7 +1202,7 @@
   {
    "nome": "Kenan Karaman",
    "time": "133",
-   "escudo": null,
+   "escudo": "schalke_04",
    "n": 1
   },
   {
@@ -1214,7 +1214,7 @@
   {
    "nome": "Lasse Günther",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
@@ -1268,13 +1268,13 @@
   {
    "nome": "Maximilian Rohr",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
    "nome": "Maximilian Wöber",
    "time": "133",
-   "escudo": null,
+   "escudo": "schalke_04",
    "n": 1
   },
   {
@@ -1322,7 +1322,7 @@
   {
    "nome": "Noel Futkeu",
    "time": "10388",
-   "escudo": null,
+   "escudo": "sv_elversberg",
    "n": 1
   },
   {
@@ -1352,7 +1352,7 @@
   {
    "nome": "Raphael Obermair",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 1
   },
   {
@@ -1364,7 +1364,7 @@
   {
    "nome": "Rayan Philippe",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 1
   },
   {
@@ -1376,7 +1376,7 @@
   {
    "nome": "Robin Gosens",
    "time": "133",
-   "escudo": null,
+   "escudo": "schalke_04",
    "n": 1
   },
   {
@@ -1394,7 +1394,7 @@
   {
    "nome": "Santiago Castaneda",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 1
   },
   {
@@ -1436,7 +1436,7 @@
   {
    "nome": "Marvin Pieringer",
    "time": "3307",
-   "escudo": null,
+   "escudo": "sc_paderborn_07",
    "n": 1
   }
  ]

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-11T19:38:55",
+ "atualizado": "2026-11-12T02:09:12",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -22,7 +22,7 @@
   {
    "nome": "Yassir Zabiri",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 9
   },
   {
@@ -76,13 +76,13 @@
   {
    "nome": "Pierre-Emerick Aubameyang",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 5
   },
   {
    "nome": "Adrián Niño",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 5
   },
   {
@@ -220,13 +220,13 @@
   {
    "nome": "Mario Soriano Carreno",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
    "nome": "Bil Nsongo",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -256,7 +256,7 @@
   {
    "nome": "Carlos Dotor",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 2
   },
   {
@@ -354,7 +354,7 @@
   {
    "nome": "Iñigo Vicente",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 3
   },
   {
@@ -444,7 +444,7 @@
   {
    "nome": "Mario Soriano Carreno",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -492,7 +492,7 @@
   {
    "nome": "Luismi Cruz",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -582,7 +582,7 @@
   {
    "nome": "Pierre-Emerick Aubameyang",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -626,7 +626,7 @@
   {
    "nome": "Yassir Zabiri",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 9
   },
   {
@@ -662,13 +662,13 @@
   {
    "nome": "Adrián Niño",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 5
   },
   {
    "nome": "Pierre-Emerick Aubameyang",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 5
   },
   {
@@ -848,13 +848,13 @@
   {
    "nome": "Bil Nsongo",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
    "nome": "Carlos Dotor",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 2
   },
   {
@@ -920,7 +920,7 @@
   {
    "nome": "Mario Soriano Carreno",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -956,7 +956,7 @@
   {
    "nome": "Pablo García",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 2
   },
   {
@@ -1130,7 +1130,7 @@
   {
    "nome": "Diego Villares",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 1
   },
   {
@@ -1196,7 +1196,7 @@
   {
    "nome": "Iker Luque",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1214,7 +1214,7 @@
   {
    "nome": "Iván Martín",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1226,7 +1226,7 @@
   {
    "nome": "Jeanuël Belocian",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1298,13 +1298,13 @@
   {
    "nome": "Luismi Cruz",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 1
   },
   {
    "nome": "Maguette Gueye",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1394,7 +1394,7 @@
   {
    "nome": "Pablo Martínez",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 1
   },
   {
@@ -1436,13 +1436,13 @@
   {
    "nome": "Sergio Canales",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
    "nome": "Sergio Martínez",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1526,7 +1526,7 @@
   {
    "nome": "Zakaria Eddahchouri",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 1
   },
   {
@@ -1538,7 +1538,7 @@
   {
    "nome": "Andrés Martín",
    "time": "87",
-   "escudo": null,
+   "escudo": "racing_santander",
    "n": 1
   },
   {
@@ -1550,7 +1550,7 @@
   {
    "nome": "Chupete",
    "time": "99",
-   "escudo": null,
+   "escudo": "malaga",
    "n": 1
   },
   {
@@ -1592,7 +1592,7 @@
   {
    "nome": "Yeremay Hernández",
    "time": "90",
-   "escudo": null,
+   "escudo": "deportivo",
    "n": 1
   }
  ]
