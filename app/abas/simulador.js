@@ -643,7 +643,7 @@
   function worker() {
     if (st.worker) return st.worker;
     try {
-      st.worker = new Worker('shared/simulador-worker.js');
+      st.worker = new Worker(T.comV('shared/simulador-worker.js'));
       st.worker.onmessage = (ev) => {
         const m = ev.data, ped = st.pedidos[m.id];
         if (!ped) return;
