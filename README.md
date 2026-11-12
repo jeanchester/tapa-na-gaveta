@@ -84,6 +84,10 @@ site. `dist/` sobe como está para qualquer hospedagem estática:
 - **GitHub Pages:** `.github/workflows/publicar.yml` publica a cada push na `main`. Uma vez só: em
   Settings → Pages, escolha **GitHub Actions** como origem, e em Settings → Secrets and variables →
   Actions → Variables crie `SITE_URL` (por exemplo `https://jeanchester.github.io/tapa-na-gaveta`);
+- **Domínio próprio e AdSense:** com o domínio ligado ao GitHub Pages, troque `SITE_URL` para o endereço novo
+  (ex.: `https://tapanagaveta.com.br`). Quando o AdSense der o ID do editor, crie a variável `ADSENSE_ID`
+  (ex.: `ca-pub-1234567890123456`): o build põe o código em todas as páginas do site e gera o `ads.txt`.
+  Vazia, o site sai sem anúncios.
 - **Cloudflare Pages / Netlify:** comando de build `node tools/build.js --release --site $URL`, pasta `dist`.
 
 ### Prévia como Artifact do claude.ai

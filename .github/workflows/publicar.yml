@@ -24,7 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - run: node tools/testar-core.js && node tools/testar-milhao.js
-      - run: node tools/build.js --release --site "${{ vars.SITE_URL || 'https://jeanchester.github.io/tapa-na-gaveta' }}"
+      # ADSENSE_ID (variável do repositório, ex.: ca-pub-1234567890123456): vazia = site sem anúncios
+      - run: node tools/build.js --release --site "${{ vars.SITE_URL || 'https://jeanchester.github.io/tapa-na-gaveta' }}" --adsense "${{ vars.ADSENSE_ID }}"
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - id: deploy
