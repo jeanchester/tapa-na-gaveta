@@ -198,6 +198,7 @@
       '<div class="esc-acoes"><button class="btn primario" data-e="partilhar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>Compartilhar a imagem</button>' +
       '<button class="btn" data-e="auto">Escalar automaticamente</button></div>' +
       '<div class="ferr"><span id="ultima"></span><button class="link-btn" data-e="salvas">Salvas</button><button class="link-btn" data-e="salvar">Salvar esta escalação</button><button class="link-btn" data-e="limpar">Limpar</button>' +
+      (st.cart && Object.keys(st.cart).length ? '<button class="link-btn" data-e="cartoes" aria-pressed="' + cartoesOn() + '">' + (cartoesOn() ? 'Esconder cartões' : 'Mostrar cartões') + '</button>' : '') +
       (st.pos ? '<button class="link-btn" data-e="realinhar">Voltar às posições do esquema</button>' : '') + '</div>' +
       '</div><aside class="esc-lado"><div id="painel-elenco"></div>' +
       '<div class="cta-app"><img src="midia/icones/voce-escala.png" alt="" width="56" height="56" loading="lazy"><div><b>Monte no celular, salve e compare com os amigos</b>' +
@@ -222,7 +223,10 @@
     const p = a.trim().split(' '), q = b.trim().split(' ');
     return dentro(p, q) || dentro(q, p) ? 1 : 0;
   }
+  const CHAVE_CART = 'tng.esc.cartoes';        // '0' = escondidos
+  const cartoesOn = () => { try { return localStorage.getItem(CHAVE_CART) !== '0'; } catch (e) { return true; } };
   function cartaoDe(nome) {
+    if (!cartoesOn()) return null;
     const lista = st.cart && st.time && st.cart[st.time.escudo];
     if (!lista) return null;
     const k = normNome(nome);
@@ -384,6 +388,10 @@
         const antes = { j: st.jogadores.slice(), p: st.pos };
         st.jogadores = new Array(11).fill(null); st.pos = null; st.vaga = -1; salvarAtual(); montar();
         aviso('Escalação limpa', { rotulo: 'Desfazer', acao: () => { st.jogadores = antes.j; st.pos = antes.p; salvarAtual(); montar(); } });
+      } else if (a === 'cartoes') {
+        try { localStorage.setItem(CHAVE_CART, cartoesOn() ? '0' : '1'); } catch (e) { /* sem armazenamento: vale só até recarregar */ }
+        b.textContent = cartoesOn() ? 'Esconder cartões' : 'Mostrar cartões';
+        desenharFichas(); const q = st.view.querySelector('[data-e=busca]'); desenharElenco(q ? q.value : '');
       } else if (a === 'realinhar') { st.pos = null; salvarAtual(); montar(); }
       else if (a === 'partilhar') imagem();
       else if (a === 'salvar') salvarComo();
