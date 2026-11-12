@@ -847,6 +847,9 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .comp-sel::-webkit-scrollbar { display: none; }
 .comp-sel a { flex: none; padding: 7px 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,.22); color: #dfe5f7; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .comp-sel a:hover { border-color: rgba(255,255,255,.5); }
+.comp-sel a { position: relative; padding-right: 26px; }
+.comp-sel .bdr { position: absolute; top: 5px; right: 8px; width: 12px; height: 8.4px; border-radius: 1.5px; box-shadow: 0 0 0 .5px rgba(0,0,0,.35); opacity: .92; }
+.comp-sel a[aria-current="page"] .bdr { box-shadow: 0 0 0 .5px rgba(11,22,64,.5); }
 .comp-sel a[aria-current="page"] { background: var(--gold); border-color: var(--gold); color: #0b1640; }
 .fim-lista { margin: 18px 0 0; padding: 16px; border-radius: var(--r); background: var(--head-bg, #0b1640); color: #fff; text-align: center; }
 .fim-lista p { margin: 0 0 10px; font-weight: 700; font-size: 14px; }

@@ -274,7 +274,7 @@
   function seletorComp() {
     if (st.comps.length < 2) return '';
     return '<nav class="comp-sel" aria-label="Competição">' + st.comps.map((c) =>
-      '<a href="#/simulador' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === st.comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>';
+      '<a href="#/simulador' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === st.comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + window.TNG.bandeira(c.id) + '</a>').join('') + '</nav>';
   }
 
   // Letreiro dos próximos jogos (corre sozinho; parado e rolável quando o aparelho pede menos movimento)

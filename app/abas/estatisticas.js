@@ -155,7 +155,7 @@
       vj.time = ''; vj.todos = {};
       return Promise.all([dados(comp), J, BP]).then(([L, jog, bp]) => {
         document.title = 'Estatísticas · ' + comp.rotulo + ' · Tapa na Gaveta';
-        const chips = cs.length > 1 ? '<nav class="comp-sel claro" aria-label="Competição">' + cs.map((c) => '<a href="#/estatisticas' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + '</a>').join('') + '</nav>' : '';
+        const chips = cs.length > 1 ? '<nav class="comp-sel claro" aria-label="Competição">' + cs.map((c) => '<a href="#/estatisticas' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + window.TNG.bandeira(c.id) + '</a>').join('') + '</nav>' : '';
         const rotaSim = '#/simulador' + (ehA ? '' : '/' + comp.id);
         const E = calcular(L);
         const casaFora = E.s.slice().sort((a, b) => (b.casa.pts / Math.max(1, b.casa.j)) - (a.casa.pts / Math.max(1, a.casa.j)));
