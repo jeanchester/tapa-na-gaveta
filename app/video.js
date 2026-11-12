@@ -26,7 +26,7 @@
   }
 
   // d: { jogos: [{ h, a, p: [gh, ga], rotulo }], estados: [tabela antes, depois de cada jogo],
-  //      base: {i: posição real}, times: [{ nome, img }], zona(pos), meu, completo, endereco }
+  //      base: {i: posição real}, times: [{ nome, img }], zonas[estado][pos-1], meu, completo, endereco }
   function roteiro(d) {
     const n = d.jogos.length;
     const mapas = d.estados.map((tab) => { const m = {}; tab.forEach((x) => { m[x.i] = x; }); return m; });
@@ -92,7 +92,7 @@
       if (dentro || i === V.meu || (acabou && rk === 1)) {
         x.fillStyle = dentro ? COR.ouroClaro : acabou && rk === 1 ? COR.ouro : 'rgba(255,194,61,.22)'; rr(x, 38, y + 2, 644, rh - 4, 10); x.fill();
       } else if (b.pos !== a.pos && e < 1) { x.fillStyle = '#fff'; rr(x, 38, y + 2, 644, rh - 4, 10); x.fill(); }
-      const z = V.zona(rk);
+      const bi = acabou ? n : (g + 1 < 0 ? 0 : g + 1), z = V.zonas[bi][(b.pos || rk) - 1];
       if (z) { x.fillStyle = ZONA[z] || '#c5cbd8'; rr(x, 46, y + 9, 5, rh - 18, 3); x.fill(); }
       x.fillStyle = COR.noite; x.font = '900 20px "Archivo Largo"'; x.textAlign = 'center'; x.fillText(String(rk), 76, y + 30);
       escudo(x, V.times[i].img, 116, y + rh / 2, 15, false);

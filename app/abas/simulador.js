@@ -554,8 +554,9 @@
     const posReal = {};
     if (opc.delta) tabelaReal().forEach((x) => { posReal[x.i] = x.pos; });
     const NOME_FORMA = { V: 'vitória', E: 'empate', D: 'derrota' };
+    const zsT = window.TNGCore.zonasTab(st.L, tab);
     const linhas = tab.map((x) => {
-      const t = st.L.times[x.i], z = window.TNGCore.zonaDe(st.regras, x.pos);
+      const t = st.L.times[x.i], z = zsT[x.pos - 1];
       const d = opc.delta ? posReal[x.i] - x.pos : 0;
       const fm = window.TNGCore.forma(st.L, placares(), x.i, 5);
       return '<tr data-i="' + x.i + '"' + (opc.destaque === x.i ? ' class="meu"' : '') + '><td class="pos" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' + x.pos + '</td>' +
@@ -571,7 +572,7 @@
       '<th class="hide-s" scope="col"><abbr title="Gols pró">GP</abbr></th><th class="hide-s" scope="col"><abbr title="Gols contra">GC</abbr></th>' +
       '<th scope="col"><abbr title="Saldo de gols">SG</abbr></th><th class="hide-s" scope="col">Últimos</th></tr></thead><tbody>' + linhas + '</tbody></table></div>' +
       '<div class="legenda">' + st.regras.zonas.map((z) => '<span style="--zc:var(--z-' + z.id + ')"><i></i>' + esc(z.nome) + '</span>').join('') +
-      (st.regras.zonas_provisorias ? '<span><em>as vagas podem mudar com os campeões das copas</em></span>' : '') + '</div>' +
+      (st.regras.copa ? '<span><em>' + esc(st.regras.copa.nota) + '</em></span>' : st.regras.zonas_provisorias ? '<span><em>as vagas podem mudar com os campeões das copas</em></span>' : '') + '</div>' +
       '<p class="nota">Desempate: vitórias, saldo, gols pró e confronto direto. A ESPN não informa cartões; depois do confronto direto, vale o sorteio. ▲▼: mudança em relação à tabela atual.</p>';
   }
 
@@ -734,13 +735,13 @@
   const VERBO = {
     titulo: ['é campeão', 'não é campeão', 'Título', 'Título'],
     lib: ['vai direto à Libertadores', 'fica fora do G4', 'Libertadores direta (1º a 4º)', 'G4'],
-    pre: ['garante ao menos a pré-Libertadores', 'fica fora do G5', 'Libertadores ou pré (1º a 5º)', 'Até a pré-Liberta'],
-    sula: ['garante ao menos a Sul-Americana', 'fica fora das copas', 'Ao menos a Sul-Americana (1º a 11º)', 'Sul-Americana'],
+    pre: ['garante ao menos a pré-Libertadores', 'fica fora do G6', 'Libertadores ou pré (1º a 6º)', 'Até a pré-Liberta'],
+    sula: ['garante ao menos a Sul-Americana', 'fica fora das copas', 'Ao menos a Sul-Americana (1º a 12º)', 'Sul-Americana'],
     escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda', 'Escapar da queda'],
   };
   // colunas da tabela de chances: as do regulamento (regras.colunas) ou as do Brasileirão
   function colunas() {
-    return st.regras.colunas || [{ rotulo: 'Liberta', zonas: ['lib', 'pre'], titulo: '1º ao 5º (fase de grupos ou preliminar)' }, { rotulo: 'Sula', zonas: ['sula'], titulo: '6º ao 11º' }, { rotulo: 'Queda', zonas: ['rb'], titulo: '17º ao 20º' }];
+    return st.regras.colunas || [{ rotulo: 'Liberta', zonas: ['lib', 'pre'], titulo: '1º ao 6º (fase de grupos ou preliminar)' }, { rotulo: 'Sula', zonas: ['sula'], titulo: '7º ao 12º' }, { rotulo: 'Queda', zonas: ['rb'], titulo: '17º ao 20º' }];
   }
   // frases de cada objetivo: as da competição (zona.verbo / zona.subst) ou as do Brasileirão
   const zonaDoObj = (id) => st.regras.zonas.find((z) => z.id === (id === 'escapar' ? 'rb' : id));
@@ -903,8 +904,9 @@
     ov.setAttribute('role', 'dialog');
     ov.setAttribute('aria-modal', 'true');
     ov.setAttribute('aria-label', 'Revelação da tabela final');
+    const zsR = C.zonasTab(st.L, tab);
     const linhas = tab.map((x) => {
-      const t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
+      const t = st.L.times[x.i], z = zsR[x.pos - 1];
       return '<li class="rv-l' + (x.pos === 1 ? ' campeao' : '') + (z ? ' z-' + z : '') + (st.meu && st.meu.i === x.i ? ' meu' : '') + '" data-pos="' + x.pos + '" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' +
         '<span class="rv-pos">' + x.pos + '</span>' + crest(t, 'rv-crest') + '<span class="rv-nome">' + esc(nome(t)) + '</span>' +
         (x.pos === 1 ? '<span class="rv-tag">Campeão</span>' : z === 'rb' ? '<span class="rv-tag rb">Rebaixado</span>' : '') +
@@ -1049,7 +1051,7 @@
           jogos: jogos.map((j) => ({ h: j.h, a: j.a, p: plac[j.chave], sorteado: !!st.sim[j.chave] && !st.compartilhado, rotulo: j.atrasado ? 'jogo atrasado' : j.rodada ? 'rodada ' + j.rodada : fmtDia(j.data) })),
           estados, base, meu: st.meu ? st.meu.i : -1,
           times: st.L.times.map((t, k) => ({ nome: nome(t), img: imgs[k] })),
-          zona: (pos) => C.zonaDe(st.regras, pos),
+          zonas: estados.map((tb) => C.zonasTab(st.L, tb)),
           completo: jogos.length === restantes().length,
           endereco: T.enderecoSite(),
           texto: textoPartilha() + ' ' + linkCenario(),
@@ -1229,8 +1231,9 @@
     const x0 = 64, y0 = 340, lh = 43;
     ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
     ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
+    const zsI = C.zonasTab(st.L, tab);
     tab.forEach((x, k) => {
-          const y = y0 + k * lh, t = st.L.times[x.i], z = C.zonaDe(st.regras, x.pos);
+          const y = y0 + k * lh, t = st.L.times[x.i], z = zsI[x.pos - 1];
           const an = anim ? anim(k) : null;
           if (an && an.a <= 0) return;
           ctx.save();

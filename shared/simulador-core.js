@@ -213,6 +213,31 @@
     return z ? z.id : null;
   }
 
+  // Zonas de cada posição de UMA tabela. Em regra são as faixas fixas; com regras.copa (um finalista da
+  // Copa do Brasil que depende da tabela) as faixas se ajustam: o finalista leva a vaga da Copa (fase de
+  // grupos) se estiver na Série A fora do top 7; no top 7 ou rebaixado, a vaga volta para a tabela e a
+  // pré vai até o 7º. A Sul-Americana pula o finalista e segue com o mesmo número de vagas.
+  function zonasTab(L, tab) {
+    if (tab.zs) return tab.zs;
+    const R = L.regras, zs = [];
+    for (let p = 1; p <= tab.length; p++) zs.push(zonaDe(R, p));
+    const cp = R.copa, gi = cp ? L.times.findIndex((t) => t.abrev === cp.time) : -1;
+    const lib = R.zonas.find((z) => z.id === 'lib'), pre = R.zonas.find((z) => z.id === 'pre');
+    const sula = R.zonas.find((z) => z.id === 'sula'), rb = R.zonas.find((z) => z.id === 'rb');
+    if (gi >= 0 && lib && pre && sula && rb) {
+      const g = tab.findIndex((x) => x.i === gi) + 1, base = pre.ate;
+      const fora = g <= base + 1 || g >= rb.de, topo = fora ? base + 1 : base;
+      for (let p = 1; p <= tab.length; p++) zs[p - 1] = null;
+      for (let p = 1; p <= topo; p++) zs[p - 1] = p <= lib.ate ? 'lib' : 'pre';
+      if (!fora) zs[g - 1] = 'lib';
+      let k = sula.ate - sula.de + 1;
+      for (let p = topo + 1; p < rb.de && k > 0; p++) { if (!fora && p === g) continue; zs[p - 1] = 'sula'; k--; }
+      for (let p = rb.de; p <= rb.ate; p++) zs[p - 1] = 'rb';
+    }
+    tab.zs = zs;
+    return zs;
+  }
+
   // forma: últimos n jogos de cada time (V/E/D), na ordem do mais antigo para o mais recente
   function forma(L, placares, t, nJogos, ate) {
     const r = [];
@@ -395,6 +420,7 @@
     const s = base.map((x) => Object.assign({}, x));
     const sim = {};
     const sorteio = new Float64Array(n);
+    const zIds = L.regras.zonas.map((z) => z.id), zc = L.regras.copa ? L.times.map(() => new Float64Array(zIds.length)) : null;
     let validas = 0;
     const condCont = condicao ? { sim: 0 } : null;
     for (let it = 0; it < N; it++) {
@@ -410,10 +436,11 @@
       if (condicao && !condicao(tab, todos)) continue;
       validas++;
       for (let q = 0; q < n; q++) pos[tab[q].i][q]++;
+      if (zc) { const zs = zonasTab(L, tab); for (let q = 0; q < n; q++) { const k = zIds.indexOf(zs[q]); if (k >= 0) zc[tab[q].i][k]++; } }
       if (onProgresso && (it + 1) % 500 === 0) onProgresso(it + 1);
     }
     if (condCont) condCont.sim = validas;
-    return { pos, N: validas, pedidas: N };
+    return { pos, N: validas, pedidas: N, zc };
   }
 
   // resume as contagens em chances por zona (título = 1º)
@@ -421,7 +448,7 @@
     const zonas = L.regras.zonas;
     return L.times.map((t) => {
       const c = mc.pos[t.i], out = { i: t.i, titulo: c[0] / mc.N, dist: Array.from(c, (v) => v / mc.N) };
-      zonas.forEach((z) => { let s = 0; for (let p = z.de; p <= z.ate; p++) s += c[p - 1]; out[z.id] = s / mc.N; });
+      zonas.forEach((z, k) => { let s = 0; if (mc.zc) s = mc.zc[t.i][k]; else for (let p = z.de; p <= z.ate; p++) s += c[p - 1]; out[z.id] = s / mc.N; });
       let m = 0; for (let p = 0; p < L.n; p++) m += (p + 1) * c[p]; out.posMedia = m / mc.N;
       return out;
     });
@@ -766,7 +793,7 @@
   }
 
   return {
-    rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, forma,
+    rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, zonasTab, forma,
     PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, amostrarCrivel, avaliar, MAX_MOSTRAR, simularRestantes, monteCarlo, chances,
     codificar, decodificar, decodificarAntigo, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
   };

@@ -7,12 +7,13 @@
   "desempate_obs": "REC da CBF (art. 15), mesma ordem de 2025. O confronto direto só vale quando DOIS clubes estão empatados; com três ou mais, pula para o critério seguinte. A ESPN não informa cartões: o simulador passa direto ao sorteio.",
   "zonas": [
     { "id": "lib", "nome": "Libertadores", "de": 1, "ate": 4 },
-    { "id": "pre", "nome": "Pré-Libertadores", "de": 5, "ate": 5 },
-    { "id": "sula", "nome": "Sul-Americana", "de": 6, "ate": 11 },
+    { "id": "pre", "nome": "Pré-Libertadores", "de": 5, "ate": 6 },
+    { "id": "sula", "nome": "Sul-Americana", "de": 7, "ate": 12 },
     { "id": "rb", "nome": "Rebaixamento", "de": 17, "ate": 20 }
   ],
+  "copa": { "time": "GRE", "nota": "o Grêmio está na final da Copa do Brasil: as faixas se ajustam à posição dele" },
   "zonas_provisorias": true,
-  "zonas_obs": "Vagas iniciais divulgadas pela CBF em dez/2025 (Band, 16/12/2025; TecMundo): 4 diretas, 1 na fase preliminar, Sul-Americana do 6º ao 11º. Mudam com os finalistas da Copa do Brasil e com um título brasileiro na Libertadores.",
+  "zonas_obs": "Vagas iniciais divulgadas pela CBF em dez/2025 (Band, 16/12/2025; TecMundo): 4 diretas, 1 na fase preliminar, Sul-Americana do 6º ao 11º. Mudam com os finalistas da Copa do Brasil e com um título brasileiro na Libertadores. Atualização de 12/11/2026: os dois finalistas da Copa do Brasil (Grêmio e Palmeiras, final em 06/12) vão à Libertadores; o Palmeiras já está na fase de grupos pela tabela, então a vaga dele sobra e o 6º vai à pré em qualquer resultado. O Grêmio (fase de grupos via Copa) só joga se ficar na Série A; no top 7 ou rebaixado, a vaga volta para a tabela e a pré vai até o 7º. As faixas fixas aqui valem com o Grêmio no meio da tabela; o simulador ajusta sozinho (campo copa).",
   "fontes": [
     "https://www.band.com.br/esportes/brasileirao-2026-novidades-nas-vagas-da-libertadores-e-para-transferencias-sao-confirmadas-202512160027",
     "https://trivela.com.br/brasil/brasileirao-criterios-desempate/"
