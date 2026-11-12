@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T11:32:36",
+ "atualizado": "2026-11-12T16:53:53",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -2461,13 +2461,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "José María Giménez",
-    "time": "90",
-    "escudo": "deportivo",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "João Cancelo",
     "time": "83",
     "escudo": "barcelona",
@@ -3178,6 +3171,20 @@
     "nome": "Josan",
     "time": "3751",
     "escudo": "elche",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "José María Giménez",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "José María Giménez",
+    "time": "90",
+    "escudo": "deportivo",
     "amarelos": 1,
     "vermelhos": 0
    },
