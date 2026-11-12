@@ -3,6 +3,8 @@
 //   node tools/build.js --release --site https://dominio  versão publicada
 // --release grava TNG_RELEASE (site, Milhão, Fast) e DEZ_RELEASE (Draft): some a faixa de erro.
 // --site    endereço definitivo: Open Graph com URL absoluta, sitemap.xml e robots.txt.
+// --adsense ca-pub-XXXXXXXXXXXXXXXX (opcional; vazio = sem anúncios): põe o código do AdSense e a
+//           meta de verificação em todas as páginas do site (não nos jogos) e gera o ads.txt.
 // Páginas de entrada (tools/paginas.json): título, descrição e imagem certos para o WhatsApp.
 // As de cada time (simulador/<time>/) e de cada jogo (jogar/<jogo>/) saem com texto (tools/paginas-texto.js).
 // Material de consulta (referencias/, apps/, ferramentas/, tapa-na-gaveta-midia/, docs/, tools/) não é publicado.
@@ -16,6 +18,9 @@ const release = args.includes('--release');
 const iSite = args.indexOf('--site');
 const site = iSite >= 0 ? String(args[iSite + 1] || '').replace(/\/+$/, '') + '/' : '';
 if (iSite >= 0 && !/^https:\/\//.test(site)) throw new Error('--site precisa de um endereço https://');
+const iAds = args.indexOf('--adsense');
+const adsense = iAds >= 0 ? String(args[iAds + 1] || '').trim() : '';
+if (adsense && !/^ca-pub-\d{10,20}$/.test(adsense)) throw new Error('--adsense precisa do ID no formato ca-pub-1234567890123456');
 
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
@@ -151,6 +156,27 @@ if (site) {
   gravar('robots.txt', 'User-agent: *\nAllow: /\nSitemap: ' + site + 'sitemap.xml\n');
 } else {
   gravar('robots.txt', 'User-agent: *\nAllow: /\n');
+}
+
+// ------------------------------------------------------------------ AdSense
+// Código do AdSense (anúncios automáticos) e meta de verificação nas páginas do site; os jogos
+// ficam de fora (abrem num iframe). ads.txt na raiz: só vale com domínio próprio.
+if (adsense) {
+  const tag = '<meta name="google-adsense-account" content="' + adsense + '">\n  ' +
+    '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adsense + '" crossorigin="anonymous"></script>\n';
+  let k = 0;
+  const varrer = (d) => fs.readdirSync(path.join(dist, d), { withFileTypes: true }).forEach((e) => {
+    const rel = d ? d + '/' + e.name : e.name;
+    if (e.isDirectory()) { if (!/^(jogos|app|shared|dados|midia|textos)$/.test(rel)) varrer(rel); return; }
+    if (e.name !== 'index.html') return;
+    const h = ler(rel);
+    if (h.includes('name="robots" content="noindex')) return;   // só redireciona
+    if (!h.includes('</head>')) throw new Error(rel + ': sem </head> para o AdSense');
+    gravar(rel, h.replace('</head>', '  ' + tag + '</head>')); k++;
+  });
+  varrer('');
+  gravar('ads.txt', 'google.com, ' + adsense.replace(/^ca-/, '') + ', DIRECT, f08c47fec0942fa0\n');
+  console.log('AdSense ' + adsense + ' em ' + k + ' páginas, ads.txt gravado');
 }
 
 // ------------------------------------------------------------------ conferências
