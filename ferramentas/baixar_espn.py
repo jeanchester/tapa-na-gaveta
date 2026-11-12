@@ -286,6 +286,37 @@ def ultimas_escalacoes(jogos, times, LIGA='bra.1'):
     return out
 
 
+def elencos_espn(times, LIGA='bra.1'):
+    """Elenco de cada time na ESPN, com o número de jogos na liga desta temporada (para cruzar com
+    os elencos do Você Escala: quem saiu do clube some, quem é da base e nunca jogou fica de fora)."""
+    POS = {'G': 'G', 'D': 'D', 'M': 'M', 'F': 'A'}
+    out = {'atualizado': datetime.datetime.now().isoformat(timespec='seconds'), 'times': {}}
+    for tid, t in times.items():
+        if not t.get('escudo'):
+            continue
+        try:
+            r = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/teams/{tid}/roster')
+        except Exception as e:  # noqa: BLE001
+            print(f'::warning::elenco de {t["nome"]} não saiu: {e}')
+            continue
+        lista = []
+        for a in r.get('athletes') or []:
+            jogos = 0
+            for c in (((a.get('statistics') or {}).get('splits') or {}).get('categories') or []):
+                for s in c.get('stats') or []:
+                    if s.get('name') == 'appearances':
+                        jogos = int(s.get('value') or 0)
+            num = str(a.get('jersey') or '')
+            lista.append({
+                'n': a.get('displayName') or a.get('fullName'), 'curto': a.get('shortName'),
+                'num': int(num) if num.isdigit() else None,
+                'pos': POS.get((a.get('position') or {}).get('abbreviation'), 'M'), 'jogos': jogos,
+            })
+        if lista:
+            out['times'][t['escudo']] = lista
+    return out
+
+
 def competicoes():
     caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'shared', 'competicoes.json')
     with open(caminho, encoding='utf-8') as f:
@@ -414,6 +445,11 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     except Exception as e:  # noqa: BLE001
         if extras:
             print('::warning::escalações não saíram:', e)
+    if extras:
+        try:
+            gravar(os.path.join(pasta, 'elencos-espn.json'), elencos_espn(times, LIGA))
+        except Exception as e:  # noqa: BLE001
+            print('::warning::elencos da ESPN não saíram:', e)
 
     for t in times.values():
         if not t['escudo']:

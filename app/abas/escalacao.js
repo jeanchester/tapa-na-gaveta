@@ -1,7 +1,8 @@
 /* Aba Monte sua escalação (a partir do Você Escala: esquemas, times, cores e elencos).
    Toque numa vaga para escolher o jogador (ou escrever um nome); arraste para mudar a posição no
    campo. A escalação atual e as salvas ficam em tng.escalacoes; a imagem sai pelo app/compartilhar.js.
-   Elencos: GitHub do Julio ao vivo → cópia no aparelho (tng.elencos.cache) → dados/elencos-escalacao.json. */
+   Elencos: GitHub do Julio ao vivo → cópia no aparelho (tng.elencos.cache) → dados/elencos-escalacao.json;
+   nos clubes da Série A, cruzados com o elenco da ESPN (dados/elencos-espn.json; ver shared/elencos.js). */
 (function () {
   'use strict';
   const T = window.TNG;
@@ -60,8 +61,10 @@
   function atualizarAoVivo() {
     if (jaBuscou || /[?&]offline\b/.test(location.search) || T.ARTIFACT) return;
     jaBuscou = true;
-    Promise.all([T.script('shared/elencos.js'), fetch('dados/times-voce-escala.json').then((r) => r.json())]).then(([, base]) =>
-      window.TNGElencos.atualizar(base, st.escudos)).then((novo) => {
+    // a versão ao vivo do Você Escala passa pelo mesmo cruzamento com a ESPN da reserva publicada
+    const espn = fetch('dados/elencos-espn.json').then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    Promise.all([T.script('shared/elencos.js'), fetch('dados/times-voce-escala.json').then((r) => r.json()), espn]).then(([, base, E]) =>
+      window.TNGElencos.atualizar(base, st.escudos).then((novo) => window.TNGElencos.cruzarEspn(novo, E))).then((novo) => {
       if (!novo.times.length) return;
       novo.escudos = Object.keys(st.escudos);
       saveJson(CHAVE_CACHE, novo);

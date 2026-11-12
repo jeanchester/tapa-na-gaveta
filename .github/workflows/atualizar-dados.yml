@@ -22,13 +22,14 @@ jobs:
         run: python ferramentas/baixar_espn.py --todas || echo "::warning::alguma competição não saiu (ver o log)"
       - name: Testes do núcleo com os dados novos
         run: node tools/testar-core.js || echo "::warning::testes do núcleo falharam com os dados novos (ver o log)"
-      - name: Elencos (sextas-feiras)
+      - name: Elencos (Você Escala às sextas; cruzamento com a ESPN todo dia)
         run: |
           if [ "$(date -u +%u)" = "5" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             curl -fsS -o dados/elencos.json https://raw.githubusercontent.com/jujubs333/futebol-elencos/main/data/elencos.json
             curl -fsS -o dados/elencos_copa_2026.json https://raw.githubusercontent.com/jujubs333/futebol-elencos/main/data/elencos_copa_2026.json
-            node tools/elencos.js
           fi
+          # todo dia: os clubes da Série A são cruzados com o elenco da ESPN (dados/elencos-espn.json)
+          node tools/elencos.js
       - name: Gravar se mudou
         run: |
           git config user.name "tapa-na-gaveta-bot"

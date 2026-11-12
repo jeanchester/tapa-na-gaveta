@@ -224,5 +224,29 @@ grupo('dados das versões antigas (arquivo único)', () => {
   ok(C.decodificarAntigo(L, '!!') === null, 'link antigo quebrado não quebra o site');
 });
 
+grupo('elencos: cruzamento com a ESPN', () => {
+  const EL = require('../shared/elencos.js');
+  ok(EL.parecenca('E. Pulgar', { n: 'Erick Pulgar', curto: 'E. Pulgar' }) === 3, 'nome abreviado igual ao curto da ESPN');
+  ok(EL.parecenca('Matheuzinho', { n: 'Mateuzinho' }) > 0, 'grafia parecida casa');
+  ok(EL.parecenca('Allan', { n: 'Vitor Roque' }) === 0, 'nomes diferentes não casam');
+  const espn = { atualizado: '2026-11-12T00:00:00', times: { tst: [] } };
+  const E = espn.times.tst;
+  for (let k = 1; k <= 18; k++) E.push({ n: 'Titular ' + 'abcdefghijklmnopqr'[k - 1] + 'son', num: k, pos: k === 1 ? 'G' : k < 8 ? 'D' : k < 14 ? 'M' : 'A', jogos: 10 });
+  E.push({ n: 'Goleiro Reserva', num: 12, pos: 'G', jogos: 0 }, { n: 'Terceiro Goleiro', num: 40, pos: 'G', jogos: 0 }, { n: 'Quarto Goleiro', num: 90, pos: 'G', jogos: 0 });
+  E.push({ n: 'Menino Da Base', num: 88, pos: 'M', jogos: 0 }, { n: 'Contratado Novo', num: 20, pos: 'A', jogos: 2 });
+  const dados = { atualizado: '2026-11-01', times: [{ id: 'c1', grupo: 'Série A', escudo: 'tst', jogadores: [
+    ['Titular Ason', 'G', 1], ['Ex Jogador Que Saiu', 'M', 5], ['Menino Da Base', 'M', 88], ['Goleiro Reserva', 'G', 12]] }] };
+  EL.cruzarEspn(dados, espn);
+  const nomes = dados.times[0].jogadores.map((j) => j[0]);
+  ok(nomes.indexOf('Ex Jogador Que Saiu') < 0, 'quem não está na ESPN sai');
+  ok(nomes.indexOf('Menino Da Base') < 0, 'base sem jogos e camisa alta sai');
+  ok(nomes.indexOf('Contratado Novo') >= 0, 'quem jogou e faltava entra');
+  ok(nomes.indexOf('Goleiro Reserva') >= 0 && nomes.indexOf('Terceiro Goleiro') >= 0 && nomes.indexOf('Quarto Goleiro') < 0, 'fica com 3 goleiros');
+  ok(dados.atualizado === espn.atualizado, 'data da reserva passa a ser a da ESPN');
+  const curto = { times: [{ id: 'c2', grupo: 'Série A', escudo: 'tst', jogadores: [['X', 'M', 1]] }] };
+  EL.cruzarEspn(curto, { times: { tst: E.slice(0, 10) } });
+  ok(curto.times[0].jogadores.length === 1, 'elenco da ESPN incompleto: não mexe');
+});
+
 console.log(`\n${total - falhas}/${total} conferências passaram`);
 process.exit(falhas ? 1 : 0);
