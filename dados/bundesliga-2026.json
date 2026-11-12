@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "ger.1",
  "temporada": 2026,
- "baixado_em": "2026-11-12T16:53:59",
+ "baixado_em": "2026-11-12T17:25:44",
  "times": [
   {
    "id": "598",
@@ -3767,7 +3767,7 @@
    "visitante": "3307",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "DLWWW",
+   "forma_mandante": "WLWWW",
    "forma_visitante": "DDLWD"
   },
   {
@@ -3900,7 +3900,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWWL",
-   "forma_visitante": "DLWWW"
+   "forma_visitante": "WLWWW"
   },
   {
    "id": "401884502",
@@ -3983,7 +3983,7 @@
    "visitante": "7911",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "DLWWW",
+   "forma_mandante": "WLWWW",
    "forma_visitante": "WDLLW"
   },
   {
