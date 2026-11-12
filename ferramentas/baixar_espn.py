@@ -180,8 +180,9 @@ def resumo_cartoes(cartoes, jogos, times, LIGA='bra.1'):
             proximo.setdefault(t, {'data': j['data'], 'contra': (times.get(o) or {}).get('nome'), 'jogo': j['id']})
     por = {}
     for c in sorted((c for c in cartoes if c['jogo'] in validos), key=lambda c: c['data']):
-        p = por.setdefault(c['id'], {'nome': c['nome'], 'time': c['time'], 'jogos': {}})
-        p['time'] = c['time'] or p['time']
+        # chave = jogador + time do lance: a ESPN às vezes usa o mesmo cadastro para homônimos
+        # (Matheus Pereira do Cruzeiro e do Corinthians); o time de cada cartão vem certo do jogo
+        p = por.setdefault((c['id'], c['time']), {'nome': c['nome'], 'time': c['time'], 'jogos': {}})
         p['jogos'].setdefault(c['jogo'], []).append(c['cor'])
     out = []
     for p in por.values():
