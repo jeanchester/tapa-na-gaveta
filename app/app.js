@@ -191,7 +191,7 @@
   const MODULO = { sobre: 'textos', privacidade: 'textos', termos: 'textos', modelo: 'textos', desempate: 'textos', contato: 'textos' };
   const INSTITUCIONAL = [['sobre', 'Quem somos'], ['modelo', 'Como funciona'], ['desempate', 'Desempates'], ['contato', 'Contato'], ['privacidade', 'Privacidade'], ['termos', 'Termos de uso']];
   // contato que aparece em Quem somos, Privacidade e Termos: preencha o e-mail quando tiver um
-  const CONTATO = { email: '', github: 'https://github.com/jeanchester/tapa-na-gaveta/issues' };
+  const CONTATO = { email: 'tapanagaveta2026@gmail.com', github: 'https://github.com/jeanchester/tapa-na-gaveta/issues' };
   const contatoHtml = () => (CONTATO.email ? 'Escreva para <a href="mailto:' + esc(CONTATO.email) + '">' + esc(CONTATO.email) + '</a>.'
     : 'Mande uma mensagem pelo <a href="' + CONTATO.github + '" target="_blank" rel="noopener">GitHub do projeto</a>.');
 
