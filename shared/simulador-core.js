@@ -215,8 +215,9 @@
 
   // Zonas de cada posição de UMA tabela. Em regra são as faixas fixas; com regras.copa (um finalista da
   // Copa do Brasil que depende da tabela) as faixas se ajustam: o finalista leva a vaga da Copa (fase de
-  // grupos) se estiver na Série A fora do top 7; no top 7 ou rebaixado, a vaga volta para a tabela e a
-  // pré vai até o 7º. A Sul-Americana pula o finalista e segue com o mesmo número de vagas.
+  // grupos) se estiver na Série A; rebaixado, a vaga dele volta para a tabela. Sempre são 5 vagas de fase
+  // de grupos (4 da tabela + Copa) e 2 de pré; o finalista elegível ocupa uma de grupos e os demais
+  // seguem a ordem da tabela sem ele. A Sul-Americana também pula o finalista.
   function zonasTab(L, tab) {
     if (tab.zs) return tab.zs;
     const R = L.regras, zs = [];
@@ -225,13 +226,16 @@
     const lib = R.zonas.find((z) => z.id === 'lib'), pre = R.zonas.find((z) => z.id === 'pre');
     const sula = R.zonas.find((z) => z.id === 'sula'), rb = R.zonas.find((z) => z.id === 'rb');
     if (gi >= 0 && lib && pre && sula && rb) {
-      const g = tab.findIndex((x) => x.i === gi) + 1, base = pre.ate;
-      const fora = g <= base + 1 || g >= rb.de, topo = fora ? base + 1 : base;
+      const g = tab.findIndex((x) => x.i === gi) + 1, elegivel = g < rb.de;
+      const nLib = lib.ate - lib.de + 1 + (elegivel ? 0 : 1), nPre = pre.ate - pre.de + 1, nSula = sula.ate - sula.de + 1;
       for (let p = 1; p <= tab.length; p++) zs[p - 1] = null;
-      for (let p = 1; p <= topo; p++) zs[p - 1] = p <= lib.ate ? 'lib' : 'pre';
-      if (!fora) zs[g - 1] = 'lib';
-      let k = sula.ate - sula.de + 1;
-      for (let p = topo + 1; p < rb.de && k > 0; p++) { if (!fora && p === g) continue; zs[p - 1] = 'sula'; k--; }
+      if (elegivel) zs[g - 1] = 'lib';
+      let k = 0;
+      for (let p = 1; p < rb.de; p++) {
+        if (elegivel && p === g) continue;
+        zs[p - 1] = k < nLib ? 'lib' : k < nLib + nPre ? 'pre' : k < nLib + nPre + nSula ? 'sula' : null;
+        k++;
+      }
       for (let p = rb.de; p <= rb.ate; p++) zs[p - 1] = 'rb';
     }
     tab.zs = zs;
