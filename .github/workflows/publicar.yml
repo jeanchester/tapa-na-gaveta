@@ -25,7 +25,8 @@ jobs:
         with: { node-version: '22' }
       - run: node tools/testar-core.js && node tools/testar-milhao.js
       # ADSENSE_ID (variável do repositório, ex.: ca-pub-1234567890123456): vazia = site sem anúncios
-      - run: node tools/build.js --release --site "${{ vars.SITE_URL || 'https://jeanchester.github.io/tapa-na-gaveta' }}" --adsense "${{ vars.ADSENSE_ID }}"
+      # GA_ID: ID de medição do Google Analytics (padrão: o da propriedade Tapa na Gaveta)
+      - run: node tools/build.js --release --site "${{ vars.SITE_URL || 'https://jeanchester.github.io/tapa-na-gaveta' }}" --adsense "${{ vars.ADSENSE_ID }}" --ga "${{ vars.GA_ID || 'G-WDE9EJNEG3' }}"
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - id: deploy
