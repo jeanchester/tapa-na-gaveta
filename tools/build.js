@@ -5,6 +5,7 @@
 // --site    endereço definitivo: Open Graph com URL absoluta, sitemap.xml e robots.txt.
 // --adsense ca-pub-XXXXXXXXXXXXXXXX (opcional; vazio = sem anúncios): põe o código do AdSense e a
 //           meta de verificação em todas as páginas do site (não nos jogos) e gera o ads.txt.
+// --ga      G-XXXXXXXXXX (opcional): Google Analytics nas mesmas páginas (cada aba do site conta como uma visita).
 // Páginas de entrada (tools/paginas.json): título, descrição e imagem certos para o WhatsApp.
 // As de cada time (simulador/<time>/) e de cada jogo (jogar/<jogo>/) saem com texto (tools/paginas-texto.js).
 // Material de consulta (referencias/, apps/, ferramentas/, tapa-na-gaveta-midia/, docs/, tools/) não é publicado.
@@ -21,6 +22,9 @@ if (iSite >= 0 && !/^https:\/\//.test(site)) throw new Error('--site precisa de 
 const iAds = args.indexOf('--adsense');
 const adsense = iAds >= 0 ? String(args[iAds + 1] || '').trim() : '';
 if (adsense && !/^ca-pub-\d{10,20}$/.test(adsense)) throw new Error('--adsense precisa do ID no formato ca-pub-1234567890123456');
+const iGa = args.indexOf('--ga');
+const ga = iGa >= 0 ? String(args[iGa + 1] || '').trim() : '';
+if (ga && !/^G-[A-Z0-9]{6,14}$/.test(ga)) throw new Error('--ga precisa do ID de medição no formato G-XXXXXXXXXX');
 
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
@@ -158,12 +162,24 @@ if (site) {
   gravar('robots.txt', 'User-agent: *\nAllow: /\n');
 }
 
-// ------------------------------------------------------------------ AdSense
-// Código do AdSense (anúncios automáticos) e meta de verificação nas páginas do site; os jogos
-// ficam de fora (abrem num iframe). ads.txt na raiz: só vale com domínio próprio.
-if (adsense) {
-  const tag = '<meta name="google-adsense-account" content="' + adsense + '">\n  ' +
-    '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adsense + '" crossorigin="anonymous"></script>\n';
+// ------------------------------------------------------------------ AdSense e Google Analytics
+// Nas páginas do site (os jogos ficam de fora: abrem num iframe; as que só redirecionam também).
+// AdSense: código dos anúncios automáticos + meta de verificação; ads.txt na raiz.
+// Analytics: nas páginas estáticas a visita conta sozinha; na página do site (index.html), que
+// troca de aba sem recarregar, cada rota (#/simulador/flamengo...) é enviada como uma visita,
+// com o título da aba e sem os parâmetros do link (os placares de um cenário não vão para o Google).
+function tagAnalytics(spa) {
+  return '<script async src="https://www.googletagmanager.com/gtag/js?id=' + ga + '"></script>\n  ' +
+    '<script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date());' +
+    (spa ? ' gtag("config", "' + ga + '", { send_page_view: false });' +
+      ' (function () { var ultima = null; function visita() { var r = (location.hash || "#/").split("?")[0]; if (r === "#") r = "#/"; if (r === ultima) return; ultima = r;' +
+      ' setTimeout(function () { gtag("event", "page_view", { page_location: location.origin + location.pathname + r, page_title: document.title }); }, 500); }' +
+      ' window.addEventListener("hashchange", visita); visita(); })();'
+      : ' gtag("config", "' + ga + '");') + '</script>\n';
+}
+if (adsense || ga) {
+  const ads = adsense ? '<meta name="google-adsense-account" content="' + adsense + '">\n  ' +
+    '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adsense + '" crossorigin="anonymous"></script>\n' : '';
   let k = 0;
   const varrer = (d) => fs.readdirSync(path.join(dist, d), { withFileTypes: true }).forEach((e) => {
     const rel = d ? d + '/' + e.name : e.name;
@@ -171,12 +187,13 @@ if (adsense) {
     if (e.name !== 'index.html') return;
     const h = ler(rel);
     if (h.includes('name="robots" content="noindex')) return;   // só redireciona
-    if (!h.includes('</head>')) throw new Error(rel + ': sem </head> para o AdSense');
-    gravar(rel, h.replace('</head>', '  ' + tag + '</head>')); k++;
+    if (!h.includes('</head>')) throw new Error(rel + ': sem </head> para o AdSense/Analytics');
+    const tags = (ga ? tagAnalytics(rel === 'index.html') : '') + (ads ? (ga ? '  ' : '') + ads : '');
+    gravar(rel, h.replace('</head>', '  ' + tags + '</head>')); k++;
   });
   varrer('');
-  gravar('ads.txt', 'google.com, ' + adsense.replace(/^ca-/, '') + ', DIRECT, f08c47fec0942fa0\n');
-  console.log('AdSense ' + adsense + ' em ' + k + ' páginas, ads.txt gravado');
+  if (adsense) gravar('ads.txt', 'google.com, ' + adsense.replace(/^ca-/, '') + ', DIRECT, f08c47fec0942fa0\n');
+  console.log((adsense ? 'AdSense ' + adsense + (ga ? ' e ' : '') : '') + (ga ? 'Analytics ' + ga : '') + ' em ' + k + ' páginas' + (adsense ? ', ads.txt gravado' : ''));
 }
 
 // ------------------------------------------------------------------ versão (cache)
