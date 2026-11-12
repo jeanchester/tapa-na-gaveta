@@ -373,8 +373,23 @@
   // tira a credibilidade; na vida real só 1,5% dos jogos têm um time com 5 ou mais).
   // As probabilidades (Monte Carlo) continuam com a distribuição inteira.
   const MAX_MOSTRAR = 4;
-  function amostrarCrivel(pr, r) {
-    for (let i = 0; i < 40; i++) { const s = amostrar(pr, r); if (s[0] <= MAX_MOSTRAR && s[1] <= MAX_MOSTRAR) return s; }
+  // Nitidez do "Preencher": a probabilidade de cada placar é elevada a esse expoente antes de sortear,
+  // o que favorece os placares clássicos (1x0, 1x1, 2x0, 2x1, 0x0) e o favorito. 1 = sorteio puro.
+  // Com 1,4: favorito de 55% ou mais vence ~67% das vezes (puro: 61%), jogos com 5+ gols caem de 10%
+  // para ~6% (nos jogos reais da liga são 13%), empates sobem de 27% para ~30% (real: 27%).
+  const NITIDEZ = 1.4;
+  function afiar(pr, a) {
+    if (a === 1) return pr;
+    if (pr.afiado && pr.afiado.a === a) return pr.afiado;
+    const n = pr.m.length, ac = new Float64Array(n);
+    let c = 0;
+    for (let k = 0; k < n; k++) { c += Math.pow(pr.m[k], a); ac[k] = c; }
+    pr.afiado = { m: pr.m, acum: ac, G: pr.G, a };
+    return pr.afiado;
+  }
+  function amostrarCrivel(pr, r, nitidez) {
+    const q = afiar(pr, nitidez == null ? NITIDEZ : nitidez);
+    for (let i = 0; i < 40; i++) { const s = amostrar(q, r); if (s[0] <= MAX_MOSTRAR && s[1] <= MAX_MOSTRAR) return s; }
     return [Math.min(pr.provavel[0], MAX_MOSTRAR), Math.min(pr.provavel[1], MAX_MOSTRAR)];
   }
 
@@ -798,7 +813,7 @@
 
   return {
     rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, zonasTab, forma,
-    PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, amostrarCrivel, avaliar, MAX_MOSTRAR, simularRestantes, monteCarlo, chances,
+    PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, amostrarCrivel, avaliar, MAX_MOSTRAR, NITIDEZ, simularRestantes, monteCarlo, chances,
     codificar, decodificar, decodificarAntigo, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
   };
 });
