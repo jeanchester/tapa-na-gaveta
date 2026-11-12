@@ -179,7 +179,8 @@
   const timePorSlug = (s) => st.L.times.find((t) => t.slug === s) || null;
   // sigla de 3 letras (a ESPN às vezes manda 4, como REMO)
   const SIGLA = { remo: 'REM', bragantino: 'RBB', athletico: 'CAP', atleticomg: 'CAM', sp: 'SAO', chapecoense: 'CHA', coritiba: 'CFC' };
-  const sig = (t) => esc(SIGLA[t.escudo] || String(t.abrev || nome(t)).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase());
+  const sig = (t) => esc(sigla(t));
+  const sigla = (t) => (SIGLA[t.escudo] || String(t.abrev || nome(t)).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase());
   const crest = (t, cls) => (t.escudo ? '<img class="' + (cls || 'crest') + '" data-n="' + esc(t.abrev || '') + '" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24" loading="lazy">'
     : '<span class="' + (cls || 'crest') + ' disco" aria-hidden="true">' + esc((t.abrev || t.nome || '?').slice(0, 3)) + '</span>');
   const pct = (x) => (x == null ? '–' : x <= 0 ? '–' : x < 0.005 ? '<1%' : x > 0.995 && x < 1 ? '>99%' : Math.round(x * 100) + '%');
@@ -280,7 +281,7 @@
   function letreiro() {
     const prox = restantes().slice().sort((x, y) => (x.data < y.data ? -1 : x.data > y.data ? 1 : 0)).slice(0, 12);
     if (prox.length < 3) return '';
-    const item = (j) => '<li><span class="lt-dia">' + esc(fmtDia(j.data)) + '</span>' + crest(st.L.times[j.h]) + '<b>' + esc(st.L.times[j.h].abrev || '') + '</b><i>x</i><b>' + esc(st.L.times[j.a].abrev || '') + '</b>' + crest(st.L.times[j.a]) + '</li>';
+    const item = (j) => '<li><span class="lt-dia">' + esc(fmtDia(j.data)) + '</span>' + crest(st.L.times[j.h]) + '<b>' + sig(st.L.times[j.h]) + '</b><i>x</i><b>' + sig(st.L.times[j.a]) + '</b>' + crest(st.L.times[j.a]) + '</li>';
     const lista = prox.map(item).join('');
     return '<div class="letreiro" role="region" aria-label="Próximos jogos"><ul class="lt-trilho">' + lista + '</ul><ul class="lt-trilho" aria-hidden="true">' + lista + '</ul></div>';
   }
@@ -368,7 +369,7 @@
     gs.forEach((g) => {
       html += '<div class="sec-title" id="g-' + g.k + '"><h2>' + esc(g.titulo) + '</h2><small>' + esc(g.periodo) + '</small></div><ul class="jogos">' + g.jogos.map(cardJogo).join('') + '</ul>';
     });
-    html += anterioresHtml();
+    html += avaliacaoHtml() + anterioresHtml();
     html += '<details class="como"><summary>Como as probabilidades são calculadas</summary>' +
       '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time na temporada (em casa e fora, puxados para a média da liga), da campanha (pontos por jogo) e da forma recente. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates. Os pesos foram escolhidos testando o modelo nos 339 jogos já disputados, sempre só com o que se sabia antes de cada jogo.</p>' +
       '<fieldset class="opc"><legend>Forma recente</legend>' +
@@ -376,6 +377,26 @@
       '</fieldset><p class="nota">Toque numa das porcentagens de um jogo para preencher o placar mais provável daquele resultado; toque de novo para desfazer.</p></details>';
     col.innerHTML = html;
     atualizarResumoMeu();
+  }
+
+  // quanto o modelo acertou nas rodadas passadas (cada jogo previsto só com o que se sabia antes)
+  function avaliacao() {
+    const chave = st.comp.id + '|' + st.L.jogos.filter((j) => j.feito).length + '|' + st.prefs.forma;
+    if (st.aval && st.aval.chave === chave) return st.aval.r;
+    let r = null;
+    try { r = window.TNGCore.avaliar(st.L, paramsModelo()); } catch (e) { T.reportError(e, 'avaliar'); }
+    if (!r || r.n < 40) r = null;
+    st.aval = { chave, r };
+    return r;
+  }
+  function avaliacaoHtml() {
+    const r = avaliacao();
+    if (!r) return '';
+    const p = (a, b) => Math.round(100 * a / b) + '%';
+    const desde = new Date(r.desde).toLocaleDateString('pt-BR', Object.assign({ month: 'long' }, BR));
+    return '<div class="aval"><b class="num">' + p(r.acertos, r.n) + '</b><p>de acerto do resultado em <b>' + r.n + ' jogos</b> desde ' + esc(desde) +
+      ', prevendo cada um só com o que se sabia antes dele. Chutando sempre o mandante, seria ' + p(r.mandante, r.n) + '.' +
+      (r.conf.n >= 10 ? ' Quando o favorito tinha 60% ou mais, acertou ' + p(r.conf.acertos, r.conf.n) + '.' : '') + '</p></div>';
   }
 
   // jogos já disputados, do mais recente para o mais antigo, para conferir os resultados
@@ -708,7 +729,7 @@
     titulo: ['é campeão', 'não é campeão', 'Título', 'Título'],
     lib: ['vai direto à Libertadores', 'fica fora do G4', 'Libertadores direta (1º a 4º)', 'G4'],
     pre: ['garante ao menos a pré-Libertadores', 'fica fora do G5', 'Libertadores ou pré (1º a 5º)', 'Até a pré-Liberta'],
-    sula: ['garante vaga em copa continental', 'fica fora das copas', 'Copa continental (1º a 11º)', 'Vaga em copa'],
+    sula: ['garante ao menos a Sul-Americana', 'fica fora das copas', 'Ao menos a Sul-Americana (1º a 11º)', 'Sul-Americana'],
     escapar: ['escapa do rebaixamento', 'cai para a Série B', 'Escapar da queda', 'Escapar da queda'],
   };
   // colunas da tabela de chances: as do regulamento (regras.colunas) ou as do Brasileirão
@@ -788,7 +809,7 @@
   // ---------------------------------------------------------------- condições em linguagem humana
   const SUBST = {
     titulo: 'o título', lib: 'a vaga direta na Libertadores', pre: 'ao menos a pré-Libertadores',
-    sula: 'vaga numa copa continental', escapar: 'a permanência na Série A',
+    sula: 'ao menos a vaga na Sul-Americana', escapar: 'a permanência na Série A',
   };
   const lista = (xs) => (xs.length <= 1 ? xs.join('') : xs.slice(0, -1).join(', ') + ' e ' + xs[xs.length - 1]);
   function frase(cond, t) {
@@ -1305,8 +1326,8 @@
           S.escudoPlaca(ctx, img[j.h], x + 14 + (sz - ps) / 2, cy - ps / 2, ps);
           S.escudoPlaca(ctx, img[j.a], x + colW - 14 - sz + (sz - ps) / 2, cy - ps / 2, ps);
           ctx.fillStyle = '#f4f6fb';
-          ctx.textAlign = 'left'; S.textoCabe(ctx, (h.abrev || nome(h)).toUpperCase(), x + 20 + sz, cy + 8, colW / 2 - sz - 66, '700', 22);
-          ctx.textAlign = 'right'; S.textoCabe(ctx, (a.abrev || nome(a)).toUpperCase(), x + colW - 20 - sz, cy + 8, colW / 2 - sz - 66, '700', 22);
+          ctx.textAlign = 'left'; S.textoCabe(ctx, sigla(h), x + 20 + sz, cy + 8, colW / 2 - sz - 66, '700', 22);
+          ctx.textAlign = 'right'; S.textoCabe(ctx, sigla(a), x + colW - 20 - sz, cy + 8, colW / 2 - sz - 66, '700', 22);
           ctx.textAlign = 'center'; ctx.font = '900 34px "Archivo Largo"'; ctx.fillStyle = st.sim[j.chave] ? 'rgba(244,246,251,.85)' : S.COR.giz;
           ctx.fillText(p[0] + ' × ' + p[1], x + colW / 2, cy + 12);
         });

@@ -236,7 +236,7 @@
   // recalibrado em 11/11/2026 com 289 jogos (Brier 0,6036; antes 0,6042; referência pelas
   // frequências da liga: 0,632). Testados e descartados por não melhorarem a previsão: reforço de
   // empates (empate) e peso menor para jogos antigos (meiaVida, em dias); ficam desligados.
-  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity };
+  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity, manterTotal: 1 };
   // o usuário pode trocar a forma recente para os últimos 3 jogos (melhor peso para 3 jogos: 0,15)
   const PARAMS_FORMA3 = { nForma: 3, wForma: 0.15 };
 
@@ -283,7 +283,10 @@
       let lh = mH * ataqueCasa[h] * defesaFora[a];
       let la = mA * ataqueFora[a] * defesaCasa[h];
       const ajuste = P.wForma * (formaRel[h] - formaRel[a]) / 3 + P.wPPG * (ppg[h] - ppg[a]) / 3;
+      const tot = lh + la;
       lh *= Math.exp(ajuste); la *= Math.exp(-ajuste);
+      // o ajuste muda quem é favorito, não quantos gols o jogo tem (senão o favorito faz 7×0)
+      if (P.manterTotal) { const f = Math.pow(tot / (lh + la), P.manterTotal); lh *= f; la *= f; }
       cache[ch] = matriz(lh, la, P.rho, P.maxGols, P.empate);
       return cache[ch];
     }
@@ -337,13 +340,43 @@
     return [Math.floor(lo / G1), lo % G1];
   }
 
+  // placar para mostrar: sorteia de novo se algum time passar de 4 gols (7×0 é possível, mas
+  // tira a credibilidade; na vida real só 1,5% dos jogos têm um time com 5 ou mais).
+  // As probabilidades (Monte Carlo) continuam com a distribuição inteira.
+  const MAX_MOSTRAR = 4;
+  function amostrarCrivel(pr, r) {
+    for (let i = 0; i < 40; i++) { const s = amostrar(pr, r); if (s[0] <= MAX_MOSTRAR && s[1] <= MAX_MOSTRAR) return s; }
+    return [Math.min(pr.provavel[0], MAX_MOSTRAR), Math.min(pr.provavel[1], MAX_MOSTRAR)];
+  }
+
+  // Avaliação do modelo no passado: cada jogo já disputado é previsto só com os jogos antes dele.
+  // Acerto = o resultado mais provável (vitória, empate ou derrota) foi o que aconteceu.
+  function avaliar(L, params, desde) {
+    const feitos = L.jogos.filter((j) => j.feito).sort((a, b) => (a.data < b.data ? -1 : a.data > b.data ? 1 : 0));
+    const ini = desde == null ? Math.round(L.n * 5) : desde;          // pula as ~10 primeiras rodadas
+    const cache = {};
+    const out = { n: 0, acertos: 0, mandante: 0, conf: { n: 0, acertos: 0 }, desde: null, jogos: {} };
+    feitos.slice(ini).forEach((j) => {
+      const dia = j.data.slice(0, 10);
+      const M = cache[dia] || (cache[dia] = modelo(L, params, dia));
+      const p = M.prob(j.h, j.a), ps = [p.ph, p.pd, p.pa];
+      const real = j.gh > j.ga ? 0 : j.gh === j.ga ? 1 : 2;
+      const max = Math.max(ps[0], ps[1], ps[2]), fav = ps.indexOf(max), ok = fav === real;
+      if (!out.desde) out.desde = j.data;
+      out.n++; if (ok) out.acertos++; if (real === 0) out.mandante++;
+      if (max >= 0.6) { out.conf.n++; if (ok) out.conf.acertos++; }
+      out.jogos[j.chave] = { fav, ok, p: max };
+    });
+    return out;
+  }
+
   // preenche os jogos sem placar com placares sorteados (devolve um objeto novo)
   function simularRestantes(L, placares, M, r, filtro) {
     const out = Object.assign({}, placares);
     L.jogos.forEach((j) => {
       if (j.feito || placarDe(j, placares)) return;
       if (filtro && !filtro(j)) return;
-      out[j.chave] = amostrar(M.prob(j.h, j.a), r);
+      out[j.chave] = amostrarCrivel(M.prob(j.h, j.a), r);
     });
     return out;
   }
@@ -734,7 +767,7 @@
 
   return {
     rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, forma,
-    PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, simularRestantes, monteCarlo, chances,
+    PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, amostrarCrivel, avaliar, MAX_MOSTRAR, simularRestantes, monteCarlo, chances,
     codificar, decodificar, decodificarAntigo, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
   };
 });
