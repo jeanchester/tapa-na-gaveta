@@ -376,7 +376,22 @@
     return '<span class="cartoes' + (x.suspenso ? ' susp' : '') + '" title="' + tit + '" aria-label="' + tit + '">' + ic + (x.suspenso && !curto ? '<em>suspenso</em>' : '') + '</span>';
   }
 
-  window.TNG = { duas, criador, cartoes, comV, VERSAO, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
+  // Bandeirinha de cada competição (SVG próprio, vale também no Windows, onde o emoji de bandeira não aparece)
+  const BANDEIRAS = {
+    brasil: '<rect width="20" height="14" fill="#1a9b4b"/><path d="M10 2 18 7 10 12 2 7Z" fill="#ffd23f"/><circle cx="10" cy="7" r="3.1" fill="#1631a8"/>',
+    inglaterra: '<rect width="20" height="14" fill="#fff"/><path d="M8.6 0h2.8v14H8.6zM0 5.6h20v2.8H0z" fill="#d52b1e"/>',
+    espanha: '<rect width="20" height="14" fill="#c8102e"/><rect y="3.5" width="20" height="7" fill="#ffc400"/>',
+    italia: '<rect width="20" height="14" fill="#fff"/><rect width="6.7" height="14" fill="#009246"/><rect x="13.3" width="6.7" height="14" fill="#ce2b37"/>',
+    alemanha: '<rect width="20" height="14" fill="#dd0000"/><rect width="20" height="4.7" fill="#111"/><rect y="9.3" width="20" height="4.7" fill="#ffce00"/>',
+    franca: '<rect width="20" height="14" fill="#fff"/><rect width="6.7" height="14" fill="#0055a4"/><rect x="13.3" width="6.7" height="14" fill="#ef4135"/>'
+  };
+  const PAIS = { seriea: 'brasil', serieb: 'brasil', premier: 'inglaterra', laliga: 'espanha', italiano: 'italia', bundesliga: 'alemanha', frances: 'franca' };
+  function bandeira(id) {
+    const b = BANDEIRAS[PAIS[id]];
+    return b ? '<svg class="bdr" viewBox="0 0 20 14" aria-hidden="true" focusable="false">' + b + '</svg>' : '';
+  }
+
+  window.TNG = { bandeira, duas, criador, cartoes, comV, VERSAO, CONTATO, contatoHtml, INSTITUCIONAL, MENU, TIMES_RODAPE, ARTIFACT, RELEASE, KEY, loadJson, saveJson, loadStr, saveStr, esc, aviso, aba, render, reportError, APPS, app, playUrl, ICON, parse, script, janela, fecharJanela, enderecoSite, urlBase, LOGO };
 
   // link de compartilhamento na raiz (site/?c=...): leva o cenário para a rota do simulador
   try {
