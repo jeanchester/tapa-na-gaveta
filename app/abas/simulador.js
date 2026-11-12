@@ -369,6 +369,9 @@
     gs.forEach((g) => {
       html += '<div class="sec-title" id="g-' + g.k + '"><h2>' + esc(g.titulo) + '</h2><small>' + esc(g.periodo) + '</small></div><ul class="jogos">' + g.jogos.map(cardJogo).join('') + '</ul>';
     });
+    // fim da lista: quem preencheu na mão chega aqui e compartilha sem voltar ao topo
+    if (total) html += '<div class="fim-lista"' + (feitos ? '' : ' hidden') + '><p>' + fimTxt(feitos, total) + '</p>' +
+      '<button class="btn primario" data-a="partilhar">' + ICON.partilha + 'Compartilhar a tabela</button></div>';
     html += avaliacaoHtml() + anterioresHtml();
     html += '<details class="como"><summary>Como as probabilidades são calculadas</summary>' +
       '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time na temporada (em casa e fora, puxados para a média da liga), da campanha (pontos por jogo) e da forma recente. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates. Os pesos foram escolhidos testando o modelo nos 339 jogos já disputados, sempre só com o que se sabia antes de cada jogo.</p>' +
@@ -471,9 +474,12 @@
     }
   }
 
+  const fimTxt = (f, t) => (f === t ? 'Todos os ' + t + ' jogos preenchidos.' : f + ' de ' + t + ' jogos preenchidos.');
   function atualizarProgresso() {
     const el = st.view.querySelector('.progresso');
     if (!el) return;
+    const fim = st.view.querySelector('.fim-lista');
+    if (fim) { const t = restantes().length, f = restantes().filter((j) => placarDe(j)).length; fim.hidden = !f; fim.querySelector('p').textContent = fimTxt(f, t); }
     // progresso de cada rodada no seletor
     const meu = st.meu;
     let lista = restantes();
