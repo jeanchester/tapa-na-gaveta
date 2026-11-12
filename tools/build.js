@@ -128,7 +128,7 @@ function casca(p, corpo, volta, cta) {
   const nav = [['brasileirao-2026/', 'Brasileirão 2026']].concat(TEXTOS.map((x) => [x.caminho, x.curto]), [['jogar/draft/', 'Football Draft'], ['jogar/milhao/', 'Jogo do Milhão'], ['jogar/fast/', 'Fast Football']]);
   return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n' + ir + '  ' + meta(p) +
     '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="' + volta + 'app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="' + volta + 'app/app.css">\n</head>\n<body>\n' +
-    '  <header class="head"><div class="wrap head-row"><a class="marca" href="' + volta + '" aria-label="Tapa na Gaveta, início"><b style="font:italic 900 19px var(--f-num);color:#fff;white-space:nowrap">tapa na gaveta</b></a><span class="sp"></span>' +
+    '  <header class="head"><div class="wrap head-row"><a class="marca" href="' + volta + '" aria-label="Tapa na Gaveta, início"><b style="font:900 19px var(--f-num);color:#fff;white-space:nowrap;display:inline-block;transform:skewX(-6deg)">tapa na <span style="color:#ffc23d">gaveta</span></b></a><span class="sp"></span>' +
     '<a class="btn primario" style="background:var(--gold);border-color:var(--gold);color:#0b1640;white-space:nowrap" href="' + esc(cta.href) + '">' + esc(cta.rotulo) + '</a></div></header>\n' +
     '  <main class="wrap"><article class="texto">' + corpo + '<nav class="texto-nav" aria-label="Mais do Tapa na Gaveta">' +
     nav.map(([c, nome]) => '<a href="' + volta + c + '"' + (c === p.caminho ? ' aria-current="page"' : '') + '>' + nome + '</a>').join('') +

@@ -57,10 +57,10 @@
   // "gaveta" é o ângulo do gol: travessão + trave, rede em traço fino e a bola encaixada no canto
   const LOGO = '<svg class="logo" viewBox="0 0 236 40" role="img" aria-label="Tapa na Gaveta">' +
     '<g fill="none" stroke="currentColor" stroke-linecap="round">' +
-    '<path d="M3 6H35V38" stroke-width="3.2"/>' +
+    '<path d="M3 6H35V38" stroke-width="4.6"/>' +
     '<path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g>' +
     '<circle cx="24" cy="17" r="5.5" fill="var(--chalk)"/>' +
-    '<text x="46" y="28" font-family="\'Archivo Largo\', Archivo, sans-serif" font-style="italic" font-weight="900" font-size="19" letter-spacing="-.3" fill="currentColor">tapa na gaveta</text></svg>';
+    '<text x="49" y="28" transform="skewX(-6)" font-family="\'Archivo Largo\', Archivo, sans-serif" font-weight="900" font-size="19" letter-spacing="-.3" fill="currentColor">tapa na <tspan fill="var(--chalk)">gaveta</tspan></text></svg>';
 
   // ================================================================== tema
   function temaAtual() { return loadStr(KEY.tema, 'auto'); }
