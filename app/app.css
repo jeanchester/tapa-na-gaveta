@@ -1069,3 +1069,22 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 @media (min-width: 760px) {
   .comp-sel:not(.claro) { flex-wrap: wrap; overflow: visible; row-gap: 6px; }
 }
+
+/* ===================================================================== análises */
+.texto .assinatura { font-size: 14px; color: var(--ink-3); margin: -4px 0 18px; }
+.texto .fonte { font-size: 12.5px; line-height: 1.5; color: var(--ink-3); margin-top: 4px; }
+.texto blockquote { margin: 18px 0; padding: 4px 0 4px 16px; border-left: 4px solid var(--gold); font-size: 18px; line-height: 1.5; color: var(--ink); }
+.texto .aviso-rascunho { background: var(--gold-soft); color: var(--ink); border-radius: var(--r); padding: 10px 14px; font-size: 14px; font-weight: 700; }
+.texto .ficha { display: flex; align-items: center; gap: 12px; margin: 14px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
+.texto .ficha .crest { flex: none; }
+.texto .ficha div { display: flex; flex-direction: column; gap: 2px; font-size: 14px; color: var(--ink-2); min-width: 0; }
+.texto .ficha b a { color: var(--ink); font-size: 17px; text-decoration: none; }
+.texto .tab .barra-td { width: 30%; min-width: 70px; }
+.texto .tab .barra-pct { display: block; height: 8px; border-radius: 4px; background: var(--brand-ink); }
+.texto .cta-simular { margin: 16px 0; }
+.texto .cta-simular .btn { background: var(--gold); border-color: var(--gold); color: #0b1640; text-decoration: none; }
+.lista-analises { list-style: none; padding: 0; }
+.texto .lista-analises li { display: flex; flex-direction: column; gap: 3px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.texto .lista-analises a { font: 900 20px/1.2 var(--f-num); color: var(--ink); text-decoration: none; }
+.texto .lista-analises span { font-size: 15px; color: var(--ink-2); }
+.texto .lista-analises small { font-size: 13px; color: var(--ink-3); }
