@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "bra.2",
  "temporada": 2026,
- "baixado_em": "2026-11-13T01:43:06",
+ "baixado_em": "2026-11-13T17:00:08",
  "times": [
   {
    "id": "6154",
@@ -269,13 +269,13 @@
   {
    "time": "11268",
    "pos": 11,
-   "pts": 52,
-   "j": 37,
+   "pts": 53,
+   "j": 38,
    "v": 14,
-   "e": 10,
+   "e": 11,
    "d": 13,
-   "gp": 52,
-   "gc": 42,
+   "gp": 54,
+   "gc": 44,
    "sg": 10
   },
   {
@@ -291,8 +291,20 @@
    "sg": 6
   },
   {
-   "time": "17313",
+   "time": "20851",
    "pos": 13,
+   "pts": 48,
+   "j": 38,
+   "v": 11,
+   "e": 15,
+   "d": 12,
+   "gp": 46,
+   "gc": 46,
+   "sg": 0
+  },
+  {
+   "time": "17313",
+   "pos": 14,
    "pts": 47,
    "j": 37,
    "v": 11,
@@ -301,18 +313,6 @@
    "gp": 34,
    "gc": 32,
    "sg": 2
-  },
-  {
-   "time": "20851",
-   "pos": 14,
-   "pts": 47,
-   "j": 37,
-   "v": 11,
-   "e": 14,
-   "d": 12,
-   "gp": 44,
-   "gc": 44,
-   "sg": 0
   },
   {
    "time": "7633",
@@ -4658,7 +4658,7 @@
    "gols_mandante": 1,
    "gols_visitante": 2,
    "forma_mandante": "LLLLL",
-   "forma_visitante": "LWWLD"
+   "forma_visitante": "DLWWL"
   },
   {
    "id": "401860417",
@@ -4693,7 +4693,7 @@
    "visitante": "9969",
    "gols_mandante": 2,
    "gols_visitante": 1,
-   "forma_mandante": "LWLDD",
+   "forma_mandante": "DLWLD",
    "forma_visitante": "LLLDL"
   },
   {
@@ -4742,7 +4742,7 @@
    "gols_mandante": 2,
    "gols_visitante": 1,
    "forma_mandante": "WLLDW",
-   "forma_visitante": "LWWLD"
+   "forma_visitante": "DLWWL"
   },
   {
    "id": "401860427",
@@ -4801,7 +4801,7 @@
    "visitante": "10357",
    "gols_mandante": 2,
    "gols_visitante": 3,
-   "forma_mandante": "LWLDD",
+   "forma_mandante": "DLWLD",
    "forma_visitante": "WDLDD"
   },
   {
@@ -4856,13 +4856,13 @@
    "id": "401860436",
    "data": "2026-11-12T23:00Z",
    "horario_definido": true,
-   "status": "STATUS_SECOND_HALF",
+   "status": "STATUS_FULL_TIME",
    "mandante": "11268",
    "visitante": "20851",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": "LWWLD",
-   "forma_visitante": "LWLDD"
+   "gols_mandante": 2,
+   "gols_visitante": 2,
+   "forma_mandante": "DLWWL",
+   "forma_visitante": "DLWLD"
   },
   {
    "id": "401860432",

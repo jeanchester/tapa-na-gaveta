@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-13T01:43:06",
+ "atualizado": "2026-11-13T17:00:08",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -230,6 +230,12 @@
    "n": 5
   },
   {
+   "nome": "Felipe Garcia",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
    "nome": "Marrony",
    "time": "10357",
    "escudo": "atleticogo",
@@ -290,15 +296,9 @@
    "n": 4
   },
   {
-   "nome": "Waguininho",
-   "time": "9971",
-   "escudo": "criciuma",
-   "n": 4
-  },
-  {
-   "nome": "Marquinhos Gabriel",
-   "time": "9973",
-   "escudo": "vilanova",
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
    "n": 4
   }
  ],
@@ -364,21 +364,27 @@
    "n": 6
   },
   {
+   "nome": "Eduardo",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
    "nome": "Raí",
    "time": "6270",
    "escudo": "juventude",
    "n": 5
   },
   {
-   "nome": "Mikael",
-   "time": "9970",
-   "escudo": "crb",
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
    "n": 5
   },
   {
-   "nome": "Eduardo",
-   "time": "11268",
-   "escudo": "saobernardo",
+   "nome": "Mikael",
+   "time": "9970",
+   "escudo": "crb",
    "n": 5
   },
   {
@@ -391,12 +397,6 @@
    "nome": "Juninho",
    "time": "18127",
    "escudo": "novorizontino",
-   "n": 5
-  },
-  {
-   "nome": "Kauan",
-   "time": "20851",
-   "escudo": "athleticbr",
    "n": 5
   },
   {
@@ -466,6 +466,12 @@
    "n": 4
   },
   {
+   "nome": "Lino",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 4
+  },
+  {
    "nome": "Hereda",
    "time": "9970",
    "escudo": "crb",
@@ -481,12 +487,6 @@
    "nome": "Gabriel Boschilia",
    "time": "18187",
    "escudo": "operario",
-   "n": 4
-  },
-  {
-   "nome": "Lino",
-   "time": "11268",
-   "escudo": "saobernardo",
    "n": 4
   },
   {
@@ -568,6 +568,12 @@
    "n": 3
   },
   {
+   "nome": "Jota",
+   "time": "20851",
+   "escudo": "athleticbr",
+   "n": 3
+  },
+  {
    "nome": "Thiago Fernandes",
    "time": "9970",
    "escudo": "crb",
@@ -583,12 +589,6 @@
    "nome": "Rodrigo Alves",
    "time": "3395",
    "escudo": "goias",
-   "n": 3
-  },
-  {
-   "nome": "Jota",
-   "time": "20851",
-   "escudo": "athleticbr",
    "n": 3
   },
   {
@@ -882,6 +882,12 @@
    "n": 5
   },
   {
+   "nome": "Felipe Garcia",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 5
+  },
+  {
    "nome": "João Vitor",
    "time": "17333",
    "escudo": "londrina",
@@ -939,6 +945,12 @@
    "nome": "João Pedro",
    "time": "10357",
    "escudo": "atleticogo",
+   "n": 4
+  },
+  {
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
    "n": 4
   },
   {
@@ -1005,12 +1017,6 @@
    "nome": "William Pottker",
    "time": "17333",
    "escudo": "londrina",
-   "n": 4
-  },
-  {
-   "nome": "Felipe Garcia",
-   "time": "11268",
-   "escudo": "saobernardo",
    "n": 4
   },
   {
@@ -1125,12 +1131,6 @@
    "nome": "Juninho",
    "time": "18187",
    "escudo": "operario",
-   "n": 3
-  },
-  {
-   "nome": "Kauan",
-   "time": "20851",
-   "escudo": "athleticbr",
    "n": 3
   },
   {
@@ -1698,6 +1698,12 @@
    "n": 1
   },
   {
+   "nome": "Breno Ruan Melo Almeida",
+   "time": "11268",
+   "escudo": "saobernardo",
+   "n": 1
+  },
+  {
    "nome": "Bruno Cesar Xavier",
    "time": "9973",
    "escudo": "vilanova",
@@ -1941,6 +1947,12 @@
    "nome": "Gabriel Lacerda",
    "time": "17333",
    "escudo": "londrina",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Verutti Brigida Rogerio",
+   "time": "20851",
+   "escudo": "athleticbr",
    "n": 1
   },
   {
@@ -2944,6 +2956,16 @@
     "pendurado": false
    },
    {
+    "nome": "Jemerson",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Lucas Cunha",
     "time": "3459",
     "escudo": "pontepreta",
@@ -3044,6 +3066,16 @@
     "pendurado": false
    },
    {
+    "nome": "Augusto",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Felipe Vieira",
     "time": "10281",
     "escudo": "botafogosp",
@@ -3104,21 +3136,6 @@
     "pendurado": true
    },
    {
-    "nome": "Jemerson",
-    "time": "11268",
-    "escudo": "saobernardo",
-    "amarelos": 5,
-    "vermelhos": 1,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
-   },
-   {
     "nome": "Jota",
     "time": "20851",
     "escudo": "athleticbr",
@@ -3126,12 +3143,17 @@
     "vermelhos": 1,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
+   },
+   {
+    "nome": "João Miguel Da Costa Pereira",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
    },
    {
     "nome": "Lucas Mineiro",
@@ -3195,15 +3217,9 @@
     "escudo": "athleticbr",
     "amarelos": 5,
     "vermelhos": 1,
-    "motivo": "vermelho",
     "ciclo": 2,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "suspenso": false,
+    "pendurado": true
    },
    {
     "nome": "Maílton dos Santos",
@@ -3269,16 +3285,6 @@
      "contra": "América Mineiro",
      "jogo": "401860432"
     }
-   },
-   {
-    "nome": "Augusto",
-    "time": "11268",
-    "escudo": "saobernardo",
-    "amarelos": 6,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Aylon",
@@ -3407,16 +3413,6 @@
     "pendurado": false
    },
    {
-    "nome": "João Miguel Da Costa Pereira",
-    "time": "20851",
-    "escudo": "athleticbr",
-    "amarelos": 4,
-    "vermelhos": 1,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Juan Miritello",
     "time": "6272",
     "escudo": "fortaleza",
@@ -3469,12 +3465,7 @@
     "vermelhos": 2,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Lucas Marques",
@@ -3670,12 +3661,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "André Luis",
@@ -3856,12 +3842,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Fábio Augusto Schirmann",
@@ -4208,12 +4189,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Rodrigo Sam",
@@ -4274,12 +4250,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Willian Maranhão",
@@ -4329,12 +4300,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Anderson Jesus",
@@ -5152,6 +5118,16 @@
     "pendurado": false
    },
    {
+    "nome": "Hugo",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Igor Henrique",
     "time": "10357",
     "escudo": "atleticogo",
@@ -5437,15 +5413,9 @@
     "escudo": "saobernardo",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Matheus Ribeiro",
@@ -6153,12 +6123,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Edson Pereira",
@@ -6223,12 +6188,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Fabiano",
@@ -6281,6 +6241,16 @@
     }
    },
    {
+    "nome": "Felipe Vieira",
+    "time": "20851",
+    "escudo": "athleticbr",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
     "nome": "Gabriel",
     "time": "18127",
     "escudo": "novorizontino",
@@ -6306,6 +6276,16 @@
     "pendurado": true
    },
    {
+    "nome": "Galdino",
+    "time": "11268",
+    "escudo": "saobernardo",
+    "amarelos": 0,
+    "vermelhos": 1,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Gebson",
     "time": "10357",
     "escudo": "atleticogo",
@@ -6328,12 +6308,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Guilherme Baldória",
@@ -6451,21 +6426,6 @@
     }
    },
    {
-    "nome": "Hugo",
-    "time": "11268",
-    "escudo": "saobernardo",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
-   },
-   {
     "nome": "Hyoran",
     "time": "11268",
     "escudo": "saobernardo",
@@ -6473,12 +6433,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Igor Cariús",
@@ -6658,12 +6613,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Lucas Mugni",
@@ -6763,12 +6713,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "Athletic",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Manoel",
@@ -6793,12 +6738,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Marcos Vinicius",
@@ -7133,12 +7073,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T23:00Z",
-     "contra": "São Bernardo",
-     "jogo": "401860436"
-    }
+    "pendurado": true
    },
    {
     "nome": "Ruan Rodrigues Carvalho",
@@ -7866,16 +7801,6 @@
     "pendurado": false
    },
    {
-    "nome": "Felipe Vieira",
-    "time": "20851",
-    "escudo": "athleticbr",
-    "amarelos": 1,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Fernando",
     "time": "9969",
     "escudo": "ceara",
@@ -8049,6 +7974,16 @@
     "nome": "Guilherme Parede",
     "time": "6154",
     "escudo": "americamg",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Silva",
+    "time": "20851",
+    "escudo": "athleticbr",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
