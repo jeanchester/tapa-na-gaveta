@@ -31,7 +31,7 @@ Escreva aqui.
 
 ## Quem briga pela vaga
 
-{{chances pre}}
+{{chances libertadores}}
 
 <!-- Quem está entre o 5º e o 8º, a tabela que falta, quem tem mais chance de pegar a vaga. -->
 
