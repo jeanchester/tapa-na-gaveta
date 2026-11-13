@@ -125,7 +125,7 @@ function casca(p, corpo, volta, cta) {
   cta = cta || { href: volta + '#/simulador', rotulo: 'Simular' };
   const ir = cta.redirecionarComParametros
     ? '  <script>if (location.search) location.replace("' + volta + cta.redirecionarComParametros + '?" + location.search.slice(1));</script>\n' : '';
-  const nav = [['brasileirao-2026/', 'Brasileirão 2026']].concat(TEXTOS.map((x) => [x.caminho, x.curto]), [['jogar/draft/', 'Football Draft'], ['jogar/milhao/', 'Jogo do Milhão'], ['jogar/fast/', 'Fast Football']]);
+  const nav = [['brasileirao-2026/', 'Brasileirão 2026'], ['analises/', 'Análises']].concat(TEXTOS.map((x) => [x.caminho, x.curto]), [['jogar/draft/', 'Football Draft'], ['jogar/milhao/', 'Jogo do Milhão'], ['jogar/fast/', 'Fast Football']]);
   return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n' + ir + '  ' + meta(p) +
     '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="' + volta + 'app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="stylesheet" href="' + volta + 'app/app.css">\n</head>\n<body>\n' +
     '  <header class="head"><div class="wrap head-row"><a class="marca" href="' + volta + '" aria-label="Tapa na Gaveta, início"><b style="font:900 19px var(--f-num);color:#fff;white-space:nowrap;display:inline-block;transform:skewX(-6deg)">tapa na <span style="color:#ffc23d">gaveta</span></b></a><span class="sp"></span>' +
@@ -145,7 +145,7 @@ TEXTOS.forEach((t) => {
   gravar(t.caminho + 'index.html', casca(p, corpo, '../'));
   paginas.push(p);
 });
-const geradas = require('./paginas-texto.js')({ raiz, gravar, casca, esc });
+const geradas = require('./paginas-texto.js')({ raiz, gravar, casca, esc }).concat(require('./analises.js')({ raiz, gravar, casca, esc }));
 // troca as entradas antigas (só redirecionamento) pelas páginas com texto
 geradas.forEach((g) => {
   const k = paginas.findIndex((p) => p.caminho === g.caminho);
