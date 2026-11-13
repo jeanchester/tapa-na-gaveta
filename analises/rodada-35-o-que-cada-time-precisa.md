@@ -17,11 +17,11 @@ Repare em uma coisa na tabela: o placar mais provável de quase todos os jogos �
 
 ## O jogo da rodada: Grêmio x Bahia
 
-Nenhum jogo mexe em tanta coisa ao mesmo tempo. O Grêmio é o 18º, com 37 pontos, e começa a rodada caindo em pouco mais da metade das simulações. O Bahia é o 6º, com 53, e briga por vaga na Libertadores. Com o mesmo resultado, um lado da tabela sobe e o outro desce.
+Nenhum jogo mexe em tanta coisa ao mesmo tempo. O Grêmio é o 18º, com 37 pontos, e começa a rodada caindo em pouco mais da metade das simulações. E chega desfalcado: [Villasante e Kannemann estão suspensos](https://netvasco.com.br/n/395935/vasco-pode-garantir-vaga-direta-na-libertadores-se-enfrentar-o-gremio-na-final-da-copa-do-brasil-e-o-rival-for-rebaixado). O Bahia é o 6º, com 53, e briga por vaga na Libertadores. Com o mesmo resultado, um lado da tabela sobe e o outro desce.
 
 Pelo modelo, uma vitória gremista derruba o risco de queda do time para algo perto de 28%. Uma derrota em casa leva esse risco para perto de 70%. Do lado baiano, vencer em Porto Alegre deixa o Bahia com vaga na Libertadores, direta ou pela pré, em mais de 95% dos cenários. Perder baixa para cerca de 70%.
 
-E tem um detalhe que só existe este ano: o Grêmio está na final da Copa do Brasil, contra o Palmeiras, em 6 de dezembro, e o finalista só joga a Libertadores se ficar na Série A. Para o Grêmio, escapar do rebaixamento vale também uma vaga continental. Para todo mundo que briga do 5º ao 7º lugar, a posição final do Grêmio muda quantas vagas sobram na tabela. A regra completa está na [página de critérios e vagas](../../criterios-de-desempate/).
+E tem um detalhe que só existe este ano: o Grêmio está na final da Copa do Brasil, contra o Palmeiras, em 6 de dezembro, e o finalista só joga a Libertadores se ficar na Série A. Para o Grêmio, escapar do rebaixamento vale também uma vaga continental. Para todo mundo que briga do 5º ao 7º lugar, a posição final do Grêmio muda quantas vagas sobram na tabela. A regra completa, com as finais continentais que ainda podem abrir mais vagas, está na [análise sobre as vagas da Libertadores](../libertadores-g6-copa-do-brasil/).
 
 ## Na briga pelo título
 
