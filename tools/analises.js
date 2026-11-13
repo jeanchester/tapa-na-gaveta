@@ -2,7 +2,7 @@
 //   analises/<slug>.md  →  analises/<slug>/index.html   (e a lista em analises/index.html)
 // O texto é Markdown simples (veja analises/LEIA-ME.md). Os quadros entram com uma linha {{...}}:
 //   {{tabela 15-20}}          classificação de hoje, do 15º ao 20º (zonas com a regra da Copa do Brasil)
-//   {{chances rb}}            chance de cada time terminar na zona (rb, lib, pre, sula ou titulo)
+//   {{chances rb}}            chance de cada time terminar na zona (rb, libertadores, lib, pre, sula ou titulo)
 //   {{rodada 35}}             jogos da rodada com as chances de cada resultado e o placar mais provável
 //   {{time COR}}              ficha do time: posição, pontos, jogos que faltam e chances
 //   {{simular COR}}           botão para simular os jogos do time no site
@@ -15,7 +15,7 @@ const C = require('../shared/simulador-core.js');
 
 const N_SIM = 20000, SEMENTE = 2026;
 const CURTO = { athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
-const ZNOME = { titulo: 'título', lib: 'Libertadores (fase de grupos)', pre: 'pré-Libertadores', sula: 'Sul-Americana', rb: 'rebaixamento' };
+const ZNOME = { titulo: 'título', libertadores: 'Libertadores (fase de grupos ou pré)', lib: 'Libertadores (fase de grupos)', pre: 'pré-Libertadores', sula: 'Sul-Americana', rb: 'rebaixamento' };
 
 function lerArtigo(arq) {
   const bruto = fs.readFileSync(arq, 'utf8').replace(/\r\n/g, '\n');
@@ -66,22 +66,23 @@ function gerar(o) {
       },
       chances(arg) {
         const z = (arg || 'rb').trim();
-        if (!ZNOME[z]) throw new Error('{{chances ' + z + '}}: use titulo, lib, pre, sula ou rb');
-        const lista = ch.filter((c) => c[z] >= 0.005).sort((a, b) => b[z] - a[z]);
+        if (!ZNOME[z]) throw new Error('{{chances ' + z + '}}: use titulo, libertadores, lib, pre, sula ou rb');
+        const v = (c) => (z === 'libertadores' ? (c.lib || 0) + (c.pre || 0) : c[z] || 0);
+        const lista = ch.filter((c) => v(c) >= 0.005).sort((a, b) => v(b) - v(a));
         return '<div class="tabela-rola"><table class="tab"><caption>Chance de ' + esc(ZNOME[z]) + '</caption><tbody>' +
-          lista.map((c) => '<tr><td class="esq">' + escudo(c.i, 20) + link(c.i) + ' <small>(' + posDe[c.i] + 'º)</small></td><td class="barra-td"><span class="barra-pct" style="width:' + Math.max(2, Math.round(c[z] * 100)) + '%"></span></td><td><b>' + pct(c[z]) + '</b></td></tr>').join('') +
+          lista.map((c) => '<tr><td class="esq">' + escudo(c.i, 20) + link(c.i) + ' <small>(' + posDe[c.i] + 'º)</small></td><td class="barra-td"><span class="barra-pct" style="width:' + Math.max(2, Math.round(v(c) * 100)) + '%"></span></td><td><b>' + pct(v(c)) + '</b></td></tr>').join('') +
           '</tbody></table></div>' + nota;
       },
       rodada(arg) {
         const r = Number(arg);
         const js = L.jogos.filter((j) => j.rodada === r).sort((a, b) => (a.data < b.data ? -1 : 1));
         if (!js.length) throw new Error('{{rodada ' + arg + '}}: rodada sem jogos');
-        return '<div class="tabela-rola"><table class="tab tab-jogos"><caption>Rodada ' + r + '</caption><thead><tr><th class="esq">Data</th><th class="esq">Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th><th>Provável</th></tr></thead><tbody>' +
+        return '<div class="tabela-rola"><table class="tab tab-jogos"><caption>Rodada ' + r + '</caption><thead><tr><th class="esq">Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th><th>Provável</th></tr></thead><tbody>' +
           js.map((j) => {
             const d = new Date(j.data), dia = fJogo.format(d).replace('.', '').replace(',', '');
-            if (j.feito) return '<tr><td class="esq">' + esc(dia) + '</td><td class="esq">' + escudo(j.h, 18) + link(j.h) + ' <b>' + j.gh + ' x ' + j.ga + '</b> ' + escudo(j.a, 18) + link(j.a) + '</td><td colspan="4"><small>encerrado</small></td></tr>';
+            if (j.feito) return '<tr><td class="esq jogo2"><small>' + esc(dia) + '</small><br>' + escudo(j.h, 18) + link(j.h) + ' <b>' + j.gh + '</b><br>' + escudo(j.a, 18) + link(j.a) + ' <b>' + j.ga + '</b></td><td colspan="4"><small>encerrado</small></td></tr>';
             const p = M.prob(j.h, j.a);
-            return '<tr><td class="esq">' + esc(dia) + '</td><td class="esq">' + escudo(j.h, 18) + link(j.h) + ' x ' + escudo(j.a, 18) + link(j.a) + '</td><td>' + pct(p.ph) + '</td><td>' + pct(p.pd) + '</td><td>' + pct(p.pa) + '</td><td>' + p.provavel[0] + ' x ' + p.provavel[1] + '</td></tr>';
+            return '<tr><td class="esq jogo2"><small>' + esc(dia) + '</small><br>' + escudo(j.h, 18) + link(j.h) + '<br>' + escudo(j.a, 18) + link(j.a) + '</td><td>' + pct(p.ph) + '</td><td>' + pct(p.pd) + '</td><td>' + pct(p.pa) + '</td><td>' + p.provavel[0] + ' x ' + p.provavel[1] + '</td></tr>';
           }).join('') + '</tbody></table></div>' + nota;
       },
       time(arg) {

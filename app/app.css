@@ -1082,6 +1082,8 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 .texto .tab .barra-td { width: 30%; min-width: 70px; }
 .texto .tab .barra-pct { display: block; height: 8px; border-radius: 4px; background: var(--brand-ink); }
 .texto .cta-simular { margin: 16px 0; }
+.texto .tab td.jogo2 { line-height: 1.7; }
+.texto .tab td.jogo2 small { font-size: 12px; }
 .texto .cta-simular .btn { background: var(--gold); border-color: var(--gold); color: #0b1640; text-decoration: none; }
 .lista-analises { list-style: none; padding: 0; }
 .texto .lista-analises li { display: flex; flex-direction: column; gap: 3px; padding: 14px 0; border-bottom: 1px solid var(--line); }

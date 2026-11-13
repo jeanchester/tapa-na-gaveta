@@ -37,7 +37,7 @@ Markdown simples:
 Uma linha sozinha, entre linhas em branco:
 
 - `{{tabela 15-20}}` classificação de hoje, do 15º ao 20º (as faixas já seguem a regra da Copa do Brasil)
-- `{{chances rb}}` chance de cada time cair (troque por `titulo`, `lib`, `pre` ou `sula`)
+- `{{chances rb}}` chance de cada time cair (troque por `titulo`, `libertadores`, `lib`, `pre` ou `sula`)
 - `{{rodada 35}}` jogos da rodada com as chances e o placar mais provável
 - `{{time COR}}` ficha do time (use a sigla: FLA, PAL, COR, GRE, MIR, VIT, REMO, CHA...)
 - `{{simular COR}}` botão para simular os jogos do time no site
