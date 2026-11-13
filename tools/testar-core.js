@@ -224,6 +224,26 @@ grupo('dados das versões antigas (arquivo único)', () => {
   ok(C.decodificarAntigo(L, '!!') === null, 'link antigo quebrado não quebra o site');
 });
 
+grupo('vagas: Copa do Brasil e campeões continentais', () => {
+  const fs2 = require('fs'), path2 = require('path');
+  const liga = JSON.parse(fs2.readFileSync(path2.join(__dirname, '../dados/brasileirao-2026.json'), 'utf8'));
+  const base = JSON.parse(fs2.readFileSync(path2.join(__dirname, '../shared/regras-brasileirao-2026.json'), 'utf8'));
+  const zonas = (camp, mover) => {
+    const r = JSON.parse(JSON.stringify(base)); r.campeoes = camp || {};
+    const L = C.preparar(liga, r); const tab = C.tabela(L, {}).slice();
+    if (mover) { const i = L.times.findIndex((t) => t.abrev === mover[0]), k = tab.findIndex((x) => x.i === i); const x = tab.splice(k, 1)[0]; tab.splice(mover[1] - 1, 0, x); }
+    const zs = C.zonasTab(L, tab); const m = {}; tab.forEach((x, k) => { m[L.times[x.i].abrev] = zs[k]; });
+    return { zs, m, n: zs.filter((z) => z === 'lib' || z === 'pre').length };
+  };
+  ok(zonas().n === 7, 'Grêmio no Z4: 7 vagas (5 grupos + 2 pré)');
+  ok(zonas(null, ['GRE', 10]).n === 7 && zonas(null, ['GRE', 10]).m.GRE === 'lib', 'Grêmio 10º: leva a vaga da Copa e a tabela fica com 6');
+  const pal = zonas({ libertadores: 'PAL' });
+  ok(pal.n === 8 && pal.m.BAH === 'lib', 'Palmeiras campeão da Libertadores: mais uma vaga na tabela');
+  ok(zonas({ libertadores: 'PAL', sula: 'CAM' }).n === 9, 'G9: Palmeiras e Atlético-MG campeões, Grêmio rebaixado');
+  const cam12 = zonas({ sula: 'CAM' }, ['CAM', 12]);
+  ok(cam12.n === 8 && cam12.m.CAM === 'lib', 'Galo campeão da Sul-Americana fora da zona: entra, mas não abre vaga para os outros');
+});
+
 grupo('elencos: cruzamento com a ESPN', () => {
   const EL = require('../shared/elencos.js');
   ok(EL.parecenca('E. Pulgar', { n: 'Erick Pulgar', curto: 'E. Pulgar' }) === 3, 'nome abreviado igual ao curto da ESPN');

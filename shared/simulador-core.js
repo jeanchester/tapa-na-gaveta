@@ -222,17 +222,27 @@
     if (tab.zs) return tab.zs;
     const R = L.regras, zs = [];
     for (let p = 1; p <= tab.length; p++) zs.push(zonaDe(R, p));
-    const cp = R.copa, gi = cp ? L.times.findIndex((t) => t.abrev === cp.time) : -1;
+    // Times com vaga na Libertadores por fora da tabela: o finalista da Copa do Brasil (regras.copa) e,
+    // depois das finais, os campeões brasileiros da Libertadores e da Sul-Americana
+    // (regras.campeoes = { libertadores: 'PAL', sula: 'CAM' }). Cada um só vale se ficar na Série A;
+    // quem vale fica marcado como Libertadores e é pulado na contagem das vagas da tabela, que
+    // descem para o próximo da fila. Se o finalista da Copa cair, a vaga dele vira mais uma de
+    // fase de grupos para a tabela.
     const lib = R.zonas.find((z) => z.id === 'lib'), pre = R.zonas.find((z) => z.id === 'pre');
     const sula = R.zonas.find((z) => z.id === 'sula'), rb = R.zonas.find((z) => z.id === 'rb');
-    if (gi >= 0 && lib && pre && sula && rb) {
-      const g = tab.findIndex((x) => x.i === gi) + 1, elegivel = g < rb.de;
-      const nLib = lib.ate - lib.de + 1 + (elegivel ? 0 : 1), nPre = pre.ate - pre.de + 1, nSula = sula.ate - sula.de + 1;
+    const idx = (ab) => L.times.findIndex((t) => t.abrev === ab);
+    const cp = R.copa, gi = cp ? idx(cp.time) : -1;
+    const camp = R.campeoes ? [R.campeoes.libertadores, R.campeoes.sula].filter(Boolean).map(idx).filter((i) => i >= 0) : [];
+    if ((gi >= 0 || camp.length) && lib && pre && sula && rb) {
+      const posDe = (i) => tab.findIndex((x) => x.i === i) + 1;
+      const g = gi >= 0 ? posDe(gi) : 0, copaCaiu = gi >= 0 && g >= rb.de;
+      const reserv = new Set([gi, ...camp].filter((i) => i >= 0 && posDe(i) < rb.de).map(posDe));
+      const nLib = lib.ate - lib.de + 1 + (copaCaiu ? 1 : 0), nPre = pre.ate - pre.de + 1, nSula = sula.ate - sula.de + 1;
       for (let p = 1; p <= tab.length; p++) zs[p - 1] = null;
-      if (elegivel) zs[g - 1] = 'lib';
+      reserv.forEach((p) => { zs[p - 1] = 'lib'; });
       let k = 0;
       for (let p = 1; p < rb.de; p++) {
-        if (elegivel && p === g) continue;
+        if (reserv.has(p)) continue;
         zs[p - 1] = k < nLib ? 'lib' : k < nLib + nPre ? 'pre' : k < nLib + nPre + nSula ? 'sula' : null;
         k++;
       }
