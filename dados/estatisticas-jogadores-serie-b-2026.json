@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T17:25:37",
+ "atualizado": "2026-11-13T01:43:06",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -1824,6 +1824,12 @@
    "n": 1
   },
   {
+   "nome": "Dudu",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
    "nome": "Emerson Santos",
    "time": "6154",
    "escudo": "americamg",
@@ -2298,6 +2304,12 @@
    "n": 1
   },
   {
+   "nome": "Nicolas Schulz",
+   "time": "18187",
+   "escudo": "operario",
+   "n": 1
+  },
+  {
    "nome": "Nicolás Ferreira",
    "time": "9969",
    "escudo": "ceara",
@@ -2623,12 +2635,7 @@
     "vermelhos": 1,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Eduardo",
@@ -2899,12 +2906,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Guilherme Almeida",
@@ -2949,12 +2951,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Lucas Lovat",
@@ -3014,12 +3011,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Wenderson",
@@ -3445,15 +3437,9 @@
     "escudo": "operario",
     "amarelos": 6,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Júlio César",
@@ -3940,12 +3926,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "José Domingo Moraes Neto",
@@ -4156,12 +4137,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Nicolas Careca",
@@ -4388,12 +4364,7 @@
     "vermelhos": 1,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Douglas Baggio",
@@ -4499,6 +4470,16 @@
     "nome": "Guilherme Aquino",
     "time": "9966",
     "escudo": "avai",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gustavo Teles",
+    "time": "3459",
+    "escudo": "pontepreta",
     "amarelos": 4,
     "vermelhos": 0,
     "ciclo": 1,
@@ -4743,12 +4724,7 @@
     "vermelhos": 1,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Rómulo Otero",
@@ -5006,6 +4982,16 @@
     "pendurado": false
    },
    {
+    "nome": "Emanuell Silva Ferreira",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Ericson",
     "time": "10281",
     "escudo": "botafogosp",
@@ -5071,15 +5057,9 @@
     "escudo": "operario",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Gabriel Fuentes",
@@ -5145,16 +5125,6 @@
     "nome": "Gustavo Maia",
     "time": "10357",
     "escudo": "atleticogo",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Gustavo Teles",
-    "time": "3459",
-    "escudo": "pontepreta",
     "amarelos": 3,
     "vermelhos": 0,
     "ciclo": 0,
@@ -5333,6 +5303,16 @@
     "nome": "Leo Naldi",
     "time": "18127",
     "escudo": "novorizontino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Leonardo Erig Daitx",
+    "time": "18187",
+    "escudo": "operario",
     "amarelos": 3,
     "vermelhos": 0,
     "ciclo": 0,
@@ -6093,12 +6073,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "David Conceição",
@@ -6108,12 +6083,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Del Piage",
@@ -6148,12 +6118,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Diego Porfirio",
@@ -6163,12 +6128,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Douglas Mendes",
@@ -6243,21 +6203,6 @@
      "data": "2026-11-14T19:30Z",
      "contra": "Fortaleza",
      "jogo": "401860437"
-    }
-   },
-   {
-    "nome": "Emanuell Silva Ferreira",
-    "time": "3459",
-    "escudo": "pontepreta",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
     }
    },
    {
@@ -6358,12 +6303,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Gebson",
@@ -6653,12 +6593,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Leo Jacó",
@@ -6673,21 +6608,6 @@
      "data": "2026-11-14T19:30Z",
      "contra": "Cuiabá",
      "jogo": "401860440"
-    }
-   },
-   {
-    "nome": "Leonardo Erig Daitx",
-    "time": "18187",
-    "escudo": "operario",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Ponte Preta",
-     "jogo": "401860434"
     }
    },
    {
@@ -6903,12 +6823,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Mauricio Kozlinski",
@@ -6974,6 +6889,16 @@
      "contra": "Cuiabá",
      "jogo": "401860440"
     }
+   },
+   {
+    "nome": "Nicolas Schulz",
+    "time": "18187",
+    "escudo": "operario",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
    },
    {
     "nome": "Nicolás",
@@ -7168,12 +7093,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Ronald",
@@ -7313,12 +7233,7 @@
     "vermelhos": 0,
     "ciclo": 2,
     "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-12T22:00Z",
-     "contra": "Operário PR",
-     "jogo": "401860434"
-    }
+    "pendurado": true
    },
    {
     "nome": "Tavinho",
@@ -8714,16 +8629,6 @@
     "nome": "Neris",
     "time": "6272",
     "escudo": "fortaleza",
-    "amarelos": 1,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Nicolas Schulz",
-    "time": "18187",
-    "escudo": "operario",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,

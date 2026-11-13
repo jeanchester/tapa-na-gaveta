@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-12T17:25:42",
+ "atualizado": "2026-11-13T01:43:10",
  "artilheiros": [
   {
    "nome": "Gustavo Varela",
@@ -1284,6 +1284,12 @@
    "n": 1
   },
   {
+   "nome": "Joao Victor",
+   "time": "109",
+   "escudo": "fiorentina",
+   "n": 1
+  },
+  {
    "nome": "Joel Monteiro",
    "time": "113",
    "escudo": "lecce",
@@ -1305,12 +1311,6 @@
    "nome": "Josh Doig",
    "time": "3997",
    "escudo": "sassuolo",
-   "n": 1
-  },
-  {
-   "nome": "João Mário",
-   "time": "109",
-   "escudo": "fiorentina",
    "n": 1
   },
   {
