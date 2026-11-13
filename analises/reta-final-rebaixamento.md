@@ -1,76 +1,68 @@
 ---
 titulo: Quem cai no Brasileirão 2026? As contas da zona de rebaixamento
-descricao: Quatro rodadas, duas vagas na Série B ainda em aberto e quatro grandes na briga: quantos pontos livram, a tabela que falta e os confrontos diretos.
+descricao: Quatro rodadas para o fim, duas vagas na Série B ainda em aberto e seis times ameaçados: quantos pontos livram, a tabela que falta e os confrontos diretos.
 data: 2026-11-13
 autor: Jean
 rodada: 35
-rascunho: sim
+rascunho: não
 ---
 
-Em teoria são quatro vagas na Série B. Na prática, a briga é por duas. A Chapecoense já está rebaixada pela matemática. O Remo, com 29 pontos, só chega a 41 se vencer os quatro jogos que faltam, e nem assim escaparia em quase nenhum cenário. Sobram duas vagas na zona para um grupo que tem Corinthians, Grêmio, Internacional e Vitória, e que pode puxar Mirassol e Coritiba se a reta final for ruim.
+A Chapecoense já está rebaixada pela matemática. O Remo, com 29 pontos, só chega a 41 se vencer os quatro jogos que faltam, e mesmo assim escapa em quase nenhum cenário das nossas simulações. Então, das quatro vagas na Série B, sobram duas para decidir, e a disputa por elas envolve seis times: Grêmio, Vitória, Corinthians, Internacional, Mirassol e Coritiba.
 
-É uma briga de camisas pesadas: três dos maiores clubes do país dividem a parte de baixo da tabela com o Vitória. A Data Fifa deu duas semanas para todo mundo pensar no assunto, e a 35ª rodada volta com Corinthians e Grêmio jogando em casa, ao mesmo tempo, na quarta-feira.
+Corinthians, Grêmio e Inter dividindo a parte de baixo da tabela já seria assunto suficiente. Com a Data Fifa no meio, foram duas semanas de conta feita por torcedor de todo lado, e a 35ª rodada volta na quarta-feira com Corinthians e Grêmio jogando em casa, no mesmo horário.
 
 {{tabela 11-20}}
 
 ## Quantos pontos livram
 
-A pergunta que todo torcedor faz é "com quantos pontos o meu time fica". Não existe número fixo, porque depende do que os outros fazem. Mas dá para medir. Simulamos milhares de vezes os jogos que faltam e olhamos quantos pontos o 17º colocado, o primeiro rebaixado, termina tendo:
+Não existe número fixo, porque depende do que os outros fazem, mas dá pra medir. Simulamos milhares de vezes os jogos que faltam e olhamos com quantos pontos termina o 17º colocado, que é o primeiro rebaixado. Em cerca de três de cada cinco simulações ele fica com 41 ou 42. Um time com 42 escapa em mais ou menos metade dos cenários, com 43 escapa em mais de 80%, e com 44 em praticamente todos.
 
-- em cerca de três de cada cinco simulações, o 17º termina com 41 ou 42 pontos;
-- com 42 pontos, um time fica fora da zona em mais ou menos metade dos cenários;
-- com 43, em mais de 80%;
-- com 44, em praticamente todos.
+A linha de segurança, portanto, fica entre 43 e 44 pontos. Corinthians e Grêmio, com 37, precisam de 6 ou 7 pontos nos quatro jogos, o que na prática quer dizer duas vitórias e de preferência um empate. Inter e Vitória, com 38, precisam de 5 ou 6. O Mirassol, com 40, fica bem perto com 3 ou 4, e o Coritiba, com 42, precisa de mais um ou dois pontos.
 
-Ou seja: a linha de segurança está nos 43 ou 44. Para Corinthians e Grêmio, com 37, são de 6 a 7 pontos em quatro jogos: duas vitórias e, de preferência, um empate. Para Inter e Vitória, com 38, de 5 a 6 pontos. Para o Mirassol, com 40, três ou quatro pontos já colocam o time num lugar confortável.
-
-Lembrando que o primeiro critério de desempate é o número de vitórias, antes do saldo de gols. Um time que empata muito pode ficar atrás de outro com os mesmos pontos e mais vitórias. Os critérios estão todos [nesta página](../../criterios-de-desempate/).
+O primeiro critério de desempate é o número de vitórias, que vem antes do saldo de gols. Time que empata muito pode ficar atrás de outro com os mesmos pontos. A lista completa está [nesta página](../../criterios-de-desempate/).
 
 {{chances rb}}
 
 ## Os confrontos diretos
 
-São os jogos que valem "seis pontos": quem vence soma três e ainda tira três de um concorrente. Nas quatro rodadas que faltam, eles são:
+São os jogos de seis pontos, em que quem ganha soma três e ainda tira três de um concorrente. Na 36ª rodada tem Internacional x Vitória no Beira-Rio, com 56% de vitória colorada pelo modelo, o maior favoritismo entre dois times ameaçados. Na 37ª, Corinthians x Grêmio em Itaquera, e os dois hoje estão empatados com 37 pontos, então é bem possível que cheguem a esse jogo ainda dentro da zona.
 
-- **Rodada 36: Internacional x Vitória**, no Beira-Rio. O modelo dá 56% de vitória colorada, o maior favoritismo de um time ameaçado contra outro.
-- **Rodada 37: Corinthians x Grêmio**, em Itaquera. Hoje os dois estão empatados em 37 pontos, e é bem possível que cheguem a esse jogo ainda dentro da zona.
-- **Rodada 38: Grêmio x Mirassol**, em Porto Alegre, e **Remo x Corinthians**, em Belém. Na última rodada, o Corinthians enfrenta um time que provavelmente já não terá nada a jogar.
-- **Rodada 38: Vasco x Vitória**, no Rio. O Vitória fecha o campeonato fora de casa contra um time que deve estar tranquilo.
+A última rodada tem Grêmio x Mirassol em Porto Alegre, Vasco x Vitória no Rio e Remo x Corinthians em Belém, provavelmente contra um Remo que já não terá nada em jogo.
 
 ## Time a time
 
-{{time COR}}
-
-**Corinthians.** O Timão tem a tabela mais equilibrada do grupo: Botafogo e Grêmio em casa, Atlético-MG e Remo fora. O problema é o elenco. Contra o Botafogo, o time não terá [Yuri Alberto, Matheus Pereira e André Ramalho, todos suspensos](https://lesnouvellesdufoot.fr/yuri-alberto-expulse-lors-du-derby-deux-autres-joueurs-de-corinthians-suspendus-pour-le-match-contre-botafogo/), e Garro ainda se recupera. Os dois, Yuri e Garro, participaram de [quase metade dos gols do Corinthians no Brasileirão](https://www.oliberal.com/esportes/corinthians-encara-sequencia-decisiva-sem-dupla-responsavel-por-quase-metade-dos-gols-no-ano-1.1192183). A rodada 35 é a mais importante do ano: com vitória, o risco de queda cai para perto de um em quatro. Com derrota, sobe para dois em três.
-
 {{time GRE}}
 
-**Grêmio.** A situação mais estranha do campeonato. O Grêmio está na final da Copa do Brasil, contra o Palmeiras, em 6 de dezembro, e ao mesmo tempo no Z4. A conquista da Copa ou a vaga de finalista só levam o time à Libertadores se ele ficar na Série A. A tabela pesa: Bahia em casa, Santos fora, Corinthians fora e Mirassol em casa. Na soma dos quatro jogos, o modelo projeta cerca de cinco pontos, o que deixaria o Grêmio por volta dos 42, justamente na linha de corte. E a final, poucos dias depois do fim do Brasileirão, vai disputar atenção com o campeonato até o último jogo.
+O Grêmio vive a situação mais estranha do campeonato. Está na final da Copa do Brasil contra o Palmeiras, em 6 de dezembro, e ao mesmo tempo no Z4, e a vaga na Libertadores que a final garante só vale se o time ficar na Série A. A tabela que falta é pesada, com Bahia e Mirassol em casa e Santos e Corinthians fora. O modelo projeta uns cinco pontos nesses quatro jogos, o que deixaria o Grêmio por volta dos 42, bem em cima da linha. E contra o Bahia o time ainda joga sem [Villasante e Kannemann, suspensos](https://netvasco.com.br/n/395935/vasco-pode-garantir-vaga-direta-na-libertadores-se-enfrentar-o-gremio-na-final-da-copa-do-brasil-e-o-rival-for-rebaixado).
 
 {{time VIT}}
 
-**Vitória.** O Vitória trocou de técnico na reta final. Jair Ventura saiu depois da [derrota para o Coritiba no Couto Pereira](https://www.dgabc.com.br/Noticia/4366400/troca-de-comando-vitoria-anuncia-a-demissao-do-tecnico-jair-ventura-), um confronto direto. É o time com a tabela mais difícil entre os quatro mais ameaçados: só joga duas vezes em casa, contra Bragantino e Santos, e visita Inter e Vasco. Por isso aparece entre os que mais caem nas simulações, mesmo estando hoje fora da zona.
+O Vitória trocou de técnico na reta final, depois da [derrota para o Coritiba no Couto Pereira](https://www.dgabc.com.br/Noticia/4366400/troca-de-comando-vitoria-anuncia-a-demissao-do-tecnico-jair-ventura-), que era confronto direto. Entre os quatro com mais risco, tem a tabela mais dura, com só dois jogos em casa (Bragantino e Santos) e visitas a Inter e Vasco. É por isso que aparece entre os que mais caem nas simulações mesmo estando hoje fora da zona.
+
+{{time COR}}
+
+O Corinthians tem a tabela mais equilibrada do grupo, com Botafogo e Grêmio em casa e Atlético-MG e Remo fora. O problema é o elenco. Contra o Botafogo o time não terá [Yuri Alberto, Matheus Pereira e André Ramalho](https://lesnouvellesdufoot.fr/yuri-alberto-expulse-lors-du-derby-deux-autres-joueurs-de-corinthians-suspendus-pour-le-match-contre-botafogo/), todos suspensos, e Garro ainda se recupera. Yuri e Garro participaram juntos de [quase metade dos gols do time no Brasileirão](https://www.oliberal.com/esportes/corinthians-encara-sequencia-decisiva-sem-dupla-responsavel-por-quase-metade-dos-gols-no-ano-1.1192183). Se vencer o Botafogo, o risco de queda cai para perto de um em quatro, e se perder sobe para dois em três.
 
 {{time INT}}
 
-**Internacional.** O Inter chegou à Data Fifa com uma vitória sobre o Coritiba, que [derrubou bastante o risco de queda](https://www.band.com.br/esportes/futebol/times/corinthians/risco-de-rebaixamento-do-corinthians-aumenta-apos-derrota-do-vitoria-veja). A tabela tem dois jogos em casa a favor, contra Vitória e Bragantino, e duas visitas difíceis, a Vasco e Cruzeiro. A rodada 36, contra o Vitória no Beira-Rio, é o jogo que mais pode decidir a vida colorada.
+O Inter chegou à Data Fifa vindo de uma vitória sobre o Coritiba que [derrubou bastante o risco de queda](https://www.band.com.br/esportes/futebol/times/corinthians/risco-de-rebaixamento-do-corinthians-aumenta-apos-derrota-do-vitoria-veja). Tem dois jogos em casa a favor, contra Vitória e Bragantino, e duas visitas complicadas, a Vasco e Cruzeiro. O jogo com o Vitória no Beira-Rio, na 36ª, é o que mais pode decidir a vida colorada.
 
 {{time MIR}}
 
-**Mirassol.** Com 40 pontos, o Mirassol é quem está mais perto de sair da briga. Recebe o Atlético-MG neste sábado, abrindo a rodada. Se vencer, chega a 43 e passa a cair em pouquíssimos cenários. Se perder, a chance de queda dobra, e o calendário até o fim não ajuda: Fluminense fora, Athletico em casa e Grêmio fora, na última rodada.
+O Mirassol tem 40 pontos e é quem está mais perto de sair da briga, mas o calendário não ajuda. Abre a rodada neste sábado recebendo o Atlético-MG e, se vencer, chega a 43 e passa a cair em pouquíssimos cenários. Se perder, a chance de queda dobra, e o que vem depois é Fluminense fora, Athletico em casa e Grêmio fora na última rodada, num jogo que pode ser direto pela permanência.
 
-## E o Coritiba?
+{{time CFC}}
 
-O Coritiba tem 42 pontos e aparece pouco nas contas de rebaixamento, mas tem uma das tabelas mais duras do campeonato: Santos em casa, Bahia fora, Flamengo em casa e Palmeiras fora. O modelo projeta pouco mais de três pontos nesses quatro jogos. Se Corinthians, Grêmio, Inter e Vitória reagirem juntos, o Coxa pode ser o time arrastado para a zona sem perceber.
+O Coritiba tem 42 pontos e aparece pouco nas contas, mas tem uma das tabelas mais duras do campeonato, com Santos e Flamengo em casa e Bahia e Palmeiras fora. O modelo projeta pouco mais de três pontos nesses quatro jogos. Se os times de baixo reagirem juntos, o Coxa pode acabar puxado para a zona sem ter feito nada de muito errado.
 
 ## A nossa leitura
 
-<!-- Jean: troque à vontade. Escrevi a leitura a partir dos números; o palpite final é seu. -->
+<!-- Jean: troque à vontade. A leitura abaixo sai dos números; o palpite final é seu. -->
 
-Pelos números, a briga real é entre quatro times por duas vagas: Grêmio, Vitória, Corinthians e Internacional, nessa ordem de risco. O Vitória tem a tabela mais dura dos quatro. Corinthians, Grêmio e Inter têm projeções parecidas, de uns cinco pontos cada, e aí quem decide são os confrontos diretos e o número de vitórias.
+Hoje Grêmio, Vitória e Corinthians são os que mais caem nas simulações, com o Inter um pouco atrás. Mas Mirassol e Coritiba não estão livres, e com duas vagas em disputa basta uma sequência ruim de um deles pra mudar o retrato. O Mirassol depende muito do jogo de sábado, e o Coritiba tem justamente os adversários mais fortes do grupo pela frente.
 
-A gente acha que a quarta-feira, 18 de novembro, já vai mudar muito esse retrato. Corinthians x Botafogo e Grêmio x Bahia acontecem no mesmo horário. Se um dos dois vencer e o outro perder, o que perdeu entra nas últimas três rodadas com a corda no pescoço e um confronto direto contra o outro pela frente.
+A quarta-feira, 18 de novembro, deve mexer bastante nisso. Corinthians x Botafogo e Grêmio x Bahia acontecem no mesmo horário, e se um vencer e o outro perder, quem perdeu entra nas últimas três rodadas pressionado e ainda com o confronto direto entre os dois pela frente.
 
-E você, acha que cai quem? Dá para preencher os placares que faltam no simulador e ver, com os critérios de desempate do regulamento, onde cada time termina.
+Pra montar o seu próprio cenário, dá pra preencher os placares que faltam no simulador e ver, com os critérios de desempate do regulamento, onde cada time termina.
 
 {{simular GRE}}
