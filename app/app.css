@@ -801,7 +801,7 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .texto h3 { font: 800 16px/1.2 var(--f-text); margin: 18px 0 6px; }
 .texto .cta { margin: 18px 0 6px; }
 .texto .cta a { text-decoration: none; }
-.texto .cta .btn { min-height: 48px; padding: 0 22px; font-size: 15px; line-height: 1.2; }
+.texto .cta .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; min-height: 48px; padding: 8px 22px; font-size: 15px; line-height: 1.2; }
 .texto ol { padding-left: 22px; }
 .texto .crest { vertical-align: middle; object-fit: contain; }
 .h1-time { display: flex; align-items: center; gap: 12px; }
