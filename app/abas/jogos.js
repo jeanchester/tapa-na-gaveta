@@ -41,7 +41,8 @@
       '<ul class="fichas">' + JOGOS.map((j) => {
         const a = app(j.app);
         return '<li class="ficha" id="' + j.rota + '"><img src="midia/icones/' + a.id + '.png" alt="" width="88" height="88" loading="lazy">' +
-          '<div><h2>' + esc(j.nome) + '</h2><div class="meta">' + esc(j.meta) + '</div><p>' + esc(j.texto) + '</p></div>' +
+          '<div><h2>' + esc(j.nome) + '</h2><div class="meta">' + esc(j.meta) + '</div><p>' + esc(j.texto) + '</p>' +
+          (window.TNG.ARTIFACT ? '' : '<a class="link-btn como-jogar" href="jogar/' + j.rota + '/">Como jogar</a>') + '</div>' +
           '<div class="acoes">' + (noApp(j) ? PLAY_BTN(a, 'Jogue grátis no') + '<span class="so-app-nota">No celular, só no app</span>'
             : '<a class="btn primario" href="#/jogos/' + j.rota + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M7 4l13 8-13 8z"/></svg>Jogar aqui</a>' + PLAY_BTN(a)) + '</div></li>';
       }).join('') + '</ul>';
