@@ -229,7 +229,7 @@
     const op = (v, n) => '<button data-tema="' + v + '" aria-pressed="' + (t === v) + '">' + n + '</button>';
     // rodapé enxuto: o que interessa é a simulação; aqui só os links obrigatórios e os apps
     $('#rodape').innerHTML = '<div class="wrap">' +
-      '<div class="foot-linha"><nav class="foot-inst" aria-label="Sobre o site"><a href="analises/">Análises</a>' + INSTITUCIONAL.map(([id, n]) => '<a href="#/' + id + '">' + n + '</a>').join('') + '</nav>' +
+      '<div class="foot-linha"><nav class="foot-inst" aria-label="Sobre o site">' + (ARTIFACT ? '' : '<a href="brasileirao-2026/">Brasileirão 2026</a>') + '<a href="analises/">Análises</a>' + INSTITUCIONAL.map(([id, n]) => '<a href="#/' + id + '">' + n + '</a>').join('') + '</nav>' +
       '<div class="foot-apps" aria-label="Nossos apps">' + APPS.map((a) =>
         '<a href="' + esc(playUrl(a.pacote, aba)) + '" target="_blank" rel="noopener" title="' + esc(a.nome) + ' na Google Play" aria-label="' + esc(a.nome) + ' na Google Play"><img src="midia/icones/' + a.id + '.png" alt="" width="36" height="36" loading="lazy"></a>').join('') + '</div></div>' +
       '<div class="foot-base"><p>Tapa na Gaveta · Resultados e calendário: ESPN (dados não oficiais). As probabilidades são calculadas pelo site e não são palpites de aposta.</p>' +

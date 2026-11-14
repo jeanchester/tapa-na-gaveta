@@ -355,6 +355,8 @@
         '<span id="meu-resumo"></span></div>' +
         '<div class="meu-acoes">' +
         '<button class="link-btn" data-a="so-meus">' + (st.soMeus ? 'Ver todos os jogos' : 'Só os jogos ' + esc(de_(meu))) + '</button>' +
+        // página com a análise do time (situação, chances, jogos que faltam): só na Série A publicada
+        (ehSerieA() && !T.ARTIFACT ? '<a class="link-btn" href="simulador/' + esc(meu.slug) + '/">Análise ' + esc(de_(meu)) + '</a>' : '') +
         '<a class="link-btn" href="' + rotaBase() + '">Sair</a></div></div>';
     }
     if (gs.length > 1) {
