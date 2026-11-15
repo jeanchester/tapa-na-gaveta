@@ -195,9 +195,12 @@ grupo('dados das versões antigas (arquivo único)', () => {
   const chave = (h, a) => { const j = L.jogos.find((x) => !x.feito && L.times[x.h].abrev === h && L.times[x.a].abrev === a); return j && j.chave; };
   ok(chave('FLA', 'CAP') === 'flamengo-athletico', 'FLA-CAP vira flamengo-athletico');
   // v4: chaves por siglas; jogo já disputado, sigla desconhecida e lixo ficam de fora; gols até 15
-  const v4 = C.placaresAntigos(L, { 'FLA-CAP': [2, 1], 'CHA-VAS': [20, 0], 'FLA-GRE': [1, 0], 'XXX-FLA': [1, 1], 'PAL-FLA': ['a', 1], 'CRU-PAL': [0, 0, 1] }, { 'CHA-VAS': true });
-  ok(JSON.stringify(v4.p) === JSON.stringify({ 'flamengo-athletico': [2, 1], 'chapecoense-vasco': [15, 0] }), 'v4: só jogos em aberto e placares válidos: ' + JSON.stringify(v4.p));
-  ok(JSON.stringify(v4.sim) === JSON.stringify({ 'chapecoense-vasco': 1 }), 'v4: sorteados continuam marcados');
+  // (CHA-VAS já foi disputado: entra como "jogo encerrado" e fica de fora; o clamp de 15 gols usa um jogo ainda em aberto)
+  const aberto = L.jogos.find((x) => !x.feito && x.chave !== 'flamengo-athletico');
+  const sA = L.times[aberto.h].abrev + '-' + L.times[aberto.a].abrev;
+  const v4 = C.placaresAntigos(L, { 'FLA-CAP': [2, 1], 'CHA-VAS': [1, 0], [sA]: [20, 0], 'FLA-GRE': [1, 0], 'XXX-FLA': [1, 1], 'PAL-FLA': ['a', 1], 'CRU-PAL': [0, 0, 1] }, { [sA]: true, 'CHA-VAS': true });
+  ok(JSON.stringify(v4.p) === JSON.stringify({ 'flamengo-athletico': [2, 1], [aberto.chave]: [15, 0] }), 'v4: só jogos em aberto e placares válidos: ' + JSON.stringify(v4.p));
+  ok(JSON.stringify(v4.sim) === JSON.stringify({ [aberto.chave]: 1 }), 'v4: sorteados continuam marcados');
   // v3: chave é o índice na lista fixa (0 = Vitória x Fluminense, já disputado; 6 = Flamengo x Athletico)
   ok(C.LEGADO_V3.length === 42 && C.LEGADO_V3[6] === 'FLA-CAP', 'lista da v3 com 42 jogos');
   const v3 = C.placaresAntigos(L, { 0: [1, 1], 6: [3, 0], 41: [2, 2] }, {});
