@@ -1626,11 +1626,23 @@
       '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
       (fora ? '<p class="nota po-fora">' + esc(Cap(o_(meu))) + ' terminou em ' + fora.pos + 'º e ficou fora do playoff.</p>' : '') +
       '<div class="po-lista">' + ordem.map((c) => confrontoHtml(c, tab)).join('') + '</div>' +
+      quedaHtml(tab) +
       '<details class="como"><summary>Tabela final dos pontos corridos</summary>' + tabelaHtml(tab, { destaque: meu && meu.i }) + '</details>' +
       '<details class="como"><summary>Como as chances são calculadas</summary>' +
       '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time no campeonato (em casa e fora), da campanha e da forma recente, como no resto do simulador. A conta cruza todos os placares possíveis da ida com todos os da volta, sem sorteio: sobe quem faz mais gols no agregado e, se empatar, quem terminou na frente na tabela.</p>' +
       '<p>Os placares que você preenche entram na conta. Preencha a ida para ver o que cada time precisa na volta.</p></details>';
     pintarPO();
+  }
+
+  // quem caiu (a fase de pontos corridos acabou): fica no fim da página do playoff
+  function quedaHtml(tab) {
+    const rb = st.regras.zonas.find((z) => z.id === 'rb');
+    if (!rb) return '';
+    const lista = tab.slice(rb.de - 1, rb.ate);
+    return '<div class="po-queda"><div class="sec-title"><h2>Caíram para a Série C</h2><small>' + rb.de + 'º ao ' + rb.ate + 'º</small></div><ul>' + lista.map((x) => {
+      const t = st.L.times[x.i];
+      return '<li' + (st.meu && st.meu.i === t.i ? ' class="meu"' : '') + '>' + crest(t) + '<b>' + esc(nome(t)) + '</b><small class="num">' + x.pos + 'º · ' + x.pts + ' pts</small></li>';
+    }).join('') + '</ul></div>';
   }
 
   function confrontoHtml(c, tab) {

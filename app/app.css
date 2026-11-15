@@ -910,7 +910,7 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .sim-cols.compacto .jogo { padding: 6px 10px 8px; border-radius: var(--r); }
 .sim-cols.compacto .j-meta { font-size: 11px; margin-bottom: 4px; min-height: 0; justify-content: flex-start; gap: 6px; }
 .sim-cols.compacto .j-meta .tag { font-size: 10.5px; padding: 1px 6px; }
-.sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 30px; padding: 0 2px; margin-top: -6px; margin-bottom: -6px; color: var(--ink-3); font-size: 11px; font-weight: 700; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 40px; padding: 0 6px; margin-top: -11px; margin-bottom: -11px; color: var(--ink-3); font-size: 11px; font-weight: 700; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .sim-cols.compacto .dado-mini:hover { color: var(--ink); text-decoration-color: currentColor; background: none; }
 .sim-outros .so-pc { display: none; }
 @media (min-width: 760px) { .sim-outros .so-pc { display: inline; } .sim-outros .so-cel { display: none; } }
@@ -975,18 +975,18 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
   .sim-cols.compacto.lado .capa span { font-size: 12.5px; margin: 4px 0 12px; line-height: 1.35; }
   .sim-cols.compacto.lado .capa .btn { width: 100%; min-height: 40px; padding: 6px 6px; font-size: 12.5px; line-height: 1.2; gap: 4px; }
   .sim-cols.compacto.lado .capa .btn svg { display: none; }
-  .sim-cols.compacto.lado #painel-tabela .sec-title .link-btn { font-size: 12px; min-height: 28px; padding: 0 2px; gap: 4px; }
+  .sim-cols.compacto.lado #painel-tabela .sec-title .link-btn { font-size: 12px; min-height: 40px; padding: 0 4px; margin: -6px 0; gap: 4px; }
   .sim-cols.compacto.lado #painel-tabela .sec-title .link-btn svg { width: 14px; height: 14px; }
   .sim-cols.compacto.lado .tbl-box { padding: 0 4px; }
-  .sim-cols.compacto.lado .tbl thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
+  .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) thead th:not(:first-child):not(:nth-child(2)) { padding: 4px 2px; }
   .sim-cols.compacto.lado .tbl thead th.t { font-size: 0; }
   .sim-cols.compacto.lado .tbl td, .sim-cols.compacto.lado .tbl tbody th { height: 30px; padding: 0 2px; font-size: 12.5px; }
   .sim-cols.compacto.lado .tbl td.pos { width: 22px; padding-left: 6px; font-size: 12.5px; }
   .sim-cols.compacto.lado .tbl td.pts { width: 26px; font-size: 13.5px; }
-  .sim-cols.compacto.lado .tbl .t div { gap: 4px; }
-  .sim-cols.compacto.lado .tbl .t span, .sim-cols.compacto.lado .tbl .delta { display: none; }
-  .sim-cols.compacto.lado .tbl .sig { display: inline; font-weight: 800; font-size: 12px; text-decoration: none; }
-  .sim-cols.compacto.lado .tbl .crest { width: 16px; height: 16px; }
+  .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) .t div { gap: 4px; }
+  .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) .t span, .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) .delta { display: none; }   /* na tabela de chances (sem sigla) o nome fica */
+  .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) .sig { display: inline; font-weight: 800; font-size: 12px; text-decoration: none; }
+  .sim-cols.compacto.lado #painel-tabela .tbl:not(.chances) .crest { width: 16px; height: 16px; }
 
   /* jogo só com escudos */
   .sim-cols.compacto.lado .jogos { grid-template-columns: 1fr; gap: 6px; }
@@ -994,7 +994,7 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
   .sim-cols.compacto.lado .j-meta { font-size: 10px; margin-bottom: 2px; }
   .sim-cols.compacto.lado .j-meta > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
   .sim-cols.compacto.lado .j-meta .tag { display: none; }
-  .sim-cols.compacto.lado .dado-mini { min-height: 26px; padding: 0 1px; font-size: 10px; flex: none; }
+  .sim-cols.compacto.lado .dado-mini { min-height: 36px; padding: 0 4px; margin-top: -9px; margin-bottom: -9px; font-size: 10px; flex: none; }
   .sim-cols.compacto.lado .j-meta { gap: 3px; }
   .sim-cols.compacto.lado .j-meta > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .sim-cols.compacto.lado .time .sig { display: none; }
@@ -1011,8 +1011,8 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 }
 @media (max-width: 899px) {
   .sim-cols.compacto.lado .pnum span:nth-child(2)::after { font-size: 10px; }
-  .sim-cols.compacto.lado .tbl thead tr > :nth-child(3) { display: none; }
-  .sim-cols.compacto.lado .tbl tbody tr > :nth-child(4) { display: none; }
+  .sim-cols.compacto.lado .tbl:not(.chances) thead tr > :nth-child(3) { display: none; }
+  .sim-cols.compacto.lado .tbl:not(.chances) tbody tr > :nth-child(4) { display: none; }
 }
 
 /* escolha de visualização: em destaque, principalmente no celular */
@@ -1145,3 +1145,12 @@ select option, select optgroup { background-color: var(--surface); color: var(--
   .po-dois { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .po-barra i, .po-time { transition: none; } }
+
+.po-queda { margin-top: 6px; }
+.po-queda ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.po-queda li { display: flex; align-items: center; gap: 8px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--z-rb); border-radius: var(--r); padding: 8px 10px; }
+.po-queda li .crest { width: 26px; height: 26px; flex: none; }
+.po-queda li b { font-weight: 800; font-size: 14px; line-height: 1.1; min-width: 0; }
+.po-queda li small { margin-left: auto; font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+.po-queda li.meu { border-color: var(--ink); border-left-color: var(--z-rb); }
+@media (max-width: 400px) { .po-queda li { flex-wrap: wrap; } .po-queda li small { margin-left: 34px; flex-basis: 100%; } }
