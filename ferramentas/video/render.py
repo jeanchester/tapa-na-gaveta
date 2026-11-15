@@ -42,6 +42,7 @@ def animar(nome, saida, fps, guia):
         dur = pg.evaluate('VIDEO.duracao')
         inicio = pg.evaluate('VIDEO.inicio()')
         cortes = pg.evaluate('VIDEO.cortes()')
+        ordem = pg.evaluate('VIDEO.ordem ? VIDEO.ordem() : []')
         n = int(round(dur * fps))
         ff = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', str(fps), '-c:v', 'mjpeg', '-i', '-',
                                '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(fps), str(arq)],
@@ -56,7 +57,44 @@ def animar(nome, saida, fps, guia):
         for q in ('sfx', 'trilha'):
             (saida / ('efeitos.wav' if q == 'sfx' else 'trilha.wav')).write_bytes(base64.b64decode(pg.evaluate(f'VIDEO.wav("{q}")')))
         nav.close()
-    return dur, inicio, cortes
+    return dur, inicio, cortes, ordem
+
+
+def filtro_cor(camera):
+    # iPhone grava em HDR (HLG): sem converter para SDR a cor sai lavada/estranha no TikTok
+    return ('zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0,'
+            'zscale=t=bt709:m=bt709:r=tv,format=yuv420p,') if hdr(camera) else ''
+
+
+SDR = ['-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv']
+
+
+def remontar(saida, camera, inicio, ordem, fps):
+    """Remonta a gravação na ordem dos trechos ([[de, até], ...] em segundos depois do inicio) e devolve o
+    arquivo novo, já em SDR, ritmo constante e áudio a 48 kHz, para entrar no montar() sem inicio nem cortes.
+    Cada trecho é cortado pelo número do quadro (imagem) e da amostra (som) e sai num arquivo próprio; a
+    emenda é o concat sem recompressão, então nenhum trecho empurra o som ou a imagem do seguinte."""
+    cfr = saida / 'camera_cfr.mkv'
+    run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', f'{inicio:.3f}', '-i', camera, '-map', '0:v:0', '-map', '0:a:0',
+         '-vf', f'{filtro_cor(camera)}fps={fps}', '-af', 'aresample=48000:async=1:first_pts=0',
+         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '12', '-pix_fmt', 'yuv420p', *SDR, '-c:a', 'pcm_s16le', cfr])
+    spf = 48000 // fps
+    lista = saida / 'trechos.txt'
+    linhas = []
+    for i, (a, b) in enumerate(ordem):
+        fa, fb = round(a * fps), round(b * fps)
+        parte = saida / f'trecho{i:02d}.mkv'
+        run(['ffmpeg', '-y', '-loglevel', 'error', '-i', cfr,
+             '-vf', f"select='between(n,{fa},{fb - 1})',setpts=N/({fps}*TB)",
+             '-af', f'atrim=start_sample={fa * spf}:end_sample={fb * spf},asetpts=PTS-STARTPTS,'
+                    f'afade=t=in:d=0.02,afade=t=out:st={(fb - fa) / fps - .02:.4f}:d=0.02',
+             '-r', str(fps), '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '12', '-pix_fmt', 'yuv420p', *SDR,
+             '-c:a', 'pcm_s16le', parte])
+        linhas.append(f"file '{parte.name}'")
+    lista.write_text('\n'.join(linhas) + '\n')
+    editada = saida / 'camera_remontada.mkv'
+    run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lista, '-c', 'copy', editada])
+    return editada
 
 
 def hdr(camera):
@@ -75,9 +113,7 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     # o áudio é reamostrado com async=1 e first_pts=0, que preenche buracos sem empurrar a voz para frente ou para trás
     # zoom > 1 aproxima o rosto; cy = altura do centro do recorte (0 = topo, 1 = base da gravação)
     lw, lh = int(W * zoom) // 2 * 2, int(h_cam * zoom) // 2 * 2
-    # iPhone grava em HDR (HLG): sem converter para SDR a cor sai lavada/estranha no TikTok
-    cor = ('zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0,'
-           'zscale=t=bt709:m=bt709:r=tv,format=yuv420p,') if hdr(camera) else ''
+    cor = filtro_cor(camera)
     base_v = (f'[1:v]{cor}fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
               f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1")
     base_a = f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}'
@@ -146,18 +182,21 @@ def main():
     saida.mkdir(parents=True, exist_ok=True)
     if a.pular_animacao and (saida / 'animacao.mp4').exists():
         info = json.loads((saida / 'info.json').read_text())
-        dur, inicio, cortes = info['duracao'], info['inicio'], info.get('cortes', [])
+        dur, inicio, cortes, ordem = info['duracao'], info['inicio'], info.get('cortes', []), info.get('ordem', [])
     else:
-        dur, inicio, cortes = animar(a.nome, saida, a.fps, a.guia)
-        (saida / 'info.json').write_text(json.dumps({'duracao': dur, 'inicio': inicio, 'cortes': cortes}))
+        dur, inicio, cortes, ordem = animar(a.nome, saida, a.fps, a.guia)
     if a.inicio is not None:
         inicio = a.inicio
+    (saida / 'info.json').write_text(json.dumps({'duracao': dur, 'inicio': inicio, 'cortes': cortes, 'ordem': ordem}))
     if not a.camera:
         print('animação pronta:', saida / 'animacao.mp4')
         return
-    final = montar(saida, a.nome, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha, a.camera_zoom, a.camera_y, cortes)
+    camera, ini_cam = pathlib.Path(a.camera), inicio
+    if ordem:
+        camera, ini_cam, cortes = remontar(saida, camera, inicio, ordem, a.fps), 0.0, []
+    final = montar(saida, a.nome, camera, ini_cam, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha, a.camera_zoom, a.camera_y, cortes)
     print('vídeo final:', final)
-    print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
+    print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --roteiro {a.nome}')
 
 
 if __name__ == '__main__':

@@ -113,17 +113,47 @@ def recorte_baixo(arq):
     return f'{w}:{h // 2}:0:{h // 2}'
 
 
-def comparar(orig, final, inicio, janela=8.0):
+def pontos_roteiro(nome, fps=FPS):
+    """Com cortes ou ordem, as janelas têm de cair dentro de um trecho mantido, senão a comparação mistura
+    pedaços diferentes da gravação. Lê saida/NOME/info.json (gravado pelo render.py) e devolve uma janela por
+    trecho, dos mais longos: [(tempo no final, tempo na gravação, duração)]."""
+    info = json.loads((pathlib.Path(__file__).resolve().parent / 'saida' / nome / 'info.json').read_text())
+    ini, dur = info.get('inicio', 0.0), info['duracao']
+    q = lambda x: round(x * fps) / fps
+    if info.get('ordem'):
+        trechos = [(q(a), q(b)) for a, b in info['ordem']]
+    else:
+        trechos, t0 = [], 0.0
+        for a, b in sorted((q(a), q(b)) for a, b in info.get('cortes', [])):
+            if a > t0:
+                trechos.append((t0, a))
+            t0 = max(t0, b)
+        trechos.append((t0, t0 + dur - sum(b - a for a, b in trechos)))
+    janelas, acc = [], 0.0
+    for a, b in trechos:
+        n = b - a
+        if n >= 4:
+            j = min(8.0, n - 1.0)
+            janelas.append((acc + (n - j) / 2, ini + a + (n - j) / 2, j))
+        acc += n
+    janelas.sort(key=lambda x: -x[2])
+    return sorted(janelas[:5])
+
+
+def comparar(orig, final, inicio, janela=8.0, roteiro=None):
     dur_final = float(sondar(final)['format']['duration'])
     rec = recorte_baixo(final)
-    pontos = [p for p in np.linspace(1.0, max(1.0, dur_final - janela - 1.0), 4)]
-    print(f'comparando em {len(pontos)} trechos de {janela:.0f} s (lag máx. ±1 s)')
+    if roteiro:
+        js = pontos_roteiro(roteiro)
+    else:
+        js = [(p, inicio + p, janela) for p in np.linspace(1.0, max(1.0, dur_final - janela - 1.0), 4)]
+    print(f'comparando em {len(js)} trechos de até {janela:.0f} s (lag máx. ±1 s)')
     res = []
-    for p in pontos:
-        a0 = audio(orig, inicio + p, janela)
+    for p, p0, janela in js:
+        a0 = audio(orig, p0, janela)
         a1 = audio(final, p, janela)
         la, ca, _ = atraso(envelope(a0, SR, 200), envelope(a1, SR, 200), 200)      # 5 ms de resolução
-        m0 = movimento(orig, inicio + p, janela)
+        m0 = movimento(orig, p0, janela)
         m1 = movimento(final, p, janela, rec)
         lv, cv, _ = atraso(m0, m1, FPS)
         da, dv = la * 5.0, lv * 1000.0 / FPS
@@ -166,13 +196,14 @@ def main():
     sub = ap.add_subparsers(dest='cmd', required=True)
     d = sub.add_parser('diagnostico'); d.add_argument('arq')
     c = sub.add_parser('comparar'); c.add_argument('original'); c.add_argument('final'); c.add_argument('--inicio', type=float, default=0.0)
+    c.add_argument('--roteiro', help='NOME do roteiro renderizado: usa inicio, cortes e ordem de saida/NOME/info.json')
     e = sub.add_parser('estimar'); e.add_argument('final')
     k = sub.add_parser('corrigir'); k.add_argument('final'); k.add_argument('--ms', type=float, required=True); k.add_argument('--saida')
     a = ap.parse_args()
     if a.cmd == 'diagnostico':
         diagnostico(a.arq)
     elif a.cmd == 'comparar':
-        comparar(a.original, a.final, a.inicio)
+        comparar(a.original, a.final, a.inicio, roteiro=a.roteiro)
     elif a.cmd == 'estimar':
         estimar(a.final)
     else:

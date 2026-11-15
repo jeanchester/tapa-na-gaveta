@@ -240,7 +240,18 @@ const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,
 const AVISOS = [];
 // cortes: [[de, até], ...] em segundos da gravação (depois do "inicio"), trechos que saem do vídeo final.
 // Com cortes, T e os "em" em segundos continuam no tempo da gravação; tudo é remapeado aqui.
+// ordem: [[de, até], ...] no lugar de cortes, quando a gravação precisa ser remontada em outra ordem (a pessoa
+// regravou a abertura no meio, por exemplo): os trechos entram no vídeo final nessa ordem; o resto sai.
 function semCortes(t, R) {
+  if (R.ordem) {
+    let acc = 0, prox = Infinity, accProx = 0;
+    for (const [a, b] of R.ordem) {
+      if (t >= a && t < b) return acc + (t - a);
+      if (a > t && a < prox) { prox = a; accProx = acc; }
+      acc += b - a;
+    }
+    return prox < Infinity ? accProx : acc;
+  }
   let d = 0;
   for (const [a, b] of (R.cortes || [])) { if (t >= b) d += b - a; else if (t > a) return a - d; }
   return t - d;
@@ -482,7 +493,7 @@ function montar(roteiro) {
   $('#ticker .faixa').innerHTML = ('<span>' + txt.join(' &nbsp;·&nbsp; ') + ' &nbsp;·&nbsp; </span>').repeat(8);
   const palco = $('#palco'); palco.innerHTML = '';
   const inis = R.cenas.map((c) => tempo(c.em, R));
-  DUR = R.duracao ? semCortes(R.duracao, R) : inis[inis.length - 1] + 4;
+  DUR = R.ordem ? R.ordem.reduce((s, [a, b]) => s + b - a, 0) : R.duracao ? semCortes(R.duracao, R) : inis[inis.length - 1] + 4;
   EVENTOS = [];
   VIVAS = R.cenas.map((c, i) => {
     const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
@@ -627,7 +638,19 @@ window.VIDEO = {
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,
   cortes: () => (R && R.cortes) || [],
+  ordem: () => (R && R.ordem) || [],
 };
+// tempo do vídeo final → tempo da gravação (depois do "inicio"), para a voz da prévia acompanhar cortes e ordem
+function naGravacao(tf) {
+  if (R && R.ordem) {
+    let acc = 0;
+    for (const [a, b] of R.ordem) { if (tf < acc + b - a) return a + tf - acc; acc += b - a; }
+    return R.ordem.length ? R.ordem[R.ordem.length - 1][1] : tf;
+  }
+  let t = tf;
+  for (const [a, b] of [...((R && R.cortes) || [])].sort((x, y) => x[0] - y[0])) if (t >= a) t += b - a;
+  return t;
+}
 
 // ====================================================================== prévia
 let tocando = false, t0Rel = 0, tIni = 0, actx = null, saidaSom = null, raf = 0;
@@ -639,9 +662,11 @@ function tocar() {
   saidaSom = actx.createGain(); saidaSom.gain.value = .9; saidaSom.connect(actx.destination);
   tIni = +$('#barra').value; if (tIni >= DUR - .05) tIni = 0;
   agendar(actx, saidaSom, tIni, DUR, actx.currentTime + .05, 'tudo');
-  if (voz.src) { voz.currentTime = tIni + ((R && R.inicio) || 0); voz.play(); }
+  const vozEm = (t) => naGravacao(t) + ((R && R.inicio) || 0);
+  if (voz.src) { voz.currentTime = vozEm(tIni); voz.play(); }
   t0Rel = performance.now() + 50; tocando = true; $('#tocar').textContent = '❚❚ pausar';
-  const passo = () => { const t = agora(); if (t >= DUR) { parar(); return; } $('#barra').value = t; desenhar(Math.max(tIni, t)); raf = requestAnimationFrame(passo); };
+  const passo = () => { const t = agora(); if (t >= DUR) { parar(); return; } $('#barra').value = t;
+    if (voz.src && Math.abs(voz.currentTime - vozEm(t)) > .15) voz.currentTime = vozEm(t);   /* pula os cortes */ desenhar(Math.max(tIni, t)); raf = requestAnimationFrame(passo); };
   raf = requestAnimationFrame(passo);
 }
 function parar() {

@@ -228,7 +228,13 @@ Cortes inteligentes, a partir da transcrição: (1) instrução falada para a ed
 refazer") sai junto com a tentativa a que ela se refere, e fica a versão refeita; (2) frase repetida: fica a última
 versão completa; (3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
 e se o fim do vídeo se enrolar, emende o endereço do site direto na despedida; (4) pausa acima de ~0,6 s entre
-frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê. O render corta pelo número do
+frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê.
+
+Quando a gravação precisa mudar de ordem (a pessoa regravou a abertura no meio, "corta aqui, vamos começar o
+vídeo por..."), use `ordem: [[de, até], ...]` no lugar de `cortes`: os trechos entram no vídeo nessa ordem e o
+resto sai. Os tempos continuam os da gravação (com `inicio: 0`, os do arquivo bruto) e as cenas vão na ordem do
+vídeo final. O render remonta a câmera trecho a trecho (quadro e amostra exatos) antes de montar; exemplo em
+`2026-11-15-degola-rodada-35.js`. Na prévia, a voz carregada pula os cortes e segue a ordem sozinha. O render corta pelo número do
 quadro (imagem, `select` pelo número do quadro) e da amostra (som), sem o filtro `concat` na imagem, que
 atrasava a imagem 2 a 3 quadros depois da primeira emenda. Seleções usam bandeiras redondas (`brasil`, `japao`,
 `singapura` em `escudos/`); para outra seleção, desenhe a bandeira em SVG e gere o PNG de 512 px.
@@ -243,7 +249,11 @@ O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale p
 ```bash
 python ferramentas/video/sincronia.py diagnostico bruto.MOV
 python ferramentas/video/sincronia.py comparar bruto.MOV ferramentas/video/saida/NOME/NOME.mp4 --inicio 2.4
+python ferramentas/video/sincronia.py comparar bruto.MOV ferramentas/video/saida/NOME/NOME.mp4 --roteiro NOME   # com cortes ou ordem
 ```
+
+Com `cortes` ou `ordem`, use `--roteiro NOME`: as janelas caem dentro dos trechos mantidos (lidos do
+`saida/NOME/info.json`), em vez de atravessar uma emenda e medir lixo.
 
 O `comparar` mede, em 4 trechos, quanto a voz e quanto a imagem da câmera andaram em relação à
 gravação. Até 40 ms está bom. Se for constante e maior, `corrigir --ms X`. Se crescer ao longo do vídeo
