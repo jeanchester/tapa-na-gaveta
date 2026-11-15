@@ -88,5 +88,30 @@
       ],
       "titulo": "17º ao 20º"
     }
-  ]
+  ],
+  "playoff": {
+    "nome": "Playoff do acesso",
+    "confrontos": [
+      [
+        3,
+        6
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "datas": {
+      "ida": {
+        "data": "2026-11-21T15:00:00Z",
+        "horario": false
+      },
+      "volta": {
+        "data": "2026-11-28T15:00:00Z",
+        "horario": false
+      }
+    },
+    "obs": "Ida na casa do pior colocado, volta na casa do melhor. Sem pênalti: agregado empatado, sobe a melhor campanha. 'resultados' aceita placares reais à mão ({\"po-mandante-visitante\": [gols, gols]}) quando a ESPN não trouxer.",
+    "resultados": {}
+  }
 }

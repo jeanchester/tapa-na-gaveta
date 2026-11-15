@@ -485,6 +485,70 @@
     });
   }
 
+  // ================================================================== playoff (ida e volta, sem pênalti)
+  // regras.playoff: { confrontos: [[3, 6], [4, 5]], datas: { ida, volta } }. O pior colocado manda a
+  // ida e o melhor manda a volta; agregado empatado: passa o melhor colocado (melhor campanha).
+  // A conta é exata: cruza a matriz de placares da ida com a da volta (sem Monte Carlo).
+  // reais: { [chave]: [gols mandante, gols visitante] } dos jogos já disputados (ESPN ou regras).
+  function playoff(L, regras, M, placares, reais) {
+    const po = regras && regras.playoff;
+    if (!po) return null;
+    const tab = tabela(L, {});
+    const datas = po.datas || {};
+    const fixos = Object.assign({}, po.resultados || {}, reais || {});
+    return po.confrontos.map((par, k) => {
+      const b = tab[par[0] - 1].i, w = tab[par[1] - 1].i;
+      const perna = (h, a, qual) => {
+        const chave = 'po-' + L.times[h].slug + '-' + L.times[a].slug, r = fixos[chave];
+        const d = datas[qual] || null;
+        return { chave, h, a, perna: qual, id: 'po' + k + qual, data: d && d.data, horario: !!(d && d.horario), feito: !!r,
+          gh: r ? +r[0] : null, ga: r ? +r[1] : null, status: r ? 'STATUS_FULL_TIME' : 'STATUS_SCHEDULED' };
+      };
+      const ida = perna(w, b, 'ida'), volta = perna(b, w, 'volta');
+      return Object.assign({ k, melhor: b, pior: w, posMelhor: par[0], posPior: par[1], ida, volta }, cruzar(M, ida, volta, placares));
+    });
+  }
+
+  // distribuição dos placares de um jogo: o placar fixo (real ou do usuário) ou a matriz do modelo
+  function placaresDe(M, j, placares) {
+    const p = placarDe(j, placares);
+    if (p) return [[+p[0], +p[1], 1]];
+    const pr = M.prob(j.h, j.a), G = pr.G + 1, out = [];
+    for (let x = 0; x < G; x++) for (let y = 0; y < G; y++) { const v = pr.m[x * G + y]; if (v > 1e-9) out.push([x, y, v]); }
+    return out;
+  }
+
+  // chances do confronto, do ponto de vista do melhor colocado (manda a volta, joga pelo empate)
+  function cruzar(M, ida, volta, placares) {
+    const A = placaresDe(M, ida, placares), B = placaresDe(M, volta, placares);
+    let vence = 0, empate = 0, perde = 0, doisMelhor = 0, doisPior = 0, tot = 0;
+    for (const [x, y, p] of A) {                 // ida: pior (mandante) x, melhor y
+      const dIda = y - x;
+      for (const [u, v, q] of B) {               // volta: melhor (mandante) u, pior v
+        const w = p * q, d = dIda + u - v;
+        tot += w;
+        if (d > 0) vence += w; else if (d === 0) empate += w; else perde += w;
+        if (y > x && u > v) doisMelhor += w;
+        if (x > y && v > u) doisPior += w;
+      }
+    }
+    tot = tot || 1;
+    const fIda = placarDe(ida, placares), fVolta = placarDe(volta, placares);
+    return {
+      sobeMelhor: (vence + empate) / tot, sobePior: perde / tot,
+      venceAgregado: vence / tot, empateAgregado: empate / tot, perdeAgregado: perde / tot,
+      doisMelhor: doisMelhor / tot, doisPior: doisPior / tot,
+      // saldo do melhor colocado depois da ida (quando ela tem placar) e o agregado completo
+      saldoIda: fIda ? fIda[1] - fIda[0] : null,
+      agregado: fIda && fVolta ? [fIda[1] + fVolta[0], fIda[0] + fVolta[1]] : null,
+      decidido: !!(fIda && fVolta),
+    };
+  }
+
+  // o que cada lado precisa na volta, dado o saldo do melhor colocado na ida (d)
+  // → { melhor: saldo mínimo na volta, pior: saldo mínimo na volta } (saldo de quem joga)
+  function precisaVolta(d) { return { melhor: -d, pior: d + 1 }; }
+
   // ================================================================== cenário no link
   // v1: 1 byte de versão + mapa de bits dos n*n pares (mandante, visitante) + 1 byte por placar
   // (gols do mandante * 16 + gols do visitante, até 15 cada) → base64url. 41 jogos ≈ 120 caracteres.
@@ -826,6 +890,6 @@
   return {
     rng, preparar, condicoes, porPontos, deduzirRodadas, placarDe, estatisticas, tabela, ordenar, confronto, zonaDe, zonasTab, forma,
     PARAMS_PADRAO, PARAMS_FORMA3, modelo, matriz, amostrar, amostrarCrivel, avaliar, MAX_MOSTRAR, NITIDEZ, simularRestantes, monteCarlo, chances,
-    codificar, decodificar, decodificarAntigo, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
+    codificar, decodificar, decodificarAntigo, playoff, precisaVolta, placaresAntigos, migrarAntigos, LEGADO_V3, objetivos, situacao, jogosRelevantes, enumerar, resumir,
   };
 });

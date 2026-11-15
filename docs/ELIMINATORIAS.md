@@ -61,3 +61,19 @@ começar: `bra.copa_do_brazil` (Copa do Brasil) e `conmebol.libertadores` (Liber
 grupos), mexe com as torcidas de todos os estados e as fases finais coincidem com o meio do
 Brasileirão, quando o simulador da liga está menos movimentado. A Libertadores 2027 vem depois,
 reaproveitando `grupos` + `mata-mata`.
+
+## 5. Primeiro mata-mata no ar: playoff da Série B 2026
+
+`shared/regras-serie-b-2026.json` ganhou o bloco `playoff` (confrontos 3º × 6º e 4º × 5º, datas da
+ida e da volta, `resultados` para placares reais à mão). Quando a fase de pontos corridos termina, a
+página `#/simulador/serieb` vira o playoff:
+
+- `playoff()` no núcleo cruza a matriz de placares da ida com a da volta (conta exata, sem sorteio).
+  O pior colocado manda a ida; agregado empatado sobe o melhor colocado (sem pênalti).
+- Cada confronto mostra a chance de subir e a de vencer os dois jogos, a barra separa a vitória no
+  agregado, o **empate no agregado (hachurado, é de quem joga pelo empate)** e a vitória do outro.
+- Com a ida preenchida, a frase diz o que cada lado precisa na volta. Palpites usam chaves `po-…` e o
+  link de cenário vai em `?po=1-0.2-2._._`.
+- Resultados reais: a página busca o scoreboard da ESPN dos meses do playoff e casa os jogos pelo
+  par mandante × visitante a partir de 5 dias antes da ida (`ferramentas/baixar_espn.py` continua
+  guardando só os pontos corridos).
