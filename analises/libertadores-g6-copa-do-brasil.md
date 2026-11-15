@@ -4,62 +4,53 @@ descricao: Por que o 6º do Brasileirão já vai à Libertadores, quando o 7º t
 data: 2026-11-13
 autor: Jean
 rodada: 35
-rascunho: sim
+rascunho: não
 ---
 
-Todo ano tem alguém na mesa do bar dizendo que "este ano vai até o 7º". Em 2026, pela primeira vez em muito tempo, a conta é realmente complicada, porque três coisas acontecem ao mesmo tempo: a Copa do Brasil passou a dar duas vagas na Libertadores, um dos finalistas briga contra o rebaixamento, e dois clubes brasileiros ainda disputam finais continentais.
+Neste ano a conta das vagas da Libertadores ficou mais enrolada do que de costume. A Copa do Brasil passou a dar duas vagas em vez de uma, o Grêmio chegou à final e está na zona de rebaixamento ao mesmo tempo, e ainda tem Palmeiras e Atlético-MG disputando finais continentais nas próximas semanas. Cada uma dessas coisas pode empurrar a linha de corte da tabela para baixo, então vale olhar uma de cada vez antes de juntar tudo no fim.
 
-Este texto separa cada peça. No fim, tem um resumo de quantos times do Brasileirão podem ir à Libertadores em cada cenário.
+## O que diz o regulamento de 2026
 
-## A regra de 2026, sem juridiquês
+O Brasileirão garante cinco vagas na Libertadores de 2027. Os quatro primeiros vão direto para a fase de grupos e o quinto entra na fase preliminar. A Copa do Brasil dá mais duas, uma de fase de grupos para o campeão e uma de fase preliminar para o vice.
 
-Pelo regulamento deste ano, o Brasileirão dá cinco vagas na Libertadores de 2027: do 1º ao 4º, direto na fase de grupos, e o 5º, na fase preliminar. A Copa do Brasil dá outras duas: o campeão vai à fase de grupos e o vice, à preliminar.
+Quando um finalista da Copa já está classificado pela tabela, a vaga que seria dele passa para o clube mais bem colocado no Brasileirão que ainda não tem vaga. É o que acontece com o Palmeiras, que já garantiu a fase de grupos como segundo colocado. Ganhando ou perdendo a final, a vaga dele na Copa volta para a tabela, e foi por isso que o G5 virou [G6](https://tribunadejundiai.com.br/mais/esportes/g5-do-brasileirao-se-torna-g6-apos-classificacao-do-palmeiras/).
 
-O detalhe está no que acontece quando um finalista da Copa já está classificado pela tabela. Nesse caso, a vaga dele "sobra" e é repassada ao clube mais bem colocado no Brasileirão que ainda não tenha vaga. É o caso do Palmeiras: segundo colocado, ele já garantiu a fase de grupos pelo campeonato. Por isso, ganhe ou perca a final da Copa do Brasil, a vaga que seria dele vai para a tabela, e o G5 virou [G6](https://tribunadejundiai.com.br/mais/esportes/g5-do-brasileirao-se-torna-g6-apos-classificacao-do-palmeiras/).
+Isso acaba sendo bom para o Grêmio. Como o Palmeiras não precisa da vaga de fase de grupos da Copa, ela fica com o Grêmio qualquer que seja o resultado da final, marcada para 6 de dezembro, em jogo único, em Brasília.
 
-Outra consequência: como o Palmeiras não precisa da vaga direta, o Grêmio fica com a vaga da fase de grupos qualquer que seja o resultado da final, que é em jogo único, em 6 de dezembro, em Brasília.
+## O Grêmio só joga se não cair
 
-## O caso do Grêmio: a vaga depende de não cair
+A Conmebol não aceita na Libertadores clube que esteja na segunda divisão do próprio país. Se o Grêmio terminar o Brasileirão entre os quatro últimos, [perde a vaga](https://www.oliberal.com/esportes/gremio-tem-vaga-garantida-na-libertadores-de-2027-entenda-cenario-e-riscos-1.1191820) que conquistou na Copa, e ela vai para o próximo da fila na tabela. Nesse caso o G6 vira G7.
 
-Aqui mora a confusão. O Grêmio conquistou a vaga ao chegar à final, mas a Conmebol não aceita na Libertadores um clube que esteja na segunda divisão do seu país. Se o Grêmio terminar o Brasileirão entre os quatro últimos, [perde a vaga](https://www.oliberal.com/esportes/gremio-tem-vaga-garantida-na-libertadores-de-2027-entenda-cenario-e-riscos-1.1191820), e ela volta para a tabela, para o próximo clube da fila que ainda não esteja classificado. Na prática, o G6 vira G7.
-
-E o Grêmio está em 18º, dentro da zona, caindo em pouco mais da metade das nossas simulações. Ou seja: só por essa regra, a chance de o 7º colocado ir à Libertadores hoje é praticamente a mesma de o Grêmio ser rebaixado. Quem torce pelo Atlético-MG ou pelo Bragantino tem um motivo pouco nobre para acompanhar os jogos do Grêmio até a última rodada.
+Hoje o Grêmio está em 18º e cai em pouco mais da metade das nossas simulações. Contando só essa regra, a chance de o 7º colocado ir à Libertadores é mais ou menos a mesma de o Grêmio ser rebaixado, o que dá ao torcedor do Atlético-MG ou do Bragantino um motivo meio constrangedor pra secar o Grêmio até a última rodada.
 
 {{tabela 1-9}}
 
-O simulador já faz essa conta sozinho: em cada cenário, olha onde o Grêmio terminou e redistribui as faixas. Se ele cai, a pré-Libertadores vai até o 7º. Se fica, ele leva a vaga da Copa e as faixas seguem sem ele.
+O simulador já faz essa conta. Em cada cenário ele vê onde o Grêmio terminou e redistribui as faixas, levando a pré-Libertadores até o 7º quando o Grêmio cai.
 
-## Mais duas vagas no caminho: as finais continentais
+## As finais continentais podem abrir mais vagas
 
-As contas ainda podem crescer, e por causa de dois jogos que nem são do Brasileirão.
+A primeira é a final da Sul-Americana, [Atlético-MG x Boca Juniors, no dia 21, em Barranquilla](https://www.gazetaesportiva.com/?p=3875924). O campeão da Sul-Americana tem vaga na Libertadores do ano seguinte. Se o Galo ganhar e também terminar o Brasileirão numa posição que já daria vaga, a vaga dele na tabela sobra e desce para o próximo. Se ganhar terminando fora da zona de classificação, ele entra pela Sul-Americana e a tabela fica igual para os outros.
 
-O primeiro é a final da Sul-Americana, [Atlético-MG x Boca Juniors, em 21 de novembro, em Barranquilla](https://www.gazetaesportiva.com/?p=3875924). O campeão da Sul-Americana vai à Libertadores do ano seguinte. Se o Galo for campeão e ao mesmo tempo terminar o Brasileirão numa posição que já daria vaga, a vaga dele pela tabela sobra e passa para o próximo da fila. Se ele for campeão terminando fora da zona de classificação, entra pela Sul-Americana e não muda nada para os outros.
+A segunda é a final da Libertadores, [Palmeiras x Estudiantes, no dia 28, em Montevidéu](https://www.oliberal.com/esportes/palmeiras-x-estudiantes-conmebol-define-horario-da-final-da-libertadores-veja-detalhes-1.1189229). O campeão da Libertadores também tem vaga garantida na edição seguinte, e como o Palmeiras já está classificado pela tabela, um título dele abre mais uma vaga no Brasileirão.
 
-O segundo é a final da Libertadores, [Palmeiras x Estudiantes, em 28 de novembro, em Montevidéu](https://www.oliberal.com/esportes/palmeiras-x-estudiantes-conmebol-define-horario-da-final-da-libertadores-veja-detalhes-1.1189229). O campeão da Libertadores tem vaga garantida na edição seguinte. Como o Palmeiras já está classificado pela tabela, um título dele abre mais uma vaga para o Brasileirão.
+Se o Palmeiras for campeão, o Galo também (terminando dentro da zona) e o Grêmio cair, o Brasileirão chega a [nove vagas](https://tribunadejundiai.com.br/mais/esportes/brasileirao-pode-ter-g9-entenda-o-cenario/).
 
-Com tudo dando "certo" para quem está no meio da tabela, isto é, título do Palmeiras, título do Galo dentro da zona de classificação e queda do Grêmio, o Brasileirão poderia chegar a [nove vagas](https://tribunadejundiai.com.br/mais/esportes/brasileirao-pode-ter-g9-entenda-o-cenario/).
+## Quantos vão, em cada caso
 
-## Resumo: quantos vão à Libertadores
+O cenário de hoje é o G6, que vale se o Grêmio escapar, o Palmeiras não ganhar em Montevidéu e o Galo não ganhar em Barranquilla (ou ganhar terminando fora da zona). Cada uma dessas coisas que virar soma uma vaga para a tabela, de modo que uma delas leva a G7, duas levam a G8 e as três juntas levam a G9. Os quatro primeiros vão sempre direto para a fase de grupos, e as vagas extras se dividem entre fase de grupos e fase preliminar conforme a origem de cada uma.
 
-- **G6**: o Grêmio fica na Série A, o Palmeiras não ganha a Libertadores e o Galo não ganha a Sul-Americana (ou ganha terminando fora da zona). É o cenário-base de hoje.
-- **G7**: acontece uma das três coisas, ou seja, o Grêmio cai, o Palmeiras é campeão da Libertadores, ou o Galo é campeão da Sul-Americana terminando dentro da zona.
-- **G8**: acontecem duas delas.
-- **G9**: acontecem as três.
-
-Em todos os casos, os quatro primeiros vão direto à fase de grupos, e as vagas extras se dividem entre fase de grupos e fase preliminar, conforme a origem de cada uma.
-
-## Quem briga pela vaga
+## Quem está na briga
 
 {{chances libertadores}}
 
-Do 5º ao 7º, a briga é entre Athletico (54 pontos), Bahia (53) e Atlético-MG (50). O Athletico visita o Flamengo nesta rodada e o Mirassol na 37ª, e recebe Remo e São Paulo. O Bahia visita Grêmio e Botafogo e recebe Coritiba e Atlético-MG, um confronto direto na última rodada. O Galo vai dividir a semana entre o Brasileirão e a final da Sul-Americana, e a partida de sábado, em Mirassol, é a última antes de Barranquilla.
+Do 5º ao 7º estão Athletico (54 pontos), Bahia (53) e Atlético-MG (50). O Athletico visita o Flamengo nesta rodada e o Mirassol na 37ª, e recebe Remo e São Paulo. O Bahia vai a Porto Alegre e ao Rio, contra Grêmio e Botafogo, e recebe Coritiba e Atlético-MG, esse último um confronto direto na rodada final. O Galo tem a semana mais cheia, porque joga em Mirassol no sábado e uma semana depois decide a Sul-Americana em Barranquilla.
 
-Mais atrás, Bragantino (47), Santos (47) e São Paulo (44) dependem das vagas extras. Para eles, os jogos que importam não são só os próprios: passam pelo Grêmio na zona de rebaixamento, pelo Palmeiras em Montevidéu e pelo Galo em Barranquilla.
+Bragantino e Santos, com 47, e São Paulo, com 44, dependem das vagas extras. Pra eles, além dos próprios jogos, interessa muito o que acontece com o Grêmio lá embaixo e nas duas finais continentais.
 
-## O que o simulador mostra hoje
+## O que o simulador mostra até as finais
 
-A regra do Grêmio já está no simulador e muda as faixas em cada cenário. As finais continentais ainda não entram, porque ninguém sabe o resultado. Assim que a Sul-Americana (21/11) e a Libertadores (28/11) forem decididas, a gente atualiza as faixas. Até lá, a vaga extra que um título de Palmeiras ou do Galo abriria não aparece na tabela.
+A regra do Grêmio já está valendo no site. As finais continentais ainda não entram, porque não têm resultado. Assim que a Sul-Americana (21/11) e a Libertadores (28/11) terminarem a gente atualiza as faixas, e até lá a vaga extra que um título de Palmeiras ou do Galo abriria não aparece na tabela.
 
-Quer ver como fica com o seu palpite? Preencha os jogos que faltam e veja quem fica com cada vaga.
+Dá pra testar o seu palpite preenchendo os jogos que faltam e vendo quem fica com cada vaga.
 
 {{simular CAM}}
