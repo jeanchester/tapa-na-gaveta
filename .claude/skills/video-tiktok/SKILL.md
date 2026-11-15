@@ -38,7 +38,9 @@ ficam na pasta "TikTok Tapa" do Drive.
   `#0f1733`, zonas da tabela (Libertadores `#2b4bff`, pré `#8fb0ff`, Sul-Americana `#12a26b`,
   rebaixamento `#e5484d`), fontes Archivo e Archivo Largo, logo do site, escudos de
   `midia/escudos/SLUG.png`. Texto em frase normal (nada de rótulo em caixa alta).
-- **Movimento só quando responde à fala** (placar pulando, linha batendo na tabela, barra crescendo).
+- **Movimento de impacto só quando responde à fala** (placar pulando, linha batendo na tabela, barra
+  crescendo). Fora isso, só a camada leve de movimento contínuo (veja "Movimento leve"), para a tela
+  nunca ficar parada sem cair no teatral.
 - Português de torcedor, frases curtas. O Corinthians é o time do Jean e do Isake ("o Timão", "a gente").
 
 ## O que copiar do estilo do Isake
@@ -60,6 +62,34 @@ pontos", "quantos pontos o Corinthians precisa" e "o [rival] perdeu e ajudou o T
 Cada um desses é um tipo de cena no `modelo.html`. Quando o Isake mandar um HTML novo com um efeito
 que ainda não existe, transforme o efeito em um tipo de cena novo em `CENAS` (padrão visual do site,
 tempo a partir de `t` local, sons via `ev(tempo, tipo)`), em vez de copiar o arquivo dele inteiro.
+
+## Movimento leve (camada contínua)
+
+Cada cena tem uma camada de movimento contínuo por cima das entradas. Ela liga depois que os
+elementos terminam de entrar e some suavemente antes de cada transição, para não brigar com as
+entradas de impacto. Os movimentos que mais uso:
+
+- **Escudos flutuando:** sobem e descem uns 2 a 3 px, com uma "respiração" de tamanho bem pequena e
+  às vezes uma inclinação quase imperceptível.
+- **Brilho passando:** um reflexo diagonal fraco atravessa um card de cada vez, em sequência, ou cruza
+  a tabela a cada poucos segundos.
+- **Números respirando:** o número principal da tela (o "45", o "44") cresce e encolhe bem devagar.
+- **Detalhes de espera:** a borda tracejada de uma caixa vazia gira devagar e as bolinhas de uma régua
+  oscilam.
+
+Três regras para nada ficar chamativo:
+
+- **Ritmos diferentes:** cada elemento se mexe no seu próprio tempo (período e fase próprios), então
+  uma coluna de cards nunca balança junta.
+- **Movimento pequeno e lento:** amplitude mínima, cada ciclo leva alguns segundos.
+- **Menos movimento depois do resultado:** quando o resultado entra, o brilho fica ainda mais fraco,
+  para o foco ficar no conteúdo.
+
+Como fazer no `modelo.html`: o render desenha quadro a quadro chamando `desenhar(t)`, então nada de
+animação CSS (`@keyframes`, `transition`): todo movimento tem que ser função do tempo, dentro do `at(t)`
+da cena, somado à transformação de entrada. Exemplo de escudo flutuando, com fase pelo índice:
+`k * 2.5 * Math.sin(t * 2 * Math.PI / (3.2 + i * .37) + i * 1.7)` px, onde `k` vai de 0 a 1 logo depois
+da entrada e volta a 0 nos ~0,3 s antes do fim da cena.
 
 ## Passo a passo
 
@@ -107,8 +137,64 @@ vez; uma pausa curta antes de cada número ajuda a animação a "cair" na palavr
 
 - Com legendas automáticas (CapCut, TikTok): exporte o `.srt` e rode
   `python ferramentas/video/legendas.py fala.srt --inicio 2.4`; cole o `T` no roteiro.
+- Só com o vídeo da narração (.mov/.mp4): transcreva você mesmo, localmente (veja abaixo). **Não peça
+  a transcrição** para quem mandou o vídeo.
 - Sem legendas: abra a prévia, carregue a gravação em "voz", toque e aperte **m** em cada momento em
   que uma cena deve entrar; use os tempos marcados direto no `em`.
+
+#### Transcrição local (vídeo → texto com tempos)
+
+Faça a versão mais simples que já dá para ajustar os tempos: segmentos do VAD e uma passada só do
+Whisper. Nada de retranscrever trechos recortados nem refinar palavra a palavra, a não ser que peçam.
+Tudo roda na sessão, sem API externa.
+
+| peça | o que é |
+|---|---|
+| ffmpeg | extrai o áudio do vídeo |
+| sherpa-onnx v1.12.15 (binários Linux x64) | reconhecimento de fala offline |
+| Silero VAD (`silero_vad.onnx`) | acha onde tem fala e corta em segmentos com tempo |
+| Whisper small (int8, via sherpa-onnx) | transcreve cada segmento em português |
+
+Rede: pip/PyPI e Hugging Face costumam estar bloqueados na sessão, mas download direto de releases do
+GitHub funciona, então tudo vem de lá. Se a sessão estiver sem acesso à internet, nada disso baixa: é
+preciso liberar o acesso nas configurações de rede do ambiente e abrir uma sessão nova.
+
+```bash
+mkdir -p ~/asr && cd ~/asr
+curl -L -O https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.12.15/sherpa-onnx-v1.12.15-linux-x64-shared.tar.bz2
+tar xjf sherpa-onnx-v1.12.15-linux-x64-shared.tar.bz2
+curl -L -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
+curl -L -O https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-small.tar.bz2
+tar xjf sherpa-onnx-whisper-small.tar.bz2
+
+# áudio mono 16 kHz (o formato que o Whisper espera)
+ffmpeg -y -i bruto.MOV -vn -ac 1 -ar 16000 ~/asr/narr.wav
+
+B=sherpa-onnx-v1.12.15-linux-x64-shared
+export LD_LIBRARY_PATH=$PWD/$B/lib:$LD_LIBRARY_PATH
+$B/bin/sherpa-onnx-vad-with-offline-asr \
+  --silero-vad-model=silero_vad.onnx \
+  --silero-vad-min-silence-duration=0.2 \
+  --silero-vad-max-speech-duration=8 \
+  --whisper-encoder=sherpa-onnx-whisper-small/small-encoder.int8.onnx \
+  --whisper-decoder=sherpa-onnx-whisper-small/small-decoder.int8.onnx \
+  --tokens=sherpa-onnx-whisper-small/small-tokens.txt \
+  --whisper-language=pt --whisper-task=transcribe --num-threads=4 \
+  ~/asr/narr.wav 2>&1 | grep -E "^[0-9]" | tee tr.txt
+```
+
+- `min-silence-duration=0.2` corta nas pausas curtas (segmentos do tamanho de uma frase);
+  `max-speech-duration=8` evita segmento longo demais quando a fala vem sem pausa.
+- A saída tem uma linha por segmento: **início -- fim : texto**. Narração longa pode passar do limite
+  de tempo de um comando: rode em segundo plano e acompanhe o `tr.txt`.
+- Use o **início** do segmento como gatilho da cena (`em` em segundos). Os tempos são da gravação
+  bruta: desconte o `inicio` do roteiro. Se a palavra-chave está no fim de um segmento longo, estime
+  dentro dele de forma proporcional; o ajuste fino sai na prévia.
+- Erro de transcrição em nome de time ou jogador não importa: o que vale é o tempo. Interprete pelo
+  contexto.
+- Precisão por palavra, só se pedirem: envelope de energia (numpy, passo de ~25 ms), cortar nos vales
+  de silêncio (~-31 dB) dentro de cada segmento e transcrever todos os pedaços numa única chamada do
+  `sherpa-onnx-offline`, com `--num-threads=2` (com mais threads já travou sem dar erro).
 
 ### 5. Prévia
 
@@ -159,6 +245,7 @@ levar o áudio junto, e corte feito só na imagem.
 - [ ] área segura desligada no render final (`--guia` é só para conferir)
 - [ ] números batem com o site e a data está no roteiro
 - [ ] sincronia conferida (`comparar` ou `estimar`)
+- [ ] movimento leve discreto: nada balançando junto, brilho mais fraco depois do resultado
 - [ ] sem voz de IA e sem selo de edição com IA
 - [ ] vídeo final 1080×1920, H.264 + AAC (o `render.py` já entrega assim)
 - [ ] posta no perfil de quem gravou e republica no @tapa.na.gaveta
