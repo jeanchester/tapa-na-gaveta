@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-14T15:38:50",
+ "atualizado": "2026-11-15T00:51:59",
  "times": {
   "flamengo": {
    "jogo": "401841307",
@@ -512,9 +512,9 @@
    ]
   },
   "atleticomg": {
-   "jogo": "401841305",
-   "data": "2026-11-05T00:30Z",
-   "contra": "Botafogo",
+   "jogo": "401841311",
+   "data": "2026-11-14T21:30Z",
+   "contra": "Mirassol",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -525,72 +525,72 @@
      "lugar": 1
     },
     {
-     "n": "Léo Duarte",
-     "curto": "L. Duarte",
-     "num": 3,
+     "n": "Ruan",
+     "curto": "Ruan",
+     "num": 4,
      "pos": "CD-L",
      "lugar": 6
     },
     {
-     "n": "Vitão",
-     "curto": "Vitão",
-     "num": 40,
+     "n": "Léo Duarte",
+     "curto": "L. Duarte",
+     "num": 3,
      "pos": "CD-R",
      "lugar": 5
     },
     {
-     "n": "Kauã Pascini",
-     "curto": "Kauã Pascini",
-     "num": 36,
+     "n": "Renan Lodi",
+     "curto": "R. Lodi",
+     "num": 6,
      "pos": "LB",
      "lugar": 3
     },
     {
-     "n": "Ángelo Preciado",
-     "curto": "Á. Preciado",
-     "num": 23,
+     "n": "Natanael",
+     "curto": "Natanael",
+     "num": 2,
      "pos": "RB",
      "lugar": 2
     },
     {
-     "n": "Alexsander",
-     "curto": "Alexsander",
-     "num": 5,
+     "n": "Fred",
+     "curto": "Fred",
+     "num": 7,
      "pos": "AM",
      "lugar": 10
     },
     {
-     "n": "Mamady Cissé",
-     "curto": "M. Cissé",
-     "num": 39,
+     "n": "Kevin Castaño",
+     "curto": "K. Castaño",
+     "num": 15,
      "pos": "LM",
      "lugar": 4
     },
     {
-     "n": "Tomás Pérez",
-     "curto": "T. Pérez",
-     "num": 25,
+     "n": "Igor Gomes",
+     "curto": "I. Gomes",
+     "num": 17,
      "pos": "RM",
      "lugar": 8
     },
     {
-     "n": "Cauã Soares",
-     "curto": "C. Soares",
-     "num": 29,
+     "n": "Mateo Casierra",
+     "curto": "M. Casierra",
+     "num": 9,
      "pos": "F",
      "lugar": 9
     },
     {
-     "n": "Dudu",
-     "curto": "Dudu",
-     "num": 92,
+     "n": "Bernard",
+     "curto": "Bernard",
+     "num": 11,
      "pos": "AM-L",
      "lugar": 11
     },
     {
-     "n": "Gustavo Scarpa",
-     "curto": "G. Scarpa",
-     "num": 10,
+     "n": "Tomás Cuello",
+     "curto": "T. Cuello",
+     "num": 28,
      "pos": "AM-R",
      "lugar": 7
     }
@@ -1107,9 +1107,9 @@
    ]
   },
   "mirassol": {
-   "jogo": "401841304",
-   "data": "2026-11-03T22:30Z",
-   "contra": "Chapecoense",
+   "jogo": "401841311",
+   "data": "2026-11-14T21:30Z",
+   "contra": "Atlético-MG",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -1148,30 +1148,30 @@
      "lugar": 2
     },
     {
-     "n": "Carlos Eduardo",
-     "curto": "Carlos Eduardo",
-     "num": 33,
+     "n": "Shaylon",
+     "curto": "Shaylon",
+     "num": 7,
      "pos": "AM",
      "lugar": 10
-    },
-    {
-     "n": "Neto Moura",
-     "curto": "Neto Moura",
-     "num": 25,
-     "pos": "LM",
-     "lugar": 4
     },
     {
      "n": "Denilson",
      "curto": "Denilson",
      "num": 27,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Neto Moura",
+     "curto": "Neto Moura",
+     "num": 25,
      "pos": "RM",
      "lugar": 8
     },
     {
-     "n": "André Luis",
-     "curto": "André Luis",
-     "num": 9,
+     "n": "Bruno Santos",
+     "curto": "Bruno Santos",
+     "num": 30,
      "pos": "F",
      "lugar": 9
     },
@@ -1183,9 +1183,9 @@
      "lugar": 11
     },
     {
-     "n": "Shaylon",
-     "curto": "Shaylon",
-     "num": 7,
+     "n": "Carlos Eduardo",
+     "curto": "C. Eduardo",
+     "num": 96,
      "pos": "AM-R",
      "lugar": 7
     }

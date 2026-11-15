@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-14T15:38:50",
+ "atualizado": "2026-11-15T00:51:59",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -2611,6 +2611,22 @@
     "pendurado": false
    },
    {
+    "nome": "Neto Moura",
+    "time": "9169",
+    "escudo": "mirassol",
+    "amarelos": 9,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
+    }
+   },
+   {
     "nome": "Thiago Santos",
     "time": "3456",
     "escudo": "coritiba",
@@ -2659,6 +2675,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Edson Carioca",
+    "time": "9169",
+    "escudo": "mirassol",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
+    }
    },
    {
     "nome": "Eduardo Doma",
@@ -2732,6 +2764,21 @@
     "pendurado": false
    },
    {
+    "nome": "José Aldo",
+    "time": "9169",
+    "escudo": "mirassol",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
+    }
+   },
+   {
     "nome": "Kevin Viveros",
     "time": "3458",
     "escudo": "athletico",
@@ -2775,21 +2822,6 @@
      "data": "2026-11-19T00:30Z",
      "contra": "Corinthians",
      "jogo": "401841316"
-    }
-   },
-   {
-    "nome": "Neto Moura",
-    "time": "9169",
-    "escudo": "mirassol",
-    "amarelos": 8,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
     }
    },
    {
@@ -2964,16 +2996,6 @@
     "amarelos": 3,
     "vermelhos": 2,
     "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "José Aldo",
-    "time": "9169",
-    "escudo": "mirassol",
-    "amarelos": 7,
-    "vermelhos": 0,
-    "ciclo": 1,
     "suspenso": false,
     "pendurado": false
    },
@@ -3215,16 +3237,6 @@
     "amarelos": 4,
     "vermelhos": 1,
     "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Edson Carioca",
-    "time": "9169",
-    "escudo": "mirassol",
-    "amarelos": 6,
-    "vermelhos": 0,
-    "ciclo": 0,
     "suspenso": false,
     "pendurado": false
    },
@@ -3986,9 +3998,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -4027,15 +4039,9 @@
     "escudo": "atleticomg",
     "amarelos": 3,
     "vermelhos": 1,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Victor Hugo",
@@ -4087,15 +4093,25 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
     "nome": "Alan Saldivia",
     "time": "3454",
     "escudo": "vasco",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Alesson",
+    "time": "9169",
+    "escudo": "mirassol",
     "amarelos": 4,
     "vermelhos": 0,
     "ciclo": 1,
@@ -4162,9 +4178,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -4428,9 +4444,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -4488,6 +4504,21 @@
     "ciclo": 1,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Natanael",
+    "time": "7632",
+    "escudo": "atleticomg",
+    "amarelos": 2,
+    "vermelhos": 1,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
+    }
    },
    {
     "nome": "Negueba",
@@ -4604,9 +4635,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -4694,16 +4725,6 @@
     "nome": "Alan Franco",
     "time": "2026",
     "escudo": "sp",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Alesson",
-    "time": "9169",
-    "escudo": "mirassol",
     "amarelos": 3,
     "vermelhos": 0,
     "ciclo": 0,
@@ -5269,16 +5290,6 @@
     "pendurado": false
    },
    {
-    "nome": "Natanael",
-    "time": "7632",
-    "escudo": "atleticomg",
-    "amarelos": 1,
-    "vermelhos": 1,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Nathan",
     "time": "3457",
     "escudo": "vitoria",
@@ -5678,9 +5689,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -5938,9 +5949,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -5953,9 +5964,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -6128,9 +6139,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -6143,9 +6154,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -6303,9 +6314,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -6348,9 +6359,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -6378,9 +6389,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -6453,9 +6464,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -6553,9 +6564,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Mirassol",
-     "jogo": "401841311"
+     "data": "2026-11-25T23:00Z",
+     "contra": "Corinthians",
+     "jogo": "401841319"
     }
    },
    {
@@ -6688,9 +6699,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -6928,9 +6939,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
@@ -6998,9 +7009,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T21:30Z",
-     "contra": "Atlético-MG",
-     "jogo": "401841311"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Fluminense",
+     "jogo": "401841324"
     }
    },
    {
