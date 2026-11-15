@@ -1,8 +1,8 @@
 # 0001 · Organização do projeto para crescer
 
 **Situação:** proposta em 15/11/2026, por Matheus. A Fase 0 entra no mesmo PR que esta nota; as
-outras fases esperam o grupo concordar. A proposta completa, com o desenho das camadas, está no
-documento "Tapa na Gaveta: proposta de arquitetura" (claude.ai, compartilhado pelo Matheus).
+outras fases esperam o grupo concordar. A proposta completa, com o desenho das camadas e a situação
+de cada fase, está em [docs/ARQUITETURA.md](../ARQUITETURA.md).
 
 ## Contexto
 

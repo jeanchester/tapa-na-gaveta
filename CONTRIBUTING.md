@@ -2,6 +2,7 @@
 
 Guia curto para quem chega (gente ou Claude). O que o site é e como ele está montado: [README.md](README.md).
 Por que as coisas são como são: [docs/PLANO.md](docs/PLANO.md) e [docs/decisoes/](docs/decisoes/).
+Para onde a estrutura vai, fase a fase: [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 
 ## Preparar a máquina (uma vez)
 
