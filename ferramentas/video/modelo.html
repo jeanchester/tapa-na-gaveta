@@ -212,7 +212,15 @@ function titulo(linhas, menor) {
 // "em" de uma cena ou de um passo: número (segundos) ou palavra ('ajudou', 'ajudou#2' = segunda vez).
 const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9%+]/g, '');
 const AVISOS = [];
-function tempo(x, R) {
+// cortes: [[de, até], ...] em segundos da gravação (depois do "inicio"), trechos que saem do vídeo final.
+// Com cortes, T e os "em" em segundos continuam no tempo da gravação; tudo é remapeado aqui.
+function semCortes(t, R) {
+  let d = 0;
+  for (const [a, b] of (R.cortes || [])) { if (t >= b) d += b - a; else if (t > a) return a - d; }
+  return t - d;
+}
+function tempo(x, R) { return semCortes(tempoBruto(x, R), R); }
+function tempoBruto(x, R) {
   if (typeof x === 'number') return x;
   const [p, n] = String(x).split('#'), alvo = norm(p);
   let k = 0;
@@ -414,7 +422,7 @@ function montar(roteiro) {
   $('#ticker .faixa').innerHTML = ('<span>' + txt.join(' &nbsp;·&nbsp; ') + ' &nbsp;·&nbsp; </span>').repeat(8);
   const palco = $('#palco'); palco.innerHTML = '';
   const inis = R.cenas.map((c) => tempo(c.em, R));
-  DUR = R.duracao || (inis[inis.length - 1] + 4);
+  DUR = R.duracao ? semCortes(R.duracao, R) : inis[inis.length - 1] + 4;
   EVENTOS = [];
   VIVAS = R.cenas.map((c, i) => {
     const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
@@ -517,6 +525,7 @@ window.VIDEO = {
   ir: (t) => desenhar(t),
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,
+  cortes: () => (R && R.cortes) || [],
 };
 
 // ====================================================================== prévia

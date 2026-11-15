@@ -129,6 +129,14 @@ python ferramentas/video/render.py NOME --camera bruto.MOV            # usa o "i
 python ferramentas/video/render.py NOME --camera bruto.MOV --pular-animacao --vol-trilha 0.08   # só remonta
 ```
 
+Cor: gravação do iPhone vem em HDR (HLG) e, sem conversão, fica lavada no TikTok. O render detecta e converte
+para SDR (bt709) sozinho; se a cor ainda parecer estranha, confira com `sincronia.py diagnostico` (aparece em "vídeo").
+
+Cortes no meio da fala (instrução dada durante a gravação, frase repetida): `cortes: [[de, até], ...]` no topo do
+roteiro, em segundos da gravação depois do `inicio`. Som e imagem saem juntos, e T e os `em` continuam no tempo
+da gravação (o modelo remapeia). **Ouça a gravação inteira antes de editar** atrás de instruções faladas ("corta
+isso", "repete") — se não der para ouvir/transcrever, pergunte em que segundo estão.
+
 Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera

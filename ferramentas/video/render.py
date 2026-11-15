@@ -41,6 +41,7 @@ def animar(nome, saida, fps, guia):
             print('ATENÇÃO:', avisos, erros)
         dur = pg.evaluate('VIDEO.duracao')
         inicio = pg.evaluate('VIDEO.inicio()')
+        cortes = pg.evaluate('VIDEO.cortes()')
         n = int(round(dur * fps))
         ff = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', str(fps), '-c:v', 'mjpeg', '-i', '-',
                                '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(fps), str(arq)],
@@ -55,10 +56,16 @@ def animar(nome, saida, fps, guia):
         for q in ('sfx', 'trilha'):
             (saida / ('efeitos.wav' if q == 'sfx' else 'trilha.wav')).write_bytes(base64.b64decode(pg.evaluate(f'VIDEO.wav("{q}")')))
         nav.close()
-    return dur, inicio
+    return dur, inicio, cortes
 
 
-def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5):
+def hdr(camera):
+    v = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=color_transfer', '-of', 'csv=p=0', str(camera)],
+                       capture_output=True, text=True).stdout.strip()
+    return v in ('arib-std-b67', 'smpte2084')          # HLG (iPhone) ou PQ
+
+
+def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=()):
     final = saida / f'{nome}.mp4'
     tem_audio = bool(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', str(camera)],
                                     capture_output=True, text=True).stdout.strip())
@@ -67,12 +74,19 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     # o áudio é reamostrado com async=1 e first_pts=0, que preenche buracos sem empurrar a voz para frente ou para trás
     # zoom > 1 aproxima o rosto; cy = altura do centro do recorte (0 = topo, 1 = base da gravação)
     lw, lh = int(W * zoom) // 2 * 2, int(h_cam * zoom) // 2 * 2
-    filtro = (f'[1:v]fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
+    # iPhone grava em HDR (HLG): sem converter para SDR a cor sai lavada/estranha no TikTok
+    cor = ('zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0,'
+           'zscale=t=bt709:m=bt709:r=tv,format=yuv420p,') if hdr(camera) else ''
+    # cortes no meio da fala: o mesmo trecho sai do som e da imagem (tempos contados depois do "inicio")
+    fora = '+'.join(f'between(t,{a:.3f},{b:.3f})' for a, b in cortes)
+    selv = f"select='not({fora})',setpts=N/({fps}*TB)," if cortes else ''
+    sela = f"aselect='not({fora})',asetpts=N/SR/TB," if cortes else ''
+    filtro = (f'[1:v]{cor}fps={fps},{selv}scale={lw}:{lh}:force_original_aspect_ratio=increase,'
               f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1[cam];"
               f'[0:v][cam]vstack=inputs=2,format=yuv420p[v];')
     mix = []
     if tem_audio:
-        filtro += f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}[voz];'
+        filtro += f'[1:a]aresample=48000:async=1:first_pts=0,{sela}volume={vol_voz}[voz];'
         mix.append('[voz]')
     filtro += f'[2:a]volume={vol_sfx}[sfx];[3:a]volume={vol_trilha}[tri];'
     mix += ['[sfx]', '[tri]']
@@ -80,6 +94,7 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     run(['ffmpeg', '-y', '-loglevel', 'error', '-i', saida / 'animacao.mp4', '-ss', f'{inicio:.3f}', '-i', camera,
          '-i', saida / 'efeitos.wav', '-i', saida / 'trilha.wav', '-filter_complex', filtro, '-map', '[v]', '-map', '[a]',
          '-t', f'{dur:.3f}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-r', str(fps),
+         '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
          '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', final])
     return final
 
@@ -103,16 +118,16 @@ def main():
     saida.mkdir(parents=True, exist_ok=True)
     if a.pular_animacao and (saida / 'animacao.mp4').exists():
         info = json.loads((saida / 'info.json').read_text())
-        dur, inicio = info['duracao'], info['inicio']
+        dur, inicio, cortes = info['duracao'], info['inicio'], info.get('cortes', [])
     else:
-        dur, inicio = animar(a.nome, saida, a.fps, a.guia)
-        (saida / 'info.json').write_text(json.dumps({'duracao': dur, 'inicio': inicio}))
+        dur, inicio, cortes = animar(a.nome, saida, a.fps, a.guia)
+        (saida / 'info.json').write_text(json.dumps({'duracao': dur, 'inicio': inicio, 'cortes': cortes}))
     if a.inicio is not None:
         inicio = a.inicio
     if not a.camera:
         print('animação pronta:', saida / 'animacao.mp4')
         return
-    final = montar(saida, a.nome, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha, a.camera_zoom, a.camera_y)
+    final = montar(saida, a.nome, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha, a.camera_zoom, a.camera_y, cortes)
     print('vídeo final:', final)
     print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
 
