@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>vídeo · tapa na gaveta</title>
+<!--
+  Modelo dos vídeos do TikTok (metade de cima, 1080×964). Uso e regras: .claude/skills/video-tiktok/SKILL.md
+  Abrir:   ferramentas/video/modelo.html?r=NOME      (carrega roteiros/NOME.js)
+  Render:  python ferramentas/video/render.py NOME --camera bruto.MOV
+  Atalhos na prévia: espaço toca/pausa · ← → 1 s · g área segura · m marca o tempo atual
+-->
+<style>
+@font-face { font-family: 'Archivo'; font-weight: 100 900; font-stretch: 62% 125%; src: url(../../shared/fonts/archivo-latin-variable.woff2) format('woff2'); }
+@font-face { font-family: 'Archivo Largo'; font-weight: 100 900; font-stretch: 125%; src: url(../../shared/fonts/archivo-latin-variable.woff2) format('woff2'); }
+:root {
+  /* padrão visual do site (app/app.css, tema escuro) */
+  --noite: #0b1640; --noite-2: #060b1f; --cartao: #0f1733; --cartao-2: #18213f; --linha: #1f2a4b; --linha-2: #2c3a63;
+  --ouro: #ffc23d; --ouro-claro: #ffe3a3; --tinta: #f4f6fb; --tinta-2: #a9b2ce; --tinta-3: #8a94b5;
+  --z-lib: #2b4bff; --z-pre: #8fb0ff; --z-sula: #12a26b; --z-rb: #e5484d;
+  --ok: #3fcf95; --mal: #ff6b6f; --empate: #8d97b5;
+  --f-texto: 'Archivo', system-ui, sans-serif; --f-num: 'Archivo Largo', 'Archivo', sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: #11131a; color: var(--tinta); font-family: var(--f-texto); }
+body.render { background: var(--noite); }
+#quadro { position: relative; width: 1080px; height: 964px; overflow: hidden; background: var(--noite); }
+body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; }
+
+/* fundo: linhas de campo do topo do site */
+.campo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.campo * { fill: none; stroke: #fff; stroke-opacity: .055; stroke-width: 3; }
+
+/* faixa que corre no topo (decorativa, pode ficar sob a interface do TikTok) */
+#ticker { position: absolute; left: 0; right: 0; top: 150px; height: 34px; overflow: hidden; white-space: nowrap; }
+#ticker .faixa { position: absolute; left: 0; top: 0; font: 600 22px/34px var(--f-texto); color: rgba(255,255,255,.28); letter-spacing: .02em; will-change: transform; }
+#ticker b { color: var(--ouro); font-weight: 700; opacity: .7; }
+
+/* cabeçalho: marca à esquerda, estado do vídeo à direita */
+#cab { position: absolute; left: 115px; width: 850px; top: 200px; height: 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--linha); }
+#cab .marca { display: flex; align-items: center; gap: 12px; font: italic 900 26px var(--f-num); letter-spacing: -.01em; }
+#cab .marca svg { height: 40px; width: auto; }
+#cab .estado { font: 800 22px var(--f-texto); color: var(--ouro); display: flex; align-items: center; gap: 10px; }
+#cab .estado i { width: 12px; height: 12px; border-radius: 50%; background: var(--mal); display: inline-block; }
+
+/* palco = área segura (115, 262, 850×682): tudo o que importa fica aqui dentro, centralizado */
+#palco { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; }
+.cena { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; opacity: 0; will-change: transform, opacity; }
+
+.selo { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; border-radius: 999px; border: 2px solid var(--ouro); color: var(--ouro); font: 800 24px var(--f-texto); background: rgba(255,194,61,.08); }
+.selo i { width: 12px; height: 12px; border-radius: 50%; background: var(--ouro); }
+.titulo { text-align: center; font: italic 900 54px/1.06 var(--f-num); letter-spacing: -.015em; }
+.titulo span { display: block; }
+.titulo span + span { color: var(--ouro); }
+.titulo.menor { font-size: 40px; }
+.titulo img { height: 1em; width: 1em; object-fit: contain; vertical-align: -.12em; margin-right: .18em; }
+.info { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.info span { padding: 8px 18px; border-radius: 10px; background: var(--cartao-2); border: 2px solid var(--linha-2); font: 700 22px var(--f-texto); color: var(--tinta-2); }
+
+.escudo { object-fit: contain; display: block; }
+.escudos { display: flex; gap: 26px; justify-content: center; }
+.disco { border-radius: 50%; display: flex; align-items: center; justify-content: center; font: 900 30px var(--f-num); color: #fff; }
+
+/* cartão de jogo */
+.jogo { width: 760px; background: var(--cartao); border: 2px solid var(--linha-2); border-radius: 22px; padding: 22px 30px 26px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; }
+.jogo .rot { grid-column: 1 / -1; text-align: center; font: 700 20px var(--f-texto); color: var(--tinta-3); margin-bottom: 4px; }
+.jogo .lado { display: flex; flex-direction: column; align-items: center; gap: 12px; font: 800 26px var(--f-texto); }
+.jogo .meio { display: flex; align-items: center; gap: 16px; }
+.jogo .gol { width: 104px; height: 124px; border-radius: 16px; background: var(--ouro); color: var(--noite); display: flex; align-items: center; justify-content: center; font: 900 84px var(--f-num); }
+.jogo .gol.vazio { background: var(--cartao-2); color: var(--tinta-3); font-size: 40px; }
+.jogo .x { font: 900 34px var(--f-num); color: var(--tinta-3); }
+.jogo .chip { grid-column: 1 / -1; justify-self: center; margin-top: 6px; padding: 6px 22px; border-radius: 999px; font: 800 22px var(--f-texto); color: var(--noite); }
+
+/* tabela: cada linha "bate" no cartaz */
+.tabela { width: 800px; background: var(--cartao); border: 2px solid var(--linha-2); border-radius: 20px; padding: 12px 0; position: relative; }
+.tabela .topo, .tabela .lin { display: grid; grid-template-columns: 64px 64px 1fr 70px 90px 90px; align-items: center; padding: 0 26px 0 0; }
+.tabela .topo { font: 700 18px var(--f-texto); color: var(--tinta-3); height: 36px; }
+.tabela .topo span:nth-child(n+4), .tabela .lin span:nth-child(n+4) { text-align: right; }
+.tabela .corpo { position: relative; }
+.tabela .lin { position: absolute; left: 0; right: 0; height: 52px; font: 700 26px var(--f-texto); will-change: transform, opacity; }
+.tabela .lin .pos { font: 900 26px var(--f-num); text-align: center; border-left: 8px solid transparent; height: 100%; display: flex; align-items: center; justify-content: center; }
+.tabela .lin .pts { font: 900 30px var(--f-num); }
+.tabela .lin .sg, .tabela .lin .j { color: var(--tinta-2); font-weight: 600; }
+.tabela .lin.eu { background: rgba(255,194,61,.14); }
+.tabela .lin.eu .nome, .tabela .lin.eu .pts { color: var(--ouro); }
+.tabela .corte { position: absolute; left: 20px; right: 20px; height: 0; border-top: 3px dashed var(--z-rb); opacity: .9; }
+.tabela .corte b { position: absolute; left: 400px; top: 0; transform: translateY(-50%); font: 800 18px var(--f-texto); color: var(--z-rb); background: var(--cartao); padding: 0 10px; border-radius: 6px; }
+
+/* barras de chance */
+.barras { width: 800px; display: flex; flex-direction: column; gap: 18px; }
+.barra { display: grid; grid-template-columns: 250px minmax(0, 1fr) 165px; align-items: center; gap: 16px; }
+.barra .rot { font: 800 26px var(--f-texto); text-align: right; display: flex; justify-content: flex-end; align-items: center; gap: 10px; white-space: nowrap; min-width: 0; }
+.barra .trilho { height: 56px; background: var(--cartao-2); border-radius: 12px; overflow: hidden; }
+.barra .enche { height: 100%; width: 0; border-radius: 12px; }
+.barra .val { font: 900 42px var(--f-num); text-align: left; white-space: nowrap; }
+
+.numero { font: italic 900 300px/0.9 var(--f-num); color: var(--ouro); letter-spacing: -.03em; display: flex; align-items: baseline; gap: 16px; }
+.numero small { font-size: 64px; color: var(--tinta); }
+
+/* jogos da rodada (1 X 2) */
+.lista { width: 800px; display: flex; flex-direction: column; gap: 12px; }
+.mini { background: var(--cartao); border: 2px solid var(--linha-2); border-radius: 16px; padding: 10px 18px 12px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 6px 8px; }
+.mini .lado { display: flex; align-items: center; gap: 10px; font: 800 24px var(--f-texto); }
+.mini .lado.dir { justify-content: flex-end; }
+.mini .quando { font: 700 18px var(--f-texto); color: var(--tinta-3); text-align: center; }
+.mini .tiras { grid-column: 1 / -1; display: flex; height: 30px; border-radius: 8px; overflow: hidden; font: 800 18px var(--f-texto); }
+.mini .tiras div { display: flex; align-items: center; justify-content: center; white-space: nowrap; overflow: hidden; width: 0; }
+
+.fecho { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+.fecho svg { width: 640px; height: auto; }
+.fecho .url { font: 900 46px var(--f-num); color: var(--ouro); }
+.fecho .sub { font: 700 30px var(--f-texto); color: var(--tinta-2); }
+
+/* guia da área segura (botão / tecla g) */
+#guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
+#guia.on { display: block; }
+#guia::after { content: 'área segura 850×682'; position: absolute; right: 8px; top: 6px; font: 700 18px var(--f-texto); color: #ff3e9a; }
+
+#painel { width: 1080px; margin: 14px auto 40px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font: 500 15px var(--f-texto); color: #c9cedb; }
+#painel button, #painel label { background: #1f2433; color: #e8ecf7; border: 1px solid #343a4d; border-radius: 8px; padding: 8px 12px; font: 600 14px var(--f-texto); cursor: pointer; }
+#painel input[type=range] { flex: 1 1 100%; }
+#painel .t { font: 700 16px var(--f-num); min-width: 120px; }
+#painel pre { flex: 1 1 100%; background: #0d0f15; padding: 10px; border-radius: 8px; white-space: pre-wrap; min-height: 20px; margin: 0; }
+#aviso { flex: 1 1 100%; color: #ff6b6f; }
+body.render #painel { display: none; }
+</style>
+</head>
+<body>
+<div id="quadro">
+  <svg class="campo" viewBox="0 0 1080 964"><line x1="0" y1="560" x2="1080" y2="560"/><circle cx="540" cy="560" r="150"/><rect x="290" y="-4" width="500" height="150"/><rect x="390" y="-4" width="300" height="60"/></svg>
+  <div id="ticker"><div class="faixa"></div></div>
+  <div id="cab"><div class="marca"></div><div class="estado"><i></i><span></span></div></div>
+  <div id="palco"></div>
+  <div id="guia"></div>
+</div>
+<div id="painel">
+  <button id="tocar">▶ tocar</button>
+  <span class="t" id="tempo">0,0 s</span>
+  <label>voz (áudio ou vídeo bruto) <input type="file" id="voz" accept="audio/*,video/*" hidden></label>
+  <button id="bguia">área segura</button>
+  <button id="bsfx">baixar efeitos.wav</button>
+  <button id="btrilha">baixar trilha.wav</button>
+  <input type="range" id="barra" min="0" max="100" step="0.01" value="0">
+  <div id="aviso"></div>
+  <pre id="marcas">tecla m: marca o tempo atual (para montar o T enquanto a voz toca)</pre>
+</div>
+
+<script>
+'use strict';
+// ====================================================================== básico
+const Q = new URLSearchParams(location.search);
+const RENDER = Q.has('render');
+if (RENDER) document.body.classList.add('render');
+if (Q.has('guia')) document.getElementById('guia').classList.add('on');
+const $ = (s, r = document) => r.querySelector(s);
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const cl = (k) => (k < 0 ? 0 : k > 1 ? 1 : k);
+const sai = (k) => 1 - Math.pow(1 - cl(k), 3);                       // desacelera
+const mola = (k) => { k = cl(k); const c = 1.70158; return 1 + (c + 1) * Math.pow(k - 1, 3) + c * Math.pow(k - 1, 2); }; // passa e volta
+const fmt = (v, casas) => v.toFixed(casas).replace('.', ',');
+
+const CLUBES = {
+  athletico: ['Athletico', '#c8102e'], atleticomg: ['Atlético-MG', '#111'], bahia: ['Bahia', '#0057a8'], botafogo: ['Botafogo', '#111'],
+  bragantino: ['Bragantino', '#d50032'], chapecoense: ['Chapecoense', '#00873e'], corinthians: ['Corinthians', '#111'], coritiba: ['Coritiba', '#00544e'],
+  cruzeiro: ['Cruzeiro', '#003d8f'], flamengo: ['Flamengo', '#c8102e'], fluminense: ['Fluminense', '#7a1437'], gremio: ['Grêmio', '#0d80bf'],
+  internacional: ['Internacional', '#d0011b'], mirassol: ['Mirassol', '#f2c500'], palmeiras: ['Palmeiras', '#006437'], remo: ['Remo', '#0b2c74'],
+  santos: ['Santos', '#111'], sp: ['São Paulo', '#d0011b'], vasco: ['Vasco', '#111'], vitoria: ['Vitória', '#d0011b'],
+};
+const nome = (s) => (CLUBES[s] ? CLUBES[s][0] : s);
+const ESCUDOS = [];
+function escudo(slug, tam) {
+  const img = el('img', 'escudo'); img.width = img.height = tam; img.alt = nome(slug);
+  img.src = '../../midia/escudos/' + slug + '.png';
+  img.onerror = () => {                                                // disco nas cores do clube
+    const d = el('div', 'disco', nome(slug).slice(0, 3).toUpperCase());
+    d.style.cssText = `width:${tam}px;height:${tam}px;background:${CLUBES[slug] ? CLUBES[slug][1] : '#445'};font-size:${Math.round(tam * .3)}px`;
+    img.replaceWith(d);
+  };
+  ESCUDOS.push(img);
+  return img;
+}
+// logotipo do site (app/app.js), com a cor da bola fixa
+const LOGO = '<svg viewBox="0 0 236 40"><g fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="4.6"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#ffc23d"/><text x="49" y="28" transform="skewX(-6)" font-family="\'Archivo Largo\', Archivo, sans-serif" font-weight="900" font-size="19" letter-spacing="-.3" fill="currentColor">tapa na <tspan fill="#ffc23d">gaveta</tspan></text></svg>';
+const ZONA = { lib: 'var(--z-lib)', pre: 'var(--z-pre)', sula: 'var(--z-sula)', rb: 'var(--z-rb)' };
+function zonaDe(pos) { return pos <= 4 ? 'lib' : pos <= 6 ? 'pre' : pos <= 12 ? 'sula' : pos >= 17 ? 'rb' : null; }
+function titulo(linhas, menor) {
+  const t = el('div', 'titulo' + (menor ? ' menor' : ''));
+  (Array.isArray(linhas) ? linhas : [linhas]).forEach((l) => {
+    // "[corinthians] e ajudou o Timão" → escudo no começo da linha
+    t.appendChild(el('span', '', String(l).replace(/\[([a-z]+)\]\s*/g, (_, s) => '<img src="../../midia/escudos/' + s + '.png" alt="">')));
+  });
+  return t;
+}
+
+// ====================================================================== linha do tempo
+// T: [['palavra', segundos], ...] da fala (tempo contado a partir do início do vídeo final).
+// "em" de uma cena ou de um passo: número (segundos) ou palavra ('ajudou', 'ajudou#2' = segunda vez).
+const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9%+]/g, '');
+const AVISOS = [];
+function tempo(x, R) {
+  if (typeof x === 'number') return x;
+  const [p, n] = String(x).split('#'), alvo = norm(p);
+  let k = 0;
+  for (const [w, s] of R.T || []) if (norm(w) === alvo && ++k === (+n || 1)) return s;
+  AVISOS.push('palavra não achada no T: "' + x + '"');
+  return 0;
+}
+
+// ====================================================================== cenas
+// Cada construtor devolve { el, at(tl) } e registra os sons em ev(tempo local, tipo).
+const CENAS = {
+  abertura(c, ev) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
+    const esc = c.escudo && escudo(c.escudo, 230), tit = titulo(c.titulo || []);
+    const fila = c.escudos && el('div', 'escudos'), fs = (c.escudos || []).map((s) => { const i = escudo(s, 110); fila.appendChild(i); return i; });
+    [selo, esc, fila, tit].forEach((x) => x && n.appendChild(x));
+    ev(0.15, 'pop'); ev(0.45, 'tapa'); fs.forEach((_, i) => ev(.9 + i * .14, 'pop'));
+    return { el: n, at(t) {
+      if (selo) { selo.style.opacity = sai(t / .3); selo.style.transform = `translateY(${(1 - sai(t / .3)) * -20}px)`; }
+      if (esc) { const k = mola((t - .15) / .45); esc.style.transform = `scale(${.4 + .6 * k})`; esc.style.opacity = cl((t - .15) / .15); }
+      [...tit.children].forEach((s, i) => { const k = sai((t - .45 - i * .22) / .4); s.style.opacity = k; s.style.transform = `translateY(${(1 - k) * 40}px)`; });
+      fs.forEach((f, i) => { const k = mola((t - .9 - i * .14) / .35); f.style.opacity = cl((t - .9 - i * .14) / .1); f.style.transform = `scale(${.3 + .7 * k})`; });
+    } };
+  },
+
+  placar(c, ev) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
+    const j = el('div', 'jogo');
+    j.appendChild(el('div', 'rot', c.rotulo || ''));
+    const lado = (s) => { const d = el('div', 'lado'); d.appendChild(escudo(s, 130)); d.appendChild(el('div', '', nome(s))); return d; };
+    const tem = c.gh != null;
+    const g1 = el('div', 'gol' + (tem ? '' : ' vazio'), tem ? '0' : '?'), g2 = el('div', 'gol' + (tem ? '' : ' vazio'), tem ? '0' : '?');
+    const meio = el('div', 'meio'); meio.append(g1, el('div', 'x', '×'), g2);
+    j.append(lado(c.h), meio, lado(c.a));
+    const chip = c.chip && el('div', 'chip', c.chip);
+    if (chip) { chip.style.background = c.corChip || (/empat/i.test(c.chip) ? 'var(--empate)' : /perd|derrot/i.test(c.chip) ? 'var(--mal)' : 'var(--ouro)'); j.appendChild(chip); }
+    const tit = c.titulo && titulo(c.titulo), info = c.info && el('div', 'info', c.info.map((x) => '<span>' + x + '</span>').join(''));
+    [selo, j, tit, info].forEach((x) => x && n.appendChild(x));
+    const tg = c.emGols != null ? c.emGols : .55;
+    ev(.05, 'whoosh'); if (tem) { ev(tg, 'pop'); ev(tg + .25, 'pop'); } if (chip) ev(tg + .6, 'tapa'); if (tit) ev(tg + .9, 'tapa');
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      const kj = sai(t / .4); j.style.opacity = kj; j.style.transform = `translateY(${(1 - kj) * 50}px) scale(${.94 + .06 * kj})`;
+      if (tem) [[g1, c.gh, tg], [g2, c.ga, tg + .25]].forEach(([g, v, t0]) => {
+        g.textContent = t >= t0 ? v : 0;
+        const k = mola((t - t0) / .35); g.style.transform = `scale(${t >= t0 ? .7 + .3 * k : 1})`;
+      });
+      if (chip) { const k = mola((t - tg - .6) / .35); chip.style.opacity = cl((t - tg - .6) / .1); chip.style.transform = `scale(${.5 + .5 * k})`; }
+      if (tit) [...tit.children].forEach((s, i) => { const k = sai((t - tg - .9 - i * .2) / .35); s.style.opacity = k; s.style.transform = `translateY(${(1 - k) * 30}px)`; });
+      if (info) info.style.opacity = sai((t - tg - 1.4) / .3);
+    } };
+  },
+
+  // c.linhas: [{ t: slug, pts, j, sg, pos }] na ordem de cima para baixo; c.eu: slug em destaque;
+  // c.depois: { em, linhas } faz as linhas trocarem de lugar (pontos contam até o novo valor);
+  // c.corte: posição depois da qual entra a linha tracejada (ex.: 16 = abre o Z4)
+  tabela(c, ev, R) {
+    const n = el('div', 'cena'), tit = c.titulo && titulo(c.titulo, true);
+    const tab = el('div', 'tabela');
+    tab.appendChild(el('div', 'topo', '<span>#</span><span></span><span>time</span><span>j</span><span>sg</span><span>pts</span>'));
+    const corpo = el('div', 'corpo'), H = 52;
+    corpo.style.height = c.linhas.length * H + 'px';
+    const antes = {}, depois = {};
+    c.linhas.forEach((l, i) => { antes[l.t] = Object.assign({ i }, l); });
+    if (c.depois) c.depois.linhas.forEach((l, i) => { depois[l.t] = Object.assign({ i }, l); });
+    const linhas = c.linhas.map((l) => {
+      const d = el('div', 'lin' + (l.t === c.eu ? ' eu' : ''));
+      const pos = el('span', 'pos'), esc = el('span'); esc.appendChild(escudo(l.t, 38));
+      d.append(pos, esc, el('span', 'nome', nome(l.t)), el('span', 'j'), el('span', 'sg'), el('span', 'pts'));
+      corpo.appendChild(d);
+      return { d, t: l.t, pos, j: d.children[3], sg: d.children[4], pts: d.children[5] };
+    });
+    let corte = null;
+    if (c.corte) { corte = el('div', 'corte', '<b>' + (c.textoCorte || 'zona de rebaixamento') + '</b>'); corpo.appendChild(corte); }
+    tab.appendChild(corpo);
+    [tit, tab].forEach((x) => x && n.appendChild(x));
+    const t0 = .3, passo = c.passo || .16;
+    linhas.forEach((_, i) => ev(t0 + i * passo, 'tapa'));
+    const tD = c.depois ? tempo(c.depois.em, R) - c.inicio : Infinity;
+    if (c.depois) ev(tD, 'sobe');
+    return { el: n, at(t) {
+      if (tit) tit.style.opacity = sai(t / .3);
+      const kd = sai((t - tD) / .7);
+      linhas.forEach((L, i) => {
+        const a = antes[L.t], b = depois[L.t] || a;
+        const k = mola((t - t0 - i * passo) / .28);
+        const y = (a.i + (b.i - a.i) * kd) * H;
+        L.d.style.opacity = cl((t - t0 - i * passo) / .08);
+        L.d.style.transform = `translateY(${y + (1 - k) * -18}px) scale(${1 + (1 - k) * .06})`;
+        const atual = kd >= .5 ? b : a;
+        L.pos.textContent = atual.pos + 'º';
+        L.pos.style.borderLeftColor = ZONA[zonaDe(atual.pos)] || 'transparent';
+        L.j.textContent = atual.j != null ? atual.j : '';
+        L.sg.textContent = atual.sg != null ? (atual.sg > 0 ? '+' : '') + atual.sg : '';
+        L.pts.textContent = Math.round(a.pts + (b.pts - a.pts) * kd);
+      });
+      if (corte) { corte.style.top = c.corte * H + 'px'; corte.style.opacity = cl((t - t0 - linhas.length * passo) / .3); }
+    } };
+  },
+
+  // c.itens: [{ rotulo, t (escudo opcional), valor, cor, em }]; valor em % por padrão
+  barras(c, ev, R) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
+    const esc = c.escudo && escudo(c.escudo, 120), tit = c.titulo && titulo(c.titulo, true);
+    const box = el('div', 'barras'), suf = c.sufixo != null ? c.sufixo : '%', casas = c.casas != null ? c.casas : 1;
+    const its = c.itens.map((it, i) => {
+      const b = el('div', 'barra'), rot = el('div', 'rot');
+      if (it.t) rot.appendChild(escudo(it.t, 44));
+      rot.appendChild(el('span', '', it.rotulo || nome(it.t)));
+      const tr = el('div', 'trilho'), en = el('div', 'enche'); en.style.background = it.cor || 'var(--ouro)'; tr.appendChild(en);
+      const v = el('div', 'val'); v.style.color = it.cor || 'var(--ouro)';
+      b.append(rot, tr, v); box.appendChild(b);
+      const t0 = it.em != null ? tempo(it.em, R) - c.inicio : .5 + i * .45;
+      ev(t0, 'sobe'); for (let q = 1; q <= 6; q++) ev(t0 + q * .1, 'tick');
+      return { b, en, v, t0, valor: it.valor };
+    });
+    [selo, esc, tit, box].forEach((x) => x && n.appendChild(x));
+    const max = c.max || 100;
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      if (esc) { const k = mola((t - .1) / .4); esc.style.transform = `scale(${.5 + .5 * k})`; esc.style.opacity = cl(t / .15); }
+      if (tit) tit.style.opacity = sai((t - .2) / .3);
+      its.forEach((x) => {
+        const k = sai((t - x.t0) / .7);
+        x.b.style.opacity = cl((t - x.t0 + .25) / .2);
+        x.en.style.width = (x.valor / max) * 100 * k + '%';
+        x.v.textContent = fmt(x.valor * k, casas) + suf;
+      });
+    } };
+  },
+
+  numero(c, ev) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
+    const esc = c.escudo && escudo(c.escudo, 120);
+    const num = el('div', 'numero'), v = el('span'); num.appendChild(v); if (c.sufixo) num.appendChild(el('small', '', c.sufixo));
+    const tit = c.titulo && titulo(c.titulo, true);
+    [selo, esc, num, tit].forEach((x) => x && n.appendChild(x));
+    const de = c.de || 0, dur = c.duracao || 1.1;
+    ev(.3, 'sobe'); for (let q = 0; q < 8; q++) ev(.3 + q * dur / 8, 'tick'); ev(.3 + dur, 'tapa');
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      if (esc) esc.style.opacity = sai(t / .3);
+      const k = sai((t - .3) / dur);
+      v.textContent = fmt(de + (c.valor - de) * k, c.casas || 0);
+      const p = mola((t - .3 - dur) / .3); num.style.transform = `scale(${t > .3 + dur ? 1 + (1 - p) * .12 : 1})`;
+      num.style.opacity = cl((t - .2) / .2);
+      if (tit) [...tit.children].forEach((s, i) => { const kk = sai((t - .5 - dur - i * .2) / .35); s.style.opacity = kk; s.style.transform = `translateY(${(1 - kk) * 30}px)`; });
+    } };
+  },
+
+  // c.lista: [{ h, a, quando, p: [casa, empate, fora] em % }]
+  jogos(c, ev) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo), tit = c.titulo && titulo(c.titulo, true);
+    const box = el('div', 'lista');
+    const its = c.lista.map((g, i) => {
+      const m = el('div', 'mini');
+      const l1 = el('div', 'lado'); l1.append(escudo(g.h, 40), el('span', '', nome(g.h)));
+      const l2 = el('div', 'lado dir'); l2.append(el('span', '', nome(g.a)), escudo(g.a, 40));
+      const ti = el('div', 'tiras');
+      const cores = [['var(--ouro)', 'var(--noite)'], ['var(--empate)', 'var(--noite)'], ['var(--z-pre)', 'var(--noite)']];
+      const ps = g.p.map((v, k) => { const d = el('div', '', (k === 1 ? 'empate ' : '') + Math.round(v) + '%'); d.style.background = cores[k][0]; d.style.color = cores[k][1]; ti.appendChild(d); return d; });
+      m.append(l1, el('div', 'quando', g.quando || ''), l2, ti); box.appendChild(m);
+      const t0 = .35 + i * .3; ev(t0, 'tapa'); ev(t0 + .3, 'sobe');
+      return { m, ps, p: g.p, t0 };
+    });
+    [selo, tit, box].forEach((x) => x && n.appendChild(x));
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      if (tit) tit.style.opacity = sai((t - .1) / .3);
+      its.forEach((x) => {
+        const k = mola((t - x.t0) / .3); x.m.style.opacity = cl((t - x.t0) / .1); x.m.style.transform = `translateX(${(1 - k) * 60}px)`;
+        const kb = sai((t - x.t0 - .3) / .6); const tot = x.p[0] + x.p[1] + x.p[2];
+        x.ps.forEach((d, q) => { d.style.width = (x.p[q] / tot) * 100 * kb + '%'; });
+      });
+    } };
+  },
+
+  fecho(c, ev) {
+    const n = el('div', 'cena fecho');
+    const logo = el('div', '', LOGO), url = el('div', 'url', c.url || 'tapanagaveta.com.br'), sub = el('div', 'sub', c.texto || 'simule o seu time');
+    n.append(logo, sub, url);
+    ev(.1, 'whoosh'); ev(.6, 'fim');
+    return { el: n, at(t) {
+      const k = mola(t / .5); logo.style.transform = `scale(${.6 + .4 * k})`; logo.style.opacity = cl(t / .2);
+      sub.style.opacity = sai((t - .4) / .3); url.style.opacity = sai((t - .6) / .3);
+      url.style.transform = `scale(${1 + .04 * Math.sin(Math.max(0, t - 1) * 4)})`;
+    } };
+  },
+};
+
+// ====================================================================== montagem
+let R = null, VIVAS = [], EVENTOS = [], DUR = 10;
+function montar(roteiro) {
+  R = roteiro;
+  document.title = (R.nome || 'vídeo') + ' · tapa na gaveta';
+  $('#cab .marca').innerHTML = LOGO.replace('<svg', '<svg style="color:#fff"');
+  $('#cab .estado span').textContent = R.estado || 'simulador';
+  const txt = R.faixa || ['tapa na gaveta', 'simulador do brasileirão 2026', 'simule você também', '<b>tapanagaveta.com.br</b>'];
+  $('#ticker .faixa').innerHTML = ('<span>' + txt.join(' &nbsp;·&nbsp; ') + ' &nbsp;·&nbsp; </span>').repeat(8);
+  const palco = $('#palco'); palco.innerHTML = '';
+  const inis = R.cenas.map((c) => tempo(c.em, R));
+  DUR = R.duracao || (inis[inis.length - 1] + 4);
+  EVENTOS = [];
+  VIVAS = R.cenas.map((c, i) => {
+    const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
+    c.inicio = ini;
+    const ev = (tl, tipo) => { const ta = ini + tl; if (ta >= ini && ta < fim) EVENTOS.push([ta, tipo]); };
+    const f = CENAS[c.tipo];
+    if (!f) { AVISOS.push('tipo de cena desconhecido: ' + c.tipo); return null; }
+    const v = f(c, ev, R); v.ini = ini; v.fim = fim; palco.appendChild(v.el);
+    return v;
+  }).filter(Boolean);
+  if (R.trilha !== false) EVENTOS.push([0, 'trilha']);
+  EVENTOS.sort((a, b) => a[0] - b[0]);
+  $('#barra').max = DUR;
+  $('#aviso').textContent = AVISOS.join(' · ');
+  desenhar(0);
+}
+
+// desenha o quadro no tempo t (determinístico: o render chama isto quadro a quadro)
+function desenhar(t) {
+  const per = ($('#ticker .faixa span') || {}).offsetWidth || 4000;          // um ciclo do texto: a faixa volta sem pulo
+  $('#ticker .faixa').style.transform = `translateX(${-((t * 70) % per)}px)`;
+  const e = $('#cab .estado i'); e.style.opacity = .35 + .65 * (0.5 + 0.5 * Math.cos(t * 5));
+  VIVAS.forEach((v) => {
+    const vis = t >= v.ini - .001 && t < v.fim + .25;
+    v.el.style.display = vis ? '' : 'none';
+    if (!vis) return;
+    const tl = t - v.ini, ke = sai(tl / .3), ks = sai((t - v.fim) / .25);
+    v.el.style.opacity = t >= v.fim ? 1 - ks : ke;
+    v.el.style.transform = t >= v.fim ? `translateY(${-ks * 60}px)` : `translateY(${(1 - ke) * 60}px)`;
+    v.at(tl);
+  });
+  $('#tempo').textContent = fmt(t, 1) + ' s / ' + fmt(DUR, 1);
+}
+
+// ====================================================================== sons (sintetizados, nada de banco de áudio)
+const SR = 48000;
+let RUIDO = null;
+function ruido(ctx) {
+  if (RUIDO && RUIDO.sampleRate === ctx.sampleRate) return RUIDO;
+  const b = ctx.createBuffer(1, ctx.sampleRate * 1, ctx.sampleRate), d = b.getChannelData(0);
+  let s = 7; for (let i = 0; i < d.length; i++) { s = (s * 16807) % 2147483647; d[i] = (s / 2147483647) * 2 - 1; }
+  return (RUIDO = b);
+}
+function env(ctx, g, t, a, pico, dur) { g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(pico, t + a); g.gain.exponentialRampToValueAtTime(0.0001, t + dur); }
+function osc(ctx, out, tipo, f0, f1, t, dur, pico) {
+  const o = ctx.createOscillator(), g = ctx.createGain(); o.type = tipo;
+  o.frequency.setValueAtTime(f0, t); o.frequency.exponentialRampToValueAtTime(f1, t + dur);
+  env(ctx, g, t, .005, pico, dur); o.connect(g).connect(out); o.start(t); o.stop(t + dur + .02);
+}
+function chiado(ctx, out, t, dur, pico, filtro, f0, f1, q) {
+  const s = ctx.createBufferSource(); s.buffer = ruido(ctx);
+  const f = ctx.createBiquadFilter(); f.type = filtro; f.Q.value = q || 1; f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(f1, t + dur);
+  const g = ctx.createGain(); env(ctx, g, t, .004, pico, dur); s.connect(f).connect(g).connect(out); s.start(t, Math.random() * .5); s.stop(t + dur + .02);
+}
+const SONS = {
+  tapa(ctx, o, t) { chiado(ctx, o, t, .11, .9, 'bandpass', 2200, 900, .7); osc(ctx, o, 'sine', 150, 55, t, .1, .7); },
+  pop(ctx, o, t) { osc(ctx, o, 'sine', 520, 980, t, .07, .45); },
+  tick(ctx, o, t) { osc(ctx, o, 'square', 2600, 2400, t, .018, .05); },
+  whoosh(ctx, o, t) { chiado(ctx, o, t, .38, .35, 'bandpass', 350, 3200, 1.2); },
+  sobe(ctx, o, t) { osc(ctx, o, 'triangle', 330, 760, t, .42, .16); },
+  fim(ctx, o, t) { osc(ctx, o, 'triangle', 523, 523, t, .55, .2); osc(ctx, o, 'triangle', 659, 659, t + .06, .55, .16); osc(ctx, o, 'triangle', 784, 784, t + .12, .7, .14); },
+};
+// trilha: batida leve a 100 bpm (bumbo, chimbal, baixo), para ficar bem baixinha embaixo da voz
+function trilha(ctx, o, t0, dur) {
+  const b = 60 / 100, notas = [55, 55, 41.2, 49];
+  for (let k = 0; t0 + k * b < dur; k++) {
+    const t = t0 + k * b;
+    osc(ctx, o, 'sine', 140, 45, t, .16, k % 4 === 0 ? .8 : .55);
+    chiado(ctx, o, t + b / 2, .04, .12, 'highpass', 7000, 9000, .7);
+    if (k % 2 === 0) osc(ctx, o, 'triangle', notas[(k / 4 | 0) % 4], notas[(k / 4 | 0) % 4], t, b * 1.8, .22);
+  }
+}
+function agendar(ctx, saida, de, ate, offset, quais) {
+  EVENTOS.forEach(([t, tipo]) => {
+    if (tipo === 'trilha') { if (quais !== 'sfx') trilha(ctx, saida, Math.max(0, offset - de), ate - de + offset); return; }
+    if (quais === 'trilha') return;
+    if (t >= de && t < ate && SONS[tipo]) SONS[tipo](ctx, saida, offset + (t - de));
+  });
+}
+// exporta 'sfx' ou 'trilha' como WAV (48 kHz, 16 bits, estéreo)
+async function wav(quais) {
+  const ctx = new OfflineAudioContext(2, Math.ceil(SR * DUR), SR);
+  const m = ctx.createGain(); m.gain.value = quais === 'trilha' ? .5 : .9; m.connect(ctx.destination);
+  agendar(ctx, m, 0, DUR, 0, quais);
+  const buf = await ctx.startRendering();
+  const n = buf.length, dv = new DataView(new ArrayBuffer(44 + n * 4));
+  const w = (o, s) => [...s].forEach((c, i) => dv.setUint8(o + i, c.charCodeAt(0)));
+  w(0, 'RIFF'); dv.setUint32(4, 36 + n * 4, true); w(8, 'WAVEfmt '); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 2, true);
+  dv.setUint32(24, SR, true); dv.setUint32(28, SR * 4, true); dv.setUint16(32, 4, true); dv.setUint16(34, 16, true); w(36, 'data'); dv.setUint32(40, n * 4, true);
+  const L = buf.getChannelData(0), Rr = buf.getChannelData(1);
+  for (let i = 0, o = 44; i < n; i++, o += 4) { dv.setInt16(o, Math.max(-1, Math.min(1, L[i])) * 32767, true); dv.setInt16(o + 2, Math.max(-1, Math.min(1, Rr[i])) * 32767, true); }
+  return new Blob([dv.buffer], { type: 'audio/wav' });
+}
+async function base64(blob) { const b = new Uint8Array(await blob.arrayBuffer()); let s = ''; for (let i = 0; i < b.length; i += 32768) s += String.fromCharCode.apply(null, b.subarray(i, i + 32768)); return btoa(s); }
+
+// API usada pelo render.py
+window.VIDEO = {
+  get duracao() { return DUR; },
+  pronto: async () => { await document.fonts.ready; await Promise.all(ESCUDOS.map((i) => (i.complete ? 1 : new Promise((r) => { i.onload = i.onerror = r; })))); return AVISOS; },
+  ir: (t) => desenhar(t),
+  wav: async (q) => base64(await wav(q)),
+  inicio: () => (R && R.inicio) || 0,
+};
+
+// ====================================================================== prévia
+let tocando = false, t0Rel = 0, tIni = 0, actx = null, saidaSom = null, raf = 0;
+const voz = new Audio();
+function agora() { return tocando ? tIni + (performance.now() - t0Rel) / 1000 : +$('#barra').value; }
+function tocar() {
+  if (tocando) { parar(); return; }
+  actx = actx || new AudioContext({ sampleRate: SR });
+  saidaSom = actx.createGain(); saidaSom.gain.value = .9; saidaSom.connect(actx.destination);
+  tIni = +$('#barra').value; if (tIni >= DUR - .05) tIni = 0;
+  agendar(actx, saidaSom, tIni, DUR, actx.currentTime + .05, 'tudo');
+  if (voz.src) { voz.currentTime = tIni + ((R && R.inicio) || 0); voz.play(); }
+  t0Rel = performance.now() + 50; tocando = true; $('#tocar').textContent = '❚❚ pausar';
+  const passo = () => { const t = agora(); if (t >= DUR) { parar(); return; } $('#barra').value = t; desenhar(Math.max(tIni, t)); raf = requestAnimationFrame(passo); };
+  raf = requestAnimationFrame(passo);
+}
+function parar() {
+  tocando = false; cancelAnimationFrame(raf); voz.pause(); $('#tocar').textContent = '▶ tocar';
+  if (saidaSom) { saidaSom.disconnect(); saidaSom = null; }
+}
+const MARCAS = [];
+if (!RENDER) {
+  $('#tocar').onclick = tocar;
+  $('#barra').oninput = () => { if (tocando) parar(); desenhar(+$('#barra').value); };
+  $('#bguia').onclick = () => $('#guia').classList.toggle('on');
+  $('#voz').onchange = (e) => { const f = e.target.files[0]; if (f) voz.src = URL.createObjectURL(f); };
+  const baixar = async (q, nomeArq) => { const a = el('a'); a.href = URL.createObjectURL(await wav(q)); a.download = nomeArq; a.click(); };
+  $('#bsfx').onclick = () => baixar('sfx', (R.nome || 'video') + '-efeitos.wav');
+  $('#btrilha').onclick = () => baixar('trilha', (R.nome || 'video') + '-trilha.wav');
+  addEventListener('keydown', (e) => {
+    if (e.code === 'Space') { e.preventDefault(); tocar(); }
+    else if (e.key === 'g') $('#guia').classList.toggle('on');
+    else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { parar(); const b = $('#barra'); b.value = Math.max(0, Math.min(DUR, +b.value + (e.key === 'ArrowRight' ? 1 : -1))); desenhar(+b.value); }
+    else if (e.key === 'm') { MARCAS.push(+agora().toFixed(2)); $('#marcas').textContent = 'marcas (s): ' + MARCAS.join(', '); }
+  });
+}
+
+// ====================================================================== carrega o roteiro
+window.ROTEIRO = (r) => montar(r);
+const nomeR = Q.get('r') || 'exemplo-degola';
+const s = document.createElement('script');
+s.src = 'roteiros/' + nomeR + '.js';
+s.onerror = () => { $('#aviso').textContent = 'não achei roteiros/' + nomeR + '.js'; };
+document.head.appendChild(s);
+</script>
+</body>
+</html>
