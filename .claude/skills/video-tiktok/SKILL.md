@@ -1,6 +1,6 @@
 ---
 name: video-tiktok
-description: Edita os vídeos de divulgação do Tapa na Gaveta para o TikTok (animação do simulador em cima, câmera embaixo), no estilo dos vídeos do Isake e no padrão visual do site, e confere/corrige áudio descasado. Use para montar, renderizar ou consertar um vídeo do perfil.
+description: Edita os vídeos de divulgação do Tapa na Gaveta para o TikTok (animação do simulador em cima, câmera embaixo), no estilo dos vídeos do Isake e no padrão visual do site, gera versões para testar um fator por vez (legenda, abertura, duração...) e confere/corrige áudio descasado. Use para montar, renderizar, testar ou consertar um vídeo do perfil.
 ---
 
 # Vídeos do TikTok (Tapa na Gaveta)
@@ -20,6 +20,8 @@ Arquivos (todos em `ferramentas/video/`):
 | `legendas.py` | legendas `.srt` → `T` (o tempo de cada palavra da fala) |
 | `render.py` | gera a animação quadro a quadro e monta o vídeo final 1080×1920 |
 | `sincronia.py` | diagnostica, mede e corrige áudio descasado |
+| `fala.py` | transcrição do sherpa-onnx → rascunho do campo `fala` (texto da legenda na tela) |
+| `fontes/` | fonte da legenda queimada (Archivo extra negrito, OFL) |
 | `escudos/` | escudos grandes (512 px) só para vídeo; o modelo usa estes primeiro e cai nos de `midia/escudos/` (128 px, ficam borrados quando ampliados) |
 
 Saídas em `ferramentas/video/saida/` (fora do git). Gravações brutas também não vão para o git:
@@ -127,6 +129,10 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
 roteiro troca as faixas da tabela (Série B: `{ lib: [1, 2], pre: [3, 6], rb: [17, 20] }`, ver `2026-11-15-serie-b-playoffs.js`). Cores aceitas:
 `var(--ouro)`, `var(--ok)`, `var(--empate)`, `var(--z-rb)`, `var(--z-pre)`, `var(--z-lib)` ou hexadecimal.
+
+Campos opcionais do topo para legenda e testes: `fala` ([de, até, 'texto'] por trecho, mesma conta dos `cortes`),
+`legenda` (`true` ou `{ y: 1030 }`), `fator` e `nivel` (o que este vídeo testa) e `variantes` (ver "Versões e
+experimentos").
 
 Tamanho: cabem até 9 linhas de tabela, 5 barras e 4 jogos sem sair da área segura.
 Se precisar de mais, divida em duas cenas.
@@ -261,7 +267,61 @@ Causas comuns, que o `diagnostico` aponta: áudio do iPhone começando alguns ce
 e algum passo que "zera" o começo de cada um separadamente, ritmo de quadros variável convertido sem
 levar o áudio junto, e corte feito só na imagem.
 
-### 8. Antes de postar
+### 8. Versões e experimentos
+
+Cada vídeo testa **um fator** por vez, e a planilha guarda o resultado de todos:
+[Tapa na Gaveta · testes dos vídeos](https://claude.ai/artifact/EtyRWuDYTbz4VxAEwuWCN2) (aba Fatores = o que testar,
+aba Vídeos = uma linha por vídeo postado, aba Resumo = médias por fator e nível, aba Isake = views por formato).
+
+**Escolher o fator.** Pegue o primeiro fator da aba Fatores com status "testando" (se nenhum, o primeiro "na fila"
+vira "testando"). Os níveis estão na própria aba.
+
+**Escolher o nível.** Olhe a aba Resumo para esse fator:
+- enquanto algum nível tiver menos de 3 vídeos, use o nível com menos vídeos (empate: sorteie);
+- depois disso, sorteie com 2/3 de chance para o nível com maior "assistiu completo" e 1/3 para o outro (continua
+  testando, mas aposta mais no que está ganhando);
+- com 5 ou mais vídeos em cada nível e a diferença no mesmo sentido em retenção e em assistiu completo, marque
+  "concluído" na aba Fatores, escreva a conclusão nas notas e passe o vencedor a padrão nos próximos vídeos.
+
+**Gerar as versões.** No roteiro, o nível escolhido vai no topo e o outro vira variante:
+
+```js
+fator: 'Legenda na tela',
+nivel: 'não',
+variantes: {
+  B: { nivel: 'sim', legenda: true },                                  // só muda o vídeo: reaproveita a animação
+  C: { nivel: 'número', mudarCenas: { 0: { tipo: 'numero', valor: 2, sufixo: 'gols do Vini' } } },
+},
+```
+
+Uma variante sobrescreve campos do topo; `mudarCenas` troca campos de uma cena pelo índice. Prévia de uma variante:
+`modelo.html?r=NOME&v=B`.
+
+```bash
+python ferramentas/video/render.py NOME --camera bruto.MOV --variante todas   # A em saida/NOME/, B em saida/NOME-B/ ...
+```
+
+Variante que só muda `legenda`, `fator`, `nivel` ou `nota` reaproveita a animação da versão A (render da A primeiro).
+Cada pasta ganha um `experimento.json` com fator e nível. A sincronia é a mesma da A (mesmo corte e mesma montagem).
+
+**Legenda na tela.** Queimada pelo ffmpeg (filtro `ass`) com a fonte de `fontes/` (Archivo extra negrito, licença
+OFL): tinta clara, contorno azul-noite, números em dourado, até 4 palavras por vez, na emenda entre a animação e a
+câmera (longe da boca e da descrição do TikTok). O texto sai do campo `fala`: rode
+`python ferramentas/video/fala.py transcricao.log --inicio X` na saída do sherpa-onnx (`vad-with-offline-asr`),
+corrija nomes e números à mão (o Whisper erra "Ancelotti", "Vini Jr.", placares) e tire os trechos dos cortes.
+Sem `fala`, a legenda usa o `T`. Para outro vídeo, `--legenda` liga a legenda sem variante e `--legenda-y` muda a altura.
+
+**Postar as versões.** Duas versões do mesmo vídeo não vão no mesmo perfil (o TikTok trata como repetido). Use o par
+cruzado: uma versão no perfil de quem gravou e a outra no @tapa.na.gaveta, e no vídeo seguinte inverta qual nível vai
+em cada perfil (assim o perfil não decide o teste sozinho). Com uma versão só, poste o nível sorteado nos dois perfis.
+
+**Registrar.** Ao postar, uma linha por perfil na aba Vídeos: data, perfil, nome do roteiro, fator, nível, duração,
+assunto, edição ("skill") e link. Os números vêm do TikTok Studio do perfil (Análises → vídeo): views, tempo médio,
+assistiu completo, novos seguidores, curtidas, comentários, compartilhamentos, salvos e % do Para Você. Colete **48 a
+72 h depois** de postar e anote a data da coleta (antes disso o vídeo ainda está sendo distribuído). Visitas ao site
+vêm do Cloudflare (referência tiktok.com) no mesmo período.
+
+### 9. Antes de postar
 
 - [ ] área segura desligada no render final (`--guia` é só para conferir)
 - [ ] números batem com o site e a data está no roteiro
@@ -269,4 +329,5 @@ levar o áudio junto, e corte feito só na imagem.
 - [ ] movimento leve discreto: nada balançando junto, brilho mais fraco depois do resultado
 - [ ] sem voz de IA e sem selo de edição com IA
 - [ ] vídeo final 1080×1920, H.264 + AAC (o `render.py` já entrega assim)
-- [ ] posta no perfil de quem gravou e republica no @tapa.na.gaveta
+- [ ] legenda (se a versão tiver) conferida em 3 ou 4 quadros: nomes certos, nada sobre a boca
+- [ ] posta no perfil de quem gravou e no @tapa.na.gaveta (versões: par cruzado) e registra na planilha
