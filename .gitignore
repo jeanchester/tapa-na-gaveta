@@ -5,3 +5,8 @@ node_modules/
 # material de consulta grande (fica fora do repositório do site)
 tapa-na-gaveta-midia/
 dist-artifact/
+
+# vídeos do TikTok: renders e brutos ficam fora do git
+ferramentas/video/saida/
+*.MOV
+*.mov

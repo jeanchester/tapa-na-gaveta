@@ -23,6 +23,7 @@ node tools/calibrar.js                   # calibração do modelo de probabilida
 python tools/capturas.py site --pagina   # todas as telas em 320, 390 e 1280 px, claro e escuro (+ conferências)
 python tools/capturas.py simulador       # usa o simulador de ponta a ponta (preencher, revelar, chances, link...)
 python tools/og.py                       # imagens de compartilhamento (Open Graph)
+node ferramentas/video/chances.js corinthians   # números do modelo para os vídeos do TikTok (ver .claude/skills/video-tiktok)
 ```
 
 As capturas conferem também: erro no console, rolagem lateral, texto cortado, alvos de toque
