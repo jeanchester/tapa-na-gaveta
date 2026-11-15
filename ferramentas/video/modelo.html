@@ -627,6 +627,12 @@ window.VIDEO = {
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,
   cortes: () => (R && R.cortes) || [],
+  // para o render: variante, fator testado, legenda e a fala (T palavra a palavra ou fala por trecho)
+  meta: () => ({
+    variante: VAR || null, variantes: Object.keys((R && R.variantes) || {}), mudaAnimacao: MUDA_ANIMACAO,
+    fator: (R && R.fator) || null, nivel: (R && R.nivel) || null,
+    legenda: (R && R.legenda) || false, T: (R && R.T) || [], fala: (R && R.fala) || [],
+  }),
 };
 
 // ====================================================================== prévia
@@ -666,7 +672,20 @@ if (!RENDER) {
 }
 
 // ====================================================================== carrega o roteiro
-window.ROTEIRO = (r) => montar(r);
+// variantes: { B: { fator, nivel, ...campos do topo que mudam, mudarCenas: { índice: {campos} } } } — ?v=B
+const VAR = Q.get('v');
+const SO_VIDEO = ['fator', 'nivel', 'legenda', 'nota'];   // campos que não mexem na animação de cima
+let MUDA_ANIMACAO = false;
+function variante(r) {
+  if (!VAR || VAR === 'A' && !(r.variantes || {}).A) return r;
+  const v = (r.variantes || {})[VAR];
+  if (!v) { AVISOS.push('variante não existe no roteiro: ' + VAR); return r; }
+  MUDA_ANIMACAO = Object.keys(v).some((k) => !SO_VIDEO.includes(k));
+  const out = Object.assign({}, r, v);
+  if (v.mudarCenas) out.cenas = r.cenas.map((c, i) => v.mudarCenas[i] ? Object.assign({}, c, v.mudarCenas[i]) : c);
+  return out;
+}
+window.ROTEIRO = (r) => montar(variante(r));
 const nomeR = Q.get('r') || 'exemplo-degola';
 const s = document.createElement('script');
 s.src = 'roteiros/' + nomeR + '.js';
