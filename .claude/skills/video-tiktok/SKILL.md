@@ -223,6 +223,13 @@ roteiro, em segundos da gravação depois do `inicio`. Som e imagem saem juntos,
 da gravação (o modelo remapeia). **Ouça a gravação inteira antes de editar** atrás de instruções faladas ("corta
 isso", "repete") — se não der para ouvir/transcrever, pergunte em que segundo estão.
 
+Cortes inteligentes, a partir da transcrição: (1) instrução falada para a edição ("corta essa parte", "vou
+refazer") sai junto com a tentativa a que ela se refere, e fica a versão refeita; (2) frase repetida: fica a última
+versão completa; (3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
+e se o fim do vídeo se enrolar, emende o endereço do site direto na despedida; (4) pausa acima de ~0,6 s entre
+frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê. O render corta pelo número do
+quadro e da amostra, então som e imagem não se descolam nas emendas.
+
 Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera

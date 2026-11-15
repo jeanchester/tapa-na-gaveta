@@ -110,6 +110,14 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 .fecho .url { font: 900 46px var(--f-num); color: var(--ouro); }
 .fecho .sub { font: 700 30px var(--f-texto); color: var(--tinta-2); }
 
+/* movimento leve: brilho que passa nos cartões e borda tracejada da caixa vazia (tudo movido pelo desenhar(t)) */
+.jogo, .mini, .barra .trilho { position: relative; }
+.brilho { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.brilho i { position: absolute; top: -30%; bottom: -30%; left: 0; width: 26%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0)); transform: skewX(-18deg); opacity: 0; will-change: transform, opacity; }
+.jogo .gol.vazio { position: relative; }
+.jogo .gol.vazio svg { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); overflow: visible; }
+.jogo .gol.vazio rect { fill: none; stroke: var(--ouro); stroke-width: 3; stroke-dasharray: 12 10; opacity: .7; }
+
 /* guia da área segura (botão / tecla g) */
 #guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
 #guia.on { display: block; }
@@ -427,10 +435,12 @@ function montar(roteiro) {
   VIVAS = R.cenas.map((c, i) => {
     const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
     c.inicio = ini;
-    const ev = (tl, tipo) => { const ta = ini + tl; if (ta >= ini && ta < fim) EVENTOS.push([ta, tipo]); };
+    let ultimo = 0;
+    const ev = (tl, tipo) => { const ta = ini + tl; if (ta >= ini && ta < fim) { EVENTOS.push([ta, tipo]); ultimo = Math.max(ultimo, tl); } };
     const f = CENAS[c.tipo];
     if (!f) { AVISOS.push('tipo de cena desconhecido: ' + c.tipo); return null; }
     const v = f(c, ev, R); v.ini = ini; v.fim = fim; palco.appendChild(v.el);
+    prepararLeve(v, c, ultimo);
     return v;
   }).filter(Boolean);
   if (R.trilha !== false) EVENTOS.push([0, 'trilha']);
@@ -438,6 +448,44 @@ function montar(roteiro) {
   $('#barra').max = DUR;
   $('#aviso').textContent = AVISOS.join(' · ');
   desenhar(0);
+}
+
+// ---------------------------------------------------------------------- movimento leve (camada contínua)
+// Liga depois que as entradas terminam (último som da cena + 0,5 s) e some nos 0,3 s antes da troca de cena.
+// Cada elemento tem período e fase próprios; depois do resultado o brilho fica mais fraco.
+function prepararLeve(v, c, ultimo) {
+  v.calma = ultimo + .5;
+  v.temResultado = ['placar', 'barras', 'numero'].includes(c.tipo) || !!c.depois;
+  v.cards = [...v.el.querySelectorAll('.jogo, .mini, .tabela, .barra .trilho')].map((card) => {
+    const b = el('div', 'brilho'), i = el('i'); b.appendChild(i); card.appendChild(b); return i;
+  });
+  v.vazios = [...v.el.querySelectorAll('.gol.vazio')].map((g) => {
+    g.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 116 136" preserveAspectRatio="none"><rect x="1.5" y="1.5" width="113" height="133" rx="18"/></svg>');
+    return g.querySelector('rect');
+  });
+  v.nums = [...v.el.querySelectorAll('.numero, .gol:not(.vazio)')];
+}
+function leve(v, t, tl) {
+  const k = cl((tl - v.calma) / .6) * cl((v.fim - t) / .3);
+  // escudos flutuando (os discos de reserva também)
+  v.el.querySelectorAll('.escudo, .disco').forEach((e, i) => {
+    const per = 3.2 + i * .37, f = i * 1.7, w = (2 * Math.PI * t) / per;
+    e.style.translate = `0 ${(k * 2.5 * Math.sin(w + f)).toFixed(2)}px`;
+    e.style.scale = (1 + k * .012 * Math.sin(w * .8 + f + 1)).toFixed(4);
+    e.style.rotate = `${(k * .6 * Math.sin(w * .6 + f * 2)).toFixed(3)}deg`;
+  });
+  // números respirando
+  v.nums.forEach((n, i) => { n.style.scale = (1 + k * .018 * Math.sin((2 * Math.PI * t) / (3.6 + i * .5) + i * 2.1)).toFixed(4); });
+  // brilho passando: um cartão de cada vez, a cada 2,6 s
+  const n = v.cards.length, P = 2.6, D = .9, forca = v.temResultado ? .07 : .12;
+  v.cards.forEach((i, j) => {
+    const fase = ((tl - v.calma) % (P * Math.max(n, 2))) - j * P, q = fase / D;
+    const on = k > 0 && q >= 0 && q <= 1;
+    i.style.opacity = on ? (forca * k * Math.sin(Math.PI * q)).toFixed(3) : 0;
+    i.style.transform = `translateX(${on ? -30 + q * 460 : -30}%) skewX(-18deg)`;
+  });
+  // borda tracejada da caixa vazia girando devagar
+  v.vazios.forEach((r, i) => { r.style.strokeDashoffset = (-(t * 14) - i * 7).toFixed(1); });
 }
 
 // desenha o quadro no tempo t (determinístico: o render chama isto quadro a quadro)
@@ -453,6 +501,7 @@ function desenhar(t) {
     v.el.style.opacity = t >= v.fim ? 1 - ks : ke;
     v.el.style.transform = t >= v.fim ? `translateY(${-ks * 60}px)` : `translateY(${(1 - ke) * 60}px)`;
     v.at(tl);
+    leve(v, t, tl);
   });
   $('#tempo').textContent = fmt(t, 1) + ' s / ' + fmt(DUR, 1);
 }

@@ -61,7 +61,8 @@ def animar(nome, saida, fps, guia):
 
 def hdr(camera):
     v = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=color_transfer', '-of', 'csv=p=0', str(camera)],
-                       capture_output=True, text=True).stdout.strip()
+                       capture_output=True, text=True).stdout
+    v = (v.strip().split(',') or [''])[0]               # ffprobe pode devolver "arib-std-b67," (com vírgula)
     return v in ('arib-std-b67', 'smpte2084')          # HLG (iPhone) ou PQ
 
 
@@ -77,16 +78,46 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     # iPhone grava em HDR (HLG): sem converter para SDR a cor sai lavada/estranha no TikTok
     cor = ('zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0,'
            'zscale=t=bt709:m=bt709:r=tv,format=yuv420p,') if hdr(camera) else ''
-    # cortes no meio da fala: o mesmo trecho sai do som e da imagem (tempos contados depois do "inicio")
-    fora = '+'.join(f'between(t,{a:.3f},{b:.3f})' for a, b in cortes)
-    selv = f"select='not({fora})',setpts=N/({fps}*TB)," if cortes else ''
-    sela = f"aselect='not({fora})',asetpts=N/SR/TB," if cortes else ''
-    filtro = (f'[1:v]{cor}fps={fps},{selv}scale={lw}:{lh}:force_original_aspect_ratio=increase,'
-              f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1[cam];"
-              f'[0:v][cam]vstack=inputs=2,format=yuv420p[v];')
+    base_v = (f'[1:v]{cor}fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
+              f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1")
+    base_a = f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}'
     mix = []
+    if cortes:
+        # cortes no meio da fala: cada trecho mantido sai junto em som e imagem (limites no quadro exato,
+        # para não acumular atraso entre os trechos) e o som ganha 20 ms de fade nas emendas (sem estalo)
+        q = lambda x: round(x * fps) / fps
+        cs = sorted((q(a), q(b)) for a, b in cortes)
+        partes, ini = [], 0.0
+        for a, b in cs:
+            if a > ini:
+                partes.append((ini, a))
+            ini = max(ini, b)
+        partes.append((ini, None))
+        k = len(partes)
+        filtro = base_v + f',split={k}' + ''.join(f'[v{i}]' for i in range(k)) + ';'
+        if tem_audio:
+            filtro += base_a + f',asplit={k}' + ''.join(f'[a{i}]' for i in range(k)) + ';'
+        pares = ''
+        spf = 48000 // fps                       # amostras de áudio por quadro (48 kHz / 30 = 1600)
+        for i, (a, b) in enumerate(partes):
+            # corta pelo número do quadro e da amostra: som e imagem de cada trecho têm exatamente a mesma duração
+            # (cortar por tempo deixava um quadro a mais aqui e ali, e a imagem atrasava a cada emenda)
+            fa, fb = round(a * fps), (round(b * fps) if b is not None else None)
+            fimv = f':end_frame={fb}' if fb is not None else ''
+            fima = f':end_sample={fb * spf}' if fb is not None else ''
+            filtro += f'[v{i}]trim=start_frame={fa}{fimv},setpts=PTS-STARTPTS[cv{i}];'
+            pares += f'[cv{i}]'
+            if tem_audio:
+                fo = f',afade=t=out:st={(fb - fa) / fps - .02:.4f}:d=0.02' if fb is not None else ''
+                filtro += f'[a{i}]atrim=start_sample={fa * spf}{fima},asetpts=PTS-STARTPTS,afade=t=in:d=0.02{fo}[ca{i}];'
+                pares += f'[ca{i}]'
+        filtro += pares + f"concat=n={k}:v=1:a={1 if tem_audio else 0}[cam]" + ('[voz];' if tem_audio else ';')
+    else:
+        filtro = base_v + '[cam];'
+        if tem_audio:
+            filtro += base_a + '[voz];'
+    filtro += '[0:v][cam]vstack=inputs=2,format=yuv420p[v];'
     if tem_audio:
-        filtro += f'[1:a]aresample=48000:async=1:first_pts=0,{sela}volume={vol_voz}[voz];'
         mix.append('[voz]')
     filtro += f'[2:a]volume={vol_sfx}[sfx];[3:a]volume={vol_trilha}[tri];'
     mix += ['[sfx]', '[tri]']
