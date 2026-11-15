@@ -26,13 +26,26 @@ grupo('classificação bate com a da ESPN', () => {
 
 grupo('rodadas deduzidas', () => {
   const rest = L.jogos.filter((j) => !j.feito);
-  ok(rest.length === 41, '41 jogos restantes');
+  // vale para qualquer retrato: o robô atualiza os dados duas vezes por dia
+  const aJogar = liga.jogos.filter((j) => !(/FULL_TIME|FINAL/.test(j.status) && j.gols_mandante != null && j.gols_visitante != null)).length;
+  ok(rest.length === aJogar, aJogar + ' jogos restantes, como no retrato');
   ok(L.rodadasConfiaveis, 'nenhum time duas vezes na mesma rodada');
   const porR = {};
   rest.forEach((j) => { const k = j.atrasado ? 'atr' : j.rodada; porR[k] = (porR[k] || 0) + 1; });
-  ok(porR[35] === 10 && porR[36] === 10 && porR[37] === 10 && porR[38] === 10 && porR.atr === 1, 'rodadas 35–38 com 10 jogos e 1 atrasado: ' + JSON.stringify(porR));
-  const atr = rest.find((j) => j.atrasado);
-  ok(L.times[atr.h].slug === 'chapecoense' && L.times[atr.a].slug === 'vasco', 'o atrasado é Chapecoense x Vasco');
+  ok(Object.keys(porR).every((k) => k === 'atr' || porR[k] <= L.n / 2), 'nenhuma rodada com mais de ' + L.n / 2 + ' jogos: ' + JSON.stringify(porR));
+  ok((porR.atr || 0) < L.n / 2, 'nenhuma rodada inteira marcada como atrasada: ' + JSON.stringify(porR));
+  // retrato de 07/11 (34 rodadas para quase todos, Chapecoense x Vasco adiado) e meio de rodada
+  // (dois times já jogaram a 35ª): só o adiado é atrasado
+  // (cada jogo feito é do time contra ele mesmo e conta em dobro: só a ordem entre os times importa)
+  const fx = (feitosPorTime, jogos) => { const M = { n: feitosPorTime.length, jogos: [] };
+    feitosPorTime.forEach((f, i) => { for (let k = 0; k < f; k++) M.jogos.push({ feito: true, h: i, a: i }); });
+    jogos.forEach(([h, a]) => M.jogos.push({ feito: false, h, a })); C.deduzirRodadas(M); return M.jogos.filter((j) => !j.feito); };
+  const base = new Array(20).fill(34); base[0] = base[1] = 33;
+  let r = fx(base, [[0, 1], [2, 3], [4, 5]]);
+  ok(r[0].atrasado && !r[1].atrasado && !r[2].atrasado, 'retrato de 07/11: só o adiado é atrasado');
+  const meio = base.slice(); meio[18] = meio[19] = 35;
+  r = fx(meio, [[0, 1], [2, 3], [4, 5]]);
+  ok(r[0].atrasado && !r[1].atrasado && !r[2].atrasado, 'meio de rodada: o resto da rodada não vira atrasado');
 });
 
 // mini liga para os critérios de desempate
@@ -175,7 +188,7 @@ grupo('dados da ESPN: conversão e mescla', () => {
   ok(m.jogos.length === 380, 'continua com 380 jogos');
   ok(JSON.stringify(E.mesesAbertos(liga)) === '["202611","202612"]', 'meses abertos: nov e dez');
   const L2 = C.preparar(m, regras);
-  ok(L2.jogos.filter((j) => !j.feito).length === 40, 'um jogo a menos para simular');
+  ok(L2.jogos.filter((j) => !j.feito).length === L.jogos.filter((j) => !j.feito).length - 1, 'um jogo a menos para simular');
 });
 
 grupo('dados das versões antigas (arquivo único)', () => {
