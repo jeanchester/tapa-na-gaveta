@@ -58,14 +58,17 @@ def animar(nome, saida, fps, guia):
     return dur, inicio
 
 
-def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha):
+def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5):
     final = saida / f'{nome}.mp4'
     tem_audio = bool(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', str(camera)],
                                     capture_output=True, text=True).stdout.strip())
     h_cam = H_TOTAL - H_ANIM
     # câmera: -ss antes do -i corta som e imagem juntos; ritmo constante (o iPhone grava com ritmo variável);
     # o áudio é reamostrado com async=1 e first_pts=0, que preenche buracos sem empurrar a voz para frente ou para trás
-    filtro = (f'[1:v]fps={fps},scale={W}:{h_cam}:force_original_aspect_ratio=increase,crop={W}:{h_cam},setsar=1[cam];'
+    # zoom > 1 aproxima o rosto; cy = altura do centro do recorte (0 = topo, 1 = base da gravação)
+    lw, lh = int(W * zoom) // 2 * 2, int(h_cam * zoom) // 2 * 2
+    filtro = (f'[1:v]fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
+              f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1[cam];"
               f'[0:v][cam]vstack=inputs=2,format=yuv420p[v];')
     mix = []
     if tem_audio:
@@ -90,6 +93,8 @@ def main():
     ap.add_argument('--vol-voz', type=float, default=1.0)
     ap.add_argument('--vol-sfx', type=float, default=0.55)
     ap.add_argument('--vol-trilha', type=float, default=0.12)
+    ap.add_argument('--camera-zoom', type=float, default=1.0, help='aproxima a câmera (ex.: 1.15)')
+    ap.add_argument('--camera-y', type=float, default=0.5, help='centro vertical do recorte da câmera, 0 a 1 (rosto alto: 0.45)')
     ap.add_argument('--guia', action='store_true', help='desenha a área segura (só para conferir, não para postar)')
     ap.add_argument('--pular-animacao', action='store_true', help='reaproveita animacao.mp4 e os WAV já gerados')
     a = ap.parse_args()
@@ -107,7 +112,7 @@ def main():
     if not a.camera:
         print('animação pronta:', saida / 'animacao.mp4')
         return
-    final = montar(saida, a.nome, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha)
+    final = montar(saida, a.nome, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha, a.camera_zoom, a.camera_y)
     print('vídeo final:', final)
     print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
 

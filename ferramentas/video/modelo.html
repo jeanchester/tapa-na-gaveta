@@ -175,8 +175,13 @@ const nome = (s) => (CLUBES[s] ? CLUBES[s][0] : s);
 const ESCUDOS = [];
 function escudo(slug, tam) {
   const img = el('img', 'escudo'); img.width = img.height = tam; img.alt = nome(slug);
-  img.src = '../../midia/escudos/' + slug + '.png';
-  img.onerror = () => {                                                // disco nas cores do clube
+  // 1º escudos/ (versões grandes, 512 px, só para vídeo), 2º midia/escudos/ do site (128 px), 3º disco
+  const fontes = ['escudos/' + slug + '.png', '../../midia/escudos/' + slug + '.png'];
+  let k = 0;
+  img.src = fontes[0];
+  img.onerror = () => {
+    if (++k < fontes.length) { img.src = fontes[k]; return; }
+    // disco nas cores do clube
     const d = el('div', 'disco', nome(slug).slice(0, 3).toUpperCase());
     d.style.cssText = `width:${tam}px;height:${tam}px;background:${CLUBES[slug] ? CLUBES[slug][1] : '#445'};font-size:${Math.round(tam * .3)}px`;
     img.replaceWith(d);
@@ -197,7 +202,7 @@ function titulo(linhas, menor) {
   const t = el('div', 'titulo' + (menor ? ' menor' : ''));
   (Array.isArray(linhas) ? linhas : [linhas]).forEach((l) => {
     // "[corinthians] e ajudou o Timão" → escudo no começo da linha
-    t.appendChild(el('span', '', String(l).replace(/\[([a-z]+)\]\s*/g, (_, s) => '<img src="../../midia/escudos/' + s + '.png" alt="">')));
+    t.appendChild(el('span', '', String(l).replace(/\[([a-z]+)\]\s*/g, (_, s) => '<img src="escudos/' + s + '.png" onerror="this.onerror=null;this.src=\'../../midia/escudos/' + s + '.png\'" alt="">')));
   });
   return t;
 }
@@ -508,7 +513,7 @@ async function base64(blob) { const b = new Uint8Array(await blob.arrayBuffer())
 // API usada pelo render.py
 window.VIDEO = {
   get duracao() { return DUR; },
-  pronto: async () => { await document.fonts.ready; await Promise.all(ESCUDOS.map((i) => (i.complete ? 1 : new Promise((r) => { i.onload = i.onerror = r; })))); return AVISOS; },
+  pronto: async () => { await document.fonts.ready; for (let q = 0; q < 50 && ESCUDOS.some((i) => i.isConnected && !i.complete); q++) await new Promise((r) => setTimeout(r, 100)); return AVISOS; },
   ir: (t) => desenhar(t),
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,

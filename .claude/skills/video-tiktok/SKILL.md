@@ -20,6 +20,7 @@ Arquivos (todos em `ferramentas/video/`):
 | `legendas.py` | legendas `.srt` → `T` (o tempo de cada palavra da fala) |
 | `render.py` | gera a animação quadro a quadro e monta o vídeo final 1080×1920 |
 | `sincronia.py` | diagnostica, mede e corrige áudio descasado |
+| `escudos/` | escudos grandes (512 px) só para vídeo; o modelo usa estes primeiro e cai nos de `midia/escudos/` (128 px, ficam borrados quando ampliados) |
 
 Saídas em `ferramentas/video/saida/` (fora do git). Gravações brutas também não vão para o git:
 ficam na pasta "TikTok Tapa" do Drive.
@@ -128,6 +129,7 @@ python ferramentas/video/render.py NOME --camera bruto.MOV            # usa o "i
 python ferramentas/video/render.py NOME --camera bruto.MOV --pular-animacao --vol-trilha 0.08   # só remonta
 ```
 
+Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera
 é convertida para ritmo constante e o áudio é reamostrado sem ser empurrado.
