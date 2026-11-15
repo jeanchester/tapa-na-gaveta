@@ -94,24 +94,21 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
             ini = max(ini, b)
         partes.append((ini, None))
         k = len(partes)
-        filtro = base_v + f',split={k}' + ''.join(f'[v{i}]' for i in range(k)) + ';'
+        spf = 48000 // fps                       # amostras de áudio por quadro (48 kHz / 30 = 1600)
+        # imagem: tira os quadros dos cortes pelo número do quadro e renumera (sem filtro concat, que atrasava
+        # a imagem 2 a 3 quadros depois da primeira emenda); som: os mesmos trechos, contados em amostras
+        fora = '+'.join(f'between(n,{round(a * fps)},{round(b * fps) - 1})' for a, b in cs)
+        filtro = base_v + f",select='not({fora})',setpts=N/({fps}*TB)[cam];"
         if tem_audio:
             filtro += base_a + f',asplit={k}' + ''.join(f'[a{i}]' for i in range(k)) + ';'
-        pares = ''
-        spf = 48000 // fps                       # amostras de áudio por quadro (48 kHz / 30 = 1600)
-        for i, (a, b) in enumerate(partes):
-            # corta pelo número do quadro e da amostra: som e imagem de cada trecho têm exatamente a mesma duração
-            # (cortar por tempo deixava um quadro a mais aqui e ali, e a imagem atrasava a cada emenda)
-            fa, fb = round(a * fps), (round(b * fps) if b is not None else None)
-            fimv = f':end_frame={fb}' if fb is not None else ''
-            fima = f':end_sample={fb * spf}' if fb is not None else ''
-            filtro += f'[v{i}]trim=start_frame={fa}{fimv},setpts=PTS-STARTPTS[cv{i}];'
-            pares += f'[cv{i}]'
-            if tem_audio:
+            pares = ''
+            for i, (a, b) in enumerate(partes):
+                fa, fb = round(a * fps), (round(b * fps) if b is not None else None)
+                fima = f':end_sample={fb * spf}' if fb is not None else ''
                 fo = f',afade=t=out:st={(fb - fa) / fps - .02:.4f}:d=0.02' if fb is not None else ''
                 filtro += f'[a{i}]atrim=start_sample={fa * spf}{fima},asetpts=PTS-STARTPTS,afade=t=in:d=0.02{fo}[ca{i}];'
                 pares += f'[ca{i}]'
-        filtro += pares + f"concat=n={k}:v=1:a={1 if tem_audio else 0}[cam]" + ('[voz];' if tem_audio else ';')
+            filtro += pares + f'concat=n={k}:v=0:a=1[voz];'
     else:
         filtro = base_v + '[cam];'
         if tem_audio:

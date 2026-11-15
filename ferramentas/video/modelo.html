@@ -118,6 +118,22 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 .jogo .gol.vazio svg { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); overflow: visible; }
 .jogo .gol.vazio rect { fill: none; stroke: var(--ouro); stroke-width: 3; stroke-dasharray: 12 10; opacity: .7; }
 
+/* cartões vermelhos (abertura com "cartoes") */
+.cartoes { display: flex; gap: 22px; justify-content: center; }
+.cartoes i { width: 86px; height: 120px; border-radius: 10px; background: #e5484d; box-shadow: 0 0 0 3px rgba(255,255,255,.12) inset; display: block; }
+
+/* escalação: campo em pé, ataque para cima */
+.campo-esc { position: relative; width: 760px; height: 580px; background: var(--cartao); border: 2px solid var(--linha-2); border-radius: 20px; overflow: hidden; }
+.campo-esc svg.linhas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.campo-esc svg.linhas * { fill: none; stroke: #fff; stroke-opacity: .09; stroke-width: 3; }
+.campo-esc .form { position: absolute; right: 18px; top: 12px; font: 900 30px var(--f-num); color: var(--ouro); }
+.jog { position: absolute; width: 0; height: 0; }
+.jog .bola { position: absolute; left: -27px; top: -27px; width: 54px; height: 54px; border-radius: 50%; background: var(--tinta); color: var(--noite); display: flex; align-items: center; justify-content: center; font: 900 22px var(--f-num); }
+.jog.dest .bola { background: var(--ouro); }
+.jog .vaga { position: absolute; left: -27px; top: -27px; width: 54px; height: 54px; overflow: visible; }
+.jog .vaga circle { fill: none; stroke: var(--tinta-3); stroke-width: 2.5; stroke-dasharray: 7 6; opacity: .7; }
+.jog .nome { position: absolute; left: -110px; width: 220px; top: 31px; text-align: center; font: 800 21px var(--f-texto); white-space: nowrap; }
+
 /* guia da área segura (botão / tecla g) */
 #guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
 #guia.on { display: block; }
@@ -177,7 +193,9 @@ const CLUBES = {
   botafogosp: ['Botafogo-SP', '#d0011b'], ceara: ['Ceará', '#111'], crb: ['CRB', '#d0011b'], criciuma: ['Criciúma', '#f5c400'],
   cuiaba: ['Cuiabá', '#00753a'], fortaleza: ['Fortaleza', '#0052a5'], goias: ['Goiás', '#00753a'], juventude: ['Juventude', '#00753a'],
   londrina: ['Londrina', '#0099d8'], nautico: ['Náutico', '#d0011b'], novorizontino: ['Novorizontino', '#f5c400'], operario: ['Operário', '#111'],
-  pontepreta: ['Ponte Preta', '#111'], saobernardo: ['São Bernardo', '#f5c400'], sport: ['Sport', '#d0011b'], vilanova: ['Vila Nova', '#d0011b'],
+  pontepreta: ['Ponte Preta', '#111'],
+  // seleções (bandeiras redondas em escudos/)
+  brasil: ['Brasil', '#009c3b'], japao: ['Japão', '#bc002d'], singapura: ['Singapura', '#ef3340'], saobernardo: ['São Bernardo', '#f5c400'], sport: ['Sport', '#d0011b'], vilanova: ['Vila Nova', '#d0011b'],
 };
 const nome = (s) => (CLUBES[s] ? CLUBES[s][0] : s);
 const ESCUDOS = [];
@@ -244,13 +262,47 @@ const CENAS = {
     const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
     const esc = c.escudo && escudo(c.escudo, 230), tit = titulo(c.titulo || []);
     const fila = c.escudos && el('div', 'escudos'), fs = (c.escudos || []).map((s) => { const i = escudo(s, 110); fila.appendChild(i); return i; });
-    [selo, esc, fila, tit].forEach((x) => x && n.appendChild(x));
-    ev(0.15, 'pop'); ev(0.45, 'tapa'); fs.forEach((_, i) => ev(.9 + i * .14, 'pop'));
+    const cart = c.cartoes && el('div', 'cartoes'), cs = Array.from({ length: c.cartoes || 0 }, () => { const i = el('i'); cart.appendChild(i); return i; });
+    [selo, esc, fila, cart, tit].forEach((x) => x && n.appendChild(x));
+    ev(0.15, 'pop'); ev(0.45, 'tapa'); fs.forEach((_, i) => ev(.9 + i * .14, 'pop')); cs.forEach((_, i) => ev(.2 + i * .3, 'tapa'));
     return { el: n, at(t) {
       if (selo) { selo.style.opacity = sai(t / .3); selo.style.transform = `translateY(${(1 - sai(t / .3)) * -20}px)`; }
       if (esc) { const k = mola((t - .15) / .45); esc.style.transform = `scale(${.4 + .6 * k})`; esc.style.opacity = cl((t - .15) / .15); }
       [...tit.children].forEach((s, i) => { const k = sai((t - .45 - i * .22) / .4); s.style.opacity = k; s.style.transform = `translateY(${(1 - k) * 40}px)`; });
       fs.forEach((f, i) => { const k = mola((t - .9 - i * .14) / .35); f.style.opacity = cl((t - .9 - i * .14) / .1); f.style.transform = `scale(${.3 + .7 * k})`; });
+      // cartão vermelho "batendo" na mesa, cada um com uma inclinação
+      cs.forEach((f, i) => { const t0 = .2 + i * .3, k = mola((t - t0) / .3); f.style.opacity = cl((t - t0) / .06); f.style.transform = `translateY(${(1 - k) * -80}px) rotate(${(i % 2 ? 8 : -8) * k}deg) scale(${1.3 - .3 * k})`; });
+    } };
+  },
+
+  // c.jogadores: [{ nome, x, y (em % do campo, ataque para cima), num, em, destaque }]; c.formacao: '3-5-2'
+  // antes de cada jogador "entrar", a vaga dele fica marcada com um círculo tracejado girando
+  escalacao(c, ev, R) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo), tit = c.titulo && titulo(c.titulo, true);
+    const campo = el('div', 'campo-esc');
+    campo.innerHTML = '<svg class="linhas" viewBox="0 0 640 500" preserveAspectRatio="none"><line x1="0" y1="250" x2="640" y2="250"/><circle cx="320" cy="250" r="62"/><rect x="170" y="-3" width="300" height="80"/><rect x="170" y="423" width="300" height="80"/></svg>';
+    if (c.formacao) campo.appendChild(el('div', 'form', c.formacao));
+    const js = c.jogadores.map((p, i) => {
+      const d = el('div', 'jog' + (p.destaque ? ' dest' : ''));
+      d.style.left = p.x + '%'; d.style.top = p.y + '%';
+      d.innerHTML = '<svg class="vaga" viewBox="0 0 54 54"><circle cx="27" cy="27" r="25"/></svg>';
+      const b = el('div', 'bola', p.num != null ? String(p.num) : ''), nm = el('div', 'nome', p.nome);
+      d.append(b, nm); campo.appendChild(d);
+      const t0 = p.em != null ? tempo(p.em, R) - c.inicio : .6 + i * .25;
+      ev(t0, 'pop');
+      return { d, b, nm, t0, vaga: d.querySelector('circle'), i };
+    });
+    [selo, tit, campo].forEach((x) => x && n.appendChild(x));
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      if (tit) tit.style.opacity = sai((t - .1) / .3);
+      const kc = sai((t - .1) / .4); campo.style.opacity = kc; campo.style.transform = `scale(${.96 + .04 * kc})`;
+      js.forEach((j) => {
+        const k = mola((t - j.t0) / .35), on = t >= j.t0;
+        j.b.style.opacity = on ? cl((t - j.t0) / .08) : 0; j.b.style.transform = `scale(${on ? .4 + .6 * k : .4})`;
+        j.nm.style.opacity = sai((t - j.t0 - .1) / .3); j.nm.style.transform = `translateY(${(1 - sai((t - j.t0 - .1) / .3)) * 10}px)`;
+        j.vaga.style.opacity = on ? 0 : .7; j.vaga.style.strokeDashoffset = (-(t * 12) - j.i * 5).toFixed(1);
+      });
     } };
   },
 

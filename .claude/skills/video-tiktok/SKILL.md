@@ -115,12 +115,13 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 
 | tipo | campos |
 |---|---|
-| `abertura` | `selo`, `titulo` ([linha, linha em dourado]), `escudo` (grande) ou `escudos` (fileira) |
+| `abertura` | `selo`, `titulo` ([linha, linha em dourado]), `escudo` (grande) ou `escudos` (fileira), `cartoes` (n cartões vermelhos) |
 | `placar` | `h`, `a` (slugs), `gh`, `ga` (sem gols = jogo por vir, mostra "?"), `rotulo`, `chip`, `titulo`, `info` (pílulas) |
 | `tabela` | `linhas` [{t, pos, j, sg, pts}], `eu` (destaque), `corte` (linhas acima da linha do Z4), `depois` {em, linhas} para as linhas trocarem de lugar |
 | `barras` | `itens` [{t ou rotulo, valor, cor, em}], `selo`, `titulo`, `escudo`, `max`, `sufixo`, `casas` |
 | `numero` | `valor`, `de`, `sufixo`, `casas`, `titulo`, `escudo` |
 | `jogos` | `lista` [{h, a, quando, p: [casa, empate, fora]}] |
+| `escalacao` | `jogadores` [{nome, x, y (% do campo, ataque para cima), em, destaque}], `formacao`, `selo`, `titulo`; cada jogador entra na palavra dele, a vaga fica tracejada até lá |
 | `fecho` | `texto`, `url` |
 
 Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
@@ -228,7 +229,9 @@ refazer") sai junto com a tentativa a que ela se refere, e fica a versão refeit
 versão completa; (3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
 e se o fim do vídeo se enrolar, emende o endereço do site direto na despedida; (4) pausa acima de ~0,6 s entre
 frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê. O render corta pelo número do
-quadro e da amostra, então som e imagem não se descolam nas emendas.
+quadro (imagem, `select` pelo número do quadro) e da amostra (som), sem o filtro `concat` na imagem, que
+atrasava a imagem 2 a 3 quadros depois da primeira emenda. Seleções usam bandeiras redondas (`brasil`, `japao`,
+`singapura` em `escudos/`); para outra seleção, desenhe a bandeira em SVG e gere o PNG de 512 px.
 
 Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
