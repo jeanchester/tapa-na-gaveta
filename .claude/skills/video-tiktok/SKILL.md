@@ -20,6 +20,7 @@ Arquivos (todos em `ferramentas/video/`):
 | `legendas.py` | legendas `.srt` → `T` (o tempo de cada palavra da fala) |
 | `render.py` | gera a animação quadro a quadro e monta o vídeo final 1080×1920 |
 | `sincronia.py` | diagnostica, mede e corrige áudio descasado |
+| `escudos/` | escudos grandes (512 px) só para vídeo; o modelo usa estes primeiro e cai nos de `midia/escudos/` (128 px, ficam borrados quando ampliados) |
 
 Saídas em `ferramentas/video/saida/` (fora do git). Gravações brutas também não vão para o git:
 ficam na pasta "TikTok Tapa" do Drive.
@@ -122,7 +123,8 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 | `jogos` | `lista` [{h, a, quando, p: [casa, empate, fora]}] |
 | `fecho` | `texto`, `url` |
 
-Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Cores aceitas:
+Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
+roteiro troca as faixas da tabela (Série B: `{ lib: [1, 2], pre: [3, 6], rb: [17, 20] }`, ver `2026-11-15-serie-b-playoffs.js`). Cores aceitas:
 `var(--ouro)`, `var(--ok)`, `var(--empate)`, `var(--z-rb)`, `var(--z-pre)`, `var(--z-lib)` ou hexadecimal.
 
 Tamanho: cabem até 9 linhas de tabela, 5 barras e 4 jogos sem sair da área segura.
@@ -213,6 +215,22 @@ python ferramentas/video/render.py NOME --camera bruto.MOV            # usa o "i
 python ferramentas/video/render.py NOME --camera bruto.MOV --pular-animacao --vol-trilha 0.08   # só remonta
 ```
 
+Cor: gravação do iPhone vem em HDR (HLG) e, sem conversão, fica lavada no TikTok. O render detecta e converte
+para SDR (bt709) sozinho; se a cor ainda parecer estranha, confira com `sincronia.py diagnostico` (aparece em "vídeo").
+
+Cortes no meio da fala (instrução dada durante a gravação, frase repetida): `cortes: [[de, até], ...]` no topo do
+roteiro, em segundos da gravação depois do `inicio`. Som e imagem saem juntos, e T e os `em` continuam no tempo
+da gravação (o modelo remapeia). **Ouça a gravação inteira antes de editar** atrás de instruções faladas ("corta
+isso", "repete") — se não der para ouvir/transcrever, pergunte em que segundo estão.
+
+Cortes inteligentes, a partir da transcrição: (1) instrução falada para a edição ("corta essa parte", "vou
+refazer") sai junto com a tentativa a que ela se refere, e fica a versão refeita; (2) frase repetida: fica a última
+versão completa; (3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
+e se o fim do vídeo se enrolar, emende o endereço do site direto na despedida; (4) pausa acima de ~0,6 s entre
+frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê. O render corta pelo número do
+quadro e da amostra, então som e imagem não se descolam nas emendas.
+
+Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera
 é convertida para ritmo constante e o áudio é reamostrado sem ser empurrado.

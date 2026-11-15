@@ -94,7 +94,7 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 .barra .val { font: 900 42px var(--f-num); text-align: left; white-space: nowrap; }
 
 .numero { font: italic 900 300px/0.9 var(--f-num); color: var(--ouro); letter-spacing: -.03em; display: flex; align-items: baseline; gap: 16px; }
-.numero small { font-size: 64px; color: var(--tinta); }
+.numero small { font-size: 64px; color: var(--tinta); letter-spacing: 0; font-style: normal; font-family: var(--f-texto); font-weight: 800; }
 
 /* jogos da rodada (1 X 2) */
 .lista { width: 800px; display: flex; flex-direction: column; gap: 12px; }
@@ -109,6 +109,14 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 .fecho svg { width: 640px; height: auto; }
 .fecho .url { font: 900 46px var(--f-num); color: var(--ouro); }
 .fecho .sub { font: 700 30px var(--f-texto); color: var(--tinta-2); }
+
+/* movimento leve: brilho que passa nos cartões e borda tracejada da caixa vazia (tudo movido pelo desenhar(t)) */
+.jogo, .mini, .barra .trilho { position: relative; }
+.brilho { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.brilho i { position: absolute; top: -30%; bottom: -30%; left: 0; width: 26%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0)); transform: skewX(-18deg); opacity: 0; will-change: transform, opacity; }
+.jogo .gol.vazio { position: relative; }
+.jogo .gol.vazio svg { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); overflow: visible; }
+.jogo .gol.vazio rect { fill: none; stroke: var(--ouro); stroke-width: 3; stroke-dasharray: 12 10; opacity: .7; }
 
 /* guia da área segura (botão / tecla g) */
 #guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
@@ -164,13 +172,24 @@ const CLUBES = {
   cruzeiro: ['Cruzeiro', '#003d8f'], flamengo: ['Flamengo', '#c8102e'], fluminense: ['Fluminense', '#7a1437'], gremio: ['Grêmio', '#0d80bf'],
   internacional: ['Internacional', '#d0011b'], mirassol: ['Mirassol', '#f2c500'], palmeiras: ['Palmeiras', '#006437'], remo: ['Remo', '#0b2c74'],
   santos: ['Santos', '#111'], sp: ['São Paulo', '#d0011b'], vasco: ['Vasco', '#111'], vitoria: ['Vitória', '#d0011b'],
+  // Série B
+  americamg: ['América-MG', '#00753a'], athleticbr: ['Athletic', '#111'], atleticogo: ['Atlético-GO', '#c8102e'], avai: ['Avaí', '#0055a4'],
+  botafogosp: ['Botafogo-SP', '#d0011b'], ceara: ['Ceará', '#111'], crb: ['CRB', '#d0011b'], criciuma: ['Criciúma', '#f5c400'],
+  cuiaba: ['Cuiabá', '#00753a'], fortaleza: ['Fortaleza', '#0052a5'], goias: ['Goiás', '#00753a'], juventude: ['Juventude', '#00753a'],
+  londrina: ['Londrina', '#0099d8'], nautico: ['Náutico', '#d0011b'], novorizontino: ['Novorizontino', '#f5c400'], operario: ['Operário', '#111'],
+  pontepreta: ['Ponte Preta', '#111'], saobernardo: ['São Bernardo', '#f5c400'], sport: ['Sport', '#d0011b'], vilanova: ['Vila Nova', '#d0011b'],
 };
 const nome = (s) => (CLUBES[s] ? CLUBES[s][0] : s);
 const ESCUDOS = [];
 function escudo(slug, tam) {
   const img = el('img', 'escudo'); img.width = img.height = tam; img.alt = nome(slug);
-  img.src = '../../midia/escudos/' + slug + '.png';
-  img.onerror = () => {                                                // disco nas cores do clube
+  // 1º escudos/ (versões grandes, 512 px, só para vídeo), 2º midia/escudos/ do site (128 px), 3º disco
+  const fontes = ['escudos/' + slug + '.png', '../../midia/escudos/' + slug + '.png'];
+  let k = 0;
+  img.src = fontes[0];
+  img.onerror = () => {
+    if (++k < fontes.length) { img.src = fontes[k]; return; }
+    // disco nas cores do clube
     const d = el('div', 'disco', nome(slug).slice(0, 3).toUpperCase());
     d.style.cssText = `width:${tam}px;height:${tam}px;background:${CLUBES[slug] ? CLUBES[slug][1] : '#445'};font-size:${Math.round(tam * .3)}px`;
     img.replaceWith(d);
@@ -181,12 +200,17 @@ function escudo(slug, tam) {
 // logotipo do site (app/app.js), com a cor da bola fixa
 const LOGO = '<svg viewBox="0 0 236 40"><g fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="4.6"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#ffc23d"/><text x="49" y="28" transform="skewX(-6)" font-family="\'Archivo Largo\', Archivo, sans-serif" font-weight="900" font-size="19" letter-spacing="-.3" fill="currentColor">tapa na <tspan fill="#ffc23d">gaveta</tspan></text></svg>';
 const ZONA = { lib: 'var(--z-lib)', pre: 'var(--z-pre)', sula: 'var(--z-sula)', rb: 'var(--z-rb)' };
-function zonaDe(pos) { return pos <= 4 ? 'lib' : pos <= 6 ? 'pre' : pos <= 12 ? 'sula' : pos >= 17 ? 'rb' : null; }
+// faixas da tabela: as da Série A por padrão; o roteiro pode trocar (Série B: zonas: { lib: [1, 2], pre: [3, 6], rb: [17, 20] })
+function zonaDe(pos) {
+  const Z = (R && R.zonas) || { lib: [1, 4], pre: [5, 6], sula: [7, 12], rb: [17, 20] };
+  for (const k in Z) if (pos >= Z[k][0] && pos <= Z[k][1]) return k;
+  return null;
+}
 function titulo(linhas, menor) {
   const t = el('div', 'titulo' + (menor ? ' menor' : ''));
   (Array.isArray(linhas) ? linhas : [linhas]).forEach((l) => {
     // "[corinthians] e ajudou o Timão" → escudo no começo da linha
-    t.appendChild(el('span', '', String(l).replace(/\[([a-z]+)\]\s*/g, (_, s) => '<img src="../../midia/escudos/' + s + '.png" alt="">')));
+    t.appendChild(el('span', '', String(l).replace(/\[([a-z]+)\]\s*/g, (_, s) => '<img src="escudos/' + s + '.png" onerror="this.onerror=null;this.src=\'../../midia/escudos/' + s + '.png\'" alt="">')));
   });
   return t;
 }
@@ -196,7 +220,15 @@ function titulo(linhas, menor) {
 // "em" de uma cena ou de um passo: número (segundos) ou palavra ('ajudou', 'ajudou#2' = segunda vez).
 const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9%+]/g, '');
 const AVISOS = [];
-function tempo(x, R) {
+// cortes: [[de, até], ...] em segundos da gravação (depois do "inicio"), trechos que saem do vídeo final.
+// Com cortes, T e os "em" em segundos continuam no tempo da gravação; tudo é remapeado aqui.
+function semCortes(t, R) {
+  let d = 0;
+  for (const [a, b] of (R.cortes || [])) { if (t >= b) d += b - a; else if (t > a) return a - d; }
+  return t - d;
+}
+function tempo(x, R) { return semCortes(tempoBruto(x, R), R); }
+function tempoBruto(x, R) {
   if (typeof x === 'number') return x;
   const [p, n] = String(x).split('#'), alvo = norm(p);
   let k = 0;
@@ -398,15 +430,17 @@ function montar(roteiro) {
   $('#ticker .faixa').innerHTML = ('<span>' + txt.join(' &nbsp;·&nbsp; ') + ' &nbsp;·&nbsp; </span>').repeat(8);
   const palco = $('#palco'); palco.innerHTML = '';
   const inis = R.cenas.map((c) => tempo(c.em, R));
-  DUR = R.duracao || (inis[inis.length - 1] + 4);
+  DUR = R.duracao ? semCortes(R.duracao, R) : inis[inis.length - 1] + 4;
   EVENTOS = [];
   VIVAS = R.cenas.map((c, i) => {
     const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
     c.inicio = ini;
-    const ev = (tl, tipo) => { const ta = ini + tl; if (ta >= ini && ta < fim) EVENTOS.push([ta, tipo]); };
+    let ultimo = 0;
+    const ev = (tl, tipo) => { const ta = ini + tl; if (ta >= ini && ta < fim) { EVENTOS.push([ta, tipo]); ultimo = Math.max(ultimo, tl); } };
     const f = CENAS[c.tipo];
     if (!f) { AVISOS.push('tipo de cena desconhecido: ' + c.tipo); return null; }
     const v = f(c, ev, R); v.ini = ini; v.fim = fim; palco.appendChild(v.el);
+    prepararLeve(v, c, ultimo);
     return v;
   }).filter(Boolean);
   if (R.trilha !== false) EVENTOS.push([0, 'trilha']);
@@ -414,6 +448,44 @@ function montar(roteiro) {
   $('#barra').max = DUR;
   $('#aviso').textContent = AVISOS.join(' · ');
   desenhar(0);
+}
+
+// ---------------------------------------------------------------------- movimento leve (camada contínua)
+// Liga depois que as entradas terminam (último som da cena + 0,5 s) e some nos 0,3 s antes da troca de cena.
+// Cada elemento tem período e fase próprios; depois do resultado o brilho fica mais fraco.
+function prepararLeve(v, c, ultimo) {
+  v.calma = ultimo + .5;
+  v.temResultado = ['placar', 'barras', 'numero'].includes(c.tipo) || !!c.depois;
+  v.cards = [...v.el.querySelectorAll('.jogo, .mini, .tabela, .barra .trilho')].map((card) => {
+    const b = el('div', 'brilho'), i = el('i'); b.appendChild(i); card.appendChild(b); return i;
+  });
+  v.vazios = [...v.el.querySelectorAll('.gol.vazio')].map((g) => {
+    g.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 116 136" preserveAspectRatio="none"><rect x="1.5" y="1.5" width="113" height="133" rx="18"/></svg>');
+    return g.querySelector('rect');
+  });
+  v.nums = [...v.el.querySelectorAll('.numero, .gol:not(.vazio)')];
+}
+function leve(v, t, tl) {
+  const k = cl((tl - v.calma) / .6) * cl((v.fim - t) / .3);
+  // escudos flutuando (os discos de reserva também)
+  v.el.querySelectorAll('.escudo, .disco').forEach((e, i) => {
+    const per = 3.2 + i * .37, f = i * 1.7, w = (2 * Math.PI * t) / per;
+    e.style.translate = `0 ${(k * 2.5 * Math.sin(w + f)).toFixed(2)}px`;
+    e.style.scale = (1 + k * .012 * Math.sin(w * .8 + f + 1)).toFixed(4);
+    e.style.rotate = `${(k * .6 * Math.sin(w * .6 + f * 2)).toFixed(3)}deg`;
+  });
+  // números respirando
+  v.nums.forEach((n, i) => { n.style.scale = (1 + k * .018 * Math.sin((2 * Math.PI * t) / (3.6 + i * .5) + i * 2.1)).toFixed(4); });
+  // brilho passando: um cartão de cada vez, a cada 2,6 s
+  const n = v.cards.length, P = 2.6, D = .9, forca = v.temResultado ? .07 : .12;
+  v.cards.forEach((i, j) => {
+    const fase = ((tl - v.calma) % (P * Math.max(n, 2))) - j * P, q = fase / D;
+    const on = k > 0 && q >= 0 && q <= 1;
+    i.style.opacity = on ? (forca * k * Math.sin(Math.PI * q)).toFixed(3) : 0;
+    i.style.transform = `translateX(${on ? -30 + q * 460 : -30}%) skewX(-18deg)`;
+  });
+  // borda tracejada da caixa vazia girando devagar
+  v.vazios.forEach((r, i) => { r.style.strokeDashoffset = (-(t * 14) - i * 7).toFixed(1); });
 }
 
 // desenha o quadro no tempo t (determinístico: o render chama isto quadro a quadro)
@@ -429,6 +501,7 @@ function desenhar(t) {
     v.el.style.opacity = t >= v.fim ? 1 - ks : ke;
     v.el.style.transform = t >= v.fim ? `translateY(${-ks * 60}px)` : `translateY(${(1 - ke) * 60}px)`;
     v.at(tl);
+    leve(v, t, tl);
   });
   $('#tempo').textContent = fmt(t, 1) + ' s / ' + fmt(DUR, 1);
 }
@@ -497,10 +570,11 @@ async function base64(blob) { const b = new Uint8Array(await blob.arrayBuffer())
 // API usada pelo render.py
 window.VIDEO = {
   get duracao() { return DUR; },
-  pronto: async () => { await document.fonts.ready; await Promise.all(ESCUDOS.map((i) => (i.complete ? 1 : new Promise((r) => { i.onload = i.onerror = r; })))); return AVISOS; },
+  pronto: async () => { await document.fonts.ready; for (let q = 0; q < 50 && ESCUDOS.some((i) => i.isConnected && !i.complete); q++) await new Promise((r) => setTimeout(r, 100)); return AVISOS; },
   ir: (t) => desenhar(t),
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,
+  cortes: () => (R && R.cortes) || [],
 };
 
 // ====================================================================== prévia
