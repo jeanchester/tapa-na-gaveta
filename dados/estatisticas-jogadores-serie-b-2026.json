@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-15T00:52:04",
+ "atualizado": "2026-11-15T16:09:05",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -14,22 +14,22 @@
    "n": 17
   },
   {
+   "nome": "Pedro Perotti",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 15
+  },
+  {
    "nome": "Gustavo Coutinho",
    "time": "10357",
    "escudo": "atleticogo",
    "n": 15
   },
   {
-   "nome": "Pedro Perotti",
-   "time": "7635",
-   "escudo": "sport",
-   "n": 14
-  },
-  {
    "nome": "Chrystian",
    "time": "7635",
    "escudo": "sport",
-   "n": 13
+   "n": 14
   },
   {
    "nome": "Gabriel Boschilia",
@@ -68,22 +68,22 @@
    "n": 10
   },
   {
+   "nome": "Raí",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 10
+  },
+  {
    "nome": "Everton Morelli",
    "time": "10281",
    "escudo": "botafogosp",
    "n": 10
   },
   {
-   "nome": "Raí",
-   "time": "6270",
-   "escudo": "juventude",
-   "n": 9
-  },
-  {
    "nome": "Maílton dos Santos",
    "time": "6272",
    "escudo": "fortaleza",
-   "n": 9
+   "n": 10
   },
   {
    "nome": "Vinícius",
@@ -110,15 +110,15 @@
    "n": 7
   },
   {
-   "nome": "Vinícius Diniz",
-   "time": "18187",
-   "escudo": "operario",
-   "n": 7
-  },
-  {
    "nome": "Crystopher",
    "time": "9970",
    "escudo": "crb",
+   "n": 7
+  },
+  {
+   "nome": "Vinícius Diniz",
+   "time": "18187",
+   "escudo": "operario",
    "n": 7
   },
   {
@@ -131,6 +131,12 @@
    "nome": "Dadá",
    "time": "9970",
    "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Juninho",
+   "time": "18127",
+   "escudo": "novorizontino",
    "n": 6
   },
   {
@@ -182,12 +188,6 @@
    "n": 5
   },
   {
-   "nome": "Juninho",
-   "time": "18127",
-   "escudo": "novorizontino",
-   "n": 5
-  },
-  {
    "nome": "Carlão",
    "time": "18127",
    "escudo": "novorizontino",
@@ -195,6 +195,24 @@
   },
   {
    "nome": "Marcos Paulo",
+   "time": "6270",
+   "escudo": "juventude",
+   "n": 5
+  },
+  {
+   "nome": "Dudu",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 5
+  },
+  {
+   "nome": "Willian",
+   "time": "6154",
+   "escudo": "americamg",
+   "n": 5
+  },
+  {
+   "nome": "Fábio Lima",
    "time": "6270",
    "escudo": "juventude",
    "n": 5
@@ -209,18 +227,6 @@
    "nome": "Rodrigo Ferreira",
    "time": "11268",
    "escudo": "saobernardo",
-   "n": 5
-  },
-  {
-   "nome": "Dudu",
-   "time": "9973",
-   "escudo": "vilanova",
-   "n": 5
-  },
-  {
-   "nome": "Willian",
-   "time": "6154",
-   "escudo": "americamg",
    "n": 5
   },
   {
@@ -254,15 +260,15 @@
    "n": 5
   },
   {
-   "nome": "Pablo",
-   "time": "18187",
-   "escudo": "operario",
-   "n": 5
-  },
-  {
    "nome": "Juan Miritello",
    "time": "6272",
    "escudo": "fortaleza",
+   "n": 5
+  },
+  {
+   "nome": "Pablo",
+   "time": "18187",
+   "escudo": "operario",
    "n": 5
   },
   {
@@ -284,21 +290,15 @@
    "n": 5
   },
   {
-   "nome": "Marcelo Hermes",
-   "time": "9971",
-   "escudo": "criciuma",
-   "n": 4
-  },
-  {
    "nome": "Geovany Soares",
    "time": "10357",
    "escudo": "atleticogo",
    "n": 4
   },
   {
-   "nome": "Kauan",
-   "time": "20851",
-   "escudo": "athleticbr",
+   "nome": "Marcelo Hermes",
+   "time": "9971",
+   "escudo": "criciuma",
    "n": 4
   }
  ],
@@ -320,6 +320,12 @@
    "time": "10357",
    "escudo": "atleticogo",
    "n": 9
+  },
+  {
+   "nome": "Jean Lucas Figueiredo",
+   "time": "9966",
+   "escudo": "avai",
+   "n": 7
   },
   {
    "nome": "Marquinhos Gabriel",
@@ -346,12 +352,6 @@
    "n": 6
   },
   {
-   "nome": "Jean Lucas Figueiredo",
-   "time": "9966",
-   "escudo": "avai",
-   "n": 6
-  },
-  {
    "nome": "Melk",
    "time": "9969",
    "escudo": "ceara",
@@ -364,27 +364,21 @@
    "n": 6
   },
   {
-   "nome": "Eduardo",
-   "time": "11268",
-   "escudo": "saobernardo",
-   "n": 5
-  },
-  {
    "nome": "Raí",
    "time": "6270",
    "escudo": "juventude",
    "n": 5
   },
   {
-   "nome": "Kauan",
-   "time": "20851",
-   "escudo": "athleticbr",
-   "n": 5
-  },
-  {
    "nome": "Mikael",
    "time": "9970",
    "escudo": "crb",
+   "n": 5
+  },
+  {
+   "nome": "Eduardo",
+   "time": "11268",
+   "escudo": "saobernardo",
    "n": 5
   },
   {
@@ -397,6 +391,12 @@
    "nome": "Juninho",
    "time": "18127",
    "escudo": "novorizontino",
+   "n": 5
+  },
+  {
+   "nome": "Kauan",
+   "time": "20851",
+   "escudo": "athleticbr",
    "n": 5
   },
   {
@@ -466,15 +466,15 @@
    "n": 4
   },
   {
-   "nome": "Lino",
-   "time": "11268",
-   "escudo": "saobernardo",
-   "n": 4
-  },
-  {
    "nome": "Hereda",
    "time": "9970",
    "escudo": "crb",
+   "n": 4
+  },
+  {
+   "nome": "Lino",
+   "time": "11268",
+   "escudo": "saobernardo",
    "n": 4
   },
   {
@@ -502,15 +502,39 @@
    "n": 4
   },
   {
-   "nome": "Jean",
-   "time": "7633",
-   "escudo": "nautico",
+   "nome": "Francisco Reidiney Duarte Gomes",
+   "time": "18127",
+   "escudo": "novorizontino",
+   "n": 4
+  },
+  {
+   "nome": "Carlos De Peña",
+   "time": "7635",
+   "escudo": "sport",
+   "n": 4
+  },
+  {
+   "nome": "Luis Mandaca",
+   "time": "6270",
+   "escudo": "juventude",
    "n": 4
   },
   {
    "nome": "Eliel",
    "time": "17313",
    "escudo": "cuiaba",
+   "n": 4
+  },
+  {
+   "nome": "Jean",
+   "time": "7633",
+   "escudo": "nautico",
+   "n": 4
+  },
+  {
+   "nome": "Warley",
+   "time": "10357",
+   "escudo": "atleticogo",
    "n": 4
   },
   {
@@ -556,21 +580,15 @@
    "n": 3
   },
   {
-   "nome": "Aylon",
-   "time": "18187",
-   "escudo": "operario",
-   "n": 3
-  },
-  {
    "nome": "Willean Lepu",
    "time": "9971",
    "escudo": "criciuma",
    "n": 3
   },
   {
-   "nome": "Jota",
-   "time": "20851",
-   "escudo": "athleticbr",
+   "nome": "Aylon",
+   "time": "18187",
+   "escudo": "operario",
    "n": 3
   },
   {
@@ -583,24 +601,6 @@
    "nome": "Matías Segovia",
    "time": "6154",
    "escudo": "americamg",
-   "n": 3
-  },
-  {
-   "nome": "Rodrigo Alves",
-   "time": "3395",
-   "escudo": "goias",
-   "n": 3
-  },
-  {
-   "nome": "Vinícius",
-   "time": "7633",
-   "escudo": "nautico",
-   "n": 3
-  },
-  {
-   "nome": "Diogo Batista",
-   "time": "20851",
-   "escudo": "athleticbr",
    "n": 3
   }
  ],
