@@ -1103,6 +1103,7 @@
   }
   function carregarComp() { return T.script('app/compartilhar.js'); }
   function textoPartilha() {
+    if (modoPO()) return textoPO();
     const tab = tabelaAtual(), camp = st.L.times[tab[0].i];
     return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
   }
@@ -1135,6 +1136,56 @@
       else if (a === 'video2') gerarVideo(2);
       else if (a === 'gif') gifTabela(corpo.querySelector('#previa'));
     });
+  }
+
+  // imagem do playoff (1080x1350): chance de subir e de vencer os dois jogos, barra com o empate do agregado
+  function imagemPO(previa) {
+    return carregarComp().then(() => {
+      const S = window.TNGCompartilhar, cs = calcPO();
+      const ts = [].concat.apply([], cs.map((c) => [st.L.times[c.melhor], st.L.times[c.pior]]));
+      return Promise.all([S.fontes()].concat(ts.map((t) => S.imagem('midia/escudos/' + t.escudo + '.png')))).then((res) => {
+        const esc_ = res.slice(1), W = 1080, H = 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
+        const algum = cs.some((q) => placarDe(q.ida) || placarDe(q.volta));
+        S.moldura(ctx, W, H, 'Playoff do acesso', st.comp.rotulo + (algum ? ' · na minha simulação' : ' · chances de subir'));
+        const rot = (t, x, y, tam, cor, al) => { ctx.textAlign = al || 'left'; ctx.fillStyle = cor; ctx.font = t[1]; ctx.fillText(t[0], x, y); };
+        cs.forEach((q, k) => {
+          const y0 = 340 + k * 450, B = st.L.times[q.melhor], W2 = st.L.times[q.pior];
+          ctx.fillStyle = 'rgba(255,255,255,.06)'; ctx.fillRect(40, y0, W - 80, 420);
+          rot([nome(B) + ' × ' + nome(W2), '800 30px Archivo'], 64, y0 + 46, 0, '#f4f6fb');
+          rot([q.posMelhor + 'º contra ' + q.posPior + 'º', '600 24px Archivo'], W - 64, y0 + 46, 0, 'rgba(244,246,251,.65)', 'right');
+          ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)'; ctx.textAlign = 'right';
+          ctx.fillText('sobe', W - 250, y0 + 84); ctx.fillText('vence os dois', W - 64, y0 + 84);
+          [[B, q.sobeMelhor, q.doisMelhor, true], [W2, q.sobePior, q.doisPior, false]].forEach(([t, sobe, dois, m], j) => {
+            const y = y0 + 100 + j * 92, img = esc_[k * 2 + j];
+            S.escudoPlaca(ctx, img, 64, y + 6, 36);
+            ctx.textAlign = 'left'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 36px "Archivo Largo"';
+            ctx.fillText(nome(t), 150, y + 40, 400);
+            if (m) { ctx.font = '700 22px Archivo'; ctx.fillStyle = S.COR.giz; ctx.fillText('joga pelo empate', 150, y + 70); }
+            const txt = q.decidido ? (sobe >= 1 ? 'sobe' : '–') : pctPO(sobe);
+            ctx.textAlign = 'right'; ctx.font = '900 54px "Archivo Largo"';
+            if (q.decidido && sobe >= 1) { ctx.fillStyle = S.COR.giz; ctx.fillRect(W - 250 - ctx.measureText(txt).width - 14, y + 2, ctx.measureText(txt).width + 28, 70); ctx.fillStyle = S.COR.fundo; }
+            else ctx.fillStyle = '#f4f6fb';
+            ctx.fillText(txt, W - 250, y + 56);
+            ctx.font = '800 30px "Archivo Largo"'; ctx.fillStyle = 'rgba(244,246,251,.8)';
+            ctx.fillText(q.decidido ? (dois >= 1 ? 'sim' : 'não') : pctPO(dois), W - 64, y + 52);
+          });
+          // barra: vitória do melhor, empate (hachurado), vitória do pior
+          const bx = 64, bw = W - 128, by = y0 + 300, bh = 28;
+          const partes = [[q.venceAgregado, '#9db0ff'], [q.empateAgregado, null], [q.perdeAgregado, '#4f5a7d']];
+          let x = bx;
+          partes.forEach(([v, cor]) => {
+            const w = bw * v; if (w <= 0) return;
+            ctx.save(); ctx.beginPath(); ctx.rect(x, by, w, bh); ctx.clip();
+            if (cor) { ctx.fillStyle = cor; ctx.fillRect(x, by, w, bh); }
+            else { ctx.fillStyle = 'rgba(157,176,255,.25)'; ctx.fillRect(x, by, w, bh); ctx.strokeStyle = '#9db0ff'; ctx.lineWidth = 5; for (let d = -bh; d < w + bh; d += 14) { ctx.beginPath(); ctx.moveTo(x + d, by + bh); ctx.lineTo(x + d + bh, by); ctx.stroke(); } }
+            ctx.restore(); x += w;
+          });
+          ctx.textAlign = 'left'; ctx.font = '600 24px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.85)';
+          ctx.fillText(pctPO(q.venceAgregado) + ' ' + nome(B) + ' vence · ' + pctPO(q.empateAgregado) + ' empate no agregado (sobe ' + nome(B) + ') · ' + pctPO(q.perdeAgregado) + ' ' + nome(W2), bx, by + 66, bw);
+        });
+        return entregar(c, 'playoff-' + st.comp.id + '.png', previa);
+      });
+    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
   }
 
   // as duas imagens (tabela e placares) num envio só
@@ -1708,10 +1759,13 @@
     const url = linkPO(), n = pernasPO().filter((j) => !j.feito && placares()[j.chave]).length;
     const corpo = T.janela('Compartilhar', '<p class="nota">' + (n ? 'O link leva os seus ' + n + (n === 1 ? ' placar' : ' placares') + ' do playoff: quem abrir vê quem sobe na sua simulação.' : 'O link abre o playoff com as chances de cada time.') + '</p>' +
       '<div class="link-linha"><input readonly value="' + esc(url) + '" aria-label="Link do cenário"><button class="btn" data-j="copiar">Copiar</button></div>' +
-      '<div class="j-acoes"><a class="btn primario" href="https://wa.me/?text=' + encodeURIComponent(textoPO() + '\n' + url) + '" target="_blank" rel="noopener">Enviar no WhatsApp</a></div>');
+      '<div class="j-acoes"><a class="btn" href="https://wa.me/?text=' + encodeURIComponent(textoPO() + '\n' + url) + '" target="_blank" rel="noopener">Enviar no WhatsApp</a></div>' +
+      '<h3 class="j-sub">Imagem pronta</h3><div class="j-acoes"><button class="btn primario" data-j="img-po">Imagem do playoff (feed)</button></div><div class="previa" id="previa"></div>');
     corpo.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-j="copiar"]');
-      if (b) carregarComp().then(() => window.TNGCompartilhar.copiar(url));
+      const b = e.target.closest('[data-j]');
+      if (!b) return;
+      if (b.dataset.j === 'copiar') carregarComp().then(() => window.TNGCompartilhar.copiar(url));
+      else if (b.dataset.j === 'img-po') imagemPO(corpo.querySelector('#previa'));
     });
   }
 
