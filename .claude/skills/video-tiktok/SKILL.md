@@ -92,7 +92,8 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 | `jogos` | `lista` [{h, a, quando, p: [casa, empate, fora]}] |
 | `fecho` | `texto`, `url` |
 
-Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Cores aceitas:
+Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
+roteiro troca as faixas da tabela (Série B: `{ lib: [1, 2], pre: [3, 6], rb: [17, 20] }`, ver `2026-11-15-serie-b-playoffs.js`). Cores aceitas:
 `var(--ouro)`, `var(--ok)`, `var(--empate)`, `var(--z-rb)`, `var(--z-pre)`, `var(--z-lib)` ou hexadecimal.
 
 Tamanho: cabem até 9 linhas de tabela, 5 barras e 4 jogos sem sair da área segura.
