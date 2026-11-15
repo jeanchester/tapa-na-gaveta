@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '22' }
+        with: { node-version-file: '.nvmrc' }
       - run: node tools/testar-core.js && node tools/testar-milhao.js
       # ADSENSE_ID: ID do editor do AdSense (padrão: o da conta do Tapa na Gaveta)
       # GA_ID: ID de medição do Google Analytics (padrão: o da propriedade Tapa na Gaveta)

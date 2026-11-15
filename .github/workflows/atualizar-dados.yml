@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.11' }
       - uses: actions/setup-node@v4
-        with: { node-version: '22' }
+        with: { node-version-file: '.nvmrc' }
       - name: Retrato do Brasileirão (ESPN)
         run: python ferramentas/baixar_espn.py 2026 dados/brasileirao-2026.json
       - name: Outras competições (Série B e ligas europeias)

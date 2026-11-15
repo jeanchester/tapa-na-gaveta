@@ -28,10 +28,23 @@
   const loadStr = (key, def) => { try { const v = localStorage.getItem(key); return v == null ? def : v; } catch (e) { return def; } };
   const saveStr = (key, v) => { try { localStorage.setItem(key, v); } catch (e) { /* sem armazenamento */ } };
 
+  // No site publicado, o erro vira um evento do Google Analytics ("erro_site", com onde aconteceu e a
+  // mensagem curta): é assim que a gente sabe quando algo quebra no celular de alguém. No máximo 5 por
+  // visita e sem repetir. A mensagem é técnica (nunca placares nem dados de quem usa).
+  const errosEnviados = {};
   function reportError(e, where) {
-    if (!RELEASE) console.error('[' + where + ']', e);
+    if (!RELEASE) { console.error('[' + where + ']', e); return; }
+    try {
+      const msg = String((e && e.message) || e || '?').slice(0, 100);
+      const chave = where + '|' + msg;
+      if (errosEnviados[chave] || Object.keys(errosEnviados).length >= 5 || typeof window.gtag !== 'function') return;
+      errosEnviados[chave] = 1;
+      window.gtag('event', 'erro_site', { onde: String(where).slice(0, 40), mensagem: msg, versao: window.TNG_V || '' });
+    } catch (x) { /* o relatório nunca derruba o site */ }
   }
   window.addEventListener('unhandledrejection', (e) => reportError(e.reason, 'promise'));
+  // erros fora de try/catch (no desenvolvimento a faixa vermelha do index.html já mostra)
+  if (RELEASE) window.addEventListener('error', (e) => { if (e.error || e.message) reportError(e.error || e.message, 'janela'); });
 
   // ================================================================== links para a Google Play
   const APPS = [
