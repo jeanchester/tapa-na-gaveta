@@ -53,17 +53,19 @@
 
   // A ESPN não informa a rodada. Cada time joga uma vez por rodada: o k-ésimo jogo restante de um
   // time (em ordem de data) é a rodada jogos_feitos + k. Se os dois lados discordarem, vale a maior
-  // (o jogo adiado de um deles). Jogo com rodada <= a menor rodada já completa de todos é "atrasado".
+  // (o jogo adiado de um deles). Jogo com rodada <= a rodada em que a maioria dos times já está
+  // (mediana dos jogos feitos) é "atrasado". Com o máximo, um jogo antecipado da rodada seguinte
+  // fazia a rodada inteira aparecer como atrasada (14/11/2026: Mirassol x Atlético-MG da 35ª).
   function deduzirRodadas(L) {
     const feitos = new Array(L.n).fill(0);
     L.jogos.forEach((j) => { if (j.feito) { feitos[j.h]++; feitos[j.a]++; } });
     const prox = new Array(L.n).fill(0);
-    const maxFeitos = Math.max.apply(null, feitos);
+    const ord = feitos.slice().sort((a, b) => a - b), maioria = ord[Math.floor((ord.length - 1) / 2)];
     L.jogos.forEach((j) => {
       if (j.feito) { j.rodada = null; return; }
       const r1 = feitos[j.h] + (++prox[j.h]), r2 = feitos[j.a] + (++prox[j.a]);
       j.rodada = Math.max(r1, r2);
-      j.atrasado = j.rodada <= maxFeitos;
+      j.atrasado = j.rodada <= maioria;
     });
     // conferência: nenhuma rodada futura pode ter o mesmo time duas vezes
     const vistos = {};
