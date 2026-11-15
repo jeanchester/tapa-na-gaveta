@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-15T00:51:59",
+ "atualizado": "2026-11-15T16:09:01",
  "times": {
   "flamengo": {
    "jogo": "401841307",
@@ -851,6 +851,91 @@
     }
    ]
   },
+  "vasco": {
+   "jogo": "401841175",
+   "data": "2026-11-14T23:30Z",
+   "contra": "Chapecoense",
+   "esquema": "4-1-4-1",
+   "titulares": [
+    {
+     "n": "Léo Jardim",
+     "curto": "L. Jardim",
+     "num": 1,
+     "pos": "G",
+     "lugar": 1
+    },
+    {
+     "n": "Robert",
+     "curto": "Robert",
+     "num": 30,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "Alan Saldivia",
+     "curto": "A. Saldivia",
+     "num": 4,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "Jair",
+     "curto": "Jair",
+     "num": 8,
+     "pos": "DM",
+     "lugar": 4
+    },
+    {
+     "n": "Lucas Piton",
+     "curto": "L. Piton",
+     "num": 6,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "José Luis Rodríguez",
+     "curto": "J. Rodríguez",
+     "num": 2,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Facundo Colidio",
+     "curto": "F. Colidio",
+     "num": 9,
+     "pos": "CM-L",
+     "lugar": 10
+    },
+    {
+     "n": "Alan Lescano",
+     "curto": "A. Lescano",
+     "num": 22,
+     "pos": "CM-R",
+     "lugar": 8
+    },
+    {
+     "n": "Andrés Gómez",
+     "curto": "A. Gómez",
+     "num": 11,
+     "pos": "LM",
+     "lugar": 11
+    },
+    {
+     "n": "Marino Hinestroza",
+     "curto": "M. Hinestroza",
+     "num": 18,
+     "pos": "RM",
+     "lugar": 7
+    },
+    {
+     "n": "Bruno Duarte",
+     "curto": "B. Duarte",
+     "num": 19,
+     "pos": "F",
+     "lugar": 9
+    }
+   ]
+  },
   "botafogo": {
    "jogo": "401841305",
    "data": "2026-11-05T00:30Z",
@@ -1018,91 +1103,6 @@
      "num": 77,
      "pos": "AM-R",
      "lugar": 7
-    }
-   ]
-  },
-  "vasco": {
-   "jogo": "401841306",
-   "data": "2026-11-04T22:30Z",
-   "contra": "Athletico Paranaense",
-   "esquema": "3-5-2",
-   "titulares": [
-    {
-     "n": "Léo Jardim",
-     "curto": "L. Jardim",
-     "num": 1,
-     "pos": "G",
-     "lugar": 1
-    },
-    {
-     "n": "Alan Saldivia",
-     "curto": "A. Saldivia",
-     "num": 4,
-     "pos": "CD",
-     "lugar": 5
-    },
-    {
-     "n": "Robert",
-     "curto": "Robert",
-     "num": 30,
-     "pos": "CD-L",
-     "lugar": 4
-    },
-    {
-     "n": "Gabriel Pereira",
-     "curto": "G. Pereira",
-     "num": 55,
-     "pos": "CD-R",
-     "lugar": 6
-    },
-    {
-     "n": "Thiago Mendes",
-     "curto": "T. Mendes",
-     "num": 23,
-     "pos": "CM-L",
-     "lugar": 8
-    },
-    {
-     "n": "Alan Lescano",
-     "curto": "A. Lescano",
-     "num": 22,
-     "pos": "CM-R",
-     "lugar": 7
-    },
-    {
-     "n": "Santiago Sosa",
-     "curto": "S. Sosa",
-     "num": 5,
-     "pos": "AM",
-     "lugar": 11
-    },
-    {
-     "n": "Cuiabano",
-     "curto": "Cuiabano",
-     "num": 66,
-     "pos": "LM",
-     "lugar": 3
-    },
-    {
-     "n": "José Luis Rodríguez",
-     "curto": "J. Rodríguez",
-     "num": 2,
-     "pos": "RM",
-     "lugar": 2
-    },
-    {
-     "n": "Brenner",
-     "curto": "Brenner",
-     "num": 20,
-     "pos": "CF-L",
-     "lugar": 9
-    },
-    {
-     "n": "Andrés Gómez",
-     "curto": "A. Gómez",
-     "num": 11,
-     "pos": "CF-R",
-     "lugar": 10
     }
    ]
   },
@@ -1617,29 +1617,29 @@
    ]
   },
   "chapecoense": {
-   "jogo": "401841304",
-   "data": "2026-11-03T22:30Z",
-   "contra": "Mirassol",
+   "jogo": "401841175",
+   "data": "2026-11-14T23:30Z",
+   "contra": "Vasco da Gama",
    "esquema": "4-2-3-1",
    "titulares": [
     {
-     "n": "Anderson Paixão",
-     "curto": "A. Paixão",
-     "num": 98,
+     "n": "Gabriel Werner",
+     "curto": "G. Werner",
+     "num": 14,
      "pos": "G",
      "lugar": 1
-    },
-    {
-     "n": "Eduardo Doma",
-     "curto": "Eduardo Doma",
-     "num": 3,
-     "pos": "CD-L",
-     "lugar": 6
     },
     {
      "n": "Kauan",
      "curto": "Kauan",
      "num": 21,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "Victor Caetano",
+     "curto": "V. Caetano",
+     "num": 25,
      "pos": "CD-R",
      "lugar": 5
     },
@@ -1686,16 +1686,16 @@
      "lugar": 9
     },
     {
-     "n": "Yannick Bolasie",
-     "curto": "Y. Bolasie",
-     "num": 11,
+     "n": "Dylan Borrero",
+     "curto": "D. Borrero",
+     "num": 77,
      "pos": "AM-L",
      "lugar": 11
     },
     {
-     "n": "Marcinho",
-     "curto": "Marcinho",
-     "num": 7,
+     "n": "Max",
+     "curto": "Max",
+     "num": 22,
      "pos": "AM-R",
      "lugar": 7
     }

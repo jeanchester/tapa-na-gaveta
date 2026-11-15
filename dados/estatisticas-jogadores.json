@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-15T00:51:59",
+ "atualizado": "2026-11-15T16:09:01",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -134,15 +134,15 @@
    "n": 7
   },
   {
-   "nome": "Jorge Carrascal",
-   "time": "819",
-   "escudo": "flamengo",
-   "n": 7
-  },
-  {
    "nome": "Carlos Eduardo",
    "time": "9169",
    "escudo": "mirassol",
+   "n": 7
+  },
+  {
+   "nome": "Jorge Carrascal",
+   "time": "819",
+   "escudo": "flamengo",
    "n": 7
   },
   {
@@ -236,15 +236,15 @@
    "n": 5
   },
   {
-   "nome": "Isidro Pitta",
-   "time": "6079",
-   "escudo": "bragantino",
-   "n": 5
-  },
-  {
    "nome": "Andrés Gómez",
    "time": "3454",
    "escudo": "vasco",
+   "n": 5
+  },
+  {
+   "nome": "Isidro Pitta",
+   "time": "6079",
+   "escudo": "bragantino",
    "n": 5
   },
   {
@@ -418,6 +418,12 @@
    "n": 5
   },
   {
+   "nome": "José Luis Rodríguez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
    "nome": "Gastón Benavídez",
    "time": "3458",
    "escudo": "athletico",
@@ -427,12 +433,6 @@
    "nome": "Lucas Esquivel",
    "time": "3458",
    "escudo": "athletico",
-   "n": 5
-  },
-  {
-   "nome": "José Luis Rodríguez",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 5
   },
   {
@@ -448,15 +448,15 @@
    "n": 4
   },
   {
-   "nome": "Vitinho",
-   "time": "6086",
-   "escudo": "botafogo",
-   "n": 4
-  },
-  {
    "nome": "Reinaldo",
    "time": "9169",
    "escudo": "mirassol",
+   "n": 4
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6086",
+   "escudo": "botafogo",
    "n": 4
   },
   {
@@ -520,15 +520,15 @@
    "n": 4
   },
   {
-   "nome": "Giorgian de Arrascaeta",
-   "time": "819",
-   "escudo": "flamengo",
-   "n": 4
-  },
-  {
    "nome": "Cuiabano",
    "time": "3454",
    "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
    "n": 4
   },
   {
@@ -568,6 +568,12 @@
    "n": 3
   },
   {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 3
+  },
+  {
    "nome": "Gabriel Bontempo",
    "time": "2674",
    "escudo": "santos",
@@ -580,6 +586,12 @@
    "n": 3
   },
   {
+   "nome": "Renan Lodi",
+   "time": "7632",
+   "escudo": "atleticomg",
+   "n": 3
+  },
+  {
    "nome": "José Enamorado",
    "time": "6273",
    "escudo": "gremio",
@@ -589,18 +601,6 @@
    "nome": "Benjamín Rollheiser",
    "time": "2674",
    "escudo": "santos",
-   "n": 3
-  },
-  {
-   "nome": "Renan Lodi",
-   "time": "7632",
-   "escudo": "atleticomg",
-   "n": 3
-  },
-  {
-   "nome": "Mateuzinho",
-   "time": "874",
-   "escudo": "corinthians",
    "n": 3
   }
  ],
@@ -927,6 +927,12 @@
    "nome": "Artur",
    "time": "2026",
    "escudo": "sp",
+   "n": 4
+  },
+  {
+   "nome": "Bruno Duarte",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 4
   },
   {
@@ -1305,12 +1311,6 @@
    "nome": "Brian Aguirre",
    "time": "1936",
    "escudo": "internacional",
-   "n": 2
-  },
-  {
-   "nome": "Bruno Duarte",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 2
   },
   {
@@ -2460,6 +2460,21 @@
     "pendurado": false
    },
    {
+    "nome": "Camilo",
+    "time": "9318",
+    "escudo": "chapecoense",
+    "amarelos": 11,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
+    }
+   },
+   {
     "nome": "Nicolás Acevedo",
     "time": "9967",
     "escudo": "bahia",
@@ -2519,16 +2534,6 @@
      "contra": "Vasco da Gama",
      "jogo": "401841308"
     }
-   },
-   {
-    "nome": "Camilo",
-    "time": "9318",
-    "escudo": "chapecoense",
-    "amarelos": 10,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Erick Pulgar",
@@ -2698,15 +2703,9 @@
     "escudo": "chapecoense",
     "amarelos": 6,
     "vermelhos": 1,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Emmanuel Martínez",
@@ -2849,9 +2848,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Chapecoense",
-     "jogo": "401841175"
+     "data": "2026-11-19T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841308"
     }
    },
    {
@@ -3524,7 +3523,7 @@
     "pendurado": false
    },
    {
-    "nome": "André Silva",
+    "nome": "André Oliveira",
     "time": "2026",
     "escudo": "sp",
     "amarelos": 5,
@@ -3601,6 +3600,21 @@
      "data": "2026-11-18T23:30Z",
      "contra": "Athletico Paranaense",
      "jogo": "401841313"
+    }
+   },
+   {
+    "nome": "Bruno Pacheco",
+    "time": "9318",
+    "escudo": "chapecoense",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -3968,9 +3982,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Chapecoense",
-     "jogo": "401841175"
+     "data": "2026-11-19T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841308"
     }
    },
    {
@@ -4001,6 +4015,21 @@
      "data": "2026-11-22T21:30Z",
      "contra": "Fluminense",
      "jogo": "401841324"
+    }
+   },
+   {
+    "nome": "Robert",
+    "time": "3454",
+    "escudo": "vasco",
+    "amarelos": 5,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-19T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841308"
     }
    },
    {
@@ -4152,16 +4181,6 @@
     "nome": "Brian Aguirre",
     "time": "1936",
     "escudo": "internacional",
-    "amarelos": 4,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Bruno Pacheco",
-    "time": "9318",
-    "escudo": "chapecoense",
     "amarelos": 4,
     "vermelhos": 0,
     "ciclo": 1,
@@ -4579,16 +4598,6 @@
     "nome": "Renato Kayzer",
     "time": "3457",
     "escudo": "vitoria",
-    "amarelos": 4,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Robert",
-    "time": "3454",
-    "escudo": "vasco",
     "amarelos": 4,
     "vermelhos": 0,
     "ciclo": 1,
@@ -5889,9 +5898,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Chapecoense",
-     "jogo": "401841175"
+     "data": "2026-11-19T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841308"
     }
    },
    {
@@ -5919,9 +5928,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6064,9 +6073,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6184,9 +6193,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6594,9 +6603,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6829,9 +6838,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6924,9 +6933,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -6994,9 +7003,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -7089,9 +7098,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-14T23:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841175"
+     "data": "2026-11-18T23:00Z",
+     "contra": "Remo",
+     "jogo": "401841310"
     }
    },
    {
@@ -7468,6 +7477,16 @@
     "nome": "Duplexe Tchamba",
     "time": "4936",
     "escudo": "remo",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Dylan Borrero",
+    "time": "9318",
+    "escudo": "chapecoense",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
