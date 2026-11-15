@@ -281,5 +281,34 @@ grupo('elencos: cruzamento com a ESPN', () => {
   ok(curto.times[0].jogadores.length === 1, 'elenco da ESPN incompleto: não mexe');
 });
 
+grupo('playoff da Série B: ida e volta, sem pênalti', () => {
+  const ligaB = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/serie-b-2026.json'), 'utf8'));
+  const regB = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/regras-serie-b-2026.json'), 'utf8'));
+  const LB = C.preparar(ligaB, regB), MB = C.modelo(LB, C.PARAMS_PADRAO);
+  const po = C.playoff(LB, regB, MB, {}, {});
+  ok(po.length === 2, 'dois confrontos');
+  const c0 = po[0], c1 = po[1];
+  ok(LB.times[c0.melhor].slug === 'vilanova' && LB.times[c0.pior].slug === 'atleticogo', '3º Vila Nova x 6º Atlético-GO');
+  ok(LB.times[c1.melhor].slug === 'fortaleza' && LB.times[c1.pior].slug === 'criciuma', '4º Fortaleza x 5º Criciúma');
+  ok(c0.ida.h === c0.pior && c0.volta.h === c0.melhor, 'ida na casa do pior colocado, volta na do melhor');
+  // números do vídeo de 15/11 (ferramentas/video/roteiros/2026-11-15-serie-b-playoffs.js)
+  perto(c0.sobeMelhor, 0.583, 0.002, 'Vila Nova sobe');
+  perto(c1.sobeMelhor, 0.664, 0.002, 'Fortaleza sobe');
+  perto(c0.sobeMelhor + c0.sobePior, 1, 1e-9, 'as chances somam 100%');
+  ok(c0.empateAgregado > 0.15 && c0.empateAgregado < 0.25, 'cerca de um em cada cinco termina empatado no agregado');
+  ok(c0.doisMelhor > 0 && c0.doisMelhor < c0.venceAgregado, 'vencer os dois jogos é parte de vencer no agregado');
+  // com placares: 1x0 para o Atlético na ida e 1x0 para o Vila na volta → agregado 1x1, sobe o Vila
+  const pl = {}; pl[c0.ida.chave] = [1, 0]; pl[c0.volta.chave] = [1, 0];
+  const d = C.playoff(LB, regB, MB, pl, {})[0];
+  ok(d.decidido && d.sobeMelhor === 1 && d.agregado[0] === 1 && d.agregado[1] === 1, 'agregado empatado: sobe a melhor campanha');
+  const so = {}; so[c0.ida.chave] = [2, 0];
+  const e = C.playoff(LB, regB, MB, so, {})[0];
+  ok(e.saldoIda === -2 && e.sobeMelhor > 0.1 && e.sobeMelhor < 0.3, 'perdeu a ida por 2: só sobe vencendo a volta por 2 ou mais');
+  // resultado real (da ESPN ou das regras) vale mais que o palpite
+  const r = {}; r[c0.ida.chave] = [0, 3];
+  const f = C.playoff(LB, regB, MB, so, r)[0];
+  ok(f.ida.feito && f.saldoIda === 3, 'placar real da ida substitui o palpite');
+});
+
 console.log(`\n${total - falhas}/${total} conferências passaram`);
 process.exit(falhas ? 1 : 0);

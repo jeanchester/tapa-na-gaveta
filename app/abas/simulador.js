@@ -9,7 +9,7 @@
   const { esc, KEY, loadJson, saveJson, aviso } = T;
 
   // ================================================================== nomes
-  const CURTO = { athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
+  const CURTO = { atleticogo: 'Atlético-GO', athletico: 'Athletico', atleticomg: 'Atlético-MG', bragantino: 'Bragantino', sp: 'São Paulo', vasco: 'Vasco' };
   const FEMININO = { chapecoense: 1, pontepreta: 1, portuguesa: 1, ferroviaria: 1 };
   const nome = (t) => CURTO[t.slug] || t.nome;
   // cor principal e secundária de cada clube (só no cartão do meu time; nos jogos, só o escudo)
@@ -142,6 +142,7 @@
 
   let buscandoESPN = false, ultimaBusca = 0;
   function aoVivo() {
+    if (modoPO()) { aoVivoPO(); return; }
     if (/[?&]offline\b/.test(location.search) || T.ARTIFACT || buscandoESPN || Date.now() - ultimaBusca < 5 * 60000 || !window.TNGEspn) return;
     buscandoESPN = true;
     desenharCarimbo();
@@ -167,7 +168,7 @@
     // placares de jogos que já aconteceram saem (vale o resultado real)
     const abertos = {};
     st.L.jogos.forEach((j) => { if (!j.feito) abertos[j.chave] = 1; });
-    Object.keys(st.p).forEach((k) => { if (!abertos[k]) { delete st.p[k]; delete st.sim[k]; } });
+    Object.keys(st.p).forEach((k) => { if (!abertos[k] && !/^po-/.test(k)) { delete st.p[k]; delete st.sim[k]; } });   // po-: playoff
     st.versao++;
   }
 
@@ -227,6 +228,7 @@
   function montar() {
     const v = st.view;
     if (!v) return;
+    if (modoPO()) { montarPO(); return; }
     const meu = st.meu;
     const faltam = restantes().length;
     const opcoes = st.L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR')).map((t) =>
@@ -434,13 +436,17 @@
     const sorteado = f && st.sim[j.chave] && !st.compartilhado;
     const res = f ? resultado(f) : -1;
     const meu = st.meu;
-    const ao = (st.liga.jogos.find((x) => String(x.id) === j.id) || {}).ao_vivo;
+    const ao = j.perna ? (st.poVivos || {})[j.chave] : (st.liga.jogos.find((x) => String(x.id) === j.id) || {}).ao_vivo;
     const tag = ao ? '<span class="tag vivo">ao vivo ' + ao.gm + '×' + ao.gv + '</span>'
       : j.status === 'STATUS_POSTPONED' ? '<span class="tag">adiado</span>'
         : f && !sorteado ? '<span class="tag">seu placar</span>' : '';
     const seg = (i, w, cor, txt, rot) => '<button type="button" data-r="' + i + '" style="flex:' + Math.max(w, 0.18).toFixed(3) + ';--c:var(' + cor + ')"' + (res === i ? ' class="pick" aria-pressed="true"' : ' aria-pressed="false"') + ' aria-label="' + esc(rot) + ', ' + pct(w) + '. Preencher o placar mais provável">' + txt + '</button>';
     const time = (t) => '<div class="time' + (meu && meu.i === t.i ? ' meu' : '') + '">' + crest(t) + '<span>' + esc(nome(t)) + '</span><abbr class="sig" title="' + esc(nome(t)) + '">' + sig(t) + '</abbr></div>';
-    const quando = j.horario ? fmtDia(j.data) + ' · ' + fmtHora(j.data) : fmtDia(j.data) + ' · horário a definir';
+    const quando = j.perna ? (j.perna === 'ida' ? 'Ida' : 'Volta') + (j.data ? ' · ' + fmtDia(j.data) + (j.horario ? ' · ' + fmtHora(j.data) : '') : '')
+      : j.horario ? fmtDia(j.data) + ' · ' + fmtHora(j.data) : fmtDia(j.data) + ' · horário a definir';
+    // perna do playoff já disputada: só o placar real
+    if (j.feito) return '<li class="jogo fim" data-c="' + j.chave + '"><div class="j-meta"><span>' + quando + '</span><span class="tag">encerrado</span></div>' +
+      '<div class="j-linha">' + time(h) + '<div class="placar"><input type="text" disabled aria-label="Gols ' + esc(de_(h)) + '" value="' + j.gh + '"><i aria-hidden="true">×</i><input type="text" disabled aria-label="Gols ' + esc(de_(a)) + '" value="' + j.ga + '"></div>' + time(a) + '</div></li>';
     return '<li class="jogo' + (f ? (sorteado ? ' sorteado' : ' set') : '') + '" data-c="' + j.chave + '">' +
       '<div class="j-meta"><span>' + quando + '</span>' + tag + '<button type="button" class="dado-mini" data-sortear aria-label="Preencher o placar deste jogo com um resultado provável">Preencher</button></div>' +
       '<div class="j-linha">' + time(h) +
@@ -458,7 +464,7 @@
   // atualiza um cartão sem redesenhar a lista (o teclado continua no lugar)
   function atualizarCard(chave) {
     const li = st.view.querySelector('.jogo[data-c="' + chave + '"]');
-    const j = st.L.jogos.find((x) => x.chave === chave);
+    const j = jogoDe(chave);
     if (!li || !j) return;
     const f = placarDe(j), sorteado = f && st.sim[chave] && !st.compartilhado;
     li.classList.toggle('set', !!f && !sorteado);
@@ -587,6 +593,7 @@
   // ---------------------------------------------------------------- mudanças de placar
   let tAtualizar = 0;
   function mudou(chave) {
+    if (modoPO()) { st.versao++; salvarPlacares(); if (chave) atualizarCard(chave); pintarPO(); return; }
     st.versao++;
     salvarPlacares();
     if (chave) atualizarCard(chave);
@@ -602,6 +609,7 @@
     }, 160);
   }
   function redesenharTudo() {
+    if (modoPO()) { st.versao++; salvarPlacares(); montarPO(); return; }
     st.versao++; salvarPlacares(); desenharJogos(); desenharTabela(); desenharResumo(); atualizarBarraRevelar();
     if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
   }
@@ -614,6 +622,7 @@
   }
 
   function simularResto() {
+    if (modoPO()) { simularPO(); return; }
     const C = window.TNGCore, meu = st.meu;
     const antes = Object.assign({}, placares());
     const filtro = meu ? (j) => j.h !== meu.i && j.a !== meu.i : null;
@@ -681,6 +690,7 @@
   // ---------------------------------------------------------------- chances
   let tChances = 0;
   function pedirChances() {
+    if (modoPO()) return;
     clearTimeout(tChances);
     tChances = setTimeout(() => {
       if (!st.view) return;
@@ -1082,6 +1092,7 @@
 
   // ================================================================== cenários (salvos e por link)
   function linkCenario() {
+    if (modoPO()) return linkPO();
     const cod = window.TNGCore.codificar(st.L, placares());
     const c = Object.keys(placares()).length ? '?c=' + cod : '';
     // no Artifact o link só leva um nome simples: vai a aba (e o time), sem os placares
@@ -1092,11 +1103,13 @@
   }
   function carregarComp() { return T.script('app/compartilhar.js'); }
   function textoPartilha() {
+    if (modoPO()) return textoPO();
     const tab = tabelaAtual(), camp = st.L.times[tab[0].i];
     return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
   }
 
   function abrirCompartilhar() {
+    if (modoPO()) { abrirCompartilharPO(); return; }
     const url = linkCenario();
     const n = Object.keys(placares()).length;
     const corpo = T.janela('Compartilhar', '<p class="nota">' + (n ? 'O link leva os seus ' + n + ' placares: quem abrir vê exatamente este cenário, e pode revelar a tabela.' : 'Você ainda não preencheu nenhum placar. O link abre o simulador do começo.') + '</p>' +
@@ -1123,6 +1136,56 @@
       else if (a === 'video2') gerarVideo(2);
       else if (a === 'gif') gifTabela(corpo.querySelector('#previa'));
     });
+  }
+
+  // imagem do playoff (1080x1350): chance de subir e de vencer os dois jogos, barra com o empate do agregado
+  function imagemPO(previa) {
+    return carregarComp().then(() => {
+      const S = window.TNGCompartilhar, cs = calcPO();
+      const ts = [].concat.apply([], cs.map((c) => [st.L.times[c.melhor], st.L.times[c.pior]]));
+      return Promise.all([S.fontes()].concat(ts.map((t) => S.imagem('midia/escudos/' + t.escudo + '.png')))).then((res) => {
+        const esc_ = res.slice(1), W = 1080, H = 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
+        const algum = cs.some((q) => placarDe(q.ida) || placarDe(q.volta));
+        S.moldura(ctx, W, H, 'Playoff do acesso', st.comp.rotulo + (algum ? ' · na minha simulação' : ' · chances de subir'));
+        const rot = (t, x, y, tam, cor, al) => { ctx.textAlign = al || 'left'; ctx.fillStyle = cor; ctx.font = t[1]; ctx.fillText(t[0], x, y); };
+        cs.forEach((q, k) => {
+          const y0 = 340 + k * 450, B = st.L.times[q.melhor], W2 = st.L.times[q.pior];
+          ctx.fillStyle = 'rgba(255,255,255,.06)'; ctx.fillRect(40, y0, W - 80, 420);
+          rot([nome(B) + ' × ' + nome(W2), '800 30px Archivo'], 64, y0 + 46, 0, '#f4f6fb');
+          rot([q.posMelhor + 'º contra ' + q.posPior + 'º', '600 24px Archivo'], W - 64, y0 + 46, 0, 'rgba(244,246,251,.65)', 'right');
+          ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)'; ctx.textAlign = 'right';
+          ctx.fillText('sobe', W - 250, y0 + 84); ctx.fillText('vence os dois', W - 64, y0 + 84);
+          [[B, q.sobeMelhor, q.doisMelhor, true], [W2, q.sobePior, q.doisPior, false]].forEach(([t, sobe, dois, m], j) => {
+            const y = y0 + 100 + j * 92, img = esc_[k * 2 + j];
+            S.escudoPlaca(ctx, img, 64, y + 6, 36);
+            ctx.textAlign = 'left'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 36px "Archivo Largo"';
+            ctx.fillText(nome(t), 150, y + 40, 400);
+            if (m) { ctx.font = '700 22px Archivo'; ctx.fillStyle = S.COR.giz; ctx.fillText('joga pelo empate', 150, y + 70); }
+            const txt = q.decidido ? (sobe >= 1 ? 'sobe' : '–') : pctPO(sobe);
+            ctx.textAlign = 'right'; ctx.font = '900 54px "Archivo Largo"';
+            if (q.decidido && sobe >= 1) { ctx.fillStyle = S.COR.giz; ctx.fillRect(W - 250 - ctx.measureText(txt).width - 14, y + 2, ctx.measureText(txt).width + 28, 70); ctx.fillStyle = S.COR.fundo; }
+            else ctx.fillStyle = '#f4f6fb';
+            ctx.fillText(txt, W - 250, y + 56);
+            ctx.font = '800 30px "Archivo Largo"'; ctx.fillStyle = 'rgba(244,246,251,.8)';
+            ctx.fillText(q.decidido ? (dois >= 1 ? 'sim' : 'não') : pctPO(dois), W - 64, y + 52);
+          });
+          // barra: vitória do melhor, empate (hachurado), vitória do pior
+          const bx = 64, bw = W - 128, by = y0 + 300, bh = 28;
+          const partes = [[q.venceAgregado, '#9db0ff'], [q.empateAgregado, null], [q.perdeAgregado, '#4f5a7d']];
+          let x = bx;
+          partes.forEach(([v, cor]) => {
+            const w = bw * v; if (w <= 0) return;
+            ctx.save(); ctx.beginPath(); ctx.rect(x, by, w, bh); ctx.clip();
+            if (cor) { ctx.fillStyle = cor; ctx.fillRect(x, by, w, bh); }
+            else { ctx.fillStyle = 'rgba(157,176,255,.25)'; ctx.fillRect(x, by, w, bh); ctx.strokeStyle = '#9db0ff'; ctx.lineWidth = 5; for (let d = -bh; d < w + bh; d += 14) { ctx.beginPath(); ctx.moveTo(x + d, by + bh); ctx.lineTo(x + d + bh, by); ctx.stroke(); } }
+            ctx.restore(); x += w;
+          });
+          ctx.textAlign = 'left'; ctx.font = '600 24px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.85)';
+          ctx.fillText(pctPO(q.venceAgregado) + ' ' + nome(B) + ' vence · ' + pctPO(q.empateAgregado) + ' empate no agregado (sobe ' + nome(B) + ') · ' + pctPO(q.perdeAgregado) + ' ' + nome(W2), bx, by + 66, bw);
+        });
+        return entregar(c, 'playoff-' + st.comp.id + '.png', previa);
+      });
+    }).catch((e) => { T.reportError(e, 'imagem'); aviso('Não consegui gerar a imagem'); });
   }
 
   // as duas imagens (tabela e placares) num envio só
@@ -1403,7 +1466,7 @@
       }
       const r = e.target.closest('.prob button');
       if (r) {
-        const li = r.closest('.jogo'), chave = li.dataset.c, j = st.L.jogos.find((x) => x.chave === chave);
+        const li = r.closest('.jogo'), chave = li.dataset.c, j = jogoDe(chave);
         const p = st.M.prob(j.h, j.a), k = +r.dataset.r, atual = placarDe(j);
         if (atual && resultado(atual) === k && !st.sim[chave]) definir(chave, null);           // tocar de novo desfaz
         else definir(chave, (k === 0 ? p.tipico.h : k === 1 ? p.tipico.d : p.tipico.a).slice(), false);
@@ -1411,15 +1474,18 @@
       }
       const dado = e.target.closest('[data-sortear]');
       if (dado) {
-        const li = dado.closest('.jogo'), chave = li.dataset.c;
-        const novo = window.TNGCore.simularRestantes(st.L, {}, st.M, sorteio(), (j) => j.chave === chave);
-        if (novo[chave]) definir(chave, novo[chave], true);
+        const li = dado.closest('.jogo'), chave = li.dataset.c, jd = jogoDe(chave);
+        if (jd && jd.perna) definir(chave, window.TNGCore.amostrarCrivel(st.M.prob(jd.h, jd.a), sorteio()), true);
+        else {
+          const novo = window.TNGCore.simularRestantes(st.L, {}, st.M, sorteio(), (j) => j.chave === chave);
+          if (novo[chave]) definir(chave, novo[chave], true);
+        }
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && dado.animate) dado.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 420, easing: 'cubic-bezier(.3,1.3,.5,1)' });
         return;
       }
       const pm = e.target.closest('.pm button');
       if (pm) {
-        const li = pm.closest('.jogo'), chave = li.dataset.c, j = st.L.jogos.find((x) => x.chave === chave);
+        const li = pm.closest('.jogo'), chave = li.dataset.c, j = jogoDe(chave);
         const atual = placarDe(j), g = +pm.dataset.g, d = +pm.dataset.d;
         if (!atual && d < 0) return;
         const novo = atual ? atual.slice() : [0, 0];
@@ -1463,7 +1529,7 @@
       const ins = li.querySelectorAll('input');
       const a = ins[0].value, b = ins[1].value;
       if (a !== '' && b !== '') definir(chave, [Math.min(15, +a), Math.min(15, +b)], false);
-      else if (placarDe(st.L.jogos.find((x) => x.chave === chave))) definir(chave, null);
+      else if (placarDe(jogoDe(chave))) definir(chave, null);
       // pula para o próximo campo depois de um dígito
       if (limpo.length === 1) {
         const todos = Array.from(v.querySelectorAll('.placar input'));
@@ -1519,6 +1585,221 @@
     if (seg && window.matchMedia('(max-width: 899px)').matches && seg.getBoundingClientRect().top < 0) seg.scrollIntoView({ block: 'start' });
   }
 
+  // ================================================================== playoff do acesso (Série B)
+  // Com a fase de pontos corridos encerrada e regras.playoff definido, o simulador vira o playoff:
+  // dois confrontos de ida e volta, sem pênalti (agregado empatado: sobe a melhor campanha).
+  // As chances são exatas (shared/simulador-core.js, playoff()); os palpites usam chaves "po-…".
+  const modoPO = () => !!(st.regras && st.regras.playoff && st.L && !restantes().length);
+  const pctPO = (x) => (x <= 0 ? '0%' : x >= 1 ? '100%' : pct(x));
+  const Cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+  function calcPO() {
+    const cs = window.TNGCore.playoff(st.L, st.regras, st.M, placares(), st.poReais || {});
+    // data e horário confirmados pela ESPN valem mais que os do regulamento
+    cs.forEach((c) => [c.ida, c.volta].forEach((j) => { const d = (st.poDatas || {})[j.chave]; if (d) { j.data = d.data; j.horario = d.horario; } }));
+    return cs;
+  }
+  const pernasPO = () => (modoPO() ? [].concat.apply([], calcPO().map((c) => [c.ida, c.volta])) : []);
+  function jogoDe(chave) {
+    return st.L.jogos.find((x) => x.chave === chave) || (/^po-/.test(chave) ? pernasPO().find((x) => x.chave === chave) : null) || null;
+  }
+  const doMeu = (c) => !!(st.meu && (c.melhor === st.meu.i || c.pior === st.meu.i));
+
+  function montarPO() {
+    const v = st.view, cs = calcPO(), tab = tabelaReal(), meu = st.meu, po = st.regras.playoff;
+    const subiram = tab.slice(0, 2).map((x) => st.L.times[x.i]);
+    const ordem = cs.slice().sort((a, b) => doMeu(b) - doMeu(a));      // o confronto do meu time primeiro
+    const fora = meu && !cs.some(doMeu) ? tab.find((x) => x.i === meu.i) : null;
+    const opcoes = st.L.times.slice().sort((a, b) => nome(a).localeCompare(nome(b), 'pt-BR')).map((t) =>
+      '<option value="' + esc(t.slug) + '"' + (meu && meu.i === t.i ? ' selected' : '') + '>' + esc(nome(t)) + '</option>').join('');
+    v.innerHTML =
+      '<div class="sim-topo"><div class="page-head">' + seletorComp() + '<div class="kicker">' + esc(st.comp.rotulo) + ' · fase final</div>' +
+      '<h1>' + esc(po.nome || 'Playoff') + '</h1>' +
+      '<p id="sim-frase">' + esc(nome(subiram[0])) + ' e ' + esc(nome(subiram[1])) + ' já subiram. As outras duas vagas saem em ida e volta, sem pênalti: <b>empatou no agregado, sobe a melhor campanha</b>.</p>' +
+      '<div class="carimbo" id="carimbo" hidden></div></div><div class="resumo" id="resumo" aria-live="polite"></div></div>' +
+      (st.compartilhado ? '<div class="faixa"><div><b>Você está vendo o cenário de outra pessoa.</b><span>Os seus placares continuam guardados.</span></div>' +
+        '<div class="faixa-acoes"><button class="btn primario" data-a="usar-comp">Usar e editar</button><button class="link-btn" data-a="sair-comp">Voltar ao meu</button></div></div>' : '') +
+      '<div class="acoes sim-acoes so-time"><label class="btn sel-time">' + (meu ? crest(meu, 'crest sel-crest') : ICON.escudo) +
+      '<select data-a="meu" aria-label="Escolher o meu time"><option value="" disabled hidden' + (meu ? '' : ' selected') + '>Escolher time</option><option value="-">Nenhum</option>' + opcoes + '</select></label>' +
+      '<button class="btn primario" data-a="simular">' + ICON.dado + 'Sortear</button></div>' +
+      '<div class="ferr"><button class="link-btn" data-a="partilhar">' + ICON.partilha + 'Compartilhar</button>' +
+      '<button class="link-btn" data-a="limpar">' + ICON.lixo + 'Reiniciar placares</button>' +
+      '<a class="link-btn so-estreito" href="#/estatisticas">' + ICON.revela + 'Estatísticas</a></div>' +
+      (fora ? '<p class="nota po-fora">' + esc(Cap(o_(meu))) + ' terminou em ' + fora.pos + 'º e ficou fora do playoff.</p>' : '') +
+      '<div class="po-lista">' + ordem.map((c) => confrontoHtml(c, tab)).join('') + '</div>' +
+      '<details class="como"><summary>Tabela final dos pontos corridos</summary>' + tabelaHtml(tab, { destaque: meu && meu.i }) + '</details>' +
+      '<details class="como"><summary>Como as chances são calculadas</summary>' +
+      '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time no campeonato (em casa e fora), da campanha e da forma recente, como no resto do simulador. A conta cruza todos os placares possíveis da ida com todos os da volta, sem sorteio: sobe quem faz mais gols no agregado e, se empatar, quem terminou na frente na tabela.</p>' +
+      '<p>Os placares que você preenche entram na conta. Preencha a ida para ver o que cada time precisa na volta.</p></details>';
+    pintarPO();
+  }
+
+  function confrontoHtml(c, tab) {
+    const B = st.L.times[c.melhor], W = st.L.times[c.pior];
+    const linha = (t, melhor) => {
+      const x = tab.find((q) => q.i === t.i);
+      return '<div class="po-time' + (st.meu && st.meu.i === t.i ? ' meu' : '') + '" data-lado="' + (melhor ? 'm' : 'p') + '">' +
+        '<span class="po-crest">' + crest(t) + '</span>' +
+        '<div class="po-nome"><b>' + esc(nome(t)) + '</b><small class="num">' + x.pos + 'º · ' + x.pts + ' pts</small>' +
+        (melhor ? '<span class="po-vant"><i aria-hidden="true"></i>joga pelo empate</span>' : '') + '</div>' +
+        '<b class="po-sobe num" data-f="sobe-' + (melhor ? 'm' : 'p') + '"></b><b class="po-dois num" data-f="dois-' + (melhor ? 'm' : 'p') + '"></b></div>';
+    };
+    return '<section class="po' + (doMeu(c) ? ' do-meu' : '') + '" data-po="' + c.k + '" aria-labelledby="po-t' + c.k + '">' +
+      '<div class="sec-title"><h2 id="po-t' + c.k + '">' + esc(nome(B)) + ' × ' + esc(nome(W)) + '</h2><small>' + c.posMelhor + 'º contra ' + c.posPior + 'º</small></div>' +
+      '<div class="po-card">' +
+      '<div class="po-cols" aria-hidden="true"><span></span><span>sobe</span><span>vence os dois jogos</span></div>' +
+      linha(B, true) + linha(W, false) +
+      '<div class="po-barra" role="img"><i class="b-vence"></i><i class="b-empate"></i><i class="b-perde"></i></div>' +
+      '<ul class="po-leg"><li><i class="sw vence"></i><span data-f="vence"></span></li><li><i class="sw empate"></i><span data-f="empate"></span></li><li><i class="sw perde"></i><span data-f="perde"></span></li></ul>' +
+      '<p class="po-situ" data-f="situ"></p></div>' +
+      '<ul class="jogos">' + cardJogo(c.ida) + cardJogo(c.volta) + '</ul></section>';
+  }
+
+  // o que cada lado precisa na volta, pelo saldo do melhor colocado na ida (d)
+  function fraseVolta(B, W, d) {
+    const gols = (n) => n + (n === 1 ? ' gol' : ' gols');
+    const precisaB = d > 0 ? 'pode perder por ' + (d === 1 ? '1 gol' : 'até ' + gols(d)) : d === 0 ? 'joga pelo empate' : (d === -1 ? 'precisa vencer' : 'precisa vencer por ' + gols(-d) + ' de diferença');
+    const precisaW = d >= 0 ? (d === 0 ? 'precisa vencer' : 'precisa vencer por ' + gols(d + 1) + ' de diferença') : d === -1 ? 'joga pelo empate' : 'pode perder por ' + (d === -2 ? '1 gol' : 'até ' + gols(-d - 1));
+    return 'Na volta, ' + esc(o_(W)) + ' <b>' + precisaW + '</b> e ' + esc(o_(B)) + ' <b>' + precisaB + '</b>.';
+  }
+
+  function pintarPO() {
+    if (!st.view || !modoPO()) return;
+    const cs = calcPO();
+    cs.forEach((c) => {
+      const sec = st.view.querySelector('[data-po="' + c.k + '"]');
+      if (!sec) return;
+      const B = st.L.times[c.melhor], W = st.L.times[c.pior];
+      const put = (f, html) => { const el = sec.querySelector('[data-f="' + f + '"]'); if (el) el.innerHTML = html; };
+      // decidido (pelos placares): no lugar das porcentagens, quem sobe e se venceu os dois jogos
+      const sn = (x) => (c.decidido ? (x >= 1 ? 'sim' : 'não') : pctPO(x));
+      put('sobe-m', c.decidido ? (c.sobeMelhor >= 1 ? 'sobe' : '–') : pctPO(c.sobeMelhor));
+      put('sobe-p', c.decidido ? (c.sobePior >= 1 ? 'sobe' : '–') : pctPO(c.sobePior));
+      put('dois-m', sn(c.doisMelhor)); put('dois-p', sn(c.doisPior));
+      put('vence', '<b class="num">' + pctPO(c.venceAgregado) + '</b> ' + esc(nome(B)) + ' vence no agregado');
+      put('empate', '<b class="num">' + pctPO(c.empateAgregado) + '</b> empate no agregado, sobe ' + esc(o_(B)));
+      put('perde', '<b class="num">' + pctPO(c.perdeAgregado) + '</b> ' + esc(nome(W)) + ' vence no agregado');
+      const barra = sec.querySelector('.po-barra');
+      [['.b-vence', c.venceAgregado], ['.b-empate', c.empateAgregado], ['.b-perde', c.perdeAgregado]].forEach(([q, x]) => { barra.querySelector(q).style.flexGrow = x.toFixed(4); });
+      barra.setAttribute('aria-label', nome(B) + ' vence no agregado em ' + pctPO(c.venceAgregado) + ', empate em ' + pctPO(c.empateAgregado) + ', ' + nome(W) + ' em ' + pctPO(c.perdeAgregado));
+      let situ;
+      if (c.decidido) {
+        const ag = c.agregado, vence = c.sobeMelhor >= 1 ? B : W;
+        situ = (c.ida.feito && c.volta.feito ? 'Sobe ' : 'Na sua simulação, sobe ') + '<b>' + esc(o_(vence)) + '</b>: agregado ' + esc(nome(B)) + ' ' + ag[0] + ' × ' + ag[1] + ' ' + esc(nome(W)) + (ag[0] === ag[1] ? ', pela melhor campanha.' : '.');
+      } else if (c.saldoIda != null) situ = fraseVolta(B, W, c.saldoIda);
+      else situ = 'Se o agregado empatar, sobe ' + esc(o_(B)) + ', que terminou na frente. ' + esc(Cap(o_(W))) + ' precisa fazer mais gols nos dois jogos.';
+      put('situ', situ);
+      sec.classList.toggle('decidido', c.decidido);
+      sec.querySelectorAll('.po-time').forEach((el) => {
+        const m = el.dataset.lado === 'm', sobe = m ? c.sobeMelhor : c.sobePior;
+        el.classList.toggle('sobe', c.decidido && sobe >= 1);
+        el.classList.toggle('fora', c.decidido && sobe <= 0);
+      });
+    });
+    desenharResumoPO(cs);
+  }
+
+  // topo: quem já subiu e quem sobe no playoff (favorito pelo modelo ou vencedor nos seus palpites)
+  function desenharResumoPO(cs) {
+    const el = st.view && st.view.querySelector('#resumo');
+    if (!el) return;
+    const tab = tabelaReal();
+    const placa = (t) => '<span class="rs-placa" title="' + esc(nome(t)) + '">' + crest(t) + '</span>';
+    const algum = cs.some((c) => placarDe(c.ida) || placarDe(c.volta));
+    const todos = cs.every((c) => c.decidido);
+    el.innerHTML = '<div class="rs-grupos">' +
+      '<div><small><i style="background:var(--z-lib)"></i>Já subiram</small><div class="rs-crs">' + tab.slice(0, 2).map((x) => placa(st.L.times[x.i])).join('') + '</div></div>' +
+      '<div><small><i style="background:var(--gold)"></i>' + (todos ? 'Sobem na sua simulação' : algum ? 'Favoritos com os seus palpites' : 'Favoritos no playoff') + '</small><div class="rs-crs">' +
+      cs.map((c) => {
+        const m = c.sobeMelhor >= c.sobePior, t = st.L.times[m ? c.melhor : c.pior];
+        return '<span class="rs-fav">' + placa(t) + '<b class="num">' + pctPO(m ? c.sobeMelhor : c.sobePior) + '</b></span>';
+      }).join('') + '</div></div></div>';
+  }
+
+  function simularPO() {
+    const r = sorteio(), alvo = alvoPlacares(), novas = [];
+    pernasPO().forEach((j) => {
+      if (j.feito || placarDe(j)) return;
+      alvo[j.chave] = window.TNGCore.amostrarCrivel(st.M.prob(j.h, j.a), r);
+      st.sim[j.chave] = 1; novas.push(j.chave);
+    });
+    if (!novas.length) { aviso('Os jogos já têm placar'); return; }
+    redesenharTudo();
+    aviso(novas.length + (novas.length === 1 ? ' jogo sorteado' : ' jogos sorteados') + ' pelas probabilidades', { rotulo: 'Desfazer', acao: () => {
+      novas.forEach((k) => { delete alvoPlacares()[k]; delete st.sim[k]; });
+      redesenharTudo();
+    } });
+  }
+
+  // link do cenário: ?po=1-0.2-2._._ (ida e volta de cada confronto, na ordem do regulamento)
+  function linkPO() {
+    const ps = pernasPO();
+    const cod = ps.map((j) => { const p = !j.feito && placares()[j.chave]; return p ? Math.min(15, p[0]) + '-' + Math.min(15, p[1]) : '_'; }).join('.');
+    const c = /\d/.test(cod) ? '?po=' + cod : '';
+    if (T.ARTIFACT) return T.urlBase() + '#simulador';
+    return T.urlBase() + rotaBase() + (st.meu ? '/' + st.meu.slug : '') + c;
+  }
+  function lerLinkPO(cod) {
+    const ps = pernasPO(), partes = String(cod || '').split('.');
+    if (partes.length !== ps.length) return null;
+    const out = {};
+    for (let k = 0; k < ps.length; k++) {
+      if (partes[k] === '_') continue;
+      const m = /^(\d{1,2})-(\d{1,2})$/.exec(partes[k]);
+      if (!m) return null;
+      if (!ps[k].feito) out[ps[k].chave] = [+m[1], +m[2]];
+    }
+    return out;
+  }
+  function textoPO() {
+    const cs = calcPO(), quem = (c) => st.L.times[c.sobeMelhor >= c.sobePior ? c.melhor : c.pior];
+    if (cs.every((c) => c.decidido)) return 'Na minha simulação do playoff da ' + st.comp.curto + ', sobem ' + o_(quem(cs[0])) + ' e ' + o_(quem(cs[1])) + '. Faça a sua:';
+    return 'Playoff da ' + st.comp.curto + ' no Tapa na Gaveta: ' + cs.map((c) => o_(quem(c)) + ' sobe em ' + pctPO(Math.max(c.sobeMelhor, c.sobePior))).join(' e ') + ' das simulações. Faça a sua:';
+  }
+  function abrirCompartilharPO() {
+    const url = linkPO(), n = pernasPO().filter((j) => !j.feito && placares()[j.chave]).length;
+    const corpo = T.janela('Compartilhar', '<p class="nota">' + (n ? 'O link leva os seus ' + n + (n === 1 ? ' placar' : ' placares') + ' do playoff: quem abrir vê quem sobe na sua simulação.' : 'O link abre o playoff com as chances de cada time.') + '</p>' +
+      '<div class="link-linha"><input readonly value="' + esc(url) + '" aria-label="Link do cenário"><button class="btn" data-j="copiar">Copiar</button></div>' +
+      '<div class="j-acoes"><a class="btn" href="https://wa.me/?text=' + encodeURIComponent(textoPO() + '\n' + url) + '" target="_blank" rel="noopener">Enviar no WhatsApp</a></div>' +
+      '<h3 class="j-sub">Imagem pronta</h3><div class="j-acoes"><button class="btn primario" data-j="img-po">Imagem do playoff (feed)</button></div><div class="previa" id="previa"></div>');
+    corpo.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-j]');
+      if (!b) return;
+      if (b.dataset.j === 'copiar') carregarComp().then(() => window.TNGCompartilhar.copiar(url));
+      else if (b.dataset.j === 'img-po') imagemPO(corpo.querySelector('#previa'));
+    });
+  }
+
+  // resultados reais do playoff: a ESPN lista os jogos no mesmo scoreboard da liga
+  function aoVivoPO() {
+    if (/[?&]offline\b/.test(location.search) || T.ARTIFACT || buscandoESPN || Date.now() - ultimaBusca < 5 * 60000 || !window.TNGEspn) return;
+    const ps = pernasPO().filter((j) => j.data);
+    if (!ps.length) return;
+    const meses = ps.map((j) => j.data.slice(0, 7).replace('-', '')).filter((m, k, a) => a.indexOf(m) === k);
+    const desde = Math.min.apply(null, ps.map((j) => Date.parse(j.data))) - 5 * 864e5;   // um jogo da liga com o mesmo mando fica de fora
+    const comp = st.comp, porId = {};
+    st.L.times.forEach((t) => { porId[t.id] = t; });
+    buscandoESPN = true;
+    Promise.all(meses.map((m) => fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/' + comp.espn + '/scoreboard?dates=' + m + '&limit=300').then((r) => (r.ok ? r.json() : null))))
+      .then((lista) => {
+        buscandoESPN = false; ultimaBusca = Date.now();
+        if (st.comp !== comp) return;
+        const reais = {}, vivos = {}, datas = {}, chaves = {};
+        ps.forEach((j) => { chaves[j.chave] = 1; });
+        [].concat.apply([], lista.map((sb) => window.TNGEspn.converter(sb))).forEach((j) => {
+          const h = porId[j.mandante], a = porId[j.visitante];
+          if (!h || !a || Date.parse(j.data) < desde) return;
+          const chave = 'po-' + h.slug + '-' + a.slug;
+          if (!chaves[chave]) return;
+          datas[chave] = { data: j.data, horario: j.horario_definido !== false };
+          if (j.gols_mandante != null && j.gols_visitante != null) reais[chave] = [j.gols_mandante, j.gols_visitante];
+          else if (j.ao_vivo) vivos[chave] = j.ao_vivo;
+        });
+        const antes = JSON.stringify([st.poReais || {}, st.poVivos || {}, st.poDatas || {}]);
+        st.poReais = reais; st.poVivos = vivos; st.poDatas = datas;
+        if (antes !== JSON.stringify([reais, vivos, datas]) && st.view && modoPO()) montarPO();
+      }).catch((e) => { buscandoESPN = false; T.reportError(e, 'espn-playoff'); });
+  }
+
   // ================================================================== registro da aba
   window.TNG.aba('simulador', {
     titulo: 'Simulador do Brasileirão 2026',
@@ -1542,7 +1823,10 @@
         st.meu = timeSlug ? timePorSlug(timeSlug) : null;
         if (timeSlug && !st.meu) aviso('Não achei esse time; mostrando o campeonato inteiro');
         st.compartilhado = null;
-        if (ctx.c || ctx.cv4) {
+        if (ctx.po != null && modoPO()) {
+          const dec = lerLinkPO(ctx.po);
+          if (dec) st.compartilhado = dec; else aviso('Esse link de cenário está incompleto');
+        } else if (ctx.c || ctx.cv4) {
           // cv4: link da versão antiga em arquivo único (outra ordem dos pares)
           const dec = ctx.c ? window.TNGCore.decodificar(st.L, ctx.c) : window.TNGCore.decodificarAntigo(st.L, ctx.cv4);
           if (dec) st.compartilhado = dec; else aviso('Esse link de cenário está incompleto');
@@ -1550,12 +1834,12 @@
         if (ctx.aba && /^(jogos|tabela|chances)$/.test(ctx.aba)) st.aba = ctx.aba;
         st.versao++;
         st.chancesVersao = -1;
-        document.title = (st.meu ? 'Simulador ' + de_(st.meu) + ' · ' + st.comp.rotulo : (TITULO[st.comp.id] || 'Simulador') + (ehSerieA() ? ' 2026' : ' ' + st.comp.rotulo.replace(/^.* /, ''))) + ' · Tapa na Gaveta';
+        document.title = modoPO() ? (st.regras.playoff.nome || 'Playoff') + ' da ' + st.comp.rotulo + ' · Tapa na Gaveta' : (st.meu ? 'Simulador ' + de_(st.meu) + ' · ' + st.comp.rotulo : (TITULO[st.comp.id] || 'Simulador') + (ehSerieA() ? ' 2026' : ' ' + st.comp.rotulo.replace(/^.* /, ''))) + ' · Tapa na Gaveta';
         montar();
         const desligar = ligar();
         if (st.aba === 'chances' || window.matchMedia('(min-width: 900px)').matches) pedirChances();
         aoVivo();
-        if (ctx.revelar != null) setTimeout(revelar, 50);
+        if (ctx.revelar != null && !modoPO()) setTimeout(revelar, 50);
         window.TNG_SIM = st;                                   // para testes e capturas
         return () => {
           desligar();
