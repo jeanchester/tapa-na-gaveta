@@ -51,22 +51,23 @@ ficam na pasta "TikTok Tapa" do Drive.
 
 Lista de 20 sinais de visual feito por IA, do vídeo "20 sinais de que o teu dashboard foi feito por IA" do
 @prof.julianofaccioni (TikTok, nov/2026), lida do vídeo e traduzida para o que fazemos. A animação de cima do
-vídeo é uma interface, então vale tudo isto. Antes de render, passe os 20 como checklist em um quadro de cada cena.
+vídeo é uma interface, então vale tudo isto. São coisas para **não fazer**: a alternativa não é inventar outro
+visual, é tirar o enfeite ou trocar por algo mais enxuto dentro da identidade do site.
 
 | # | sinal | o que fazer no lugar |
 |---|---|---|
 | 1 | gradiente roxo e azul | cor chapada do padrão do site (azul-noite, dourado); nada de degradê |
-| 2 | neon em cima de preto | o fundo é azul-noite, brilho de verdade só no dourado do que importa |
+| 2 | neon em cima de preto | o fundo é azul-noite; brilho só no dourado do que importa (ver "O que fica") |
 | 3 | efeito de vidro nos cards | cartão opaco `#0f1733`, sem blur nem transparência |
 | 4 | sombra desproporcional | sem sombra grande; separar com borda fina ou diferença de tom |
-| 5 | eyebrow em todo título | só use o `selo` quando ele diz uma coisa que o título não diz (data, competição); nunca em toda cena |
+| 5 | eyebrow em todo título | `selo` só quando diz algo que o título não diz (data, competição); nunca em toda cena |
 | 6 | tag de "ao vivo" | nada de bolinha pulsando, "ao vivo", "novo", "destaque" sem ser verdade |
-| 7 | chips coloridinhos | cor só carrega significado do campeonato (zona, vitória, derrota); sem chip decorativo |
+| 7 | chips coloridinhos | sem chip decorativo; cor só carrega significado (zona, vitória, derrota) |
 | 8 | ícone colorido nos KPIs | número grande sem ícone; o escudo do clube é o único desenho |
 | 9 | pílula verde com setinha (+12%) | variação em texto simples, na cor da zona; sem pílula e sem seta de enfeite |
 | 10 | emoji nos títulos | nenhum emoji no vídeo, nem na legenda |
 | 11 | ícone de brilho (sparkle) | nenhum sparkle, estrelinha ou "mágica" |
-| 12 | rosca com total no meio | prefira barras com o número ao lado; rosca só se for proporção de verdade |
+| 12 | rosca com total no meio | barras com o número ao lado; rosca só se for proporção de verdade |
 | 13 | arco-íris nos gráficos | uma cor por gráfico, as das zonas quando for tabela; resto em tons do azul |
 | 14 | título "vendas por mês" | título que diz a conclusão ("o Corinthians tem 41% de cair"), não o nome do gráfico |
 | 15 | sparkline pequenininha | sem mini-gráfico solto ao lado do número; mostre a série grande ou nada |
@@ -76,13 +77,18 @@ vídeo é uma interface, então vale tudo isto. Antes de render, passe os 20 com
 | 19 | filtro que não filtra | nenhum controle (botão, seletor, tab) desenhado que não faz nada |
 | 20 | insight que ninguém lê | frase curta que a voz já diz; se o texto não é falado, corte |
 
-Regra geral: cada elemento na tela é dito pela voz ou é dado do modelo. Se não é nenhum dos dois, é enfeite, e
-enfeite é o que entrega a IA. Os cartões grandes de cantos arredondados com sombra cinza, o creme com serifa e
-terracota e o preto com verde neon continuam proibidos (ver o briefing do projeto).
+Regra geral: cada elemento na tela é dito pela voz ou é dado do modelo. Se não é nenhum dos dois, é enfeite.
 
-Onde o motor atual ainda se aproxima desses sinais (rever antes de postar): o `selo` (pílula com bolinha acima do
-título) aparece em quase toda cena (#5, #6); o `chip` colorido do placar (#7); o brilho dourado em volta da camisa
-com `destaque` e a faixa de brilho (`.brilho`) (#2, #11); e os cartões com cantos arredondados do placar e do campo (#3, #4).
+**O que fica (a marca do perfil).** A identidade visual do site não muda de vídeo para vídeo: azul-noite `#0b1640`,
+dourado `#ffc23d`, Archivo e Archivo Largo, o logo, os escudos, a faixa corrida de cima e o brilho dourado nos
+destaques (camisa de `destaque` na escalação, número que importa). Quem vê o vídeo tem que reconhecer o perfil em
+um segundo. O estilo dos vídeos do Isake (HTML dele) é a régua do meio-termo: leve, no padrão do site.
+
+**O que muda (o que se testa).** Dentro dessa identidade, os elementos de interface mudam um fator por vez, pela
+planilha de testes (ver "Versões e experimentos"): hoje, selo e chip colorido ligados ou desligados
+(`semPilulas: true` no roteiro tira os dois). Outras inspirações de design (tabela em filetes, número gigante,
+marca-texto no destaque) entram como nível de teste, uma de cada vez, e só viram padrão se ganharem na planilha.
+Não troque o visual todo de um vídeo para o outro: se o perfil parecer outro, a marca enfraquece.
 
 ## O que copiar do estilo do Isake
 
@@ -357,6 +363,9 @@ Uma variante sobrescreve campos do topo; `mudarCenas` troca campos de uma cena p
 ```bash
 python ferramentas/video/render.py NOME --camera bruto.MOV --variante todas   # A em saida/NOME/, B em saida/NOME-B/ ...
 ```
+
+Num vídeo, todas as versões testam o mesmo fator (ex.: `fator: 'Selo e chip'`, `nivel: 'com'` na A e
+`B: { nivel: 'sem', semPilulas: true }`); `semPilulas` muda a animação, então a B tem render próprio.
 
 Variante que só muda `legenda`, `fator`, `nivel` ou `nota` reaproveita a animação da versão A (render da A primeiro).
 Cada pasta ganha um `experimento.json` com fator e nível. A sincronia é a mesma da A (mesmo corte e mesma montagem).

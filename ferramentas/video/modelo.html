@@ -46,6 +46,7 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 #palco { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; }
 .cena { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; opacity: 0; will-change: transform, opacity; }
 
+body.sem-pilulas .selo, body.sem-pilulas .jogo .chip { display: none; }
 .selo { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; border-radius: 999px; border: 2px solid var(--ouro); color: var(--ouro); font: 800 24px var(--f-texto); background: rgba(255,194,61,.08); }
 .selo i { width: 12px; height: 12px; border-radius: 50%; background: var(--ouro); }
 .titulo { text-align: center; font: italic 900 54px/1.06 var(--f-num); letter-spacing: -.015em; }
@@ -498,6 +499,7 @@ const CENAS = {
 let R = null, VIVAS = [], EVENTOS = [], DUR = 10;
 function montar(roteiro) {
   R = roteiro;
+  document.body.classList.toggle('sem-pilulas', !!R.semPilulas);   // teste: sem selo e sem chip colorido
   document.title = (R.nome || 'vídeo') + ' · tapa na gaveta';
   $('#cab .marca').innerHTML = LOGO.replace('<svg', '<svg style="color:#fff"');
   $('#cab .estado span').textContent = R.estado || 'simulador';
@@ -697,7 +699,7 @@ if (!RENDER) {
 // ====================================================================== carrega o roteiro
 // variantes: { B: { fator, nivel, ...campos do topo que mudam, mudarCenas: { índice: {campos} } } } — ?v=B
 const VAR = Q.get('v');
-const SO_VIDEO = ['fator', 'nivel', 'legenda', 'nota'];   // campos que não mexem na animação de cima
+const SO_VIDEO = ['fator', 'nivel', 'legenda', 'nota'];   // campos que não mexem na animação de cima (semPilulas mexe: esconde selo e chip)
 let MUDA_ANIMACAO = false;
 function variante(r) {
   if (!VAR || VAR === 'A' && !(r.variantes || {}).A) return r;
