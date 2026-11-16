@@ -98,6 +98,16 @@ def layout(pg, onde, larg):
       }).filter(Boolean)""")
     if desalinhadas:
         ruim(onde, f'colunas desalinhadas: {desalinhadas}')
+    # playoff: cada título do cabeçalho fica em cima da sua coluna de números
+    po_desalinhado = pg.evaluate("""[...document.querySelectorAll('.po-card')].filter(c => c.offsetParent).map(c => {
+        const h = [...c.querySelectorAll('.po-cols > span')], r = c.querySelector('.po-time');
+        const cel = [...r.children];
+        if (h.length !== cel.length) return h.length + ' títulos x ' + cel.length + ' colunas';
+        const bad = h.findIndex((e, k) => e.textContent.trim() && Math.abs(e.getBoundingClientRect().right - cel[k].getBoundingClientRect().right) > 3);
+        return bad >= 0 ? 'título "' + h[bad].textContent.trim() + '" fora da coluna' : null;
+      }).filter(Boolean)""")
+    if po_desalinhado:
+        ruim(onde, f'playoff: {po_desalinhado[0]}')
     escudos = pg.evaluate("""[...document.querySelectorAll('img.crest, img.rv-crest')]
         .filter(i => i.offsetParent && i.complete && i.naturalWidth === 0).map(i => i.getAttribute('src'))""")
     if escudos:

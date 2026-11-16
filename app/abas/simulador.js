@@ -1658,7 +1658,7 @@
     return '<section class="po' + (doMeu(c) ? ' do-meu' : '') + '" data-po="' + c.k + '" aria-labelledby="po-t' + c.k + '">' +
       '<div class="sec-title"><h2 id="po-t' + c.k + '">' + esc(nome(B)) + ' × ' + esc(nome(W)) + '</h2><small>' + c.posMelhor + 'º contra ' + c.posPior + 'º</small></div>' +
       '<div class="po-card">' +
-      '<div class="po-cols" aria-hidden="true"><span></span><span>sobe</span><span>vence os dois jogos</span></div>' +
+      '<div class="po-cols" aria-hidden="true"><span></span><span></span><span>sobe</span><span>vence os 2 jogos</span></div>' +
       linha(B, true) + linha(W, false) +
       '<div class="po-barra" role="img"><i class="b-vence"></i><i class="b-empate"></i><i class="b-perde"></i></div>' +
       '<ul class="po-leg"><li><i class="sw vence"></i><span data-f="vence"></span></li><li><i class="sw empate"></i><span data-f="empate"></span></li><li><i class="sw perde"></i><span data-f="perde"></span></li></ul>' +
