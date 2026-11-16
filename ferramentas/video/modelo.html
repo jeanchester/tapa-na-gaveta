@@ -128,11 +128,13 @@ body:not(.render) #quadro { margin: 16px auto 0; box-shadow: 0 0 0 1px #2a2f3d; 
 .campo-esc svg.linhas * { fill: none; stroke: #fff; stroke-opacity: .09; stroke-width: 3; }
 .campo-esc .form { position: absolute; right: 18px; top: 12px; font: 900 30px var(--f-num); color: var(--ouro); }
 .jog { position: absolute; width: 0; height: 0; }
-.jog .bola { position: absolute; left: -27px; top: -27px; width: 54px; height: 54px; border-radius: 50%; background: var(--tinta); color: var(--noite); display: flex; align-items: center; justify-content: center; font: 900 22px var(--f-num); }
-.jog.dest .bola { background: var(--ouro); }
-.jog .vaga { position: absolute; left: -27px; top: -27px; width: 54px; height: 54px; overflow: visible; }
+.jog .bola { position: absolute; left: -38px; top: -35px; width: 76px; height: 70px; }
+.jog .bola svg { width: 100%; height: 100%; overflow: visible; }
+.jog .bola text { font: 900 27px var(--f-num); text-anchor: middle; }
+.jog.dest .bola svg { filter: drop-shadow(0 0 7px var(--ouro)); }
+.jog .vaga { position: absolute; left: -33px; top: -33px; width: 66px; height: 66px; overflow: visible; }
 .jog .vaga circle { fill: none; stroke: var(--tinta-3); stroke-width: 2.5; stroke-dasharray: 7 6; opacity: .7; }
-.jog .nome { position: absolute; left: -110px; width: 220px; top: 31px; text-align: center; font: 800 21px var(--f-texto); white-space: nowrap; }
+.jog .nome { position: absolute; left: -110px; width: 220px; top: 38px; text-align: center; font: 800 21px var(--f-texto); white-space: nowrap; }
 
 /* guia da área segura (botão / tecla g) */
 #guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
@@ -257,6 +259,24 @@ function tempoBruto(x, R) {
 
 // ====================================================================== cenas
 // Cada construtor devolve { el, at(tl) } e registra os sons em ev(tempo local, tipo).
+// uniformes: cor da camisa, cor da gola/mangas e cor do número. Para outro uniforme, passe { cor, gola, num } no roteiro.
+const KITS = {
+  'brasil-azul': { cor: '#1d4fd6', gola: '#ffd23f', num: '#ffd23f' },
+  'brasil-amarela': { cor: '#ffd23f', gola: '#1d4fd6', num: '#0b3aa8' },
+  'brasil-goleiro': { cor: '#1a1d24', gola: '#3fcf95', num: '#3fcf95' },
+  'japao-azul': { cor: '#14327a', gola: '#ffffff', num: '#ffffff' },
+  'japao-branca': { cor: '#f4f6fb', gola: '#14327a', num: '#14327a' },
+  'branca': { cor: '#f4f6fb', gola: '#0b1640', num: '#0b1640' },
+};
+function camisa(k, num) {
+  const u = typeof k === 'string' ? (KITS[k] || KITS.branca) : Object.assign({}, KITS.branca, k || {});
+  if (typeof k === 'string' && !KITS[k]) AVISOS.push('uniforme desconhecido: ' + k);
+  return '<svg viewBox="0 0 60 56"><path d="M18 3L8 9 1 24l10 6 4-6v31h30V24l4 6 10-6-7-15-10-6q-12 9-24 0z" fill="' + u.cor + '" stroke="#060b1f" stroke-opacity=".55" stroke-width="1.6" stroke-linejoin="round"/>' +
+    '<path d="M1 24l10 6 4-6M59 24l-10 6-4-6" fill="none" stroke="' + u.gola + '" stroke-width="3.2"/>' +
+    '<path d="M18 3q12 9 24 0" fill="none" stroke="' + u.gola + '" stroke-width="3.4"/>' +
+    (num != null ? '<text x="30" y="40" fill="' + u.num + '">' + num + '</text>' : '') + '</svg>';
+}
+
 const CENAS = {
   abertura(c, ev) {
     const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
@@ -275,7 +295,9 @@ const CENAS = {
     } };
   },
 
-  // c.jogadores: [{ nome, x, y (em % do campo, ataque para cima), num, em, destaque }]; c.formacao: '3-5-2'
+  // c.jogadores: [{ nome, x, y (em % do campo, ataque para cima), num (número da camisa), em, destaque, goleiro, camisa }]
+  // c.camisa: nome de um uniforme de KITS ('brasil-azul') ou { cor, gola, num }; c.goleiro: uniforme do goleiro
+  // cada jogador é uma camisa (cor, gola e número do uniforme previsto para o jogo); c.formacao: '3-5-2'
   // antes de cada jogador "entrar", a vaga dele fica marcada com um círculo tracejado girando
   escalacao(c, ev, R) {
     const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo), tit = c.titulo && titulo(c.titulo, true);
@@ -286,7 +308,8 @@ const CENAS = {
       const d = el('div', 'jog' + (p.destaque ? ' dest' : ''));
       d.style.left = p.x + '%'; d.style.top = p.y + '%';
       d.innerHTML = '<svg class="vaga" viewBox="0 0 54 54"><circle cx="27" cy="27" r="25"/></svg>';
-      const b = el('div', 'bola', p.num != null ? String(p.num) : ''), nm = el('div', 'nome', p.nome);
+      const b = el('div', 'bola'); b.innerHTML = camisa(p.camisa || (p.goleiro && c.goleiro) || c.camisa, p.num);
+      const nm = el('div', 'nome', p.nome);
       d.append(b, nm); campo.appendChild(d);
       const t0 = p.em != null ? tempo(p.em, R) - c.inicio : .6 + i * .25;
       ev(t0, 'pop');

@@ -126,8 +126,9 @@ ROTEIRO({
 
     // "Então mantém o 3-5-2"
     { tipo: 'escalacao', em: 75.7, selo: 'minha escalação pra pegar Singapura', formacao: '3-5-2',
+      camisa: 'brasil-azul', goleiro: 'brasil-goleiro',
       jogadores: [
-        { nome: 'Pedro Morisco', x: 50, y: 87, em: 79.0 },
+        { nome: 'Pedro Morisco', x: 50, y: 87, em: 79.0, goleiro: true },
         { nome: 'Gabriel Magalhães', x: 20, y: 67, em: 83.9 },
         { nome: 'Arthur Dias', x: 50, y: 69, em: 83.1 },
         { nome: 'Jair', x: 80, y: 67, em: 82.3 },
