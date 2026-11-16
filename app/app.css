@@ -1094,14 +1094,15 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 /* ===================================================================== playoff do acesso (Série B)
    Cada confronto: chance de subir e de vencer os dois jogos; a barra separa vitória no agregado,
    empate no agregado (hachurado: é do melhor colocado, que joga pelo empate) e vitória do outro. */
-.po-lista { display: grid; gap: 6px; }
+.po-lista { display: grid; gap: 6px; max-width: 760px; }
+.po-queda { max-width: 760px; }
 .po { scroll-margin-top: 70px; }
 .po .sec-title { margin-top: 18px; }
 .po-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 10px 14px 14px; }
 .po.do-meu .po-card { border-color: var(--ink); }
 .po-cols, .po-time { display: grid; grid-template-columns: 40px minmax(0, 1fr) 76px 64px; align-items: center; gap: 0 10px; }
-.po-cols { font-size: 11.5px; font-weight: 700; color: var(--ink-3); line-height: 1.15; padding-bottom: 4px; }
-.po-cols span:nth-child(n+2) { text-align: right; }
+.po-cols { font-size: 11.5px; font-weight: 700; color: var(--ink-3); line-height: 1.15; padding-bottom: 6px; align-items: end; }
+.po-cols span:nth-child(n+3) { text-align: right; }
 .po-time { padding: 8px 0; border-top: 1px solid var(--line); transition: opacity .3s; }
 .po-crest .crest { width: 40px; height: 40px; }
 .po-nome { min-width: 0; }
