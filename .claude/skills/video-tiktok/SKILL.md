@@ -20,6 +20,7 @@ Arquivos (todos em `ferramentas/video/`):
 | `legendas.py` | legendas `.srt` → `T` (o tempo de cada palavra da fala) |
 | `render.py` | gera a animação quadro a quadro e monta o vídeo final 1080×1920 |
 | `sincronia.py` | diagnostica, mede e corrige áudio descasado |
+| `repeticoes.py` | acha palavras e frases repetidas na transcrição, para cortar de modo que sobre uma vez só |
 | `fala.py` | transcrição do sherpa-onnx → rascunho do campo `fala` (texto da legenda na tela) |
 | `fontes/` | fonte da legenda queimada (Archivo extra negrito, OFL) |
 | `escudos/` | escudos grandes (512 px) só para vídeo; o modelo usa estes primeiro e cai nos de `midia/escudos/` (128 px, ficam borrados quando ampliados) |
@@ -123,8 +124,15 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 | `barras` | `itens` [{t ou rotulo, valor, cor, em}], `selo`, `titulo`, `escudo`, `max`, `sufixo`, `casas` |
 | `numero` | `valor`, `de`, `sufixo`, `casas`, `titulo`, `escudo` |
 | `jogos` | `lista` [{h, a, quando, p: [casa, empate, fora]}] |
-| `escalacao` | `jogadores` [{nome, x, y (% do campo, ataque para cima), em, destaque}], `formacao`, `selo`, `titulo`; cada jogador entra na palavra dele, a vaga fica tracejada até lá |
+| `escalacao` | `jogadores` [{nome, x, y (% do campo, ataque para cima), num, em, destaque, goleiro}], `camisa`, `goleiro`, `formacao`, `selo`, `titulo`; cada jogador é uma camisa (arte em SVG) que entra na palavra dele, a vaga fica tracejada até lá |
 | `fecho` | `texto`, `url` |
+
+Escalação: a camisa tem a **cor do uniforme previsto para o jogo**, não branca. `camisa: 'brasil-azul'` (ou
+`brasil-amarela`, `japao-azul`, `japao-branca`, `branca`; goleiro com `goleiro: 'brasil-goleiro'` e `goleiro: true`
+no jogador) ou `{ cor, gola, num }` para outro uniforme (kits em `KITS`, no `modelo.html`). Confira qual uniforme o time
+usa no jogo (sites oficiais, ge, CBF) e anote no comentário do roteiro. `num` é o número que o jogador veste **naquele
+time** (seleção: o da convocação; clube: o da relação oficial): só preencha com número conferido em fonte, nunca de
+memória; sem `num`, a camisa fica lisa.
 
 Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
 roteiro troca as faixas da tabela (Série B: `{ lib: [1, 2], pre: [3, 6], rb: [17, 20] }`, ver `2026-11-15-serie-b-playoffs.js`). Cores aceitas:
@@ -232,14 +240,26 @@ isso", "repete") — se não der para ouvir/transcrever, pergunte em que segundo
 
 Cortes inteligentes, a partir da transcrição: (1) instrução falada para a edição ("corta essa parte", "vou
 refazer") sai junto com a tentativa a que ela se refere, e fica a versão refeita; (2) frase repetida: fica a última
-versão completa; (3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
+versão completa; (2b) palavra ou trecho repetido de propósito, para o editor escolher a melhor ("tá, tá muito aberta", "vou deixar
+o Vini Jr., vou deixar o Vini Jr. e o Endrick"): o vídeo final tem o termo **uma vez só**, sem gagueira. Rode
+`python ferramentas/video/repeticoes.py transcricao.log` para listar as candidatas, recorte o trecho com
+`pedacos.py` e transcreva os pedaços para achar o instante exato de cada ocorrência, e corte a 1ª (do começo dela
+até o começo da 2ª) ou a 2ª, o que emendar com mais fluidez: mesma entonação na emenda, sem a palavra cortada
+no meio e sem sobrar pausa. Ouça a emenda antes de render e leia os quadros dos dois lados (a boca não pode pular);
+(3) tropeço ou recomeço no meio da frase: corte do início do tropeço até a próxima frase limpa,
 e se o fim do vídeo se enrolar, emende o endereço do site direto na despedida; (4) pausa acima de ~0,6 s entre
 frases encolhe para ~0,3 s. Liste no comentário do roteiro o que saiu e por quê. O render corta pelo número do
 quadro (imagem, `select` pelo número do quadro) e da amostra (som), sem o filtro `concat` na imagem, que
 atrasava a imagem 2 a 3 quadros depois da primeira emenda. Seleções usam bandeiras redondas (`brasil`, `japao`,
 `singapura` em `escudos/`); para outra seleção, desenhe a bandeira em SVG e gere o PNG de 512 px.
 
-Enquadramento da câmera: `--camera-zoom 1.12 --camera-y 0.55` aproxima e sobe o recorte para o rosto ficar no meio da metade de baixo (confira um quadro antes do render longo).
+Enquadramento da câmera: **o escudo da camisa tem que aparecer inteiro** (camisa chama atenção e atrai público;
+"BRASIL" e as estrelas não podem ser cortados). A gravação vertical é 1080×1920 e a metade de baixo do vídeo
+mostra só 956 px de altura, então o padrão (centralizado) corta o peito. Antes do render longo, tire um quadro com
+o ffmpeg e confira rosto e escudo. Se não couberem juntos, afaste: `--camera-zoom 0.8 --camera-y 0.62` encolhe a
+gravação e preenche as laterais com a própria imagem desfocada (parede lisa some no fundo). `--camera-zoom 1.12
+--camera-y 0.55` só vale para gravação em que o escudo já está dentro do recorte. Ao gravar, o Jean deve ficar
+com o rosto no terço de cima e o peito inteiro em quadro.
 Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera
 é convertida para ritmo constante e o áudio é reamostrado sem ser empurrado.
@@ -329,5 +349,7 @@ vêm do Cloudflare (referência tiktok.com) no mesmo período.
 - [ ] movimento leve discreto: nada balançando junto, brilho mais fraco depois do resultado
 - [ ] sem voz de IA e sem selo de edição com IA
 - [ ] vídeo final 1080×1920, H.264 + AAC (o `render.py` já entrega assim)
+- [ ] escudo da camisa inteiro no quadro da câmera (confira um quadro)
+- [ ] sem palavra repetida nas emendas (ouvir os cortes)
 - [ ] legenda (se a versão tiver) conferida em 3 ou 4 quadros: nomes certos, nada sobre a boca
 - [ ] posta no perfil de quem gravou e no @tapa.na.gaveta (versões: par cruzado) e registra na planilha

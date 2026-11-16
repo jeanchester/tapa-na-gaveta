@@ -185,8 +185,17 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     # iPhone grava em HDR (HLG): sem converter para SDR a cor sai lavada/estranha no TikTok
     cor = ('zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=mobius:desat=0,'
            'zscale=t=bt709:m=bt709:r=tv,format=yuv420p,') if hdr(camera) else ''
-    base_v = (f'[1:v]{cor}fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
-              f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1")
+    if zoom >= 1:
+        base_v = (f'[1:v]{cor}fps={fps},scale={lw}:{lh}:force_original_aspect_ratio=increase,'
+                  f"crop={W}:{h_cam}:(iw-{W})/2:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))',setsar=1")
+    else:
+        # zoom < 1 afasta a câmera para caber mais do corpo (escudo da camisa): a gravação inteira encolhe e as laterais
+        # que sobram são preenchidas com a própria imagem desfocada (a parede lisa some no fundo)
+        fw = int(W * zoom) // 2 * 2
+        base_v = (f'[1:v]{cor}fps={fps},split[s0][s1];'
+                  f'[s0]scale={W}:{h_cam}:force_original_aspect_ratio=increase,crop={W}:{h_cam},gblur=sigma=40[bg];'
+                  f"[s1]scale={fw}:-2,crop={fw}:{h_cam}:0:'max(0,min(ih-{h_cam},ih*{cy}-{h_cam}/2))'[fg];"
+                  f'[bg][fg]overlay=(W-w)/2:0,setsar=1')
     base_a = f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}'
     mix = []
     if cortes:
@@ -276,7 +285,7 @@ def main():
     ap.add_argument('--vol-voz', type=float, default=1.0)
     ap.add_argument('--vol-sfx', type=float, default=0.55)
     ap.add_argument('--vol-trilha', type=float, default=0.12)
-    ap.add_argument('--camera-zoom', type=float, default=1.0, help='aproxima a câmera (ex.: 1.15)')
+    ap.add_argument('--camera-zoom', type=float, default=1.0, help='aproxima (ex.: 1.15) ou afasta (ex.: 0.8, laterais desfocadas) a câmera; 0.8 com --camera-y 0.62 cabe rosto e escudo da camisa')
     ap.add_argument('--camera-y', type=float, default=0.5, help='centro vertical do recorte da câmera, 0 a 1 (rosto alto: 0.45)')
     ap.add_argument('--variante', help='letra da variante do roteiro (B, C...), A = roteiro base, "todas" = base e todas as variantes')
     ap.add_argument('--legenda', action='store_true', help='queima a legenda da fala mesmo sem variante')
