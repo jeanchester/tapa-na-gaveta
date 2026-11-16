@@ -387,6 +387,23 @@ assistiu completo, novos seguidores, curtidas, comentários, compartilhamentos, 
 72 h depois** de postar e anote a data da coleta (antes disso o vídeo ainda está sendo distribuído). Visitas ao site
 vêm do Cloudflare (referência tiktok.com) no mesmo período.
 
+**Coletar no Chrome (Claude in Chrome, conta logada @tapa.na.gaveta).** Só leitura: nunca postar, apagar, editar,
+comentar nem mexer em configuração; não digitar senha nem criar conta (se pedir login, parar e avisar).
+1. Carregar as ferramentas do Chrome numa única ToolSearch, chamar `tabs_context_mcp` e trabalhar numa aba nova; fechar
+   a aba no fim.
+2. `https://www.tiktok.com/tiktokstudio/content`, esperar 4 s, `get_page_text`. O ID de 19 dígitos de cada vídeo está
+   no link da linha (`find` ou `javascript_tool`). Vídeo com menos de 48 h fica de fora.
+3. `https://www.tiktok.com/tiktokstudio/analytics/ID?qa_enter_from=analytics`, esperar 4 s e `get_page_text`. Sem a
+   espera volta "No text content" (esperar mais 3 s e repetir). A Visão geral traz views, tempo médio, assistiu
+   completo, novos seguidores, compartilhamentos, salvos, curtidas, comentários e origem do tráfego (Para você).
+   Se o clique na lista não abrir a análise, tirar screenshot e clicar no ícone de análise da linha.
+4. Curva de retenção: rolar até "Taxa de retenção". O gráfico vai de 0:00 à duração do vídeo. Passar o mouse
+   (`computer`, `hover`) no ponto de cada segundo e dar `zoom` na região: o tooltip mostra "0:10 / 22%". Posição x do
+   segundo s = x_inicial + s / duração × (x_final − x_inicial); conferir o segundo no tooltip. Ler aos 2, 5, 10, 20, 40,
+   60 e 90 s (os que cabem). "Dados sendo processados" = deixar vazio.
+5. Anotar a data e a hora da coleta. Planilhas: a de testes (aba Vídeos) e a de retenção por segundo
+   (https://claude.ai/artifact/4BHrwjgCLKQbhsb2FtBonn).
+
 ### 9. Antes de postar
 
 - [ ] área segura desligada no render final (`--guia` é só para conferir)
