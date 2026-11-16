@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-16T00:50:47",
+ "atualizado": "2026-11-16T19:23:42",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -436,7 +436,7 @@
    "n": 2
   },
   {
-   "nome": "Javi Guerra",
+   "nome": "Javier Guerra",
    "time": "94",
    "escudo": "valencia",
    "n": 2
@@ -2405,16 +2405,16 @@
     "vermelhos": 0
    },
    {
-    "nome": "Javi Guerra",
-    "time": "94",
-    "escudo": "valencia",
+    "nome": "Javi Hernandez",
+    "time": "88",
+    "escudo": "espanyol",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
-    "nome": "Javi Hernandez",
-    "time": "88",
-    "escudo": "espanyol",
+    "nome": "Javier Guerra",
+    "time": "94",
+    "escudo": "valencia",
     "amarelos": 2,
     "vermelhos": 0
    },
