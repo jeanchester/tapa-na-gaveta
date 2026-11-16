@@ -47,6 +47,43 @@ ficam na pasta "TikTok Tapa" do Drive.
   nunca ficar parada sem cair no teatral.
 - Português de torcedor, frases curtas. O Corinthians é o time do Jean e do Isake ("o Timão", "a gente").
 
+## O que denuncia IA (evitar nas edições)
+
+Lista de 20 sinais de visual feito por IA, do vídeo "20 sinais de que o teu dashboard foi feito por IA" do
+@prof.julianofaccioni (TikTok, nov/2026), lida do vídeo e traduzida para o que fazemos. A animação de cima do
+vídeo é uma interface, então vale tudo isto. Antes de render, passe os 20 como checklist em um quadro de cada cena.
+
+| # | sinal | o que fazer no lugar |
+|---|---|---|
+| 1 | gradiente roxo e azul | cor chapada do padrão do site (azul-noite, dourado); nada de degradê |
+| 2 | neon em cima de preto | o fundo é azul-noite, brilho de verdade só no dourado do que importa |
+| 3 | efeito de vidro nos cards | cartão opaco `#0f1733`, sem blur nem transparência |
+| 4 | sombra desproporcional | sem sombra grande; separar com borda fina ou diferença de tom |
+| 5 | eyebrow em todo título | só use o `selo` quando ele diz uma coisa que o título não diz (data, competição); nunca em toda cena |
+| 6 | tag de "ao vivo" | nada de bolinha pulsando, "ao vivo", "novo", "destaque" sem ser verdade |
+| 7 | chips coloridinhos | cor só carrega significado do campeonato (zona, vitória, derrota); sem chip decorativo |
+| 8 | ícone colorido nos KPIs | número grande sem ícone; o escudo do clube é o único desenho |
+| 9 | pílula verde com setinha (+12%) | variação em texto simples, na cor da zona; sem pílula e sem seta de enfeite |
+| 10 | emoji nos títulos | nenhum emoji no vídeo, nem na legenda |
+| 11 | ícone de brilho (sparkle) | nenhum sparkle, estrelinha ou "mágica" |
+| 12 | rosca com total no meio | prefira barras com o número ao lado; rosca só se for proporção de verdade |
+| 13 | arco-íris nos gráficos | uma cor por gráfico, as das zonas quando for tabela; resto em tons do azul |
+| 14 | título "vendas por mês" | título que diz a conclusão ("o Corinthians tem 41% de cair"), não o nome do gráfico |
+| 15 | sparkline pequenininha | sem mini-gráfico solto ao lado do número; mostre a série grande ou nada |
+| 16 | "bem-vindo de volta" | sem saudação nem texto de interface vazio na animação |
+| 17 | faixa colorida na borda | cartão sem listra de cor na borda; destaque é cor do número ou do texto |
+| 18 | menu lateral de enfeite | nada que pareça menu, aba ou navegação que ninguém toca |
+| 19 | filtro que não filtra | nenhum controle (botão, seletor, tab) desenhado que não faz nada |
+| 20 | insight que ninguém lê | frase curta que a voz já diz; se o texto não é falado, corte |
+
+Regra geral: cada elemento na tela é dito pela voz ou é dado do modelo. Se não é nenhum dos dois, é enfeite, e
+enfeite é o que entrega a IA. Os cartões grandes de cantos arredondados com sombra cinza, o creme com serifa e
+terracota e o preto com verde neon continuam proibidos (ver o briefing do projeto).
+
+Onde o motor atual ainda se aproxima desses sinais (rever antes de postar): o `selo` (pílula com bolinha acima do
+título) aparece em quase toda cena (#5, #6); o `chip` colorido do placar (#7); o brilho dourado em volta da camisa
+com `destaque` e a faixa de brilho (`.brilho`) (#2, #11); e os cartões com cantos arredondados do placar e do campo (#3, #4).
+
 ## O que copiar do estilo do Isake
 
 Do HTML e dos vídeos dele (os que mais deram view são "o [time] vai terminar o Brasileirão com N
@@ -351,5 +388,6 @@ vêm do Cloudflare (referência tiktok.com) no mesmo período.
 - [ ] vídeo final 1080×1920, H.264 + AAC (o `render.py` já entrega assim)
 - [ ] escudo da camisa inteiro no quadro da câmera (confira um quadro)
 - [ ] sem palavra repetida nas emendas (ouvir os cortes)
+- [ ] checklist "O que denuncia IA" passada em um quadro de cada cena
 - [ ] legenda (se a versão tiver) conferida em 3 ou 4 quadros: nomes certos, nada sobre a boca
 - [ ] posta no perfil de quem gravou e no @tapa.na.gaveta (versões: par cruzado) e registra na planilha
