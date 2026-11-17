@@ -59,6 +59,9 @@ ESCUDOS_LIGA = {
               'paris fc': 'paris_fc', 'as monaco': 'monaco', 'olympique lyonnais': 'lyon', 'olympique de marseille': 'marseille', 'ogc nice': 'nice', 'rc lens': 'lens',
               'rc strasbourg': 'strasbourg', 'losc lille': 'lille', 'fc nantes': 'nantes', 'aj auxerre': 'auxerre', 'fc lorient': 'lorient', 'fc metz': 'metz', 'angers sco': 'angers'},
 }
+# clubes da Champions que as nossas ligas não têm, ou que a ESPN chama de outro jeito na copa
+ESCUDOS_UEFA = {'internazionale': 'inter', 'inter milan': 'inter', 'ac milan': 'milan', 'as roma': 'roma', 'napoli': 'napoli',
+                'juventus': 'juventus', 'atalanta': 'atalanta', 'como': 'como'}
 _ARQUIVOS = None
 
 
@@ -69,7 +72,10 @@ def escudo_de(nome, liga):
         pasta = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'midia', 'escudos')
         _ARQUIVOS = {f[:-4] for f in os.listdir(pasta) if f.endswith('.png')} if os.path.isdir(pasta) else set()
     k = sem_acento(nome)
-    for mapa in (ESCUDOS_LIGA.get(liga, {}), ESCUDOS if liga == 'bra.1' else {}):
+    mapas = [ESCUDOS_LIGA.get(liga, {}), ESCUDOS if liga == 'bra.1' else {}]
+    if liga.startswith('uefa.'):     # copas europeias: clubes de várias ligas (e mais os de fora delas)
+        mapas = [ESCUDOS_UEFA] + [m for l, m in ESCUDOS_LIGA.items() if not l.startswith('bra')]
+    for mapa in mapas:
         if k in mapa:
             return mapa[k]
     if liga != 'bra.1' and k in ESCUDOS and liga.startswith('bra'):
@@ -317,6 +323,68 @@ def elencos_espn(times, LIGA='bra.1'):
     return out
 
 
+# ClubElo (clubelo.com): força de cada clube, com a mesma escala para todas as ligas. Na Champions cada
+# time só joga 8 vezes, pouco para o modelo medir ataque e defesa: o Elo entra como ponto de partida.
+# Nomes da ESPN (sem acento, minúsculo) -> nome no ClubElo, quando a comparação simples não acha.
+NOMES_ELO = {
+    'paris saint-germain': 'paris sg', 'bayern munich': 'bayern munchen', 'borussia dortmund': 'dortmund',
+    'manchester city': 'man city', 'manchester united': 'man united', 'inter milan': 'internazionale',
+    'atletico madrid': 'atletico', 'real betis': 'betis', 'club brugge': 'brugge', 'sporting cp': 'sporting',
+    'psv eindhoven': 'psv', 'bayer leverkusen': 'leverkusen', 'slavia prague': 'slavia praha', 'slavia praha': 'slavia praha',
+    'bodo/glimt': 'bodø/glimt', 'fk bodo/glimt': 'bodø/glimt', 'aek athens': 'aek', 'shakhtar donetsk': 'shakhtar',
+    'union st.-gilloise': 'st gillis', 'union saint-gilloise': 'st gillis', 'royale union saint-gilloise': 'st gillis',
+    'as roma': 'roma', 'ac milan': 'milan', 'ssc napoli': 'napoli', 'eintracht frankfurt': 'frankfurt',
+    'tottenham hotspur': 'tottenham', 'newcastle united': 'newcastle', 'olympique de marseille': 'marseille',
+    'olympique lyonnais': 'lyon', 'as monaco': 'monaco', 'losc lille': 'lille', 'rc lens': 'lens', 'vfb stuttgart': 'stuttgart',
+    'red bull salzburg': 'salzburg', 'fc copenhagen': 'fc kobenhavn', 'viking fk': 'viking',
+    'lask linz': 'lask', 'slovan bratislava': 'slovan', 'fenerbahce': 'fenerbahce', 'qarabag': 'karabakh agdam',
+    'nottingham forest': 'forest', 'crvena zvezda': 'crvena zvezda', 'red star belgrade': 'crvena zvezda', 'celtic': 'celtic',
+    'olympiacos': 'olympiakos', 'ajax amsterdam': 'ajax', 'villarreal': 'villarreal', 'athletic club': 'bilbao',
+    'galatasaray': 'galatasaray', 'benfica': 'benfica', 'fc porto': 'porto', 'porto': 'porto', 'feyenoord rotterdam': 'feyenoord',
+}
+
+
+def forca_elo(times, saida):
+    """Grava t['elo'] em cada time. Sem resposta do ClubElo, mantém o Elo do retrato anterior."""
+    anterior = {}
+    try:
+        with open(saida, encoding='utf-8') as f:
+            anterior = {t['id']: t.get('elo') for t in json.load(f).get('times', []) if t.get('elo')}
+    except Exception:  # noqa: BLE001
+        pass
+    tabela = {}
+    for dias in (0, 1, 2):
+        dia = (datetime.date.today() - datetime.timedelta(days=dias)).isoformat()
+        try:
+            req = urllib.request.Request(f'http://api.clubelo.com/{dia}', headers={'User-Agent': 'tapa-na-gaveta/1.0'})
+            with urllib.request.urlopen(req, timeout=30) as r:
+                linhas = r.read().decode('utf-8', 'replace').splitlines()
+            cab = linhas[0].split(',')
+            ic, ie = cab.index('Club'), cab.index('Elo')
+            for l in linhas[1:]:
+                c = l.split(',')
+                if len(c) > ie:
+                    tabela[sem_acento(c[ic])] = round(float(c[ie]))
+            if tabela:
+                break
+        except Exception as e:  # noqa: BLE001
+            print('ClubElo', dia, 'não respondeu:', e)
+    sem = []
+    for t in times.values():
+        k = sem_acento(t['nome'])
+        cand = [NOMES_ELO.get(k), k, k.replace('fc ', '').replace(' fc', ''), k.split(' ')[0], k.split(' ')[-1]]
+        elo = next((tabela[c] for c in cand if c and c in tabela), None)
+        if elo is None:
+            elo = next((v for n, v in tabela.items() if len(n) > 3 and (n in k or k in n)), None)
+        elo = elo or anterior.get(t['id'])
+        if elo:
+            t['elo'] = elo
+        else:
+            sem.append(t['nome'])
+    if sem:
+        print('::warning::sem Elo (o modelo usa a média):', ', '.join(sem))
+
+
 def competicoes():
     caminho = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'shared', 'competicoes.json')
     with open(caminho, encoding='utf-8') as f:
@@ -341,7 +409,7 @@ def main():
             if (alvo and c['id'] != alvo) or (not alvo and c['id'] == 'seriea'):   # a Série A tem passo próprio
                 continue
             try:
-                baixar_liga(c['espn'], c['temporada'], c['dados'], list(meses_de(*c['meses'])), extras=c['id'] == 'seriea')
+                baixar_liga(c['espn'], c['temporada'], c['dados'], list(meses_de(*c['meses'])), extras=c['id'] == 'seriea', comp=c)
             except Exception as e:  # noqa: BLE001
                 falhas += 1
                 print(f'::warning::{c["id"]} não saiu: {e}')
@@ -353,8 +421,8 @@ def main():
     baixar_liga('bra.1', ano, saida, [(ano, m) for m in range(1, 13)], extras=True)
 
 
-def baixar_liga(LIGA, ano, saida, meses, extras=False):
-
+def baixar_liga(LIGA, ano, saida, meses, extras=False, comp=None):
+    comp = comp or {}
     tabela = baixar(f'{BASE}/v2/sports/soccer/{LIGA}/standings?season={ano}')
     entradas = tabela['children'][0]['standings']['entries']
     times, classificacao = {}, []
@@ -374,6 +442,7 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
             'sg': int(st.get('pointDifferential') or 0),
         })
 
+    da_tabela = set(times)          # fase de liga (Champions): só quem está na tabela conta
     jogos, vistos, gols, cartoes = [], set(), [], []
     for a_mes, mes in meses:
         sb = baixar(f'{BASE}/site/v2/sports/soccer/{LIGA}/scoreboard?dates={a_mes}{mes:02d}&limit=300')
@@ -412,6 +481,11 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     # mata-mata depois da última rodada (cada time joga no máximo 2 × (clubes − 1) vezes)
     reais = {k for k, t in times.items() if not t['nome'].upper().startswith('TBD')}
     limite = 2 * (len(reais) - 1)
+    if comp.get('fase_de_liga'):
+        # Champions: as qualificatórias (com outros clubes) vêm antes e o mata-mata (entre os mesmos
+        # clubes) vem depois; ficam só os da tabela e os 'max_jogos' primeiros jogos de cada um
+        reais &= da_tabela
+        limite = comp.get('max_jogos') or limite
     conta, filtrados = {}, []
     for j in jogos:
         h, a = j['mandante'], j['visitante']
@@ -454,6 +528,8 @@ def baixar_liga(LIGA, ano, saida, meses, extras=False):
     for t in times.values():
         if not t['escudo']:
             t['escudo'] = escudo_novo(t['nome'], t.get('logo_espn'))
+    if comp.get('elo'):
+        forca_elo(times, saida)
     sem_escudo = [t['nome'] for t in times.values() if not t['escudo']]
     out = {
         'fonte': 'ESPN (site.api.espn.com, não oficial)', 'liga': LIGA, 'temporada': ano,

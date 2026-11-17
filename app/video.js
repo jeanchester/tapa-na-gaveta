@@ -51,7 +51,8 @@
     x.fillStyle = COR.ouro; x.beginPath(); x.arc(46, 60, 8, 0, 7); x.fill();
     x.fillStyle = '#fff'; x.font = 'italic 900 28px "Archivo Largo"'; x.textAlign = 'left'; x.fillText('tapa na gaveta', 64, 70);
     x.font = '600 18px Archivo'; x.fillStyle = COR.lado;
-    x.fillText(V.completo ? 'Como termina o Brasileirão 2026 na minha simulação' : 'O Brasileirão 2026 com os meus palpites', 40, 106);
+    const rot = V.rotulo || 'o Brasileirão 2026';
+    x.fillText(V.completo ? 'Como termina ' + rot + ' na minha simulação' : rot.charAt(0).toUpperCase() + rot.slice(1) + ' com os meus palpites', 40, 106);
     // cartão do jogo da vez (ou a abertura e o fecho)
     const cy = 222;
     if (g >= 0) {
@@ -75,7 +76,7 @@
       escudo(x, V.times[L1.i].img, 102, cy + 10, 36 * (0.7 + 0.3 * k), false);
       x.fillStyle = COR.ouro; x.font = '900 40px "Archivo Largo"'; x.textAlign = 'left'; x.fillText(V.times[L1.i].nome, 172, cy + 8);
       x.fillStyle = '#fff'; x.font = '700 22px Archivo';
-      x.fillText((V.completo ? 'campeão com ' : 'na frente com ') + L1.pts + ' pontos', 172, cy + 42);
+      x.fillText((V.completo ? (V.primeiro ? 'em 1º com ' : 'campeão com ') : 'na frente com ') + L1.pts + ' pontos', 172, cy + 42);
     } else {
       x.fillStyle = '#fff'; rr(x, 30, 150, 660, 150, 18); x.fill();
       x.fillStyle = COR.noite; x.font = '900 38px "Archivo Largo"'; x.textAlign = 'left'; x.fillText('A tabela de hoje', 56, cy + 2);
@@ -83,23 +84,26 @@
       x.fillText('Agora, ' + n + (n === 1 ? ' jogo' : ' jogos') + ' com os meus placares.', 56, cy + 40);
     }
     // a tabela: as linhas deslizam para o novo lugar e os pontos contam
-    const y0 = 322, rh = 44.5, emJogo = g >= 0 ? [jogos[g].h, jogos[g].a] : [];
-    x.fillStyle = '#fff'; rr(x, 30, y0 - 8, 660, rh * 20 + 16, 18); x.fill();
+    // 20 times: linhas de 44,5 px; com mais (Champions, 36), as linhas e as letras encolhem para caber
+    const nT = Object.keys(A).length, y0 = 322, rh = 890 / Math.max(20, nT), k = rh / 44.5, fs = (px) => Math.round(px * Math.max(0.62, k));
+    const emJogo = g >= 0 ? [jogos[g].h, jogos[g].a] : [];
+    x.fillStyle = '#fff'; rr(x, 30, y0 - 8, 660, rh * Math.max(20, nT) + 16, 18); x.fill();
     const ids = Object.keys(A).map(Number).sort((p, q) => (emJogo.indexOf(p) >= 0 ? 1 : 0) - (emJogo.indexOf(q) >= 0 ? 1 : 0));
     ids.forEach((i) => {
       const a = A[i], b = B[i], pos = a.pos + (b.pos - a.pos) * e, y = y0 + (pos - 1) * rh;
       const pts = Math.round(a.pts + (b.pts - a.pts) * e), rk = Math.round(pos), dentro = emJogo.indexOf(i) >= 0;
       if (dentro || i === V.meu || (acabou && rk === 1)) {
-        x.fillStyle = dentro ? COR.ouroClaro : acabou && rk === 1 ? COR.ouro : 'rgba(255,194,61,.22)'; rr(x, 38, y + 2, 644, rh - 4, 10); x.fill();
-      } else if (b.pos !== a.pos && e < 1) { x.fillStyle = '#fff'; rr(x, 38, y + 2, 644, rh - 4, 10); x.fill(); }
+        x.fillStyle = dentro ? COR.ouroClaro : acabou && rk === 1 ? COR.ouro : 'rgba(255,194,61,.22)'; rr(x, 38, y + 1 + k, 644, rh - 2 - 2 * k, 10 * k); x.fill();
+      } else if (b.pos !== a.pos && e < 1) { x.fillStyle = '#fff'; rr(x, 38, y + 1 + k, 644, rh - 2 - 2 * k, 10 * k); x.fill(); }
       const bi = acabou ? n : (g + 1 < 0 ? 0 : g + 1), z = V.zonas[bi][(b.pos || rk) - 1];
-      if (z) { x.fillStyle = ZONA[z] || '#c5cbd8'; rr(x, 46, y + 9, 5, rh - 18, 3); x.fill(); }
-      x.fillStyle = COR.noite; x.font = '900 20px "Archivo Largo"'; x.textAlign = 'center'; x.fillText(String(rk), 76, y + 30);
-      escudo(x, V.times[i].img, 116, y + rh / 2, 15, false);
-      x.font = '700 21px Archivo'; x.textAlign = 'left'; x.fillText(V.times[i].nome, 144, y + 30);
+      const ty = y + rh / 2 + fs(8);
+      if (z) { x.fillStyle = ZONA[z] || '#c5cbd8'; rr(x, 46, y + 9 * k, 5, rh - 18 * k, 3); x.fill(); }
+      x.fillStyle = COR.noite; x.font = '900 ' + fs(20) + 'px "Archivo Largo"'; x.textAlign = 'center'; x.fillText(String(rk), 76, ty);
+      escudo(x, V.times[i].img, 116, y + rh / 2, Math.min(15, rh / 2 - 2), false);
+      x.font = '700 ' + fs(21) + 'px Archivo'; x.textAlign = 'left'; x.fillText(V.times[i].nome, 144, ty);
       const d = V.base[i] - rk;
-      if (d) { const w = x.measureText(V.times[i].nome).width; x.font = '800 14px Archivo'; x.fillStyle = d > 0 ? '#12a26b' : '#e5484d'; x.fillText((d > 0 ? '▲' : '▼') + Math.abs(d), 154 + w, y + 29); }
-      x.fillStyle = COR.noite; x.font = '900 24px "Archivo Largo"'; x.textAlign = 'center'; x.fillText(String(pts), 640, y + 31);
+      if (d) { const w = x.measureText(V.times[i].nome).width; x.font = '800 ' + fs(14) + 'px Archivo'; x.fillStyle = d > 0 ? '#12a26b' : '#e5484d'; x.fillText((d > 0 ? '▲' : '▼') + Math.abs(d), 154 + w, ty - 1); }
+      x.fillStyle = COR.noite; x.font = '900 ' + fs(24) + 'px "Archivo Largo"'; x.textAlign = 'center'; x.fillText(String(pts), 640, ty + 1);
     });
     // rodapé com o endereço
     x.fillStyle = COR.ouro; x.fillRect(0, VH - 52, VW, 52);

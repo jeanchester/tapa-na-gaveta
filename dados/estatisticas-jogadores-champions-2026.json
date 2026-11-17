@@ -1,0 +1,3266 @@
+{
+ "atualizado": "2026-11-17T16:31:24",
+ "artilheiros": [
+  {
+   "nome": "Tasos Douvikas",
+   "time": "2572",
+   "escudo": "como",
+   "n": 6
+  },
+  {
+   "nome": "Nicolo Tresoldi",
+   "time": "570",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Erling Haaland",
+   "time": "382",
+   "escudo": "city",
+   "n": 5
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Fabián Ruiz",
+   "time": "160",
+   "escudo": "paris",
+   "n": 4
+  },
+  {
+   "nome": "Luis Suárez",
+   "time": "2250",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 4
+  },
+  {
+   "nome": "Alexey Batrakov",
+   "time": "432",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 4
+  },
+  {
+   "nome": "Ermedin Demirovic",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 4
+  },
+  {
+   "nome": "Raphinha",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 4
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Nico Paz",
+   "time": "2572",
+   "escudo": "como",
+   "n": 3
+  },
+  {
+   "nome": "Nicolas Jackson",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Alexis Mac Allister",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
+   "nome": "Bradley Barcola",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
+   "nome": "Matheus Cunha",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 3
+  },
+  {
+   "nome": "Ross Barkley",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Ferran Torres",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Scott McTominay",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 3
+  },
+  {
+   "nome": "Phil Foden",
+   "time": "382",
+   "escudo": "city",
+   "n": 3
+  },
+  {
+   "nome": "Désiré Doué",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Ousmane Dembélé",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Archie Brown",
+   "time": "436",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Santiago Mouriño",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Stavros Pilios",
+   "time": "887",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Carlos Forbs",
+   "time": "570",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Zlatko Tripic",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Vitinha",
+   "time": "160",
+   "escudo": "paris",
+   "n": 2
+  },
+  {
+   "nome": "Mason Greenwood",
+   "time": "436",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Issa Doumbia",
+   "time": "2250",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Bruno Fernandes",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 2
+  },
+  {
+   "nome": "Peter Christiansen",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Eberechi Eze",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Gabri Veiga",
+   "time": "437",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Alphonso Davies",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Danijel Sturm",
+   "time": "494",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Kasper Jørgensen",
+   "time": "4411",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Erik Botheim",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Robert Ljubicic",
+   "time": "4411",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Martin Baturina",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Georges Mikautadze",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Gleiker Mendoza",
+   "time": "493",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Ruben Aguilar",
+   "time": "175",
+   "escudo": "lens",
+   "n": 2
+  },
+  {
+   "nome": "Tani Oluwaseyi",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Marc Bartra",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Carlos Augusto",
+   "time": "110",
+   "escudo": "inter",
+   "n": 2
+  }
+ ],
+ "assistencias": [
+  {
+   "nome": "Nico Paz",
+   "time": "2572",
+   "escudo": "como",
+   "n": 5
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 4
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
+   "nome": "Zlatko Tripic",
+   "time": "510",
+   "escudo": null,
+   "n": 3
+  },
+  {
+   "nome": "Kostas Tsimikas",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
+   "nome": "Maghnes Akliouche",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Yvan Dibango",
+   "time": "4411",
+   "escudo": null,
+   "n": 3
+  },
+  {
+   "nome": "Ousmane Dembélé",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Brahim Díaz",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Jacobo Ramón",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Joaquin Seys",
+   "time": "570",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Pau Torres",
+   "time": "362",
+   "escudo": "villa",
+   "n": 2
+  },
+  {
+   "nome": "João Cancelo",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Deniz Undav",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Carlos Forbs",
+   "time": "570",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Sondre Brunstad Fet",
+   "time": "2980",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 2
+  },
+  {
+   "nome": "Rio Ngumoha",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 2
+  },
+  {
+   "nome": "Matìas Soulè",
+   "time": "104",
+   "escudo": "roma",
+   "n": 2
+  },
+  {
+   "nome": "Christopher Nkunku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Viktor Gyökeres",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Rodrigo Mora",
+   "time": "104",
+   "escudo": "roma",
+   "n": 2
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Isaque",
+   "time": "493",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Angelo Stiller",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Désiré Doué",
+   "time": "160",
+   "escudo": "paris",
+   "n": 2
+  },
+  {
+   "nome": "João Neves",
+   "time": "160",
+   "escudo": "paris",
+   "n": 2
+  },
+  {
+   "nome": "Ibrahim Mbaye",
+   "time": "362",
+   "escudo": "villa",
+   "n": 2
+  },
+  {
+   "nome": "Iliman Ndiaye",
+   "time": "382",
+   "escudo": "city",
+   "n": 2
+  },
+  {
+   "nome": "Ayoze Pérez",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Jeremie Frimpong",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 2
+  },
+  {
+   "nome": "Cody Gakpo",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 2
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Mattia Liberali",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Rico Lewis",
+   "time": "382",
+   "escudo": "city",
+   "n": 2
+  },
+  {
+   "nome": "Archie Brown",
+   "time": "436",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Hákon Haraldsson",
+   "time": "166",
+   "escudo": "lille",
+   "n": 1
+  },
+  {
+   "nome": "Stavros Pilios",
+   "time": "887",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Kristoffer Askildsen",
+   "time": "510",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Ivan Lepinjica",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Tymoteusz Puchacz",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Davinson Sánchez",
+   "time": "432",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Álex Valle",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Milan Skriniar",
+   "time": "436",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Kevin De Bruyne",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 1
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Fabián Ruiz",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Alisson Santana",
+   "time": "493",
+   "escudo": null,
+   "n": 1
+  }
+ ],
+ "gols_por_jogador": [
+  {
+   "nome": "Tasos Douvikas",
+   "time": "2572",
+   "escudo": "como",
+   "n": 6
+  },
+  {
+   "nome": "Erling Haaland",
+   "time": "382",
+   "escudo": "city",
+   "n": 5
+  },
+  {
+   "nome": "Nicolo Tresoldi",
+   "time": "570",
+   "escudo": null,
+   "n": 5
+  },
+  {
+   "nome": "Alexey Batrakov",
+   "time": "432",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Ermedin Demirovic",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 4
+  },
+  {
+   "nome": "Fabián Ruiz",
+   "time": "160",
+   "escudo": "paris",
+   "n": 4
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Raphinha",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 4
+  },
+  {
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 4
+  },
+  {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 4
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 4
+  },
+  {
+   "nome": "Luis Suárez",
+   "time": "2250",
+   "escudo": null,
+   "n": 4
+  },
+  {
+   "nome": "Alexis Mac Allister",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
+   "nome": "Bradley Barcola",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
+   "nome": "Désiré Doué",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Ferran Torres",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Matheus Cunha",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 3
+  },
+  {
+   "nome": "Nico Paz",
+   "time": "2572",
+   "escudo": "como",
+   "n": 3
+  },
+  {
+   "nome": "Nicolas Jackson",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Ousmane Dembélé",
+   "time": "160",
+   "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Phil Foden",
+   "time": "382",
+   "escudo": "city",
+   "n": 3
+  },
+  {
+   "nome": "Scott McTominay",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 3
+  },
+  {
+   "nome": "Ross Barkley",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Alphonso Davies",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Archie Brown",
+   "time": "436",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Assane Diao",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Carlos Augusto",
+   "time": "110",
+   "escudo": "inter",
+   "n": 2
+  },
+  {
+   "nome": "Carlos Forbs",
+   "time": "570",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Danijel Sturm",
+   "time": "494",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Eberechi Eze",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Erik Botheim",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Florian Flecker",
+   "time": "4411",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Gabri Veiga",
+   "time": "437",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Georges Mikautadze",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Gleiker Mendoza",
+   "time": "493",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Issa Doumbia",
+   "time": "2250",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Karim Adeyemi",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Kasper Jørgensen",
+   "time": "4411",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Lautaro Martínez",
+   "time": "110",
+   "escudo": "inter",
+   "n": 2
+  },
+  {
+   "nome": "Marc Bartra",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Martin Baturina",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Mason Greenwood",
+   "time": "436",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Michael Olise",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
+   "nome": "Peter Christiansen",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Robert Ljubicic",
+   "time": "4411",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Ronald Araujo",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 2
+  },
+  {
+   "nome": "Ruben Aguilar",
+   "time": "175",
+   "escudo": "lens",
+   "n": 2
+  },
+  {
+   "nome": "Santiago Mouriño",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Soriba Diaoune",
+   "time": "166",
+   "escudo": "lille",
+   "n": 2
+  },
+  {
+   "nome": "Stavros Pilios",
+   "time": "887",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Tani Oluwaseyi",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Vitinha",
+   "time": "160",
+   "escudo": "paris",
+   "n": 2
+  },
+  {
+   "nome": "Zlatko Tripic",
+   "time": "510",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Bruno Fernandes",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 2
+  },
+  {
+   "nome": "Emiliano Buendía",
+   "time": "362",
+   "escudo": "villa",
+   "n": 2
+  },
+  {
+   "nome": "Samu Aghehowa",
+   "time": "437",
+   "escudo": null,
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Abdallah Sima",
+   "time": "175",
+   "escudo": "lens",
+   "n": 1
+  },
+  {
+   "nome": "Abde Ezzalzouli",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Aboubakary Koita",
+   "time": "887",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Ademola Lookman",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Aden McCarthy",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Aitor Ruibal",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Alexander Isak",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Alexsandro",
+   "time": "166",
+   "escudo": "lille",
+   "n": 1
+  },
+  {
+   "nome": "Amir Rrahmani",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 1
+  },
+  {
+   "nome": "Andreas Helmersen",
+   "time": "2980",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Andrija Maksimovic",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Ange-Yoan Bonny",
+   "time": "110",
+   "escudo": "inter",
+   "n": 1
+  },
+  {
+   "nome": "Anis Hadj Moussa",
+   "time": "142",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Antonio Rüdiger",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Ayase Ueda",
+   "time": "166",
+   "escudo": "lille",
+   "n": 1
+  },
+  {
+   "nome": "Benjamin Sesko",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 1
+  },
+  {
+   "nome": "Bernardo Silva",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Brajan Gruda",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Bryan Cristante",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Bukayo Saka",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Carlos Espí",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Christoph Lang",
+   "time": "4411",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Cucho Hernández",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "David Boly",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Declan Rice",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Deniz Undav",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Dominik Szoboszlai",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Elliot Anderson",
+   "time": "382",
+   "escudo": "city",
+   "n": 1
+  },
+  {
+   "nome": "Endrick",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Enzo Fernández",
+   "time": "382",
+   "escudo": "city",
+   "n": 1
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Florian Thauvin",
+   "time": "175",
+   "escudo": "lens",
+   "n": 1
+  },
+  {
+   "nome": "Florian Wirtz",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Fredrik Sjøvold",
+   "time": "2980",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 1
+  },
+  {
+   "nome": "Gabriel Jesus",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Geny Catamo",
+   "time": "2250",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Gianni Stensness",
+   "time": "510",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Gjivai Zechiël",
+   "time": "142",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Guus Til",
+   "time": "148",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Hans Vanaken",
+   "time": "570",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Henrik Falchener",
+   "time": "510",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Herman Haugen",
+   "time": "510",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Hugo Vetlesen",
+   "time": "570",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Jacobo Ramón",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Jakub Kiwior",
+   "time": "437",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Jamal Musiala",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Jamie Leweling",
+   "time": "134",
+   "escudo": "stuttgart",
+   "n": 1
+  },
+  {
+   "nome": "Jan Bednarek",
+   "time": "437",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Jens Petter Hauge",
+   "time": "2980",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Jeremie Frimpong",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Joaquin Seys",
+   "time": "570",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Johan Manzambi",
+   "time": "362",
+   "escudo": "villa",
+   "n": 1
+  },
+  {
+   "nome": "John McGinn",
+   "time": "362",
+   "escudo": "villa",
+   "n": 1
+  },
+  {
+   "nome": "Joshua Zirkzee",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 1
+  },
+  {
+   "nome": "Joy-Lance Mickels",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "João Cancelo",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "João Neves",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Julián Álvarez",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Jurriën Timber",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Kaheem Parris",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Kodai Sano",
+   "time": "148",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Konrad Laimer",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Konstantinos Karetsas",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 1
+  },
+  {
+   "nome": "Krystof Danek",
+   "time": "4411",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Lennart Karl",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Lewis Koumas",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Lisandro Martínez",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 1
+  },
+  {
+   "nome": "Lovro Majer",
+   "time": "887",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Lucas Da Cunha",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Lucas Hernández",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Luis Díaz",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 1
+  },
+  {
+   "nome": "Lukás Provod",
+   "time": "494",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Maghnes Akliouche",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Marc-Oliver Kempf",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Marcos Llorente",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Mario Hermoso",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Marten de Roon",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Martin Ødegaard",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Matteo Papaccioli",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Matteo Politano",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 1
+  },
+  {
+   "nome": "Mattia Liberali",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Matìas Soulè",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Máximo Perrone",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
+   "nome": "Nahuel Molina",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Niccolò Pisilli",
+   "time": "104",
+   "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Noni Madueke",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Oguz Aydin",
+   "time": "436",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Orphé Mbina",
+   "time": "21922",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Pablo Barrios",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
+   "nome": "Pavel Kacor",
+   "time": "494",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Pio Esposito",
+   "time": "110",
+   "escudo": "inter",
+   "n": 1
+  },
+  {
+   "nome": "Piotr Zielinski",
+   "time": "110",
+   "escudo": "inter",
+   "n": 1
+  },
+  {
+   "nome": "Rayan Cherki",
+   "time": "382",
+   "escudo": "city",
+   "n": 1
+  },
+  {
+   "nome": "Razvan Marin",
+   "time": "887",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Ridle Baku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Rodrigo Zalazar",
+   "time": "2250",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Romeo Vermant",
+   "time": "570",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Samuel Adeniran",
+   "time": "4411",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Sasa Kalajdzic",
+   "time": "4411",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Sem Steijn",
+   "time": "142",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Senny Mayulu",
+   "time": "160",
+   "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "Sergi Cardona",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 1
+  },
+  {
+   "nome": "Sergiño Dest",
+   "time": "148",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Sondre Brunstad Fet",
+   "time": "2980",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Suleiman Camara",
+   "time": "521",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Tammy Abraham",
+   "time": "362",
+   "escudo": "villa",
+   "n": 1
+  },
+  {
+   "nome": "Tidiam Gomis",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
+   "nome": "Trey Nyoni",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
+   "nome": "Troy Parrott",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
+   "nome": "Vedat Muriqi",
+   "time": "436",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Victor Osimhen",
+   "time": "432",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Viktor Gyökeres",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 1
+  },
+  {
+   "nome": "Vinícius Tobias",
+   "time": "493",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Wiktor Nowak",
+   "time": "494",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Xavi Espart",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 1
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 1
+  },
+  {
+   "nome": "Yann Bisseck",
+   "time": "110",
+   "escudo": "inter",
+   "n": 1
+  },
+  {
+   "nome": "Yunus Akgün",
+   "time": "432",
+   "escudo": null,
+   "n": 1
+  },
+  {
+   "nome": "Pedrinho",
+   "time": "493",
+   "escudo": null,
+   "n": 1
+  }
+ ],
+ "cartoes": {
+  "limite_amarelos": null,
+  "jogadores": [
+   {
+    "nome": "Aden McCarthy",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Hakan Çalhanoglu",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marlon Gomes",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santiago Mouriño",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aboubakary Koita",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Akim Zedadka",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alberto Moleiro",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alessandro Bastoni",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Alexis Mac Allister",
+    "time": "364",
+    "escudo": "liverpool",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Archie Brown",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Armando Obispo",
+    "time": "148",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Charles Vanhoutte",
+    "time": "142",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cristian Martínez",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ethan Mbappé",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Ezri Konsa",
+    "time": "359",
+    "escudo": "arsenal",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Felix Lemarechal",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Frank Anguissa",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Giovanni Di Lorenzo",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hugo Vetlesen",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ian Maatsen",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ismail Jakobs",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ismail Yüksek",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ivan Lepinjica",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jan Virgili",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jorne Spileers",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Josko Gvardiol",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kai Havertz",
+    "time": "359",
+    "escudo": "arsenal",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kristoffer Haugen",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Leny Yoro",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Manuel Akanji",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matheus Cunha",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Michael Olise",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Michaël Cuisance",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mikulás Konecny",
+    "time": "494",
+    "escudo": null,
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Morten Hjulmand",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Natan",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Odin Bjørtuft",
+    "time": "2980",
+    "escudo": null,
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Rafa Marín",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 0,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Ramon Hendriks",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Roland Sallai",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sergi Cardona",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sergiño Dest",
+    "time": "148",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Steve Solvet",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Álvaro Carreras",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ángel Ortiz",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Abde Ezzalzouli",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Abdukodir Khusanov",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alan Varela",
+    "time": "437",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amir Rrahmani",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Andrey Santos",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "André Silva",
+    "time": "437",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Andrés Andrade",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antoine Semenyo",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antonio Nusa",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antonio Vergara",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Atakan Karazor",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ayden Heaven",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Baris Alper Yilmaz",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Barnabás Varga",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Benjamin André",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bilal El Khannouss",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Billy Gilmour",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bruno Fernandes",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bryan Cristante",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Carlos Baleba",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Carlos Forbs",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Christoph Baumgartner",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Christoph Lang",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Christopher Nkunku",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "César Blackman",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dani Ceballos",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dani Olmo",
+    "time": "83",
+    "escudo": "barcelona",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Daniel Elfadli",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "David Moses",
+    "time": "494",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "David Raum",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dean Huijsen",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Declan Rice",
+    "time": "359",
+    "escudo": "arsenal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Deniz Gül",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Deniz Undav",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Devyne Rensch",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dmytro Kryskiv",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Donyell Malen",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Emanuele Lulli",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Emiliano Buendía",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Emmanuel Dennis Ayaosi",
+    "time": "494",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Eren Elmali",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Erling Haaland",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ezechiel Banzuzi",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Facundo Bernal",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Florian Thauvin",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Fábio Silva",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gabri Veiga",
+    "time": "437",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gaetan Perrin",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gaoussou Diarra",
+    "time": "142",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Georges Mikautadze",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gianluca Mancini",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gianluigi Donnarumma",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gianni Stensness",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Giovane",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Giuliano Simeone",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Givairo Read",
+    "time": "142",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gjivai Zechiël",
+    "time": "142",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gleiker Mendoza",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Grischa Prömel",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hans Vanaken",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Harold Moukoudi",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Harry Maguire",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Isaque",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Isco",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ismael Saibari",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Issa Doumbia",
+    "time": "2250",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ivan Smolcic",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jacobo Ramón",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jesper Daland",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jobe Bellingham",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joe Bell",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joey Veerman",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "John McGinn",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Josha Vagnoman",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joshua Kimmich",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Josip Stanisic",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Joy-Lance Mickels",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "João Cancelo",
+    "time": "83",
+    "escudo": "barcelona",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "João Gomes",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "João Simões",
+    "time": "2250",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Julian Ryerson",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jérémy Doku",
+    "time": "382",
+    "escudo": "city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kerem Aktürkoglu",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kervin Arriaga",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kevin De Bruyne",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kevin Wimmer",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Konrad Laimer",
+    "time": "132",
+    "escudo": "bayern",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kouakou Gadou",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Kristoffer Askildsen",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Krystof Danek",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lautaro Martínez",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lee Han-Beom",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lorenzo Lucca",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lorenzo Pellegrini",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lovro Majer",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Da Cunha",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Torreira",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luis Suárez",
+    "time": "2250",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luka Jovic",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lutsharel Geertruida",
+    "time": "148",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marc Cucurella",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marc Pubill",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marc Roca",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marc-Oliver Kempf",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marcus Rashford",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marcus Thuram",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Martin Ødegaard",
+    "time": "359",
+    "escudo": "arsenal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matteo Guendouzi",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matthieu Udol",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matìas Soulè",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mauro Júnior",
+    "time": "148",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maxi Araújo",
+    "time": "2250",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maxima Goffi",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Maximilian Mittelstädt",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Melayro Bogarde",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mert Müldür",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Michal Skoras",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mika Mármol",
+    "time": "142",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mikel Merino",
+    "time": "359",
+    "escudo": "arsenal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Milan Skriniar",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Máximo Perrone",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "N'Golo Kanté",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nabil Bentaleb",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nathan Ngoy",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nathan Saliba",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Neil El Aynaoui",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nelson Deossa",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nico Paz",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nicolas Jackson",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noa Lang",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oguz Aydin",
+    "time": "436",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oleh Ocheretko",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Olivier Giroud",
+    "time": "166",
+    "escudo": "lille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oskar Kubiak",
+    "time": "494",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pablo Rosario",
+    "time": "437",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Patrick Dorgu",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pau Navarro",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pedrinho",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Petar Sucic",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Peter Christiansen",
+    "time": "510",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Peter Pokorny",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pierre Ganiou",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Quentin Ndjantou",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rafael Leão",
+    "time": "432",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ramy Bensebaini",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Raphinha",
+    "time": "83",
+    "escudo": "barcelona",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Razvan Marin",
+    "time": "887",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ridle Baku",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Robin Le Normand",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rocco Reitz",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rodrigo Riquelme",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Romeo Vermant",
+    "time": "570",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ruben Van Bommel",
+    "time": "148",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Samson Baidoo",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santi Comesaña",
+    "time": "102",
+    "escudo": "villarreal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santiago Gimenez",
+    "time": "437",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sasa Kalajdzic",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sascha Horvath",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Scott McTominay",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sergi Altimira",
+    "time": "2250",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Shea Lacey",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sondre Brunstad Fet",
+    "time": "2980",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Suleiman Camara",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tigran Barseghyan",
+    "time": "521",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Tobias Schützenauer",
+    "time": "4411",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Umarali Rakhmonaliev",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Valentín Gómez",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Valeriy Bondar",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Veljko Simic",
+    "time": "21922",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Vinícius Tobias",
+    "time": "493",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Waldemar Anton",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Warren Zaïre-Emery",
+    "time": "160",
+    "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Wesley",
+    "time": "104",
+    "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Wiktor Nowak",
+    "time": "494",
+    "escudo": null,
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Willi Orbán",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yanik Spalt",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yann Bisseck",
+    "time": "110",
+    "escudo": "inter",
+    "amarelos": 1,
+    "vermelhos": 0
+   }
+  ]
+ }
+}

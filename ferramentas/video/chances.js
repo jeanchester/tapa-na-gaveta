@@ -4,6 +4,8 @@
 //   node ferramentas/video/chances.js corinthians gremio vitoria internacional
 //   node ferramentas/video/chances.js flamengo palmeiras --n 200000
 //   node ferramentas/video/chances.js corinthians --placar chapecoense-vasco=0-2     (jogo que o retrato ainda não tem)
+//   node ferramentas/video/chances.js --comp champions real_madrid liverpool          (outra competição de shared/competicoes.json)
+//   node ferramentas/video/chances.js --comp champions --times                        (lista os apelidos dos times)
 //
 // Usa o retrato dados/brasileirao-2026.json (atualize antes com: python ferramentas/baixar_espn.py) e o mesmo
 // núcleo do simulador (shared/simulador-core.js), então os números batem com os do site.
@@ -11,17 +13,20 @@
 const path = require('path');
 const C = require('../../shared/simulador-core.js');
 const raiz = path.resolve(__dirname, '../..');
-const liga = JSON.parse(require('fs').readFileSync(path.join(raiz, 'dados/brasileirao-2026.json'), 'utf8'));
-const regras = JSON.parse(require('fs').readFileSync(path.join(raiz, 'shared/regras-brasileirao-2026.json'), 'utf8'));
-
 const args = process.argv.slice(2);
-let N = 100000;
+let N = 100000, compId = 'seriea', listar = false;
 const alvos = [], placares = [];
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--n') N = +args[++i];
   else if (args[i] === '--placar') placares.push(args[++i]);
+  else if (args[i] === '--comp') compId = args[++i];
+  else if (args[i] === '--times') listar = true;
   else alvos.push(args[i]);
 }
+const ler = (f) => JSON.parse(require('fs').readFileSync(path.join(raiz, f), 'utf8'));
+const comp = ler('shared/competicoes.json').lista.find((c) => c.id === compId);
+if (!comp) throw new Error('competição desconhecida: ' + compId);
+const liga = ler(comp.dados), regras = ler(comp.regras);
 
 const Lp = C.preparar(liga, regras);
 const slug = (i) => Lp.times[i].slug, idDe = (s) => { const t = Lp.times.find((x) => x.slug === s); if (!t) throw new Error('time desconhecido: ' + s); return t.id; };
@@ -33,24 +38,29 @@ placares.forEach((p) => {
   Object.assign(j, { status: 'STATUS_FULL_TIME', gols_mandante: gh, gols_visitante: ga, ao_vivo: null });
 });
 const L = C.preparar(liga, regras), M = C.modelo(L, {});
+if (listar) { console.log(L.times.map((t) => t.slug + ' (' + t.nome + ')').join('\n')); process.exit(0); }
 const times = (alvos.length ? alvos : L.times.map((t) => t.slug)).map((s) => L.times.find((t) => t.slug === s).i);
 const livres = L.jogos.filter((j) => !j.feito);
 const probs = livres.map((j) => M.prob(j.h, j.a));
 const prox = {};
 times.forEach((t) => { const g = livres.map((j, k) => [j, k]).filter(([j]) => j.h === t || j.a === t).sort((a, b) => (a[0].data < b[0].data ? -1 : 1))[0]; prox[t] = g ? g[1] : -1; });
 
-const zonas = { titulo: [1, 1] };
-regras.zonas.forEach((z) => { zonas[z.id] = [z.de, z.ate]; });
+// nomes das faixas: os do regulamento (Champions: 1º, oitavas, playoff, fora e "vivo" = 1º a 24º)
+const zonas = {};
+zonas[regras.primeiro ? '1º' : 'titulo'] = [1, 1];
+regras.zonas.forEach((z) => { zonas[regras.primeiro ? z.curto.toLowerCase() : z.id] = [z.de, z.ate]; });
+const rb = regras.zonas.find((z) => z.id === 'rb');
+if (regras.primeiro && rb) zonas['mata-mata'] = [1, rb.de - 1];
 const nomes = Object.keys(zonas);
 const r = C.rng(20261115), base = C.estatisticas(L, {}), s = base.map((x) => Object.assign({}, x)), sorteio = new Float64Array(L.n);
 const cont = {}; times.forEach((t) => { cont[t] = { z: nomes.map(() => 0), r: [0, 1, 2].map(() => ({ n: 0, z: nomes.map(() => 0) })) }; });
 for (let it = 0; it < N; it++) {
-  for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; delete x.criterio; sorteio[i] = r(); }
+  for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; x.gf = b.gf; x.vf = b.vf; delete x.criterio; sorteio[i] = r(); }
   const sim = {}, res = new Int8Array(livres.length);
   for (let k = 0; k < livres.length; k++) {
     const j = livres[k], p = C.amostrar(probs[k], r); sim[j.chave] = p;
-    const A = s[j.h], B = s[j.a]; A.j++; B.j++; A.gp += p[0]; A.gc += p[1]; B.gp += p[1]; B.gc += p[0];
-    if (p[0] > p[1]) { A.v++; B.d++; A.pts += 3; res[k] = 0; } else if (p[0] < p[1]) { B.v++; A.d++; B.pts += 3; res[k] = 2; } else { A.e++; B.e++; A.pts += 1; B.pts += 1; res[k] = 1; }
+    const A = s[j.h], B = s[j.a]; A.j++; B.j++; A.gp += p[0]; A.gc += p[1]; B.gp += p[1]; B.gc += p[0]; B.gf += p[1];
+    if (p[0] > p[1]) { A.v++; B.d++; A.pts += 3; res[k] = 0; } else if (p[0] < p[1]) { B.v++; B.vf++; A.d++; B.pts += 3; res[k] = 2; } else { A.e++; B.e++; A.pts += 1; B.pts += 1; res[k] = 1; }
   }
   const tab = C.ordenar(L, s, sim, sorteio), pos = {}; tab.forEach((x, q) => { pos[x.i] = q + 1; });
   times.forEach((t) => {
@@ -62,7 +72,7 @@ for (let it = 0; it < N; it++) {
 }
 const pc = (v, n) => (n ? (100 * v / n).toFixed(1).replace('.', ',') + '%' : '–');
 const tab0 = C.tabela(L, {});
-console.log(`modelo do site · ${N} simulações · retrato ${liga.baixado_em} · ${livres.length} jogos restantes`);
+console.log(`${comp.nome} · modelo do site · ${N} simulações · retrato ${liga.baixado_em} · ${livres.length} jogos restantes`);
 times.forEach((t) => {
   const x = tab0.find((y) => y.i === t), c = cont[t], k = prox[t];
   console.log(`\n${slug(t)}: ${x.pos}º, ${x.pts} pts, ${x.j} jogos`);

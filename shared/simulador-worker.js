@@ -47,7 +47,7 @@ function precisa(L, M, msg, dist) {
   const res = new Uint8Array(livres.length);
   const plac = {};
   for (let it = 0; it < N; it++) {
-    for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; sorteio[i] = r(); }
+    for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; x.gf = b.gf; x.vf = b.vf; sorteio[i] = r(); }
     let ptsT = 0;
     for (let g = 0; g < livres.length; g++) {
       const j = livres[g], p = C.amostrar(probs[g], r);
@@ -85,8 +85,8 @@ function precisa(L, M, msg, dist) {
 }
 
 function somarSimples(A, B, gh, ga, P) {
-  A.j++; B.j++; A.gp += gh; A.gc += ga; B.gp += ga; B.gc += gh;
+  A.j++; B.j++; A.gp += gh; A.gc += ga; B.gp += ga; B.gc += gh; B.gf += ga;   // gf/vf: gols e vitórias fora (Champions)
   if (gh > ga) { A.v++; B.d++; A.pts += P.vitoria; B.pts += P.derrota; }
-  else if (gh < ga) { B.v++; A.d++; B.pts += P.vitoria; A.pts += P.derrota; }
+  else if (gh < ga) { B.v++; B.vf++; A.d++; B.pts += P.vitoria; A.pts += P.derrota; }
   else { A.e++; B.e++; A.pts += P.empate; B.pts += P.empate; }
 }

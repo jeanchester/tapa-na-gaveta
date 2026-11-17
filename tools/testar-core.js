@@ -313,5 +313,44 @@ grupo('playoff da Série B: ida e volta, sem pênalti', () => {
   ok(f.ida.feito && f.saldoIda === 3, 'placar real da ida substitui o palpite');
 });
 
+grupo('Champions: fase de liga, desempates da UEFA e força pelo Elo', () => {
+  const regC = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/regras-champions.json'), 'utf8'));
+  const seis = (jogos, elo) => {
+    const times = ['A', 'B', 'C', 'D', 'E', 'F'].map((n, k) => ({ id: n, nome: n, escudo: n.toLowerCase(), elo: elo && elo[k] }));
+    const js = jogos.map((j, k) => ({ id: String(k), data: '2026-10-' + String(10 + k).padStart(2, '0') + 'T20:00Z', status: j[2] == null ? 'STATUS_SCHEDULED' : 'STATUS_FULL_TIME', mandante: j[0], visitante: j[1], gols_mandante: j[2], gols_visitante: j[3] }));
+    return C.preparar({ times, jogos: js }, regC);
+  };
+  const ord = (M) => C.tabela(M, {}).map((x) => M.times[x.i].nome).join('');
+  // mesmos pontos, saldo, gols e vitórias: A fez 2 gols fora, B nenhum
+  let M = seis([['C', 'A', 1, 2], ['A', 'D', 0, 1], ['B', 'E', 2, 1], ['F', 'B', 1, 0]]);
+  ok(ord(M).indexOf('A') < ord(M).indexOf('B'), 'gols fora: A à frente de B: ' + ord(M));
+  // tudo igual até os gols fora; A venceu fora e B venceu em casa
+  M = seis([['C', 'A', 0, 1], ['A', 'D', 1, 1], ['B', 'E', 1, 0], ['F', 'B', 1, 1]]);
+  ok(ord(M).indexOf('A') < ord(M).indexOf('B'), 'vitórias fora: A à frente de B: ' + ord(M));
+  // A e B iguais em tudo; o adversário de A (C) somou 3 pontos, o de B (D) nenhum
+  M = seis([['A', 'C', 1, 0], ['B', 'D', 1, 0], ['C', 'E', 1, 0]]);
+  ok(ord(M).indexOf('A') < ord(M).indexOf('B'), 'pontos dos adversários: A à frente de B: ' + ord(M));
+  // jogo ainda não disputado também conta para os adversários (os 8 da fase de liga já são conhecidos)
+  M = seis([['A', 'C', 1, 0], ['B', 'D', 1, 0], ['B', 'E', null, null], ['C', 'E', 1, 0], ['D', 'F', 0, 1]]);
+  ok(M.adversarios[1].length === 2, 'adversários de B incluem o jogo marcado');
+  // Elo: o mais forte é favorito mesmo sem jogo disputado
+  M = seis([['A', 'B', null, null], ['C', 'D', null, null]], [2000, 1600, 1800, 1800, 1700, 1700]);
+  const Mo = C.modelo(M, {}), pAB = Mo.prob(0, 1), pCD = Mo.prob(2, 3);
+  ok(pAB.ph > 0.75, 'Elo 400 acima e em casa: favorito claro (' + pAB.ph.toFixed(2) + ')');
+  ok(pCD.ph > pCD.pa && pCD.ph < 0.6, 'Elo igual: só o mando pesa (' + pCD.ph.toFixed(2) + ')');
+  // objetivos sem repetir a mesma faixa (playoff até o 24º = escapar da eliminação)
+  const ob = C.objetivos(regC).map((o) => o.id + ':' + o.ate).join(' ');
+  ok(ob === 'titulo:1 lib:8 escapar:24', 'objetivos da Champions: ' + ob);
+  // o retrato publicado: 36 times, 8 jogos cada, rodadas sem time repetido
+  const ucl = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/champions-2026.json'), 'utf8'));
+  const LU = C.preparar(ucl, regC);
+  ok(LU.n === 36 && LU.jogos.length === 144, '36 times e 144 jogos');
+  ok(LU.adversarios.every((a) => a.length === 8), 'cada time com 8 adversários');
+  ok(LU.rodadasConfiaveis, 'rodadas da Champions deduzidas sem time repetido');
+  ok(LU.elo && LU.elo.every((e) => e > 1400 && e < 2200), 'Elo de todos os 36 times');
+  const tabU = C.tabela(LU, {}), porId = {}; tabU.forEach((x) => { porId[LU.times[x.i].id] = x; });
+  ucl.classificacao.forEach((c) => { const x = porId[c.time]; ok(x.pts === c.pts && x.gp === c.gp && x.gc === c.gc, LU.times[x.i].nome + ': números da ESPN'); });
+});
+
 console.log(`\n${total - falhas}/${total} conferências passaram`);
 process.exit(falhas ? 1 : 0);
