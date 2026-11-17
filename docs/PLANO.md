@@ -230,3 +230,25 @@ função a melhor implementação:
 Dados salvos e links da versão antiga continuam valendo: `migrarAntigos`, `placaresAntigos` e
 `decodificarAntigo` no núcleo (com conferências), e os endereços `#simular`, `#chances`,
 `#meu-time`, `#salvos` e `#numeros` levam às rotas novas.
+
+## 11. Champions League (17/11/2026)
+
+Entrou como mais uma competição do simulador (`#/simulador/champions`), para os vídeos da 5ª rodada
+(24 e 25/11) em diante. O que muda em relação às ligas:
+
+- **Formato:** fase de liga com 36 clubes e 8 jogos cada (não é todo mundo contra todo mundo). 1º ao 8º
+  vão direto às oitavas, 9º ao 24º jogam o playoff, 25º ao 36º estão fora. No site, "1º lugar" no lugar
+  de "campeão" e "eliminado" no lugar de "rebaixado" (`regras.primeiro` e `regras.rotulo_queda`).
+- **Desempate (art. 18 do regulamento 2026/27):** saldo, gols, gols fora, vitórias, vitórias fora e
+  pontos, saldo e gols dos adversários da fase de liga (os 8, jogados ou não). Cartões e coeficiente
+  viram sorteio. A tabela do retrato de 17/11 bate posição a posição com a da ESPN.
+- **Dados:** `baixar_espn.py --comp champions` guarda só os times da tabela e os 8 primeiros jogos de
+  cada um (a ESPN mistura qualificatórias e mata-mata no mesmo placar). O Actions roda junto com as
+  outras competições; para rodar só ela: workflow "Atualizar dados de reserva" com `comp = champions`.
+- **Modelo:** com 4 jogos por time, ataque e defesa não dizem quase nada. A força parte do Elo do
+  ClubElo (0,22 por 100 pontos de Elo, o que faz 100 pontos valerem 64% de expectativa, como no Elo),
+  e pontos por jogo e forma ficam desligados (`regras.modelo`), porque o Elo já os inclui. A API do
+  ClubElo estava fora do ar em 17/11 (erro 502): o Elo inicial foi copiado do ranking do site e o
+  download mantém o anterior enquanto a API não volta.
+- **Imagem e vídeo:** com mais de 24 times, a imagem da tabela sai em duas colunas e o vídeo encolhe as
+  linhas para caber os 36.

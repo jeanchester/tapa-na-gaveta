@@ -63,8 +63,14 @@
   // Série A usa as chaves de sempre; as outras competições ganham um sufixo
   const k_ = (k) => (st.comp && st.comp.id !== 'seriea' ? k + '.' + st.comp.id : k);
   const rotaBase = () => '#/simulador' + (st.comp && st.comp.id !== 'seriea' ? '/' + st.comp.id : '');
-  const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês' };
+  const TITULO = { seriea: 'Simulador do Brasileirão', serieb: 'Simulador da Série B', premier: 'Simulador da Premier League', laliga: 'Simulador da La Liga', italiano: 'Simulador do Italiano', bundesliga: 'Simulador da Bundesliga', frances: 'Simulador do Francês', champions: 'Simulador da Champions' };
   const ehSerieA = () => !st.comp || st.comp.id === 'seriea';
+  // Competição em que o 1º lugar não é título (Champions: fase de liga) e em que a "queda" é eliminação:
+  // as frases vêm de regras.primeiro e regras.rotulo_queda; sem elas, as do Brasileirão
+  const prim = () => st.regras && st.regras.primeiro;
+  const campeaoFrase = (t) => (prim() ? prim().frase : 'é ' + (art(t) === 'a' ? 'a campeã' : 'o campeão'));
+  const campeaoCurto = (t) => (prim() ? prim().tag : art(t) === 'a' ? 'Campeã' : 'Campeão');
+  const quedaRot = (k) => (st.regras && st.regras.rotulo_queda ? st.regras.rotulo_queda[k] : ['Caem', 'Rebaixados', 'Rebaixado'][k]);
 
   function carregarPrefs() {
     st.prefs = Object.assign({}, PREFS_PADRAO, loadJson(KEY.prefs, {}));
@@ -159,7 +165,9 @@
     }).catch((e) => { buscandoESPN = false; T.reportError(e, 'espn'); desenharCarimbo(); });
   }
 
-  function paramsModelo() { return Object.assign({}, window.TNGCore.PARAMS_PADRAO, st.prefs.forma === 3 ? window.TNGCore.PARAMS_FORMA3 : {}); }
+  // o núcleo junta PARAMS_PADRAO e os ajustes da competição (regras.modelo); aqui só a escolha da forma,
+  // que não passa por cima da competição (na Champions a forma fica desligada: o Elo já a inclui)
+  function paramsModelo() { return st.prefs.forma === 3 ? Object.assign({}, window.TNGCore.PARAMS_FORMA3, (st.regras && st.regras.modelo) || {}) : {}; }
 
   function recalcular() {
     const C = window.TNGCore;
@@ -307,14 +315,14 @@
     const placa = (x) => '<span class="rs-placa" title="' + esc(nome(st.L.times[x.i])) + '">' + crest(st.L.times[x.i]) + '</span>';
     if (frase) {
       frase.innerHTML = !tot ? 'O campeonato terminou. Esta é a tabela final.'
-        : feitos === tot ? 'Na sua simulação, <b>' + esc(o_(lider)) + '</b> é ' + (art(lider) === 'a' ? 'a campeã' : 'o campeão') + '.'
+        : feitos === tot ? 'Na sua simulação, <b>' + esc(o_(lider)) + '</b> ' + campeaoFrase(lider) + '.'
           : feitos ? 'Com os seus palpites, <b>' + esc(o_(lider)) + '</b> lidera. Faltam <b class="num">' + (tot - feitos) + '</b> placares.'
             : 'Faltam <b class="num">' + tot + '</b> jogos. Chute os placares e veja como termina a tabela.';
     }
-    el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? (art(lider) === 'a' ? 'Campeã' : 'Campeão') + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
+    el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? campeaoCurto(lider) + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
       '<div class="rs-time"><span class="rs-placa g">' + crest(lider) + '</span><div><b>' + esc(nome(lider)) + '</b><span class="num">' + tab[0].pts + ' pontos</span></div></div></div>' +
       '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>' + esc(st.regras.rotulo_grupo || 'Também na Libertadores') + '</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
-      '<div><small><i style="background:var(--z-rb)"></i>' + (fim && tot ? 'Rebaixados' : 'Caem') + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
+      '<div><small><i style="background:var(--z-rb)"></i>' + quedaRot(fim && tot ? 1 : 0) + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
     const chave = [tab[0].i].concat(g.map((x) => x.i), z.map((x) => x.i)).join();
     if (resumoAntes && chave !== resumoAntes && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
       el.querySelectorAll('.rs-placa').forEach((c, k) => c.animate([{ transform: 'scale(.6)', opacity: 0.2 }, { transform: 'none', opacity: 1 }], { duration: 380, delay: k * 25, easing: 'cubic-bezier(.3,1.5,.5,1)', fill: 'backwards' }));
@@ -378,10 +386,11 @@
       '<button class="btn primario" data-a="partilhar">' + ICON.partilha + 'Compartilhar a tabela</button></div>';
     html += avaliacaoHtml() + anterioresHtml();
     html += '<details class="como"><summary>Como as probabilidades são calculadas</summary>' +
-      '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time na temporada (em casa e fora, puxados para a média da liga), da campanha (pontos por jogo) e da forma recente. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates. Os pesos foram escolhidos testando o modelo nos 339 jogos já disputados, sempre só com o que se sabia antes de cada jogo.</p>' +
-      '<fieldset class="opc"><legend>Forma recente</legend>' +
+      (st.L.elo ? '<p>Cada time só joga 8 vezes na fase de liga, pouco para medir a força de cada um. Por isso o ponto de partida é o Elo do ClubElo, uma nota de força que vale para clubes de todas as ligas e já leva em conta a temporada inteira de cada um. Em cima dela entram o ataque e a defesa na Champions (puxados para a média) e o mando de campo. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates.</p>' :
+      '<p>Cada jogo tem gols esperados para os dois lados, a partir do ataque e da defesa de cada time na temporada (em casa e fora, puxados para a média da liga), da campanha (pontos por jogo) e da forma recente. Os gols seguem uma distribuição de Poisson, com um pequeno ajuste para empates. Os pesos foram escolhidos testando o modelo nos 339 jogos já disputados, sempre só com o que se sabia antes de cada jogo.</p>') +
+      (st.regras.modelo && st.regras.modelo.wForma === 0 ? '' : '<fieldset class="opc"><legend>Forma recente</legend>' +
       [5, 3].map((n) => '<label><input type="radio" name="forma" value="' + n + '"' + (st.prefs.forma === n ? ' checked' : '') + '> últimos ' + n + ' jogos</label>').join('') +
-      '</fieldset><p class="nota">Toque numa das porcentagens de um jogo para preencher o placar mais provável daquele resultado; toque de novo para desfazer.</p></details>';
+      '</fieldset>') + '<p class="nota">Toque numa das porcentagens de um jogo para preencher o placar mais provável daquele resultado; toque de novo para desfazer.</p></details>';
     col.innerHTML = html;
     atualizarResumoMeu();
   }
@@ -724,7 +733,7 @@
     } else {
       const cs = st.chances.chances.slice().sort((a, b) => a.posMedia - b.posMedia);
       html += '<div class="tbl-box' + (st.chancesVersao !== st.versao ? ' desat' : '') + '"><table class="tbl chances"><caption class="sr">Chances de cada time</caption><thead><tr><th class="t" scope="col">Time</th>' +
-        '<th scope="col" title="1º lugar">Título</th>' + colunas().map((k) => '<th scope="col" title="' + esc(k.titulo || '') + '">' + esc(k.rotulo) + '</th>').join('') + '</tr></thead><tbody>' +
+        '<th scope="col" title="1º lugar">' + (prim() ? esc(prim().curto) : 'Título') + '</th>' + colunas().map((k) => '<th scope="col" title="' + esc(k.titulo || '') + '">' + esc(k.rotulo) + '</th>').join('') + '</tr></thead><tbody>' +
         cs.map((c) => {
           const t = st.L.times[c.i];
           return '<tr data-t="' + c.i + '" tabindex="0" aria-expanded="false"><th scope="row" class="t"><div>' + crest(t) + '<span>' + esc(nome(t)) + '</span></div></th>' +
@@ -757,8 +766,8 @@
   }
   // frases de cada objetivo: as da competição (zona.verbo / zona.subst) ou as do Brasileirão
   const zonaDoObj = (id) => st.regras.zonas.find((z) => z.id === (id === 'escapar' ? 'rb' : id));
-  const verbo = (id) => { const z = zonaDoObj(id); return (z && z.verbo) || VERBO[id] || [id, id, id, id]; };
-  const subst = (id) => { const z = zonaDoObj(id); return (z && z.subst) || SUBST[id] || id; };
+  const verbo = (id) => { if (id === 'titulo' && prim()) return prim().verbo; const z = zonaDoObj(id); return (z && z.verbo) || VERBO[id] || [id, id, id, id]; };
+  const subst = (id) => { if (id === 'titulo' && prim()) return 'o 1º lugar'; const z = zonaDoObj(id); return (z && z.subst) || SUBST[id] || id; };
 
   function pedirPrecisa() {
     const versao = st.versao + ':' + st.meu.i;
@@ -921,7 +930,7 @@
       const t = st.L.times[x.i], z = zsR[x.pos - 1];
       return '<li class="rv-l' + (x.pos === 1 ? ' campeao' : '') + (z ? ' z-' + z : '') + (st.meu && st.meu.i === x.i ? ' meu' : '') + '" data-pos="' + x.pos + '" style="--zc:' + (z ? 'var(--z-' + z + ')' : 'transparent') + '">' +
         '<span class="rv-pos">' + x.pos + '</span>' + crest(t, 'rv-crest') + '<span class="rv-nome">' + esc(nome(t)) + '</span>' +
-        (x.pos === 1 ? '<span class="rv-tag">Campeão</span>' : z === 'rb' ? '<span class="rv-tag rb">Rebaixado</span>' : '') +
+        (x.pos === 1 ? '<span class="rv-tag">' + esc(campeaoCurto(t)) + '</span>' : z === 'rb' ? '<span class="rv-tag rb">' + esc(quedaRot(2)) + '</span>' : '') +
         '<span class="rv-pts" data-pts="' + x.pts + '">' + (reduz ? x.pts : 0) + '</span></li>';
     }).join('');
     ov.innerHTML = '<div class="rv-in"><div class="rv-topo"><div><div class="kicker">' + esc(st.comp.rotulo) + '</div><h2>Tabela final</h2></div>' +
@@ -1011,7 +1020,8 @@
           mostrar(li);
           if (k === ordem.length - 1) timers.push(setTimeout(fim, 1000));
         }, tempo));
-        tempo += pos === 1 ? 1300 : fronteira ? 560 : 270;
+        // 36 times (Champions): o miolo anda mais rápido para a revelação não passar de uns 15 s
+        tempo += pos === 1 ? 1300 : fronteira ? 560 : ordem.length > 24 ? 190 : 270;
       });
     }
     const fechar = () => {
@@ -1065,6 +1075,8 @@
           times: st.L.times.map((t, k) => ({ nome: nome(t), img: imgs[k] })),
           zonas: estados.map((tb) => C.zonasTab(st.L, tb)),
           completo: jogos.length === restantes().length,
+          rotulo: ehSerieA() ? 'o Brasileirão 2026' : st.comp.id === 'champions' ? 'a Champions' : st.comp.rotulo,
+          primeiro: !!prim(),
           endereco: T.enderecoSite(),
           texto: textoPartilha() + ' ' + linkCenario(),
           vel: vel || 2,
@@ -1105,7 +1117,7 @@
   function textoPartilha() {
     if (modoPO()) return textoPO();
     const tab = tabelaAtual(), camp = st.L.times[tab[0].i];
-    return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' é ' + (art(camp) === 'a' ? 'a campeã' : 'o campeão') + '. Faça a sua:';
+    return 'Na minha simulação ' + (ehSerieA() ? 'do Brasileirão 2026' : 'da competição ' + st.comp.rotulo) + ', ' + o_(camp) + ' ' + campeaoFrase(camp) + '. Faça a sua:';
   }
 
   function abrirCompartilhar() {
@@ -1205,7 +1217,7 @@
     const todos = loadJson(k_(KEY.cenarios), { itens: [] });
     todos.itens = (todos.itens || []).filter((c) => c && c.p);
     const camp = campeaoDe(placares());
-    const nm = 'Cenário ' + (todos.itens.length + 1) + (camp ? ' · ' + nome(camp) + (art(camp) === 'a' ? ' campeã' : ' campeão') : '');
+    const nm = 'Cenário ' + (todos.itens.length + 1) + (camp ? ' · ' + nome(camp) + (prim() ? ' em 1º' : art(camp) === 'a' ? ' campeã' : ' campeão') : '');
     todos.itens.push({ nome: nm, criado: new Date().toISOString(), temporada: st.liga.temporada, p: Object.assign({}, placares()) });
     saveJson(k_(KEY.cenarios), todos);
     aviso('"' + nm + '" salvo', { rotulo: 'Ver cenários', acao: abrirCenarios });
@@ -1218,7 +1230,7 @@
     const html = '<form class="salvar"><label for="cen-nome">Salvar os placares atuais (' + n + ')</label><div class="link-linha"><input id="cen-nome" maxlength="40" value="' + esc(nomePadrao) + '"><button class="btn primario"' + (n ? '' : ' disabled') + '>Salvar</button></div></form>' +
       (lista.length ? '<ul class="cenarios">' + lista.map((c, k) => {
         const camp = campeaoDe(c.p);
-        return '<li><input type="checkbox" data-cmp="' + k + '" aria-label="Marcar ' + esc(c.nome) + ' para comparar"><div class="c-info"><b>' + esc(c.nome) + '</b><span>' + Object.keys(c.p).length + ' placares · ' + new Date(c.criado).toLocaleDateString('pt-BR') + (camp ? ' · ' + esc(nome(camp)) + (art(camp) === 'a' ? ' campeã' : ' campeão') : '') + '</span></div>' +
+        return '<li><input type="checkbox" data-cmp="' + k + '" aria-label="Marcar ' + esc(c.nome) + ' para comparar"><div class="c-info"><b>' + esc(c.nome) + '</b><span>' + Object.keys(c.p).length + ' placares · ' + new Date(c.criado).toLocaleDateString('pt-BR') + (camp ? ' · ' + esc(nome(camp)) + (prim() ? ' em 1º' : art(camp) === 'a' ? ' campeã' : ' campeão') : '') + '</span></div>' +
           '<button class="btn" data-j="abrir" data-k="' + k + '">Abrir</button><button class="icon-btn" data-j="apagar" data-k="' + k + '" aria-label="Apagar ' + esc(c.nome) + '">' + ICON.lixo + '</button></li>';
       }).join('') + '</ul>' + (lista.length > 1 ? '<button class="btn" data-j="comparar" disabled>Comparar os dois marcados</button>' : '') + '<div id="comparacao"></div>'
         : '<p class="nota">Nenhum cenário salvo ainda. Eles ficam guardados neste aparelho.</p>');
@@ -1293,33 +1305,53 @@
   // as linhas da tabela final; anim(k) devolve { a: opacidade, s: escala, dy } para o GIF
   function linhasTabela(ctx, W, tab, escudos, anim, brilho) {
     const S = window.TNGCompartilhar, C = window.TNGCore;
-    const x0 = 64, y0 = 340, lh = 43;
-    ctx.textAlign = 'right'; ctx.font = '700 22px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
-    ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14);
+    // até 24 times numa coluna; mais que isso (Champions, 36) em duas colunas de 18, sem a coluna V
+    const cols = tab.length > 24 ? 2 : 1, porCol = Math.ceil(tab.length / cols);
+    const y0 = 340, lh = Math.min(43, Math.floor((1222 - y0) / porCol)), gap = 36;
+    const cw = (W - 2 * 64 - gap * (cols - 1)) / cols, esc_ = cols > 1 ? 0.88 : 1;
+    const f = (px) => Math.round(px * esc_);
     const zsI = C.zonasTab(st.L, tab);
+    for (let c = 0; c < cols; c++) {
+      const x0 = 64 + c * (cw + gap), xd = x0 + cw;
+      ctx.textAlign = 'right'; ctx.font = '700 ' + f(22) + 'px Archivo'; ctx.fillStyle = 'rgba(244,246,251,.6)';
+      if (cols > 1) { ctx.fillText('P', xd - 84, y0 - 14); ctx.fillText('SG', xd - 4, y0 - 14); }
+      else { ctx.fillText('P', W - 300, y0 - 14); ctx.fillText('V', W - 200, y0 - 14); ctx.fillText('SG', W - 80, y0 - 14); }
+    }
     tab.forEach((x, k) => {
-          const y = y0 + k * lh, t = st.L.times[x.i], z = zsI[x.pos - 1];
+          const c = Math.floor(k / porCol), x0 = 64 + c * (cw + gap), xd = x0 + cw;
+          const y = y0 + (k % porCol) * lh, t = st.L.times[x.i], z = zsI[x.pos - 1], ty = y + lh / 2 + f(9);
           const an = anim ? anim(k) : null;
           if (an && an.a <= 0) return;
           ctx.save();
           if (an) {
             ctx.globalAlpha = Math.min(1, an.a);
-            ctx.translate(W / 2, y + lh / 2 + (an.dy || 0)); ctx.scale(an.s, an.s); ctx.translate(-W / 2, -(y + lh / 2));
+            const cx = x0 + cw / 2;
+            ctx.translate(cx, y + lh / 2 + (an.dy || 0)); ctx.scale(an.s, an.s); ctx.translate(-cx, -(y + lh / 2));
           }
-          if (brilho && st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,' + (0.32 + 0.4 * brilho) + ')'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
-          if (k % 2 === 0) { ctx.fillStyle = 'rgba(255,255,255,.045)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
-          if (st.meu && st.meu.i === x.i) { ctx.fillStyle = 'rgba(255,194,61,.32)'; ctx.fillRect(x0 - 16, y, W - 2 * x0 + 32, lh); }
+          const faixa = (cor) => { ctx.fillStyle = cor; ctx.fillRect(x0 - 16, y, cw + 32, lh); };
+          if (brilho && st.meu && st.meu.i === x.i) faixa('rgba(255,194,61,' + (0.32 + 0.4 * brilho) + ')');
+          if (k % 2 === 0) faixa('rgba(255,255,255,.045)');
+          if (st.meu && st.meu.i === x.i) faixa('rgba(255,194,61,.32)');
           if (z) { ctx.fillStyle = S.COR.zonas[z]; ctx.fillRect(x0 - 16, y + 7, 6, lh - 14); }
-          ctx.textAlign = 'right'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 25px Archivo';
-          ctx.fillText(String(x.pos), x0 + 36, y + 30);
-          S.escudoPlaca(ctx, escudos[k], x0 + 56, y + 8, 27);
+          ctx.textAlign = 'right'; ctx.fillStyle = '#f4f6fb'; ctx.font = '800 ' + f(25) + 'px Archivo';
+          ctx.fillText(String(x.pos), x0 + f(36), ty);
+          const tam = Math.min(27, lh - 12);
+          S.escudoPlaca(ctx, escudos[k], x0 + f(56), y + (lh - tam) / 2, tam);
           ctx.textAlign = 'left';
-          S.textoCabe(ctx, nome(t), x0 + 100, y + 30, 520, x.pos === 1 ? '800' : '700', 26);
-          ctx.textAlign = 'right'; ctx.font = '800 26px Archivo'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f6fb';
-          ctx.fillText(String(x.pts), W - 300, y + 30);
-          ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 24px Archivo';
-          ctx.fillText(String(x.v), W - 200, y + 30);
-          ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, y + 30);
+          if (cols > 1) {
+            S.textoCabe(ctx, nome(t), x0 + f(56) + tam + 14, ty, cw - (f(56) + tam + 14) - 130, x.pos === 1 ? '800' : '700', f(26));
+            ctx.textAlign = 'right'; ctx.font = '800 ' + f(26) + 'px Archivo'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f6fb';
+            ctx.fillText(String(x.pts), xd - 84, ty);
+            ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 ' + f(24) + 'px Archivo';
+            ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, xd - 4, ty);
+          } else {
+            S.textoCabe(ctx, nome(t), x0 + 100, ty, 520, x.pos === 1 ? '800' : '700', 26);
+            ctx.textAlign = 'right'; ctx.font = '800 26px Archivo'; ctx.fillStyle = x.pos === 1 ? S.COR.giz : '#f4f6fb';
+            ctx.fillText(String(x.pts), W - 300, ty);
+            ctx.fillStyle = 'rgba(244,246,251,.82)'; ctx.font = '600 24px Archivo';
+            ctx.fillText(String(x.v), W - 200, ty);
+            ctx.fillText((x.sg > 0 ? '+' : '') + x.sg, W - 80, ty);
+          }
           ctx.restore();
         });
     ctx.textAlign = 'left';

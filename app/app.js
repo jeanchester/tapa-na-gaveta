@@ -383,9 +383,11 @@
     espanha: '<rect width="20" height="14" fill="#c8102e"/><rect y="3.5" width="20" height="7" fill="#ffc400"/>',
     italia: '<rect width="20" height="14" fill="#fff"/><rect width="6.7" height="14" fill="#009246"/><rect x="13.3" width="6.7" height="14" fill="#ce2b37"/>',
     alemanha: '<rect width="20" height="14" fill="#dd0000"/><rect width="20" height="4.7" fill="#111"/><rect y="9.3" width="20" height="4.7" fill="#ffce00"/>',
-    franca: '<rect width="20" height="14" fill="#fff"/><rect width="6.7" height="14" fill="#0055a4"/><rect x="13.3" width="6.7" height="14" fill="#ef4135"/>'
+    franca: '<rect width="20" height="14" fill="#fff"/><rect width="6.7" height="14" fill="#0055a4"/><rect x="13.3" width="6.7" height="14" fill="#ef4135"/>',
+    // Champions: bandeira da Europa (anel de 12 estrelas, aqui pontos)
+    europa: '<rect width="20" height="14" fill="#1a3a9c"/>' + Array.from({ length: 12 }, (_, k) => '<circle cx="' + (10 + 4.2 * Math.cos(k * Math.PI / 6)).toFixed(2) + '" cy="' + (7 + 4.2 * Math.sin(k * Math.PI / 6)).toFixed(2) + '" r=".75" fill="#ffd23f"/>').join('')
   };
-  const PAIS = { seriea: 'brasil', serieb: 'brasil', premier: 'inglaterra', laliga: 'espanha', italiano: 'italia', bundesliga: 'alemanha', frances: 'franca' };
+  const PAIS = { seriea: 'brasil', serieb: 'brasil', premier: 'inglaterra', laliga: 'espanha', italiano: 'italia', bundesliga: 'alemanha', frances: 'franca', champions: 'europa' };
   function bandeira(id) {
     const b = BANDEIRAS[PAIS[id]];
     return b ? '<svg class="bdr" viewBox="0 0 20 14" aria-hidden="true" focusable="false">' + b + '</svg>' : '';

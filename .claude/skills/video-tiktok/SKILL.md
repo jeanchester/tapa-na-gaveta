@@ -146,7 +146,15 @@ da entrada e volta a 0 nos ~0,3 s antes do fim da cena.
 python ferramentas/baixar_espn.py                       # atualiza dados/brasileirao-2026.json (precisa de rede para a ESPN)
 node ferramentas/video/chances.js corinthians gremio vitoria internacional
 node ferramentas/video/chances.js flamengo palmeiras --n 200000
+# Champions (fase de liga, 36 times): 1º, oitavas (1º a 8º), playoff (9º a 24º), fora (25º a 36º) e mata-mata (1º a 24º)
+python ferramentas/baixar_espn.py --comp champions       # atualiza dados/champions-2026.json
+node ferramentas/video/chances.js --comp champions --times               # apelidos dos 36 times
+node ferramentas/video/chances.js --comp champions real_madrid liverpool
 ```
+
+Na Champions a força de cada time parte do Elo do ClubElo (gravado em `dados/champions-2026.json`),
+porque cada um só joga 8 vezes; no vídeo, diga "no nosso simulador" e não "pela tabela". O 1º lugar da
+fase de liga não é título: o texto do site diz "termina em 1º", e o vídeo deve seguir.
 
 Sem acesso à ESPN, o retrato do repositório pode estar um jogo atrás: complete com
 `--placar mandante-visitante=gh-ga` (slugs de `midia/escudos`). Confira a tabela que o script imprime

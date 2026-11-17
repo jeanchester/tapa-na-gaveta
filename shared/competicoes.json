@@ -34,6 +34,25 @@
       "jogadores": "dados/estatisticas-jogadores-serie-b-2026.json"
     },
     {
+      "id": "champions",
+      "espn": "uefa.champions",
+      "temporada": 2026,
+      "meses": [
+        "2026-09",
+        "2027-01"
+      ],
+      "nome": "Champions League",
+      "curto": "Champions",
+      "rotulo": "Champions 2026/27",
+      "dados": "dados/champions-2026.json",
+      "regras": "shared/regras-champions.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-champions-2026.json",
+      "fase_de_liga": true,
+      "max_jogos": 8,
+      "elo": true
+    },
+    {
       "id": "premier",
       "espn": "eng.1",
       "temporada": 2026,
@@ -112,25 +131,6 @@
       "regras": "shared/regras-europa-18.json",
       "pais": "europa",
       "jogadores": "dados/estatisticas-jogadores-frances-2026.json"
-    },
-    {
-      "id": "champions",
-      "espn": "uefa.champions",
-      "temporada": 2026,
-      "meses": [
-        "2026-09",
-        "2027-01"
-      ],
-      "nome": "Champions League",
-      "curto": "Champions",
-      "rotulo": "Champions 2026/27",
-      "dados": "dados/champions-2026.json",
-      "regras": "shared/regras-champions.json",
-      "pais": "europa",
-      "jogadores": "dados/estatisticas-jogadores-champions-2026.json",
-      "fase_de_liga": true,
-      "max_jogos": 8,
-      "elo": true
     }
   ]
 }
