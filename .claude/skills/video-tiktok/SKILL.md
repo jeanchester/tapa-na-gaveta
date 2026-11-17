@@ -24,6 +24,7 @@ Arquivos (todos em `ferramentas/video/`):
 | `fala.py` | transcrição do sherpa-onnx → rascunho do campo `fala` (texto da legenda na tela) |
 | `fontes/` | fonte da legenda queimada (Archivo extra negrito, OFL) |
 | `escudos/` | escudos grandes (512 px) só para vídeo; o modelo usa estes primeiro e cai nos de `midia/escudos/` (128 px, ficam borrados quando ampliados) |
+| `escudos_limpos.py` | refaz um escudo de `midia/escudos/` com borda lisa (sem serrilhado), cor em sRGB e 512 px, quando não há o original grande; `--recortar --lado 288` para embutir num HTML |
 
 Saídas em `ferramentas/video/saida/` (fora do git). Gravações brutas também não vão para o git:
 ficam na pasta "TikTok Tapa" do Drive.
