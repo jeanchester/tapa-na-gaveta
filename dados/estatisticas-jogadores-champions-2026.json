@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17T16:31:24",
+ "atualizado": "2026-11-17T18:17:23",
  "artilheiros": [
   {
    "nome": "Tasos Douvikas",
@@ -10,7 +10,7 @@
   {
    "nome": "Nicolo Tresoldi",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 5
   },
   {
@@ -40,7 +40,7 @@
   {
    "nome": "Luis Suárez",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 4
   },
   {
@@ -52,7 +52,7 @@
   {
    "nome": "Alexey Batrakov",
    "time": "432",
-   "escudo": null,
+   "escudo": "galatasaray",
    "n": 4
   },
   {
@@ -148,7 +148,7 @@
   {
    "nome": "Archie Brown",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 2
   },
   {
@@ -160,19 +160,19 @@
   {
    "nome": "Stavros Pilios",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 2
   },
   {
    "nome": "Carlos Forbs",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 2
   },
   {
    "nome": "Zlatko Tripic",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
@@ -184,13 +184,13 @@
   {
    "nome": "Mason Greenwood",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 2
   },
   {
    "nome": "Issa Doumbia",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 2
   },
   {
@@ -202,7 +202,7 @@
   {
    "nome": "Peter Christiansen",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
@@ -220,7 +220,7 @@
   {
    "nome": "Gabri Veiga",
    "time": "437",
-   "escudo": null,
+   "escudo": "fc_porto",
    "n": 2
   },
   {
@@ -232,19 +232,19 @@
   {
    "nome": "Danijel Sturm",
    "time": "494",
-   "escudo": null,
+   "escudo": "slavia_prague",
    "n": 2
   },
   {
    "nome": "Kasper Jørgensen",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 2
   },
   {
    "nome": "Erik Botheim",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
@@ -256,7 +256,7 @@
   {
    "nome": "Robert Ljubicic",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 2
   },
   {
@@ -274,7 +274,7 @@
   {
    "nome": "Gleiker Mendoza",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 2
   },
   {
@@ -324,7 +324,7 @@
   {
    "nome": "Zlatko Tripic",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 3
   },
   {
@@ -342,7 +342,7 @@
   {
    "nome": "Yvan Dibango",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 3
   },
   {
@@ -366,7 +366,7 @@
   {
    "nome": "Joaquin Seys",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 2
   },
   {
@@ -390,13 +390,13 @@
   {
    "nome": "Carlos Forbs",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 2
   },
   {
    "nome": "Sondre Brunstad Fet",
    "time": "2980",
-   "escudo": null,
+   "escudo": "bodoglimt",
    "n": 2
   },
   {
@@ -456,7 +456,7 @@
   {
    "nome": "Isaque",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 2
   },
   {
@@ -528,7 +528,7 @@
   {
    "nome": "Archie Brown",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 1
   },
   {
@@ -540,31 +540,31 @@
   {
    "nome": "Stavros Pilios",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 1
   },
   {
    "nome": "Kristoffer Askildsen",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 1
   },
   {
    "nome": "Ivan Lepinjica",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
    "nome": "Tymoteusz Puchacz",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
    "nome": "Davinson Sánchez",
    "time": "432",
-   "escudo": null,
+   "escudo": "galatasaray",
    "n": 1
   },
   {
@@ -576,7 +576,7 @@
   {
    "nome": "Milan Skriniar",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 1
   },
   {
@@ -600,7 +600,7 @@
   {
    "nome": "Alisson Santana",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 1
   }
  ],
@@ -620,13 +620,13 @@
   {
    "nome": "Nicolo Tresoldi",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 5
   },
   {
    "nome": "Alexey Batrakov",
    "time": "432",
-   "escudo": null,
+   "escudo": "galatasaray",
    "n": 4
   },
   {
@@ -674,7 +674,7 @@
   {
    "nome": "Luis Suárez",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 4
   },
   {
@@ -758,7 +758,7 @@
   {
    "nome": "Archie Brown",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 2
   },
   {
@@ -776,13 +776,13 @@
   {
    "nome": "Carlos Forbs",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 2
   },
   {
    "nome": "Danijel Sturm",
    "time": "494",
-   "escudo": null,
+   "escudo": "slavia_prague",
    "n": 2
   },
   {
@@ -794,7 +794,7 @@
   {
    "nome": "Erik Botheim",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
@@ -806,13 +806,13 @@
   {
    "nome": "Florian Flecker",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 2
   },
   {
    "nome": "Gabri Veiga",
    "time": "437",
-   "escudo": null,
+   "escudo": "fc_porto",
    "n": 2
   },
   {
@@ -824,13 +824,13 @@
   {
    "nome": "Gleiker Mendoza",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 2
   },
   {
    "nome": "Issa Doumbia",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 2
   },
   {
@@ -842,7 +842,7 @@
   {
    "nome": "Kasper Jørgensen",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 2
   },
   {
@@ -866,7 +866,7 @@
   {
    "nome": "Mason Greenwood",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 2
   },
   {
@@ -878,13 +878,13 @@
   {
    "nome": "Peter Christiansen",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
    "nome": "Robert Ljubicic",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 2
   },
   {
@@ -914,7 +914,7 @@
   {
    "nome": "Stavros Pilios",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 2
   },
   {
@@ -932,7 +932,7 @@
   {
    "nome": "Zlatko Tripic",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 2
   },
   {
@@ -950,7 +950,7 @@
   {
    "nome": "Samu Aghehowa",
    "time": "437",
-   "escudo": null,
+   "escudo": "fc_porto",
    "n": 2
   },
   {
@@ -974,7 +974,7 @@
   {
    "nome": "Aboubakary Koita",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 1
   },
   {
@@ -986,7 +986,7 @@
   {
    "nome": "Aden McCarthy",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
@@ -1016,7 +1016,7 @@
   {
    "nome": "Andreas Helmersen",
    "time": "2980",
-   "escudo": null,
+   "escudo": "bodoglimt",
    "n": 1
   },
   {
@@ -1034,7 +1034,7 @@
   {
    "nome": "Anis Hadj Moussa",
    "time": "142",
-   "escudo": null,
+   "escudo": "feyenoord_rotterdam",
    "n": 1
   },
   {
@@ -1106,7 +1106,7 @@
   {
    "nome": "Christoph Lang",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 1
   },
   {
@@ -1178,7 +1178,7 @@
   {
    "nome": "Fredrik Sjøvold",
    "time": "2980",
-   "escudo": null,
+   "escudo": "bodoglimt",
    "n": 1
   },
   {
@@ -1196,49 +1196,49 @@
   {
    "nome": "Geny Catamo",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 1
   },
   {
    "nome": "Gianni Stensness",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 1
   },
   {
    "nome": "Gjivai Zechiël",
    "time": "142",
-   "escudo": null,
+   "escudo": "feyenoord_rotterdam",
    "n": 1
   },
   {
    "nome": "Guus Til",
    "time": "148",
-   "escudo": null,
+   "escudo": "psv_eindhoven",
    "n": 1
   },
   {
    "nome": "Hans Vanaken",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 1
   },
   {
    "nome": "Henrik Falchener",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 1
   },
   {
    "nome": "Herman Haugen",
    "time": "510",
-   "escudo": null,
+   "escudo": "viking_fk",
    "n": 1
   },
   {
    "nome": "Hugo Vetlesen",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 1
   },
   {
@@ -1250,7 +1250,7 @@
   {
    "nome": "Jakub Kiwior",
    "time": "437",
-   "escudo": null,
+   "escudo": "fc_porto",
    "n": 1
   },
   {
@@ -1268,13 +1268,13 @@
   {
    "nome": "Jan Bednarek",
    "time": "437",
-   "escudo": null,
+   "escudo": "fc_porto",
    "n": 1
   },
   {
    "nome": "Jens Petter Hauge",
    "time": "2980",
-   "escudo": null,
+   "escudo": "bodoglimt",
    "n": 1
   },
   {
@@ -1286,7 +1286,7 @@
   {
    "nome": "Joaquin Seys",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 1
   },
   {
@@ -1310,7 +1310,7 @@
   {
    "nome": "Joy-Lance Mickels",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
@@ -1346,13 +1346,13 @@
   {
    "nome": "Kaheem Parris",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
    "nome": "Kodai Sano",
    "time": "148",
-   "escudo": null,
+   "escudo": "psv_eindhoven",
    "n": 1
   },
   {
@@ -1370,7 +1370,7 @@
   {
    "nome": "Krystof Danek",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 1
   },
   {
@@ -1394,7 +1394,7 @@
   {
    "nome": "Lovro Majer",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 1
   },
   {
@@ -1418,7 +1418,7 @@
   {
    "nome": "Lukás Provod",
    "time": "494",
-   "escudo": null,
+   "escudo": "slavia_prague",
    "n": 1
   },
   {
@@ -1508,13 +1508,13 @@
   {
    "nome": "Oguz Aydin",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 1
   },
   {
    "nome": "Orphé Mbina",
    "time": "21922",
-   "escudo": null,
+   "escudo": "sabah_fk",
    "n": 1
   },
   {
@@ -1526,7 +1526,7 @@
   {
    "nome": "Pavel Kacor",
    "time": "494",
-   "escudo": null,
+   "escudo": "slavia_prague",
    "n": 1
   },
   {
@@ -1550,7 +1550,7 @@
   {
    "nome": "Razvan Marin",
    "time": "887",
-   "escudo": null,
+   "escudo": "aek_athens",
    "n": 1
   },
   {
@@ -1562,31 +1562,31 @@
   {
    "nome": "Rodrigo Zalazar",
    "time": "2250",
-   "escudo": null,
+   "escudo": "sporting_cp",
    "n": 1
   },
   {
    "nome": "Romeo Vermant",
    "time": "570",
-   "escudo": null,
+   "escudo": "club_brugge",
    "n": 1
   },
   {
    "nome": "Samuel Adeniran",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 1
   },
   {
    "nome": "Sasa Kalajdzic",
    "time": "4411",
-   "escudo": null,
+   "escudo": "lask_linz",
    "n": 1
   },
   {
    "nome": "Sem Steijn",
    "time": "142",
-   "escudo": null,
+   "escudo": "feyenoord_rotterdam",
    "n": 1
   },
   {
@@ -1604,19 +1604,19 @@
   {
    "nome": "Sergiño Dest",
    "time": "148",
-   "escudo": null,
+   "escudo": "psv_eindhoven",
    "n": 1
   },
   {
    "nome": "Sondre Brunstad Fet",
    "time": "2980",
-   "escudo": null,
+   "escudo": "bodoglimt",
    "n": 1
   },
   {
    "nome": "Suleiman Camara",
    "time": "521",
-   "escudo": null,
+   "escudo": "slovan_bratislava",
    "n": 1
   },
   {
@@ -1646,13 +1646,13 @@
   {
    "nome": "Vedat Muriqi",
    "time": "436",
-   "escudo": null,
+   "escudo": "fenerbahce",
    "n": 1
   },
   {
    "nome": "Victor Osimhen",
    "time": "432",
-   "escudo": null,
+   "escudo": "galatasaray",
    "n": 1
   },
   {
@@ -1664,13 +1664,13 @@
   {
    "nome": "Vinícius Tobias",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 1
   },
   {
    "nome": "Wiktor Nowak",
    "time": "494",
-   "escudo": null,
+   "escudo": "slavia_prague",
    "n": 1
   },
   {
@@ -1694,13 +1694,13 @@
   {
    "nome": "Yunus Akgün",
    "time": "432",
-   "escudo": null,
+   "escudo": "galatasaray",
    "n": 1
   },
   {
    "nome": "Pedrinho",
    "time": "493",
-   "escudo": null,
+   "escudo": "shakhtar_donetsk",
    "n": 1
   }
  ],
@@ -1710,7 +1710,7 @@
    {
     "nome": "Aden McCarthy",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 1,
     "vermelhos": 1
    },
@@ -1724,7 +1724,7 @@
    {
     "nome": "Marlon Gomes",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1738,14 +1738,14 @@
    {
     "nome": "Aboubakary Koita",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 0,
     "vermelhos": 1
    },
    {
     "nome": "Akim Zedadka",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1773,28 +1773,28 @@
    {
     "nome": "Archie Brown",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Armando Obispo",
     "time": "148",
-    "escudo": null,
+    "escudo": "psv_eindhoven",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Charles Vanhoutte",
     "time": "142",
-    "escudo": null,
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Cristian Martínez",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1815,7 +1815,7 @@
    {
     "nome": "Felix Lemarechal",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1836,7 +1836,7 @@
    {
     "nome": "Hugo Vetlesen",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1850,35 +1850,35 @@
    {
     "nome": "Ismail Jakobs",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Ismail Yüksek",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Ivan Lepinjica",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Jan Virgili",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Jorne Spileers",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1899,7 +1899,7 @@
    {
     "nome": "Kristoffer Haugen",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1941,7 +1941,7 @@
    {
     "nome": "Mikulás Konecny",
     "time": "494",
-    "escudo": null,
+    "escudo": "slavia_prague",
     "amarelos": 0,
     "vermelhos": 1
    },
@@ -1962,7 +1962,7 @@
    {
     "nome": "Odin Bjørtuft",
     "time": "2980",
-    "escudo": null,
+    "escudo": "bodoglimt",
     "amarelos": 0,
     "vermelhos": 1
    },
@@ -1983,7 +1983,7 @@
    {
     "nome": "Roland Sallai",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1997,14 +1997,14 @@
    {
     "nome": "Sergiño Dest",
     "time": "148",
-    "escudo": null,
+    "escudo": "psv_eindhoven",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
     "nome": "Steve Solvet",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2039,7 +2039,7 @@
    {
     "nome": "Alan Varela",
     "time": "437",
-    "escudo": null,
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2060,14 +2060,14 @@
    {
     "nome": "André Silva",
     "time": "437",
-    "escudo": null,
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Andrés Andrade",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2109,14 +2109,14 @@
    {
     "nome": "Baris Alper Yilmaz",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Barnabás Varga",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2165,7 +2165,7 @@
    {
     "nome": "Carlos Forbs",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2179,7 +2179,7 @@
    {
     "nome": "Christoph Lang",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2193,7 +2193,7 @@
    {
     "nome": "César Blackman",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2214,14 +2214,14 @@
    {
     "nome": "Daniel Elfadli",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "David Moses",
     "time": "494",
-    "escudo": null,
+    "escudo": "slavia_prague",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2249,7 +2249,7 @@
    {
     "nome": "Deniz Gül",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2270,7 +2270,7 @@
    {
     "nome": "Dmytro Kryskiv",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2298,14 +2298,14 @@
    {
     "nome": "Emmanuel Dennis Ayaosi",
     "time": "494",
-    "escudo": null,
+    "escudo": "slavia_prague",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Eren Elmali",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2347,7 +2347,7 @@
    {
     "nome": "Gabri Veiga",
     "time": "437",
-    "escudo": null,
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2361,7 +2361,7 @@
    {
     "nome": "Gaoussou Diarra",
     "time": "142",
-    "escudo": null,
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2389,7 +2389,7 @@
    {
     "nome": "Gianni Stensness",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2410,21 +2410,21 @@
    {
     "nome": "Givairo Read",
     "time": "142",
-    "escudo": null,
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Gjivai Zechiël",
     "time": "142",
-    "escudo": null,
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Gleiker Mendoza",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2438,14 +2438,14 @@
    {
     "nome": "Hans Vanaken",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Harold Moukoudi",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2459,7 +2459,7 @@
    {
     "nome": "Isaque",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2480,7 +2480,7 @@
    {
     "nome": "Issa Doumbia",
     "time": "2250",
-    "escudo": null,
+    "escudo": "sporting_cp",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2501,7 +2501,7 @@
    {
     "nome": "Jesper Daland",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2515,7 +2515,7 @@
    {
     "nome": "Joe Bell",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2557,7 +2557,7 @@
    {
     "nome": "Joy-Lance Mickels",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2578,7 +2578,7 @@
    {
     "nome": "João Simões",
     "time": "2250",
-    "escudo": null,
+    "escudo": "sporting_cp",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2599,14 +2599,14 @@
    {
     "nome": "Kerem Aktürkoglu",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Kervin Arriaga",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2620,7 +2620,7 @@
    {
     "nome": "Kevin Wimmer",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2641,14 +2641,14 @@
    {
     "nome": "Kristoffer Askildsen",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Krystof Danek",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2662,7 +2662,7 @@
    {
     "nome": "Lee Han-Beom",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2683,7 +2683,7 @@
    {
     "nome": "Lovro Majer",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2697,28 +2697,28 @@
    {
     "nome": "Lucas Torreira",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Luis Suárez",
     "time": "2250",
-    "escudo": null,
+    "escudo": "sporting_cp",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Luka Jovic",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Lutsharel Geertruida",
     "time": "148",
-    "escudo": null,
+    "escudo": "psv_eindhoven",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2774,7 +2774,7 @@
    {
     "nome": "Matteo Guendouzi",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2795,14 +2795,14 @@
    {
     "nome": "Mauro Júnior",
     "time": "148",
-    "escudo": null,
+    "escudo": "psv_eindhoven",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Maxi Araújo",
     "time": "2250",
-    "escudo": null,
+    "escudo": "sporting_cp",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2823,14 +2823,14 @@
    {
     "nome": "Melayro Bogarde",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Mert Müldür",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2844,7 +2844,7 @@
    {
     "nome": "Mika Mármol",
     "time": "142",
-    "escudo": null,
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2858,7 +2858,7 @@
    {
     "nome": "Milan Skriniar",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2872,7 +2872,7 @@
    {
     "nome": "N'Golo Kanté",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2935,14 +2935,14 @@
    {
     "nome": "Oguz Aydin",
     "time": "436",
-    "escudo": null,
+    "escudo": "fenerbahce",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Oleh Ocheretko",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2956,14 +2956,14 @@
    {
     "nome": "Oskar Kubiak",
     "time": "494",
-    "escudo": null,
+    "escudo": "slavia_prague",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Pablo Rosario",
     "time": "437",
-    "escudo": null,
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2984,7 +2984,7 @@
    {
     "nome": "Pedrinho",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2998,14 +2998,14 @@
    {
     "nome": "Peter Christiansen",
     "time": "510",
-    "escudo": null,
+    "escudo": "viking_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Peter Pokorny",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3026,7 +3026,7 @@
    {
     "nome": "Rafael Leão",
     "time": "432",
-    "escudo": null,
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3047,7 +3047,7 @@
    {
     "nome": "Razvan Marin",
     "time": "887",
-    "escudo": null,
+    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3082,14 +3082,14 @@
    {
     "nome": "Romeo Vermant",
     "time": "570",
-    "escudo": null,
+    "escudo": "club_brugge",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Ruben Van Bommel",
     "time": "148",
-    "escudo": null,
+    "escudo": "psv_eindhoven",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3110,21 +3110,21 @@
    {
     "nome": "Santiago Gimenez",
     "time": "437",
-    "escudo": null,
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Sasa Kalajdzic",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Sascha Horvath",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3138,7 +3138,7 @@
    {
     "nome": "Sergi Altimira",
     "time": "2250",
-    "escudo": null,
+    "escudo": "sporting_cp",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3152,35 +3152,35 @@
    {
     "nome": "Sondre Brunstad Fet",
     "time": "2980",
-    "escudo": null,
+    "escudo": "bodoglimt",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Suleiman Camara",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Tigran Barseghyan",
     "time": "521",
-    "escudo": null,
+    "escudo": "slovan_bratislava",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Tobias Schützenauer",
     "time": "4411",
-    "escudo": null,
+    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Umarali Rakhmonaliev",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3194,21 +3194,21 @@
    {
     "nome": "Valeriy Bondar",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Veljko Simic",
     "time": "21922",
-    "escudo": null,
+    "escudo": "sabah_fk",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
     "nome": "Vinícius Tobias",
     "time": "493",
-    "escudo": null,
+    "escudo": "shakhtar_donetsk",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3236,7 +3236,7 @@
    {
     "nome": "Wiktor Nowak",
     "time": "494",
-    "escudo": null,
+    "escudo": "slavia_prague",
     "amarelos": 1,
     "vermelhos": 0
    },
