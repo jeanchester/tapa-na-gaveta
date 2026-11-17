@@ -312,6 +312,8 @@
     const tab = tabelaAtual(), lider = st.L.times[tab[0].i], fim = !tot || feitos === tot;
     const lib = st.regras.zonas.find((z) => z.id === 'lib'), rb = st.regras.zonas.find((z) => z.id === 'rb');
     const g = tab.slice(1, lib ? lib.ate : 4), z = rb ? tab.slice(rb.de - 1, rb.ate) : [];
+    // muitos eliminados (Champions: 12): mostra os 6 mais perto do corte e o resto num "+6"
+    const zMostra = z.length > 6 ? z.slice(0, 6) : z;
     const placa = (x) => '<span class="rs-placa" title="' + esc(nome(st.L.times[x.i])) + '">' + crest(st.L.times[x.i]) + '</span>';
     if (frase) {
       frase.innerHTML = !tot ? 'O campeonato terminou. Esta é a tabela final.'
@@ -322,7 +324,7 @@
     el.innerHTML = '<div class="rs-lider"><small>' + (fim && tot ? campeaoCurto(lider) + ' na sua simulação' : feitos ? 'Líder com os seus palpites' : 'Líder hoje') + '</small>' +
       '<div class="rs-time"><span class="rs-placa g">' + crest(lider) + '</span><div><b>' + esc(nome(lider)) + '</b><span class="num">' + tab[0].pts + ' pontos</span></div></div></div>' +
       '<div class="rs-grupos"><div><small><i style="background:var(--z-lib)"></i>' + esc(st.regras.rotulo_grupo || 'Também na Libertadores') + '</small><div class="rs-crs">' + g.map(placa).join('') + '</div></div>' +
-      '<div><small><i style="background:var(--z-rb)"></i>' + quedaRot(fim && tot ? 1 : 0) + '</small><div class="rs-crs">' + z.map(placa).join('') + '</div></div></div>';
+      '<div><small><i style="background:var(--z-rb)"></i>' + quedaRot(fim && tot ? 1 : 0) + '</small><div class="rs-crs">' + zMostra.map(placa).join('') + (z.length > zMostra.length ? '<span class="rs-mais">+' + (z.length - zMostra.length) + '</span>' : '') + '</div></div></div>';
     const chave = [tab[0].i].concat(g.map((x) => x.i), z.map((x) => x.i)).join();
     if (resumoAntes && chave !== resumoAntes && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
       el.querySelectorAll('.rs-placa').forEach((c, k) => c.animate([{ transform: 'scale(.6)', opacity: 0.2 }, { transform: 'none', opacity: 1 }], { duration: 380, delay: k * 25, easing: 'cubic-bezier(.3,1.5,.5,1)', fill: 'backwards' }));

@@ -213,6 +213,7 @@ main.wrap { flex: 1; outline: none; padding-bottom: 8px; }
 .sim-topo .page-head p { color: rgba(244,246,251,.78); }
 .sim-topo .page-head p b { color: var(--gold); }
 .sim-topo .carimbo { color: #aeb8da; }
+.rs-mais { align-self: center; padding: 0 4px; font: 800 15px/1 var(--f-num); color: #aeb8da; }
 .resumo { display: grid; gap: 14px; }
 .resumo small { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #aeb8da; margin-bottom: 6px; }
 .resumo small i { width: 8px; height: 8px; border-radius: 2px; flex: none; }
