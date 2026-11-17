@@ -57,7 +57,8 @@ primeiros só alimentam o modelo), 1.260 combinações.
 |---|---|
 | Referência: frequências da liga até a véspera | 0,632 |
 | Só força de ataque e defesa (sem forma, sem campanha) | 0,614 |
-| **Escolhido:** k = 32, forma de 5 jogos (peso 0,3), pontos por jogo (peso 1,2), rho = −0,1 | **0,604** |
+| Escolhido em 07/11: k = 32, forma de 5 jogos (peso 0,3), pontos por jogo (peso 1,2), rho = −0,1 | 0,6042 |
+| **Em uso desde 11/11:** k = 48, forma de 5 jogos (peso 0,3), pontos por jogo (peso 2,0), rho = −0,1 | **0,6036** |
 | Com forma de 3 jogos (peso 0,15) | 0,606 |
 
 O que os números dizem: com só 34 rodadas, gols separados em casa e fora são barulhentos; o modelo
@@ -65,6 +66,11 @@ melhora quando encolhe bastante essas forças (k alto) e dá peso à campanha (p
 a "posição na tabela" do Julio) e à forma recente. A melhora fica plana a partir de k ≈ 32: escolhi o
 meio da região boa, não o canto da grade. Calibração por faixas: quando o modelo diz 50–60%,
 aconteceu 58%; quando diz 20–30%, aconteceu 26%.
+
+**Recalibração (11/11/2026):** com os mesmos 289 jogos, a grade maior achou k = 48 e peso 2,0 para os
+pontos por jogo (Brier 0,6036, antes 0,6042). Testados e deixados desligados por não melhorarem a
+previsão: reforço de empates e peso menor para jogos antigos. Os valores em uso ficam em
+`PARAMS_PADRAO`, no `shared/simulador-core.js`; ao recalibrar, atualize os dois lugares.
 
 Desempate (REC 2026, art. 15): pontos, vitórias, saldo, gols pró, confronto direto (só entre dois
 clubes), cartões vermelhos, amarelos, sorteio. Sem cartões na ESPN, o simulador vai do confronto

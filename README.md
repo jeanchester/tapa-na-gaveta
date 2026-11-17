@@ -2,13 +2,16 @@
 
 Site de futebol: **simulador do Brasileirão** (a isca), **monte sua escalação**, **jogos**
 (Football Draft, Jogo do Milhão do Futebol, Fast Football) e **estatísticas**. HTML, CSS e JavaScript
-puros, sem build: editar e apertar F5 é o ciclo inteiro. Decisões e porquês em [docs/PLANO.md](docs/PLANO.md).
+puros, sem build: editar e apertar F5 é o ciclo inteiro. Decisões e porquês em [docs/PLANO.md](docs/PLANO.md)
+e [docs/decisoes/](docs/decisoes/); para onde a estrutura vai, em [docs/ARQUITETURA.md](docs/ARQUITETURA.md). Como preparar a máquina e abrir um PR: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Este é o site unificado (10/11/2026): a estrutura do site completo com a identidade azul-noite e
 dourado e as funções que só existiam na versão em arquivo único (resumo no topo, revelação um a um,
 vídeo da tabela, envio das imagens num toque). A versão em arquivo único fica no histórico do git.
 
 ## Rodar
+
+Os atalhos do `package.json` fazem o mesmo que os comandos abaixo: `npm run dev`, `npm test`, `npm run build`.
 
 ```bash
 python serve.py                          # http://localhost:8780/   (?offline usa só a reserva, sem ESPN)

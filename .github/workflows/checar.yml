@@ -1,0 +1,27 @@
+# Confere cada PR antes do merge: testes do núcleo e do Milhão, build de publicação e sintaxe dos
+# scripts em Python. É o mesmo que o publicar.yml roda na main, só que antes, para o erro aparecer
+# no PR e não travar a publicação.
+name: Checar PR
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checar-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version-file: '.nvmrc' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: Testes (núcleo e Milhão)
+        run: npm test
+      - name: Build de publicação
+        run: node tools/build.js --release --site https://jeanchester.github.io/tapa-na-gaveta
+      - name: Sintaxe dos scripts em Python
+        run: python -m py_compile serve.py tools/*.py ferramentas/*.py ferramentas/video/*.py

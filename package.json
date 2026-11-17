@@ -1,0 +1,19 @@
+{
+  "name": "tapa-na-gaveta",
+  "private": true,
+  "description": "Site do Tapa na Gaveta: simulador do Brasileirão, escalação, jogos e estatísticas. Sem dependências: estes scripts são só atalhos.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "python3 serve.py",
+    "test": "node tools/testar-core.js && node tools/testar-milhao.js",
+    "build": "node tools/build.js",
+    "build:release": "node tools/build.js --release",
+    "calibrar": "node tools/calibrar.js",
+    "auditar": "python3 tools/auditar.py",
+    "capturas": "python3 tools/capturas.py site --pagina",
+    "dados": "python3 ferramentas/baixar_espn.py 2026 dados/brasileirao-2026.json && python3 ferramentas/baixar_espn.py --todas && node tools/elencos.js",
+    "og": "python3 tools/og.py"
+  }
+}

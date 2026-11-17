@@ -1,0 +1,6 @@
+# Ferramentas em Python (o site não precisa de nada disto).
+#   python3 -m pip install -r requirements.txt
+#   python3 -m playwright install chromium
+playwright>=1.40     # tools/capturas.py, tools/auditar.py, tools/og.py
+Pillow>=10           # tools/portar_draft.py (só quando o Football Draft muda)
+numpy>=1.24          # ferramentas/video/sincronia.py (vídeos do TikTok)
