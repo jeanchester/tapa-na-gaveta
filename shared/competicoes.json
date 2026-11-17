@@ -1,5 +1,5 @@
 {
-  "observacao": "Competições do simulador. 'id' vai na rota (#/simulador/<id>/<time>); a Série A é a padrão e não aparece na rota. 'meses' é o intervalo que o ferramentas/baixar_espn.py percorre na ESPN.",
+  "observacao": "Competições do simulador. 'id' vai na rota (#/simulador/<id>/<time>); a Série A é a padrão e não aparece na rota. 'meses' é o intervalo que o ferramentas/baixar_espn.py percorre na ESPN. 'fase_de_liga': só os times da tabela e no máximo 'max_jogos' jogos por time (a Champions tem qualificatórias antes e mata-mata depois). 'elo': guarda a força de cada time (ClubElo) para o modelo, porque cada time só joga 8 vezes.",
   "lista": [
     {
       "id": "seriea",
@@ -112,6 +112,25 @@
       "regras": "shared/regras-europa-18.json",
       "pais": "europa",
       "jogadores": "dados/estatisticas-jogadores-frances-2026.json"
+    },
+    {
+      "id": "champions",
+      "espn": "uefa.champions",
+      "temporada": 2026,
+      "meses": [
+        "2026-09",
+        "2027-01"
+      ],
+      "nome": "Champions League",
+      "curto": "Champions",
+      "rotulo": "Champions 2026/27",
+      "dados": "dados/champions-2026.json",
+      "regras": "shared/regras-champions.json",
+      "pais": "europa",
+      "jogadores": "dados/estatisticas-jogadores-champions-2026.json",
+      "fase_de_liga": true,
+      "max_jogos": 8,
+      "elo": true
     }
   ]
 }

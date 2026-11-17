@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: '0 9,21 * * *'          # 6h e 18h em Brasília
   workflow_dispatch:
+    inputs:
+      comp:
+        description: 'Só uma competição (id de shared/competicoes.json, ex.: champions). Vazio: todas.'
+        required: false
+        default: ''
 permissions:
   contents: write
 jobs:
@@ -16,13 +21,19 @@ jobs:
         with: { python-version: '3.11' }
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
+      - name: Só uma competição (pedida à mão)
+        if: inputs.comp != ''
+        run: python ferramentas/baixar_espn.py --comp "${{ inputs.comp }}"
       - name: Retrato do Brasileirão (ESPN)
+        if: inputs.comp == ''
         run: python ferramentas/baixar_espn.py 2026 dados/brasileirao-2026.json
-      - name: Outras competições (Série B e ligas europeias)
+      - name: Outras competições (Série B, ligas europeias e Champions)
+        if: inputs.comp == ''
         run: python ferramentas/baixar_espn.py --todas || echo "::warning::alguma competição não saiu (ver o log)"
       - name: Testes do núcleo com os dados novos
         run: node tools/testar-core.js || echo "::warning::testes do núcleo falharam com os dados novos (ver o log)"
       - name: Elencos (Você Escala às sextas; cruzamento com a ESPN todo dia)
+        if: inputs.comp == ''
         run: |
           if [ "$(date -u +%u)" = "5" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             curl -fsS -o dados/elencos.json https://raw.githubusercontent.com/jujubs333/futebol-elencos/main/data/elencos.json

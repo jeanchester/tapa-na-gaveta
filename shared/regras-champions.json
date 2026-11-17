@@ -1,0 +1,108 @@
+{
+  "competicao": "UEFA Champions League 2026/27 (fase de liga)",
+  "formato": "liga",
+  "pontos": {
+    "vitoria": 3,
+    "empate": 1,
+    "derrota": 0
+  },
+  "rodadas": 8,
+  "desempate": [
+    "pontos",
+    "saldo",
+    "gols_pro",
+    "gols_fora",
+    "vitorias",
+    "vitorias_fora",
+    "pontos_adversarios",
+    "saldo_adversarios",
+    "gols_adversarios",
+    "sorteio"
+  ],
+  "confronto_so_dois": false,
+  "primeiro": {
+    "nome": "1º lugar",
+    "curto": "1º",
+    "tag": "1º lugar",
+    "frase": "termina em 1º na fase de liga",
+    "verbo": [
+      "termina em 1º",
+      "não termina em 1º",
+      "1º lugar na fase de liga",
+      "1º lugar"
+    ]
+  },
+  "zonas": [
+    {
+      "id": "lib",
+      "nome": "Oitavas de final",
+      "curto": "Oitavas",
+      "de": 1,
+      "ate": 8,
+      "verbo": [
+        "vai direto às oitavas",
+        "fica fora do top 8",
+        "Direto nas oitavas (1º a 8º)",
+        "Top 8"
+      ],
+      "subst": "a vaga direta nas oitavas"
+    },
+    {
+      "id": "pre",
+      "nome": "Playoff do mata-mata",
+      "curto": "Playoff",
+      "de": 9,
+      "ate": 24,
+      "verbo": [
+        "segue no mata-mata",
+        "é eliminado",
+        "Mata-mata (1º a 24º)",
+        "Mata-mata"
+      ],
+      "subst": "a vaga no mata-mata"
+    },
+    {
+      "id": "rb",
+      "nome": "Eliminado",
+      "curto": "Fora",
+      "de": 25,
+      "ate": 36,
+      "verbo": [
+        "segue no mata-mata",
+        "é eliminado",
+        "Mata-mata (1º a 24º)",
+        "Mata-mata"
+      ],
+      "subst": "a vaga no mata-mata"
+    }
+  ],
+  "rotulo_grupo": "Também no top 8",
+  "rotulo_queda": ["Saem", "Eliminados", "Eliminado"],
+  "obs": "Fase de liga com 36 clubes e 8 jogos cada (não é todo mundo contra todo mundo). 1º ao 8º vão direto às oitavas; 9º ao 24º jogam o playoff de ida e volta (9º a 16º como cabeças de chave, decidindo em casa); 25º a 36º estão eliminados, sem vaga na Liga Europa. Desempate (art. 18 do regulamento 2026/27): saldo, gols, gols fora, vitórias, vitórias fora, pontos, saldo e gols dos adversários da fase de liga; depois cartões e coeficiente da UEFA, que a ESPN não informa (aqui viram sorteio).",
+  "fontes": [
+    "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-18-Equality-of-points-league-phase-Online"
+  ],
+  "colunas": [
+    {
+      "rotulo": "Top 8",
+      "zonas": [
+        "lib"
+      ],
+      "titulo": "1º ao 8º: direto nas oitavas"
+    },
+    {
+      "rotulo": "Playoff",
+      "zonas": [
+        "pre"
+      ],
+      "titulo": "9º ao 24º: playoff de ida e volta"
+    },
+    {
+      "rotulo": "Fora",
+      "zonas": [
+        "rb"
+      ],
+      "titulo": "25º ao 36º: eliminado"
+    }
+  ]
+}
