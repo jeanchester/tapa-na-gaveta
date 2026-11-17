@@ -1138,6 +1138,14 @@ select option, select optgroup { background-color: var(--surface); color: var(--
 .po-fora { margin: 10px 0 0; }
 .rs-fav { display: inline-flex; align-items: center; gap: 8px; margin-right: 10px; }
 .rs-fav b { font: 900 22px/1 var(--f-num); color: var(--gold); }
+/* celular comum (360 a 420 px): "Atlético-GO" não pode virar "Atlétic..." */
+@media (max-width: 420px) {
+  .po-cols, .po-time { grid-template-columns: 34px minmax(0, 1fr) 64px 54px; gap: 0 7px; }
+  .po-crest .crest { width: 34px; height: 34px; }
+  .po-nome b { font-size: 16.5px; letter-spacing: -.02em; }
+  .po-sobe { font-size: 25px; }
+  .po-dois { font-size: 17px; }
+}
 @media (max-width: 359px) {
   .po-cols, .po-time { grid-template-columns: 32px minmax(0, 1fr) 62px 54px; gap: 0 6px; }
   .po-crest .crest { width: 32px; height: 32px; }

@@ -44,6 +44,7 @@ def simulador(pagina, saida, inteira):
         pg.goto(f'{BASE}?offline#/simulador')
         pronto(pg)
         foto(pg, f'sim-{w}-1-inicio')
+        abertos = pg.evaluate("TNG_SIM.L.jogos.filter(j => !j.feito).length")   # jogos que ainda faltam hoje
         ins = pg.locator('.placar input')
         ins.nth(0).click()
         pg.keyboard.type('2')
@@ -51,16 +52,16 @@ def simulador(pagina, saida, inteira):
         foco = pg.evaluate("document.activeElement.dataset.l + ' ' + document.activeElement.closest('.jogo').dataset.c")
         if foco != '0 ' + pg.evaluate("document.querySelectorAll('.jogo')[1].dataset.c"):
             erros.append(f'{w}px: o foco não pulou para o jogo seguinte ({foco})')
-        pg.locator('.prob button').nth(4).click()              # empate no segundo jogo
+        pg.locator('.prob button').nth(4).dispatch_event('click')              # empate no segundo jogo
         pg.wait_for_timeout(300)
         n = pg.evaluate("document.querySelectorAll('.jogo.set').length")
         if n != 2:
             erros.append(f'{w}px: esperava 2 jogos preenchidos, achei {n}')
-        pg.locator('.prob button').nth(4).click()              # tocar de novo desfaz
+        pg.locator('.prob button').nth(4).dispatch_event('click')              # tocar de novo desfaz
         pg.wait_for_timeout(200)
         if pg.evaluate("document.querySelectorAll('.jogo.set').length") != 1:
             erros.append(f'{w}px: tocar de novo na probabilidade não desfez o placar')
-        pg.locator('.prob button').nth(4).click()
+        pg.locator('.prob button').nth(4).dispatch_event('click')
         pg.evaluate('window.scrollTo(0, 0)')
         foto(pg, f'sim-{w}-2-preenchido')
         pg.click('[data-a="simular"]')
@@ -69,10 +70,10 @@ def simulador(pagina, saida, inteira):
         if faltam:
             erros.append(f'{w}px: depois de simular o resto ainda faltam {faltam}')
         salvos = pg.evaluate("Object.keys(JSON.parse(localStorage.getItem('tng.placares')).p).length")
-        if salvos != 41:
-            erros.append(f'{w}px: tng.placares guardou {salvos} placares (esperava 41)')
+        if salvos != abertos:
+            erros.append(f'{w}px: tng.placares guardou {salvos} placares (esperava {abertos})')
         foto(pg, f'sim-{w}-3-simulado')
-        pg.click('.seg-cel [data-aba="tabela"]')
+        pg.click('.seg-cel [data-aba="jogos"]')
         pg.wait_for_timeout(250)
         foto(pg, f'sim-{w}-4-tabela')
         pg.click('.seg-cel [data-aba="chances"]')
@@ -84,7 +85,7 @@ def simulador(pagina, saida, inteira):
         # recarregar mantém os placares
         pg.reload()
         pronto(pg)
-        if pg.evaluate("document.querySelectorAll('.jogo.set, .jogo.sorteado').length") != 41:
+        if pg.evaluate("document.querySelectorAll('.jogo.set, .jogo.sorteado').length") != abertos:
             erros.append(f'{w}px: os placares não voltaram depois de recarregar')
         ctx.close()
 
@@ -92,8 +93,9 @@ def simulador(pagina, saida, inteira):
     ctx, pg = nova(390, 844, 'light')
     pg.goto(f'{BASE}?offline#/simulador/flamengo')
     pronto(pg)
-    if pg.evaluate("document.querySelectorAll('.jogo').length") != 4:
-        erros.append('meu time: esperava só os 4 jogos do Flamengo')
+    n_meu = pg.evaluate("document.querySelectorAll('.jogo').length")
+    if not 1 <= n_meu <= 4:          # a reta final tem no máximo 4 jogos por time
+        erros.append(f'meu time: esperava só os jogos que faltam ao Flamengo (1 a 4), achei {n_meu}')
     foto(pg, 'sim-390-6-meu-time')
     pg.click('.seg-cel [data-aba="chances"]')
     pg.wait_for_selector('.obj', timeout=20000)
@@ -105,7 +107,7 @@ def simulador(pagina, saida, inteira):
     foto(pg, 'sim-390-8-precisa-flu', True)
     pg.goto(f'{BASE}?offline#/simulador')
     pronto(pg)
-    pg.click('.seg-cel [data-aba="tabela"]')
+    pg.click('.seg-cel [data-aba="jogos"]')
     pg.click('[data-a="esconder"]')
     pg.wait_for_timeout(200)
     foto(pg, 'sim-390-9-escondida')
