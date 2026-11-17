@@ -45,12 +45,12 @@ const nomes = Object.keys(zonas);
 const r = C.rng(20261115), base = C.estatisticas(L, {}), s = base.map((x) => Object.assign({}, x)), sorteio = new Float64Array(L.n);
 const cont = {}; times.forEach((t) => { cont[t] = { z: nomes.map(() => 0), r: [0, 1, 2].map(() => ({ n: 0, z: nomes.map(() => 0) })) }; });
 for (let it = 0; it < N; it++) {
-  for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; delete x.criterio; sorteio[i] = r(); }
+  for (let i = 0; i < L.n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; x.gf = b.gf; x.vf = b.vf; delete x.criterio; sorteio[i] = r(); }
   const sim = {}, res = new Int8Array(livres.length);
   for (let k = 0; k < livres.length; k++) {
     const j = livres[k], p = C.amostrar(probs[k], r); sim[j.chave] = p;
-    const A = s[j.h], B = s[j.a]; A.j++; B.j++; A.gp += p[0]; A.gc += p[1]; B.gp += p[1]; B.gc += p[0];
-    if (p[0] > p[1]) { A.v++; B.d++; A.pts += 3; res[k] = 0; } else if (p[0] < p[1]) { B.v++; A.d++; B.pts += 3; res[k] = 2; } else { A.e++; B.e++; A.pts += 1; B.pts += 1; res[k] = 1; }
+    const A = s[j.h], B = s[j.a]; A.j++; B.j++; A.gp += p[0]; A.gc += p[1]; B.gp += p[1]; B.gc += p[0]; B.gf += p[1];
+    if (p[0] > p[1]) { A.v++; B.d++; A.pts += 3; res[k] = 0; } else if (p[0] < p[1]) { B.v++; B.vf++; A.d++; B.pts += 3; res[k] = 2; } else { A.e++; B.e++; A.pts += 1; B.pts += 1; res[k] = 1; }
   }
   const tab = C.ordenar(L, s, sim, sorteio), pos = {}; tab.forEach((x, q) => { pos[x.i] = q + 1; });
   times.forEach((t) => {

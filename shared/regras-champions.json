@@ -77,7 +77,11 @@
     }
   ],
   "rotulo_grupo": "Também no top 8",
-  "rotulo_queda": ["Saem", "Eliminados", "Eliminado"],
+  "rotulo_queda": [
+    "Saem",
+    "Eliminados",
+    "Eliminado"
+  ],
   "obs": "Fase de liga com 36 clubes e 8 jogos cada (não é todo mundo contra todo mundo). 1º ao 8º vão direto às oitavas; 9º ao 24º jogam o playoff de ida e volta (9º a 16º como cabeças de chave, decidindo em casa); 25º a 36º estão eliminados, sem vaga na Liga Europa. Desempate (art. 18 do regulamento 2026/27): saldo, gols, gols fora, vitórias, vitórias fora, pontos, saldo e gols dos adversários da fase de liga; depois cartões e coeficiente da UEFA, que a ESPN não informa (aqui viram sorteio).",
   "fontes": [
     "https://documents.uefa.com/r/Regulations-of-the-UEFA-Champions-League-2026/27/Article-18-Equality-of-points-league-phase-Online"
@@ -104,5 +108,10 @@
       ],
       "titulo": "25º ao 36º: eliminado"
     }
-  ]
+  ],
+  "modelo": {
+    "wPPG": 0,
+    "wForma": 0
+  },
+  "modelo_obs": "O Elo do ClubElo (dados/champions-2026.json) é a base da força de cada time; pontos por jogo e forma ficam desligados porque o Elo já os inclui. Conferido em 17/11/2026: Man City x Napoli 79/13/8 (com eles ligados, 86/10/4)."
 }

@@ -46,7 +46,12 @@
     const n = times.length;
     // chave estável: índice do par no calendário completo (mandante, visitante) por nome
     jogos.forEach((j) => { j.par = j.h * n + j.a; j.chave = times[j.h].slug + '-' + times[j.a].slug; });
-    const L = { times, idx, jogos, regras, n, temporada: liga.temporada, baixado: liga.baixado_em };
+    // adversários de cada time na competição (critérios de desempate da Champions)
+    const adversarios = times.map(() => []);
+    jogos.forEach((j) => { adversarios[j.h].push(j.a); adversarios[j.a].push(j.h); });
+    // força prévia (Elo do ClubElo), quando o retrato traz: ver modelo()
+    const elo = times.map((t) => { const o = liga.times.find((x) => String(x.id) === t.id); return o && o.elo ? +o.elo : null; });
+    const L = { times, idx, jogos, regras, n, temporada: liga.temporada, baixado: liga.baixado_em, adversarios, elo: elo.some((e) => e) ? elo : null };
     deduzirRodadas(L);
     return L;
   }
@@ -89,7 +94,7 @@
 
   function estatisticas(L, placares) {
     const P = L.regras.pontos;
-    const s = L.times.map((t) => ({ i: t.i, pts: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0 }));
+    const s = L.times.map((t) => ({ i: t.i, pts: 0, j: 0, v: 0, e: 0, d: 0, gp: 0, gc: 0, gf: 0, vf: 0 }));
     L.jogos.forEach((j) => {
       const p = placarDe(j, placares);
       if (!p) return;
@@ -98,9 +103,9 @@
     return s;
   }
   function somar(A, B, gh, ga, P) {
-    A.j++; B.j++; A.gp += gh; A.gc += ga; B.gp += ga; B.gc += gh;
+    A.j++; B.j++; A.gp += gh; A.gc += ga; B.gp += ga; B.gc += gh; B.gf += ga;   // gf/vf: gols e vitórias fora (Champions)
     if (gh > ga) { A.v++; B.d++; A.pts += P.vitoria; B.pts += P.derrota; }
-    else if (gh < ga) { B.v++; A.d++; B.pts += P.vitoria; A.pts += P.derrota; }
+    else if (gh < ga) { B.v++; B.vf++; A.d++; B.pts += P.vitoria; A.pts += P.derrota; }
     else { A.e++; B.e++; A.pts += P.empate; B.pts += P.empate; }
   }
 
@@ -120,7 +125,10 @@
   // ordena pelos critérios do regulamento. sorteio: chave por time (menor primeiro); sem ela,
   // ordem alfabética (estável para a tela; o Monte Carlo passa chaves sorteadas).
   // Critérios simples do regulamento (o resto, como cartões, a ESPN não informa: pula)
-  const CRIT = { pontos: (x) => x.pts, vitorias: (x) => x.v, saldo: (x) => x.gp - x.gc, gols_pro: (x) => x.gp, gols_fora: (x) => x.gf || 0 };
+  const CRIT = { pontos: (x) => x.pts, vitorias: (x) => x.v, saldo: (x) => x.gp - x.gc, gols_pro: (x) => x.gp, gols_fora: (x) => x.gf || 0, vitorias_fora: (x) => x.vf || 0 };
+  // Champions (fase de liga, sem todos contra todos): soma dos pontos, do saldo e dos gols dos adversários
+  // que cada time enfrentou (os 8 da fase de liga, jogados ou não), na tabela de agora
+  const CRIT_ADV = { pontos_adversarios: (o) => o.pts, saldo_adversarios: (o) => o.gp - o.gc, gols_adversarios: (o) => o.gp };
   const BRASIL = ['pontos', 'vitorias', 'saldo', 'gols_pro', 'confronto_direto'];
   // mini-tabela só com os jogos entre os clubes empatados: [pontos, saldo, gols] de cada um
   function miniTabela(L, placares, ids) {
@@ -164,7 +172,13 @@
   // direto vale para qualquer número de empatados (mini-tabela: pontos, saldo e gols entre eles),
   // a não ser que confronto_so_dois seja true.
   function ordenarGeral(L, s, placares, sorteio, lista) {
-    const crit = lista.filter((c) => CRIT[c] || c === 'confronto_direto');
+    const crit = lista.filter((c) => CRIT[c] || CRIT_ADV[c] || c === 'confronto_direto');
+    let porI = null;                                     // estatística de cada time pelo índice (critérios dos adversários)
+    const adv = (x, f) => {
+      if (!porI) { porI = []; s.forEach((y) => { porI[y.i] = y; }); }
+      let t = 0; (L.adversarios[x.i] || []).forEach((o) => { if (porI[o]) t += f(porI[o]); });
+      return t;
+    };
     const soDois = !!(L.regras && L.regras.confronto_so_dois);
     const sorteioDe = (x) => (sorteio ? sorteio[x.i] : x.i);
     const cmpVet = (a, b) => (b[0] - a[0]) || (b[1] - a[1]) || (b[2] - a[2]);
@@ -189,7 +203,7 @@
         }
         return out;
       }
-      const f = CRIT[c];
+      const f = CRIT[c] || ((x) => adv(x, CRIT_ADV[c]));
       const ord = xs.slice().sort((a, b) => f(b) - f(a));
       const out = [];
       for (let a = 0; a < ord.length;) {
@@ -277,12 +291,17 @@
   // recalibrado em 11/11/2026 com 289 jogos (Brier 0,6036; antes 0,6042; referência pelas
   // frequências da liga: 0,632). Testados e descartados por não melhorarem a previsão: reforço de
   // empates (empate) e peso menor para jogos antigos (meiaVida, em dias); ficam desligados.
-  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity, manterTotal: 1 };
+  const PARAMS_PADRAO = { k: 48, nForma: 5, wForma: 0.3, wPPG: 2.0, rho: -0.1, maxGols: 10, empate: 0, meiaVida: Infinity, manterTotal: 1, wElo: 0.22 };
+  // wElo (só quando o retrato traz o Elo de cada time, como na Champions, onde cada um joga só 8 vezes):
+  // 0,22 por 100 pontos de Elo faz a chance do modelo bater com a expectativa do Elo (100 pontos = 64%,
+  // 200 = 76%, conferido com a matriz de Poisson para 3 gols por jogo). Times sem Elo ficam com a média.
   // o usuário pode trocar a forma recente para os últimos 3 jogos (melhor peso para 3 jogos: 0,15)
   const PARAMS_FORMA3 = { nForma: 3, wForma: 0.15 };
 
   function modelo(L, params, ate) {
-    const P = Object.assign({}, PARAMS_PADRAO, params || {});
+    // regras.modelo: ajustes da competição (Champions: o Elo já carrega a campanha; pontos por jogo e
+    // forma em cima dele contavam a mesma coisa duas vezes e deixavam o favorito forte demais)
+    const P = Object.assign({}, PARAMS_PADRAO, (L.regras && L.regras.modelo) || {}, params || {});
     const n = L.n;
     const hf = new Float64Array(n), ha = new Float64Array(n), hn = new Float64Array(n);
     const af = new Float64Array(n), aa = new Float64Array(n), an = new Float64Array(n);
@@ -318,12 +337,17 @@
       formaRel[i] = ult.length ? (ult.reduce((a, b) => a + b, 0) / ult.length - ppg[i]) * (ult.length / P.nForma) : 0;
     }
     const cache = {};
+    let elo = null;
+    if (L.elo && P.wElo) {
+      const conh = L.elo.filter((e) => e), media = conh.reduce((x, y) => x + y, 0) / conh.length;
+      elo = L.elo.map((e) => e || media);
+    }
     function prob(h, a) {
       const ch = h * 1000 + a;
       if (cache[ch]) return cache[ch];
       let lh = mH * ataqueCasa[h] * defesaFora[a];
       let la = mA * ataqueFora[a] * defesaCasa[h];
-      const ajuste = P.wForma * (formaRel[h] - formaRel[a]) / 3 + P.wPPG * (ppg[h] - ppg[a]) / 3;
+      const ajuste = P.wForma * (formaRel[h] - formaRel[a]) / 3 + P.wPPG * (ppg[h] - ppg[a]) / 3 + (elo ? P.wElo * (elo[h] - elo[a]) / 100 : 0);
       const tot = lh + la;
       lh *= Math.exp(ajuste); la *= Math.exp(-ajuste);
       // o ajuste muda quem é favorito, não quantos gols o jogo tem (senão o favorito faz 7×0)
@@ -331,7 +355,7 @@
       cache[ch] = matriz(lh, la, P.rho, P.maxGols, P.empate);
       return cache[ch];
     }
-    return { prob, params: P, mH, mA, ppg, formaRel, nJogos: nJ };
+    return { prob, params: P, mH, mA, ppg, formaRel, nJogos: nJ, elo };
   }
 
   function poisson(l, k) { let p = Math.exp(-l); for (let i = 1; i <= k; i++) p *= l / i; return p; }
@@ -455,7 +479,7 @@
     let validas = 0;
     const condCont = condicao ? { sim: 0 } : null;
     for (let it = 0; it < N; it++) {
-      for (let i = 0; i < n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; delete x.criterio; sorteio[i] = r(); }
+      for (let i = 0; i < n; i++) { const b = base[i], x = s[i]; x.pts = b.pts; x.j = b.j; x.v = b.v; x.e = b.e; x.d = b.d; x.gp = b.gp; x.gc = b.gc; x.gf = b.gf; x.vf = b.vf; delete x.criterio; sorteio[i] = r(); }
       for (let g = 0; g < livres.length; g++) {
         const j = livres[g], p = amostrar(probs[g], r);
         sim[j.chave] = p;
@@ -607,12 +631,14 @@
   // ================================================================== "o que o meu time precisa"
   // Objetivos: título (1º), cada zona do regulamento e "fugir do rebaixamento".
   function objetivos(regras) {
-    const lista = [{ id: 'titulo', nome: 'Título', de: 1, ate: 1, bom: true }];
+    const lista = [{ id: 'titulo', nome: (regras.primeiro && regras.primeiro.nome) || 'Título', de: 1, ate: 1, bom: true }];
     regras.zonas.forEach((z) => {
-      if (z.id === 'rb') lista.push({ id: 'escapar', nome: 'Escapar do rebaixamento', de: 1, ate: z.de - 1, bom: true });
+      if (z.id === 'rb') lista.push({ id: 'escapar', nome: z.id === 'rb' && regras.primeiro ? 'Seguir no mata-mata' : 'Escapar do rebaixamento', de: 1, ate: z.de - 1, bom: true });
       else lista.push({ id: z.id, nome: z.nome, de: 1, ate: z.ate, bom: true });
     });
-    return lista;
+    // duas faixas com o mesmo corte (Champions: o playoff vai até o 24º e a eliminação começa no 25º):
+    // fica uma só, a de "escapar"
+    return lista.filter((o, k) => !lista.some((q, m) => m > k && q.ate === o.ate && q.de === o.de));
   }
 
   // Situação matemática pelos pontos (critérios de desempate tratados com folga):
@@ -661,7 +687,7 @@
     const P = L.regras.pontos;
     const s = s0.map((x) => Object.assign({}, x));
     for (let c = 0; c < total; c++) {
-      for (let i = 0; i < L.n; i++) { const b = s0[i], x = s[i]; x.pts = b.pts; x.v = b.v; x.e = b.e; x.d = b.d; x.j = b.j; x.gp = b.gp; x.gc = b.gc; }
+      for (let i = 0; i < L.n; i++) { const b = s0[i], x = s[i]; x.pts = b.pts; x.v = b.v; x.e = b.e; x.d = b.d; x.j = b.j; x.gp = b.gp; x.gc = b.gc; x.gf = b.gf; x.vf = b.vf; }
       let q = c;
       for (let g = 0; g < k; g++) {
         const res = q % 3; q = (q - res) / 3;

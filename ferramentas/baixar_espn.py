@@ -327,17 +327,17 @@ def elencos_espn(times, LIGA='bra.1'):
 # time só joga 8 vezes, pouco para o modelo medir ataque e defesa: o Elo entra como ponto de partida.
 # Nomes da ESPN (sem acento, minúsculo) -> nome no ClubElo, quando a comparação simples não acha.
 NOMES_ELO = {
-    'paris saint-germain': 'paris sg', 'bayern munich': 'bayern', 'borussia dortmund': 'dortmund',
-    'manchester city': 'man city', 'manchester united': 'man united', 'internazionale': 'inter', 'inter milan': 'inter',
+    'paris saint-germain': 'paris sg', 'bayern munich': 'bayern munchen', 'borussia dortmund': 'dortmund',
+    'manchester city': 'man city', 'manchester united': 'man united', 'inter milan': 'internazionale',
     'atletico madrid': 'atletico', 'real betis': 'betis', 'club brugge': 'brugge', 'sporting cp': 'sporting',
     'psv eindhoven': 'psv', 'bayer leverkusen': 'leverkusen', 'slavia prague': 'slavia praha', 'slavia praha': 'slavia praha',
-    'bodo/glimt': 'bodoe/glimt', 'fk bodo/glimt': 'bodoe/glimt', 'aek athens': 'aek', 'shakhtar donetsk': 'shakhtar',
+    'bodo/glimt': 'bodø/glimt', 'fk bodo/glimt': 'bodø/glimt', 'aek athens': 'aek', 'shakhtar donetsk': 'shakhtar',
     'union st.-gilloise': 'st gillis', 'union saint-gilloise': 'st gillis', 'royale union saint-gilloise': 'st gillis',
     'as roma': 'roma', 'ac milan': 'milan', 'ssc napoli': 'napoli', 'eintracht frankfurt': 'frankfurt',
     'tottenham hotspur': 'tottenham', 'newcastle united': 'newcastle', 'olympique de marseille': 'marseille',
     'olympique lyonnais': 'lyon', 'as monaco': 'monaco', 'losc lille': 'lille', 'rc lens': 'lens', 'vfb stuttgart': 'stuttgart',
-    'red bull salzburg': 'salzburg', 'fc copenhagen': 'fc kobenhavn', 'sabah fk': 'sabah', 'viking fk': 'viking',
-    'lask linz': 'lask', 'slovan bratislava': 'slovan bratislava', 'fenerbahce': 'fenerbahce', 'qarabag': 'karabakh agdam',
+    'red bull salzburg': 'salzburg', 'fc copenhagen': 'fc kobenhavn', 'viking fk': 'viking',
+    'lask linz': 'lask', 'slovan bratislava': 'slovan', 'fenerbahce': 'fenerbahce', 'qarabag': 'karabakh agdam',
     'nottingham forest': 'forest', 'crvena zvezda': 'crvena zvezda', 'red star belgrade': 'crvena zvezda', 'celtic': 'celtic',
     'olympiacos': 'olympiakos', 'ajax amsterdam': 'ajax', 'villarreal': 'villarreal', 'athletic club': 'bilbao',
     'galatasaray': 'galatasaray', 'benfica': 'benfica', 'fc porto': 'porto', 'porto': 'porto', 'feyenoord rotterdam': 'feyenoord',
