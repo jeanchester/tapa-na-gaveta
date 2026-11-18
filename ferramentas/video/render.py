@@ -55,6 +55,11 @@ def variantes(nome):
     return vs
 
 
+def fps_saida(fps, meta):
+    vel = (meta or {}).get('velocidade') or 1
+    return int(round(fps * vel)) if vel != 1 else fps
+
+
 def animar(nome, saida, fps, guia, variante=None, base=None):
     """Gera animacao.mp4 e os WAV. Se a variante só muda o vídeo (legenda, fator...), copia a animação da base."""
     from playwright.sync_api import sync_playwright
@@ -71,6 +76,9 @@ def animar(nome, saida, fps, guia, variante=None, base=None):
                 shutil.copy(base / f, saida / f)
             print('animação igual à da versão base: reaproveitada de', base)
             return dur, inicio, cortes, meta
+        # com velocidade, o vídeo sai a fps × velocidade (1,1× → 33 fps): cada quadro da câmera aparece uma vez, sem
+        # descartar quadros (descartar 1 a cada 11 fazia a boca "pular" e parecer descasada da voz)
+        fps = fps_saida(fps, meta)
         n = int(round(dur * fps))
         ff = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'image2pipe', '-framerate', str(fps), '-c:v', 'mjpeg', '-i', '-',
                                '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '16', '-pix_fmt', 'yuv420p', '-r', str(fps), str(arq)],
@@ -175,7 +183,7 @@ def hdr(camera):
 
 
 def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=(), legenda=None,
-           vel=1.0, ducking=True):
+           vel=1.0, ducking=True, fps_out=None):
     final = saida / f'{nome}.mp4'
     tem_audio = bool(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', str(camera)],
                                     capture_output=True, text=True).stdout.strip())
@@ -201,7 +209,8 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     base_a = f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}'
     mix = []
     # velocidade (roteiro "velocidade: 1.1"): acelera imagem e voz juntas, depois dos cortes; atempo não muda o tom
-    acel_v = f',setpts=PTS/{vel},fps={fps}' if vel != 1 else ''
+    fps_out = fps_out or fps
+    acel_v = f',setpts=N/({fps_out}*TB)' if vel != 1 else ''      # quadro a quadro: 30 fps da gravação → 33 fps a 1,1×
     acel_a = f',atempo={vel}' if vel != 1 else ''
     if cortes:
         # cortes no meio da fala: cada trecho mantido sai junto em som e imagem (limites no quadro exato,
@@ -250,7 +259,7 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
     filtro += ''.join(mix) + f'amix=inputs={len(mix)}:normalize=0:duration=longest,alimiter=limit=0.95[a]'
     run(['ffmpeg', '-y', '-loglevel', 'error', '-i', saida / 'animacao.mp4', '-ss', f'{inicio:.3f}', '-i', camera,
          '-i', saida / 'efeitos.wav', '-i', saida / 'trilha.wav', '-filter_complex', filtro, '-map', '[v]', '-map', '[a]',
-         '-t', f'{dur:.3f}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-r', str(fps),
+         '-t', f'{dur:.3f}', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '18', '-r', str(fps_out),
          '-colorspace', 'bt709', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-color_range', 'tv',
          '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', final])
     return final
@@ -282,7 +291,8 @@ def gerar(a, variante):
         print('animação pronta:', saida / 'animacao.mp4')
         return
     final = montar(saida, pasta, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha,
-                   a.camera_zoom, a.camera_y, cortes, legenda, vel=meta.get('velocidade') or 1, ducking=not a.sem_ducking)
+                   a.camera_zoom, a.camera_y, cortes, legenda, vel=meta.get('velocidade') or 1, ducking=not a.sem_ducking,
+                   fps_out=fps_saida(a.fps, meta))
     info = json.loads((saida / 'info.json').read_text())
     info.update(camera_zoom=a.camera_zoom, camera_y=a.camera_y, inicio=inicio)
     (saida / 'info.json').write_text(json.dumps(info, ensure_ascii=False))

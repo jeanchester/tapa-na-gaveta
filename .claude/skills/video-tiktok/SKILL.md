@@ -120,9 +120,14 @@ começo ao fim.** Na prática:
 5. **Manchete:** quando a pessoa diz na gravação qual é a manchete ("a manchete tem que ser..."), ela vira o
    título da abertura e a instrução sai do vídeo.
 
+Quadros com velocidade: o vídeo sai a fps × velocidade (1,1× → **33 fps**), e cada quadro da gravação aparece uma
+vez. A primeira versão saía a 30 fps e descartava 1 quadro a cada 11: a boca dava pulinhos e a imagem ficava ~45 ms
+à frente da voz. O Jean percebeu o descasamento no celular mesmo depois de corrigir só o atraso médio. A animação de
+cima também é gerada a 33 fps.
+
 Sincronia com cortes e velocidade: o render confere sozinho no fim (`sincronia.conferir`) e corrige a voz se o
-descasamento passar de 20 ms. O primeiro vídeo a 1,1× (Flamengo, 18/11) saiu com a voz ~45 ms atrasada e o Jean
-percebeu no celular: com velocidade, 40 ms já não é "bom o bastante". Veja a seção 7.
+descasamento passar de 20 ms. Com velocidade, a meta é a mediana até 15 ms e os pontos variando pouco entre si
+(veja a seção 7).
 
 ## O que copiar do estilo do Isake
 
