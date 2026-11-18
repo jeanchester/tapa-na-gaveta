@@ -14,7 +14,11 @@
       imagens[src] = new Promise((ok) => {
         const im = new Image();
         im.onload = () => ok(im);
-        im.onerror = () => ok(null);                  // escudo que não carrega: desenha sem ele
+        im.onerror = () => {
+          // escudo em alta ausente: tenta o de 128 px; o que não carrega é desenhado sem escudo
+          if (/escudos\/hd\//.test(im.src) && !im.dataset.png) { im.dataset.png = '1'; im.src = src.replace('/hd/', '/').replace(/\.webp$/, '.png'); return; }
+          ok(null);
+        };
         im.src = src;
       });
     }

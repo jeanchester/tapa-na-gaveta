@@ -5,11 +5,11 @@
   const { esc, app, playUrl, ICON } = window.TNG;
 
   const JOGOS = [
-    { rota: 'draft', app: 'football-draft', soApp: true, nome: 'Football Draft', src: 'jogos/draft/app/index.html', meta: 'Draft · campanha de 8 a 10 jogos',
+    { rota: 'draft', app: 'football-draft', soApp: true, nome: 'Football Draft', src: 'jogos/draft/app/index.html', meta: 'Draft, campanha de 8 a 10 jogos',
       texto: 'Sorteie times de várias épocas, pegue um jogador de cada um até fechar o seu XI e tente a campanha perfeita, assistindo a cada partida no campinho.' },
-    { rota: 'milhao', app: 'milhao-do-futebol', soApp: true, nome: 'Jogo do Milhão do Futebol', src: 'jogos/milhao/index.html', meta: 'Quiz · 16 perguntas · 45 segundos cada',
+    { rota: 'milhao', app: 'milhao-do-futebol', soApp: true, nome: 'Jogo do Milhão do Futebol', src: 'jogos/milhao/index.html', meta: 'Quiz, 16 perguntas, 45 segundos cada',
       texto: 'De R$ 1 mil a R$ 1 milhão, com quatro ajudas: Cartões, VAR, Torcida e Driblar. Mais de mil perguntas sobre o Brasileirão, a Europa e as Copas, e um modo só com escudos.' },
-    { rota: 'fast', app: 'fast-football', soApp: true, nome: 'Fast Football', src: 'jogos/fast/index.html', meta: 'Arcade · partida avulsa ou mata-mata de 16 times',
+    { rota: 'fast', app: 'fast-football', soApp: true, nome: 'Fast Football', src: 'jogos/fast/index.html', meta: 'Arcade, partida avulsa ou mata-mata de 16 times',
       texto: 'Partida relâmpago numa arena redonda: a bola quica, os goleiros se mexem e você gira a barra do meio para defender e atacar. Se preferir, só assista e torça.' },
   ];
 

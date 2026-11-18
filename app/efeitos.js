@@ -1,9 +1,8 @@
 /* Efeitos de movimento do site (sem dependências).
-   - campo de pontos animado atrás do topo do simulador (canvas 2D, meio-campo e áreas desenhados
-     com pontos mais fortes, uma onda lenta passando e o cursor afastando os pontos)
+   - campo de pontos atrás do topo do simulador (canvas 2D, meio-campo e áreas desenhados com pontos
+     mais fortes); parado, só se mexe quando o cursor passa e afasta os pontos
    - topo que encolhe e ganha vidro ao rolar
    - blocos que sobem suavemente quando entram na tela
-   - brilho que acompanha o cursor nos cartões dos jogos
    - números de destaque que contam quando aparecem
    Tudo desliga com prefers-reduced-motion: a página fica igual, só parada. */
 (function () {
@@ -73,18 +72,17 @@
       for (let y = PASSO / 2; y < H; y += PASSO) {
         for (let x = PASSO / 2; x < W; x += PASSO) {
           const u = x / W, v = y / H;
-          pontos.push({ x, y, l: naLinha(u, v, asp), s: (x * 7 + y * 13) % 97 });
+          pontos.push({ x, y, l: naLinha(u, v, asp) });
         }
       }
       desenhar(performance.now());
     }
     function desenhar(t) {
       ctx.clearRect(0, 0, W, H);
-      const tt = t / 1000;
       for (let i = 0; i < pontos.length; i++) {
         const p = pontos[i];
-        // onda lenta que atravessa o campo na diagonal
-        const onda = 0.5 + 0.5 * Math.sin(p.x * 0.012 + p.y * 0.006 - tt * 1.1);
+        // campo parado: o movimento só existe quando responde ao cursor
+        const onda = 0.5;
         let r = p.l ? 1.5 + onda * 0.9 : 0.6 + onda * 0.75;
         let dx = 0, dy = 0;
         const mx = p.x - mouse.x, my = p.y - mouse.y, d2 = mx * mx + my * my;
@@ -92,14 +90,13 @@
           const f = 1 - Math.sqrt(d2) / 120;
           dx = mx * f * 0.22; dy = my * f * 0.22; r += f * 1.4;
         }
-        const ouro = p.l && p.s < 9;              // alguns pontos das linhas em dourado
-        ctx.fillStyle = ouro ? 'rgba(255,194,61,' + (0.35 + onda * 0.45) + ')' : 'rgba(174,184,218,' + (p.l ? 0.28 + onda * 0.3 : 0.07 + onda * 0.12) + ')';
+        ctx.fillStyle = 'rgba(174,184,218,' + (p.l ? 0.28 + onda * 0.3 : 0.07 + onda * 0.12) + ')';
         ctx.beginPath(); ctx.arc(p.x + dx, p.y + dy, r, 0, 6.2832); ctx.fill();
       }
     }
     function quadro(t) {
       raf = 0;
-      if (!visivel || document.hidden || parado() || !host.isConnected) return;
+      if (!visivel || document.hidden || parado() || !host.isConnected || mouse.x < -999) return;
       if (t - ultimo > 33) { ultimo = t; desenhar(t); }          // ~30 quadros por segundo bastam
       raf = requestAnimationFrame(quadro);
     }
@@ -107,8 +104,8 @@
     new ResizeObserver(medir).observe(host);
     new IntersectionObserver((es) => { visivel = es[0].isIntersecting; if (visivel) ligar(); }).observe(host);
     document.addEventListener('visibilitychange', ligar);
-    host.addEventListener('pointermove', (e) => { const r = host.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; if (parado()) desenhar(0); });
-    host.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; if (parado()) desenhar(0); });
+    host.addEventListener('pointermove', (e) => { if (e.pointerType !== 'mouse') return; const r = host.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; if (parado()) desenhar(0); else ligar(); });
+    host.addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; desenhar(0); });
     medir();
     ligar();
   }
@@ -156,16 +153,6 @@
     };
     requestAnimationFrame(passo);
   }
-
-  // ---------------------------------------------------------------- brilho que segue o cursor
-  document.addEventListener('pointermove', (e) => {
-    if (e.pointerType !== 'mouse') return;
-    const c = e.target.closest && e.target.closest('.jogo, .jogo-card, .btn.primario');
-    if (!c) return;
-    const r = c.getBoundingClientRect();
-    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  }, { passive: true });
 
   // ---------------------------------------------------------------- liga tudo a cada tela nova
   function aplicar() {

@@ -232,7 +232,7 @@
       '<div class="foot-linha"><nav class="foot-inst" aria-label="Sobre o site">' + (ARTIFACT ? '' : '<a href="brasileirao-2026/">Brasileirão 2026</a>') + '<a href="analises/">Análises</a>' + INSTITUCIONAL.map(([id, n]) => '<a href="#/' + id + '">' + n + '</a>').join('') + '</nav>' +
       '<div class="foot-apps" aria-label="Nossos apps">' + APPS.map((a) =>
         '<a href="' + esc(playUrl(a.pacote, aba)) + '" target="_blank" rel="noopener" title="' + esc(a.nome) + ' na Google Play" aria-label="' + esc(a.nome) + ' na Google Play"><img src="midia/icones/' + a.id + '.png" alt="" width="36" height="36" loading="lazy"></a>').join('') + '</div></div>' +
-      '<div class="foot-base"><p>Tapa na Gaveta · Resultados e calendário: ESPN (dados não oficiais). As probabilidades são calculadas pelo site e não são palpites de aposta.</p>' +
+      '<div class="foot-base"><p>Tapa na Gaveta. Resultados e calendário: ESPN (dados não oficiais). As probabilidades são calculadas pelo site e não são palpites de aposta.</p>' +
       '<div class="tema-sel" role="group" aria-label="Tema">' + op('auto', 'Automático') + op('light', 'Claro') + op('dark', 'Escuro') + '</div></div></div>';
   }
 
@@ -350,6 +350,8 @@
   document.addEventListener('error', (e) => {
     const im = e.target;
     if (!im || im.tagName !== 'IMG' || !/midia\/escudos\//.test(im.getAttribute('src') || '') || im.dataset.semEscudo) return;
+    // escudo em alta que ainda não existe para esse time: cai para o de 128 px
+    if (/escudos\/hd\//.test(im.getAttribute('src'))) { im.src = im.getAttribute('src').replace('/hd/', '/').replace(/\.webp(\?.*)?$/, '.png'); return; }
     // 1ª falha: o navegador pode ter guardado um erro antigo; pede de novo, sem cache
     if (!im.dataset.tentou) { im.dataset.tentou = '1'; im.src = im.getAttribute('src').replace(/\?.*$/, '') + '?r=' + Date.now(); return; }
     im.dataset.semEscudo = '1';

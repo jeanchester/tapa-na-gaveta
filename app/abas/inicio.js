@@ -17,7 +17,7 @@
     descricao: 'Simule os jogos que faltam do Brasileirão 2026, veja as chances de título, Libertadores e rebaixamento do seu time e compartilhe a tabela final.',
     render(view) {
       view.innerHTML =
-        '<section class="sim-topo ini-topo"><div class="page-head"><div class="kicker">Brasileirão 2026 · reta final</div>' +
+        '<section class="sim-topo ini-topo"><div class="page-head"><div class="kicker">Reta final do Brasileirão 2026</div>' +
         '<h1>A tabela do jeito que você acha que vai terminar</h1>' +
         '<div class="ini-cta"><a class="btn primario" href="#/simulador">Simular agora' + SETA + '</a><a class="link-btn claro" href="#/modelo">Como funciona</a></div></div></section>' +
         '<div class="sec-title"><h2>Simule pelo seu time</h2></div>' +
@@ -25,7 +25,7 @@
           '<a href="#/simulador/' + slug + '" aria-label="Simulador ' + esc(n) + '"><img src="midia/escudos/' + slug + '.png" alt="" width="40" height="40" loading="lazy"><span>' + esc(n.replace(/^d[oa] /, '')) + '</span></a>').join('') + '</div>' +
         '<div class="sec-title"><h2>O que tem aqui</h2></div>' +
         '<ul class="ini-secoes">' + SECOES.map((s) =>
-          '<li><a href="#/' + s.id + '"><span class="ini-n">' + s.n + '</span><b>' + s.t + '</b><p>' + s.p + '</p>' + SETA + '</a></li>').join('') + '</ul>' +
+          '<li><a href="#/' + s.id + '"><b>' + s.t + '</b><p>' + s.p + '</p>' + SETA + '</a></li>').join('') + '</ul>' +
         '<section class="ini-sobre"><div class="ini-sobre-in"><div class="kicker">Quem somos</div>' +
         '<h2>Seis amigos, uma calculadora e muita reta final</h2>' +
         '<p>Somos seis amigos, engenheiros civis formados na USP. A gente passava as últimas rodadas fazendo conta no guardanapo: quantos pontos faltam, quem pega quem, o que precisa acontecer. Montamos o simulador que queríamos usar, com dados atualizados todo dia e um modelo de probabilidades aberto.</p>' +

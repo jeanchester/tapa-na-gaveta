@@ -113,7 +113,7 @@
     let xs = C.jogadores.filter((x) => timeDe(x));
     if (vj.time) xs = xs.filter((x) => timeDe(x).slug === vj.time);
     const quando = (p) => p ? 'contra ' + esc(p.contra || '?') + ', ' + esc(new Date(p.data).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', timeZone: 'America/Sao_Paulo' })) : '';
-    const linha = (x, dir) => { const t = timeDe(x); return '<li>' + crest(t) + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(nome(t)) + (dir ? ' · ' + dir : '') + '</small></span>' + T.cartoes(x) + '</li>'; };
+    const linha = (x, dir) => { const t = timeDe(x); return '<li>' + crest(t) + '<span class="rk-nome"><b>' + esc(x.nome) + '</b><small>' + esc(nome(t)) + (dir ? ', ' + dir : '') + '</small></span>' + T.cartoes(x) + '</li>'; };
     const susp = xs.filter((x) => x.suspenso), pend = xs.filter((x) => x.pendurado);
     let html = '';
     if (C.limite_amarelos) {
@@ -135,7 +135,7 @@
     L.times.forEach((t) => { porEscudo[t.escudo] = t; });
     const linha = (x) => { const t = porEscudo[x.escudo]; return '<li><span class="bp-pos">' + esc(x.posicao) + '</span>' + (t ? crest(t) : '') + '<b>' + esc(x.nome) + '</b><small>' + esc(t ? nome(t) : (x.clube || '')) + '</small></li>'; };
     const ouro = B.bola_de_ouro;
-    return '<div class="sec-title"><h2>Bola de Prata</h2><small>seleção provisória' + (B.apos_rodada ? ' após a ' + B.apos_rodada + 'ª rodada' : '') + ' · ESPN</small></div>' +
+    return '<div class="sec-title"><h2>Bola de Prata</h2><small>seleção provisória' + (B.apos_rodada ? ' após a ' + B.apos_rodada + 'ª rodada' : '') + ', ESPN</small></div>' +
       (ouro ? '<div class="bp-ouro">' + (porEscudo[ouro.escudo] ? crest(porEscudo[ouro.escudo]) : '') + '<div><small>Bola de Ouro (líder)</small><b>' + esc(ouro.nome) + '</b>' + (ouro.media ? '<span>nota média ' + esc(String(ouro.media).replace('.', ',')) + '</span>' : '') + '</div></div>' : '') +
       '<ul class="bp-lista">' + B.selecao.map(linha).join('') + (B.tecnico ? linha(Object.assign({ posicao: 'Técnico' }, B.tecnico)) : '') + '</ul>' +
       (B.fonte ? '<p class="nota">Fonte: <a href="' + esc(B.fonte) + '" target="_blank" rel="noopener">Prêmio ESPN Bola de Prata</a></p>' : '');
@@ -155,7 +155,7 @@
       vj.time = ''; vj.todos = {};
       return Promise.all([dados(comp), J, BP]).then(([L, jog, bp]) => {
         document.title = 'Estatísticas · ' + comp.rotulo + ' · Tapa na Gaveta';
-        const chips = cs.length > 1 ? '<nav class="comp-sel claro" aria-label="Competição">' + cs.map((c) => '<a href="#/estatisticas' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === comp.id ? ' aria-current="page"' : '') + '>' + esc(c.curto) + window.TNG.bandeira(c.id) + '</a>').join('') + '</nav>' : '';
+        const chips = cs.length > 1 ? '<nav class="comp-sel claro" aria-label="Competição">' + cs.map((c) => '<a href="#/estatisticas' + (c.id === 'seriea' ? '' : '/' + c.id) + '"' + (c.id === comp.id ? ' aria-current="page"' : '') + '>' + window.TNG.bandeira(c.id) + esc(c.curto) + '</a>').join('') + '</nav>' : '';
         const rotaSim = '#/simulador' + (ehA ? '' : '/' + comp.id);
         const E = calcular(L);
         const casaFora = E.s.slice().sort((a, b) => (b.casa.pts / Math.max(1, b.casa.j)) - (a.casa.pts / Math.max(1, a.casa.j)));
@@ -166,7 +166,7 @@
         const maxAt = Math.max.apply(null, E.s.map((x) => x.total.gp / x.total.j)), maxDf = Math.max.apply(null, E.s.map((x) => x.total.gc / x.total.j));
         const F = { V: 'vitória', E: 'empate', D: 'derrota' };
         view.innerHTML =
-          '<div class="page-head">' + chips + '<div class="kicker">' + esc(ehA ? 'Brasileirão 2026 · Série A' : comp.rotulo) + '</div><h1>Estatísticas</h1>' +
+          '<div class="page-head">' + chips + '<h1>Estatísticas</h1>' +
           '<p>' + E.n + ' jogos disputados. Tudo calculado a partir dos resultados, os mesmos do simulador.</p></div>' +
           '<div class="destaques">' +
           '<div class="dq"><b class="num">' + dec(E.gols / E.n) + '</b><span>gols por jogo</span></div>' +

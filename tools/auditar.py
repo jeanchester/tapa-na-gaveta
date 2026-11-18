@@ -12,7 +12,11 @@ O que confere, em 390 px (celular) e 1280 px (computador):
     igual às zonas, tabela de chances com o total certo por coluna;
   - navegação: cada aba, cada visual, cada competição, cada time (rota própria), cada link do topo e do
     rodapé, voltar do navegador, link de cenário, compartilhar (imagens geradas não podem sair em branco),
-    revelação da tabela, preencher e sortear placares.
+    revelação da tabela, preencher e sortear placares;
+  - acabamento (docs/CRAFT.md): o primeiro jogo do simulador inteiro na primeira tela do celular, com e
+    sem time escolhido; CSS sem `transition: all`, sem `ease-in`, sem `scale(0)`, com no máximo três raios
+    (fora a pílula, círculos e ícones de app) e sem degradê decorativo novo; o mesmo nome para "simular o
+    que falta" no celular e no computador.
 Os defeitos entram no relatório com a rota, o tamanho da tela e o que foi visto. As "ideias" são
 observações que não quebram nada, mas valem uma olhada.
 """
@@ -119,6 +123,57 @@ def layout(pg, onde, larg):
         ideia(onde, f'alvos de toque pequenos (<30 px): {sorted(set(pequenos))[:6]}')
 
 
+def craft_css():
+    """Conferências de acabamento que dá para medir lendo o CSS."""
+    import re
+    css = open(os.path.join(RAIZ, 'app', 'app.css'), encoding='utf-8').read()
+    sem_coment = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    if re.search(r'transition:\s*all\b', sem_coment):
+        ruim('acabamento', 'CSS com `transition: all` (diga as propriedades)')
+    if re.search(r'\bease-in\b(?!-out)', sem_coment):
+        ruim('acabamento', 'CSS com `ease-in` em interface (use var(--ease-out))')
+    if re.search(r'scale\(0\)', sem_coment):
+        ruim('acabamento', 'CSS com `scale(0)` (nada surge do nada: comece em .95)')
+    raios = set()
+    for linha in sem_coment.split('\n'):
+        if re.search(r'\.(ficha img|so-app img|app img)|\.bdr|\.confete', linha):
+            continue          # ícones de app imitam o formato do sistema; bandeiras e confete são desenho
+        for r in re.findall(r'border-radius:\s*([^;}]+)', linha):
+            r = r.strip()
+            if r in ('50%', '999px', 'inherit', '0') or r.startswith('var(--r') or r.startswith('calc(var(--r'):
+                continue
+            raios.add(r)
+    if raios:
+        ruim('acabamento', 'raios fora da escala (--r-sm, --r, --r-lg, pílula): ' + ', '.join(sorted(raios)))
+    degrades = [l.strip()[:80] for l in sem_coment.split('\n') if re.search(r'(?<!repeating-)linear-gradient\(\s*\d+deg[^)]*transparent \d+%', l)]
+    if degrades:
+        ruim('acabamento', f'degradê decorativo: {degrades[0]}')
+
+
+def craft_tela(pg, larg, alt):
+    """Primeira tela do celular: o primeiro jogo cabe inteiro, sem rolar (com e sem time)."""
+    if larg > 500:
+        return
+    for rota in ('#/simulador', '#/simulador/corinthians', '#/simulador/premier'):
+        if not abrir(pg, rota, f'acabamento {rota}'):
+            continue
+        fundo = pg.evaluate("(() => { const j = document.querySelector('.jogo'); return j ? Math.round(j.getBoundingClientRect().bottom) : null; })()")
+        if fundo is not None and fundo > alt:
+            ruim(f'acabamento {rota} {larg}px', f'o primeiro jogo termina em {fundo} px, abaixo da primeira tela ({alt} px)')
+
+
+def craft_rotulos(pg):
+    """O mesmo botão diz a mesma coisa no celular e no computador."""
+    vistos = {}
+    for larg in (390, 1280):
+        pg.set_viewport_size({'width': larg, 'height': 844})
+        if not abrir(pg, '#/simulador', f'acabamento rótulos {larg}px'):
+            return
+        vistos[larg] = pg.evaluate("[...document.querySelectorAll('[data-a=\"simular\"]')].filter(b => b.offsetParent).map(b => b.textContent.trim())[0] || ''")
+    if vistos.get(390) and vistos.get(1280) and vistos[390] != vistos[1280]:
+        ruim('acabamento', f'"simular" com nomes diferentes: "{vistos[390]}" no celular e "{vistos[1280]}" no computador')
+
+
 def regras_ok(comp, regras, n):
     """Zonas do regulamento: sem buraco no meio do bloco, sem sobreposição e batendo com as colunas."""
     onde = f'regras {comp["id"]}'
@@ -190,6 +245,11 @@ def simulador(pg, comp, larg, times):
             pg.wait_for_timeout(700)
             layout(pg, f'{onde} aba {aba}', larg)
     for v in ('lista', 'cartoes', 'lado'):
+        # no celular a escolha de visual fica no menu "mais opções"
+        mais = pg.query_selector('[data-a="mais"]')
+        if mais and mais.is_visible():
+            mais.click()
+            pg.wait_for_timeout(250)
         b = pg.query_selector(f'[data-vis="{v}"]')
         if b and b.is_visible():
             b.click()
@@ -221,7 +281,7 @@ def simulador(pg, comp, larg, times):
     pg.evaluate("[...document.querySelectorAll('button[data-aba=\"jogos\"]')].filter(b => b.offsetParent)[0]?.click()")
     pg.wait_for_timeout(300)
     if pg.query_selector('[data-vis="cartoes"]'):
-        pg.click('[data-vis="cartoes"]')
+        clicar(pg, '[data-vis="cartoes"]')
         pg.wait_for_timeout(300)
     if pg.query_selector('.jogo .prob button'):
         pg.click('.jogo .prob button >> nth=0')
@@ -323,7 +383,7 @@ def main():
     comps = json.load(open(os.path.join(RAIZ, 'shared/competicoes.json')))['lista']
     inicio = time.time()
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(executable_path=os.environ.get('TNG_CHROME') or None)  # TNG_CHROME: outro Chrome, se o do Playwright não estiver instalado
         for larg, alt in TELAS:
             ctx = b.new_context(viewport={'width': larg, 'height': alt}, reduced_motion='reduce')
             pg = ctx.new_page()
@@ -333,6 +393,7 @@ def main():
             pg.on('requestfailed', lambda r: ruim('requisição', f'falhou {r.url[:100]}') if r.url.startswith(BASE) and r.method != 'HEAD' else None)
             pg.on('response', lambda r: ruim('requisição', f'{r.status} {r.url[:100]}') if r.url.startswith(BASE) and r.status >= 400 and r.request.method != 'HEAD' else None)
             paginas(pg, larg)
+            craft_tela(pg, larg, alt)
             for c in comps:
                 dados = os.path.join(RAIZ, c['dados'])
                 if not os.path.exists(dados):
@@ -354,7 +415,11 @@ def main():
                 except Exception as e:  # noqa: BLE001
                     ruim(f'{c["id"]} {larg}px', f'o roteiro de navegação parou: {str(e)[:120]}')
             ctx.close()
+        ctx = b.new_context(reduced_motion='reduce')
+        craft_rotulos(ctx.new_page())
+        ctx.close()
         b.close()
+    craft_css()
     linhas = ['# Auditoria do site', '', f'{time.strftime("%d/%m/%Y %H:%M")} · {int(time.time() - inicio)} s · telas {", ".join(str(t[0]) for t in TELAS)} px', '']
     vistos = []
     for d in defeitos:
