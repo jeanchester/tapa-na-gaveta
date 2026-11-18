@@ -127,6 +127,7 @@ def ass_tempo(t):
 
 
 def legenda_ass(meta, cortes, arq, y=1030, max_pal=4, max_letras=20):
+    vel = meta.get('velocidade') or 1
     """Legenda queimada no estilo do site: Archivo extra negrito, tinta clara com contorno azul-noite,
     números em dourado, até 4 palavras (20 letras) por vez, cada bloco entra com um pulo curto."""
     ps = []
@@ -134,7 +135,7 @@ def legenda_ass(meta, cortes, arq, y=1030, max_pal=4, max_letras=20):
         ma, mb = sem_cortes(a, cortes), sem_cortes(b, cortes)
         if ma is None:
             continue
-        ps.append((p, ma, mb if mb is not None else ma + .3))
+        ps.append((p, ma / vel, (mb if mb is not None else ma + .3) / vel))
     blocos, atual = [], []
     for p, a, b in ps:
         if atual and (len(atual) >= max_pal or len(' '.join(x[0] for x in atual + [(p,)])) > max_letras
@@ -173,7 +174,8 @@ def hdr(camera):
     return v in ('arib-std-b67', 'smpte2084')          # HLG (iPhone) ou PQ
 
 
-def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=(), legenda=None):
+def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=(), legenda=None,
+           vel=1.0, ducking=True):
     final = saida / f'{nome}.mp4'
     tem_audio = bool(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', str(camera)],
                                     capture_output=True, text=True).stdout.strip())
@@ -198,6 +200,9 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
                   f'[bg][fg]overlay=(W-w)/2:0,setsar=1')
     base_a = f'[1:a]aresample=48000:async=1:first_pts=0,volume={vol_voz}'
     mix = []
+    # velocidade (roteiro "velocidade: 1.1"): acelera imagem e voz juntas, depois dos cortes; atempo não muda o tom
+    acel_v = f',setpts=PTS/{vel},fps={fps}' if vel != 1 else ''
+    acel_a = f',atempo={vel}' if vel != 1 else ''
     if cortes:
         # cortes no meio da fala: cada trecho mantido sai junto em som e imagem (limites no quadro exato,
         # para não acumular atraso entre os trechos) e o som ganha 20 ms de fade nas emendas (sem estalo)
@@ -214,7 +219,7 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
         # imagem: tira os quadros dos cortes pelo número do quadro e renumera (sem filtro concat, que atrasava
         # a imagem 2 a 3 quadros depois da primeira emenda); som: os mesmos trechos, contados em amostras
         fora = '+'.join(f'between(n,{round(a * fps)},{round(b * fps) - 1})' for a, b in cs)
-        filtro = base_v + f",select='not({fora})',setpts=N/({fps}*TB)[cam];"
+        filtro = base_v + f",select='not({fora})',setpts=N/({fps}*TB){acel_v}[cam];"
         if tem_audio:
             filtro += base_a + f',asplit={k}' + ''.join(f'[a{i}]' for i in range(k)) + ';'
             pares = ''
@@ -224,18 +229,24 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
                 fo = f',afade=t=out:st={(fb - fa) / fps - .02:.4f}:d=0.02' if fb is not None else ''
                 filtro += f'[a{i}]atrim=start_sample={fa * spf}{fima},asetpts=PTS-STARTPTS,afade=t=in:d=0.02{fo}[ca{i}];'
                 pares += f'[ca{i}]'
-            filtro += pares + f'concat=n={k}:v=0:a=1[voz];'
+            filtro += pares + f'concat=n={k}:v=0:a=1{acel_a}[voz];'
     else:
-        filtro = base_v + '[cam];'
+        filtro = base_v + acel_v + '[cam];'
         if tem_audio:
-            filtro += base_a + '[voz];'
+            filtro += base_a + acel_a + '[voz];'
     # legenda (variante com legenda na tela): queimada por cima do quadro inteiro, já no tempo do vídeo final
     leg = f",ass=filename='{legenda}':fontsdir='{FONTES}'" if legenda else ''
     filtro += f'[0:v][cam]vstack=inputs=2{leg},format=yuv420p[v];'
-    if tem_audio:
-        mix.append('[voz]')
     filtro += f'[2:a]volume={vol_sfx}[sfx];[3:a]volume={vol_trilha}[tri];'
-    mix += ['[sfx]', '[tri]']
+    if tem_audio:
+        if ducking:
+            # o fundo abaixa uns 6 dB enquanto a pessoa fala e volta nas pausas (nunca some)
+            filtro += ('[voz]asplit=2[vozm][vsc];[tri][vsc]sidechaincompress=threshold=0.02:ratio=3:attack=20:release=400'
+                       ':knee=4[trid];')
+            mix += ['[vozm]']
+        else:
+            mix.append('[voz]')
+    mix += ['[sfx]', '[trid]' if (tem_audio and ducking) else '[tri]']
     filtro += ''.join(mix) + f'amix=inputs={len(mix)}:normalize=0:duration=longest,alimiter=limit=0.95[a]'
     run(['ffmpeg', '-y', '-loglevel', 'error', '-i', saida / 'animacao.mp4', '-ss', f'{inicio:.3f}', '-i', camera,
          '-i', saida / 'efeitos.wav', '-i', saida / 'trilha.wav', '-filter_complex', filtro, '-map', '[v]', '-map', '[a]',
@@ -271,9 +282,25 @@ def gerar(a, variante):
         print('animação pronta:', saida / 'animacao.mp4')
         return
     final = montar(saida, pasta, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha,
-                   a.camera_zoom, a.camera_y, cortes, legenda)
+                   a.camera_zoom, a.camera_y, cortes, legenda, vel=meta.get('velocidade') or 1, ducking=not a.sem_ducking)
+    info = json.loads((saida / 'info.json').read_text())
+    info.update(camera_zoom=a.camera_zoom, camera_y=a.camera_y, inicio=inicio)
+    (saida / 'info.json').write_text(json.dumps(info, ensure_ascii=False))
+    if not a.sem_ajuste:
+        # confere a voz contra a boca (casando com a gravação) e corrige se passar de 20 ms
+        sys.path.insert(0, str(AQUI))
+        import sincronia
+        vel = meta.get('velocidade') or 1
+        print('conferindo a sincronia com a gravação:')
+        m = sincronia.conferir(a.camera, final, inicio, cortes, vel, a.camera_zoom, a.camera_y)
+        if m is not None and abs(m) > 20:
+            tmp = final.with_name(final.stem + '-sinc.mp4')
+            sincronia.corrigir(str(final), round(m / vel), str(tmp))
+            tmp.replace(final)
+            print('depois da correção:')
+            sincronia.conferir(a.camera, final, inicio, cortes, vel, a.camera_zoom, a.camera_y)
     print('vídeo final:', final, '·', exp['fator'] or 'sem fator', '=', exp['nivel'] or '-')
-    print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
+    print('sincronia de novo, se precisar:', f'python ferramentas/video/sincronia.py conferir {pasta} --camera "{a.camera}"')
 
 
 def main():
@@ -284,7 +311,9 @@ def main():
     ap.add_argument('--fps', type=int, default=30)
     ap.add_argument('--vol-voz', type=float, default=1.0)
     ap.add_argument('--vol-sfx', type=float, default=0.55)
-    ap.add_argument('--vol-trilha', type=float, default=0.12)
+    ap.add_argument('--vol-trilha', type=float, default=0.16, help='fundo (acorde + batida): 0,16 deixa ~24 dB abaixo da voz, como no vídeo que mais rendeu')
+    ap.add_argument('--sem-ajuste', action='store_true', help='não confere nem corrige a sincronia no fim')
+    ap.add_argument('--sem-ducking', action='store_true', help='não abaixa o fundo quando a pessoa fala')
     ap.add_argument('--camera-zoom', type=float, default=1.0, help='aproxima (ex.: 1.15) ou afasta (ex.: 0.8, laterais desfocadas) a câmera; 0.8 com --camera-y 0.62 cabe rosto e escudo da camisa')
     ap.add_argument('--camera-y', type=float, default=0.5, help='centro vertical do recorte da câmera, 0 a 1 (rosto alto: 0.45)')
     ap.add_argument('--variante', help='letra da variante do roteiro (B, C...), A = roteiro base, "todas" = base e todas as variantes')

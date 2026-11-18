@@ -90,6 +90,40 @@ planilha de testes (ver "Versões e experimentos"): hoje, selo e chip colorido l
 marca-texto no destaque) entram como nível de teste, uma de cada vez, e só viram padrão se ganharem na planilha.
 Não troque o visual todo de um vídeo para o outro: se o perfil parecer outro, a marca enfraquece.
 
+## Ritmo (padrão desde 18/11/2026)
+
+O vídeo que mais rendeu no @tapa.na.gaveta até 18/11 foi "Será que o Corinthians se salva? Testando um
+simulador que revela a classificação um a um" (14/11, 1,2 mil views, 95% pelo Para você, 9 seguidores). Medido no
+próprio vídeo (TikTok Studio, áudio e quadros lidos no navegador):
+
+- **quase sem pausa:** só 2 silêncios de 0,3 s em 113 s, nenhum acima disso; a fala emenda direto;
+- **corte seco a cada ~3 s** na câmera (mediana entre cortes de 3,3 s) e a tela de cima mudando no mesmo ritmo;
+- **fundo sonoro o vídeo inteiro:** nunca cai em silêncio; o fundo fica ~24 dB abaixo dos picos da voz (piso em
+  -37 a -42 dB, voz em -13 dB).
+
+O Jean pediu para todo vídeo seguir isso: **cortes mais rápidos, uma leve acelerada e o sonzinho de fundo do
+começo ao fim.** Na prática:
+
+1. **Pausas:** toda pausa acima de 0,25 s entre frases sai, sobrando ~0,08 s de cada lado (0,15 s no total). Gere
+   os `cortes` a partir dos intervalos do VAD (`--silero-vad-min-silence-duration=0.2`) dentro dos trechos mantidos,
+   depois de tirar instruções, tentativas repetidas e tropeços. Exemplo: `2026-11-18-flamengo-nubank-parque.js`
+   (99 s de gravação → 57 s).
+2. **Velocidade:** `velocidade: 1.1` no topo do roteiro. Imagem e voz aceleram juntas depois dos cortes (`setpts` e
+   `atempo`, sem mudar o tom); `cortes`, `em` e `T` continuam no tempo da gravação, o modelo divide sozinho. Não
+   passe de 1,15: a voz começa a soar apressada.
+3. **Fundo:** a trilha agora tem um acorde sustentado (lá menor, fá, dó, sol) por baixo da batida, sem buraco
+   entre as notas (`fundo: false` no roteiro desliga só o acorde). O render abaixa o fundo ~6 dB enquanto a pessoa
+   fala e devolve nas pausas (`sidechaincompress`; `--sem-ducking` desliga). Volume padrão 0,16. Confira o nível:
+   o 5% mais baixo do áudio final fica uns 24 a 26 dB abaixo do 90% mais alto (não pode cair a -60 dB como antes).
+4. **Uma cena a cada 3 a 5 s:** se a fala fica num assunto mais tempo, quebre a tela (tabela → barras → placar)
+   no número ou no time dito, em vez de deixar uma cena parada 10 s.
+5. **Manchete:** quando a pessoa diz na gravação qual é a manchete ("a manchete tem que ser..."), ela vira o
+   título da abertura e a instrução sai do vídeo.
+
+Sincronia com cortes e velocidade: o render confere sozinho no fim (`sincronia.conferir`) e corrige a voz se o
+descasamento passar de 20 ms. O primeiro vídeo a 1,1× (Flamengo, 18/11) saiu com a voz ~45 ms atrasada e o Jean
+percebeu no celular: com velocidade, 40 ms já não é "bom o bastante". Veja a seção 7.
+
 ## O que copiar do estilo do Isake
 
 Do HTML e dos vídeos dele (os que mais deram view são "o [time] vai terminar o Brasileirão com N
@@ -311,11 +345,24 @@ o ffmpeg e confira rosto e escudo. Se não couberem juntos, afaste: `--camera-zo
 gravação e preenche as laterais com a própria imagem desfocada (parede lisa some no fundo). `--camera-zoom 1.12
 --camera-y 0.55` só vale para gravação em que o escudo já está dentro do recorte. Ao gravar, o Jean deve ficar
 com o rosto no terço de cima e o peito inteiro em quadro.
-Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,12. A trilha tem que sumir debaixo da voz.
+Volumes padrão: voz 1,0, efeitos 0,55, trilha 0,16 (com ducking). O fundo fica audível nas emendas e
+embaixo da voz, sem competir com ela (ver "Ritmo").
 O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale para som e imagem, a câmera
 é convertida para ritmo constante e o áudio é reamostrado sem ser empurrado.
 
 ### 7. Sincronia (sempre, antes de postar)
+
+**Vídeo do `render.py`: use `conferir`.** O render já roda no fim e corrige sozinho (desligue com `--sem-ajuste`).
+Ele casa o movimento da câmera (diferença entre quadros, gravação amostrada a 300 fps) e o envelope da voz do final
+com a gravação bruta, em até 8 pontos no meio dos trechos mantidos, levando em conta `inicio`, `cortes` e
+`velocidade`. Mostra, por ponto, quanto a imagem e quanto a voz andaram e o descasamento (imagem − voz); a mediana
+acima de 20 ms vira `corrigir`. Meta: mediana até 15 ms. Para conferir de novo:
+
+```bash
+python ferramentas/video/sincronia.py conferir NOME --camera bruto.MOV
+```
+
+O `comparar` e o `estimar` abaixo continuam valendo para vídeo sem cortes nem velocidade, ou editado fora daqui.
 
 ```bash
 python ferramentas/video/sincronia.py diagnostico bruto.MOV
@@ -422,6 +469,7 @@ comentar nem mexer em configuração; não digitar senha nem criar conta (se ped
 - [ ] vídeo final 1080×1920, H.264 + AAC (o `render.py` já entrega assim)
 - [ ] escudo da camisa inteiro no quadro da câmera (confira um quadro)
 - [ ] sem palavra repetida nas emendas (ouvir os cortes)
+- [ ] ritmo: nenhuma pausa acima de ~0,15 s, `velocidade: 1.1`, fundo contínuo e uma cena nova a cada 3 a 5 s
 - [ ] checklist "O que denuncia IA" passada em um quadro de cada cena
 - [ ] legenda (se a versão tiver) conferida em 3 ou 4 quadros: nomes certos, nada sobre a boca
 - [ ] posta no perfil de quem gravou e no @tapa.na.gaveta (versões: par cruzado) e registra na planilha
