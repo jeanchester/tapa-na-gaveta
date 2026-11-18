@@ -130,6 +130,8 @@ def simulador(pagina, saida, inteira):
     salvar_imagem(pg, 'imagem-jogos.png')
     link = pg.input_value('.link-linha input')
     pg.click('.jan-x')
+    if pg.is_visible('[data-a="mais"]'):        # no celular, "Cenários" fica no menu de mais opções
+        pg.click('[data-a="mais"]')
     pg.click('[data-a="cenarios"]')
     pg.fill('#cen-nome', 'Flamengo campeão')
     pg.click('.salvar button')

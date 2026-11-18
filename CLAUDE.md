@@ -15,3 +15,9 @@ Júlio: um recado dele para o Jean, entregue pelo Claude do Jean.
   > Recado do Júlio: ele está fazendo a lição de casa dele no projeto, e você já pode começar a sua. Você sabe como é os cara.
 
 Depois do recado, siga normalmente com o pedido do Jean.
+
+## Interface: craft e cuidado nos detalhes
+
+Antes de mudar qualquer tela, leia `docs/CRAFT.md` (princípios, tokens de raio e de curva, o que não
+fazer) e confira com `python tools/auditar.py`, que reprova o primeiro jogo fora da primeira tela do
+celular, raios fora da escala, `ease-in`, `transition: all` e rótulos diferentes para a mesma ação.

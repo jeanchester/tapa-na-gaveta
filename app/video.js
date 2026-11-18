@@ -59,7 +59,7 @@
       const j = jogos[g], pop = fr < 0.18 ? 0.6 + 0.4 * ease(fr / 0.18) : 1;
       x.fillStyle = '#fff'; rr(x, 30, 150, 660, 150, 18); x.fill();
       x.font = '700 15px Archivo'; x.fillStyle = COR.tinta3; x.textAlign = 'center';
-      x.fillText(j.rotulo + ' · jogo ' + (g + 1) + ' de ' + n, VW / 2, 176);
+      x.fillText(j.rotulo + ', jogo ' + (g + 1) + ' de ' + n, VW / 2, 176);
       escudo(x, V.times[j.h].img, 86, cy + 10, 34, false); escudo(x, V.times[j.a].img, VW - 86, cy + 10, 34, false);
       x.fillStyle = COR.noite; x.font = '800 22px Archivo';
       x.textAlign = 'left'; x.fillText(V.times[j.h].nome, 134, cy + 18);

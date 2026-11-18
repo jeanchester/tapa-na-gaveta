@@ -351,13 +351,13 @@
       const ativo = (ehCasa === st.casa);
       return '<button class="cf-lado' + (ativo ? ' ativo' : '') + '" data-e="lado"' + (ativo ? ' aria-current="true"' : '') + ' aria-label="' + (ativo ? 'Editando ' : 'Editar ') + esc(L.time.nome) + '">' +
         (L.time.escudo ? '<img class="crest" src="midia/escudos/' + esc(L.time.escudo) + '.png" alt="" width="26" height="26">' : '') +
-        '<span><b>' + esc(L.time.nome) + '</b><small>' + (ehCasa ? 'mandante' : 'visitante') + ' · ' + esc(L.esquema) + (ativo ? ' · editando' : '') + '</small></span></button>';
+        '<span><b>' + esc(L.time.nome) + '</b><small>' + (ehCasa ? 'mandante' : 'visitante') + ', ' + esc(L.esquema) + (ativo ? ', editando' : '') + '</small></span></button>';
     };
     const p = proximoJogo(st.time);
     const ehEsse = p && st.outro.time.id === p.adv.id && p.casa === st.casa;
     el.innerHTML = '<div class="cf-times">' + lado(fora, false) + '<i>×</i>' + lado(casa, true) + '</div>' +
       '<div class="cf-acoes">' + (p && !ehEsse ? '<button class="link-btn" data-e="proximo">Próximo jogo de ' + esc(st.time.nome) + '</button>' : '') +
-      (p && ehEsse ? '<span class="cf-data">' + esc(new Date(p.data).toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit', timeZone: 'America/Sao_Paulo' }).replace('.', '')) + ' · próximo jogo</span>' : '') +
+      (p && ehEsse ? '<span class="cf-data">' + esc(new Date(p.data).toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit', timeZone: 'America/Sao_Paulo' }).replace('.', '')) + ', próximo jogo</span>' : '') +
       '<button class="link-btn" data-e="mando">Inverter mando</button></div>';
   }
   // "J. C. Neres dos Santos I." → "Neres dos Santos": cabe embaixo da bola sem virar sopa de letras
@@ -559,7 +559,7 @@
     if (!st.jogadores.some(Boolean)) { aviso('Escale pelo menos um jogador'); return; }
     const todos = loadJson(KEY.escalacoes, {});
     const salvas = Array.isArray(todos.salvas) ? todos.salvas : [];
-    salvas.unshift({ nome: st.time.nome + ' · ' + st.esquema, criado: new Date().toISOString(), time: st.time.id, esquema: st.esquema, jogadores: st.jogadores.slice(), pos: st.pos });
+    salvas.unshift({ nome: st.time.nome + ', ' + st.esquema, criado: new Date().toISOString(), time: st.time.id, esquema: st.esquema, jogadores: st.jogadores.slice(), pos: st.pos });
     todos.salvas = salvas.slice(0, 30);
     saveJson(KEY.escalacoes, todos);
     aviso('Escalação salva neste aparelho');
@@ -568,7 +568,7 @@
     const salvas = (loadJson(KEY.escalacoes, {}).salvas || []).filter((s) => s && s.jogadores);
     const corpo = T.janela('Escalações salvas', salvas.length ? '<ul class="cenarios">' + salvas.map((s, k) => {
       const t = st.dados.times.find((x) => x.id === s.time);
-      return '<li>' + (t && t.escudo ? '<img class="crest" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24">' : '') + '<div class="c-info"><b>' + esc(s.nome) + '</b><span>' + s.jogadores.filter(Boolean).length + ' jogadores · ' + new Date(s.criado).toLocaleDateString('pt-BR') + '</span></div>' +
+      return '<li>' + (t && t.escudo ? '<img class="crest" src="midia/escudos/' + esc(t.escudo) + '.png" alt="" width="24" height="24">' : '') + '<div class="c-info"><b>' + esc(s.nome) + '</b><span>' + s.jogadores.filter(Boolean).length + ' jogadores, ' + new Date(s.criado).toLocaleDateString('pt-BR') + '</span></div>' +
         '<button class="btn" data-k="' + k + '" data-s="abrir">Abrir</button><button class="icon-btn" data-k="' + k + '" data-s="apagar" aria-label="Apagar ' + esc(s.nome) + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button></li>';
     }).join('') + '</ul>' : '<p class="nota">Nenhuma escalação salva ainda. Elas ficam guardadas neste aparelho.</p>');
     corpo.addEventListener('click', (e) => {
@@ -592,7 +592,7 @@
       const S = window.TNGCompartilhar;
       const mesa = st.modo === 'confronto' && st.outro;
       const casa = mesa ? (st.casa ? ladoAtual() : st.outro) : ladoAtual(), fora = mesa ? (st.casa ? st.outro : ladoAtual()) : null;
-      const esc_ = (L) => (L && L.time.escudo ? S.imagem('midia/escudos/' + L.time.escudo + '.png') : null);
+      const esc_ = (L) => (L && L.time.escudo ? S.imagem('midia/escudos/hd/' + L.time.escudo + '.webp') : null);
       return Promise.all([S.fontes(), esc_(casa), esc_(fora)]).then(([, escudo, escudo2]) => {
         const W = 1080, H = mesa ? 1920 : 1350, c = S.canvas(W, H), ctx = c.getContext('2d');
         if (mesa) {
@@ -600,7 +600,7 @@
           if (escudo) ctx.drawImage(escudo, W - 64 - 210, 160, 96, 96);
           if (escudo2) ctx.drawImage(escudo2, W - 64 - 96, 160, 96, 96);
         } else {
-          S.moldura(ctx, W, H, 'Minha escalação', st.time.nome + ' · ' + st.esquema, 'Monte a sua em');
+          S.moldura(ctx, W, H, 'Minha escalação', st.time.nome + ', ' + st.esquema, 'Monte a sua em');
           if (escudo) ctx.drawImage(escudo, W - 64 - 110, 150, 110, 110);
         }
         // campo

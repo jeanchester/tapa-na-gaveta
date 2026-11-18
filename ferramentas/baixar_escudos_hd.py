@@ -9,8 +9,9 @@ midia/escudos/hd/<slug>.webp (256 px, cabe em 3x num escudo de 80 px na tela).
     python ferramentas/baixar_escudos_hd.py --forcar   # todos de novo
 
 Se a ESPN falhar para um time, o site usa o PNG de 128 px (o carregador já cai para ele).
-Times cujo escudo da ESPN não bate com o nosso (versão antiga, por exemplo) vão em MANTER: para eles
-o HD é gerado a partir do PNG de 128 px, então nada muda na aparência.
+Times cujo escudo da ESPN não bate com o nosso (estrelas ou coroa diferentes da versão oficial da CBF)
+vão em MANTER: para eles o HD sai de ferramentas/escudos-fonte/<slug>.png (versões oficiais de cerca
+de 210 px, do repositório lucasppinheiro/futebol-dashboard) ou, sem fonte, do PNG de 128 px.
 """
 import glob
 import io
@@ -24,8 +25,12 @@ from PIL import Image
 RAIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DESTINO = os.path.join(RAIZ, 'midia', 'escudos', 'hd')
 LADO = 256
-RESPIRO = 0.06          # fração do lado livre em cada borda (o escudo ocupa 88%)
-MANTER = set()          # slugs em que a ESPN mostra outro escudo; preenchido depois de conferir a folha
+RESPIRO = 0.0           # fração do lado livre em cada borda: 0, como os PNG de 128 px (o respiro é da placa)
+VERSAO = 'lado256-respiro0'   # mudou o enquadramento: tudo é refeito na próxima rodada
+# conferido em 18/11/2026 numa folha lado a lado com os escudos de 128 px da Série A
+MANTER = {'chapecoense', 'coritiba', 'cruzeiro', 'mirassol',                     # Série A
+          'avai', 'criciuma',                                                     # Série B
+          'forest', 'leeds', 'marseille', 'fiorentina'}                           # Europa
 
 
 def times():
@@ -65,8 +70,9 @@ def baixar(url):
 
 
 def main():
-    forcar = '--forcar' in sys.argv
     os.makedirs(DESTINO, exist_ok=True)
+    marca = os.path.join(DESTINO, 'VERSAO')
+    forcar = '--forcar' in sys.argv or not os.path.exists(marca) or open(marca).read().strip() != VERSAO
     feitos = falhas = 0
     for slug, url in sorted(times().items()):
         alvo = os.path.join(DESTINO, slug + '.webp')
@@ -74,7 +80,8 @@ def main():
             continue
         try:
             if slug in MANTER:
-                img = Image.open(os.path.join(RAIZ, 'midia', 'escudos', slug + '.png'))
+                fonte = os.path.join(RAIZ, 'ferramentas', 'escudos-fonte', slug + '.png')
+                img = Image.open(fonte if os.path.exists(fonte) else os.path.join(RAIZ, 'midia', 'escudos', slug + '.png'))
             else:
                 img = baixar(url)
             enquadrar(img).save(alvo, 'WEBP', quality=90, method=6)
@@ -82,6 +89,8 @@ def main():
         except Exception as e:  # noqa: BLE001
             falhas += 1
             print('não saiu:', slug, e)
+    if not falhas:
+        open(marca, 'w').write(VERSAO + '\n')
     print('escudos HD gravados:', feitos, '| falhas:', falhas)
 
 

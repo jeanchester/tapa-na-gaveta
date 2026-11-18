@@ -23,6 +23,8 @@ rotina (e serve também para rodar à mão).
      Série A, rodadas 35 a 38 (até 02/12); playoff da Série B, ida 21/11 e volta 28/11; depois disso o
      simulador da Série B volta a ser tabela final e o da Série A vira resumo da temporada.
    - **Cabe no polegar?** Alvos de toque com menos de 40 px, texto apertado, tela com rolagem demais.
+   - **Tem cuidado?** Os princípios de `docs/CRAFT.md`: o primeiro palpite sem rolar, cada toque com
+     consequência visível, nada cobrindo o texto no fim da revelação, nada se mexendo sem motivo.
 5. **Dados.** Conferir se `dados/*.json` está atualizado (campo `baixado_em`), se o workflow
    `atualizar-dados.yml` está rodando e se algum jogo terminou e ainda aparece como em aberto.
 6. **Consertar o que é seguro.** Defeito claro, correção pequena: corrigir numa branch `refino-AAAA-MM-DD`,
