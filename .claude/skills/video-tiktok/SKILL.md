@@ -120,9 +120,9 @@ começo ao fim.** Na prática:
 5. **Manchete:** quando a pessoa diz na gravação qual é a manchete ("a manchete tem que ser..."), ela vira o
    título da abertura e a instrução sai do vídeo.
 
-Sincronia com velocidade: o `comparar` não sabe de `velocidade`. Confira casando um quadro do final com a gravação
-(tempo da gravação = tempo do final × velocidade + cortes + inicio) e o envelope da voz esticado de volta
-(`atempo=1/velocidade`); até ~40 ms está bom.
+Sincronia com cortes e velocidade: o render confere sozinho no fim (`sincronia.conferir`) e corrige a voz se o
+descasamento passar de 20 ms. O primeiro vídeo a 1,1× (Flamengo, 18/11) saiu com a voz ~45 ms atrasada e o Jean
+percebeu no celular: com velocidade, 40 ms já não é "bom o bastante". Veja a seção 7.
 
 ## O que copiar do estilo do Isake
 
@@ -351,6 +351,18 @@ O render nunca desloca o áudio sozinho: o corte (`-ss` antes da câmera) vale p
 é convertida para ritmo constante e o áudio é reamostrado sem ser empurrado.
 
 ### 7. Sincronia (sempre, antes de postar)
+
+**Vídeo do `render.py`: use `conferir`.** O render já roda no fim e corrige sozinho (desligue com `--sem-ajuste`).
+Ele casa o movimento da câmera (diferença entre quadros, gravação amostrada a 300 fps) e o envelope da voz do final
+com a gravação bruta, em até 8 pontos no meio dos trechos mantidos, levando em conta `inicio`, `cortes` e
+`velocidade`. Mostra, por ponto, quanto a imagem e quanto a voz andaram e o descasamento (imagem − voz); a mediana
+acima de 20 ms vira `corrigir`. Meta: mediana até 15 ms. Para conferir de novo:
+
+```bash
+python ferramentas/video/sincronia.py conferir NOME --camera bruto.MOV
+```
+
+O `comparar` e o `estimar` abaixo continuam valendo para vídeo sem cortes nem velocidade, ou editado fora daqui.
 
 ```bash
 python ferramentas/video/sincronia.py diagnostico bruto.MOV

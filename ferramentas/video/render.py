@@ -283,8 +283,24 @@ def gerar(a, variante):
         return
     final = montar(saida, pasta, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha,
                    a.camera_zoom, a.camera_y, cortes, legenda, vel=meta.get('velocidade') or 1, ducking=not a.sem_ducking)
+    info = json.loads((saida / 'info.json').read_text())
+    info.update(camera_zoom=a.camera_zoom, camera_y=a.camera_y, inicio=inicio)
+    (saida / 'info.json').write_text(json.dumps(info, ensure_ascii=False))
+    if not a.sem_ajuste:
+        # confere a voz contra a boca (casando com a gravação) e corrige se passar de 20 ms
+        sys.path.insert(0, str(AQUI))
+        import sincronia
+        vel = meta.get('velocidade') or 1
+        print('conferindo a sincronia com a gravação:')
+        m = sincronia.conferir(a.camera, final, inicio, cortes, vel, a.camera_zoom, a.camera_y)
+        if m is not None and abs(m) > 20:
+            tmp = final.with_name(final.stem + '-sinc.mp4')
+            sincronia.corrigir(str(final), round(m / vel), str(tmp))
+            tmp.replace(final)
+            print('depois da correção:')
+            sincronia.conferir(a.camera, final, inicio, cortes, vel, a.camera_zoom, a.camera_y)
     print('vídeo final:', final, '·', exp['fator'] or 'sem fator', '=', exp['nivel'] or '-')
-    print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
+    print('sincronia de novo, se precisar:', f'python ferramentas/video/sincronia.py conferir {pasta} --camera "{a.camera}"')
 
 
 def main():
@@ -296,6 +312,7 @@ def main():
     ap.add_argument('--vol-voz', type=float, default=1.0)
     ap.add_argument('--vol-sfx', type=float, default=0.55)
     ap.add_argument('--vol-trilha', type=float, default=0.16, help='fundo (acorde + batida): 0,16 deixa ~24 dB abaixo da voz, como no vídeo que mais rendeu')
+    ap.add_argument('--sem-ajuste', action='store_true', help='não confere nem corrige a sincronia no fim')
     ap.add_argument('--sem-ducking', action='store_true', help='não abaixa o fundo quando a pessoa fala')
     ap.add_argument('--camera-zoom', type=float, default=1.0, help='aproxima (ex.: 1.15) ou afasta (ex.: 0.8, laterais desfocadas) a câmera; 0.8 com --camera-y 0.62 cabe rosto e escudo da camisa')
     ap.add_argument('--camera-y', type=float, default=0.5, help='centro vertical do recorte da câmera, 0 a 1 (rosto alto: 0.45)')
