@@ -243,10 +243,13 @@ const norm = (s) => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,
 const AVISOS = [];
 // cortes: [[de, até], ...] em segundos da gravação (depois do "inicio"), trechos que saem do vídeo final.
 // Com cortes, T e os "em" em segundos continuam no tempo da gravação; tudo é remapeado aqui.
+// velocidade: 1.1 acelera o vídeo final (imagem e voz, sem mudar o tom); os tempos do roteiro continuam os da
+// gravação e são divididos aqui, depois de tirar os cortes.
 function semCortes(t, R) {
   let d = 0;
-  for (const [a, b] of (R.cortes || [])) { if (t >= b) d += b - a; else if (t > a) return a - d; }
-  return t - d;
+  const v = R.velocidade || 1;
+  for (const [a, b] of (R.cortes || [])) { if (t >= b) d += b - a; else if (t > a) return (a - d) / v; }
+  return (t - d) / v;
 }
 function tempo(x, R) { return semCortes(tempoBruto(x, R), R); }
 function tempoBruto(x, R) {
@@ -611,8 +614,29 @@ const SONS = {
   sobe(ctx, o, t) { osc(ctx, o, 'triangle', 330, 760, t, .42, .16); },
   fim(ctx, o, t) { osc(ctx, o, 'triangle', 523, 523, t, .55, .2); osc(ctx, o, 'triangle', 659, 659, t + .06, .55, .16); osc(ctx, o, 'triangle', 784, 784, t + .12, .7, .14); },
 };
+// fundo: acorde sustentado (lá menor, fá, dó, sol; 2 compassos cada), abafado, sem silêncio entre as notas.
+// É o "sonzinho de fundo" do vídeo que mais rendeu: a voz nunca cai num silêncio seco.
+const ACORDES = [[220, 261.63, 329.63], [174.61, 220, 261.63], [196, 261.63, 329.63], [196, 246.94, 293.66]];
+function fundo(ctx, o, t0, dur) {
+  const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1100; lp.Q.value = .5; lp.connect(o);
+  const c = 60 / 100 * 8;                                       // 2 compassos a 100 bpm
+  for (let k = 0; t0 + k * c < dur; k++) {
+    const t = t0 + k * c;
+    ACORDES[k % 4].forEach((f, i) => {
+      [0, 1].forEach((j) => {
+        const os = ctx.createOscillator(); os.type = j ? 'sine' : 'triangle';
+        os.frequency.value = f * (j ? 2 : 1); os.detune.value = (i - 1) * 4;
+        const g = ctx.createGain(), pico = (j ? .05 : .11) / (1 + i * .3);
+        g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(pico, t + .6);
+        g.gain.setValueAtTime(pico, t + c - .4); g.gain.linearRampToValueAtTime(0, t + c + .5);
+        os.connect(g).connect(lp); os.start(t); os.stop(t + c + .55);
+      });
+    });
+  }
+}
 // trilha: batida leve a 100 bpm (bumbo, chimbal, baixo), para ficar bem baixinha embaixo da voz
 function trilha(ctx, o, t0, dur) {
+  if (!R || R.fundo !== false) fundo(ctx, o, t0, dur);
   const b = 60 / 100, notas = [55, 55, 41.2, 49];
   for (let k = 0; t0 + k * b < dur; k++) {
     const t = t0 + k * b;
@@ -652,11 +676,12 @@ window.VIDEO = {
   wav: async (q) => base64(await wav(q)),
   inicio: () => (R && R.inicio) || 0,
   cortes: () => (R && R.cortes) || [],
+  velocidade: () => (R && R.velocidade) || 1,
   // para o render: variante, fator testado, legenda e a fala (T palavra a palavra ou fala por trecho)
   meta: () => ({
     variante: VAR || null, variantes: Object.keys((R && R.variantes) || {}), mudaAnimacao: MUDA_ANIMACAO,
     fator: (R && R.fator) || null, nivel: (R && R.nivel) || null,
-    legenda: (R && R.legenda) || false, T: (R && R.T) || [], fala: (R && R.fala) || [],
+    legenda: (R && R.legenda) || false, velocidade: (R && R.velocidade) || 1, T: (R && R.T) || [], fala: (R && R.fala) || [],
   }),
 };
 
