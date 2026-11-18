@@ -1,0 +1,30 @@
+# Gera midia/escudos/hd/*.webp (256 px) a partir dos escudos de 500 px da ESPN e grava na mesma
+# branch. Roda quando o script muda (em qualquer branch) ou à mão.
+name: Escudos em alta
+on:
+  push:
+    paths: ['ferramentas/baixar_escudos_hd.py']
+  workflow_dispatch:
+    inputs:
+      forcar:
+        description: 'Baixar todos de novo (sim/não)'
+        required: false
+        default: 'não'
+permissions:
+  contents: write
+jobs:
+  escudos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install pillow
+      - run: python ferramentas/baixar_escudos_hd.py ${{ inputs.forcar == 'sim' && '--forcar' || '' }}
+      - name: Gravar se mudou
+        run: |
+          git config user.name "tapa-na-gaveta-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add midia/escudos/hd/
+          git diff --cached --quiet || git commit -m "Escudos em alta (ESPN 500 px → 256 px)"
+          git push
