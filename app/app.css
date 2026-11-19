@@ -430,6 +430,11 @@ a.obj-chip:hover { border-color: var(--line-2); }
 .capa-in { max-width: 22em; margin: 0 auto; }
 .capa-in > b { display: block; font-size: 18px; font-weight: 800; }
 .capa span { display: block; color: var(--ink-2); margin: 6px 0 16px; font-size: 14px; }
+.capa-in .btn { width: 100%; }
+.capa-in .btn + .btn { margin-top: 8px; }
+.capa-in .btn.sim-outros { margin: 0; }
+/* com a barra de revelar no rodapé, o aviso sobe para não cobrir o botão */
+body:has(.barra-revelar:not([hidden])) #aviso { bottom: calc(88px + var(--safe-bottom)); }
 .barra-revelar { position: sticky; bottom: calc(10px + var(--safe-bottom)); z-index: 7; display: flex; justify-content: center; margin-top: 16px; }
 .barra-revelar[hidden] { display: none; }
 .barra-revelar .btn { box-shadow: 0 6px 24px rgba(0, 0, 0, .22); min-height: 52px; padding: 0 22px; font-size: 15px; }
@@ -974,8 +979,6 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .sim-cols.compacto .j-meta .tag { font-size: 10.5px; padding: 1px 6px; }
 .sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 40px; padding: 0 6px; margin-top: -11px; margin-bottom: -11px; color: var(--ink-3); font-size: 11px; font-weight: 700; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .sim-cols.compacto .dado-mini:hover { color: var(--ink); text-decoration-color: currentColor; background: none; }
-.sim-outros .so-pc { display: none; }
-@media (min-width: 760px) { .sim-outros .so-pc { display: inline; } .sim-outros .so-cel { display: none; } }
 .sim-cols.compacto .dado-mini svg { width: 16px; height: 16px; }
 .sim-cols.compacto .j-linha { gap: 6px; }
 .sim-cols.compacto .time { flex-direction: row; gap: 6px; font-size: 15px; }

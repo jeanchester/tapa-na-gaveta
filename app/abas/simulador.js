@@ -542,9 +542,13 @@
     let html = '<div class="sec-title"><h2>Classificação</h2><button class="link-btn" data-a="esconder" aria-pressed="' + st.prefs.esconder + '">' +
       (st.prefs.esconder ? ICON.olho + 'Mostrar' : ICON.olhoX + 'Esconder até o fim') + '</button></div>';
     if (st.prefs.esconder) {
+      // escondida, "Simular o que falta" continua aqui: sorteia os placares sem mostrar a tabela,
+      // e a revelação fica para quando o torcedor quiser (sem spoiler)
       html += '<div class="capa"><div class="capa-in"><b>A tabela está escondida</b><span>' +
-        (faltam ? 'Faltam <b class="num">' + faltam + '</b> placares. Preencha tudo e revele a tabela final, time a time.' : 'Tudo preenchido. Hora da revelação!') + '</span>' +
-        '<button class="btn primario" data-a="revelar">' + ICON.revela + (faltam ? 'Sortear o que falta e revelar' : 'Revelar a tabela final') + '</button></div></div>';
+        (faltam ? 'Faltam <b class="num">' + faltam + '</b> placares. Preencha ou simule o que falta, e revele a tabela final time a time.' : 'Tudo preenchido. Hora da revelação!') + '</span>' +
+        (faltam ? '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + 'Simular o que falta</button>' +
+          '<button class="btn" data-a="revelar">' + ICON.revela + 'Sortear tudo e revelar</button>'
+          : '<button class="btn primario" data-a="revelar">' + ICON.revela + 'Revelar a tabela final</button>') + '</div></div>';
     } else {
       // "Simular" fica em cima da tabela (que acompanha a rolagem), com ou sem time escolhido
       html += '<button class="btn primario sim-outros" data-a="simular">' + ICON.play + 'Simular o que falta</button>';
