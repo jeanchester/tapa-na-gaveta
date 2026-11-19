@@ -4,7 +4,13 @@ const path = require('path');
 const C = require('../shared/simulador-core.js');
 
 const raiz = path.resolve(__dirname, '..');
-const liga = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/brasileirao-2026.json'), 'utf8'));
+// Os testes que conferem números de um momento da temporada (quem enfrenta quem, chances, links e
+// cenários antigos) rodam sobre um retrato congelado em tools/retratos/ (o de 18/11/2026, o último em
+// que todos passaram). Os de dados/ mudam duas vezes por dia com o robô; para eles há o grupo
+// "dados atuais", no fim, que só confere o que vale em qualquer retrato. Assim a publicação não trava porque uma rodada aconteceu.
+const retrato = (arq) => JSON.parse(fs.readFileSync(path.join(__dirname, 'retratos', arq), 'utf8'));
+const atual = (arq) => JSON.parse(fs.readFileSync(path.join(raiz, 'dados', arq), 'utf8'));
+const liga = retrato('brasileirao-2026.json');
 const regras = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/regras-brasileirao-2026.json'), 'utf8'));
 
 let falhas = 0, total = 0;
@@ -241,9 +247,7 @@ grupo('dados das versões antigas (arquivo único)', () => {
 });
 
 grupo('vagas: Copa do Brasil e campeões continentais', () => {
-  const fs2 = require('fs'), path2 = require('path');
-  const liga = JSON.parse(fs2.readFileSync(path2.join(__dirname, '../dados/brasileirao-2026.json'), 'utf8'));
-  const base = JSON.parse(fs2.readFileSync(path2.join(__dirname, '../shared/regras-brasileirao-2026.json'), 'utf8'));
+  const base = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/regras-brasileirao-2026.json'), 'utf8'));
   const zonas = (camp, mover) => {
     const r = JSON.parse(JSON.stringify(base)); r.campeoes = camp || {};
     const L = C.preparar(liga, r); const tab = C.tabela(L, {}).slice();
@@ -285,7 +289,7 @@ grupo('elencos: cruzamento com a ESPN', () => {
 });
 
 grupo('playoff da Série B: ida e volta, sem pênalti', () => {
-  const ligaB = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/serie-b-2026.json'), 'utf8'));
+  const ligaB = retrato('serie-b-2026.json');
   const regB = JSON.parse(fs.readFileSync(path.join(raiz, 'shared/regras-serie-b-2026.json'), 'utf8'));
   const LB = C.preparar(ligaB, regB), MB = C.modelo(LB, C.PARAMS_PADRAO);
   const po = C.playoff(LB, regB, MB, {}, {});
@@ -342,7 +346,7 @@ grupo('Champions: fase de liga, desempates da UEFA e força pelo Elo', () => {
   const ob = C.objetivos(regC).map((o) => o.id + ':' + o.ate).join(' ');
   ok(ob === 'titulo:1 lib:8 escapar:24', 'objetivos da Champions: ' + ob);
   // o retrato publicado: 36 times, 8 jogos cada, rodadas sem time repetido
-  const ucl = JSON.parse(fs.readFileSync(path.join(raiz, 'dados/champions-2026.json'), 'utf8'));
+  const ucl = retrato('champions-2026.json');
   const LU = C.preparar(ucl, regC);
   ok(LU.n === 36 && LU.jogos.length === 144, '36 times e 144 jogos');
   ok(LU.adversarios.every((a) => a.length === 8), 'cada time com 8 adversários');
@@ -350,6 +354,25 @@ grupo('Champions: fase de liga, desempates da UEFA e força pelo Elo', () => {
   ok(LU.elo && LU.elo.every((e) => e > 1400 && e < 2200), 'Elo de todos os 36 times');
   const tabU = C.tabela(LU, {}), porId = {}; tabU.forEach((x) => { porId[LU.times[x.i].id] = x; });
   ucl.classificacao.forEach((c) => { const x = porId[c.time]; ok(x.pts === c.pts && x.gp === c.gp && x.gc === c.gc, LU.times[x.i].nome + ': números da ESPN'); });
+});
+
+grupo('dados atuais (o que o robô baixou por último)', () => {
+  // só o que vale em qualquer momento da temporada; a classificação da ESPN às vezes demora a contar
+  // o jogo que acabou de terminar: time com menos jogos na ESPN do que no placar é atraso dela, não erro
+  [['brasileirao-2026.json', 'regras-brasileirao-2026.json'], ['serie-b-2026.json', 'regras-serie-b-2026.json'], ['champions-2026.json', 'regras-champions.json']].forEach(([arq, reg]) => {
+    const d = atual(arq), R = JSON.parse(fs.readFileSync(path.join(raiz, 'shared', reg), 'utf8'));
+    const LL = C.preparar(d, R);
+    ok(LL.n === d.times.length && LL.rodadasConfiaveis, arq + ': prepara e deduz as rodadas sem time repetido');
+    const tab = C.tabela(LL, {}), porId = {}; tab.forEach((x) => { porId[LL.times[x.i].id] = x; });
+    let atrasados = 0;
+    (d.classificacao || []).forEach((c) => {
+      const x = porId[c.time];
+      if (!x) { ok(false, arq + ': time da classificação fora da lista: ' + c.time); return; }
+      if (c.j < x.j) { atrasados++; return; }
+      ok(x.pts === c.pts && x.j === c.j && x.gp === c.gp && x.gc === c.gc, arq + ': ' + LL.times[x.i].nome + ' bate com a ESPN');
+    });
+    if (atrasados) console.log('  (' + arq + ': classificação da ESPN ainda sem o último jogo de ' + atrasados + ' times)');
+  });
 });
 
 console.log(`\n${total - falhas}/${total} conferências passaram`);
