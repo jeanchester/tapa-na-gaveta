@@ -977,6 +977,8 @@ body.rolou .head { background-color: rgba(11,22,64,.94); -webkit-backdrop-filter
 .sim-cols.compacto .jogo { padding: 6px 10px 8px; border-radius: var(--r); }
 .sim-cols.compacto .j-meta { font-size: 11px; margin-bottom: 4px; min-height: 0; justify-content: flex-start; gap: 6px; }
 .sim-cols.compacto .j-meta .tag { font-size: 10.5px; padding: 1px 6px; }
+.sim-cols.compacto .j-meta > * { white-space: nowrap; flex: none; }
+.sim-cols.compacto .j-meta > span:first-child { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .sim-cols.compacto .dado-mini { display: grid; place-items: center; margin-left: auto; min-height: 40px; padding: 0 6px; margin-top: -11px; margin-bottom: -11px; color: var(--ink-3); font-size: 11px; font-weight: 700; white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
 .sim-cols.compacto .dado-mini:hover { color: var(--ink); text-decoration-color: currentColor; background: none; }
 .sim-cols.compacto .dado-mini svg { width: 16px; height: 16px; }
