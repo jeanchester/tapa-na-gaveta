@@ -1,10 +1,10 @@
 {
- "atualizado": "2026-11-18T17:52:16",
+ "atualizado": "2026-11-19T02:21:57",
  "times": {
   "flamengo": {
-   "jogo": "401841307",
-   "data": "2026-11-04T22:30Z",
-   "contra": "Grêmio",
+   "jogo": "401841313",
+   "data": "2026-11-18T23:30Z",
+   "contra": "Athletico Paranaense",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -29,9 +29,9 @@
      "lugar": 5
     },
     {
-     "n": "Ayrton Lucas",
-     "curto": "Ayrton Lucas",
-     "num": 6,
+     "n": "Alex Sandro",
+     "curto": "Alex Sandro",
+     "num": 26,
      "pos": "LB",
      "lugar": 3
     },
@@ -87,10 +87,10 @@
    ]
   },
   "palmeiras": {
-   "jogo": "401841300",
-   "data": "2026-11-05T22:30Z",
-   "contra": "Remo",
-   "esquema": "3-4-2-1",
+   "jogo": "401841314",
+   "data": "2026-11-18T23:30Z",
+   "contra": "Cruzeiro",
+   "esquema": "3-5-2",
    "titulares": [
     {
      "n": "Carlos Miguel",
@@ -100,30 +100,30 @@
      "lugar": 1
     },
     {
-     "n": "Gustavo Gómez",
-     "curto": "G. Gómez",
-     "num": 15,
+     "n": "Alexander Barboza",
+     "curto": "A. Barboza",
+     "num": 2,
      "pos": "CD",
      "lugar": 5
+    },
+    {
+     "n": "Luiz Benedetti",
+     "curto": "L. Benedetti",
+     "num": 43,
+     "pos": "CD-L",
+     "lugar": 4
     },
     {
      "n": "Bruno Fuchs",
      "curto": "B. Fuchs",
      "num": 3,
-     "pos": "CD-L",
-     "lugar": 4
-    },
-    {
-     "n": "Murilo",
-     "curto": "Murilo",
-     "num": 26,
      "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Marlon Freitas",
-     "curto": "M. Freitas",
-     "num": 17,
+     "n": "Lucas Evangelista",
+     "curto": "L. Evangelista",
+     "num": 30,
      "pos": "CM-L",
      "lugar": 8
     },
@@ -133,6 +133,13 @@
      "num": 8,
      "pos": "CM-R",
      "lugar": 7
+    },
+    {
+     "n": "Marlon Freitas",
+     "curto": "M. Freitas",
+     "num": 17,
+     "pos": "AM",
+     "lugar": 11
     },
     {
      "n": "Arthur Gabriel",
@@ -152,29 +159,22 @@
      "n": "Vitor Roque",
      "curto": "V. Roque",
      "num": 9,
-     "pos": "F",
+     "pos": "CF-L",
      "lugar": 9
     },
     {
-     "n": "Jhon Arias",
-     "curto": "J. Arias",
-     "num": 11,
-     "pos": "CF-L",
-     "lugar": 11
-    },
-    {
-     "n": "Maurício",
-     "curto": "Maurício",
-     "num": 18,
+     "n": "Ramón Sosa",
+     "curto": "R. Sosa",
+     "num": 19,
      "pos": "CF-R",
      "lugar": 10
     }
    ]
   },
   "cruzeiro": {
-   "jogo": "401841303",
-   "data": "2026-11-06T00:30Z",
-   "contra": "Bahia",
+   "jogo": "401841314",
+   "data": "2026-11-18T23:30Z",
+   "contra": "Palmeiras",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -185,16 +185,16 @@
      "lugar": 1
     },
     {
-     "n": "Fabrício Bruno",
-     "curto": "F. Bruno",
-     "num": 15,
+     "n": "Lucas Villalba",
+     "curto": "L. Villalba",
+     "num": 25,
      "pos": "CD-L",
      "lugar": 6
     },
     {
-     "n": "Jonathan Jesus",
-     "curto": "J. Jesus",
-     "num": 34,
+     "n": "Fabrício Bruno",
+     "curto": "F. Bruno",
+     "num": 15,
      "pos": "CD-R",
      "lugar": 5
     },
@@ -206,30 +206,30 @@
      "lugar": 3
     },
     {
-     "n": "Fagner",
-     "curto": "Fagner",
-     "num": 23,
+     "n": "William",
+     "curto": "William",
+     "num": 12,
      "pos": "RB",
      "lugar": 2
     },
     {
-     "n": "Bruno Rodrigues",
-     "curto": "B. Rodrigues",
-     "num": 9,
+     "n": "Matheus Pereira",
+     "curto": "M. Pereira",
+     "num": 10,
      "pos": "AM",
      "lugar": 10
-    },
-    {
-     "n": "Zé Lucas",
-     "curto": "Zé Lucas",
-     "num": 5,
-     "pos": "LM",
-     "lugar": 4
     },
     {
      "n": "Lucas Romero",
      "curto": "L. Romero",
      "num": 29,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Zé Lucas",
+     "curto": "Zé Lucas",
+     "num": 5,
      "pos": "RM",
      "lugar": 8
     },
@@ -248,9 +248,9 @@
      "lugar": 11
     },
     {
-     "n": "Keny Arroyo",
-     "curto": "K. Arroyo",
-     "num": 99,
+     "n": "Marquinhos",
+     "curto": "Marquinhos",
+     "num": 11,
      "pos": "AM-R",
      "lugar": 7
     }
@@ -342,10 +342,10 @@
    ]
   },
   "athletico": {
-   "jogo": "401841306",
-   "data": "2026-11-04T22:30Z",
-   "contra": "Vasco da Gama",
-   "esquema": "3-4-2-1",
+   "jogo": "401841313",
+   "data": "2026-11-18T23:30Z",
+   "contra": "Flamengo",
+   "esquema": "3-5-2",
    "titulares": [
     {
      "n": "Mycael",
@@ -362,23 +362,23 @@
      "lugar": 5
     },
     {
-     "n": "Arthur Dias",
-     "curto": "A. Dias",
-     "num": 4,
+     "n": "Lucas Esquivel",
+     "curto": "L. Esquivel",
+     "num": 37,
      "pos": "CD-L",
      "lugar": 4
     },
     {
-     "n": "Dantas",
-     "curto": "Dantas",
-     "num": 25,
+     "n": "Gastón Benavídez",
+     "curto": "G. Benavídez",
+     "num": 29,
      "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Luiz Gustavo",
-     "curto": "Luiz Gustavo",
-     "num": 14,
+     "n": "Juan Portilla",
+     "curto": "J. Portilla",
+     "num": 27,
      "pos": "CM-L",
      "lugar": 8
     },
@@ -390,37 +390,37 @@
      "lugar": 7
     },
     {
-     "n": "Lucas Esquivel",
-     "curto": "L. Esquivel",
-     "num": 37,
-     "pos": "LM",
-     "lugar": 3
-    },
-    {
-     "n": "Gastón Benavídez",
-     "curto": "G. Benavídez",
-     "num": 29,
-     "pos": "RM",
-     "lugar": 2
-    },
-    {
-     "n": "Kevin Viveros",
-     "curto": "K. Viveros",
-     "num": 9,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
-     "n": "Kerwin Vargas",
-     "curto": "K. Vargas",
-     "num": 18,
-     "pos": "CF-L",
+     "n": "Filipinho",
+     "curto": "Filipinho",
+     "num": 5,
+     "pos": "AM",
      "lugar": 11
     },
     {
      "n": "Stiven Mendoza",
      "curto": "S. Mendoza",
      "num": 7,
+     "pos": "LM",
+     "lugar": 3
+    },
+    {
+     "n": "Gilberto",
+     "curto": "Gilberto",
+     "num": 12,
+     "pos": "RM",
+     "lugar": 2
+    },
+    {
+     "n": "Bruno Zapelli",
+     "curto": "B. Zapelli",
+     "num": 10,
+     "pos": "CF-L",
+     "lugar": 9
+    },
+    {
+     "n": "Kerwin Vargas",
+     "curto": "K. Vargas",
+     "num": 18,
      "pos": "CF-R",
      "lugar": 10
     }
@@ -596,6 +596,91 @@
     }
    ]
   },
+  "santos": {
+   "jogo": "401841315",
+   "data": "2026-11-18T22:30Z",
+   "contra": "Coritiba",
+   "esquema": "4-2-3-1",
+   "titulares": [
+    {
+     "n": "Diogenes",
+     "curto": "Diogenes",
+     "num": 1,
+     "pos": "G",
+     "lugar": 1
+    },
+    {
+     "n": "Willian Arão",
+     "curto": "W. Arão",
+     "num": 15,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "João Alencar",
+     "curto": "João Alencar",
+     "num": 42,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "Luan Peres",
+     "curto": "L. Peres",
+     "num": 14,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "Rodinei",
+     "curto": "Rodinei",
+     "num": 23,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Neymar",
+     "curto": "Neymar",
+     "num": 10,
+     "pos": "AM",
+     "lugar": 10
+    },
+    {
+     "n": "Arthur",
+     "curto": "Arthur",
+     "num": 6,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Gustavo Henrique",
+     "curto": "G. Henrique",
+     "num": 48,
+     "pos": "RM",
+     "lugar": 8
+    },
+    {
+     "n": "Gabriel Barbosa",
+     "curto": "G. Barbosa",
+     "num": 9,
+     "pos": "F",
+     "lugar": 9
+    },
+    {
+     "n": "Everton",
+     "curto": "Everton",
+     "num": 7,
+     "pos": "AM-L",
+     "lugar": 11
+    },
+    {
+     "n": "Philippe Coutinho",
+     "curto": "P. Coutinho",
+     "num": 11,
+     "pos": "AM-R",
+     "lugar": 7
+    }
+   ]
+  },
   "bragantino": {
    "jogo": "401841299",
    "data": "2026-11-02T23:00Z",
@@ -676,91 +761,6 @@
      "n": "Lucas Barbosa",
      "curto": "L. Barbosa",
      "num": 21,
-     "pos": "AM-R",
-     "lugar": 7
-    }
-   ]
-  },
-  "santos": {
-   "jogo": "401841299",
-   "data": "2026-11-02T23:00Z",
-   "contra": "Red Bull Bragantino",
-   "esquema": "4-2-3-1",
-   "titulares": [
-    {
-     "n": "Diogenes",
-     "curto": "Diogenes",
-     "num": 1,
-     "pos": "G",
-     "lugar": 1
-    },
-    {
-     "n": "Luan Peres",
-     "curto": "L. Peres",
-     "num": 14,
-     "pos": "CD-L",
-     "lugar": 6
-    },
-    {
-     "n": "João Alencar",
-     "curto": "João Alencar",
-     "num": 42,
-     "pos": "CD-R",
-     "lugar": 5
-    },
-    {
-     "n": "Álvaro Barreal",
-     "curto": "Á. Barreal",
-     "num": 22,
-     "pos": "LB",
-     "lugar": 3
-    },
-    {
-     "n": "Rodinei",
-     "curto": "Rodinei",
-     "num": 23,
-     "pos": "RB",
-     "lugar": 2
-    },
-    {
-     "n": "Philippe Coutinho",
-     "curto": "P. Coutinho",
-     "num": 11,
-     "pos": "AM",
-     "lugar": 10
-    },
-    {
-     "n": "Christian Oliva",
-     "curto": "C. Oliva",
-     "num": 28,
-     "pos": "LM",
-     "lugar": 4
-    },
-    {
-     "n": "Gustavo Henrique",
-     "curto": "G. Henrique",
-     "num": 48,
-     "pos": "RM",
-     "lugar": 8
-    },
-    {
-     "n": "Gabriel Barbosa",
-     "curto": "G. Barbosa",
-     "num": 9,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
-     "n": "Everton",
-     "curto": "Everton",
-     "num": 7,
-     "pos": "AM-L",
-     "lugar": 11
-    },
-    {
-     "n": "Gabriel Bontempo",
-     "curto": "G. Bontempo",
-     "num": 8,
      "pos": "AM-R",
      "lugar": 7
     }
@@ -937,10 +937,10 @@
    ]
   },
   "botafogo": {
-   "jogo": "401841305",
-   "data": "2026-11-05T00:30Z",
-   "contra": "Atlético-MG",
-   "esquema": "3-5-2",
+   "jogo": "401841316",
+   "data": "2026-11-19T00:30Z",
+   "contra": "Corinthians",
+   "esquema": "5-3-2",
    "titulares": [
     {
      "n": "Gabriel Batista",
@@ -964,18 +964,39 @@
      "lugar": 4
     },
     {
-     "n": "Nahuel Ferraresi",
-     "curto": "N. Ferraresi",
-     "num": 5,
+     "n": "Arthur Chaves",
+     "curto": "A. Chaves",
+     "num": 3,
      "pos": "CD-R",
      "lugar": 6
+    },
+    {
+     "n": "Alex Telles",
+     "curto": "A. Telles",
+     "num": 13,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "Vitinho",
+     "curto": "Vitinho",
+     "num": 2,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Victor Hugo",
+     "curto": "Victor Hugo",
+     "num": 75,
+     "pos": "CM",
+     "lugar": 8
     },
     {
      "n": "Cristian Medina",
      "curto": "C. Medina",
      "num": 6,
      "pos": "CM-L",
-     "lugar": 8
+     "lugar": 11
     },
     {
      "n": "Edenilson",
@@ -985,27 +1006,6 @@
      "lugar": 7
     },
     {
-     "n": "Victor Hugo",
-     "curto": "Victor Hugo",
-     "num": 75,
-     "pos": "AM",
-     "lugar": 11
-    },
-    {
-     "n": "Paulo Victor",
-     "curto": "Paulo Victor",
-     "num": 29,
-     "pos": "LM",
-     "lugar": 3
-    },
-    {
-     "n": "Vitinho",
-     "curto": "Vitinho",
-     "num": 2,
-     "pos": "RM",
-     "lugar": 2
-    },
-    {
      "n": "Tiquinho Soares",
      "curto": "T. Soares",
      "num": 9,
@@ -1013,24 +1013,24 @@
      "lugar": 9
     },
     {
-     "n": "Danilo",
-     "curto": "Danilo",
-     "num": 90,
+     "n": "Matheus Martins",
+     "curto": "M. Martins",
+     "num": 11,
      "pos": "CF-R",
      "lugar": 10
     }
    ]
   },
   "coritiba": {
-   "jogo": "401841301",
-   "data": "2026-11-04T00:30Z",
-   "contra": "Internacional",
-   "esquema": "4-2-3-1",
+   "jogo": "401841315",
+   "data": "2026-11-18T22:30Z",
+   "contra": "Santos",
+   "esquema": "4-3-3",
    "titulares": [
     {
-     "n": "Pedro Luccas",
-     "curto": "Pedro Luccas",
-     "num": 1,
+     "n": "Pedro Rangel",
+     "curto": "P. Rangel",
+     "num": 22,
      "pos": "G",
      "lugar": 1
     },
@@ -1063,25 +1063,25 @@
      "lugar": 2
     },
     {
-     "n": "Nicolás Fonseca",
-     "curto": "N. Fonseca",
-     "num": 5,
-     "pos": "AM",
-     "lugar": 10
+     "n": "Thiago Santos",
+     "curto": "T. Santos",
+     "num": 21,
+     "pos": "CM",
+     "lugar": 4
     },
     {
      "n": "Sebastián Gómez",
      "curto": "S. Gómez",
      "num": 19,
      "pos": "LM",
-     "lugar": 4
+     "lugar": 8
     },
     {
-     "n": "Thiago Santos",
-     "curto": "T. Santos",
-     "num": 21,
+     "n": "Nicolás Fonseca",
+     "curto": "N. Fonseca",
+     "num": 5,
      "pos": "RM",
-     "lugar": 8
+     "lugar": 7
     },
     {
      "n": "Josué Pesqueira",
@@ -1094,15 +1094,15 @@
      "n": "Pedro Rocha",
      "curto": "P. Rocha",
      "num": 32,
-     "pos": "AM-L",
+     "pos": "LF",
      "lugar": 11
     },
     {
      "n": "Breno",
      "curto": "Breno",
      "num": 77,
-     "pos": "AM-R",
-     "lugar": 7
+     "pos": "RF",
+     "lugar": 10
     }
    ]
   },
@@ -1362,9 +1362,9 @@
    ]
   },
   "corinthians": {
-   "jogo": "401841298",
-   "data": "2026-11-05T00:30Z",
-   "contra": "São Paulo",
+   "jogo": "401841316",
+   "data": "2026-11-19T00:30Z",
+   "contra": "Botafogo",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -1382,9 +1382,9 @@
      "lugar": 6
     },
     {
-     "n": "André Ramalho",
-     "curto": "A. Ramalho",
-     "num": 5,
+     "n": "João Pedro",
+     "curto": "João Pedro",
+     "num": 4,
      "pos": "CD-R",
      "lugar": 5
     },
@@ -1396,37 +1396,37 @@
      "lugar": 3
     },
     {
-     "n": "Pedro Milans",
-     "curto": "P. Milans",
-     "num": 20,
+     "n": "Mateuzinho",
+     "curto": "Mateuzinho",
+     "num": 2,
      "pos": "RB",
      "lugar": 2
     },
     {
-     "n": "Rodrigo Garro",
-     "curto": "R. Garro",
-     "num": 8,
+     "n": "Vitinho",
+     "curto": "Vitinho",
+     "num": 11,
      "pos": "AM",
      "lugar": 10
+    },
+    {
+     "n": "André Carrillo",
+     "curto": "A. Carrillo",
+     "num": 19,
+     "pos": "LM",
+     "lugar": 4
     },
     {
      "n": "Breno Bidon",
      "curto": "B. Bidon",
      "num": 7,
-     "pos": "LM",
-     "lugar": 4
-    },
-    {
-     "n": "André",
-     "curto": "André",
-     "num": 49,
      "pos": "RM",
      "lugar": 8
     },
     {
-     "n": "Yuri Alberto",
-     "curto": "Y. Alberto",
-     "num": 9,
+     "n": "Memphis Depay",
+     "curto": "M. Depay",
+     "num": 10,
      "pos": "F",
      "lugar": 9
     },
@@ -1532,10 +1532,10 @@
    ]
   },
   "remo": {
-   "jogo": "401841300",
-   "data": "2026-11-05T22:30Z",
-   "contra": "Palmeiras",
-   "esquema": "5-4-1",
+   "jogo": "401841310",
+   "data": "2026-11-18T23:00Z",
+   "contra": "Chapecoense",
+   "esquema": "4-1-4-1",
    "titulares": [
     {
      "n": "Marcelo Rangel",
@@ -1545,30 +1545,30 @@
      "lugar": 1
     },
     {
-     "n": "José Welison",
-     "curto": "J. Welison",
-     "num": 28,
-     "pos": "CD",
-     "lugar": 5
-    },
-    {
      "n": "Duplexe Tchamba",
      "curto": "D. Tchamba",
      "num": 18,
      "pos": "CD-L",
-     "lugar": 4
-    },
-    {
-     "n": "Marllon",
-     "curto": "Marllon",
-     "num": 13,
-     "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Marlon Lopes",
-     "curto": "M. Lopes",
-     "num": 6,
+     "n": "Zé Ivaldo",
+     "curto": "Z. Ivaldo",
+     "num": 27,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "José Welison",
+     "curto": "J. Welison",
+     "num": 28,
+     "pos": "DM",
+     "lugar": 4
+    },
+    {
+     "n": "Mayk",
+     "curto": "Mayk",
+     "num": 77,
      "pos": "LB",
      "lugar": 3
     },
@@ -1617,9 +1617,9 @@
    ]
   },
   "chapecoense": {
-   "jogo": "401841175",
-   "data": "2026-11-14T23:30Z",
-   "contra": "Vasco da Gama",
+   "jogo": "401841310",
+   "data": "2026-11-18T23:00Z",
+   "contra": "Remo",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -1637,23 +1637,23 @@
      "lugar": 6
     },
     {
-     "n": "Victor Caetano",
-     "curto": "V. Caetano",
-     "num": 25,
+     "n": "Eduardo Doma",
+     "curto": "Eduardo Doma",
+     "num": 3,
      "pos": "CD-R",
      "lugar": 5
     },
     {
-     "n": "Bruno Pacheco",
-     "curto": "B. Pacheco",
-     "num": 91,
+     "n": "Fernando",
+     "curto": "Fernando",
+     "num": 12,
      "pos": "LB",
      "lugar": 3
     },
     {
-     "n": "Heitor",
-     "curto": "Heitor",
-     "num": 5,
+     "n": "Bruno",
+     "curto": "Bruno",
+     "num": 20,
      "pos": "RB",
      "lugar": 2
     },
@@ -1665,9 +1665,9 @@
      "lugar": 10
     },
     {
-     "n": "Yago Felipe",
-     "curto": "Yago Felipe",
-     "num": 88,
+     "n": "David",
+     "curto": "D. David",
+     "num": 19,
      "pos": "LM",
      "lugar": 4
     },
