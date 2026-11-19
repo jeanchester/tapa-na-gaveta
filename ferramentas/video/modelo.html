@@ -137,6 +137,25 @@ body.sem-pilulas .selo, body.sem-pilulas .jogo .chip { display: none; }
 .jog .vaga circle { fill: none; stroke: var(--tinta-3); stroke-width: 2.5; stroke-dasharray: 7 6; opacity: .7; }
 .jog .nome { position: absolute; left: -110px; width: 220px; top: 38px; text-align: center; font: 800 21px var(--f-texto); white-space: nowrap; }
 
+/* resultados da rodada: placares que batem um a um, com o efeito de cada um para o time do vídeo */
+.res-lista { width: 800px; display: flex; flex-direction: column; gap: 14px; }
+.res { background: var(--cartao); border: 2px solid var(--linha-2); border-radius: 16px; padding: 12px 22px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px 14px; position: relative; }
+.res .lado { display: flex; align-items: center; gap: 12px; font: 800 25px var(--f-texto); min-width: 0; }
+.res .lado.dir { justify-content: flex-end; }
+.res .pl { display: flex; align-items: center; gap: 8px; }
+.res .pl b { width: 58px; height: 66px; border-radius: 12px; background: var(--cartao-2); display: flex; align-items: center; justify-content: center; font: 900 44px var(--f-num); }
+.res .pl b.ganhou { background: var(--ouro); color: var(--noite); }
+.res .pl i { font: 900 26px var(--f-num); color: var(--tinta-3); font-style: normal; }
+.res .chip { grid-column: 1 / -1; justify-self: center; padding: 4px 18px; border-radius: 999px; font: 800 20px var(--f-texto); color: var(--noite); }
+.res.eu { border-color: var(--ouro); }
+
+/* bolas de gol (abertura com "bolas") */
+.bolas { display: flex; gap: 26px; justify-content: center; }
+.bolas svg { width: 120px; height: 120px; display: block; }
+
+/* impacto: clarão rápido e tremida do palco quando a cena entra num momento forte da fala */
+#clarao { position: absolute; inset: 0; background: var(--ouro-claro); opacity: 0; pointer-events: none; z-index: 7; }
+
 /* guia da área segura (botão / tecla g) */
 #guia { position: absolute; left: 115px; top: 262px; width: 850px; height: 682px; border: 3px dashed #ff3e9a; pointer-events: none; display: none; z-index: 9; }
 #guia.on { display: block; }
@@ -157,6 +176,7 @@ body.render #painel { display: none; }
   <div id="ticker"><div class="faixa"></div></div>
   <div id="cab"><div class="marca"></div><div class="estado"><i></i><span></span></div></div>
   <div id="palco"></div>
+  <div id="clarao"></div>
   <div id="guia"></div>
 </div>
 <div id="painel">
@@ -220,6 +240,8 @@ function escudo(slug, tam) {
 }
 // logotipo do site (app/app.js), com a cor da bola fixa
 const LOGO = '<svg viewBox="0 0 236 40"><g fill="none" stroke="currentColor" stroke-linecap="round"><path d="M3 6H35V38" stroke-width="4.6"/><path d="M10 6l25 25M19 6l16 16M28 6l7 7M3 14h22M3 22h14" stroke-width="1" opacity=".45"/></g><circle cx="24" cy="17" r="5.5" fill="#ffc23d"/><text x="49" y="28" transform="skewX(-6)" font-family="\'Archivo Largo\', Archivo, sans-serif" font-weight="900" font-size="19" letter-spacing="-.3" fill="currentColor">tapa na <tspan fill="#ffc23d">gaveta</tspan></text></svg>';
+// bola de futebol (pentágonos), para a abertura com "bolas" (gols)
+const BOLA = '<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#f4f6fb" stroke="#060b1f" stroke-width="4"/><path d="M50 31l18 13-7 21H39l-7-21z" fill="#0b1640"/><path d="M50 31V6M68 44l23-8M61 65l14 20M39 65L25 85M32 44L9 36" stroke="#0b1640" stroke-width="4" fill="none"/><path d="M38 5l12 1 12-1M86 26l5 10-1 13M86 74l-11 11-6 5M14 74l11 11 6 5M14 26L9 36l1 13" stroke="#0b1640" stroke-width="6" fill="none" stroke-linecap="round"/></svg>';
 const ZONA = { lib: 'var(--z-lib)', pre: 'var(--z-pre)', sula: 'var(--z-sula)', rb: 'var(--z-rb)' };
 // faixas da tabela: as da Série A por padrão; o roteiro pode trocar (Série B: zonas: { lib: [1, 2], pre: [3, 6], rb: [17, 20] })
 function zonaDe(pos) {
@@ -279,13 +301,19 @@ function camisa(k, num) {
 }
 
 const CENAS = {
-  abertura(c, ev) {
+  abertura(c, ev, R) {
     const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
     const esc = c.escudo && escudo(c.escudo, 230), tit = titulo(c.titulo || []);
     const fila = c.escudos && el('div', 'escudos'), fs = (c.escudos || []).map((s) => { const i = escudo(s, 110); fila.appendChild(i); return i; });
     const cart = c.cartoes && el('div', 'cartoes'), cs = Array.from({ length: c.cartoes || 0 }, () => { const i = el('i'); cart.appendChild(i); return i; });
-    [selo, esc, fila, cart, tit].forEach((x) => x && n.appendChild(x));
+    // bolas: uma por gol, cada uma cai na sua palavra (c.emBolas: ['um', 'dois', 'três']) ou em sequência
+    const bol = c.bolas && el('div', 'bolas'), bs = Array.from({ length: c.bolas || 0 }, (_, i) => {
+      const d = el('div', '', BOLA); bol.appendChild(d);
+      return { d, t0: c.emBolas && c.emBolas[i] != null ? tempo(c.emBolas[i], R) - c.inicio : .25 + i * .28 };
+    });
+    [selo, esc, fila, cart, bol, tit].forEach((x) => x && n.appendChild(x));
     ev(0.15, 'pop'); ev(0.45, 'tapa'); fs.forEach((_, i) => ev(.9 + i * .14, 'pop')); cs.forEach((_, i) => ev(.2 + i * .3, 'tapa'));
+    bs.forEach((b) => { ev(b.t0, 'chute'); ev(b.t0 + .12, 'tapa'); });
     return { el: n, at(t) {
       if (selo) { selo.style.opacity = sai(t / .3); selo.style.transform = `translateY(${(1 - sai(t / .3)) * -20}px)`; }
       if (esc) { const k = mola((t - .15) / .45); esc.style.transform = `scale(${.4 + .6 * k})`; esc.style.opacity = cl((t - .15) / .15); }
@@ -293,6 +321,8 @@ const CENAS = {
       fs.forEach((f, i) => { const k = mola((t - .9 - i * .14) / .35); f.style.opacity = cl((t - .9 - i * .14) / .1); f.style.transform = `scale(${.3 + .7 * k})`; });
       // cartão vermelho "batendo" na mesa, cada um com uma inclinação
       cs.forEach((f, i) => { const t0 = .2 + i * .3, k = mola((t - t0) / .3); f.style.opacity = cl((t - t0) / .06); f.style.transform = `translateY(${(1 - k) * -80}px) rotate(${(i % 2 ? 8 : -8) * k}deg) scale(${1.3 - .3 * k})`; });
+      // bola entra rolando de cima e quica no lugar
+      bs.forEach((b, i) => { const k = mola((t - b.t0) / .32); b.d.style.opacity = cl((t - b.t0) / .05); b.d.style.transform = `translateY(${(1 - k) * -120}px) rotate(${(1 - k) * -220 + (i - 1) * 6}deg) scale(${1.25 - .25 * k})`; });
     } };
   },
 
@@ -326,6 +356,38 @@ const CENAS = {
         j.b.style.opacity = on ? cl((t - j.t0) / .08) : 0; j.b.style.transform = `scale(${on ? .4 + .6 * k : .4})`;
         j.nm.style.opacity = sai((t - j.t0 - .1) / .3); j.nm.style.transform = `translateY(${(1 - sai((t - j.t0 - .1) / .3)) * 10}px)`;
         j.vaga.style.opacity = on ? 0 : .7; j.vaga.style.strokeDashoffset = (-(t * 12) - j.i * 5).toFixed(1);
+      });
+    } };
+  },
+
+  // c.lista: [{ h, a, gh, ga, chip, corChip, eu, em }]: placares terminados, cada um bate na sua palavra
+  resultados(c, ev, R) {
+    const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo), tit = c.titulo && titulo(c.titulo, true);
+    const box = el('div', 'res-lista');
+    const its = c.lista.map((g, i) => {
+      const m = el('div', 'res' + (g.eu ? ' eu' : ''));
+      const l1 = el('div', 'lado'); l1.append(escudo(g.h, 46), el('span', '', nome(g.h)));
+      const l2 = el('div', 'lado dir'); l2.append(el('span', '', nome(g.a)), escudo(g.a, 46));
+      const pl = el('div', 'pl'), b1 = el('b', g.gh > g.ga ? 'ganhou' : '', '0'), b2 = el('b', g.ga > g.gh ? 'ganhou' : '', '0');
+      pl.append(b1, el('i', '', '×'), b2);
+      m.append(l1, pl, l2);
+      let chip = null;
+      if (g.chip) { chip = el('div', 'chip', g.chip); chip.style.background = g.corChip || 'var(--ok)'; m.appendChild(chip); }
+      box.appendChild(m);
+      const t0 = g.em != null ? tempo(g.em, R) - c.inicio : .35 + i * .35;
+      ev(t0, 'tapa'); ev(t0 + .3, 'pop'); if (chip) ev(t0 + .6, 'pop');
+      return { m, b1, b2, chip, g, t0 };
+    });
+    [selo, tit, box].forEach((x) => x && n.appendChild(x));
+    return { el: n, at(t) {
+      if (selo) selo.style.opacity = sai(t / .3);
+      if (tit) [...tit.children].forEach((s, i) => { const k = sai((t - .1 - i * .15) / .3); s.style.opacity = k; s.style.transform = `translateY(${(1 - k) * 24}px)`; });
+      its.forEach((x) => {
+        const k = mola((t - x.t0) / .3); x.m.style.opacity = cl((t - x.t0) / .08); x.m.style.transform = `translateY(${(1 - k) * -26}px) scale(${1.05 - .05 * k})`;
+        const on = t >= x.t0 + .3, kp = mola((t - x.t0 - .3) / .3);
+        x.b1.textContent = on ? x.g.gh : '–'; x.b2.textContent = on ? x.g.ga : '–';
+        [x.b1, x.b2].forEach((b) => { b.style.transform = `scale(${on ? .7 + .3 * kp : 1})`; });
+        if (x.chip) { const kc = mola((t - x.t0 - .6) / .3); x.chip.style.opacity = cl((t - x.t0 - .6) / .08); x.chip.style.transform = `scale(${.5 + .5 * kc})`; }
       });
     } };
   },
@@ -405,7 +467,7 @@ const CENAS = {
     } };
   },
 
-  // c.itens: [{ rotulo, t (escudo opcional), valor, cor, em }]; valor em % por padrão
+  // c.itens: [{ rotulo, t (escudo opcional), valor, cor, em, casas }]; valor em % por padrão; casas do item vale mais que c.casas
   barras(c, ev, R) {
     const n = el('div', 'cena'), selo = c.selo && el('div', 'selo', '<i></i>' + c.selo);
     const esc = c.escudo && escudo(c.escudo, 120), tit = c.titulo && titulo(c.titulo, true);
@@ -419,7 +481,7 @@ const CENAS = {
       b.append(rot, tr, v); box.appendChild(b);
       const t0 = it.em != null ? tempo(it.em, R) - c.inicio : .5 + i * .45;
       ev(t0, 'sobe'); for (let q = 1; q <= 6; q++) ev(t0 + q * .1, 'tick');
-      return { b, en, v, t0, valor: it.valor };
+      return { b, en, v, t0, valor: it.valor, casas: it.casas != null ? it.casas : casas };
     });
     [selo, esc, tit, box].forEach((x) => x && n.appendChild(x));
     const max = c.max || 100;
@@ -431,7 +493,7 @@ const CENAS = {
         const k = sai((t - x.t0) / .7);
         x.b.style.opacity = cl((t - x.t0 + .25) / .2);
         x.en.style.width = (x.valor / max) * 100 * k + '%';
-        x.v.textContent = fmt(x.valor * k, casas) + suf;
+        x.v.textContent = fmt(x.valor * k, x.casas) + suf;
       });
     } };
   },
@@ -496,7 +558,7 @@ const CENAS = {
 };
 
 // ====================================================================== montagem
-let R = null, VIVAS = [], EVENTOS = [], DUR = 10;
+let R = null, VIVAS = [], EVENTOS = [], DUR = 10, IMPACTOS = [];
 function montar(roteiro) {
   R = roteiro;
   document.body.classList.toggle('sem-pilulas', !!R.semPilulas);   // teste: sem selo e sem chip colorido
@@ -508,7 +570,7 @@ function montar(roteiro) {
   const palco = $('#palco'); palco.innerHTML = '';
   const inis = R.cenas.map((c) => tempo(c.em, R));
   DUR = R.duracao ? semCortes(R.duracao, R) : inis[inis.length - 1] + 4;
-  EVENTOS = [];
+  EVENTOS = []; IMPACTOS = [];
   VIVAS = R.cenas.map((c, i) => {
     const ini = inis[i], fim = i + 1 < inis.length ? inis[i + 1] : DUR;
     c.inicio = ini;
@@ -517,6 +579,11 @@ function montar(roteiro) {
     const f = CENAS[c.tipo];
     if (!f) { AVISOS.push('tipo de cena desconhecido: ' + c.tipo); return null; }
     const v = f(c, ev, R); v.ini = ini; v.fim = fim; palco.appendChild(v.el);
+    // troca de cena com um sopro curto (R.troca: false desliga); c.som: efeito extra na entrada ('torcida', 'apito', 'boom', 'nome@0.4' = com atraso)
+    if (i > 0 && R.troca !== false) EVENTOS.push([ini, 'troca']);
+    [].concat(c.som || []).forEach((x) => { const [tipo, d] = String(x).split('@'); ev(+d || 0, tipo); });
+    // c.impacto: clarão e tremida na entrada da cena (true) ou tantos segundos depois (número); só nos momentos fortes da fala
+    if (c.impacto) { const d = typeof c.impacto === 'number' ? c.impacto : 0; IMPACTOS.push(ini + d); ev(d, 'boom'); }
     prepararLeve(v, c, ultimo);
     return v;
   }).filter(Boolean);
@@ -533,14 +600,14 @@ function montar(roteiro) {
 function prepararLeve(v, c, ultimo) {
   v.calma = ultimo + .5;
   v.temResultado = ['placar', 'barras', 'numero'].includes(c.tipo) || !!c.depois;
-  v.cards = [...v.el.querySelectorAll('.jogo, .mini, .tabela, .barra .trilho')].map((card) => {
+  v.cards = [...v.el.querySelectorAll('.jogo, .mini, .res, .tabela, .barra .trilho')].map((card) => {
     const b = el('div', 'brilho'), i = el('i'); b.appendChild(i); card.appendChild(b); return i;
   });
   v.vazios = [...v.el.querySelectorAll('.gol.vazio')].map((g) => {
     g.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 116 136" preserveAspectRatio="none"><rect x="1.5" y="1.5" width="113" height="133" rx="18"/></svg>');
     return g.querySelector('rect');
   });
-  v.nums = [...v.el.querySelectorAll('.numero, .gol:not(.vazio)')];
+  v.nums = [...v.el.querySelectorAll('.numero, .gol:not(.vazio), .bolas > div')];
 }
 function leve(v, t, tl) {
   const k = cl((tl - v.calma) / .6) * cl((v.fim - t) / .3);
@@ -580,6 +647,16 @@ function desenhar(t) {
     v.at(tl);
     leve(v, t, tl);
   });
+  // impacto: clarão de 0,18 s e tremida que amortece em 0,45 s
+  let fl = 0, tx = 0, ty = 0;
+  IMPACTOS.forEach((ti) => {
+    const d = t - ti; if (d < 0 || d > .45) return;
+    fl = Math.max(fl, .55 * (1 - d / .18));
+    const a = 16 * Math.pow(1 - d / .45, 2);
+    tx += a * Math.sin(d * 95); ty += a * .6 * Math.cos(d * 120);
+  });
+  $('#clarao').style.opacity = cl(fl).toFixed(3);
+  $('#palco').style.transform = tx || ty ? `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px)` : '';
   $('#tempo').textContent = fmt(t, 1) + ' s / ' + fmt(DUR, 1);
 }
 
@@ -609,6 +686,26 @@ const SONS = {
   tick(ctx, o, t) { osc(ctx, o, 'square', 2600, 2400, t, .018, .05); },
   whoosh(ctx, o, t) { chiado(ctx, o, t, .38, .35, 'bandpass', 350, 3200, 1.2); },
   sobe(ctx, o, t) { osc(ctx, o, 'triangle', 330, 760, t, .42, .16); },
+  troca(ctx, o, t) { chiado(ctx, o, t, .22, .16, 'bandpass', 900, 4200, 1.4); },
+  boom(ctx, o, t) { osc(ctx, o, 'sine', 120, 38, t, .45, .95); chiado(ctx, o, t, .2, .5, 'lowpass', 1800, 200, .7); },
+  chute(ctx, o, t) { osc(ctx, o, 'sine', 210, 70, t, .09, .8); chiado(ctx, o, t, .05, .5, 'bandpass', 1400, 600, 1); },
+  // torcida: ruído com formato de voz (faixas de 500 a 1500 Hz) que cresce e some em ~1,7 s
+  torcida(ctx, o, t) {
+    [[520, .9], [900, .7], [1500, .45]].forEach(([f, p]) => {
+      const s = ctx.createBufferSource(); s.buffer = ruido(ctx); s.loop = true;
+      const fi = ctx.createBiquadFilter(); fi.type = 'bandpass'; fi.Q.value = .9; fi.frequency.setValueAtTime(f * .8, t); fi.frequency.linearRampToValueAtTime(f * 1.15, t + 1.6);
+      const g = ctx.createGain(); g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(.32 * p, t + .35); g.gain.setValueAtTime(.32 * p, t + .9); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.7);
+      s.connect(fi).connect(g).connect(o); s.start(t); s.stop(t + 1.75);
+    });
+  },
+  // apito do juiz: dois trilos curtos (seno com vibrato rápido)
+  apito(ctx, o, t) {
+    [[0, .18], [.24, .42]].forEach(([a, d]) => {
+      const os = ctx.createOscillator(), lfo = ctx.createOscillator(), lg = ctx.createGain(), g = ctx.createGain();
+      os.type = 'sine'; os.frequency.value = 2900; lfo.frequency.value = 38; lg.gain.value = 140; lfo.connect(lg).connect(os.frequency);
+      env(ctx, g, t + a, .01, .22, d); os.connect(g).connect(o); os.start(t + a); lfo.start(t + a); os.stop(t + a + d + .02); lfo.stop(t + a + d + .02);
+    });
+  },
   fim(ctx, o, t) { osc(ctx, o, 'triangle', 523, 523, t, .55, .2); osc(ctx, o, 'triangle', 659, 659, t + .06, .55, .16); osc(ctx, o, 'triangle', 784, 784, t + .12, .7, .14); },
 };
 // trilha: batida leve a 100 bpm (bumbo, chimbal, baixo), para ficar bem baixinha embaixo da voz
@@ -657,6 +754,7 @@ window.VIDEO = {
     variante: VAR || null, variantes: Object.keys((R && R.variantes) || {}), mudaAnimacao: MUDA_ANIMACAO,
     fator: (R && R.fator) || null, nivel: (R && R.nivel) || null,
     legenda: (R && R.legenda) || false, T: (R && R.T) || [], fala: (R && R.fala) || [],
+    camZoom: (R && R.camZoom) || [], punchCortes: (R && R.punchCortes) || 0,
   }),
 };
 

@@ -173,7 +173,31 @@ def hdr(camera):
     return v in ('arib-std-b67', 'smpte2084')          # HLG (iPhone) ou PQ
 
 
-def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=(), legenda=None):
+def zooms_camera(meta, cortes, dur, fps):
+    """Aproximações da câmera no tempo do vídeo final: [(quadro_de, quadro_ate, zoom)].
+    punchCortes (ex.: 1.06): cada trecho entre cortes alterna 1,0 e esse zoom, para o corte seco não parecer pulo;
+    camZoom [[de, ate, zoom], ...] (tempo da gravação, depois do inicio): aproximação nos momentos fortes da fala."""
+    out = []
+    p = meta.get('punchCortes') or 0
+    if p and cortes:
+        bordas, d = [], 0.0
+        for a, b in sorted(cortes):
+            bordas.append(a - d)
+            d += b - a
+        ini = 0.0
+        for k, fim in enumerate(bordas + [dur]):
+            if k % 2 == 1:
+                out.append((round(ini * fps), round(fim * fps) - 1, p))
+            ini = fim
+    for de, ate, z in meta.get('camZoom') or []:
+        a, b = sem_cortes(de, cortes), sem_cortes(ate, cortes)
+        if a is None or b is None:
+            continue
+        out = [(x, y, zz) for x, y, zz in out if y < round(a * fps) or x > round(b * fps) - 1] + [(round(a * fps), round(b * fps) - 1, z)]
+    return sorted(out)
+
+
+def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, zoom=1.0, cy=0.5, cortes=(), legenda=None, zooms=()):
     final = saida / f'{nome}.mp4'
     tem_audio = bool(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a', '-show_entries', 'stream=index', '-of', 'csv=p=0', str(camera)],
                                     capture_output=True, text=True).stdout.strip())
@@ -229,6 +253,12 @@ def montar(saida, nome, camera, inicio, dur, fps, vol_voz, vol_sfx, vol_trilha, 
         filtro = base_v + '[cam];'
         if tem_audio:
             filtro += base_a + '[voz];'
+    # aproximações da câmera (punch-in): zoompan quadro a quadro, ancorado um pouco abaixo do centro (rosto e escudo)
+    if zooms:
+        z = '1'
+        for a, b, zz in reversed(zooms):
+            z = f'if(between(in,{a},{b}),{zz},{z})'
+        filtro = filtro.replace('[cam];', f",zoompan=z='{z}':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)*0.62':d=1:s={W}x{h_cam}:fps={fps},setsar=1[cam];", 1)
     # legenda (variante com legenda na tela): queimada por cima do quadro inteiro, já no tempo do vídeo final
     leg = f",ass=filename='{legenda}':fontsdir='{FONTES}'" if legenda else ''
     filtro += f'[0:v][cam]vstack=inputs=2{leg},format=yuv420p[v];'
@@ -271,7 +301,7 @@ def gerar(a, variante):
         print('animação pronta:', saida / 'animacao.mp4')
         return
     final = montar(saida, pasta, pathlib.Path(a.camera), inicio, dur, a.fps, a.vol_voz, a.vol_sfx, a.vol_trilha,
-                   a.camera_zoom, a.camera_y, cortes, legenda)
+                   a.camera_zoom, a.camera_y, cortes, legenda, zooms_camera(meta, cortes, dur, a.fps))
     print('vídeo final:', final, '·', exp['fator'] or 'sem fator', '=', exp['nivel'] or '-')
     print('confira a sincronia:', f'python ferramentas/video/sincronia.py comparar "{a.camera}" "{final}" --inicio {inicio}')
 

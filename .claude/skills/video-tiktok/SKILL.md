@@ -152,6 +152,10 @@ node ferramentas/video/chances.js --comp champions --times               # apeli
 node ferramentas/video/chances.js --comp champions real_madrid liverpool
 ```
 
+Para a "conta pra se salvar" (o formato do Isake que mais dá view): `--pontos` lista a chance de cada faixa conforme os
+pontos que o time soma até o fim (+3, +4, +6...). `--desfazer mandante-visitante` volta um jogo já jogado para "por jogar"
+(a chance de antes do jogo, para o "caiu pela metade"). `CASAS=3 node ...` mostra mais casas (Remo com 99,97%, não 100%).
+
 Na Champions a força de cada time parte do Elo do ClubElo (gravado em `dados/champions-2026.json`),
 porque cada um só joga 8 vezes; no vídeo, diga "no nosso simulador" e não "pela tabela". O 1º lugar da
 fase de liga não é título: o texto do site diz "termina em 1º", e o vídeo deve seguir.
@@ -169,8 +173,9 @@ Copie `roteiros/exemplo-degola.js` para `roteiros/AAAA-MM-DD-assunto.js`. Campos
 
 | tipo | campos |
 |---|---|
-| `abertura` | `selo`, `titulo` ([linha, linha em dourado]), `escudo` (grande) ou `escudos` (fileira), `cartoes` (n cartões vermelhos) |
+| `abertura` | `selo`, `titulo` ([linha, linha em dourado]), `escudo` (grande) ou `escudos` (fileira), `cartoes` (n cartões vermelhos), `bolas` (n bolas de gol que caem quicando; `emBolas: ['um', 'dois', 'três']` faz cada uma cair na sua palavra) |
 | `placar` | `h`, `a` (slugs), `gh`, `ga` (sem gols = jogo por vir, mostra "?"), `rotulo`, `chip`, `titulo`, `info` (pílulas) |
+| `resultados` | `lista` [{h, a, gh, ga, chip, corChip, eu, em}]: placares já terminados que batem um a um, cada um na sua palavra, com o efeito para o time do vídeo no chip ("ajudou o Timão") |
 | `tabela` | `linhas` [{t, pos, j, sg, pts}], `eu` (destaque), `corte` (linhas acima da linha do Z4), `depois` {em, linhas} para as linhas trocarem de lugar |
 | `barras` | `itens` [{t ou rotulo, valor, cor, em}], `selo`, `titulo`, `escudo`, `max`, `sufixo`, `casas` |
 | `numero` | `valor`, `de`, `sufixo`, `casas`, `titulo`, `escudo` |
@@ -185,6 +190,18 @@ usa no jogo (sites oficiais, ge, CBF) e anote no comentário do roteiro. `num` �
 time** (seleção: o da convocação; clube: o da relação oficial): só preencha com número conferido em fonte, nunca de
 memória; sem `num`, a camisa fica lisa.
 
+Efeitos em qualquer cena (usar pouco, só nos momentos fortes da fala):
+- `impacto: true` (ou segundos depois da entrada, ex. `impacto: 0.8`): clarão rápido e tremida do palco, com um "boom" grave.
+  Reserve para o resultado principal e a piada ou o grito do vídeo (dois ou três por vídeo).
+- `som: ['apito', 'torcida@0.6']`: efeito extra na entrada da cena (`nome@segundos` atrasa). Há `apito`, `torcida`, `boom`,
+  `chute`, além dos de sempre (`tapa`, `pop`, `tick`, `whoosh`, `sobe`, `fim`). Toda troca de cena tem um sopro curto
+  (`troca`); `troca: false` no topo do roteiro desliga.
+- `barras`: cada item aceita `casas` próprio (ex. 100% sem casas e 99,97% com duas na mesma cena).
+
+Câmera (no topo do roteiro): `punchCortes: 1.06` alterna o zoom da câmera entre 1,0 e 1,06 a cada trecho entre cortes, para o
+corte seco não parecer pulo; `camZoom: [[de, até, zoom], ...]` (tempo da gravação, como os `cortes`) aproxima no rosto num
+momento forte ("eu te amo, Kaio César"). Acima de ~1,1 o escudo da camisa pode sair: só por 1 a 2 s.
+
 Em títulos, `[corinthians] e ajudou o Timão` põe o escudo no começo da linha. Para outra liga, `zonas` no topo do
 roteiro troca as faixas da tabela (Série B: `{ lib: [1, 2], pre: [3, 6], rb: [17, 20] }`, ver `2026-11-15-serie-b-playoffs.js`). Cores aceitas:
 `var(--ouro)`, `var(--ok)`, `var(--empate)`, `var(--z-rb)`, `var(--z-pre)`, `var(--z-lib)` ou hexadecimal.
@@ -195,6 +212,13 @@ experimentos").
 
 Tamanho: cabem até 9 linhas de tabela, 5 barras e 4 jogos sem sair da área segura.
 Se precisar de mais, divida em duas cenas.
+
+Várias tomadas do mesmo vídeo: escolha a mais completa como base e, se outra tiver uma frase que a base não tem (uma
+piada, um nome), monte uma câmera só antes do render (base convertida para SDR + o trecho da outra tomada, também em SDR,
+emendados por quadro) e anote no comentário do roteiro de onde veio cada trecho. Gravação grande demais para subir inteira:
+corte em partes com `-c copy` só para transportar e **não** emende as partes com o `concat` do ffmpeg para usar o áudio e o
+vídeo juntos: cada emenda ganha um vão de ~0,05 a 0,16 s e a voz descasa até meio segundo no fim. Use as partes só para a
+imagem (corrigindo o tempo de cada quadro pelo `pts` do original) e o áudio tirado do original inteiro (`-c:a copy`, pequeno).
 
 ### 3. Gravação
 
