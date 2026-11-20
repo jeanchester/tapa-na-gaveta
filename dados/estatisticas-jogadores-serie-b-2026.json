@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-19T18:02:23",
+ "atualizado": "2026-11-20T02:05:06",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -4942,22 +4942,22 @@
     "pendurado": false
    },
    {
-    "nome": "Igor",
-    "time": "17313",
-    "escudo": "cuiaba",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Igor Henrique",
     "time": "10357",
     "escudo": "atleticogo",
     "amarelos": 1,
     "vermelhos": 1,
     "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Igor Maduro De Oliveira",
+    "time": "17313",
+    "escudo": "cuiaba",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "ciclo": 0,
     "suspenso": false,
     "pendurado": false
    },

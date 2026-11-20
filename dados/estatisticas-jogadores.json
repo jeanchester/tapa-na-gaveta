@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-19T18:02:15",
+ "atualizado": "2026-11-20T02:05:00",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -636,6 +636,12 @@
    "n": 12
   },
   {
+   "nome": "Renê",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 11
+  },
+  {
    "nome": "Carlos Vinícius",
    "time": "6273",
    "escudo": "gremio",
@@ -669,12 +675,6 @@
    "nome": "Matheus Pereira",
    "time": "2022",
    "escudo": "cruzeiro",
-   "n": 10
-  },
-  {
-   "nome": "Renê",
-   "time": "3457",
-   "escudo": "vitoria",
    "n": 10
   },
   {
@@ -810,6 +810,12 @@
    "n": 6
   },
   {
+   "nome": "Thiago Mendes",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 6
+  },
+  {
    "nome": "Alan Patrick",
    "time": "1936",
    "escudo": "internacional",
@@ -879,12 +885,6 @@
    "nome": "Ramón Sosa",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 5
-  },
-  {
-   "nome": "Thiago Mendes",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 5
   },
   {
@@ -969,6 +969,12 @@
    "nome": "Everaldo",
    "time": "9967",
    "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Facundo Colidio",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 4
   },
   {
@@ -1155,12 +1161,6 @@
    "nome": "Edson Carioca",
    "time": "9169",
    "escudo": "mirassol",
-   "n": 3
-  },
-  {
-   "nome": "Facundo Colidio",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 3
   },
   {
@@ -1398,6 +1398,12 @@
    "n": 2
   },
   {
+   "nome": "Henry Mosquera",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 2
+  },
+  {
    "nome": "Igor Gomes",
    "time": "7632",
    "escudo": "atleticomg",
@@ -1431,6 +1437,12 @@
    "nome": "João Victor",
    "time": "9169",
    "escudo": "mirassol",
+   "n": 2
+  },
+  {
+   "nome": "Juninho",
+   "time": "1936",
+   "escudo": "internacional",
    "n": 2
   },
   {
@@ -1818,6 +1830,12 @@
    "n": 1
   },
   {
+   "nome": "Emanuel Britez",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 1
+  },
+  {
    "nome": "Emmanuel Martínez",
    "time": "3457",
    "escudo": "vitoria",
@@ -1968,12 +1986,6 @@
    "n": 1
   },
   {
-   "nome": "Henry Mosquera",
-   "time": "6079",
-   "escudo": "bragantino",
-   "n": 1
-  },
-  {
    "nome": "Higor Matheus Meritão",
    "time": "9318",
    "escudo": "chapecoense",
@@ -2079,12 +2091,6 @@
    "nome": "Juan Nardoni",
    "time": "6273",
    "escudo": "gremio",
-   "n": 1
-  },
-  {
-   "nome": "Juninho",
-   "time": "1936",
-   "escudo": "internacional",
    "n": 1
   },
   {
@@ -2446,9 +2452,9 @@
   "limite_amarelos": 3,
   "jogadores": [
    {
-    "nome": "Matheus Pereira",
-    "time": "2022",
-    "escudo": "cruzeiro",
+    "nome": "Juninho Capixaba",
+    "time": "6079",
+    "escudo": "bragantino",
     "amarelos": 13,
     "vermelhos": 0,
     "ciclo": 1,
@@ -2456,12 +2462,12 @@
     "pendurado": false
    },
    {
-    "nome": "Juninho Capixaba",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 12,
+    "nome": "Matheus Pereira",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 13,
     "vermelhos": 0,
-    "ciclo": 0,
+    "ciclo": 1,
     "suspenso": false,
     "pendurado": false
    },
@@ -2546,10 +2552,30 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
+   },
+   {
+    "nome": "Andrés Gómez",
+    "time": "3454",
+    "escudo": "vasco",
+    "amarelos": 10,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gabriel Mercado",
+    "time": "1936",
+    "escudo": "internacional",
+    "amarelos": 10,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Neymar",
@@ -2597,16 +2623,6 @@
     "pendurado": false
    },
    {
-    "nome": "Andrés Gómez",
-    "time": "3454",
-    "escudo": "vasco",
-    "amarelos": 9,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Eduardo Doma",
     "time": "9318",
     "escudo": "chapecoense",
@@ -2623,16 +2639,6 @@
     "amarelos": 7,
     "vermelhos": 1,
     "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Gabriel Mercado",
-    "time": "1936",
-    "escudo": "internacional",
-    "amarelos": 9,
-    "vermelhos": 0,
-    "ciclo": 0,
     "suspenso": false,
     "pendurado": false
    },
@@ -2734,9 +2740,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -2845,9 +2851,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -2875,9 +2881,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Internacional",
-     "jogo": "401841308"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841321"
     }
    },
    {
@@ -2889,6 +2895,21 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Vitinho",
+    "time": "1936",
+    "escudo": "internacional",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
+    }
    },
    {
     "nome": "Bruno Melo",
@@ -3129,16 +3150,6 @@
      "contra": "Bahia",
      "jogo": "401841327"
     }
-   },
-   {
-    "nome": "Vitinho",
-    "time": "1936",
-    "escudo": "internacional",
-    "amarelos": 7,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Wálter Kannemann",
@@ -3423,15 +3434,9 @@
     "escudo": "bragantino",
     "amarelos": 6,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Luciano Acosta",
@@ -3472,6 +3477,22 @@
     "ciclo": 1,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Rodrigo Villagra",
+    "time": "1936",
+    "escudo": "internacional",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
+    }
    },
    {
     "nome": "Victor Hugo",
@@ -3654,9 +3675,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -3699,9 +3720,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -3750,6 +3771,16 @@
     }
    },
    {
+    "nome": "Fabinho",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 1,
+    "vermelhos": 2,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Gabriel Brazão",
     "time": "2674",
     "escudo": "santos",
@@ -3774,9 +3805,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -3804,9 +3835,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -3819,9 +3850,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -3974,9 +4005,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -4029,9 +4060,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Internacional",
-     "jogo": "401841308"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841321"
     }
    },
    {
@@ -4044,9 +4075,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -4089,24 +4120,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Internacional",
-     "jogo": "401841308"
-    }
-   },
-   {
-    "nome": "Rodrigo Villagra",
-    "time": "1936",
-    "escudo": "internacional",
-    "amarelos": 5,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841321"
     }
    },
    {
@@ -4284,20 +4300,10 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
-   },
-   {
-    "nome": "Fabinho",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 0,
-    "vermelhos": 2,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Fabrizio Angileri",
@@ -4365,14 +4371,13 @@
     "escudo": "internacional",
     "amarelos": 2,
     "vermelhos": 1,
-    "motivo": "vermelho",
     "ciclo": 2,
-    "suspenso": true,
-    "pendurado": false,
+    "suspenso": false,
+    "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -4781,6 +4786,22 @@
     "pendurado": false
    },
    {
+    "nome": "Alan Patrick",
+    "time": "1936",
+    "escudo": "internacional",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
+    }
+   },
+   {
     "nome": "Alisson",
     "time": "3445",
     "escudo": "fluminense",
@@ -4937,6 +4958,22 @@
     "pendurado": false
    },
    {
+    "nome": "Fernando",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
+    }
+   },
+   {
     "nome": "Ferreira",
     "time": "2026",
     "escudo": "sp",
@@ -5017,6 +5054,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Gustavo Marques",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
+    }
    },
    {
     "nome": "Hércules",
@@ -5357,6 +5410,22 @@
     "pendurado": false
    },
    {
+    "nome": "Matheus Fernandes",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
+    }
+   },
+   {
     "nome": "Matheus Piauí",
     "time": "4936",
     "escudo": "remo",
@@ -5365,6 +5434,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Matheusinho",
+    "time": "3457",
+    "escudo": "vitoria",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
+    }
    },
    {
     "nome": "Michel Araújo",
@@ -5603,6 +5688,16 @@
     "pendurado": false
    },
    {
+    "nome": "Wallace Yan",
+    "time": "6079",
+    "escudo": "bragantino",
+    "amarelos": 1,
+    "vermelhos": 1,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Wallison Luiz",
     "time": "3456",
     "escudo": "coritiba",
@@ -5668,21 +5763,6 @@
     }
    },
    {
-    "nome": "Alan Patrick",
-    "time": "1936",
-    "escudo": "internacional",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
-    }
-   },
-   {
     "nome": "Alerrando",
     "time": "1936",
     "escudo": "internacional",
@@ -5692,9 +5772,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -5737,9 +5817,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -5887,9 +5967,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -5902,9 +5982,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -5977,24 +6057,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Internacional",
-     "jogo": "401841308"
-    }
-   },
-   {
-    "nome": "Fernando",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841321"
     }
    },
    {
@@ -6143,21 +6208,6 @@
     }
    },
    {
-    "nome": "Gustavo Marques",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
-    }
-   },
-   {
     "nome": "Gustavo Santana",
     "time": "2026",
     "escudo": "sp",
@@ -6182,9 +6232,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -6242,9 +6292,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -6297,9 +6347,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
+     "data": "2026-11-22T22:30Z",
+     "contra": "Vasco da Gama",
+     "jogo": "401841321"
     }
    },
    {
@@ -6477,9 +6527,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Internacional",
+     "jogo": "401841323"
     }
    },
    {
@@ -6643,6 +6693,21 @@
     }
    },
    {
+    "nome": "Marino Hinestroza",
+    "time": "3454",
+    "escudo": "vasco",
+    "amarelos": 2,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-11-22T22:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841321"
+    }
+   },
+   {
     "nome": "Mateo Sanabria",
     "time": "9967",
     "escudo": "bahia",
@@ -6658,21 +6723,6 @@
     }
    },
    {
-    "nome": "Matheus Fernandes",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vitória",
-     "jogo": "401841317"
-    }
-   },
-   {
     "nome": "Matheus Martins",
     "time": "6086",
     "escudo": "botafogo",
@@ -6685,21 +6735,6 @@
      "data": "2026-11-23T23:00Z",
      "contra": "São Paulo",
      "jogo": "401841326"
-    }
-   },
-   {
-    "nome": "Matheusinho",
-    "time": "3457",
-    "escudo": "vitoria",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Red Bull Bragantino",
-     "jogo": "401841317"
     }
    },
    {
@@ -6842,9 +6877,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -6937,9 +6972,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-19T22:30Z",
-     "contra": "Vasco da Gama",
-     "jogo": "401841308"
+     "data": "2026-11-23T22:30Z",
+     "contra": "Vitória",
+     "jogo": "401841323"
     }
    },
    {
@@ -7101,16 +7136,6 @@
      "contra": "Palmeiras",
      "jogo": "401841322"
     }
-   },
-   {
-    "nome": "Wallace Yan",
-    "time": "6079",
-    "escudo": "bragantino",
-    "amarelos": 0,
-    "vermelhos": 1,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
    },
    {
     "nome": "Wesley Ribeiro",
@@ -7326,6 +7351,16 @@
     "nome": "Bruno Baldini",
     "time": "3458",
     "escudo": "athletico",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Bruno Duarte",
+    "time": "3454",
+    "escudo": "vasco",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
@@ -7706,6 +7741,16 @@
     "nome": "Gabriel Pereira",
     "time": "3454",
     "escudo": "vasco",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Gean",
+    "time": "3457",
+    "escudo": "vitoria",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
@@ -8126,16 +8171,6 @@
     "nome": "Marcos Victor",
     "time": "9967",
     "escudo": "bahia",
-    "amarelos": 1,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Marino Hinestroza",
-    "time": "3454",
-    "escudo": "vasco",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,
