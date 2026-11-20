@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-20T02:05:00",
+ "atualizado": "2026-11-20T17:38:29",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -44,6 +44,12 @@
    "n": 11
   },
   {
+   "nome": "Renê",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 11
+  },
+  {
    "nome": "José Manuel López",
    "time": "2029",
    "escudo": "palmeiras",
@@ -56,6 +62,12 @@
    "n": 10
   },
   {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 10
+  },
+  {
    "nome": "Jajá",
    "time": "4936",
    "escudo": "remo",
@@ -65,18 +77,6 @@
    "nome": "Maurício",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 10
-  },
-  {
-   "nome": "Jonathan Calleri",
-   "time": "2026",
-   "escudo": "sp",
-   "n": 10
-  },
-  {
-   "nome": "Renê",
-   "time": "3457",
-   "escudo": "vitoria",
    "n": 10
   },
   {
@@ -164,15 +164,21 @@
    "n": 6
   },
   {
-   "nome": "Jhon Arias",
-   "time": "2029",
-   "escudo": "palmeiras",
+   "nome": "Thiago Mendes",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 6
   },
   {
    "nome": "Luciano Acosta",
    "time": "3445",
    "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Jhon Arias",
+   "time": "2029",
+   "escudo": "palmeiras",
    "n": 6
   },
   {
@@ -218,6 +224,12 @@
    "n": 5
   },
   {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 5
+  },
+  {
    "nome": "Marcinho",
    "time": "9318",
    "escudo": "chapecoense",
@@ -230,21 +242,15 @@
    "n": 5
   },
   {
-   "nome": "Thiago Mendes",
-   "time": "3454",
-   "escudo": "vasco",
-   "n": 5
-  },
-  {
    "nome": "Alexander Bernabei",
    "time": "1936",
    "escudo": "internacional",
    "n": 5
   },
   {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
+   "nome": "Hércules",
+   "time": "3445",
+   "escudo": "fluminense",
    "n": 5
   },
   {
@@ -284,19 +290,13 @@
    "n": 5
   },
   {
-   "nome": "Ramón Sosa",
-   "time": "2029",
-   "escudo": "palmeiras",
-   "n": 5
-  },
-  {
    "nome": "Renato Kayzer",
    "time": "3457",
    "escudo": "vitoria",
    "n": 5
   },
   {
-   "nome": "Vitor Roque",
+   "nome": "Ramón Sosa",
    "time": "2029",
    "escudo": "palmeiras",
    "n": 5
@@ -326,6 +326,12 @@
    "time": "819",
    "escudo": "flamengo",
    "n": 9
+  },
+  {
+   "nome": "Erick",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 7
   },
   {
    "nome": "José Manuel López",
@@ -370,12 +376,6 @@
    "n": 6
   },
   {
-   "nome": "Erick",
-   "time": "3457",
-   "escudo": "vitoria",
-   "n": 6
-  },
-  {
    "nome": "Igor Marques",
    "time": "9169",
    "escudo": "mirassol",
@@ -406,15 +406,21 @@
    "n": 5
   },
   {
+   "nome": "Alerrando",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
    "nome": "João Cruz",
    "time": "3458",
    "escudo": "athletico",
    "n": 5
   },
   {
-   "nome": "Alerrando",
-   "time": "1936",
-   "escudo": "internacional",
+   "nome": "José Luis Rodríguez",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 5
   },
   {
@@ -430,27 +436,21 @@
    "n": 5
   },
   {
-   "nome": "José Luis Rodríguez",
-   "time": "3454",
-   "escudo": "vasco",
-   "n": 5
-  },
-  {
    "nome": "Henry Mosquera",
    "time": "6079",
    "escudo": "bragantino",
    "n": 5
   },
   {
-   "nome": "Vitinho",
-   "time": "6086",
-   "escudo": "botafogo",
-   "n": 4
-  },
-  {
    "nome": "Kevin Serna",
    "time": "3445",
    "escudo": "fluminense",
+   "n": 4
+  },
+  {
+   "nome": "Vitinho",
+   "time": "6086",
+   "escudo": "botafogo",
    "n": 4
   },
   {
@@ -466,12 +466,6 @@
    "n": 4
   },
   {
-   "nome": "Gerson",
-   "time": "2022",
-   "escudo": "cruzeiro",
-   "n": 4
-  },
-  {
    "nome": "Johan Carbonero",
    "time": "1936",
    "escudo": "internacional",
@@ -481,6 +475,18 @@
    "nome": "Matheus",
    "time": "3457",
    "escudo": "vitoria",
+   "n": 4
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Gerson",
+   "time": "2022",
+   "escudo": "cruzeiro",
    "n": 4
   },
   {
@@ -520,15 +526,15 @@
    "n": 4
   },
   {
-   "nome": "Giorgian de Arrascaeta",
-   "time": "819",
-   "escudo": "flamengo",
-   "n": 4
-  },
-  {
    "nome": "Cuiabano",
    "time": "3454",
    "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
    "n": 4
   },
   {
@@ -550,10 +556,22 @@
    "n": 4
   },
   {
+   "nome": "Hulk",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 4
+  },
+  {
    "nome": "Vitinho",
    "time": "874",
    "escudo": "corinthians",
    "n": 4
+  },
+  {
+   "nome": "Vitinho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 3
   },
   {
    "nome": "Kevin Viveros",
@@ -565,18 +583,6 @@
    "nome": "Lucas Barbosa",
    "time": "6079",
    "escudo": "bragantino",
-   "n": 3
-  },
-  {
-   "nome": "Vitinho",
-   "time": "1936",
-   "escudo": "internacional",
-   "n": 3
-  },
-  {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 3
   },
   {
@@ -595,12 +601,6 @@
    "nome": "José Enamorado",
    "time": "6273",
    "escudo": "gremio",
-   "n": 3
-  },
-  {
-   "nome": "Lucas Evangelista",
-   "time": "2029",
-   "escudo": "palmeiras",
    "n": 3
   }
  ],
@@ -852,6 +852,12 @@
    "n": 5
   },
   {
+   "nome": "Hércules",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 5
+  },
+  {
    "nome": "Isidro Pitta",
    "time": "6079",
    "escudo": "bragantino",
@@ -1005,12 +1011,6 @@
    "nome": "Gustavo Henrique",
    "time": "874",
    "escudo": "corinthians",
-   "n": 4
-  },
-  {
-   "nome": "Hércules",
-   "time": "3445",
-   "escudo": "fluminense",
    "n": 4
   },
   {
@@ -3092,6 +3092,16 @@
     "pendurado": false
    },
    {
+    "nome": "Luciano Acosta",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 7,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Marlon Freitas",
     "time": "2029",
     "escudo": "palmeiras",
@@ -3439,16 +3449,6 @@
     "pendurado": false
    },
    {
-    "nome": "Luciano Acosta",
-    "time": "3445",
-    "escudo": "fluminense",
-    "amarelos": 6,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Matheus Bahia",
     "time": "1936",
     "escudo": "internacional",
@@ -3625,9 +3625,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -3750,9 +3750,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -3875,9 +3875,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -3990,9 +3990,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -4135,9 +4135,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -4175,9 +4175,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -4616,6 +4616,16 @@
     "pendurado": false
    },
    {
+    "nome": "Pablo Maia",
+    "time": "2026",
+    "escudo": "sp",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Patrick de Paula",
     "time": "4936",
     "escudo": "remo",
@@ -4979,15 +4989,9 @@
     "escudo": "sp",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Félix Torres",
@@ -5508,16 +5512,6 @@
     "pendurado": false
    },
    {
-    "nome": "Pablo Maia",
-    "time": "2026",
-    "escudo": "sp",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Rafael Tolói",
     "time": "2026",
     "escudo": "sp",
@@ -5787,9 +5781,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -6042,9 +6036,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -6187,9 +6181,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -6217,9 +6211,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -6672,9 +6666,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "Fluminense",
-     "jogo": "401841309"
+     "data": "2026-11-23T23:00Z",
+     "contra": "Botafogo",
+     "jogo": "401841326"
     }
    },
    {
@@ -6817,9 +6811,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -6917,9 +6911,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {
@@ -6957,9 +6951,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-20T00:30Z",
-     "contra": "São Paulo",
-     "jogo": "401841309"
+     "data": "2026-11-22T21:30Z",
+     "contra": "Mirassol",
+     "jogo": "401841324"
     }
    },
    {

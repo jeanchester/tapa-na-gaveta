@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-20T02:05:00",
+ "atualizado": "2026-11-20T17:38:29",
  "times": {
   "flamengo": {
    "jogo": "401841313",
@@ -257,9 +257,9 @@
    ]
   },
   "fluminense": {
-   "jogo": "401841302",
-   "data": "2026-11-06T23:00Z",
-   "contra": "Vitória",
+   "jogo": "401841309",
+   "data": "2026-11-20T00:30Z",
+   "contra": "São Paulo",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -270,16 +270,16 @@
      "lugar": 1
     },
     {
-     "n": "Juan Freytes",
-     "curto": "J. Freytes",
-     "num": 22,
+     "n": "Thiago Silva",
+     "curto": "T. Silva",
+     "num": 3,
      "pos": "CD-L",
      "lugar": 6
     },
     {
-     "n": "Thiago Silva",
-     "curto": "T. Silva",
-     "num": 3,
+     "n": "Ignácio",
+     "curto": "Ignácio",
+     "num": 4,
      "pos": "CD-R",
      "lugar": 5
     },
@@ -326,16 +326,16 @@
      "lugar": 9
     },
     {
-     "n": "Jefferson Savarino",
-     "curto": "J. Savarino",
-     "num": 11,
+     "n": "Yeferson Soteldo",
+     "curto": "Y. Soteldo",
+     "num": 30,
      "pos": "AM-L",
      "lugar": 11
     },
     {
-     "n": "Agustín Canobbio",
-     "curto": "A. Canobbio",
-     "num": 17,
+     "n": "Kevin Serna",
+     "curto": "K. Serna",
+     "num": 90,
      "pos": "AM-R",
      "lugar": 7
     }
@@ -852,10 +852,10 @@
    ]
   },
   "sp": {
-   "jogo": "401841298",
-   "data": "2026-11-05T00:30Z",
-   "contra": "Corinthians",
-   "esquema": "4-1-4-1",
+   "jogo": "401841309",
+   "data": "2026-11-20T00:30Z",
+   "contra": "Fluminense",
+   "esquema": "3-4-2-1",
    "titulares": [
     {
      "n": "Rafael",
@@ -865,74 +865,74 @@
      "lugar": 1
     },
     {
-     "n": "Rafael Tolói",
-     "curto": "R. Tolói",
-     "num": 2,
-     "pos": "CD-L",
-     "lugar": 6
-    },
-    {
      "n": "Robert Arboleda",
      "curto": "R. Arboleda",
      "num": 5,
-     "pos": "CD-R",
+     "pos": "CD",
      "lugar": 5
     },
     {
-     "n": "Newton",
-     "curto": "Newton",
-     "num": 28,
-     "pos": "DM",
+     "n": "Luis Osorio",
+     "curto": "L. Osorio",
+     "num": 54,
+     "pos": "CD-L",
      "lugar": 4
+    },
+    {
+     "n": "Rafael Tolói",
+     "curto": "R. Tolói",
+     "num": 2,
+     "pos": "CD-R",
+     "lugar": 6
+    },
+    {
+     "n": "Pablo Maia",
+     "curto": "Pablo Maia",
+     "num": 29,
+     "pos": "CM-L",
+     "lugar": 8
+    },
+    {
+     "n": "Danielzinho",
+     "curto": "Danielzinho",
+     "num": 94,
+     "pos": "CM-R",
+     "lugar": 7
     },
     {
      "n": "Iago",
      "curto": "Iago",
      "num": 12,
-     "pos": "LB",
+     "pos": "LM",
      "lugar": 3
     },
     {
      "n": "Pedro Lima",
      "curto": "Pedro Lima",
      "num": 32,
-     "pos": "RB",
+     "pos": "RM",
      "lugar": 2
     },
     {
-     "n": "Damián Bobadilla",
-     "curto": "D. Bobadilla",
-     "num": 16,
-     "pos": "CM-L",
-     "lugar": 10
-    },
-    {
-     "n": "Djhordney Ferreira",
-     "curto": "D. Ferreira",
-     "num": 48,
-     "pos": "CM-R",
-     "lugar": 8
+     "n": "Jonathan Calleri",
+     "curto": "J. Calleri",
+     "num": 9,
+     "pos": "F",
+     "lugar": 9
     },
     {
      "n": "Lucas Moura",
      "curto": "L. Moura",
      "num": 7,
-     "pos": "LM",
+     "pos": "CF-L",
      "lugar": 11
     },
     {
      "n": "Artur",
      "curto": "Artur",
      "num": 37,
-     "pos": "RM",
-     "lugar": 7
-    },
-    {
-     "n": "Luciano",
-     "curto": "Luciano",
-     "num": 10,
-     "pos": "F",
-     "lugar": 9
+     "pos": "CF-R",
+     "lugar": 10
     }
    ]
   },
