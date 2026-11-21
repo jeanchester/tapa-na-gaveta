@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-20T17:38:30",
+ "atualizado": "2026-11-21T02:00:30",
  "times": {
   "flamengo": [
    {
@@ -719,13 +719,6 @@
     "num": 23,
     "pos": "D",
     "jogos": 22
-   },
-   {
-    "n": "Lucas Villalba",
-    "curto": "L. Villalba",
-    "num": 25,
-    "pos": "D",
-    "jogos": 19
    },
    {
     "n": "William",
@@ -3122,13 +3115,6 @@
     "jogos": 0
    },
    {
-    "n": "Walace",
-    "curto": "Walace",
-    "num": 64,
-    "pos": "D",
-    "jogos": 0
-   },
-   {
     "n": "Melim",
     "curto": "Melim",
     "num": 81,
@@ -3202,7 +3188,7 @@
     "n": "Santiago Sosa",
     "curto": "S. Sosa",
     "num": 5,
-    "pos": "D",
+    "pos": "M",
     "jogos": 12
    },
    {
@@ -4034,6 +4020,13 @@
     "num": 38,
     "pos": "M",
     "jogos": 0
+   },
+   {
+    "n": "Lucas Villalba",
+    "curto": "L. Villalba",
+    "num": 77,
+    "pos": "A",
+    "jogos": 17
    },
    {
     "n": "Tiquinho Soares",

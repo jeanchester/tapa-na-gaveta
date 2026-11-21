@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-20T17:38:35",
+ "atualizado": "2026-11-21T02:00:44",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -642,16 +642,16 @@
    "n": 7
   },
   {
+   "nome": "Roberto Fernández",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 7
+  },
+  {
    "nome": "Sergio Camello",
    "time": "101",
    "escudo": "rayo",
    "n": 7
-  },
-  {
-   "nome": "Roberto Fernández",
-   "time": "88",
-   "escudo": "espanyol",
-   "n": 6
   },
   {
    "nome": "Fer Niño",
@@ -1621,6 +1621,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Clemens Riedel",
+    "time": "88",
+    "escudo": "espanyol",
+    "amarelos": 5,
+    "vermelhos": 0
+   },
+   {
     "nome": "Federico Redondo",
     "time": "3751",
     "escudo": "elche",
@@ -1705,13 +1712,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Clemens Riedel",
-    "time": "88",
-    "escudo": "espanyol",
-    "amarelos": 4,
-    "vermelhos": 0
-   },
-   {
     "nome": "David Larrubia",
     "time": "99",
     "escudo": "malaga",
@@ -1757,6 +1757,13 @@
     "nome": "Ibrahima Konaté",
     "time": "86",
     "escudo": "real_madrid",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Iñigo Ruiz de Galarreta",
+    "time": "93",
+    "escudo": "athletic",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -2030,13 +2037,6 @@
     "nome": "Igor Zubeldia",
     "time": "89",
     "escudo": "sociedad",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Iñigo Ruiz de Galarreta",
-    "time": "93",
-    "escudo": "athletic",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2401,6 +2401,13 @@
     "nome": "Iván Romero",
     "time": "1538",
     "escudo": "levante",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Iñaki Williams",
+    "time": "93",
+    "escudo": "athletic",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -3119,13 +3126,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Iñaki Williams",
-    "time": "93",
-    "escudo": "athletic",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Javi Galán",
     "time": "85",
     "escudo": "celta",
@@ -3570,6 +3570,13 @@
     "nome": "Yanis Kasonga Musuayi",
     "time": "1538",
     "escudo": "levante",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yeray",
+    "time": "93",
+    "escudo": "athletic",
     "amarelos": 1,
     "vermelhos": 0
    },
