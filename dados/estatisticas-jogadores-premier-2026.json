@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T02:00:42",
+ "atualizado": "2026-11-21T16:40:04",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -900,6 +900,12 @@
    "n": 2
   },
   {
+   "nome": "Rodrigo Muniz",
+   "time": "370",
+   "escudo": "fulham",
+   "n": 2
+  },
+  {
    "nome": "Tyrick Mitchell",
    "time": "384",
    "escudo": "crystal",
@@ -1077,6 +1083,12 @@
    "nome": "Dominic Solanke",
    "time": "367",
    "escudo": "tottenham",
+   "n": 1
+  },
+  {
+   "nome": "Elliot Anderson",
+   "time": "382",
+   "escudo": "city",
    "n": 1
   },
   {
@@ -1362,12 +1374,6 @@
    "n": 1
   },
   {
-   "nome": "Rodrigo Muniz",
-   "time": "370",
-   "escudo": "fulham",
-   "n": 1
-  },
-  {
    "nome": "Romeo Lavia",
    "time": "363",
    "escudo": "chelsea",
@@ -1541,6 +1547,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Calvin Bassey",
+    "time": "370",
+    "escudo": "fulham",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Cole Palmer",
     "time": "363",
     "escudo": "chelsea",
@@ -1614,13 +1627,6 @@
     "nome": "Caleb Yirenkyi",
     "time": "388",
     "escudo": "coventry_city",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Calvin Bassey",
-    "time": "370",
-    "escudo": "fulham",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2290,6 +2296,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Shea Charles",
+    "time": "370",
+    "escudo": "fulham",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Sven Botman",
     "time": "361",
     "escudo": "newcastle",
@@ -2363,6 +2376,13 @@
     "nome": "Adam Wharton",
     "time": "384",
     "escudo": "crystal",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alex Iwobi",
+    "time": "370",
+    "escudo": "fulham",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2608,6 +2628,13 @@
     "nome": "Gabriel Gudmundsson",
     "time": "357",
     "escudo": "leeds",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Gianluigi Donnarumma",
+    "time": "382",
+    "escudo": "city",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3042,13 +3069,6 @@
     "nome": "Sean Longstaff",
     "time": "357",
     "escudo": "leeds",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Shea Charles",
-    "time": "370",
-    "escudo": "fulham",
     "amarelos": 1,
     "vermelhos": 0
    },

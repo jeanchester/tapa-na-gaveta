@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T02:00:48",
+ "atualizado": "2026-11-21T16:40:08",
  "artilheiros": [
   {
    "nome": "Niclas Füllkrug",
@@ -104,6 +104,12 @@
    "n": 4
   },
   {
+   "nome": "Dayot Upamecano",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
    "nome": "Maximilian Eggestein",
    "time": "126",
    "escudo": "freiburg",
@@ -116,12 +122,6 @@
    "n": 3
   },
   {
-   "nome": "Dayot Upamecano",
-   "time": "132",
-   "escudo": "bayern",
-   "n": 3
-  },
-  {
    "nome": "Joe Scally",
    "time": "268",
    "escudo": "gladbach",
@@ -131,6 +131,12 @@
    "nome": "Anthony Caci",
    "time": "2950",
    "escudo": "mainz",
+   "n": 3
+  },
+  {
+   "nome": "Said El Mala",
+   "time": "122",
+   "escudo": "koln",
    "n": 3
   },
   {
@@ -152,12 +158,6 @@
    "n": 3
   },
   {
-   "nome": "Said El Mala",
-   "time": "122",
-   "escudo": "koln",
-   "n": 3
-  },
-  {
    "nome": "Fábio Silva",
    "time": "124",
    "escudo": "dortmund",
@@ -168,6 +168,12 @@
    "time": "127",
    "escudo": "hamburger",
    "n": 3
+  },
+  {
+   "nome": "Nathaniel Brown",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
   },
   {
    "nome": "Fabian Rieder",
@@ -197,6 +203,12 @@
    "nome": "Ludovit Reis",
    "time": "137",
    "escudo": "bremen",
+   "n": 2
+  },
+  {
+   "nome": "Aleksandar Pavlovic",
+   "time": "132",
+   "escudo": "bayern",
    "n": 2
   },
   {
@@ -278,27 +290,15 @@
    "n": 2
   },
   {
+   "nome": "Lennart Karl",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
+  },
+  {
    "nome": "Terem Moffi",
    "time": "127",
    "escudo": "hamburger",
-   "n": 2
-  },
-  {
-   "nome": "Steffen Tigges",
-   "time": "3307",
-   "escudo": "sc_paderborn_07",
-   "n": 2
-  },
-  {
-   "nome": "Rodrigo Ribeiro",
-   "time": "3841",
-   "escudo": "augsburg",
-   "n": 2
-  },
-  {
-   "nome": "Yannick Engelhardt",
-   "time": "126",
-   "escudo": "freiburg",
    "n": 2
   }
  ],
@@ -352,6 +352,12 @@
    "n": 4
   },
   {
+   "nome": "Michael Olise",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 3
+  },
+  {
    "nome": "Matthias Ginter",
    "time": "126",
    "escudo": "freiburg",
@@ -364,7 +370,7 @@
    "n": 3
   },
   {
-   "nome": "Michael Olise",
+   "nome": "Joshua Kimmich",
    "time": "132",
    "escudo": "bayern",
    "n": 3
@@ -382,10 +388,22 @@
    "n": 3
   },
   {
-   "nome": "Joshua Kimmich",
+   "nome": "Tom Bischof",
    "time": "132",
    "escudo": "bayern",
    "n": 3
+  },
+  {
+   "nome": "Linton Maina",
+   "time": "122",
+   "escudo": "koln",
+   "n": 2
+  },
+  {
+   "nome": "Nathaniel Brown",
+   "time": "132",
+   "escudo": "bayern",
+   "n": 2
   },
   {
    "nome": "Hennes Behrens",
@@ -448,12 +466,6 @@
    "n": 2
   },
   {
-   "nome": "Linton Maina",
-   "time": "122",
-   "escudo": "koln",
-   "n": 2
-  },
-  {
    "nome": "Adam Daghim",
    "time": "7911",
    "escudo": "hoffenheim",
@@ -463,12 +475,6 @@
    "nome": "Maximilian Beier",
    "time": "124",
    "escudo": "dortmund",
-   "n": 2
-  },
-  {
-   "nome": "Nathaniel Brown",
-   "time": "132",
-   "escudo": "bayern",
    "n": 2
   },
   {
@@ -511,12 +517,6 @@
    "nome": "Fábio Silva",
    "time": "124",
    "escudo": "dortmund",
-   "n": 2
-  },
-  {
-   "nome": "Tom Bischof",
-   "time": "132",
-   "escudo": "bayern",
    "n": 2
   },
   {
@@ -606,16 +606,22 @@
  ],
  "gols_por_jogador": [
   {
+   "nome": "Patrik Schick",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 9
+  },
+  {
    "nome": "Niclas Füllkrug",
    "time": "137",
    "escudo": "bremen",
    "n": 9
   },
   {
-   "nome": "Patrik Schick",
-   "time": "131",
-   "escudo": "leverkusen",
-   "n": 8
+   "nome": "Jonathan Burkardt",
+   "time": "125",
+   "escudo": "eintracht",
+   "n": 6
   },
   {
    "nome": "Michael Olise",
@@ -627,6 +633,12 @@
    "nome": "Phillip Tietz",
    "time": "2950",
    "escudo": "mainz",
+   "n": 6
+  },
+  {
+   "nome": "Rômulo",
+   "time": "11420",
+   "escudo": "leipzig",
    "n": 6
   },
   {
@@ -648,15 +660,15 @@
    "n": 5
   },
   {
-   "nome": "Jonathan Burkardt",
-   "time": "125",
-   "escudo": "eintracht",
+   "nome": "Felix Nmecha",
+   "time": "124",
+   "escudo": "dortmund",
    "n": 5
   },
   {
-   "nome": "Rômulo",
-   "time": "11420",
-   "escudo": "leipzig",
+   "nome": "Igor Matanovic",
+   "time": "126",
+   "escudo": "freiburg",
    "n": 5
   },
   {
@@ -672,16 +684,10 @@
    "n": 5
   },
   {
-   "nome": "Felix Nmecha",
-   "time": "124",
-   "escudo": "dortmund",
-   "n": 4
-  },
-  {
-   "nome": "Igor Matanovic",
-   "time": "126",
-   "escudo": "freiburg",
-   "n": 4
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 5
   },
   {
    "nome": "Luis Díaz",
@@ -693,12 +699,6 @@
    "nome": "Maurice Krattenmacher",
    "time": "10388",
    "escudo": "sv_elversberg",
-   "n": 4
-  },
-  {
-   "nome": "Antonio Nusa",
-   "time": "11420",
-   "escudo": "leipzig",
    "n": 4
   },
   {
@@ -750,6 +750,12 @@
    "n": 3
   },
   {
+   "nome": "Ridle Baku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 3
+  },
+  {
    "nome": "Robin Fellhauer",
    "time": "3841",
    "escudo": "augsburg",
@@ -783,6 +789,12 @@
    "nome": "Adam Hlozek",
    "time": "7911",
    "escudo": "hoffenheim",
+   "n": 2
+  },
+  {
+   "nome": "Afonso Moreira",
+   "time": "131",
+   "escudo": "leverkusen",
    "n": 2
   },
   {
@@ -870,6 +882,12 @@
    "n": 2
   },
   {
+   "nome": "Ezequiel Fernández",
+   "time": "131",
+   "escudo": "leverkusen",
+   "n": 2
+  },
+  {
    "nome": "Felix Keidel",
    "time": "10388",
    "escudo": "sv_elversberg",
@@ -942,7 +960,7 @@
    "n": 2
   },
   {
-   "nome": "Ridle Baku",
+   "nome": "Rocco Reitz",
    "time": "11420",
    "escudo": "leipzig",
    "n": 2
@@ -1056,6 +1074,12 @@
    "n": 1
   },
   {
+   "nome": "Brajan Gruda",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 1
+  },
+  {
    "nome": "Calvin Brackelmann",
    "time": "3841",
    "escudo": "augsburg",
@@ -1107,12 +1131,6 @@
    "nome": "Eric Martel",
    "time": "2950",
    "escudo": "mainz",
-   "n": 1
-  },
-  {
-   "nome": "Ezequiel Fernández",
-   "time": "131",
-   "escudo": "leverkusen",
    "n": 1
   },
   {
@@ -1290,6 +1308,12 @@
    "n": 1
   },
   {
+   "nome": "Michel Aebischer",
+   "time": "598",
+   "escudo": "union_berlim",
+   "n": 1
+  },
+  {
    "nome": "Miguel Gutiérrez",
    "time": "131",
    "escudo": "leverkusen",
@@ -1392,12 +1416,6 @@
    "n": 1
   },
   {
-   "nome": "Rocco Reitz",
-   "time": "11420",
-   "escudo": "leipzig",
-   "n": 1
-  },
-  {
    "nome": "Santiago Castaneda",
    "time": "3307",
    "escudo": "sc_paderborn_07",
@@ -1464,6 +1482,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Zeno Van Den Bosch",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 5,
+    "vermelhos": 0
+   },
+   {
     "nome": "Elias Baum",
     "time": "125",
     "escudo": "eintracht",
@@ -1478,6 +1503,20 @@
     "vermelhos": 0
    },
    {
+    "nome": "Kevin Diks",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ozan Kabak",
+    "time": "7911",
+    "escudo": "hoffenheim",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
     "nome": "Raphael Onyedika",
     "time": "125",
     "escudo": "eintracht",
@@ -1485,9 +1524,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Zeno Van Den Bosch",
-    "time": "598",
-    "escudo": "union_berlim",
+    "nome": "Wouter Burger",
+    "time": "7911",
+    "escudo": "hoffenheim",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1502,6 +1541,13 @@
     "nome": "Dayot Upamecano",
     "time": "132",
     "escudo": "bayern",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ezequiel Fernández",
+    "time": "131",
+    "escudo": "leverkusen",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1541,16 +1587,16 @@
     "vermelhos": 0
    },
    {
-    "nome": "Kevin Diks",
-    "time": "268",
-    "escudo": "gladbach",
+    "nome": "Konrad Laimer",
+    "time": "132",
+    "escudo": "bayern",
     "amarelos": 3,
     "vermelhos": 0
    },
    {
-    "nome": "Konrad Laimer",
-    "time": "132",
-    "escudo": "bayern",
+    "nome": "Leon Avdullahu",
+    "time": "7911",
+    "escudo": "hoffenheim",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1597,18 +1643,18 @@
     "vermelhos": 0
    },
    {
-    "nome": "Wouter Burger",
-    "time": "7911",
-    "escudo": "hoffenheim",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Yuito Suzuki",
     "time": "126",
     "escudo": "freiburg",
     "amarelos": 1,
     "vermelhos": 1
+   },
+   {
+    "nome": "Zento Uno",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 3,
+    "vermelhos": 0
    },
    {
     "nome": "Adil Aouchiche",
@@ -1709,13 +1755,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Ezequiel Fernández",
-    "time": "131",
-    "escudo": "leverkusen",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Felix Nmecha",
     "time": "124",
     "escudo": "dortmund",
@@ -1761,6 +1800,13 @@
     "nome": "Hwang Hee-Chan",
     "time": "133",
     "escudo": "schalke_04",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Igor Matanovic",
+    "time": "126",
+    "escudo": "freiburg",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1821,6 +1867,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Kouakou Gadou",
+    "time": "124",
+    "escudo": "dortmund",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Lasse Günther",
     "time": "10388",
     "escudo": "sv_elversberg",
@@ -1831,13 +1884,6 @@
     "nome": "Laurin Ulrich",
     "time": "3307",
     "escudo": "sc_paderborn_07",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Leon Avdullahu",
-    "time": "7911",
-    "escudo": "hoffenheim",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1898,6 +1944,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Miguel Gutiérrez",
+    "time": "131",
+    "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Neil El Aynaoui",
     "time": "11420",
     "escudo": "leipzig",
@@ -1915,6 +1968,13 @@
     "nome": "Nicolás Capaldo",
     "time": "127",
     "escudo": "hamburger",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niklas Beste",
+    "time": "126",
+    "escudo": "freiburg",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1947,9 +2007,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Ozan Kabak",
-    "time": "7911",
-    "escudo": "hoffenheim",
+    "nome": "Philipp Lienhart",
+    "time": "126",
+    "escudo": "freiburg",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2031,13 +2091,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Zento Uno",
-    "time": "268",
-    "escudo": "gladbach",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Ísak Jóhannesson",
     "time": "122",
     "escudo": "koln",
@@ -2094,6 +2147,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "András Schäfer",
+    "time": "598",
+    "escudo": "union_berlim",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Angelo Stiller",
     "time": "134",
     "escudo": "stuttgart",
@@ -2116,6 +2176,13 @@
    },
    {
     "nome": "Benjamin Henrichs",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Brajan Gruda",
     "time": "11420",
     "escudo": "leipzig",
     "amarelos": 1,
@@ -2213,6 +2280,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Ezechiel Banzuzi",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Fabian Rieder",
     "time": "3841",
     "escudo": "augsburg",
@@ -2286,13 +2360,6 @@
     "nome": "Hugo Bolin",
     "time": "268",
     "escudo": "gladbach",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Igor Matanovic",
-    "time": "126",
-    "escudo": "freiburg",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2416,13 +2483,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Kouakou Gadou",
-    "time": "124",
-    "escudo": "dortmund",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Laurin Curda",
     "time": "3307",
     "escudo": "sc_paderborn_07",
@@ -2503,6 +2563,13 @@
     "nome": "Lukas Finn Pinckert",
     "time": "10388",
     "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Malik Pimpong",
+    "time": "125",
+    "escudo": "eintracht",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2605,13 +2672,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Miguel Gutiérrez",
-    "time": "131",
-    "escudo": "leverkusen",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Mikey Moore",
     "time": "122",
     "escudo": "koln",
@@ -2647,16 +2707,16 @@
     "vermelhos": 0
    },
    {
-    "nome": "Niklas Beste",
-    "time": "126",
-    "escudo": "freiburg",
+    "nome": "Nikola Katic",
+    "time": "133",
+    "escudo": "schalke_04",
     "amarelos": 1,
     "vermelhos": 0
    },
    {
-    "nome": "Nikola Katic",
-    "time": "133",
-    "escudo": "schalke_04",
+    "nome": "Noah Atubolu",
+    "time": "125",
+    "escudo": "eintracht",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2685,13 +2745,6 @@
     "nome": "Patrik Schick",
     "time": "131",
     "escudo": "leverkusen",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Philipp Lienhart",
-    "time": "126",
-    "escudo": "freiburg",
     "amarelos": 1,
     "vermelhos": 0
    },

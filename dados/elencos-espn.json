@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T02:00:30",
+ "atualizado": "2026-11-21T16:39:58",
  "times": {
   "flamengo": [
    {
@@ -875,8 +875,8 @@
     "jogos": 6
    },
    {
-    "n": "Eduardo Pape",
-    "curto": "E. Pape",
+    "n": "Eduardo",
+    "curto": "Eduardo",
     "num": 58,
     "pos": "M",
     "jogos": 0
@@ -1136,8 +1136,8 @@
     "jogos": 0
    },
    {
-    "n": "Richard Wendel",
-    "curto": "Richard Wendel",
+    "n": "Richard Wendel ",
+    "curto": "Richard Wendel ",
     "num": null,
     "pos": "D",
     "jogos": 0
@@ -1601,7 +1601,7 @@
    },
    {
     "n": "Leonardo Cerci",
-    "curto": "Leonardo Cerci",
+    "curto": "L. Cerci",
     "num": 39,
     "pos": "M",
     "jogos": 0
@@ -1953,7 +1953,7 @@
    },
    {
     "n": "Kaue Furquim",
-    "curto": "Kaue Furquim",
+    "curto": "K. Furquim",
     "num": 57,
     "pos": "A",
     "jogos": 7
@@ -2363,7 +2363,7 @@
    },
    {
     "n": "Arthur Vale",
-    "curto": "Arthur Vale",
+    "curto": "A. Vale",
     "num": 88,
     "pos": "G",
     "jogos": 0
@@ -4092,8 +4092,8 @@
     "jogos": 0
    },
    {
-    "n": "Lucas Emanuel Jales Do Nascimento",
-    "curto": "L. Jales Do Nascimento",
+    "n": "Lucas Emanuel ",
+    "curto": "Lucas Emanuel ",
     "num": 79,
     "pos": "A",
     "jogos": 3
@@ -5095,7 +5095,7 @@
    },
    {
     "n": "Iago Machado",
-    "curto": "Iago Machado",
+    "curto": "I. Machado",
     "num": 55,
     "pos": "D",
     "jogos": 2
@@ -5220,8 +5220,8 @@
     "jogos": 0
    },
    {
-    "n": "Lucca Arcolini Caramico",
-    "curto": "L. Arcolini Caramico",
+    "n": "Lucca Caramico",
+    "curto": "L. Caramico",
     "num": 72,
     "pos": "M",
     "jogos": 0

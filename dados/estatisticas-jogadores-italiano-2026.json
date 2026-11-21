@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T02:00:46",
+ "atualizado": "2026-11-21T16:40:07",
  "artilheiros": [
   {
    "nome": "Gustavo Varela",
@@ -636,6 +636,12 @@
    "n": 6
   },
   {
+   "nome": "Tijjani Noslin",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 6
+  },
+  {
    "nome": "Adrien Rabiot",
    "time": "103",
    "escudo": "milan",
@@ -645,6 +651,12 @@
    "nome": "Alphadjo Cissè",
    "time": "103",
    "escudo": "milan",
+   "n": 5
+  },
+  {
+   "nome": "Davide Frattesi",
+   "time": "112",
+   "escudo": "lazio",
    "n": 5
   },
   {
@@ -675,12 +687,6 @@
    "nome": "Ché Adams",
    "time": "239",
    "escudo": "torino",
-   "n": 4
-  },
-  {
-   "nome": "Davide Frattesi",
-   "time": "112",
-   "escudo": "lazio",
    "n": 4
   },
   {
@@ -726,12 +732,6 @@
    "n": 4
   },
   {
-   "nome": "Tijjani Noslin",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 4
-  },
-  {
    "nome": "Kevin De Bruyne",
    "time": "114",
    "escudo": "napoli",
@@ -753,6 +753,12 @@
    "nome": "Giorgi Kvernadze",
    "time": "4057",
    "escudo": "frosinone",
+   "n": 3
+  },
+  {
+   "nome": "Jacobo Ramón",
+   "time": "2572",
+   "escudo": "como",
    "n": 3
   },
   {
@@ -912,12 +918,6 @@
    "n": 2
   },
   {
-   "nome": "Jacobo Ramón",
-   "time": "2572",
-   "escudo": "como",
-   "n": 2
-  },
-  {
    "nome": "Jay Robinson",
    "time": "4007",
    "escudo": "monza",
@@ -1023,6 +1023,12 @@
    "nome": "Gonçalo Ramos",
    "time": "103",
    "escudo": "milan",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Da Cunha",
+   "time": "2572",
+   "escudo": "como",
    "n": 2
   },
   {
@@ -1620,12 +1626,6 @@
    "n": 1
   },
   {
-   "nome": "Lucas Da Cunha",
-   "time": "2572",
-   "escudo": "como",
-   "n": 1
-  },
-  {
    "nome": "Vincent Sierro",
    "time": "115",
    "escudo": "parma",
@@ -1653,6 +1653,20 @@
     "nome": "Alessandro Deiola",
     "time": "2925",
     "escudo": "cagliari",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Danilo Veiga",
+    "time": "113",
+    "escudo": "lecce",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jamil Siebert",
+    "time": "113",
+    "escudo": "lecce",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1699,13 +1713,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Danilo Veiga",
-    "time": "113",
-    "escudo": "lecce",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Donyell Malen",
     "time": "104",
     "escudo": "roma",
@@ -1744,13 +1751,6 @@
     "nome": "Jacopo Fazzini",
     "time": "2925",
     "escudo": "cagliari",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Jamil Siebert",
-    "time": "113",
-    "escudo": "lecce",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2808,6 +2808,13 @@
     "nome": "Leonardo Balerdi",
     "time": "104",
     "escudo": "roma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Luca Pellegrini",
+    "time": "112",
+    "escudo": "lazio",
     "amarelos": 1,
     "vermelhos": 0
    },

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T02:00:44",
+ "atualizado": "2026-11-21T16:40:05",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -32,6 +32,12 @@
    "n": 8
   },
   {
+   "nome": "Roberto Fernández",
+   "time": "88",
+   "escudo": "espanyol",
+   "n": 7
+  },
+  {
    "nome": "Sergio Camello",
    "time": "101",
    "escudo": "rayo",
@@ -42,12 +48,6 @@
    "time": "83",
    "escudo": "barcelona",
    "n": 7
-  },
-  {
-   "nome": "Roberto Fernández",
-   "time": "88",
-   "escudo": "espanyol",
-   "n": 6
   },
   {
    "nome": "Fer Niño",
@@ -86,6 +86,12 @@
    "n": 5
   },
   {
+   "nome": "Álex Berenguer",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 4
+  },
+  {
    "nome": "Jude Bellingham",
    "time": "86",
    "escudo": "real_madrid",
@@ -95,12 +101,6 @@
    "nome": "Giuliano Simeone",
    "time": "1068",
    "escudo": "atletico",
-   "n": 4
-  },
-  {
-   "nome": "Álex Berenguer",
-   "time": "93",
-   "escudo": "athletic",
    "n": 4
   },
   {
@@ -128,6 +128,12 @@
    "n": 4
   },
   {
+   "nome": "Iñaki Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 3
+  },
+  {
    "nome": "Martín Satriano",
    "time": "2922",
    "escudo": "getafe",
@@ -137,12 +143,6 @@
    "nome": "Iván Romero",
    "time": "1538",
    "escudo": "levante",
-   "n": 3
-  },
-  {
-   "nome": "Iñaki Williams",
-   "time": "93",
-   "escudo": "athletic",
    "n": 3
   },
   {
@@ -272,9 +272,21 @@
    "n": 2
   },
   {
+   "nome": "Nico Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
    "nome": "Anthony Gordon",
    "time": "83",
    "escudo": "barcelona",
+   "n": 2
+  },
+  {
+   "nome": "Robert Navarro",
+   "time": "93",
+   "escudo": "athletic",
    "n": 2
   },
   {
@@ -285,18 +297,6 @@
   },
   {
    "nome": "Ander Barrenetxea",
-   "time": "89",
-   "escudo": "sociedad",
-   "n": 2
-  },
-  {
-   "nome": "Isco",
-   "time": "244",
-   "escudo": "betis",
-   "n": 2
-  },
-  {
-   "nome": "Gonçalo Guedes",
    "time": "89",
    "escudo": "sociedad",
    "n": 2
@@ -430,6 +430,12 @@
    "n": 3
   },
   {
+   "nome": "Iñaki Williams",
+   "time": "93",
+   "escudo": "athletic",
+   "n": 2
+  },
+  {
    "nome": "Kylian Mbappé",
    "time": "86",
    "escudo": "real_madrid",
@@ -469,12 +475,6 @@
    "nome": "Pedri",
    "time": "83",
    "escudo": "barcelona",
-   "n": 2
-  },
-  {
-   "nome": "Iñaki Williams",
-   "time": "93",
-   "escudo": "athletic",
    "n": 2
   },
   {
@@ -660,6 +660,12 @@
    "n": 6
   },
   {
+   "nome": "Lucas Boyé",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 6
+  },
+  {
    "nome": "Adrián Niño",
    "time": "99",
    "escudo": "malaga",
@@ -681,12 +687,6 @@
    "nome": "Álex Baena",
    "time": "1068",
    "escudo": "atletico",
-   "n": 5
-  },
-  {
-   "nome": "Lucas Boyé",
-   "time": "96",
-   "escudo": "alaves",
    "n": 5
   },
   {
@@ -1128,6 +1128,12 @@
    "n": 1
   },
   {
+   "nome": "Denis Suárez",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
    "nome": "Diego Villares",
    "time": "90",
    "escudo": "deportivo",
@@ -1536,6 +1542,12 @@
    "n": 1
   },
   {
+   "nome": "Ángel Pérez",
+   "time": "96",
+   "escudo": "alaves",
+   "n": 1
+  },
+  {
    "nome": "Andrés Martín",
    "time": "87",
    "escudo": "racing_santander",
@@ -1689,6 +1701,13 @@
     "escudo": "athletic",
     "amarelos": 3,
     "vermelhos": 1
+   },
+   {
+    "nome": "Abde Rebbach",
+    "time": "96",
+    "escudo": "alaves",
+    "amarelos": 4,
+    "vermelhos": 0
    },
    {
     "nome": "Adrián de la Fuente",
@@ -1866,11 +1885,11 @@
     "vermelhos": 0
    },
    {
-    "nome": "Abde Rebbach",
+    "nome": "Ángel Pérez",
     "time": "96",
     "escudo": "alaves",
-    "amarelos": 3,
-    "vermelhos": 0
+    "amarelos": 2,
+    "vermelhos": 1
    },
    {
     "nome": "Abel Bretones",
@@ -2023,6 +2042,13 @@
     "nome": "Gabriel Suazo",
     "time": "243",
     "escudo": "sevilla",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Giacomo Quagliata",
+    "time": "90",
+    "escudo": "deportivo",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2195,11 +2221,11 @@
     "vermelhos": 0
    },
    {
-    "nome": "Ángel Pérez",
-    "time": "96",
-    "escudo": "alaves",
-    "amarelos": 1,
-    "vermelhos": 1
+    "nome": "Ximo Navarro",
+    "time": "90",
+    "escudo": "deportivo",
+    "amarelos": 3,
+    "vermelhos": 0
    },
    {
     "nome": "Abiel Osorio",
@@ -2345,13 +2371,6 @@
     "nome": "Germán Valera",
     "time": "3751",
     "escudo": "elche",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Giacomo Quagliata",
-    "time": "90",
-    "escudo": "deportivo",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2506,6 +2525,13 @@
     "nome": "Lee Kang-In",
     "time": "1068",
     "escudo": "atletico",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Lucas Boyé",
+    "time": "96",
+    "escudo": "alaves",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2699,13 +2725,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Ximo Navarro",
-    "time": "90",
-    "escudo": "deportivo",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Yan Diomande",
     "time": "86",
     "escudo": "real_madrid",
@@ -2737,6 +2756,13 @@
     "nome": "Aaron Mayol",
     "time": "94",
     "escudo": "valencia",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Adama Traoré",
+    "time": "90",
+    "escudo": "deportivo",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2807,6 +2833,13 @@
     "nome": "Ali Houary",
     "time": "3751",
     "escudo": "elche",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ander Guevara",
+    "time": "96",
+    "escudo": "alaves",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3224,13 +3257,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Lucas Boyé",
-    "time": "96",
-    "escudo": "alaves",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Lucas Noubi",
     "time": "90",
     "escudo": "deportivo",
@@ -3297,6 +3323,13 @@
     "nome": "Martim Neto",
     "time": "3751",
     "escudo": "elche",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Miguel Loureiro",
+    "time": "90",
+    "escudo": "deportivo",
     "amarelos": 1,
     "vermelhos": 0
    },
