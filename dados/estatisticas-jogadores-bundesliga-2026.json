@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T16:40:08",
+ "atualizado": "2026-11-22T01:01:52",
  "artilheiros": [
   {
    "nome": "Niclas Füllkrug",
@@ -1944,6 +1944,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Maximilian Mittelstädt",
+    "time": "134",
+    "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Miguel Gutiérrez",
     "time": "131",
     "escudo": "leverkusen",
@@ -2640,13 +2647,6 @@
     "nome": "Maximilian Beier",
     "time": "124",
     "escudo": "dortmund",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Maximilian Mittelstädt",
-    "time": "134",
-    "escudo": "stuttgart",
     "amarelos": 1,
     "vermelhos": 0
    },

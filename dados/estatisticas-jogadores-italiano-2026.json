@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T16:40:07",
+ "atualizado": "2026-11-22T01:01:51",
  "artilheiros": [
   {
    "nome": "Gustavo Varela",
@@ -606,6 +606,12 @@
  ],
  "gols_por_jogador": [
   {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 12
+  },
+  {
    "nome": "Gustavo Varela",
    "time": "4007",
    "escudo": "monza",
@@ -615,12 +621,6 @@
    "nome": "Antonio Raimondo",
    "time": "4057",
    "escudo": "frosinone",
-   "n": 8
-  },
-  {
-   "nome": "Donyell Malen",
-   "time": "104",
-   "escudo": "roma",
    "n": 8
   },
   {
@@ -657,6 +657,12 @@
    "nome": "Davide Frattesi",
    "time": "112",
    "escudo": "lazio",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Mora",
+   "time": "104",
+   "escudo": "roma",
    "n": 5
   },
   {
@@ -723,12 +729,6 @@
    "nome": "Milutin Osmajic",
    "time": "3263",
    "escudo": "genoa",
-   "n": 4
-  },
-  {
-   "nome": "Rodrigo Mora",
-   "time": "104",
-   "escudo": "roma",
    "n": 4
   },
   {
@@ -807,6 +807,12 @@
    "nome": "Samuel Mbangula",
    "time": "107",
    "escudo": "bologna",
+   "n": 3
+  },
+  {
+   "nome": "Scott McTominay",
+   "time": "114",
+   "escudo": "napoli",
    "n": 3
   },
   {
@@ -987,12 +993,6 @@
    "nome": "Sandro Kulenovic",
    "time": "239",
    "escudo": "torino",
-   "n": 2
-  },
-  {
-   "nome": "Scott McTominay",
-   "time": "114",
-   "escudo": "napoli",
    "n": 2
   },
   {
@@ -1419,6 +1419,12 @@
    "nome": "Michel Adopo",
    "time": "2925",
    "escudo": "cagliari",
+   "n": 1
+  },
+  {
+   "nome": "Nesta Elphege",
+   "time": "115",
+   "escudo": "parma",
    "n": 1
   },
   {
@@ -1958,6 +1964,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Billy Gilmour",
+    "time": "114",
+    "escudo": "napoli",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Bryan Cristante",
     "time": "104",
     "escudo": "roma",
@@ -2252,6 +2265,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Pietro Comuzzo",
+    "time": "239",
+    "escudo": "torino",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Pio Esposito",
     "time": "110",
     "escudo": "inter",
@@ -2448,13 +2468,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Billy Gilmour",
-    "time": "114",
-    "escudo": "napoli",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Boulaye Dia",
     "time": "112",
     "escudo": "lazio",
@@ -2574,6 +2587,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Emanuele Valeri",
+    "time": "115",
+    "escudo": "parma",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Emil Holm",
     "time": "107",
     "escudo": "bologna",
@@ -2619,6 +2639,13 @@
     "nome": "Franck Kessié",
     "time": "105",
     "escudo": "atalanta",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Frank Anguissa",
+    "time": "114",
+    "escudo": "napoli",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2990,13 +3017,6 @@
     "nome": "Patrizio Masini",
     "time": "4057",
     "escudo": "frosinone",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Pietro Comuzzo",
-    "time": "239",
-    "escudo": "torino",
     "amarelos": 1,
     "vermelhos": 0
    },

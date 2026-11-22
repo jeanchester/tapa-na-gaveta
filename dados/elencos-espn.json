@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T16:39:58",
+ "atualizado": "2026-11-22T01:01:43",
  "times": {
   "flamengo": [
    {
@@ -899,7 +899,7 @@
     "n": "Luciano Rodríguez",
     "curto": "L. Rodríguez",
     "num": 97,
-    "pos": "A",
+    "pos": "D",
     "jogos": 6
    },
    {
@@ -3395,6 +3395,309 @@
     "jogos": 0
    }
   ],
+  "coritiba": [
+   {
+    "n": "Gabriel Leite",
+    "curto": "G. Leite",
+    "num": 87,
+    "pos": "G",
+    "jogos": 0
+   },
+   {
+    "n": "Keiller",
+    "curto": "Keiller",
+    "num": 13,
+    "pos": "G",
+    "jogos": 0
+   },
+   {
+    "n": "Pedro Rangel",
+    "curto": "P. Rangel",
+    "num": 22,
+    "pos": "G",
+    "jogos": 19
+   },
+   {
+    "n": "Benassi",
+    "curto": "Benassi",
+    "num": 67,
+    "pos": "G",
+    "jogos": 0
+   },
+   {
+    "n": "Pedro Luccas",
+    "curto": "Pedro Luccas",
+    "num": 1,
+    "pos": "G",
+    "jogos": 17
+   },
+   {
+    "n": "Maicon",
+    "curto": "Maicon",
+    "num": 3,
+    "pos": "D",
+    "jogos": 15
+   },
+   {
+    "n": "Rodrigo Moledo",
+    "curto": "R. Moledo",
+    "num": 4,
+    "pos": "D",
+    "jogos": 10
+   },
+   {
+    "n": "Tinga",
+    "curto": "Tinga",
+    "num": 2,
+    "pos": "D",
+    "jogos": 23
+   },
+   {
+    "n": "Fabricio Bustos",
+    "curto": "F. Bustos",
+    "num": 14,
+    "pos": "D",
+    "jogos": 6
+   },
+   {
+    "n": "Bruno Melo",
+    "curto": "B. Melo",
+    "num": 26,
+    "pos": "D",
+    "jogos": 32
+   },
+   {
+    "n": "Jacy Maranhão",
+    "curto": "J. Maranhão",
+    "num": 55,
+    "pos": "D",
+    "jogos": 31
+   },
+   {
+    "n": "Felipe Jonatan",
+    "curto": "Felipe Jonatan",
+    "num": 6,
+    "pos": "D",
+    "jogos": 19
+   },
+   {
+    "n": "Tiago",
+    "curto": "Tiago",
+    "num": 23,
+    "pos": "D",
+    "jogos": 30
+   },
+   {
+    "n": "Rodrigo",
+    "curto": "Rodrigo",
+    "num": 66,
+    "pos": "D",
+    "jogos": 4
+   },
+   {
+    "n": "Lucas Taverna",
+    "curto": "L. Taverna",
+    "num": 86,
+    "pos": "D",
+    "jogos": 4
+   },
+   {
+    "n": "Gabriel Ibson Evangelista Da Silva",
+    "curto": "G. Evangelista Da Silva",
+    "num": 14,
+    "pos": "D",
+    "jogos": 0
+   },
+   {
+    "n": "Vitor Gabriel Boteon Martinelli",
+    "curto": "V. Boteon Martinelli",
+    "num": 34,
+    "pos": "D",
+    "jogos": 0
+   },
+   {
+    "n": "Sebastián Gómez",
+    "curto": "S. Gómez",
+    "num": 19,
+    "pos": "M",
+    "jogos": 31
+   },
+   {
+    "n": "Josué Pesqueira",
+    "curto": "J. Pesqueira",
+    "num": 10,
+    "pos": "M",
+    "jogos": 32
+   },
+   {
+    "n": "Thiago Santos",
+    "curto": "T. Santos",
+    "num": 21,
+    "pos": "M",
+    "jogos": 26
+   },
+   {
+    "n": "Richard",
+    "curto": "Richard",
+    "num": 25,
+    "pos": "M",
+    "jogos": 4
+   },
+   {
+    "n": "Nicolás Fonseca",
+    "curto": "N. Fonseca",
+    "num": 5,
+    "pos": "M",
+    "jogos": 8
+   },
+   {
+    "n": "Gustavo",
+    "curto": "Gustavo",
+    "num": 39,
+    "pos": "M",
+    "jogos": 4
+   },
+   {
+    "n": "Thiago Azaf",
+    "curto": "Thiago Azaf",
+    "num": 9,
+    "pos": "M",
+    "jogos": 0
+   },
+   {
+    "n": "Tissi",
+    "curto": "Tissi",
+    "num": 50,
+    "pos": "M",
+    "jogos": 9
+   },
+   {
+    "n": "Alejandro Ararat",
+    "curto": "A. Ararat",
+    "num": 15,
+    "pos": "M",
+    "jogos": 0
+   },
+   {
+    "n": "Paulo Roberto",
+    "curto": "Paulo Roberto",
+    "num": 18,
+    "pos": "M",
+    "jogos": 13
+   },
+   {
+    "n": "Miguel Silva",
+    "curto": "Miguel Silva",
+    "num": null,
+    "pos": "M",
+    "jogos": 0
+   },
+   {
+    "n": "Khensane",
+    "curto": "Khensane",
+    "num": 30,
+    "pos": "M",
+    "jogos": 0
+   },
+   {
+    "n": "Keno",
+    "curto": "Keno",
+    "num": 20,
+    "pos": "A",
+    "jogos": 7
+   },
+   {
+    "n": "Pedro Rocha",
+    "curto": "P. Rocha",
+    "num": 32,
+    "pos": "A",
+    "jogos": 34
+   },
+   {
+    "n": "Breno",
+    "curto": "Breno",
+    "num": 77,
+    "pos": "A",
+    "jogos": 31
+   },
+   {
+    "n": "Rodrigo Rodrigues",
+    "curto": "Rodrigo Rodrigues",
+    "num": 99,
+    "pos": "A",
+    "jogos": 3
+   },
+   {
+    "n": "Brian Ocampo",
+    "curto": "B. Ocampo",
+    "num": 17,
+    "pos": "A",
+    "jogos": 6
+   },
+   {
+    "n": "Fabinho",
+    "curto": "Fabinho",
+    "num": 28,
+    "pos": "A",
+    "jogos": 12
+   },
+   {
+    "n": "Vini Paulista",
+    "curto": "Vini Paulista",
+    "num": 36,
+    "pos": "A",
+    "jogos": 28
+   },
+   {
+    "n": "Joaquín Lavega",
+    "curto": "J. Lavega",
+    "num": 7,
+    "pos": "A",
+    "jogos": 31
+   },
+   {
+    "n": "Renato Marques",
+    "curto": "Renato Marques",
+    "num": 78,
+    "pos": "A",
+    "jogos": 7
+   },
+   {
+    "n": "Lucas Ronier",
+    "curto": "Lucas Ronier",
+    "num": 11,
+    "pos": "A",
+    "jogos": 18
+   },
+   {
+    "n": "Éberth",
+    "curto": "Éberth",
+    "num": null,
+    "pos": "A",
+    "jogos": 0
+   },
+   {
+    "n": "Matheus Dias",
+    "curto": "Matheus Dias",
+    "num": 80,
+    "pos": "A",
+    "jogos": 0
+   },
+   {
+    "n": "Crepaldi",
+    "curto": "Crepaldi",
+    "num": 37,
+    "pos": "A",
+    "jogos": 0
+   },
+   {
+    "n": "David Alves",
+    "curto": "David Alves",
+    "num": 33,
+    "pos": "A",
+    "jogos": 1
+   }
+  ],
   "sp": [
    {
     "n": "Rafael",
@@ -4097,302 +4400,6 @@
     "num": 79,
     "pos": "A",
     "jogos": 3
-   }
-  ],
-  "coritiba": [
-   {
-    "n": "Gabriel Leite",
-    "curto": "G. Leite",
-    "num": 87,
-    "pos": "G",
-    "jogos": 0
-   },
-   {
-    "n": "Keiller",
-    "curto": "Keiller",
-    "num": 13,
-    "pos": "G",
-    "jogos": 0
-   },
-   {
-    "n": "Pedro Rangel",
-    "curto": "P. Rangel",
-    "num": 22,
-    "pos": "G",
-    "jogos": 19
-   },
-   {
-    "n": "Benassi",
-    "curto": "Benassi",
-    "num": 67,
-    "pos": "G",
-    "jogos": 0
-   },
-   {
-    "n": "Pedro Luccas",
-    "curto": "Pedro Luccas",
-    "num": 1,
-    "pos": "G",
-    "jogos": 17
-   },
-   {
-    "n": "Maicon",
-    "curto": "Maicon",
-    "num": 3,
-    "pos": "D",
-    "jogos": 15
-   },
-   {
-    "n": "Rodrigo Moledo",
-    "curto": "R. Moledo",
-    "num": 4,
-    "pos": "D",
-    "jogos": 10
-   },
-   {
-    "n": "Tinga",
-    "curto": "Tinga",
-    "num": 2,
-    "pos": "D",
-    "jogos": 23
-   },
-   {
-    "n": "Fabricio Bustos",
-    "curto": "F. Bustos",
-    "num": 14,
-    "pos": "D",
-    "jogos": 6
-   },
-   {
-    "n": "Bruno Melo",
-    "curto": "B. Melo",
-    "num": 26,
-    "pos": "D",
-    "jogos": 32
-   },
-   {
-    "n": "Jacy Maranhão",
-    "curto": "J. Maranhão",
-    "num": 55,
-    "pos": "D",
-    "jogos": 31
-   },
-   {
-    "n": "Felipe Jonatan",
-    "curto": "Felipe Jonatan",
-    "num": 6,
-    "pos": "D",
-    "jogos": 19
-   },
-   {
-    "n": "Tiago",
-    "curto": "Tiago",
-    "num": 23,
-    "pos": "D",
-    "jogos": 30
-   },
-   {
-    "n": "Rodrigo",
-    "curto": "Rodrigo",
-    "num": 66,
-    "pos": "D",
-    "jogos": 4
-   },
-   {
-    "n": "Lucas Taverna",
-    "curto": "L. Taverna",
-    "num": 86,
-    "pos": "D",
-    "jogos": 4
-   },
-   {
-    "n": "Gabriel Ibson Evangelista Da Silva",
-    "curto": "G. Evangelista Da Silva",
-    "num": 14,
-    "pos": "D",
-    "jogos": 0
-   },
-   {
-    "n": "Sebastián Gómez",
-    "curto": "S. Gómez",
-    "num": 19,
-    "pos": "M",
-    "jogos": 31
-   },
-   {
-    "n": "Josué Pesqueira",
-    "curto": "J. Pesqueira",
-    "num": 10,
-    "pos": "M",
-    "jogos": 32
-   },
-   {
-    "n": "Thiago Santos",
-    "curto": "T. Santos",
-    "num": 21,
-    "pos": "M",
-    "jogos": 26
-   },
-   {
-    "n": "Richard",
-    "curto": "Richard",
-    "num": 25,
-    "pos": "M",
-    "jogos": 4
-   },
-   {
-    "n": "Nicolás Fonseca",
-    "curto": "N. Fonseca",
-    "num": 5,
-    "pos": "M",
-    "jogos": 8
-   },
-   {
-    "n": "Gustavo",
-    "curto": "Gustavo",
-    "num": 39,
-    "pos": "M",
-    "jogos": 4
-   },
-   {
-    "n": "Thiago Azaf",
-    "curto": "Thiago Azaf",
-    "num": 9,
-    "pos": "M",
-    "jogos": 0
-   },
-   {
-    "n": "Tissi",
-    "curto": "Tissi",
-    "num": 50,
-    "pos": "M",
-    "jogos": 9
-   },
-   {
-    "n": "Alejandro Ararat",
-    "curto": "A. Ararat",
-    "num": 15,
-    "pos": "M",
-    "jogos": 0
-   },
-   {
-    "n": "Paulo Roberto",
-    "curto": "Paulo Roberto",
-    "num": 18,
-    "pos": "M",
-    "jogos": 13
-   },
-   {
-    "n": "Miguel Silva",
-    "curto": "Miguel Silva",
-    "num": null,
-    "pos": "M",
-    "jogos": 0
-   },
-   {
-    "n": "Khensane",
-    "curto": "Khensane",
-    "num": 30,
-    "pos": "M",
-    "jogos": 0
-   },
-   {
-    "n": "Keno",
-    "curto": "Keno",
-    "num": 20,
-    "pos": "A",
-    "jogos": 7
-   },
-   {
-    "n": "Pedro Rocha",
-    "curto": "P. Rocha",
-    "num": 32,
-    "pos": "A",
-    "jogos": 34
-   },
-   {
-    "n": "Breno",
-    "curto": "Breno",
-    "num": 77,
-    "pos": "A",
-    "jogos": 31
-   },
-   {
-    "n": "Rodrigo Rodrigues",
-    "curto": "Rodrigo Rodrigues",
-    "num": 99,
-    "pos": "A",
-    "jogos": 3
-   },
-   {
-    "n": "Brian Ocampo",
-    "curto": "B. Ocampo",
-    "num": 17,
-    "pos": "A",
-    "jogos": 6
-   },
-   {
-    "n": "Fabinho",
-    "curto": "Fabinho",
-    "num": 28,
-    "pos": "A",
-    "jogos": 12
-   },
-   {
-    "n": "Vini Paulista",
-    "curto": "Vini Paulista",
-    "num": 36,
-    "pos": "A",
-    "jogos": 28
-   },
-   {
-    "n": "Joaquín Lavega",
-    "curto": "J. Lavega",
-    "num": 7,
-    "pos": "A",
-    "jogos": 31
-   },
-   {
-    "n": "Renato Marques",
-    "curto": "Renato Marques",
-    "num": 78,
-    "pos": "A",
-    "jogos": 7
-   },
-   {
-    "n": "Lucas Ronier",
-    "curto": "Lucas Ronier",
-    "num": 11,
-    "pos": "A",
-    "jogos": 18
-   },
-   {
-    "n": "Éberth",
-    "curto": "Éberth",
-    "num": null,
-    "pos": "A",
-    "jogos": 0
-   },
-   {
-    "n": "Matheus Dias",
-    "curto": "Matheus Dias",
-    "num": 80,
-    "pos": "A",
-    "jogos": 0
-   },
-   {
-    "n": "Crepaldi",
-    "curto": "Crepaldi",
-    "num": 37,
-    "pos": "A",
-    "jogos": 0
-   },
-   {
-    "n": "David Alves",
-    "curto": "David Alves",
-    "num": 33,
-    "pos": "A",
-    "jogos": 1
    }
   ],
   "vitoria": [

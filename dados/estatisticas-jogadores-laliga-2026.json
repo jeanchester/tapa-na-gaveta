@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T16:40:05",
+ "atualizado": "2026-11-22T01:01:50",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -672,6 +672,12 @@
    "n": 5
   },
   {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 5
+  },
+  {
    "nome": "Pierre-Emerick Aubameyang",
    "time": "90",
    "escudo": "deportivo",
@@ -693,12 +699,6 @@
    "nome": "Giuliano Simeone",
    "time": "1068",
    "escudo": "atletico",
-   "n": 4
-  },
-  {
-   "nome": "Jude Bellingham",
-   "time": "86",
-   "escudo": "real_madrid",
    "n": 4
   },
   {
@@ -744,6 +744,12 @@
    "n": 3
   },
   {
+   "nome": "Carlos Espí",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
    "nome": "Gabriel Jesus",
    "time": "83",
    "escudo": "barcelona",
@@ -783,6 +789,12 @@
    "nome": "Martín Satriano",
    "time": "2922",
    "escudo": "getafe",
+   "n": 3
+  },
+  {
+   "nome": "Pablo Durán",
+   "time": "85",
+   "escudo": "celta",
    "n": 3
   },
   {
@@ -858,12 +870,6 @@
    "n": 2
   },
   {
-   "nome": "Carlos Espí",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 2
-  },
-  {
    "nome": "Cucho Hernández",
    "time": "244",
    "escudo": "betis",
@@ -873,6 +879,12 @@
    "nome": "Enes Ünal",
    "time": "2922",
    "escudo": "getafe",
+   "n": 2
+  },
+  {
+   "nome": "Enrique Salas",
+   "time": "243",
+   "escudo": "sevilla",
    "n": 2
   },
   {
@@ -945,12 +957,6 @@
    "nome": "Nicolas Pépé",
    "time": "102",
    "escudo": "villarreal",
-   "n": 2
-  },
-  {
-   "nome": "Pablo Durán",
-   "time": "85",
-   "escudo": "celta",
    "n": 2
   },
   {
@@ -1038,6 +1044,12 @@
    "n": 1
   },
   {
+   "nome": "Antony",
+   "time": "244",
+   "escudo": "betis",
+   "n": 1
+  },
+  {
    "nome": "Arsen Zakharyan",
    "time": "89",
    "escudo": "sociedad",
@@ -1098,6 +1110,12 @@
    "n": 1
   },
   {
+   "nome": "Copete",
+   "time": "94",
+   "escudo": "valencia",
+   "n": 1
+  },
+  {
    "nome": "Cristian Romero",
    "time": "1068",
    "escudo": "atletico",
@@ -1149,12 +1167,6 @@
    "nome": "Enrique Barja",
    "time": "97",
    "escudo": "osasuna",
-   "n": 1
-  },
-  {
-   "nome": "Enrique Salas",
-   "time": "243",
-   "escudo": "sevilla",
    "n": 1
   },
   {
@@ -1696,6 +1708,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Yoel Lago",
+    "time": "85",
+    "escudo": "celta",
+    "amarelos": 5,
+    "vermelhos": 0
+   },
+   {
     "nome": "Yuri Berchiche",
     "time": "93",
     "escudo": "athletic",
@@ -1759,6 +1778,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Enrique Salas",
+    "time": "243",
+    "escudo": "sevilla",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
     "nome": "Gonzalo Villar",
     "time": "3751",
     "escudo": "elche",
@@ -1801,11 +1827,25 @@
     "vermelhos": 1
    },
    {
+    "nome": "Juan Iglesias",
+    "time": "243",
+    "escudo": "sevilla",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Kiko Femenía",
     "time": "2922",
     "escudo": "getafe",
     "amarelos": 2,
     "vermelhos": 1
+   },
+   {
+    "nome": "Lucien Agoumé",
+    "time": "243",
+    "escudo": "sevilla",
+    "amarelos": 4,
+    "vermelhos": 0
    },
    {
     "nome": "Marc Pubill",
@@ -1850,6 +1890,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Sergio Camello",
+    "time": "101",
+    "escudo": "rayo",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Vinícius Júnior",
     "time": "86",
     "escudo": "real_madrid",
@@ -1867,13 +1914,6 @@
     "nome": "Yassir Zabiri",
     "time": "87",
     "escudo": "racing_santander",
-    "amarelos": 4,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Yoel Lago",
-    "time": "85",
-    "escudo": "celta",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1930,6 +1970,13 @@
     "nome": "Alvaro Mantilla",
     "time": "87",
     "escudo": "racing_santander",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Andrés Castrín",
+    "time": "243",
+    "escudo": "sevilla",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2011,13 +2058,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Enrique Salas",
-    "time": "243",
-    "escudo": "sevilla",
-    "amarelos": 1,
-    "vermelhos": 1
-   },
-   {
     "nome": "Facundo Bernal",
     "time": "244",
     "escudo": "betis",
@@ -2060,6 +2100,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Héctor Bellerín",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Igor Zubeldia",
     "time": "89",
     "escudo": "sociedad",
@@ -2081,11 +2128,25 @@
     "vermelhos": 0
    },
    {
+    "nome": "Javier Guerra",
+    "time": "94",
+    "escudo": "valencia",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jon Guridi",
     "time": "243",
     "escudo": "sevilla",
     "amarelos": 3,
     "vermelhos": 0
+   },
+   {
+    "nome": "Jorge de Frutos",
+    "time": "101",
+    "escudo": "rayo",
+    "amarelos": 1,
+    "vermelhos": 1
    },
    {
     "nome": "José Gayà",
@@ -2102,23 +2163,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Juan Iglesias",
-    "time": "243",
-    "escudo": "sevilla",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Kylian Mbappé",
     "time": "86",
     "escudo": "real_madrid",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Lucien Agoumé",
-    "time": "243",
-    "escudo": "sevilla",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2175,13 +2222,6 @@
     "nome": "Santi Comesaña",
     "time": "102",
     "escudo": "villarreal",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Sergio Camello",
-    "time": "101",
-    "escudo": "rayo",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2256,13 +2296,6 @@
     "vermelhos": 1
    },
    {
-    "nome": "Andrés Castrín",
-    "time": "243",
-    "escudo": "sevilla",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Angeliño",
     "time": "90",
     "escudo": "deportivo",
@@ -2308,6 +2341,13 @@
     "nome": "Cristian Romero",
     "time": "1068",
     "escudo": "atletico",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Cucho Hernández",
+    "time": "244",
+    "escudo": "betis",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2396,13 +2436,6 @@
     "vermelhos": 1
    },
    {
-    "nome": "Héctor Bellerín",
-    "time": "244",
-    "escudo": "betis",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Iker Muñoz",
     "time": "97",
     "escudo": "osasuna",
@@ -2438,13 +2471,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Javier Guerra",
-    "time": "94",
-    "escudo": "valencia",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Javier Morcillo",
     "time": "3751",
     "escudo": "elche",
@@ -2473,13 +2499,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Jorge de Frutos",
-    "time": "101",
-    "escudo": "rayo",
-    "amarelos": 0,
-    "vermelhos": 1
-   },
-   {
     "nome": "José Antonio Morente",
     "time": "3751",
     "escudo": "elche",
@@ -2497,6 +2516,13 @@
     "nome": "Jude Bellingham",
     "time": "86",
     "escudo": "real_madrid",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Junior Firpo",
+    "time": "244",
+    "escudo": "betis",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2672,6 +2698,13 @@
     "nome": "Rafael Bauza",
     "time": "88",
     "escudo": "espanyol",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Robbie Ure",
+    "time": "243",
+    "escudo": "sevilla",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2928,6 +2961,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Carlos Espí",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Carlos Macià",
     "time": "102",
     "escudo": "villarreal",
@@ -2959,13 +2999,6 @@
     "nome": "Couhaib Driouech",
     "time": "85",
     "escudo": "celta",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Cucho Hernández",
-    "time": "244",
-    "escudo": "betis",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3166,6 +3199,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Javi Rodríguez",
+    "time": "85",
+    "escudo": "celta",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Javier Puado",
     "time": "88",
     "escudo": "espanyol",
@@ -3239,13 +3279,6 @@
     "nome": "Julen Agirrezabala",
     "time": "87",
     "escudo": "racing_santander",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Junior Firpo",
-    "time": "244",
-    "escudo": "betis",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3376,6 +3409,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Pablo Fornals",
+    "time": "244",
+    "escudo": "betis",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Pablo García",
     "time": "244",
     "escudo": "betis",
@@ -3442,13 +3482,6 @@
     "nome": "Raúl García",
     "time": "97",
     "escudo": "osasuna",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Robbie Ure",
-    "time": "243",
-    "escudo": "sevilla",
     "amarelos": 1,
     "vermelhos": 0
    },

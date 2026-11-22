@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-21T16:40:09",
+ "atualizado": "2026-11-22T01:01:53",
  "artilheiros": [
   {
    "nome": "Lassine Sinayoko",
@@ -636,6 +636,12 @@
    "n": 6
   },
   {
+   "nome": "Ferran Torres",
+   "time": "160",
+   "escudo": "paris",
+   "n": 5
+  },
+  {
    "nome": "Boulaye Dia",
    "time": "169",
    "escudo": "rennes",
@@ -669,12 +675,6 @@
    "nome": "Ernest Nuamah",
    "time": "167",
    "escudo": "lyon",
-   "n": 4
-  },
-  {
-   "nome": "Ferran Torres",
-   "time": "160",
-   "escudo": "paris",
    "n": 4
   },
   {
@@ -732,9 +732,21 @@
    "n": 3
   },
   {
+   "nome": "Edan Diop",
+   "time": "174",
+   "escudo": "monaco",
+   "n": 3
+  },
+  {
    "nome": "Giovanni Reyna",
    "time": "180",
    "escudo": "strasbourg",
+   "n": 3
+  },
+  {
+   "nome": "Jacen Russell-Rowe",
+   "time": "179",
+   "escudo": "toulouse",
    "n": 3
   },
   {
@@ -747,6 +759,18 @@
    "nome": "Marquinhos",
    "time": "160",
    "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Mohamed Amoura",
+   "time": "2502",
+   "escudo": "nice",
+   "n": 3
+  },
+  {
+   "nome": "Noah Edjouma",
+   "time": "6997",
+   "escudo": "brest",
    "n": 3
   },
   {
@@ -771,6 +795,12 @@
    "nome": "Olivier Giroud",
    "time": "166",
    "escudo": "lille",
+   "n": 3
+  },
+  {
+   "nome": "Senny Mayulu",
+   "time": "160",
+   "escudo": "paris",
    "n": 3
   },
   {
@@ -804,9 +834,9 @@
    "n": 2
   },
   {
-   "nome": "Edan Diop",
-   "time": "174",
-   "escudo": "monaco",
+   "nome": "Désiré Doué",
+   "time": "160",
+   "escudo": "paris",
    "n": 2
   },
   {
@@ -831,12 +861,6 @@
    "nome": "Illia Zabarnyi",
    "time": "160",
    "escudo": "paris",
-   "n": 2
-  },
-  {
-   "nome": "Jacen Russell-Rowe",
-   "time": "179",
-   "escudo": "toulouse",
    "n": 2
   },
   {
@@ -882,18 +906,6 @@
    "n": 2
   },
   {
-   "nome": "Mohamed Amoura",
-   "time": "2502",
-   "escudo": "nice",
-   "n": 2
-  },
-  {
-   "nome": "Noah Edjouma",
-   "time": "6997",
-   "escudo": "brest",
-   "n": 2
-  },
-  {
    "nome": "Pablo Pagis",
    "time": "6851",
    "escudo": "paris_fc",
@@ -912,15 +924,15 @@
    "n": 2
   },
   {
-   "nome": "Samuel Amo-Ameyaw",
-   "time": "180",
-   "escudo": "strasbourg",
+   "nome": "Romain Faivre",
+   "time": "172",
+   "escudo": "auxerre",
    "n": 2
   },
   {
-   "nome": "Senny Mayulu",
-   "time": "160",
-   "escudo": "paris",
+   "nome": "Samuel Amo-Ameyaw",
+   "time": "180",
+   "escudo": "strasbourg",
    "n": 2
   },
   {
@@ -969,6 +981,12 @@
    "nome": "Abdallah Sima",
    "time": "175",
    "escudo": "lens",
+   "n": 1
+  },
+  {
+   "nome": "Ali Abdi",
+   "time": "2502",
+   "escudo": "nice",
    "n": 1
   },
   {
@@ -1023,12 +1041,6 @@
    "nome": "Diogo Sousa",
    "time": "180",
    "escudo": "strasbourg",
-   "n": 1
-  },
-  {
-   "nome": "Désiré Doué",
-   "time": "160",
-   "escudo": "paris",
    "n": 1
   },
   {
@@ -1188,6 +1200,12 @@
    "n": 1
   },
   {
+   "nome": "Mads Bidstrup",
+   "time": "167",
+   "escudo": "lyon",
+   "n": 1
+  },
+  {
    "nome": "Maghnes Akliouche",
    "time": "160",
    "escudo": "paris",
@@ -1227,6 +1245,12 @@
    "nome": "Matthis Abline",
    "time": "174",
    "escudo": "monaco",
+   "n": 1
+  },
+  {
+   "nome": "Michaël Cuisance",
+   "time": "175",
+   "escudo": "lens",
    "n": 1
   },
   {
@@ -1317,12 +1341,6 @@
    "nome": "Romain Del Castillo",
    "time": "6997",
    "escudo": "brest",
-   "n": 1
-  },
-  {
-   "nome": "Romain Faivre",
-   "time": "172",
-   "escudo": "auxerre",
    "n": 1
   },
   {
@@ -1474,6 +1492,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Florian Thauvin",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Gessime Yassine",
     "time": "180",
     "escudo": "strasbourg",
@@ -1505,6 +1530,13 @@
     "nome": "Ludovic Ajorque",
     "time": "6997",
     "escudo": "brest",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Niko Sigur",
+    "time": "179",
+    "escudo": "toulouse",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1572,13 +1604,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Florian Thauvin",
-    "time": "175",
-    "escudo": "lens",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Junior Mwanga",
     "time": "3236",
     "escudo": "le_havre",
@@ -1628,13 +1653,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Niko Sigur",
-    "time": "179",
-    "escudo": "toulouse",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Názinho",
     "time": "174",
     "escudo": "monaco",
@@ -1652,6 +1670,13 @@
     "nome": "Romain Perraud",
     "time": "166",
     "escudo": "lille",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Santiago Hidalgo",
+    "time": "179",
+    "escudo": "toulouse",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1674,6 +1699,13 @@
     "time": "2502",
     "escudo": "nice",
     "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amadou Haidara",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
     "vermelhos": 0
    },
    {
@@ -1719,6 +1751,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Corentin Tolisso",
+    "time": "167",
+    "escudo": "lyon",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Denis Zakaria",
     "time": "174",
     "escudo": "monaco",
@@ -1733,9 +1772,23 @@
     "vermelhos": 0
    },
    {
+    "nome": "Diogo Sousa",
+    "time": "180",
+    "escudo": "strasbourg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Djaoui Cissé",
     "time": "169",
     "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dário Essugo",
+    "time": "180",
+    "escudo": "strasbourg",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1880,6 +1933,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Paul Nardi",
+    "time": "172",
+    "escudo": "auxerre",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Pierre Lees-Melou",
     "time": "6851",
     "escudo": "paris_fc",
@@ -1918,13 +1978,6 @@
     "nome": "Samuel Yohou",
     "time": "2697",
     "escudo": "le_mans",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Santiago Hidalgo",
-    "time": "179",
-    "escudo": "toulouse",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2013,9 +2066,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Amadou Haidara",
-    "time": "175",
-    "escudo": "lens",
+    "nome": "Alidu Seidu",
+    "time": "2502",
+    "escudo": "nice",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2139,13 +2192,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Corentin Tolisso",
-    "time": "167",
-    "escudo": "lyon",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Dame Guèye",
     "time": "2697",
     "escudo": "le_mans",
@@ -2156,13 +2202,6 @@
     "nome": "Diego Coppola",
     "time": "6851",
     "escudo": "paris_fc",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Diogo Sousa",
-    "time": "180",
-    "escudo": "strasbourg",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2184,13 +2223,6 @@
     "nome": "Dro Fernández",
     "time": "160",
     "escudo": "paris",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Dário Essugo",
-    "time": "180",
-    "escudo": "strasbourg",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2261,6 +2293,13 @@
     "nome": "Harold Voyer",
     "time": "2697",
     "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Hicham Boudaoui",
+    "time": "2502",
+    "escudo": "nice",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2482,6 +2521,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Lucas Tousart",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Lukas Hradecky",
     "time": "174",
     "escudo": "monaco",
@@ -2692,13 +2738,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Paul Nardi",
-    "time": "172",
-    "escudo": "auxerre",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Pavel Sulc",
     "time": "167",
     "escudo": "lyon",
@@ -2807,6 +2846,13 @@
     "nome": "Saud Abdulhamid",
     "time": "175",
     "escudo": "lens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Sebastian Nanasi",
+    "time": "180",
+    "escudo": "strasbourg",
     "amarelos": 1,
     "vermelhos": 0
    },
