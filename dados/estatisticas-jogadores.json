@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T01:01:42",
+ "atualizado": "2026-11-22T16:57:32",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -29,12 +29,18 @@
    "nome": "Samuel Lino",
    "time": "819",
    "escudo": "flamengo",
-   "n": 12
+   "n": 13
   },
   {
    "nome": "Carlos Vinícius",
    "time": "6273",
    "escudo": "gremio",
+   "n": 11
+  },
+  {
+   "nome": "Matheus Pereira",
+   "time": "2022",
+   "escudo": "cruzeiro",
    "n": 11
   },
   {
@@ -56,9 +62,9 @@
    "n": 10
   },
   {
-   "nome": "Matheus Pereira",
-   "time": "2022",
-   "escudo": "cruzeiro",
+   "nome": "Maurício",
+   "time": "2029",
+   "escudo": "palmeiras",
    "n": 10
   },
   {
@@ -74,12 +80,6 @@
    "n": 10
   },
   {
-   "nome": "Maurício",
-   "time": "2029",
-   "escudo": "palmeiras",
-   "n": 10
-  },
-  {
    "nome": "Danilo Santos",
    "time": "6086",
    "escudo": "botafogo",
@@ -87,6 +87,12 @@
   },
   {
    "nome": "Pedro Rocha",
+   "time": "3456",
+   "escudo": "coritiba",
+   "n": 9
+  },
+  {
+   "nome": "Breno",
    "time": "3456",
    "escudo": "coritiba",
    "n": 9
@@ -102,12 +108,6 @@
    "time": "3445",
    "escudo": "fluminense",
    "n": 9
-  },
-  {
-   "nome": "Breno",
-   "time": "3456",
-   "escudo": "coritiba",
-   "n": 8
   },
   {
    "nome": "Jorge Carrascal",
@@ -134,6 +134,12 @@
    "n": 7
   },
   {
+   "nome": "Jhon Arias",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 7
+  },
+  {
    "nome": "Arthur Cabral",
    "time": "6086",
    "escudo": "botafogo",
@@ -146,15 +152,15 @@
    "n": 7
   },
   {
-   "nome": "Jefferson Savarino",
-   "time": "3445",
-   "escudo": "fluminense",
-   "n": 7
-  },
-  {
    "nome": "Lucas Paquetá",
    "time": "819",
    "escudo": "flamengo",
+   "n": 7
+  },
+  {
+   "nome": "Jefferson Savarino",
+   "time": "3445",
+   "escudo": "fluminense",
    "n": 7
   },
   {
@@ -173,12 +179,6 @@
    "nome": "Luciano Acosta",
    "time": "3445",
    "escudo": "fluminense",
-   "n": 6
-  },
-  {
-   "nome": "Jhon Arias",
-   "time": "2029",
-   "escudo": "palmeiras",
    "n": 6
   },
   {
@@ -224,12 +224,6 @@
    "n": 5
   },
   {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
-   "n": 5
-  },
-  {
    "nome": "Marcinho",
    "time": "9318",
    "escudo": "chapecoense",
@@ -239,6 +233,12 @@
    "nome": "Joaquín Lavega",
    "time": "3456",
    "escudo": "coritiba",
+   "n": 5
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 5
   },
   {
@@ -290,15 +290,15 @@
    "n": 5
   },
   {
-   "nome": "Renato Kayzer",
-   "time": "3457",
-   "escudo": "vitoria",
-   "n": 5
-  },
-  {
    "nome": "Ramón Sosa",
    "time": "2029",
    "escudo": "palmeiras",
+   "n": 5
+  },
+  {
+   "nome": "Renato Kayzer",
+   "time": "3457",
+   "escudo": "vitoria",
    "n": 5
   }
  ],
@@ -394,15 +394,15 @@
    "n": 5
   },
   {
-   "nome": "Álvaro Montoro",
-   "time": "6086",
-   "escudo": "botafogo",
-   "n": 5
-  },
-  {
    "nome": "Rodrigo Nestor",
    "time": "9967",
    "escudo": "bahia",
+   "n": 5
+  },
+  {
+   "nome": "Álvaro Montoro",
+   "time": "6086",
+   "escudo": "botafogo",
    "n": 5
   },
   {
@@ -490,15 +490,15 @@
    "n": 4
   },
   {
-   "nome": "Cristian Pavón",
-   "time": "6273",
-   "escudo": "gremio",
-   "n": 4
-  },
-  {
    "nome": "Jean Lucas",
    "time": "9967",
    "escudo": "bahia",
+   "n": 4
+  },
+  {
+   "nome": "Cristian Pavón",
+   "time": "6273",
+   "escudo": "gremio",
    "n": 4
   },
   {
@@ -508,9 +508,21 @@
    "n": 4
   },
   {
+   "nome": "Bruno Henrique",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 4
+  },
+  {
    "nome": "Gabriel Barbosa",
    "time": "2674",
    "escudo": "santos",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
    "n": 4
   },
   {
@@ -529,12 +541,6 @@
    "nome": "Cuiabano",
    "time": "3454",
    "escudo": "vasco",
-   "n": 4
-  },
-  {
-   "nome": "Giorgian de Arrascaeta",
-   "time": "819",
-   "escudo": "flamengo",
    "n": 4
   },
   {
@@ -586,21 +592,15 @@
    "n": 3
   },
   {
+   "nome": "Lucas Evangelista",
+   "time": "2029",
+   "escudo": "palmeiras",
+   "n": 3
+  },
+  {
    "nome": "Gabriel Bontempo",
    "time": "2674",
    "escudo": "santos",
-   "n": 3
-  },
-  {
-   "nome": "Isidro Pitta",
-   "time": "6079",
-   "escudo": "bragantino",
-   "n": 3
-  },
-  {
-   "nome": "José Enamorado",
-   "time": "6273",
-   "escudo": "gremio",
    "n": 3
   }
  ],
@@ -636,6 +636,12 @@
    "n": 13
   },
   {
+   "nome": "Matheus Pereira",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 11
+  },
+  {
    "nome": "Renê",
    "time": "3457",
    "escudo": "vitoria",
@@ -669,12 +675,6 @@
    "nome": "José Manuel López",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 10
-  },
-  {
-   "nome": "Matheus Pereira",
-   "time": "2022",
-   "escudo": "cruzeiro",
    "n": 10
   },
   {
@@ -1446,6 +1446,12 @@
    "n": 2
   },
   {
+   "nome": "Kauan",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 2
+  },
+  {
    "nome": "Kauã Moraes Silva",
    "time": "2022",
    "escudo": "cruzeiro",
@@ -1645,6 +1651,12 @@
   },
   {
    "nome": "Wanderson",
+   "time": "2022",
+   "escudo": "cruzeiro",
+   "n": 2
+  },
+  {
+   "nome": "Wesley Ribeiro",
    "time": "2022",
    "escudo": "cruzeiro",
    "n": 2
@@ -2106,12 +2118,6 @@
    "n": 1
   },
   {
-   "nome": "Kauan",
-   "time": "9318",
-   "escudo": "chapecoense",
-   "n": 1
-  },
-  {
    "nome": "Lautaro Díaz",
    "time": "2674",
    "escudo": "santos",
@@ -2364,12 +2370,6 @@
    "n": 1
   },
   {
-   "nome": "Wesley Ribeiro",
-   "time": "2022",
-   "escudo": "cruzeiro",
-   "n": 1
-  },
-  {
    "nome": "Willian Arão",
    "time": "2674",
    "escudo": "santos",
@@ -2497,9 +2497,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -2744,9 +2744,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -3060,9 +3060,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -3367,15 +3367,9 @@
     "escudo": "cruzeiro",
     "amarelos": 6,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Gustavo Martins",
@@ -3695,9 +3689,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -3920,9 +3914,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -4040,9 +4034,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -5034,15 +5028,9 @@
     "escudo": "chapecoense",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Gonzalo Plata",
@@ -5252,15 +5240,9 @@
     "escudo": "cruzeiro",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Kaique Kenji",
@@ -5629,6 +5611,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Victor Caetano",
+    "time": "9318",
+    "escudo": "chapecoense",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
+    }
    },
    {
     "nome": "Vini Paulista",
@@ -6065,9 +6063,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -6150,9 +6148,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -6300,9 +6298,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -6595,9 +6593,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -6695,9 +6693,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -6840,9 +6838,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -6900,9 +6898,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -7010,9 +7008,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -7068,21 +7066,6 @@
      "data": "2026-11-29T19:00Z",
      "contra": "Flamengo",
      "jogo": "401841333"
-    }
-   },
-   {
-    "nome": "Victor Caetano",
-    "time": "9318",
-    "escudo": "chapecoense",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
     }
    },
    {
@@ -7155,9 +7138,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841325"
+     "data": "2026-11-27T23:00Z",
+     "contra": "Fluminense",
+     "jogo": "401841337"
     }
    },
    {
@@ -7180,9 +7163,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-22T00:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841325"
+     "data": "2026-11-24T21:00Z",
+     "contra": "Palmeiras",
+     "jogo": "401841335"
     }
    },
    {
@@ -8186,6 +8169,16 @@
     "pendurado": false
    },
    {
+    "nome": "Marquinhos",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Mateo Casierra",
     "time": "7632",
     "escudo": "atleticomg",
@@ -8229,6 +8222,16 @@
     "nome": "Matheus Cunha Queiroz",
     "time": "2022",
     "escudo": "cruzeiro",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Max",
+    "time": "9318",
+    "escudo": "chapecoense",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,

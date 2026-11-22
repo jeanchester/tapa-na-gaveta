@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T01:01:49",
+ "atualizado": "2026-11-22T16:57:39",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -12,6 +12,12 @@
    "time": "364",
    "escudo": "liverpool",
    "n": 7
+  },
+  {
+   "nome": "Evanilson",
+   "time": "349",
+   "escudo": "bournemouth",
+   "n": 6
   },
   {
    "nome": "Thierno Barry",
@@ -38,12 +44,6 @@
    "n": 5
   },
   {
-   "nome": "Evanilson",
-   "time": "349",
-   "escudo": "bournemouth",
-   "n": 5
-  },
-  {
    "nome": "Rayan Cherki",
    "time": "382",
    "escudo": "city",
@@ -54,6 +54,12 @@
    "time": "363",
    "escudo": "chelsea",
    "n": 5
+  },
+  {
+   "nome": "Dominic Calvert-Lewin",
+   "time": "357",
+   "escudo": "leeds",
+   "n": 4
   },
   {
    "nome": "Bryan Mbeumo",
@@ -68,15 +74,21 @@
    "n": 4
   },
   {
+   "nome": "Noah Okafor",
+   "time": "357",
+   "escudo": "leeds",
+   "n": 4
+  },
+  {
    "nome": "Bruno Fernandes",
    "time": "360",
    "escudo": "man_united",
    "n": 4
   },
   {
-   "nome": "Kiernan Dewsbury-Hall",
-   "time": "368",
-   "escudo": "everton",
+   "nome": "Harvey Barnes",
+   "time": "361",
+   "escudo": "newcastle",
    "n": 3
   },
   {
@@ -92,27 +104,9 @@
    "n": 3
   },
   {
-   "nome": "Dominic Calvert-Lewin",
-   "time": "357",
-   "escudo": "leeds",
-   "n": 3
-  },
-  {
    "nome": "Martin Ødegaard",
    "time": "359",
    "escudo": "arsenal",
-   "n": 3
-  },
-  {
-   "nome": "Kevin Schade",
-   "time": "337",
-   "escudo": "brentford",
-   "n": 3
-  },
-  {
-   "nome": "Pedro Neto",
-   "time": "363",
-   "escudo": "chelsea",
    "n": 3
   },
   {
@@ -125,6 +119,30 @@
    "nome": "Kai Havertz",
    "time": "359",
    "escudo": "arsenal",
+   "n": 3
+  },
+  {
+   "nome": "Pedro Neto",
+   "time": "363",
+   "escudo": "chelsea",
+   "n": 3
+  },
+  {
+   "nome": "Kiernan Dewsbury-Hall",
+   "time": "368",
+   "escudo": "everton",
+   "n": 3
+  },
+  {
+   "nome": "Kevin Schade",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 3
+  },
+  {
+   "nome": "Liam Delap",
+   "time": "393",
+   "escudo": "forest",
    "n": 3
   },
   {
@@ -146,12 +164,6 @@
    "n": 3
   },
   {
-   "nome": "Liam Delap",
-   "time": "393",
-   "escudo": "forest",
-   "n": 3
-  },
-  {
    "nome": "Brian Brobbey",
    "time": "366",
    "escudo": "sunderland",
@@ -170,33 +182,15 @@
    "n": 3
   },
   {
-   "nome": "Leif Davis",
-   "time": "373",
-   "escudo": "ipswich_town",
-   "n": 2
-  },
-  {
    "nome": "Jan Paul van Hecke",
    "time": "367",
    "escudo": "tottenham",
    "n": 2
   },
   {
-   "nome": "Oliver McBurnie",
-   "time": "306",
-   "escudo": "hull_city",
-   "n": 2
-  },
-  {
-   "nome": "Harvey Barnes",
-   "time": "361",
-   "escudo": "newcastle",
-   "n": 2
-  },
-  {
-   "nome": "Diego Gómez",
-   "time": "331",
-   "escudo": "brighton",
+   "nome": "Leif Davis",
+   "time": "373",
+   "escudo": "ipswich_town",
    "n": 2
   },
   {
@@ -209,18 +203,6 @@
    "nome": "Julio Enciso",
    "time": "373",
    "escudo": "ipswich_town",
-   "n": 2
-  },
-  {
-   "nome": "Maxim De Cuyper",
-   "time": "331",
-   "escudo": "brighton",
-   "n": 2
-  },
-  {
-   "nome": "Igor Thiago",
-   "time": "337",
-   "escudo": "brentford",
    "n": 2
   },
   {
@@ -242,9 +224,9 @@
    "n": 2
   },
   {
-   "nome": "Keane Lewis-Potter",
-   "time": "337",
-   "escudo": "brentford",
+   "nome": "Yéremy Pino",
+   "time": "384",
+   "escudo": "crystal",
    "n": 2
   },
   {
@@ -266,33 +248,51 @@
    "n": 2
   },
   {
-   "nome": "Malick Yalcouyé",
+   "nome": "Dominic Solanke",
+   "time": "367",
+   "escudo": "tottenham",
+   "n": 2
+  },
+  {
+   "nome": "Oliver McBurnie",
+   "time": "306",
+   "escudo": "hull_city",
+   "n": 2
+  },
+  {
+   "nome": "Diego Gómez",
    "time": "331",
    "escudo": "brighton",
    "n": 2
   },
   {
-   "nome": "Vitaly Janelt",
+   "nome": "Maxim De Cuyper",
+   "time": "331",
+   "escudo": "brighton",
+   "n": 2
+  },
+  {
+   "nome": "Igor Thiago",
    "time": "337",
    "escudo": "brentford",
    "n": 2
   },
   {
-   "nome": "Noah Okafor",
-   "time": "357",
-   "escudo": "leeds",
-   "n": 2
-  },
-  {
-   "nome": "Víctor Muñoz",
-   "time": "364",
-   "escudo": "liverpool",
+   "nome": "Keane Lewis-Potter",
+   "time": "337",
+   "escudo": "brentford",
    "n": 2
   },
   {
    "nome": "Alysson",
    "time": "362",
    "escudo": "villa",
+   "n": 2
+  },
+  {
+   "nome": "Malick Yalcouyé",
+   "time": "331",
+   "escudo": "brighton",
    "n": 2
   },
   {
@@ -310,12 +310,6 @@
    "n": 5
   },
   {
-   "nome": "Pascal Gross",
-   "time": "331",
-   "escudo": "brighton",
-   "n": 4
-  },
-  {
    "nome": "Evanilson",
    "time": "349",
    "escudo": "bournemouth",
@@ -325,6 +319,12 @@
    "nome": "John McGinn",
    "time": "362",
    "escudo": "villa",
+   "n": 4
+  },
+  {
+   "nome": "Pascal Gross",
+   "time": "331",
+   "escudo": "brighton",
    "n": 4
   },
   {
@@ -340,18 +340,6 @@
    "n": 3
   },
   {
-   "nome": "Maxim De Cuyper",
-   "time": "331",
-   "escudo": "brighton",
-   "n": 3
-  },
-  {
-   "nome": "Florian Wirtz",
-   "time": "364",
-   "escudo": "liverpool",
-   "n": 3
-  },
-  {
    "nome": "Josko Gvardiol",
    "time": "382",
    "escudo": "city",
@@ -361,6 +349,18 @@
    "nome": "Morgan Gibbs-White",
    "time": "393",
    "escudo": "forest",
+   "n": 3
+  },
+  {
+   "nome": "Maxim De Cuyper",
+   "time": "331",
+   "escudo": "brighton",
+   "n": 3
+  },
+  {
+   "nome": "Florian Wirtz",
+   "time": "364",
+   "escudo": "liverpool",
    "n": 3
   },
   {
@@ -382,6 +382,12 @@
    "n": 3
   },
   {
+   "nome": "Johan Manzambi",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
    "nome": "Antoine Semenyo",
    "time": "382",
    "escudo": "city",
@@ -391,12 +397,6 @@
    "nome": "Ben White",
    "time": "359",
    "escudo": "arsenal",
-   "n": 3
-  },
-  {
-   "nome": "Johan Manzambi",
-   "time": "362",
-   "escudo": "villa",
    "n": 3
   },
   {
@@ -412,21 +412,21 @@
    "n": 2
   },
   {
-   "nome": "Oliver McBurnie",
-   "time": "306",
-   "escudo": "hull_city",
-   "n": 2
-  },
-  {
    "nome": "Harvey Barnes",
    "time": "361",
    "escudo": "newcastle",
    "n": 2
   },
   {
-   "nome": "Diego Gómez",
-   "time": "331",
-   "escudo": "brighton",
+   "nome": "Morgan Rogers",
+   "time": "363",
+   "escudo": "chelsea",
+   "n": 2
+  },
+  {
+   "nome": "Dominic Calvert-Lewin",
+   "time": "357",
+   "escudo": "leeds",
    "n": 2
   },
   {
@@ -436,27 +436,15 @@
    "n": 2
   },
   {
-   "nome": "Igor Thiago",
-   "time": "337",
-   "escudo": "brentford",
-   "n": 2
-  },
-  {
    "nome": "Riccardo Calafiori",
    "time": "359",
    "escudo": "arsenal",
    "n": 2
   },
   {
-   "nome": "Charalambos Kostoulas",
-   "time": "331",
-   "escudo": "brighton",
-   "n": 2
-  },
-  {
-   "nome": "Matheus Cunha",
-   "time": "360",
-   "escudo": "man_united",
+   "nome": "Jack Rudoni",
+   "time": "388",
+   "escudo": "coventry_city",
    "n": 2
   },
   {
@@ -472,15 +460,33 @@
    "n": 2
   },
   {
-   "nome": "Bruno Fernandes",
-   "time": "360",
-   "escudo": "man_united",
+   "nome": "Oliver McBurnie",
+   "time": "306",
+   "escudo": "hull_city",
    "n": 2
   },
   {
-   "nome": "Mohamed Belloumi",
-   "time": "306",
-   "escudo": "hull_city",
+   "nome": "Diego Gómez",
+   "time": "331",
+   "escudo": "brighton",
+   "n": 2
+  },
+  {
+   "nome": "Igor Thiago",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 2
+  },
+  {
+   "nome": "Charalambos Kostoulas",
+   "time": "331",
+   "escudo": "brighton",
+   "n": 2
+  },
+  {
+   "nome": "Matheus Cunha",
+   "time": "360",
+   "escudo": "man_united",
    "n": 2
   },
   {
@@ -496,9 +502,15 @@
    "n": 2
   },
   {
-   "nome": "Jaidon Anthony",
-   "time": "337",
-   "escudo": "brentford",
+   "nome": "Bruno Fernandes",
+   "time": "360",
+   "escudo": "man_united",
+   "n": 2
+  },
+  {
+   "nome": "Mohamed Belloumi",
+   "time": "306",
+   "escudo": "hull_city",
    "n": 2
   },
   {
@@ -520,9 +532,21 @@
    "n": 2
   },
   {
+   "nome": "Jaidon Anthony",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 2
+  },
+  {
    "nome": "Phil Foden",
    "time": "382",
    "escudo": "city",
+   "n": 2
+  },
+  {
+   "nome": "William Osula",
+   "time": "361",
+   "escudo": "newcastle",
    "n": 2
   },
   {
@@ -550,21 +574,9 @@
    "n": 1
   },
   {
-   "nome": "Leif Davis",
-   "time": "373",
-   "escudo": "ipswich_town",
-   "n": 1
-  },
-  {
-   "nome": "James Tarkowski",
-   "time": "368",
-   "escudo": "everton",
-   "n": 1
-  },
-  {
-   "nome": "Lewis Hall",
-   "time": "361",
-   "escudo": "newcastle",
+   "nome": "James Hill",
+   "time": "349",
+   "escudo": "bournemouth",
    "n": 1
   },
   {
@@ -574,9 +586,9 @@
    "n": 1
   },
   {
-   "nome": "Jay Da Silva",
-   "time": "388",
-   "escudo": "coventry_city",
+   "nome": "Lewis Hall",
+   "time": "361",
+   "escudo": "newcastle",
    "n": 1
   },
   {
@@ -586,21 +598,9 @@
    "n": 1
   },
   {
-   "nome": "Kiernan Dewsbury-Hall",
-   "time": "368",
-   "escudo": "everton",
-   "n": 1
-  },
-  {
-   "nome": "Adam Wharton",
-   "time": "384",
-   "escudo": "crystal",
-   "n": 1
-  },
-  {
-   "nome": "Morgan Rogers",
-   "time": "363",
-   "escudo": "chelsea",
+   "nome": "Leif Davis",
+   "time": "373",
+   "escudo": "ipswich_town",
    "n": 1
   }
  ],
@@ -675,6 +675,12 @@
    "nome": "Dominic Calvert-Lewin",
    "time": "357",
    "escudo": "leeds",
+   "n": 4
+  },
+  {
+   "nome": "Oliver McBurnie",
+   "time": "306",
+   "escudo": "hull_city",
    "n": 4
   },
   {
@@ -975,12 +981,6 @@
    "nome": "John McGinn",
    "time": "362",
    "escudo": "villa",
-   "n": 2
-  },
-  {
-   "nome": "Oliver McBurnie",
-   "time": "306",
-   "escudo": "hull_city",
    "n": 2
   },
   {
@@ -1591,9 +1591,23 @@
     "vermelhos": 0
    },
    {
+    "nome": "Chema Andrés",
+    "time": "331",
+    "escudo": "brighton",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Cole Palmer",
     "time": "363",
     "escudo": "chelsea",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Costinha",
+    "time": "331",
+    "escudo": "brighton",
     "amarelos": 2,
     "vermelhos": 1
    },
@@ -1671,13 +1685,6 @@
     "nome": "Caleb Yirenkyi",
     "time": "388",
     "escudo": "coventry_city",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Chema Andrés",
-    "time": "331",
-    "escudo": "brighton",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1792,6 +1799,13 @@
     "escudo": "man_united",
     "amarelos": 1,
     "vermelhos": 1
+   },
+   {
+    "nome": "Lucas Gourna-Douath",
+    "time": "306",
+    "escudo": "hull_city",
+    "amarelos": 3,
+    "vermelhos": 0
    },
    {
     "nome": "Mateus Fernandes",
@@ -2060,13 +2074,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Costinha",
-    "time": "331",
-    "escudo": "brighton",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Daichi Kamada",
     "time": "384",
     "escudo": "crystal",
@@ -2270,13 +2277,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Lucas Gourna-Douath",
-    "time": "306",
-    "escudo": "hull_city",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Luke O'Nien",
     "time": "366",
     "escudo": "sunderland",
@@ -2329,6 +2329,13 @@
     "nome": "Nikola Milenkovic",
     "time": "393",
     "escudo": "forest",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nobel Mendy",
+    "time": "306",
+    "escudo": "hull_city",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2928,6 +2935,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Luka Vuskovic",
+    "time": "331",
+    "escudo": "brighton",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Lukás Hornícek",
     "time": "361",
     "escudo": "newcastle",
@@ -3064,13 +3078,6 @@
     "nome": "Noah Sadiki",
     "time": "366",
     "escudo": "sunderland",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Nobel Mendy",
-    "time": "306",
-    "escudo": "hull_city",
     "amarelos": 1,
     "vermelhos": 0
    },

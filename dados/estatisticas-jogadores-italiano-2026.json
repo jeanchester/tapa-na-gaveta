@@ -1,6 +1,12 @@
 {
- "atualizado": "2026-11-22T01:01:51",
+ "atualizado": "2026-11-22T16:57:41",
  "artilheiros": [
+  {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 12
+  },
   {
    "nome": "Gustavo Varela",
    "time": "4007",
@@ -14,16 +20,16 @@
    "n": 8
   },
   {
-   "nome": "Donyell Malen",
-   "time": "104",
-   "escudo": "roma",
-   "n": 8
-  },
-  {
    "nome": "Nikola Krstovic",
    "time": "105",
    "escudo": "atalanta",
    "n": 7
+  },
+  {
+   "nome": "Tijjani Noslin",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 6
   },
   {
    "nome": "Marcus Thuram",
@@ -32,21 +38,33 @@
    "n": 6
   },
   {
-   "nome": "Giacomo Calo",
-   "time": "4057",
-   "escudo": "frosinone",
-   "n": 5
-  },
-  {
    "nome": "Tasos Douvikas",
    "time": "2572",
    "escudo": "como",
    "n": 5
   },
   {
+   "nome": "Davide Frattesi",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 5
+  },
+  {
    "nome": "Daniel Maldini",
    "time": "2925",
    "escudo": "cagliari",
+   "n": 5
+  },
+  {
+   "nome": "Giacomo Calo",
+   "time": "4057",
+   "escudo": "frosinone",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Mora",
+   "time": "104",
+   "escudo": "roma",
    "n": 5
   },
   {
@@ -62,24 +80,6 @@
    "n": 5
   },
   {
-   "nome": "Franco Mastantuono",
-   "time": "109",
-   "escudo": "fiorentina",
-   "n": 4
-  },
-  {
-   "nome": "Davide Frattesi",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 4
-  },
-  {
-   "nome": "Mateo Pellegrino",
-   "time": "109",
-   "escudo": "fiorentina",
-   "n": 4
-  },
-  {
    "nome": "Gustav Isaksen",
    "time": "112",
    "escudo": "lazio",
@@ -92,27 +92,27 @@
    "n": 4
   },
   {
+   "nome": "Franco Mastantuono",
+   "time": "109",
+   "escudo": "fiorentina",
+   "n": 4
+  },
+  {
+   "nome": "Mateo Pellegrino",
+   "time": "109",
+   "escudo": "fiorentina",
+   "n": 4
+  },
+  {
    "nome": "Milutin Osmajic",
    "time": "3263",
    "escudo": "genoa",
    "n": 4
   },
   {
-   "nome": "Tijjani Noslin",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 4
-  },
-  {
    "nome": "Ché Adams",
    "time": "239",
    "escudo": "torino",
-   "n": 4
-  },
-  {
-   "nome": "Rodrigo Mora",
-   "time": "104",
-   "escudo": "roma",
    "n": 4
   },
   {
@@ -134,6 +134,24 @@
    "n": 4
   },
   {
+   "nome": "Jacobo Ramón",
+   "time": "2572",
+   "escudo": "como",
+   "n": 3
+  },
+  {
+   "nome": "Matìas Soulè",
+   "time": "104",
+   "escudo": "roma",
+   "n": 3
+  },
+  {
+   "nome": "Simone Lontani",
+   "time": "115",
+   "escudo": "parma",
+   "n": 3
+  },
+  {
    "nome": "Bremer",
    "time": "111",
    "escudo": "juventus",
@@ -152,30 +170,6 @@
    "n": 3
   },
   {
-   "nome": "Federico Bernardeschi",
-   "time": "107",
-   "escudo": "bologna",
-   "n": 3
-  },
-  {
-   "nome": "Matìas Soulè",
-   "time": "104",
-   "escudo": "roma",
-   "n": 3
-  },
-  {
-   "nome": "Pio Esposito",
-   "time": "110",
-   "escudo": "inter",
-   "n": 3
-  },
-  {
-   "nome": "Simone Lontani",
-   "time": "115",
-   "escudo": "parma",
-   "n": 3
-  },
-  {
    "nome": "Nico Paz",
    "time": "2572",
    "escudo": "como",
@@ -188,6 +182,18 @@
    "n": 3
   },
   {
+   "nome": "Federico Bernardeschi",
+   "time": "107",
+   "escudo": "bologna",
+   "n": 3
+  },
+  {
+   "nome": "Pio Esposito",
+   "time": "110",
+   "escudo": "inter",
+   "n": 3
+  },
+  {
    "nome": "Martin Baturina",
    "time": "2572",
    "escudo": "como",
@@ -197,6 +203,12 @@
    "nome": "Niccolò Pisilli",
    "time": "104",
    "escudo": "roma",
+   "n": 3
+  },
+  {
+   "nome": "Scott McTominay",
+   "time": "114",
+   "escudo": "napoli",
    "n": 3
   },
   {
@@ -224,6 +236,30 @@
    "n": 3
   },
   {
+   "nome": "Kenneth Taylor",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 2
+  },
+  {
+   "nome": "Giovanni Simeone",
+   "time": "239",
+   "escudo": "torino",
+   "n": 2
+  },
+  {
+   "nome": "Lucas Da Cunha",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Matteo Politano",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 2
+  },
+  {
    "nome": "Gonçalo Ramos",
    "time": "103",
    "escudo": "milan",
@@ -239,12 +275,6 @@
    "nome": "Akor Adams",
    "time": "17530",
    "escudo": "venezia",
-   "n": 2
-  },
-  {
-   "nome": "Jacobo Ramón",
-   "time": "2572",
-   "escudo": "como",
    "n": 2
   },
   {
@@ -266,43 +296,19 @@
    "n": 2
   },
   {
-   "nome": "Kenneth Taylor",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 2
-  },
-  {
    "nome": "Hassane Kamara",
    "time": "118",
    "escudo": "udinese",
    "n": 2
-  },
-  {
-   "nome": "Romano Schmid",
-   "time": "4057",
-   "escudo": "frosinone",
-   "n": 2
-  },
-  {
-   "nome": "Giovanni Simeone",
-   "time": "239",
-   "escudo": "torino",
-   "n": 2
-  },
-  {
-   "nome": "Junior Messias",
-   "time": "3263",
-   "escudo": "genoa",
-   "n": 2
-  },
-  {
-   "nome": "Matteo Politano",
-   "time": "114",
-   "escudo": "napoli",
-   "n": 2
   }
  ],
  "assistencias": [
+  {
+   "nome": "Wesley",
+   "time": "104",
+   "escudo": "roma",
+   "n": 5
+  },
   {
    "nome": "Mattia Zaccagni",
    "time": "112",
@@ -314,6 +320,12 @@
    "time": "107",
    "escudo": "bologna",
    "n": 5
+  },
+  {
+   "nome": "Yan Couto",
+   "time": "2572",
+   "escudo": "como",
+   "n": 4
   },
   {
    "nome": "Giorgi Kvernadze",
@@ -328,15 +340,15 @@
    "n": 4
   },
   {
-   "nome": "Andy Diouf",
-   "time": "110",
-   "escudo": "inter",
-   "n": 4
-  },
-  {
    "nome": "Tijjani Noslin",
    "time": "112",
    "escudo": "lazio",
+   "n": 4
+  },
+  {
+   "nome": "Andy Diouf",
+   "time": "110",
+   "escudo": "inter",
    "n": 4
   },
   {
@@ -358,27 +370,9 @@
    "n": 4
   },
   {
-   "nome": "Charles De Ketelaere",
-   "time": "105",
-   "escudo": "atalanta",
-   "n": 3
-  },
-  {
-   "nome": "Nicolò Cambiaghi",
-   "time": "107",
-   "escudo": "bologna",
-   "n": 3
-  },
-  {
    "nome": "Matìas Soulè",
    "time": "104",
    "escudo": "roma",
-   "n": 3
-  },
-  {
-   "nome": "Nuno Tavares",
-   "time": "112",
-   "escudo": "lazio",
    "n": 3
   },
   {
@@ -394,9 +388,21 @@
    "n": 3
   },
   {
-   "nome": "Wesley",
-   "time": "104",
-   "escudo": "roma",
+   "nome": "Charles De Ketelaere",
+   "time": "105",
+   "escudo": "atalanta",
+   "n": 3
+  },
+  {
+   "nome": "Nicolò Cambiaghi",
+   "time": "107",
+   "escudo": "bologna",
+   "n": 3
+  },
+  {
+   "nome": "Nuno Tavares",
+   "time": "112",
+   "escudo": "lazio",
    "n": 3
   },
   {
@@ -427,6 +433,24 @@
    "nome": "Michel Adopo",
    "time": "2925",
    "escudo": "cagliari",
+   "n": 2
+  },
+  {
+   "nome": "Kenneth Taylor",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 2
+  },
+  {
+   "nome": "Paul Mendy",
+   "time": "2925",
+   "escudo": "cagliari",
+   "n": 2
+  },
+  {
+   "nome": "Gustav Isaksen",
+   "time": "112",
+   "escudo": "lazio",
    "n": 2
   },
   {
@@ -478,21 +502,33 @@
    "n": 2
   },
   {
-   "nome": "Paul Mendy",
-   "time": "2925",
-   "escudo": "cagliari",
-   "n": 2
-  },
-  {
    "nome": "Luka Modric",
    "time": "103",
    "escudo": "milan",
    "n": 2
   },
   {
+   "nome": "Donyell Malen",
+   "time": "104",
+   "escudo": "roma",
+   "n": 2
+  },
+  {
    "nome": "Nikola Krstovic",
    "time": "105",
    "escudo": "atalanta",
+   "n": 2
+  },
+  {
+   "nome": "Gvidas Gineitis",
+   "time": "239",
+   "escudo": "torino",
+   "n": 2
+  },
+  {
+   "nome": "Alfonso Pedraza",
+   "time": "112",
+   "escudo": "lazio",
    "n": 2
   },
   {
@@ -514,15 +550,15 @@
    "n": 2
   },
   {
-   "nome": "Yan Couto",
-   "time": "2572",
-   "escudo": "como",
-   "n": 2
-  },
-  {
    "nome": "Álex Jiménez",
    "time": "109",
    "escudo": "fiorentina",
+   "n": 2
+  },
+  {
+   "nome": "Gianluca Mancini",
+   "time": "104",
+   "escudo": "roma",
    "n": 2
   },
   {
@@ -544,9 +580,15 @@
    "n": 2
   },
   {
-   "nome": "Donyell Malen",
+   "nome": "Nahuel Molina",
    "time": "104",
    "escudo": "roma",
+   "n": 2
+  },
+  {
+   "nome": "Noa Lang",
+   "time": "114",
+   "escudo": "napoli",
    "n": 2
   },
   {
@@ -556,51 +598,9 @@
    "n": 2
   },
   {
-   "nome": "Gvidas Gineitis",
-   "time": "239",
-   "escudo": "torino",
-   "n": 2
-  },
-  {
-   "nome": "Maxence Caqueret",
-   "time": "2572",
-   "escudo": "como",
-   "n": 2
-  },
-  {
-   "nome": "Alfonso Pedraza",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 2
-  },
-  {
-   "nome": "Alieu Njie",
-   "time": "109",
-   "escudo": "fiorentina",
-   "n": 2
-  },
-  {
-   "nome": "Gianluca Mancini",
-   "time": "104",
-   "escudo": "roma",
-   "n": 2
-  },
-  {
-   "nome": "Darryl Bakola",
-   "time": "3997",
-   "escudo": "sassuolo",
-   "n": 2
-  },
-  {
-   "nome": "Carlos Augusto",
-   "time": "110",
-   "escudo": "inter",
-   "n": 2
-  },
-  {
-   "nome": "Nahuel Molina",
-   "time": "104",
-   "escudo": "roma",
+   "nome": "Giovanni Fabbian",
+   "time": "115",
+   "escudo": "parma",
    "n": 2
   }
  ],
@@ -633,6 +633,12 @@
    "nome": "Marcus Thuram",
    "time": "110",
    "escudo": "inter",
+   "n": 6
+  },
+  {
+   "nome": "Milutin Osmajic",
+   "time": "3263",
+   "escudo": "genoa",
    "n": 6
   },
   {
@@ -723,12 +729,6 @@
    "nome": "Mateo Pellegrino",
    "time": "109",
    "escudo": "fiorentina",
-   "n": 4
-  },
-  {
-   "nome": "Milutin Osmajic",
-   "time": "3263",
-   "escudo": "genoa",
    "n": 4
   },
   {
@@ -984,6 +984,18 @@
    "n": 2
   },
   {
+   "nome": "Nick Woltemade",
+   "time": "111",
+   "escudo": "juventus",
+   "n": 2
+  },
+  {
+   "nome": "Nicolò Zaniolo",
+   "time": "118",
+   "escudo": "udinese",
+   "n": 2
+  },
+  {
    "nome": "Romano Schmid",
    "time": "4057",
    "escudo": "frosinone",
@@ -999,6 +1011,12 @@
    "nome": "Sebastiano Esposito",
    "time": "3997",
    "escudo": "sassuolo",
+   "n": 2
+  },
+  {
+   "nome": "Teun Koopmeiners",
+   "time": "111",
+   "escudo": "juventus",
    "n": 2
   },
   {
@@ -1047,6 +1065,12 @@
    "nome": "Piotr Zielinski",
    "time": "110",
    "escudo": "inter",
+   "n": 2
+  },
+  {
+   "nome": "Randal Kolo Muani",
+   "time": "111",
+   "escudo": "juventus",
    "n": 2
   },
   {
@@ -1320,6 +1344,12 @@
    "n": 1
   },
   {
+   "nome": "Juan Cabal",
+   "time": "111",
+   "escudo": "juventus",
+   "n": 1
+  },
+  {
    "nome": "Jérémie Boga",
    "time": "111",
    "escudo": "juventus",
@@ -1422,15 +1452,15 @@
    "n": 1
   },
   {
-   "nome": "Nesta Elphege",
-   "time": "115",
-   "escudo": "parma",
+   "nome": "Nadir Zortea",
+   "time": "107",
+   "escudo": "bologna",
    "n": 1
   },
   {
-   "nome": "Nick Woltemade",
-   "time": "111",
-   "escudo": "juventus",
+   "nome": "Nesta Elphege",
+   "time": "115",
+   "escudo": "parma",
    "n": 1
   },
   {
@@ -1449,12 +1479,6 @@
    "nome": "Nicolò Barella",
    "time": "110",
    "escudo": "inter",
-   "n": 1
-  },
-  {
-   "nome": "Nicolò Zaniolo",
-   "time": "118",
-   "escudo": "udinese",
    "n": 1
   },
   {
@@ -1536,12 +1560,6 @@
    "n": 1
   },
   {
-   "nome": "Randal Kolo Muani",
-   "time": "111",
-   "escudo": "juventus",
-   "n": 1
-  },
-  {
    "nome": "Ricardo Mangas",
    "time": "4007",
    "escudo": "monza",
@@ -1587,12 +1605,6 @@
    "nome": "Stanislav Lobotka",
    "time": "114",
    "escudo": "napoli",
-   "n": 1
-  },
-  {
-   "nome": "Teun Koopmeiners",
-   "time": "111",
-   "escudo": "juventus",
    "n": 1
   },
   {
@@ -1698,6 +1710,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Kristian Thorstvedt",
+    "time": "3997",
+    "escudo": "sassuolo",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
     "nome": "Leo Østigard",
     "time": "3263",
     "escudo": "genoa",
@@ -1754,6 +1773,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Federico Bernardeschi",
+    "time": "107",
+    "escudo": "bologna",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jacopo Fazzini",
     "time": "2925",
     "escudo": "cagliari",
@@ -1794,13 +1820,6 @@
     "escudo": "milan",
     "amarelos": 3,
     "vermelhos": 0
-   },
-   {
-    "nome": "Kristian Thorstvedt",
-    "time": "3997",
-    "escudo": "sassuolo",
-    "amarelos": 1,
-    "vermelhos": 1
    },
    {
     "nome": "Leonardo Colombo",
@@ -2013,13 +2032,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Federico Bernardeschi",
-    "time": "107",
-    "escudo": "bologna",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Franco Mastantuono",
     "time": "109",
     "escudo": "fiorentina",
@@ -2184,6 +2196,13 @@
     "nome": "Mateo Pellegrino",
     "time": "109",
     "escudo": "fiorentina",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Matteo Palma",
+    "time": "118",
+    "escudo": "udinese",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2909,13 +2928,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Matteo Palma",
-    "time": "118",
-    "escudo": "udinese",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Matteo Politano",
     "time": "114",
     "escudo": "napoli",
@@ -3003,6 +3015,13 @@
     "nome": "Noa Lang",
     "time": "114",
     "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Oumar Solet",
+    "time": "118",
+    "escudo": "udinese",
     "amarelos": 1,
     "vermelhos": 0
    },

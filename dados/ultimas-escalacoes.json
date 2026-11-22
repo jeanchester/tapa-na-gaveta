@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T01:01:42",
+ "atualizado": "2026-11-22T16:57:32",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -172,9 +172,9 @@
    ]
   },
   "cruzeiro": {
-   "jogo": "401841314",
-   "data": "2026-11-18T23:30Z",
-   "contra": "Palmeiras",
+   "jogo": "401841325",
+   "data": "2026-11-22T00:00Z",
+   "contra": "Chapecoense",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -185,9 +185,9 @@
      "lugar": 1
     },
     {
-     "n": "Lucas Villalba",
-     "curto": "L. Villalba",
-     "num": 25,
+     "n": "Jonathan Jesus",
+     "curto": "J. Jesus",
+     "num": 34,
      "pos": "CD-L",
      "lugar": 6
     },
@@ -206,9 +206,9 @@
      "lugar": 3
     },
     {
-     "n": "William",
-     "curto": "William",
-     "num": 12,
+     "n": "Fagner",
+     "curto": "Fagner",
+     "num": 23,
      "pos": "RB",
      "lugar": 2
     },
@@ -220,9 +220,9 @@
      "lugar": 10
     },
     {
-     "n": "Lucas Romero",
-     "curto": "L. Romero",
-     "num": 29,
+     "n": "Matheus Henrique",
+     "curto": "Matheus Henrique",
+     "num": 7,
      "pos": "LM",
      "lugar": 4
     },
@@ -234,16 +234,16 @@
      "lugar": 8
     },
     {
-     "n": "Kaio Jorge",
-     "curto": "Kaio Jorge",
-     "num": 19,
+     "n": "Neyser Villareal",
+     "curto": "N. Villareal",
+     "num": 22,
      "pos": "F",
      "lugar": 9
     },
     {
-     "n": "Gerson",
-     "curto": "Gerson",
-     "num": 8,
+     "n": "Bruno Rodrigues",
+     "curto": "B. Rodrigues",
+     "num": 9,
      "pos": "AM-L",
      "lugar": 11
     },
@@ -1617,10 +1617,10 @@
    ]
   },
   "chapecoense": {
-   "jogo": "401841310",
-   "data": "2026-11-18T23:00Z",
-   "contra": "Remo",
-   "esquema": "4-2-3-1",
+   "jogo": "401841325",
+   "data": "2026-11-22T00:00Z",
+   "contra": "Cruzeiro",
+   "esquema": "5-4-1",
    "titulares": [
     {
      "n": "Gabriel Werner",
@@ -1630,53 +1630,67 @@
      "lugar": 1
     },
     {
+     "n": "Eduardo Doma",
+     "curto": "Eduardo Doma",
+     "num": 3,
+     "pos": "CD",
+     "lugar": 5
+    },
+    {
      "n": "Kauan",
      "curto": "Kauan",
      "num": 21,
      "pos": "CD-L",
+     "lugar": 4
+    },
+    {
+     "n": "Victor Caetano",
+     "curto": "V. Caetano",
+     "num": 25,
+     "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Eduardo Doma",
-     "curto": "Eduardo Doma",
-     "num": 3,
-     "pos": "CD-R",
-     "lugar": 5
-    },
-    {
-     "n": "Fernando",
-     "curto": "Fernando",
-     "num": 12,
+     "n": "Bruno Pacheco",
+     "curto": "B. Pacheco",
+     "num": 91,
      "pos": "LB",
      "lugar": 3
     },
     {
-     "n": "Bruno",
-     "curto": "Bruno",
-     "num": 20,
+     "n": "Heitor",
+     "curto": "Heitor",
+     "num": 5,
      "pos": "RB",
      "lugar": 2
-    },
-    {
-     "n": "Giovanni Augusto",
-     "curto": "Giovanni Augusto",
-     "num": 10,
-     "pos": "AM",
-     "lugar": 10
     },
     {
      "n": "David",
      "curto": "D. David",
      "num": 19,
-     "pos": "LM",
-     "lugar": 4
+     "pos": "CM-L",
+     "lugar": 10
     },
     {
      "n": "Camilo",
      "curto": "Camilo",
      "num": 27,
-     "pos": "RM",
+     "pos": "CM-R",
      "lugar": 8
+    },
+    {
+     "n": "Max",
+     "curto": "Max",
+     "num": 22,
+     "pos": "LM",
+     "lugar": 11
+    },
+    {
+     "n": "Bruno",
+     "curto": "Bruno",
+     "num": 20,
+     "pos": "RM",
+     "lugar": 7
     },
     {
      "n": "Túlio Eduardo Silva De Oliveira",
@@ -1684,20 +1698,6 @@
      "num": 9,
      "pos": "F",
      "lugar": 9
-    },
-    {
-     "n": "Dylan Borrero",
-     "curto": "D. Borrero",
-     "num": 77,
-     "pos": "AM-L",
-     "lugar": 11
-    },
-    {
-     "n": "Max",
-     "curto": "Max",
-     "num": 22,
-     "pos": "AM-R",
-     "lugar": 7
     }
    ]
   }
