@@ -75,7 +75,16 @@ function gerar(o) {
       },
       rodada(arg) {
         const r = Number(arg);
-        const js = L.jogos.filter((j) => j.rodada === r).sort((a, b) => (a.data < b.data ? -1 : 1));
+        // O núcleo só numera os jogos que faltam (os encerrados ficam com rodada nula). Para a rodada
+        // continuar aparecendo depois de acabar (o build quebrava com "rodada sem jogos" e o site deixava
+        // de ser publicado), numeramos aqui os encerrados: o k-ésimo jogo de um time é a rodada k, e vale
+        // a maior das duas contagens (como no núcleo).
+        const cont = {}, rodEnc = new Map();
+        L.jogos.filter((j) => j.feito).sort((a, b) => (a.data < b.data ? -1 : 1)).forEach((j) => {
+          cont[j.h] = (cont[j.h] || 0) + 1; cont[j.a] = (cont[j.a] || 0) + 1;
+          rodEnc.set(j, Math.max(cont[j.h], cont[j.a]));
+        });
+        const js = L.jogos.filter((j) => (j.feito ? rodEnc.get(j) : j.rodada) === r).sort((a, b) => (a.data < b.data ? -1 : 1));
         if (!js.length) throw new Error('{{rodada ' + arg + '}}: rodada sem jogos');
         return '<div class="tabela-rola"><table class="tab tab-jogos"><caption>Rodada ' + r + '</caption><thead><tr><th class="esq">Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th><th>Provável</th></tr></thead><tbody>' +
           js.map((j) => {
