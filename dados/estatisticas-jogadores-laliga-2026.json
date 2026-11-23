@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:40",
+ "atualizado": "2026-11-23T01:29:26",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -618,27 +618,27 @@
    "n": 13
   },
   {
+   "nome": "Yassir Zabiri",
+   "time": "87",
+   "escudo": "racing_santander",
+   "n": 11
+  },
+  {
    "nome": "Lamine Yamal",
    "time": "83",
    "escudo": "barcelona",
    "n": 10
   },
   {
-   "nome": "Yassir Zabiri",
-   "time": "87",
-   "escudo": "racing_santander",
+   "nome": "Ante Budimir",
+   "time": "97",
+   "escudo": "osasuna",
    "n": 9
   },
   {
    "nome": "Fermín López",
    "time": "83",
    "escudo": "barcelona",
-   "n": 8
-  },
-  {
-   "nome": "Ante Budimir",
-   "time": "97",
-   "escudo": "osasuna",
    "n": 8
   },
   {
@@ -652,6 +652,12 @@
    "time": "101",
    "escudo": "rayo",
    "n": 7
+  },
+  {
+   "nome": "Álex Baena",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 6
   },
   {
    "nome": "Fer Niño",
@@ -690,7 +696,7 @@
    "n": 5
   },
   {
-   "nome": "Álex Baena",
+   "nome": "Alejandro Grimaldo",
    "time": "1068",
    "escudo": "atletico",
    "n": 5
@@ -717,12 +723,6 @@
    "nome": "Orri Óskarsson",
    "time": "89",
    "escudo": "sociedad",
-   "n": 4
-  },
-  {
-   "nome": "Alejandro Grimaldo",
-   "time": "1068",
-   "escudo": "atletico",
    "n": 4
   },
   {
@@ -753,6 +753,12 @@
    "nome": "Gabriel Jesus",
    "time": "83",
    "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Gonçalo Guedes",
+   "time": "89",
+   "escudo": "sociedad",
    "n": 3
   },
   {
@@ -789,6 +795,12 @@
    "nome": "Martín Satriano",
    "time": "2922",
    "escudo": "getafe",
+   "n": 3
+  },
+  {
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
    "n": 3
   },
   {
@@ -906,12 +918,6 @@
    "n": 2
   },
   {
-   "nome": "Gonçalo Guedes",
-   "time": "89",
-   "escudo": "sociedad",
-   "n": 2
-  },
-  {
    "nome": "Jorge de Frutos",
    "time": "101",
    "escudo": "rayo",
@@ -939,12 +945,6 @@
    "nome": "Miguel Sierra",
    "time": "243",
    "escudo": "sevilla",
-   "n": 2
-  },
-  {
-   "nome": "Mikel Oyarzabal",
-   "time": "89",
-   "escudo": "sociedad",
    "n": 2
   },
   {
@@ -993,6 +993,12 @@
    "nome": "Isco",
    "time": "244",
    "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Sergio Canales",
+   "time": "87",
+   "escudo": "racing_santander",
    "n": 2
   },
   {
@@ -1266,6 +1272,12 @@
    "n": 1
   },
   {
+   "nome": "Johnny Cardoso",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 1
+  },
+  {
    "nome": "Jon Ander Olasagasti",
    "time": "1538",
    "escudo": "levante",
@@ -1464,12 +1476,6 @@
    "n": 1
   },
   {
-   "nome": "Sergio Canales",
-   "time": "87",
-   "escudo": "racing_santander",
-   "n": 1
-  },
-  {
    "nome": "Sergio Martínez",
    "time": "87",
    "escudo": "racing_santander",
@@ -1636,6 +1642,13 @@
   "limite_amarelos": null,
   "jogadores": [
    {
+    "nome": "Mario Martín",
+    "time": "2922",
+    "escudo": "getafe",
+    "amarelos": 4,
+    "vermelhos": 2
+   },
+   {
     "nome": "Isaac Romero",
     "time": "243",
     "escudo": "sevilla",
@@ -1643,10 +1656,10 @@
     "vermelhos": 1
    },
    {
-    "nome": "Mario Martín",
+    "nome": "Djené",
     "time": "2922",
     "escudo": "getafe",
-    "amarelos": 3,
+    "amarelos": 2,
     "vermelhos": 2
    },
    {
@@ -1654,6 +1667,13 @@
     "time": "90",
     "escudo": "deportivo",
     "amarelos": 4,
+    "vermelhos": 1
+   },
+   {
+    "nome": "Alejandro Catena",
+    "time": "97",
+    "escudo": "osasuna",
+    "amarelos": 3,
     "vermelhos": 1
    },
    {
@@ -1783,13 +1803,6 @@
     "vermelhos": 1
    },
    {
-    "nome": "Djené",
-    "time": "2922",
-    "escudo": "getafe",
-    "amarelos": 2,
-    "vermelhos": 1
-   },
-   {
     "nome": "Enrique Barja",
     "time": "97",
     "escudo": "osasuna",
@@ -1828,6 +1841,13 @@
     "nome": "Iñigo Ruiz de Galarreta",
     "time": "93",
     "escudo": "athletic",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Iñigo Vicente",
+    "time": "87",
+    "escudo": "racing_santander",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1916,6 +1936,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Robin Le Normand",
+    "time": "1068",
+    "escudo": "atletico",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
     "nome": "Sergio Camello",
     "time": "101",
     "escudo": "rayo",
@@ -1977,13 +2004,6 @@
     "escudo": "deportivo",
     "amarelos": 1,
     "vermelhos": 1
-   },
-   {
-    "nome": "Alejandro Catena",
-    "time": "97",
-    "escudo": "osasuna",
-    "amarelos": 3,
-    "vermelhos": 0
    },
    {
     "nome": "Alexandre Alemão",
@@ -2133,13 +2153,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Iñigo Vicente",
-    "time": "87",
-    "escudo": "racing_santander",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Javi Rueda",
     "time": "85",
     "escudo": "celta",
@@ -2150,6 +2163,13 @@
     "nome": "Javier Guerra",
     "time": "94",
     "escudo": "valencia",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Johnny Cardoso",
+    "time": "1068",
+    "escudo": "atletico",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2185,6 +2205,13 @@
     "nome": "Kylian Mbappé",
     "time": "86",
     "escudo": "real_madrid",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mamadou Sarr",
+    "time": "89",
+    "escudo": "sociedad",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2229,13 +2256,6 @@
     "escudo": "malaga",
     "amarelos": 3,
     "vermelhos": 0
-   },
-   {
-    "nome": "Robin Le Normand",
-    "time": "1068",
-    "escudo": "atletico",
-    "amarelos": 1,
-    "vermelhos": 1
    },
    {
     "nome": "Santi Comesaña",
@@ -2330,6 +2350,13 @@
    },
    {
     "nome": "Ante Budimir",
+    "time": "97",
+    "escudo": "osasuna",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Asier Osambela",
     "time": "97",
     "escudo": "osasuna",
     "amarelos": 2,
@@ -2469,6 +2496,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Iker Luque",
+    "time": "87",
+    "escudo": "racing_santander",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Iker Muñoz",
     "time": "97",
     "escudo": "osasuna",
@@ -2521,13 +2555,6 @@
     "nome": "Jeremy Toljan",
     "time": "1538",
     "escudo": "levante",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Johnny Cardoso",
-    "time": "1068",
-    "escudo": "atletico",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2610,13 +2637,6 @@
    },
    {
     "nome": "Luka Sucic",
-    "time": "89",
-    "escudo": "sociedad",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Mamadou Sarr",
     "time": "89",
     "escudo": "sociedad",
     "amarelos": 2,
@@ -2738,6 +2758,13 @@
     "nome": "Rafael Bauza",
     "time": "88",
     "escudo": "espanyol",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Raúl García",
+    "time": "97",
+    "escudo": "osasuna",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2966,13 +2993,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Asier Osambela",
-    "time": "97",
-    "escudo": "osasuna",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Ayoze Pérez",
     "time": "102",
     "escudo": "villarreal",
@@ -3186,13 +3206,6 @@
     "nome": "Hugo Sotelo",
     "time": "1538",
     "escudo": "levante",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Iker Luque",
-    "time": "87",
-    "escudo": "racing_santander",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3505,13 +3518,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Raúl García",
-    "time": "97",
-    "escudo": "osasuna",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Robert Navarro",
     "time": "93",
     "escudo": "athletic",
@@ -3676,6 +3682,13 @@
     "nome": "Álex Berenguer",
     "time": "93",
     "escudo": "athletic",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Álex Remiro",
+    "time": "89",
+    "escudo": "sociedad",
     "amarelos": 1,
     "vermelhos": 0
    },

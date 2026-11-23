@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:36",
+ "atualizado": "2026-11-23T01:27:51",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -828,6 +828,12 @@
    "n": 5
   },
   {
+   "nome": "Marcelo Hermes",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 5
+  },
+  {
    "nome": "Marcos Paulo",
    "time": "6270",
    "escudo": "juventude",
@@ -963,12 +969,6 @@
    "nome": "Luis",
    "time": "18127",
    "escudo": "novorizontino",
-   "n": 4
-  },
-  {
-   "nome": "Marcelo Hermes",
-   "time": "9971",
-   "escudo": "criciuma",
    "n": 4
   },
   {

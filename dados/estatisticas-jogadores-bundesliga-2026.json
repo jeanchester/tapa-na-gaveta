@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:42",
+ "atualizado": "2026-11-23T01:29:31",
  "artilheiros": [
   {
    "nome": "Patrik Schick",
@@ -606,15 +606,15 @@
  ],
  "gols_por_jogador": [
   {
-   "nome": "Patrik Schick",
-   "time": "131",
-   "escudo": "leverkusen",
-   "n": 9
-  },
-  {
    "nome": "Niclas Füllkrug",
    "time": "137",
    "escudo": "bremen",
+   "n": 10
+  },
+  {
+   "nome": "Patrik Schick",
+   "time": "131",
+   "escudo": "leverkusen",
    "n": 9
   },
   {
@@ -915,6 +915,12 @@
    "nome": "Josha Vagnoman",
    "time": "134",
    "escudo": "stuttgart",
+   "n": 2
+  },
+  {
+   "nome": "Justin Njinmah",
+   "time": "137",
+   "escudo": "bremen",
    "n": 2
   },
   {
@@ -1290,6 +1296,12 @@
    "n": 1
   },
   {
+   "nome": "Marco Friedl",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 1
+  },
+  {
    "nome": "Marius Bulter",
    "time": "122",
    "escudo": "koln",
@@ -1537,6 +1549,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Warmed Omari",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Wouter Burger",
     "time": "7911",
     "escudo": "hoffenheim",
@@ -1614,6 +1633,20 @@
     "vermelhos": 0
    },
    {
+    "nome": "Nicolás Capaldo",
+    "time": "127",
+    "escudo": "hamburger",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Olivier Deman",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Paul Okon-Engstler",
     "time": "122",
     "escudo": "koln",
@@ -1642,13 +1675,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Warmed Omari",
-    "time": "127",
-    "escudo": "hamburger",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Yuito Suzuki",
     "time": "126",
     "escudo": "freiburg",
@@ -1673,6 +1699,13 @@
     "nome": "Afonso Moreira",
     "time": "131",
     "escudo": "leverkusen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Albert Grønbaek",
+    "time": "127",
+    "escudo": "hamburger",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1743,6 +1776,13 @@
     "nome": "Chrislain Matsima",
     "time": "3841",
     "escudo": "augsburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Chuki",
+    "time": "137",
+    "escudo": "bremen",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1985,13 +2025,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Nicolás Capaldo",
-    "time": "127",
-    "escudo": "hamburger",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Niklas Beste",
     "time": "126",
     "escudo": "freiburg",
@@ -2009,13 +2042,6 @@
     "nome": "Noahkai Banks",
     "time": "3841",
     "escudo": "augsburg",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Olivier Deman",
-    "time": "137",
-    "escudo": "bremen",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2132,13 +2158,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Albert Grønbaek",
-    "time": "127",
-    "escudo": "hamburger",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Albian Hajdari",
     "time": "7911",
     "escudo": "hoffenheim",
@@ -2163,6 +2182,13 @@
     "nome": "Amara Conde",
     "time": "10388",
     "escudo": "sv_elversberg",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Amos Pieper",
+    "time": "137",
+    "escudo": "bremen",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2219,13 +2245,6 @@
     "nome": "Castello Lukeba",
     "time": "11420",
     "escudo": "leipzig",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Chuki",
-    "time": "137",
-    "escudo": "bremen",
     "amarelos": 1,
     "vermelhos": 0
    },

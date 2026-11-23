@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:41",
+ "atualizado": "2026-11-23T01:29:30",
  "artilheiros": [
   {
    "nome": "Donyell Malen",
@@ -630,6 +630,12 @@
    "n": 7
   },
   {
+   "nome": "Alphadjo Cissè",
+   "time": "103",
+   "escudo": "milan",
+   "n": 6
+  },
+  {
    "nome": "Marcus Thuram",
    "time": "110",
    "escudo": "inter",
@@ -639,6 +645,12 @@
    "nome": "Milutin Osmajic",
    "time": "3263",
    "escudo": "genoa",
+   "n": 6
+  },
+  {
+   "nome": "Pio Esposito",
+   "time": "110",
+   "escudo": "inter",
    "n": 6
   },
   {
@@ -654,7 +666,7 @@
    "n": 5
   },
   {
-   "nome": "Alphadjo Cissè",
+   "nome": "Christian Pulisic",
    "time": "103",
    "escudo": "milan",
    "n": 5
@@ -688,12 +700,6 @@
    "time": "4057",
    "escudo": "frosinone",
    "n": 5
-  },
-  {
-   "nome": "Christian Pulisic",
-   "time": "103",
-   "escudo": "milan",
-   "n": 4
   },
   {
    "nome": "Ché Adams",
@@ -750,6 +756,12 @@
    "n": 3
   },
   {
+   "nome": "Charles De Ketelaere",
+   "time": "105",
+   "escudo": "atalanta",
+   "n": 3
+  },
+  {
    "nome": "Giorgi Kvernadze",
    "time": "4057",
    "escudo": "frosinone",
@@ -792,12 +804,6 @@
    "n": 3
   },
   {
-   "nome": "Pio Esposito",
-   "time": "110",
-   "escudo": "inter",
-   "n": 3
-  },
-  {
    "nome": "Rasmus Højlund",
    "time": "114",
    "escudo": "napoli",
@@ -825,6 +831,12 @@
    "nome": "Vasilije Adzic",
    "time": "3997",
    "escudo": "sassuolo",
+   "n": 3
+  },
+  {
+   "nome": "Gonçalo Ramos",
+   "time": "103",
+   "escudo": "milan",
    "n": 3
   },
   {
@@ -903,6 +915,12 @@
    "nome": "Edon Zhegrova",
    "time": "111",
    "escudo": "juventus",
+   "n": 2
+  },
+  {
+   "nome": "Eljif Elmas",
+   "time": "105",
+   "escudo": "atalanta",
    "n": 2
   },
   {
@@ -1038,9 +1056,9 @@
    "n": 2
   },
   {
-   "nome": "Gonçalo Ramos",
-   "time": "103",
-   "escudo": "milan",
+   "nome": "Franck Kessié",
+   "time": "105",
+   "escudo": "atalanta",
    "n": 2
   },
   {
@@ -1059,6 +1077,12 @@
    "nome": "Mattia Zaccagni",
    "time": "112",
    "escudo": "lazio",
+   "n": 2
+  },
+  {
+   "nome": "Petar Sucic",
+   "time": "110",
+   "escudo": "inter",
    "n": 2
   },
   {
@@ -1128,6 +1152,12 @@
    "n": 1
   },
   {
+   "nome": "Ardon Jashari",
+   "time": "103",
+   "escudo": "milan",
+   "n": 1
+  },
+  {
    "nome": "Artem Dovbyk",
    "time": "107",
    "escudo": "bologna",
@@ -1149,12 +1179,6 @@
    "nome": "Bryan Cristante",
    "time": "104",
    "escudo": "roma",
-   "n": 1
-  },
-  {
-   "nome": "Charles De Ketelaere",
-   "time": "105",
-   "escudo": "atalanta",
    "n": 1
   },
   {
@@ -1185,12 +1209,6 @@
    "nome": "Eddy Kouadio",
    "time": "4007",
    "escudo": "monza",
-   "n": 1
-  },
-  {
-   "nome": "Eljif Elmas",
-   "time": "105",
-   "escudo": "atalanta",
    "n": 1
   },
   {
@@ -1233,12 +1251,6 @@
    "nome": "Francisco Conceição",
    "time": "111",
    "escudo": "juventus",
-   "n": 1
-  },
-  {
-   "nome": "Franck Kessié",
-   "time": "105",
-   "escudo": "atalanta",
    "n": 1
   },
   {
@@ -1524,15 +1536,15 @@
    "n": 1
   },
   {
-   "nome": "Paul Mendy",
-   "time": "2925",
-   "escudo": "cagliari",
+   "nome": "Patrizio Masini",
+   "time": "4057",
+   "escudo": "frosinone",
    "n": 1
   },
   {
-   "nome": "Petar Sucic",
-   "time": "110",
-   "escudo": "inter",
+   "nome": "Paul Mendy",
+   "time": "2925",
+   "escudo": "cagliari",
    "n": 1
   },
   {
@@ -1731,9 +1743,23 @@
     "vermelhos": 0
    },
    {
+    "nome": "Anthony Oyono",
+    "time": "4057",
+    "escudo": "frosinone",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Antonio Raimondo",
     "time": "4057",
     "escudo": "frosinone",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Carlos Augusto",
+    "time": "110",
+    "escudo": "inter",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1955,16 +1981,16 @@
     "vermelhos": 0
    },
    {
-    "nome": "Andrea Carboni",
-    "time": "4007",
-    "escudo": "monza",
+    "nome": "Alphadjo Cissè",
+    "time": "103",
+    "escudo": "milan",
     "amarelos": 2,
     "vermelhos": 0
    },
    {
-    "nome": "Anthony Oyono",
-    "time": "4057",
-    "escudo": "frosinone",
+    "nome": "Andrea Carboni",
+    "time": "4007",
+    "escudo": "monza",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1993,13 +2019,6 @@
     "nome": "Bryan Cristante",
     "time": "104",
     "escudo": "roma",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Carlos Augusto",
-    "time": "110",
-    "escudo": "inter",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2060,6 +2079,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Giorgio Cittadini",
+    "time": "4057",
+    "escudo": "frosinone",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Gonçalo Ramos",
     "time": "103",
     "escudo": "milan",
@@ -2077,6 +2103,13 @@
     "nome": "Hamed Traoré",
     "time": "3263",
     "escudo": "genoa",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ilario Monterisi",
+    "time": "4057",
+    "escudo": "frosinone",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2410,13 +2443,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Alphadjo Cissè",
-    "time": "103",
-    "escudo": "milan",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Amar Ahmed",
     "time": "113",
     "escudo": "lecce",
@@ -2550,6 +2576,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Davide Zappacosta",
+    "time": "105",
+    "escudo": "atalanta",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Devyne Rensch",
     "time": "104",
     "escudo": "roma",
@@ -2676,6 +2709,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Giacomo Calo",
+    "time": "4057",
+    "escudo": "frosinone",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Gianluca Busio",
     "time": "17530",
     "escudo": "venezia",
@@ -2683,9 +2723,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Giorgio Cittadini",
-    "time": "4057",
-    "escudo": "frosinone",
+    "nome": "Giorgio Scalvini",
+    "time": "105",
+    "escudo": "atalanta",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2749,13 +2789,6 @@
     "nome": "Ignace van der Brempt",
     "time": "3997",
     "escudo": "sassuolo",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Ilario Monterisi",
-    "time": "4057",
-    "escudo": "frosinone",
     "amarelos": 1,
     "vermelhos": 0
    },

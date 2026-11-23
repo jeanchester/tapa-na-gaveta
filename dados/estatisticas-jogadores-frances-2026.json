@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:44",
+ "atualizado": "2026-11-23T01:29:33",
  "artilheiros": [
   {
    "nome": "Lassine Sinayoko",
@@ -615,7 +615,7 @@
    "nome": "Amine Gouiri",
    "time": "176",
    "escudo": "marseille",
-   "n": 7
+   "n": 8
   },
   {
    "nome": "Esteban Lepaul",
@@ -627,6 +627,12 @@
    "nome": "Cameron Archer",
    "time": "172",
    "escudo": "auxerre",
+   "n": 6
+  },
+  {
+   "nome": "Boulaye Dia",
+   "time": "169",
+   "escudo": "rennes",
    "n": 6
   },
   {
@@ -642,15 +648,15 @@
    "n": 5
   },
   {
-   "nome": "Boulaye Dia",
-   "time": "169",
-   "escudo": "rennes",
-   "n": 5
-  },
-  {
    "nome": "Josh Maja",
    "time": "3236",
    "escudo": "le_havre",
+   "n": 5
+  },
+  {
+   "nome": "Louis Mafouta",
+   "time": "2697",
+   "escudo": "le_mans",
    "n": 5
   },
   {
@@ -702,12 +708,6 @@
    "n": 4
   },
   {
-   "nome": "Louis Mafouta",
-   "time": "2697",
-   "escudo": "le_mans",
-   "n": 4
-  },
-  {
    "nome": "Achraf Hakimi",
    "time": "160",
    "escudo": "paris",
@@ -741,6 +741,12 @@
    "nome": "Giovanni Reyna",
    "time": "180",
    "escudo": "strasbourg",
+   "n": 3
+  },
+  {
+   "nome": "Igor Paixão",
+   "time": "176",
+   "escudo": "marseille",
    "n": 3
   },
   {
@@ -846,6 +852,12 @@
    "n": 2
   },
   {
+   "nome": "Erwan Colas",
+   "time": "2697",
+   "escudo": "le_mans",
+   "n": 2
+  },
+  {
    "nome": "Ethan Mbappé",
    "time": "166",
    "escudo": "lille",
@@ -855,12 +867,6 @@
    "nome": "Franjo Ivanovic",
    "time": "175",
    "escudo": "lens",
-   "n": 2
-  },
-  {
-   "nome": "Igor Paixão",
-   "time": "176",
-   "escudo": "marseille",
    "n": 2
   },
   {
@@ -1062,12 +1068,6 @@
    "n": 1
   },
   {
-   "nome": "Erwan Colas",
-   "time": "2697",
-   "escudo": "le_mans",
-   "n": 1
-  },
-  {
    "nome": "Felix Bacher",
    "time": "167",
    "escudo": "lyon",
@@ -1143,6 +1143,12 @@
    "nome": "Jacobo Ortega Conde",
    "time": "180",
    "escudo": "strasbourg",
+   "n": 1
+  },
+  {
+   "nome": "Jean Vercruysse",
+   "time": "2697",
+   "escudo": "le_mans",
    "n": 1
   },
   {
@@ -1257,6 +1263,12 @@
    "nome": "Michaël Cuisance",
    "time": "175",
    "escudo": "lens",
+   "n": 1
+  },
+  {
+   "nome": "Montassar Talbi",
+   "time": "273",
+   "escudo": "lorient",
    "n": 1
   },
   {
@@ -1462,6 +1474,13 @@
   "limite_amarelos": null,
   "jogadores": [
    {
+    "nome": "Adrien Thomasson",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 3,
+    "vermelhos": 1
+   },
+   {
     "nome": "Michel Diaz",
     "time": "170",
     "escudo": "troyes",
@@ -1560,13 +1579,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Adrien Thomasson",
-    "time": "169",
-    "escudo": "rennes",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Ahmed Touba",
     "time": "3236",
     "escudo": "le_havre",
@@ -1661,6 +1673,13 @@
     "nome": "Mohamed Amoura",
     "time": "2502",
     "escudo": "nice",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Noah Cadiou",
+    "time": "273",
+    "escudo": "lorient",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1826,6 +1845,20 @@
     "vermelhos": 0
    },
    {
+    "nome": "Harold Voyer",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Himad Abdelli",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Hákon Haraldsson",
     "time": "166",
     "escudo": "lille",
@@ -1931,13 +1964,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Noah Cadiou",
-    "time": "273",
-    "escudo": "lorient",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Noah Nartey",
     "time": "167",
     "escudo": "lyon",
@@ -1976,6 +2002,13 @@
     "nome": "Przemyslaw Frankowski",
     "time": "169",
     "escudo": "rennes",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Rayan Bamba",
+    "time": "2697",
+    "escudo": "le_mans",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2022,6 +2055,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Souleymane Faye",
+    "time": "273",
+    "escudo": "lorient",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Souleymane Sagnan",
     "time": "175",
     "escudo": "lens",
@@ -2034,6 +2074,13 @@
     "escudo": "lille",
     "amarelos": 0,
     "vermelhos": 1
+   },
+   {
+    "nome": "Tochukwu Nnadi",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 2,
+    "vermelhos": 0
    },
    {
     "nome": "Vitinha",
@@ -2134,6 +2181,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Antoine Rabillard",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Aron Donnum",
     "time": "179",
     "escudo": "toulouse",
@@ -2225,6 +2279,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Daouda Traoré",
+    "time": "2697",
+    "escudo": "le_mans",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Diego Coppola",
     "time": "6851",
     "escudo": "paris_fc",
@@ -2295,6 +2356,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Geoffrey Kondogbia",
+    "time": "176",
+    "escudo": "marseille",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Giovanni Reyna",
     "time": "180",
     "escudo": "strasbourg",
@@ -2316,23 +2384,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Harold Voyer",
-    "time": "2697",
-    "escudo": "le_mans",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Hicham Boudaoui",
     "time": "2502",
     "escudo": "nice",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Himad Abdelli",
-    "time": "176",
-    "escudo": "marseille",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2550,6 +2604,13 @@
     "nome": "Maghnes Akliouche",
     "time": "160",
     "escudo": "paris",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Mahamadou Nagida",
+    "time": "169",
+    "escudo": "rennes",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2799,13 +2860,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Rayan Bamba",
-    "time": "2697",
-    "escudo": "le_mans",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Rayan Mandengue",
     "time": "172",
     "escudo": "auxerre",
@@ -2869,6 +2923,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Sebastian Szymanski",
+    "time": "169",
+    "escudo": "rennes",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Seny Koumbassa",
     "time": "179",
     "escudo": "toulouse",
@@ -2893,13 +2954,6 @@
     "nome": "Sota Nakamura",
     "time": "3236",
     "escudo": "le_havre",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Souleymane Faye",
-    "time": "273",
-    "escudo": "lorient",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2935,13 +2989,6 @@
     "nome": "Timothé Nkada",
     "time": "170",
     "escudo": "troyes",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Tochukwu Nnadi",
-    "time": "176",
-    "escudo": "marseille",
     "amarelos": 1,
     "vermelhos": 0
    },

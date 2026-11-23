@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:39",
+ "atualizado": "2026-11-23T01:29:24",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -762,6 +762,12 @@
    "n": 3
   },
   {
+   "nome": "Víctor Muñoz",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 3
+  },
+  {
    "nome": "Yasin Ayari",
    "time": "331",
    "escudo": "brighton",
@@ -837,6 +843,12 @@
    "nome": "Emersonn",
    "time": "373",
    "escudo": "ipswich_town",
+   "n": 2
+  },
+  {
+   "nome": "Florian Wirtz",
+   "time": "364",
+   "escudo": "liverpool",
    "n": 2
   },
   {
@@ -960,15 +972,15 @@
    "n": 2
   },
   {
-   "nome": "Víctor Muñoz",
-   "time": "364",
-   "escudo": "liverpool",
-   "n": 2
-  },
-  {
    "nome": "Yéremy Pino",
    "time": "384",
    "escudo": "crystal",
+   "n": 2
+  },
+  {
+   "nome": "Dominik Szoboszlai",
+   "time": "364",
+   "escudo": "liverpool",
    "n": 2
   },
   {
@@ -1173,12 +1185,6 @@
    "nome": "Florentino",
    "time": "373",
    "escudo": "ipswich_town",
-   "n": 1
-  },
-  {
-   "nome": "Florian Wirtz",
-   "time": "364",
-   "escudo": "liverpool",
    "n": 1
   },
   {
@@ -1422,6 +1428,12 @@
    "n": 1
   },
   {
+   "nome": "Rio Ngumoha",
+   "time": "364",
+   "escudo": "liverpool",
+   "n": 1
+  },
+  {
    "nome": "Romeo Lavia",
    "time": "363",
    "escudo": "chelsea",
@@ -1506,12 +1518,6 @@
    "n": 1
   },
   {
-   "nome": "Dominik Szoboszlai",
-   "time": "364",
-   "escudo": "liverpool",
-   "n": 1
-  },
-  {
    "nome": "Eddie Nketiah",
    "time": "384",
    "escudo": "crystal",
@@ -1580,6 +1586,13 @@
     "nome": "António Silva",
     "time": "349",
     "escudo": "bournemouth",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Bradley Barcola",
+    "time": "364",
+    "escudo": "liverpool",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1672,13 +1685,6 @@
     "time": "331",
     "escudo": "brighton",
     "amarelos": 4,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Bradley Barcola",
-    "time": "364",
-    "escudo": "liverpool",
-    "amarelos": 3,
     "vermelhos": 0
    },
    {
@@ -2247,6 +2253,13 @@
     "escudo": "ipswich_town",
     "amarelos": 2,
     "vermelhos": 0
+   },
+   {
+    "nome": "Leny Yoro",
+    "time": "360",
+    "escudo": "man_united",
+    "amarelos": 0,
+    "vermelhos": 1
    },
    {
     "nome": "Levi Colwill",

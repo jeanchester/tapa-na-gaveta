@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-22T16:57:32",
+ "atualizado": "2026-11-23T01:27:45",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -257,9 +257,9 @@
    ]
   },
   "fluminense": {
-   "jogo": "401841309",
-   "data": "2026-11-20T00:30Z",
-   "contra": "São Paulo",
+   "jogo": "401841324",
+   "data": "2026-11-22T21:30Z",
+   "contra": "Mirassol",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -326,26 +326,26 @@
      "lugar": 9
     },
     {
-     "n": "Yeferson Soteldo",
-     "curto": "Y. Soteldo",
-     "num": 30,
+     "n": "Agustín Canobbio",
+     "curto": "A. Canobbio",
+     "num": 17,
      "pos": "AM-L",
      "lugar": 11
     },
     {
-     "n": "Kevin Serna",
-     "curto": "K. Serna",
-     "num": 90,
+     "n": "Jefferson Savarino",
+     "curto": "J. Savarino",
+     "num": 11,
      "pos": "AM-R",
      "lugar": 7
     }
    ]
   },
   "athletico": {
-   "jogo": "401841313",
-   "data": "2026-11-18T23:30Z",
-   "contra": "Flamengo",
-   "esquema": "3-5-2",
+   "jogo": "401841318",
+   "data": "2026-11-22T19:00Z",
+   "contra": "Remo",
+   "esquema": "3-4-2-1",
    "titulares": [
     {
      "n": "Mycael",
@@ -355,9 +355,9 @@
      "lugar": 1
     },
     {
-     "n": "Juan Felipe Aguirre",
-     "curto": "J. Felipe Aguirre",
-     "num": 33,
+     "n": "Dantas",
+     "curto": "Dantas",
+     "num": 25,
      "pos": "CD",
      "lugar": 5
     },
@@ -369,16 +369,16 @@
      "lugar": 4
     },
     {
-     "n": "Gastón Benavídez",
-     "curto": "G. Benavídez",
-     "num": 29,
+     "n": "Arthur Dias",
+     "curto": "A. Dias",
+     "num": 4,
      "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Juan Portilla",
-     "curto": "J. Portilla",
-     "num": 27,
+     "n": "Luiz Gustavo",
+     "curto": "Luiz Gustavo",
+     "num": 14,
      "pos": "CM-L",
      "lugar": 8
     },
@@ -390,13 +390,6 @@
      "lugar": 7
     },
     {
-     "n": "Filipinho",
-     "curto": "Filipinho",
-     "num": 5,
-     "pos": "AM",
-     "lugar": 11
-    },
-    {
      "n": "Stiven Mendoza",
      "curto": "S. Mendoza",
      "num": 7,
@@ -404,23 +397,30 @@
      "lugar": 3
     },
     {
-     "n": "Gilberto",
-     "curto": "Gilberto",
-     "num": 12,
+     "n": "Gastón Benavídez",
+     "curto": "G. Benavídez",
+     "num": 29,
      "pos": "RM",
      "lugar": 2
+    },
+    {
+     "n": "Kerwin Vargas",
+     "curto": "K. Vargas",
+     "num": 18,
+     "pos": "F",
+     "lugar": 9
     },
     {
      "n": "Bruno Zapelli",
      "curto": "B. Zapelli",
      "num": 10,
      "pos": "CF-L",
-     "lugar": 9
+     "lugar": 11
     },
     {
-     "n": "Kerwin Vargas",
-     "curto": "K. Vargas",
-     "num": 18,
+     "n": "Leozinho",
+     "curto": "Leozinho",
+     "num": 21,
      "pos": "CF-R",
      "lugar": 10
     }
@@ -596,6 +596,91 @@
     }
    ]
   },
+  "bragantino": {
+   "jogo": "401841321",
+   "data": "2026-11-22T22:30Z",
+   "contra": "Vasco da Gama",
+   "esquema": "4-2-3-1",
+   "titulares": [
+    {
+     "n": "Tiago Volpi",
+     "curto": "T. Volpi",
+     "num": 18,
+     "pos": "G",
+     "lugar": 1
+    },
+    {
+     "n": "Gustavo Marques",
+     "curto": "Gustavo Marques",
+     "num": 16,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "Alix Vinicius",
+     "curto": "A. Vinicius",
+     "num": 4,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "Juninho Capixaba",
+     "curto": "J. Capixaba",
+     "num": 29,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "Ryan Augusto",
+     "curto": "Ryan Augusto",
+     "num": 52,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Wallace Yan",
+     "curto": "W. Yan",
+     "num": 47,
+     "pos": "AM",
+     "lugar": 10
+    },
+    {
+     "n": "Fabinho",
+     "curto": "Fabinho",
+     "num": 5,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Ramires",
+     "curto": "Ramires",
+     "num": 7,
+     "pos": "RM",
+     "lugar": 8
+    },
+    {
+     "n": "Eduardo Sasha",
+     "curto": "Eduardo Sasha",
+     "num": 8,
+     "pos": "F",
+     "lugar": 9
+    },
+    {
+     "n": "Henry Mosquera",
+     "curto": "H. Mosquera",
+     "num": 30,
+     "pos": "AM-L",
+     "lugar": 11
+    },
+    {
+     "n": "Lucas Barbosa",
+     "curto": "L. Barbosa",
+     "num": 21,
+     "pos": "AM-R",
+     "lugar": 7
+    }
+   ]
+  },
   "santos": {
    "jogo": "401841315",
    "data": "2026-11-18T22:30Z",
@@ -681,96 +766,11 @@
     }
    ]
   },
-  "bragantino": {
-   "jogo": "401841317",
-   "data": "2026-11-19T22:30Z",
-   "contra": "Vitória",
-   "esquema": "4-2-3-1",
-   "titulares": [
-    {
-     "n": "Tiago Volpi",
-     "curto": "T. Volpi",
-     "num": 18,
-     "pos": "G",
-     "lugar": 1
-    },
-    {
-     "n": "Guzmán Rodríguez",
-     "curto": "G. Rodríguez",
-     "num": 2,
-     "pos": "CD-L",
-     "lugar": 6
-    },
-    {
-     "n": "Gustavo Marques",
-     "curto": "Gustavo Marques",
-     "num": 16,
-     "pos": "CD-R",
-     "lugar": 5
-    },
-    {
-     "n": "Juninho Capixaba",
-     "curto": "J. Capixaba",
-     "num": 29,
-     "pos": "LB",
-     "lugar": 3
-    },
-    {
-     "n": "Agustín Sant'Anna",
-     "curto": "A. Sant'Anna",
-     "num": 23,
-     "pos": "RB",
-     "lugar": 2
-    },
-    {
-     "n": "Wallace Yan",
-     "curto": "W. Yan",
-     "num": 47,
-     "pos": "AM",
-     "lugar": 10
-    },
-    {
-     "n": "Fabinho",
-     "curto": "Fabinho",
-     "num": 5,
-     "pos": "LM",
-     "lugar": 4
-    },
-    {
-     "n": "Ramires",
-     "curto": "Ramires",
-     "num": 7,
-     "pos": "RM",
-     "lugar": 8
-    },
-    {
-     "n": "Eduardo Sasha",
-     "curto": "Eduardo Sasha",
-     "num": 8,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
-     "n": "Fernando",
-     "curto": "Fernando",
-     "num": 11,
-     "pos": "AM-L",
-     "lugar": 11
-    },
-    {
-     "n": "José Herrera",
-     "curto": "J. Herrera",
-     "num": 32,
-     "pos": "AM-R",
-     "lugar": 7
-    }
-   ]
-  },
   "vasco": {
-   "jogo": "401841308",
-   "data": "2026-11-19T22:30Z",
-   "contra": "Internacional",
-   "esquema": "4-3-2-1",
+   "jogo": "401841321",
+   "data": "2026-11-22T22:30Z",
+   "contra": "Red Bull Bragantino",
+   "esquema": "4-1-4-1",
    "titulares": [
     {
      "n": "Léo Jardim",
@@ -787,11 +787,18 @@
      "lugar": 6
     },
     {
-     "n": "Alan Saldivia",
-     "curto": "A. Saldivia",
-     "num": 4,
+     "n": "Gabriel Pereira",
+     "curto": "G. Pereira",
+     "num": 55,
      "pos": "CD-R",
      "lugar": 5
+    },
+    {
+     "n": "Santiago Sosa",
+     "curto": "S. Sosa",
+     "num": 5,
+     "pos": "DM",
+     "lugar": 4
     },
     {
      "n": "Cuiabano",
@@ -801,25 +808,18 @@
      "lugar": 3
     },
     {
-     "n": "José Luis Rodríguez",
-     "curto": "J. Rodríguez",
-     "num": 2,
+     "n": "Paulo Henrique",
+     "curto": "Paulo Henrique",
+     "num": 96,
      "pos": "RB",
      "lugar": 2
-    },
-    {
-     "n": "Santiago Sosa",
-     "curto": "S. Sosa",
-     "num": 5,
-     "pos": "CM",
-     "lugar": 4
     },
     {
      "n": "Thiago Mendes",
      "curto": "T. Mendes",
      "num": 23,
      "pos": "CM-L",
-     "lugar": 7
+     "lugar": 10
     },
     {
      "n": "Alan Lescano",
@@ -829,25 +829,25 @@
      "lugar": 8
     },
     {
-     "n": "Bruno Duarte",
-     "curto": "B. Duarte",
-     "num": 19,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
      "n": "Facundo Colidio",
      "curto": "F. Colidio",
      "num": 9,
-     "pos": "CF-L",
+     "pos": "LM",
      "lugar": 11
     },
     {
      "n": "Andrés Gómez",
      "curto": "A. Gómez",
      "num": 11,
-     "pos": "CF-R",
-     "lugar": 10
+     "pos": "RM",
+     "lugar": 7
+    },
+    {
+     "n": "Bruno Duarte",
+     "curto": "B. Duarte",
+     "num": 19,
+     "pos": "F",
+     "lugar": 9
     }
    ]
   },
@@ -1192,10 +1192,10 @@
    ]
   },
   "mirassol": {
-   "jogo": "401841311",
-   "data": "2026-11-14T21:30Z",
-   "contra": "Atlético-MG",
-   "esquema": "4-2-3-1",
+   "jogo": "401841324",
+   "data": "2026-11-22T21:30Z",
+   "contra": "Fluminense",
+   "esquema": "4-4-2",
    "titulares": [
     {
      "n": "Walter",
@@ -1233,46 +1233,46 @@
      "lugar": 2
     },
     {
-     "n": "Shaylon",
-     "curto": "Shaylon",
-     "num": 7,
-     "pos": "AM",
-     "lugar": 10
+     "n": "José Aldo",
+     "curto": "José Aldo",
+     "num": 21,
+     "pos": "CM-L",
+     "lugar": 8
     },
     {
      "n": "Denilson",
      "curto": "Denilson",
      "num": 27,
-     "pos": "LM",
+     "pos": "CM-R",
      "lugar": 4
-    },
-    {
-     "n": "Neto Moura",
-     "curto": "Neto Moura",
-     "num": 25,
-     "pos": "RM",
-     "lugar": 8
-    },
-    {
-     "n": "Bruno Santos",
-     "curto": "Bruno Santos",
-     "num": 30,
-     "pos": "F",
-     "lugar": 9
     },
     {
      "n": "Alesson",
      "curto": "Alesson",
      "num": 77,
-     "pos": "AM-L",
+     "pos": "LM",
      "lugar": 11
     },
     {
-     "n": "Carlos Eduardo",
-     "curto": "C. Eduardo",
-     "num": 96,
-     "pos": "AM-R",
+     "n": "Wallison Luiz",
+     "curto": "Wallison Luiz",
+     "num": 80,
+     "pos": "RM",
      "lugar": 7
+    },
+    {
+     "n": "Bruno Santos",
+     "curto": "Bruno Santos",
+     "num": 30,
+     "pos": "CF-L",
+     "lugar": 9
+    },
+    {
+     "n": "Carlos Eduardo",
+     "curto": "Carlos Eduardo",
+     "num": 33,
+     "pos": "CF-R",
+     "lugar": 10
     }
    ]
   },
@@ -1532,10 +1532,10 @@
    ]
   },
   "remo": {
-   "jogo": "401841310",
-   "data": "2026-11-18T23:00Z",
-   "contra": "Chapecoense",
-   "esquema": "4-1-4-1",
+   "jogo": "401841318",
+   "data": "2026-11-22T19:00Z",
+   "contra": "Athletico Paranaense",
+   "esquema": "5-4-1",
    "titulares": [
     {
      "n": "Marcelo Rangel",
@@ -1545,25 +1545,25 @@
      "lugar": 1
     },
     {
+     "n": "José Welison",
+     "curto": "J. Welison",
+     "num": 28,
+     "pos": "CD",
+     "lugar": 5
+    },
+    {
      "n": "Duplexe Tchamba",
      "curto": "D. Tchamba",
      "num": 18,
      "pos": "CD-L",
-     "lugar": 6
+     "lugar": 4
     },
     {
      "n": "Zé Ivaldo",
      "curto": "Z. Ivaldo",
      "num": 27,
      "pos": "CD-R",
-     "lugar": 5
-    },
-    {
-     "n": "José Welison",
-     "curto": "J. Welison",
-     "num": 28,
-     "pos": "DM",
-     "lugar": 4
+     "lugar": 6
     },
     {
      "n": "Mayk",
@@ -1587,9 +1587,9 @@
      "lugar": 10
     },
     {
-     "n": "Leonel Picco",
-     "curto": "L. Picco",
-     "num": 14,
+     "n": "Edson Fernando",
+     "curto": "E. Fernando",
+     "num": 35,
      "pos": "CM-R",
      "lugar": 8
     },
