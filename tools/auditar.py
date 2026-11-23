@@ -22,6 +22,7 @@ observações que não quebram nada, mas valem uma olhada.
 """
 import json
 import os
+import subprocess
 import sys
 import time
 
@@ -378,8 +379,20 @@ def paginas(pg, larg):
         ruim('voltar', f'voltar do navegador foi para {pg.evaluate("location.hash")}')
 
 
+def build_ok():
+    # o workflow de publicação roda o build depois dos testes: se ele quebra, o site para de ser publicado
+    # (21 a 22/11/2026: "{{rodada 35}}: rodada sem jogos" nas análises). Aqui a falha aparece antes.
+    r = subprocess.run(['node', 'tools/build.js', '--release', '--site', 'https://tapanagaveta.com.br'], cwd=RAIZ, capture_output=True, text=True)
+    if r.returncode != 0:
+        msg = [l for l in (r.stderr or r.stdout).splitlines() if l.strip().startswith('Error') or 'Error:' in l]
+        ruim('build', 'node tools/build.js falhou, o site não seria publicado: ' + (msg[0].strip() if msg else (r.stderr or r.stdout).strip()[-160:]))
+    else:
+        passos.append('build de publicação: ok')
+
+
 def main():
     os.makedirs(SAIDA, exist_ok=True)
+    build_ok()
     comps = json.load(open(os.path.join(RAIZ, 'shared/competicoes.json')))['lista']
     inicio = time.time()
     with sync_playwright() as p:
