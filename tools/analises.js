@@ -53,6 +53,12 @@ function gerar(o) {
   const dataDados = fData.format(quando) + ', às ' + fHora.format(quando).replace(':', 'h');
   const dataTxt = (iso) => fData.format(new Date(iso + 'T12:00:00-03:00'));
 
+  // rodada dos jogos já disputados: o k-ésimo jogo feito de cada time (pela data) é a rodada k;
+  // no jogo, vale a maior das duas (o adiado de um time entra na rodada a que pertence)
+  const rodadaFeita = {};
+  { const cont = new Array(L.n).fill(0);
+    L.jogos.filter((j) => j.feito).sort((a, b) => (a.data < b.data ? -1 : a.data > b.data ? 1 : 0))
+      .forEach((j) => { rodadaFeita[j.id] = Math.max(++cont[j.h], ++cont[j.a]); }); }
   function quadros(volta) {
     const escudo = (i, t) => L.times[i].escudo ? '<img class="crest" src="' + volta + 'midia/escudos/' + esc(L.times[i].escudo) + '.png" alt="" width="' + t + '" height="' + t + '" loading="lazy">' : '';
     const link = (i) => '<a href="' + volta + 'simulador/' + L.times[i].slug + '/">' + esc(nome(i)) + '</a>';
@@ -75,8 +81,10 @@ function gerar(o) {
       },
       rodada(arg) {
         const r = Number(arg);
-        const js = L.jogos.filter((j) => j.rodada === r).sort((a, b) => (a.data < b.data ? -1 : 1));
-        if (!js.length) throw new Error('{{rodada ' + arg + '}}: rodada sem jogos');
+        // jogos já disputados não guardam a rodada no núcleo (rodadaFeita); os que faltam, sim (j.rodada)
+        const js = L.jogos.filter((j) => (j.feito ? rodadaFeita[j.id] : j.rodada) === r).sort((a, b) => (a.data < b.data ? -1 : 1));
+        // uma rodada vazia não pode travar a publicação do site inteiro: some o quadro e avisa no log
+        if (!js.length) { console.log('::warning::{{rodada ' + arg + '}}: nenhum jogo com essa rodada no retrato; quadro omitido'); return ''; }
         return '<div class="tabela-rola"><table class="tab tab-jogos"><caption>Rodada ' + r + '</caption><thead><tr><th class="esq">Jogo</th><th>Casa</th><th>Empate</th><th>Fora</th><th>Provável</th></tr></thead><tbody>' +
           js.map((j) => {
             const d = new Date(j.data), dia = fJogo.format(d).replace('.', '').replace(',', '');
