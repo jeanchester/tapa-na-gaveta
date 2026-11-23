@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "esp.1",
  "temporada": 2026,
- "baixado_em": "2026-11-23T01:29:26",
+ "baixado_em": "2026-11-23T20:59:31",
  "times": [
   {
    "id": "96",
@@ -1928,7 +1928,7 @@
    "id": "401882802",
    "data": "2026-11-23T20:00Z",
    "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
+   "status": "STATUS_HALFTIME",
    "mandante": "1538",
    "visitante": "3751",
    "gols_mandante": null,
@@ -2213,33 +2213,9 @@
    "forma_visitante": "LDWWW"
   },
   {
-   "id": "401882776",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "1068",
-   "visitante": "94",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": "WLLWW",
-   "forma_visitante": "WWLWL"
-  },
-  {
-   "id": "401882774",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "90",
-   "visitante": "93",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": "LDWWL",
-   "forma_visitante": "LDWWW"
-  },
-  {
    "id": "401882773",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "data": "2026-12-11T20:00Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
    "mandante": "3751",
    "visitante": "243",
@@ -2249,21 +2225,9 @@
    "forma_visitante": "DDLWW"
   },
   {
-   "id": "401882772",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "88",
-   "visitante": "85",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": "WDWLL",
-   "forma_visitante": "LWDLL"
-  },
-  {
    "id": "401882771",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "data": "2026-12-12T13:00Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
    "mandante": "1538",
    "visitante": "96",
@@ -2273,9 +2237,21 @@
    "forma_visitante": "WWDLD"
   },
   {
+   "id": "401882767",
+   "data": "2026-12-12T15:15Z",
+   "horario_definido": true,
+   "status": "STATUS_SCHEDULED",
+   "mandante": "102",
+   "visitante": "101",
+   "gols_mandante": null,
+   "gols_visitante": null,
+   "forma_mandante": "LWLLW",
+   "forma_visitante": "LLWWL"
+  },
+  {
    "id": "401882770",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "data": "2026-12-12T17:30Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
    "mandante": "99",
    "visitante": "83",
@@ -2286,8 +2262,8 @@
   },
   {
    "id": "401882775",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "data": "2026-12-12T20:00Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
    "mandante": "244",
    "visitante": "87",
@@ -2297,21 +2273,33 @@
    "forma_visitante": "WWLWW"
   },
   {
-   "id": "401882769",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "id": "401882776",
+   "data": "2026-12-13T13:00Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
-   "mandante": "86",
-   "visitante": "97",
+   "mandante": "1068",
+   "visitante": "94",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWWWW",
-   "forma_visitante": "WDLWL"
+   "forma_mandante": "WLLWW",
+   "forma_visitante": "WWLWL"
+  },
+  {
+   "id": "401882774",
+   "data": "2026-12-13T15:15Z",
+   "horario_definido": true,
+   "status": "STATUS_SCHEDULED",
+   "mandante": "90",
+   "visitante": "93",
+   "gols_mandante": null,
+   "gols_visitante": null,
+   "forma_mandante": "LDWWL",
+   "forma_visitante": "LDWWW"
   },
   {
    "id": "401882768",
-   "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "data": "2026-12-13T17:30Z",
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
    "mandante": "89",
    "visitante": "2922",
@@ -2321,16 +2309,28 @@
    "forma_visitante": "LLLWW"
   },
   {
-   "id": "401882767",
+   "id": "401882769",
    "data": "2026-12-13T20:00Z",
-   "horario_definido": false,
+   "horario_definido": true,
    "status": "STATUS_SCHEDULED",
-   "mandante": "102",
-   "visitante": "101",
+   "mandante": "86",
+   "visitante": "97",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LWLLW",
-   "forma_visitante": "LLWWL"
+   "forma_mandante": "WWWWW",
+   "forma_visitante": "WDLWL"
+  },
+  {
+   "id": "401882772",
+   "data": "2026-12-14T20:00Z",
+   "horario_definido": true,
+   "status": "STATUS_SCHEDULED",
+   "mandante": "88",
+   "visitante": "85",
+   "gols_mandante": null,
+   "gols_visitante": null,
+   "forma_mandante": "WDWLL",
+   "forma_visitante": "LWDLL"
   },
   {
    "id": "401882766",

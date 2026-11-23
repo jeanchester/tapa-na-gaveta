@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T01:27:44",
+ "atualizado": "2026-11-23T20:57:47",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -62,6 +62,12 @@
    "n": 10
   },
   {
+   "nome": "Jajá",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 10
+  },
+  {
    "nome": "Maurício",
    "time": "2029",
    "escudo": "palmeiras",
@@ -71,12 +77,6 @@
    "nome": "Jonathan Calleri",
    "time": "2026",
    "escudo": "sp",
-   "n": 10
-  },
-  {
-   "nome": "Jajá",
-   "time": "4936",
-   "escudo": "remo",
    "n": 10
   },
   {
@@ -122,6 +122,12 @@
    "n": 8
   },
   {
+   "nome": "Stiven Mendoza",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 7
+  },
+  {
    "nome": "Lucas Barbosa",
    "time": "6079",
    "escudo": "bragantino",
@@ -152,22 +158,16 @@
    "n": 7
   },
   {
-   "nome": "Lucas Paquetá",
-   "time": "819",
-   "escudo": "flamengo",
-   "n": 7
-  },
-  {
    "nome": "Jefferson Savarino",
    "time": "3445",
    "escudo": "fluminense",
    "n": 7
   },
   {
-   "nome": "Stiven Mendoza",
-   "time": "3458",
-   "escudo": "athletico",
-   "n": 6
+   "nome": "Lucas Paquetá",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 7
   },
   {
    "nome": "Thiago Mendes",
@@ -194,15 +194,21 @@
    "n": 6
   },
   {
+   "nome": "Rodrigo Castillo",
+   "time": "3445",
+   "escudo": "fluminense",
+   "n": 6
+  },
+  {
    "nome": "Kaio",
    "time": "874",
    "escudo": "corinthians",
    "n": 6
   },
   {
-   "nome": "Rodrigo Castillo",
-   "time": "3445",
-   "escudo": "fluminense",
+   "nome": "Leozinho",
+   "time": "3458",
+   "escudo": "athletico",
    "n": 6
   },
   {
@@ -215,6 +221,12 @@
    "nome": "Erick",
    "time": "3457",
    "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 5
   },
   {
@@ -236,18 +248,6 @@
    "n": 5
   },
   {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
-   "n": 5
-  },
-  {
-   "nome": "Alexander Bernabei",
-   "time": "1936",
-   "escudo": "internacional",
-   "n": 5
-  },
-  {
    "nome": "Hércules",
    "time": "3445",
    "escudo": "fluminense",
@@ -257,6 +257,12 @@
    "nome": "Isidro Pitta",
    "time": "6079",
    "escudo": "bragantino",
+   "n": 5
+  },
+  {
+   "nome": "Alexander Bernabei",
+   "time": "1936",
+   "escudo": "internacional",
    "n": 5
   },
   {
@@ -293,12 +299,6 @@
    "nome": "Ramón Sosa",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 5
-  },
-  {
-   "nome": "Renato Kayzer",
-   "time": "3457",
-   "escudo": "vitoria",
    "n": 5
   }
  ],
@@ -358,6 +358,12 @@
    "n": 7
   },
   {
+   "nome": "João Cruz",
+   "time": "3458",
+   "escudo": "athletico",
+   "n": 7
+  },
+  {
    "nome": "Guillermo Varela",
    "time": "819",
    "escudo": "flamengo",
@@ -412,12 +418,6 @@
    "n": 5
   },
   {
-   "nome": "João Cruz",
-   "time": "3458",
-   "escudo": "athletico",
-   "n": 5
-  },
-  {
    "nome": "José Luis Rodríguez",
    "time": "3454",
    "escudo": "vasco",
@@ -448,15 +448,21 @@
    "n": 4
   },
   {
+   "nome": "Reinaldo",
+   "time": "9169",
+   "escudo": "mirassol",
+   "n": 4
+  },
+  {
    "nome": "Vitinho",
    "time": "6086",
    "escudo": "botafogo",
    "n": 4
   },
   {
-   "nome": "Reinaldo",
-   "time": "9169",
-   "escudo": "mirassol",
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 4
   },
   {
@@ -475,12 +481,6 @@
    "nome": "Matheus",
    "time": "3457",
    "escudo": "vitoria",
-   "n": 4
-  },
-  {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
    "n": 4
   },
   {
@@ -520,18 +520,6 @@
    "n": 4
   },
   {
-   "nome": "Giorgian de Arrascaeta",
-   "time": "819",
-   "escudo": "flamengo",
-   "n": 4
-  },
-  {
-   "nome": "Lucas Romero",
-   "time": "2022",
-   "escudo": "cruzeiro",
-   "n": 4
-  },
-  {
    "nome": "Agustín Canobbio",
    "time": "3445",
    "escudo": "fluminense",
@@ -541,6 +529,18 @@
    "nome": "Cuiabano",
    "time": "3454",
    "escudo": "vasco",
+   "n": 4
+  },
+  {
+   "nome": "Giorgian de Arrascaeta",
+   "time": "819",
+   "escudo": "flamengo",
+   "n": 4
+  },
+  {
+   "nome": "Lucas Romero",
+   "time": "2022",
+   "escudo": "cruzeiro",
    "n": 4
   },
   {
@@ -574,6 +574,12 @@
    "n": 4
   },
   {
+   "nome": "Lucas Barbosa",
+   "time": "6079",
+   "escudo": "bragantino",
+   "n": 3
+  },
+  {
    "nome": "Vitinho",
    "time": "1936",
    "escudo": "internacional",
@@ -586,7 +592,7 @@
    "n": 3
   },
   {
-   "nome": "Lucas Barbosa",
+   "nome": "Isidro Pitta",
    "time": "6079",
    "escudo": "bragantino",
    "n": 3
@@ -595,12 +601,6 @@
    "nome": "Lucas Evangelista",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 3
-  },
-  {
-   "nome": "Gabriel Bontempo",
-   "time": "2674",
-   "escudo": "santos",
    "n": 3
   }
  ],

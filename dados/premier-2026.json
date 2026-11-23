@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "eng.1",
  "temporada": 2026,
- "baixado_em": "2026-11-23T01:29:24",
+ "baixado_em": "2026-11-23T20:59:29",
  "times": [
   {
    "id": "349",
@@ -1700,7 +1700,7 @@
    "id": "401879237",
    "data": "2026-11-23T20:00Z",
    "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
+   "status": "STATUS_HALFTIME",
    "mandante": "337",
    "visitante": "368",
    "gols_mandante": null,

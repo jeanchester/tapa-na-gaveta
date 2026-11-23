@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T01:27:51",
+ "atualizado": "2026-11-23T20:57:55",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -134,15 +134,15 @@
    "n": 6
   },
   {
-   "nome": "Juninho",
-   "time": "18127",
-   "escudo": "novorizontino",
-   "n": 6
-  },
-  {
    "nome": "Fellipe Mateus",
    "time": "9971",
    "escudo": "criciuma",
+   "n": 6
+  },
+  {
+   "nome": "Juninho",
+   "time": "18127",
+   "escudo": "novorizontino",
    "n": 6
   },
   {
@@ -182,6 +182,12 @@
    "n": 6
   },
   {
+   "nome": "Marcelo Hermes",
+   "time": "9971",
+   "escudo": "criciuma",
+   "n": 5
+  },
+  {
    "nome": "Danielzinho",
    "time": "9970",
    "escudo": "crb",
@@ -194,15 +200,15 @@
    "n": 5
   },
   {
-   "nome": "Marcos Paulo",
-   "time": "6270",
-   "escudo": "juventude",
-   "n": 5
-  },
-  {
    "nome": "Dudu",
    "time": "9973",
    "escudo": "vilanova",
+   "n": 5
+  },
+  {
+   "nome": "Marcos Paulo",
+   "time": "6270",
+   "escudo": "juventude",
    "n": 5
   },
   {
@@ -294,12 +300,6 @@
    "time": "10357",
    "escudo": "atleticogo",
    "n": 4
-  },
-  {
-   "nome": "Marcelo Hermes",
-   "time": "9971",
-   "escudo": "criciuma",
-   "n": 4
   }
  ],
  "assistencias": [
@@ -322,15 +322,15 @@
    "n": 9
   },
   {
-   "nome": "Jean Lucas Figueiredo",
-   "time": "9966",
-   "escudo": "avai",
-   "n": 7
-  },
-  {
    "nome": "Marquinhos Gabriel",
    "time": "9973",
    "escudo": "vilanova",
+   "n": 7
+  },
+  {
+   "nome": "Jean Lucas Figueiredo",
+   "time": "9966",
+   "escudo": "avai",
    "n": 7
   },
   {
@@ -349,6 +349,12 @@
    "nome": "Dadá",
    "time": "9970",
    "escudo": "crb",
+   "n": 6
+  },
+  {
+   "nome": "Rómulo Otero",
+   "time": "9971",
+   "escudo": "criciuma",
    "n": 6
   },
   {
@@ -403,12 +409,6 @@
    "nome": "Robson",
    "time": "18127",
    "escudo": "novorizontino",
-   "n": 5
-  },
-  {
-   "nome": "Rómulo Otero",
-   "time": "9971",
-   "escudo": "criciuma",
    "n": 5
   },
   {
@@ -514,6 +514,12 @@
    "n": 4
   },
   {
+   "nome": "Dodô",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  },
+  {
    "nome": "Luis Mandaca",
    "time": "6270",
    "escudo": "juventude",
@@ -538,15 +544,15 @@
    "n": 4
   },
   {
-   "nome": "Hugo",
-   "time": "10281",
-   "escudo": "botafogosp",
-   "n": 3
-  },
-  {
    "nome": "Guilherme Almeida",
    "time": "10357",
    "escudo": "atleticogo",
+   "n": 3
+  },
+  {
+   "nome": "Hugo",
+   "time": "10281",
+   "escudo": "botafogosp",
    "n": 3
   },
   {
@@ -595,12 +601,6 @@
    "nome": "Thiago Fernandes",
    "time": "9970",
    "escudo": "crb",
-   "n": 3
-  },
-  {
-   "nome": "Matías Segovia",
-   "time": "6154",
-   "escudo": "americamg",
    "n": 3
   }
  ],

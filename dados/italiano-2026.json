@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "ita.1",
  "temporada": 2026,
- "baixado_em": "2026-11-23T01:29:30",
+ "baixado_em": "2026-11-23T20:59:33",
  "times": [
   {
    "id": "103",
@@ -1820,7 +1820,7 @@
    "id": "401875009",
    "data": "2026-11-23T19:45Z",
    "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
+   "status": "STATUS_SECOND_HALF",
    "mandante": "4007",
    "visitante": "109",
    "gols_mandante": null,

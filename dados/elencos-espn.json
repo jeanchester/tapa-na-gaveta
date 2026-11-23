@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T01:27:46",
+ "atualizado": "2026-11-23T20:57:49",
  "times": {
   "flamengo": [
    {
@@ -875,8 +875,8 @@
     "jogos": 6
    },
    {
-    "n": "Eduardo",
-    "curto": "Eduardo",
+    "n": "Eduardo Pape",
+    "curto": "E. Pape",
     "num": 58,
     "pos": "M",
     "jogos": 0
@@ -899,7 +899,7 @@
     "n": "Luciano Rodríguez",
     "curto": "L. Rodríguez",
     "num": 97,
-    "pos": "D",
+    "pos": "A",
     "jogos": 7
    },
    {
@@ -993,7 +993,7 @@
     "curto": "Fábio",
     "num": 1,
     "pos": "G",
-    "jogos": 35
+    "jogos": 36
    },
    {
     "n": "Vitor Eudes",
@@ -1028,7 +1028,7 @@
     "curto": "T. Silva",
     "num": 3,
     "pos": "D",
-    "jogos": 8
+    "jogos": 9
    },
    {
     "n": "Samuel Xavier",
@@ -1042,7 +1042,7 @@
     "curto": "René",
     "num": 6,
     "pos": "D",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Guilherme Arana",
@@ -1070,7 +1070,7 @@
     "curto": "Guga",
     "num": 23,
     "pos": "D",
-    "jogos": 21
+    "jogos": 22
    },
    {
     "n": "Juan Freytes",
@@ -1084,7 +1084,7 @@
     "curto": "Ignácio",
     "num": 4,
     "pos": "D",
-    "jogos": 19
+    "jogos": 20
    },
    {
     "n": "Jhonny Cardinoti Pedro",
@@ -1147,7 +1147,7 @@
     "curto": "Ganso",
     "num": 10,
     "pos": "M",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "Alisson",
@@ -1161,7 +1161,7 @@
     "curto": "L. Acosta",
     "num": 32,
     "pos": "M",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Otávio",
@@ -1175,21 +1175,21 @@
     "curto": "Nonato",
     "num": 16,
     "pos": "M",
-    "jogos": 21
+    "jogos": 22
    },
    {
     "n": "Martinelli",
     "curto": "Martinelli",
     "num": 8,
     "pos": "M",
-    "jogos": 23
+    "jogos": 24
    },
    {
     "n": "Hércules",
     "curto": "Hércules",
     "num": 35,
     "pos": "M",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Stiven Jimenez",
@@ -1245,14 +1245,14 @@
     "curto": "R. Castillo",
     "num": 19,
     "pos": "A",
-    "jogos": 22
+    "jogos": 23
    },
    {
     "n": "Hulk",
     "curto": "Hulk",
     "num": 7,
     "pos": "A",
-    "jogos": 16
+    "jogos": 17
    },
    {
     "n": "Germán Cano",
@@ -1266,7 +1266,7 @@
     "curto": "J. Savarino",
     "num": 11,
     "pos": "A",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Yeferson Soteldo",
@@ -1280,14 +1280,14 @@
     "curto": "A. Canobbio",
     "num": 17,
     "pos": "A",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Kevin Serna",
     "curto": "K. Serna",
     "num": 90,
     "pos": "A",
-    "jogos": 34
+    "jogos": 35
    },
    {
     "n": "John Kennedy",
@@ -1322,7 +1322,7 @@
     "curto": "Riquelme",
     "num": 28,
     "pos": "A",
-    "jogos": 8
+    "jogos": 9
    },
    {
     "n": "Wesley Natã",
@@ -1359,7 +1359,7 @@
     "curto": "Mycael",
     "num": 1,
     "pos": "G",
-    "jogos": 11
+    "jogos": 12
    },
    {
     "n": "Matheus Rocha",
@@ -1394,7 +1394,7 @@
     "curto": "Gilberto",
     "num": 12,
     "pos": "D",
-    "jogos": 14
+    "jogos": 15
    },
    {
     "n": "Léo",
@@ -1415,35 +1415,35 @@
     "curto": "G. Benavídez",
     "num": 29,
     "pos": "D",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Lucas Esquivel",
     "curto": "L. Esquivel",
     "num": 37,
     "pos": "D",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Filipinho",
     "curto": "Filipinho",
     "num": 5,
     "pos": "D",
-    "jogos": 12
+    "jogos": 13
    },
    {
     "n": "Leonardo Derik",
     "curto": "Leonardo Derik",
     "num": 61,
     "pos": "D",
-    "jogos": 12
+    "jogos": 13
    },
    {
     "n": "Dantas",
     "curto": "Dantas",
     "num": 25,
     "pos": "D",
-    "jogos": 7
+    "jogos": 8
    },
    {
     "n": "Gilberto Junior",
@@ -1457,7 +1457,7 @@
     "curto": "A. Dias",
     "num": 65,
     "pos": "D",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Bruno Baldini",
@@ -1520,14 +1520,14 @@
     "curto": "Luiz Gustavo",
     "num": 14,
     "pos": "M",
-    "jogos": 28
+    "jogos": 29
    },
    {
     "n": "Jádson",
     "curto": "Jádson",
     "num": 16,
     "pos": "M",
-    "jogos": 28
+    "jogos": 29
    },
    {
     "n": "Alejandro García",
@@ -1541,7 +1541,7 @@
     "curto": "B. Zapelli",
     "num": 10,
     "pos": "M",
-    "jogos": 24
+    "jogos": 25
    },
    {
     "n": "Eduardo",
@@ -1555,7 +1555,7 @@
     "curto": "J. Cruz",
     "num": 57,
     "pos": "M",
-    "jogos": 28
+    "jogos": 29
    },
    {
     "n": "Chiqueti",
@@ -1611,7 +1611,7 @@
     "curto": "S. Mendoza",
     "num": 7,
     "pos": "A",
-    "jogos": 35
+    "jogos": 36
    },
    {
     "n": "Kevin Viveros",
@@ -1639,14 +1639,14 @@
     "curto": "K. Vargas",
     "num": 18,
     "pos": "A",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "Jorge Rivaldo",
     "curto": "J. Rivaldo",
     "num": 19,
     "pos": "A",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "Lucas Amorim",
@@ -1660,7 +1660,7 @@
     "curto": "Leozinho",
     "num": 21,
     "pos": "A",
-    "jogos": 21
+    "jogos": 22
    },
    {
     "n": "Nicolas Azambuja",
@@ -2331,7 +2331,7 @@
     "curto": "T. Volpi",
     "num": 18,
     "pos": "G",
-    "jogos": 27
+    "jogos": 28
    },
    {
     "n": "Cleiton",
@@ -2366,21 +2366,21 @@
     "curto": "J. Capixaba",
     "num": 29,
     "pos": "D",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Agustín Sant'Anna",
     "curto": "A. Sant'Anna",
     "num": 23,
     "pos": "D",
-    "jogos": 16
+    "jogos": 17
    },
    {
     "n": "Alix Vinicius",
     "curto": "A. Vinicius",
     "num": 4,
     "pos": "D",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "Eduardo Santos",
@@ -2415,7 +2415,7 @@
     "curto": "Gustavo Marques",
     "num": 16,
     "pos": "D",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Weimar Vivas",
@@ -2436,7 +2436,7 @@
     "curto": "Ryan Augusto",
     "num": 52,
     "pos": "D",
-    "jogos": 12
+    "jogos": 13
    },
    {
     "n": "Edgar González",
@@ -2457,7 +2457,7 @@
     "curto": "Gabriel",
     "num": 6,
     "pos": "M",
-    "jogos": 22
+    "jogos": 23
    },
    {
     "n": "Matheus Fernandes",
@@ -2471,14 +2471,14 @@
     "curto": "L. Barbosa",
     "num": 21,
     "pos": "M",
-    "jogos": 32
+    "jogos": 33
    },
    {
     "n": "Ramires",
     "curto": "Ramires",
     "num": 7,
     "pos": "M",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "Bruno Conceicão",
@@ -2492,7 +2492,7 @@
     "curto": "Fabinho",
     "num": 5,
     "pos": "M",
-    "jogos": 19
+    "jogos": 20
    },
    {
     "n": "Ignacio Sosa",
@@ -2583,7 +2583,7 @@
     "curto": "Eduardo Sasha",
     "num": 8,
     "pos": "A",
-    "jogos": 27
+    "jogos": 28
    },
    {
     "n": "Fernando",
@@ -2597,7 +2597,7 @@
     "curto": "I. Pitta",
     "num": 9,
     "pos": "A",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Bruno Gonçalves",
@@ -2611,28 +2611,28 @@
     "curto": "H. Mosquera",
     "num": 30,
     "pos": "A",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "José Herrera",
     "curto": "J. Herrera",
     "num": 32,
     "pos": "A",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Wallace Yan",
     "curto": "W. Yan",
     "num": 47,
     "pos": "A",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "Vinicinho",
     "curto": "Vinicinho",
     "num": 17,
     "pos": "A",
-    "jogos": 17
+    "jogos": 18
    },
    {
     "n": "Jhuan Nunes",
@@ -3000,7 +3000,7 @@
     "curto": "L. Jardim",
     "num": 1,
     "pos": "G",
-    "jogos": 35
+    "jogos": 36
    },
    {
     "n": "Daniel Fuzato",
@@ -3035,14 +3035,14 @@
     "curto": "J. Rodríguez",
     "num": 2,
     "pos": "D",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "Paulo Henrique",
     "curto": "Paulo Henrique",
     "num": 96,
     "pos": "D",
-    "jogos": 23
+    "jogos": 24
    },
    {
     "n": "Carlos Cuesta",
@@ -3056,14 +3056,14 @@
     "curto": "G. Pereira",
     "num": 55,
     "pos": "D",
-    "jogos": 3
+    "jogos": 4
    },
    {
     "n": "Lucas Piton",
     "curto": "L. Piton",
     "num": 6,
     "pos": "D",
-    "jogos": 22
+    "jogos": 23
    },
    {
     "n": "Riquelme",
@@ -3091,14 +3091,14 @@
     "curto": "Cuiabano",
     "num": 66,
     "pos": "D",
-    "jogos": 25
+    "jogos": 26
    },
    {
     "n": "Robert",
     "curto": "Robert",
     "num": 30,
     "pos": "D",
-    "jogos": 33
+    "jogos": 34
    },
    {
     "n": "Paulinho",
@@ -3182,14 +3182,14 @@
     "curto": "T. Mendes",
     "num": 23,
     "pos": "M",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Santiago Sosa",
     "curto": "S. Sosa",
     "num": 5,
     "pos": "M",
-    "jogos": 12
+    "jogos": 13
    },
    {
     "n": "Nuno Moreira",
@@ -3203,7 +3203,7 @@
     "curto": "A. Lescano",
     "num": 22,
     "pos": "M",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "Matheus Carvalho",
@@ -3294,28 +3294,28 @@
     "curto": "Brenner",
     "num": 20,
     "pos": "A",
-    "jogos": 21
+    "jogos": 22
    },
    {
     "n": "Facundo Colidio",
     "curto": "F. Colidio",
     "num": 9,
     "pos": "A",
-    "jogos": 14
+    "jogos": 15
    },
    {
     "n": "Marino Hinestroza",
     "curto": "M. Hinestroza",
     "num": 18,
     "pos": "A",
-    "jogos": 20
+    "jogos": 21
    },
    {
     "n": "Bruno Duarte",
     "curto": "B. Duarte",
     "num": 19,
     "pos": "A",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "Adson",
@@ -3336,7 +3336,7 @@
     "curto": "A. Gómez",
     "num": 11,
     "pos": "A",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Johan Rojas",
@@ -4328,7 +4328,7 @@
     "n": "Lucas Villalba",
     "curto": "L. Villalba",
     "num": 77,
-    "pos": "A",
+    "pos": "D",
     "jogos": 17
    },
    {
@@ -4746,7 +4746,7 @@
     "curto": "Walter",
     "num": 22,
     "pos": "G",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Georgemy",
@@ -4774,7 +4774,7 @@
     "curto": "Reinaldo",
     "num": 6,
     "pos": "D",
-    "jogos": 32
+    "jogos": 33
    },
    {
     "n": "Daniel Borges",
@@ -4795,14 +4795,14 @@
     "curto": "L. Oliveira",
     "num": 2,
     "pos": "D",
-    "jogos": 14
+    "jogos": 15
    },
    {
     "n": "João Victor",
     "curto": "João Victor",
     "num": 34,
     "pos": "D",
-    "jogos": 33
+    "jogos": 34
    },
    {
     "n": "Elias",
@@ -4823,7 +4823,7 @@
     "curto": "I. Marques",
     "num": 32,
     "pos": "D",
-    "jogos": 32
+    "jogos": 33
    },
    {
     "n": "Gabriel",
@@ -4844,7 +4844,7 @@
     "curto": "Carlos Eduardo",
     "num": 33,
     "pos": "M",
-    "jogos": 27
+    "jogos": 28
    },
    {
     "n": "Chico",
@@ -4865,42 +4865,42 @@
     "curto": "G. Cazonatti",
     "num": 55,
     "pos": "M",
-    "jogos": 7
+    "jogos": 8
    },
    {
     "n": "Gustavo Mosquito",
     "curto": "G. Mosquito",
     "num": 19,
     "pos": "M",
-    "jogos": 7
+    "jogos": 8
    },
    {
     "n": "Shaylon",
     "curto": "Shaylon",
     "num": 7,
     "pos": "M",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "Wallison Luiz",
     "curto": "Wallison Luiz",
     "num": 80,
     "pos": "M",
-    "jogos": 10
+    "jogos": 11
    },
    {
     "n": "José Aldo",
     "curto": "José Aldo",
     "num": 21,
     "pos": "M",
-    "jogos": 19
+    "jogos": 20
    },
    {
     "n": "Denilson",
     "curto": "Denilson",
     "num": 8,
     "pos": "M",
-    "jogos": 26
+    "jogos": 27
    },
    {
     "n": "João Wellington",
@@ -4928,7 +4928,7 @@
     "curto": "Zé Roberto",
     "num": 99,
     "pos": "A",
-    "jogos": 2
+    "jogos": 3
    },
    {
     "n": "André Luis",
@@ -4949,21 +4949,21 @@
     "curto": "C. Eduardo",
     "num": 96,
     "pos": "A",
-    "jogos": 22
+    "jogos": 23
    },
    {
     "n": "Alesson",
     "curto": "Alesson",
     "num": 77,
     "pos": "A",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Bruno Santos",
     "curto": "Bruno Santos",
     "num": 30,
     "pos": "A",
-    "jogos": 17
+    "jogos": 18
    },
    {
     "n": "Vinicius Bacchi De Castro",
@@ -5979,7 +5979,7 @@
     "curto": "M. Rangel",
     "num": 88,
     "pos": "G",
-    "jogos": 33
+    "jogos": 34
    },
    {
     "n": "Ygor Vinhas",
@@ -6007,7 +6007,7 @@
     "curto": "Marllon",
     "num": 13,
     "pos": "D",
-    "jogos": 32
+    "jogos": 33
    },
    {
     "n": "Marlon Lopes",
@@ -6021,7 +6021,7 @@
     "curto": "D. Tchamba",
     "num": 18,
     "pos": "D",
-    "jogos": 23
+    "jogos": 24
    },
    {
     "n": "Léo Andrade",
@@ -6042,7 +6042,7 @@
     "curto": "Mayk",
     "num": 98,
     "pos": "D",
-    "jogos": 18
+    "jogos": 19
    },
    {
     "n": "Matheus Alexandre",
@@ -6063,14 +6063,14 @@
     "curto": "Marcelinho",
     "num": 79,
     "pos": "D",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "Zé Ivaldo",
     "curto": "Z. Ivaldo",
     "num": 27,
     "pos": "D",
-    "jogos": 11
+    "jogos": 12
    },
    {
     "n": "Rafael",
@@ -6098,28 +6098,28 @@
     "curto": "Y. Pikachu",
     "num": 22,
     "pos": "M",
-    "jogos": 32
+    "jogos": 33
    },
    {
     "n": "Patrick",
     "curto": "Patrick",
     "num": 8,
     "pos": "M",
-    "jogos": 30
+    "jogos": 31
    },
    {
     "n": "José Welison",
     "curto": "J. Welison",
     "num": 28,
     "pos": "M",
-    "jogos": 29
+    "jogos": 30
    },
    {
     "n": "Zé Ricardo",
     "curto": "Zé Ricardo",
     "num": 55,
     "pos": "M",
-    "jogos": 31
+    "jogos": 32
    },
    {
     "n": "Leonel Picco",
@@ -6133,21 +6133,21 @@
     "curto": "E. Fernando",
     "num": 35,
     "pos": "M",
-    "jogos": 5
+    "jogos": 6
    },
    {
     "n": "Jajá",
     "curto": "Jajá",
     "num": 37,
     "pos": "M",
-    "jogos": 29
+    "jogos": 30
    },
    {
     "n": "David Francisco",
     "curto": "David Francisco",
     "num": 26,
     "pos": "M",
-    "jogos": 18
+    "jogos": 19
    },
    {
     "n": "Tico",
@@ -6175,7 +6175,7 @@
     "curto": "G. Taliari",
     "num": 19,
     "pos": "A",
-    "jogos": 22
+    "jogos": 23
    },
    {
     "n": "Jaderson",
@@ -6189,14 +6189,14 @@
     "curto": "A. Galeano",
     "num": 21,
     "pos": "A",
-    "jogos": 11
+    "jogos": 12
    },
    {
     "n": "Gabriel Poveda",
     "curto": "G. Poveda",
     "num": 99,
     "pos": "A",
-    "jogos": 15
+    "jogos": 16
    },
    {
     "n": "Eduardo",

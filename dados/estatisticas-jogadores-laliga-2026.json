@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T01:29:26",
+ "atualizado": "2026-11-23T20:59:30",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -14,21 +14,27 @@
    "n": 13
   },
   {
+   "nome": "Yassir Zabiri",
+   "time": "87",
+   "escudo": "racing_santander",
+   "n": 11
+  },
+  {
    "nome": "Lamine Yamal",
    "time": "83",
    "escudo": "barcelona",
    "n": 10
   },
   {
-   "nome": "Yassir Zabiri",
-   "time": "87",
-   "escudo": "racing_santander",
-   "n": 9
-  },
-  {
    "nome": "Ante Budimir",
    "time": "97",
    "escudo": "osasuna",
+   "n": 9
+  },
+  {
+   "nome": "Fermín López",
+   "time": "83",
+   "escudo": "barcelona",
    "n": 8
   },
   {
@@ -44,10 +50,10 @@
    "n": 7
   },
   {
-   "nome": "Fermín López",
-   "time": "83",
-   "escudo": "barcelona",
-   "n": 7
+   "nome": "Álex Baena",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 6
   },
   {
    "nome": "Lucas Boyé",
@@ -68,7 +74,7 @@
    "n": 5
   },
   {
-   "nome": "Álex Baena",
+   "nome": "Alejandro Grimaldo",
    "time": "1068",
    "escudo": "atletico",
    "n": 5
@@ -92,6 +98,12 @@
    "n": 5
   },
   {
+   "nome": "Giuliano Simeone",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 4
+  },
+  {
    "nome": "Álex Berenguer",
    "time": "93",
    "escudo": "athletic",
@@ -101,18 +113,6 @@
    "nome": "Mariano Díaz",
    "time": "96",
    "escudo": "alaves",
-   "n": 4
-  },
-  {
-   "nome": "Giuliano Simeone",
-   "time": "1068",
-   "escudo": "atletico",
-   "n": 4
-  },
-  {
-   "nome": "Alejandro Grimaldo",
-   "time": "1068",
-   "escudo": "atletico",
    "n": 4
   },
   {
@@ -126,6 +126,12 @@
    "time": "89",
    "escudo": "sociedad",
    "n": 4
+  },
+  {
+   "nome": "Martín Satriano",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 3
   },
   {
    "nome": "Iñaki Williams",
@@ -146,9 +152,21 @@
    "n": 3
   },
   {
-   "nome": "Martín Satriano",
-   "time": "2922",
-   "escudo": "getafe",
+   "nome": "Georges Mikautadze",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Pape Gueye",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 3
+  },
+  {
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
    "n": 3
   },
   {
@@ -164,21 +182,15 @@
    "n": 3
   },
   {
-   "nome": "Georges Mikautadze",
-   "time": "102",
-   "escudo": "villarreal",
+   "nome": "Gonçalo Guedes",
+   "time": "89",
+   "escudo": "sociedad",
    "n": 3
   },
   {
    "nome": "Rodrigo Riquelme",
    "time": "244",
    "escudo": "betis",
-   "n": 3
-  },
-  {
-   "nome": "Pape Gueye",
-   "time": "102",
-   "escudo": "villarreal",
    "n": 3
   },
   {
@@ -230,15 +242,15 @@
    "n": 2
   },
   {
-   "nome": "Bil Nsongo",
-   "time": "90",
-   "escudo": "deportivo",
+   "nome": "Sergio Canales",
+   "time": "87",
+   "escudo": "racing_santander",
    "n": 2
   },
   {
-   "nome": "Germán Valera",
-   "time": "3751",
-   "escudo": "elche",
+   "nome": "Bil Nsongo",
+   "time": "90",
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -254,27 +266,15 @@
    "n": 2
   },
   {
-   "nome": "Isco",
-   "time": "244",
-   "escudo": "betis",
-   "n": 2
-  },
-  {
-   "nome": "Ferran Jutglà",
-   "time": "85",
-   "escudo": "celta",
-   "n": 2
-  },
-  {
    "nome": "Karim Adeyemi",
    "time": "83",
    "escudo": "barcelona",
    "n": 2
   },
   {
-   "nome": "Enrique Salas",
-   "time": "243",
-   "escudo": "sevilla",
+   "nome": "Germán Valera",
+   "time": "3751",
+   "escudo": "elche",
    "n": 2
   },
   {
@@ -290,15 +290,15 @@
    "n": 2
   },
   {
-   "nome": "Mikel Oyarzabal",
-   "time": "89",
-   "escudo": "sociedad",
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
    "n": 2
   },
   {
-   "nome": "Jorge de Frutos",
-   "time": "101",
-   "escudo": "rayo",
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
    "n": 2
   }
  ],
@@ -307,13 +307,19 @@
    "nome": "Lamine Yamal",
    "time": "83",
    "escudo": "barcelona",
-   "n": 8
+   "n": 9
   },
   {
    "nome": "Javi Hernandez",
    "time": "88",
    "escudo": "espanyol",
    "n": 6
+  },
+  {
+   "nome": "Alberto Moleiro",
+   "time": "102",
+   "escudo": "villarreal",
+   "n": 5
   },
   {
    "nome": "Fermín López",
@@ -346,15 +352,15 @@
    "n": 4
   },
   {
-   "nome": "Alberto Moleiro",
-   "time": "102",
-   "escudo": "villarreal",
-   "n": 4
-  },
-  {
    "nome": "Anthony Gordon",
    "time": "83",
    "escudo": "barcelona",
+   "n": 4
+  },
+  {
+   "nome": "Julián Álvarez",
+   "time": "1068",
+   "escudo": "atletico",
    "n": 4
   },
   {
@@ -370,6 +376,12 @@
    "n": 3
   },
   {
+   "nome": "Iñigo Vicente",
+   "time": "87",
+   "escudo": "racing_santander",
+   "n": 3
+  },
+  {
    "nome": "Jude Bellingham",
    "time": "86",
    "escudo": "real_madrid",
@@ -382,9 +394,9 @@
    "n": 3
   },
   {
-   "nome": "Iñigo Vicente",
-   "time": "87",
-   "escudo": "racing_santander",
+   "nome": "Pedri",
+   "time": "83",
+   "escudo": "barcelona",
    "n": 3
   },
   {
@@ -400,12 +412,6 @@
    "n": 3
   },
   {
-   "nome": "José Antonio Morente",
-   "time": "3751",
-   "escudo": "elche",
-   "n": 3
-  },
-  {
    "nome": "Raphinha",
    "time": "83",
    "escudo": "barcelona",
@@ -418,15 +424,15 @@
    "n": 3
   },
   {
-   "nome": "Youssouf Fofana",
-   "time": "243",
-   "escudo": "sevilla",
+   "nome": "José Antonio Morente",
+   "time": "3751",
+   "escudo": "elche",
    "n": 3
   },
   {
-   "nome": "Vinícius Júnior",
-   "time": "86",
-   "escudo": "real_madrid",
+   "nome": "Youssouf Fofana",
+   "time": "243",
+   "escudo": "sevilla",
    "n": 3
   },
   {
@@ -436,15 +442,39 @@
    "n": 3
   },
   {
+   "nome": "Vinícius Júnior",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
    "nome": "Job Ochieng",
    "time": "89",
    "escudo": "sociedad",
    "n": 3
   },
   {
+   "nome": "Dávid Hancko",
+   "time": "1068",
+   "escudo": "atletico",
+   "n": 2
+  },
+  {
    "nome": "Mario Soriano Carreno",
    "time": "90",
    "escudo": "deportivo",
+   "n": 2
+  },
+  {
+   "nome": "Martín Satriano",
+   "time": "2922",
+   "escudo": "getafe",
+   "n": 2
+  },
+  {
+   "nome": "Giuliano Simeone",
+   "time": "1068",
+   "escudo": "atletico",
    "n": 2
   },
   {
@@ -478,15 +508,15 @@
    "n": 2
   },
   {
-   "nome": "Dávid Hancko",
-   "time": "1068",
-   "escudo": "atletico",
+   "nome": "Karim Adeyemi",
+   "time": "83",
+   "escudo": "barcelona",
    "n": 2
   },
   {
-   "nome": "Martín Satriano",
-   "time": "2922",
-   "escudo": "getafe",
+   "nome": "Alejandro Grimaldo",
+   "time": "1068",
+   "escudo": "atletico",
    "n": 2
   },
   {
@@ -496,15 +526,9 @@
    "n": 2
   },
   {
-   "nome": "Giuliano Simeone",
-   "time": "1068",
-   "escudo": "atletico",
-   "n": 2
-  },
-  {
-   "nome": "Pedri",
-   "time": "83",
-   "escudo": "barcelona",
+   "nome": "Mikel Oyarzabal",
+   "time": "89",
+   "escudo": "sociedad",
    "n": 2
   },
   {
@@ -526,24 +550,6 @@
    "n": 2
   },
   {
-   "nome": "Karim Adeyemi",
-   "time": "83",
-   "escudo": "barcelona",
-   "n": 2
-  },
-  {
-   "nome": "Alejandro Grimaldo",
-   "time": "1068",
-   "escudo": "atletico",
-   "n": 2
-  },
-  {
-   "nome": "Mikel Oyarzabal",
-   "time": "89",
-   "escudo": "sociedad",
-   "n": 2
-  },
-  {
    "nome": "Jorge de Frutos",
    "time": "101",
    "escudo": "rayo",
@@ -562,21 +568,27 @@
    "n": 2
   },
   {
+   "nome": "Marc Bernal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 2
+  },
+  {
    "nome": "Isaac Romero",
    "time": "243",
    "escudo": "sevilla",
    "n": 2
   },
   {
-   "nome": "Pierre-Emerick Aubameyang",
-   "time": "90",
-   "escudo": "deportivo",
+   "nome": "Moi Gómez",
+   "time": "97",
+   "escudo": "osasuna",
    "n": 2
   },
   {
-   "nome": "Marc Bernal",
-   "time": "83",
-   "escudo": "barcelona",
+   "nome": "Pierre-Emerick Aubameyang",
+   "time": "90",
+   "escudo": "deportivo",
    "n": 2
   },
   {
@@ -589,18 +601,6 @@
    "nome": "Roy Revivo",
    "time": "3751",
    "escudo": "elche",
-   "n": 2
-  },
-  {
-   "nome": "Felix Correia",
-   "time": "243",
-   "escudo": "sevilla",
-   "n": 2
-  },
-  {
-   "nome": "Moi Gómez",
-   "time": "97",
-   "escudo": "osasuna",
    "n": 2
   }
  ],

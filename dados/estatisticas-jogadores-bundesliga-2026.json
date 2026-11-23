@@ -1,6 +1,12 @@
 {
- "atualizado": "2026-11-23T01:29:31",
+ "atualizado": "2026-11-23T20:59:35",
  "artilheiros": [
+  {
+   "nome": "Niclas Füllkrug",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 10
+  },
   {
    "nome": "Patrik Schick",
    "time": "131",
@@ -8,10 +14,16 @@
    "n": 9
   },
   {
-   "nome": "Niclas Füllkrug",
-   "time": "137",
-   "escudo": "bremen",
-   "n": 9
+   "nome": "Michael Gregoritsch",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 7
+  },
+  {
+   "nome": "Phillip Tietz",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 6
   },
   {
    "nome": "Michael Olise",
@@ -29,12 +41,6 @@
    "nome": "Younes Ebnoutalib",
    "time": "125",
    "escudo": "eintracht",
-   "n": 6
-  },
-  {
-   "nome": "Phillip Tietz",
-   "time": "2950",
-   "escudo": "mainz",
    "n": 6
   },
   {
@@ -71,12 +77,6 @@
    "nome": "Yuito Suzuki",
    "time": "126",
    "escudo": "freiburg",
-   "n": 5
-  },
-  {
-   "nome": "Michael Gregoritsch",
-   "time": "3841",
-   "escudo": "augsburg",
    "n": 5
   },
   {
@@ -122,6 +122,18 @@
    "n": 3
   },
   {
+   "nome": "Robin Fellhauer",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 3
+  },
+  {
+   "nome": "Anthony Caci",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 3
+  },
+  {
    "nome": "Tidiam Gomis",
    "time": "11420",
    "escudo": "leipzig",
@@ -134,21 +146,9 @@
    "n": 3
   },
   {
-   "nome": "Anthony Caci",
-   "time": "2950",
-   "escudo": "mainz",
-   "n": 3
-  },
-  {
    "nome": "Said El Mala",
    "time": "122",
    "escudo": "koln",
-   "n": 3
-  },
-  {
-   "nome": "Robin Fellhauer",
-   "time": "3841",
-   "escudo": "augsburg",
    "n": 3
   },
   {
@@ -176,6 +176,12 @@
    "n": 3
   },
   {
+   "nome": "Fabian Rieder",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
+  },
+  {
    "nome": "Lukas Petkov",
    "time": "10388",
    "escudo": "sv_elversberg",
@@ -185,6 +191,12 @@
    "nome": "Felix Keidel",
    "time": "10388",
    "escudo": "sv_elversberg",
+   "n": 2
+  },
+  {
+   "nome": "Ludovit Reis",
+   "time": "137",
+   "escudo": "bremen",
    "n": 2
   },
   {
@@ -203,6 +215,12 @@
    "nome": "Ezechiel Banzuzi",
    "time": "11420",
    "escudo": "leipzig",
+   "n": 2
+  },
+  {
+   "nome": "Sheraldo Becker",
+   "time": "2950",
+   "escudo": "mainz",
    "n": 2
   },
   {
@@ -242,6 +260,12 @@
    "n": 2
   },
   {
+   "nome": "Eren Dinkci",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
    "nome": "Janik Haberer",
    "time": "598",
    "escudo": "union_berlim",
@@ -272,33 +296,9 @@
    "n": 2
   },
   {
-   "nome": "Fabian Rieder",
-   "time": "3841",
-   "escudo": "augsburg",
-   "n": 2
-  },
-  {
-   "nome": "Marco Grüll",
-   "time": "137",
-   "escudo": "bremen",
-   "n": 2
-  },
-  {
-   "nome": "Ludovit Reis",
-   "time": "137",
-   "escudo": "bremen",
-   "n": 2
-  },
-  {
-   "nome": "Yannick Engelhardt",
-   "time": "126",
-   "escudo": "freiburg",
-   "n": 2
-  },
-  {
-   "nome": "Maximilian Mittelstädt",
-   "time": "134",
-   "escudo": "stuttgart",
+   "nome": "Terem Moffi",
+   "time": "127",
+   "escudo": "hamburger",
    "n": 2
   }
  ],
@@ -370,6 +370,12 @@
    "n": 3
   },
   {
+   "nome": "Anthony Caci",
+   "time": "2950",
+   "escudo": "mainz",
+   "n": 3
+  },
+  {
    "nome": "Tidiam Gomis",
    "time": "11420",
    "escudo": "leipzig",
@@ -388,12 +394,6 @@
    "n": 3
   },
   {
-   "nome": "Anthony Caci",
-   "time": "2950",
-   "escudo": "mainz",
-   "n": 3
-  },
-  {
    "nome": "Tom Bischof",
    "time": "132",
    "escudo": "bayern",
@@ -404,6 +404,12 @@
    "time": "11420",
    "escudo": "leipzig",
    "n": 3
+  },
+  {
+   "nome": "Hennes Behrens",
+   "time": "3841",
+   "escudo": "augsburg",
+   "n": 2
   },
   {
    "nome": "Jordy Makengo",
@@ -421,6 +427,12 @@
    "nome": "Aleix García",
    "time": "131",
    "escudo": "leverkusen",
+   "n": 2
+  },
+  {
+   "nome": "Kaishu Sano",
+   "time": "2950",
+   "escudo": "mainz",
    "n": 2
   },
   {
@@ -454,6 +466,12 @@
    "n": 2
   },
   {
+   "nome": "Chuki",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 2
+  },
+  {
    "nome": "Linton Maina",
    "time": "122",
    "escudo": "koln",
@@ -484,27 +502,9 @@
    "n": 2
   },
   {
-   "nome": "Hennes Behrens",
-   "time": "3841",
-   "escudo": "augsburg",
-   "n": 2
-  },
-  {
-   "nome": "Kaishu Sano",
-   "time": "2950",
-   "escudo": "mainz",
-   "n": 2
-  },
-  {
    "nome": "Vladimír Coufal",
    "time": "7911",
    "escudo": "hoffenheim",
-   "n": 2
-  },
-  {
-   "nome": "Chuki",
-   "time": "137",
-   "escudo": "bremen",
    "n": 2
   },
   {
@@ -598,9 +598,9 @@
    "n": 2
   },
   {
-   "nome": "Edmond Tapsoba",
-   "time": "131",
-   "escudo": "leverkusen",
+   "nome": "Karl Hein",
+   "time": "137",
+   "escudo": "bremen",
    "n": 1
   }
  ],
