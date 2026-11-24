@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:14:28",
+ "atualizado": "2026-11-24T20:00:30",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -2275,14 +2275,14 @@
   },
   {
    "nome": "Marlon",
-   "time": "17313",
-   "escudo": "cuiaba",
+   "time": "7635",
+   "escudo": "sport",
    "n": 1
   },
   {
-   "nome": "Marlon",
-   "time": "7635",
-   "escudo": "sport",
+   "nome": "Marlon Lopes",
+   "time": "17313",
+   "escudo": "cuiaba",
    "n": 1
   },
   {
@@ -4352,7 +4352,7 @@
     "pendurado": false
    },
    {
-    "nome": "Marlon",
+    "nome": "Marlon Lopes",
     "time": "17313",
     "escudo": "cuiaba",
     "amarelos": 2,

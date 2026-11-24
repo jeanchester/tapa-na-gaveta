@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:16:05",
+ "atualizado": "2026-11-24T20:02:06",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -50,6 +50,12 @@
    "n": 7
   },
   {
+   "nome": "Fer Niño",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 6
+  },
+  {
    "nome": "Álex Baena",
    "time": "1068",
    "escudo": "atletico",
@@ -59,12 +65,6 @@
    "nome": "Lucas Boyé",
    "time": "96",
    "escudo": "alaves",
-   "n": 6
-  },
-  {
-   "nome": "Fer Niño",
-   "time": "3751",
-   "escudo": "elche",
    "n": 6
   },
   {
@@ -134,6 +134,12 @@
    "n": 3
   },
   {
+   "nome": "Iván Romero",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 3
+  },
+  {
    "nome": "Iñaki Williams",
    "time": "93",
    "escudo": "athletic",
@@ -167,12 +173,6 @@
    "nome": "Mikel Oyarzabal",
    "time": "89",
    "escudo": "sociedad",
-   "n": 3
-  },
-  {
-   "nome": "Iván Romero",
-   "time": "1538",
-   "escudo": "levante",
    "n": 3
   },
   {
@@ -236,6 +236,12 @@
    "n": 3
   },
   {
+   "nome": "Germán Valera",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
    "nome": "Mario Soriano Carreno",
    "time": "90",
    "escudo": "deportivo",
@@ -272,12 +278,6 @@
    "n": 2
   },
   {
-   "nome": "Germán Valera",
-   "time": "3751",
-   "escudo": "elche",
-   "n": 2
-  },
-  {
    "nome": "Enes Ünal",
    "time": "2922",
    "escudo": "getafe",
@@ -290,15 +290,15 @@
    "n": 2
   },
   {
-   "nome": "Anthony Gordon",
-   "time": "83",
-   "escudo": "barcelona",
+   "nome": "Adrián de la Fuente",
+   "time": "1538",
+   "escudo": "levante",
    "n": 2
   },
   {
-   "nome": "Isco",
-   "time": "244",
-   "escudo": "betis",
+   "nome": "Anthony Gordon",
+   "time": "83",
+   "escudo": "barcelona",
    "n": 2
   }
  ],
@@ -412,6 +412,12 @@
    "n": 3
   },
   {
+   "nome": "José Antonio Morente",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 3
+  },
+  {
    "nome": "Raphinha",
    "time": "83",
    "escudo": "barcelona",
@@ -421,12 +427,6 @@
    "nome": "Carlos Soler",
    "time": "89",
    "escudo": "sociedad",
-   "n": 3
-  },
-  {
-   "nome": "José Antonio Morente",
-   "time": "3751",
-   "escudo": "elche",
    "n": 3
   },
   {
@@ -452,6 +452,12 @@
    "time": "89",
    "escudo": "sociedad",
    "n": 3
+  },
+  {
+   "nome": "Jon Ander Olasagasti",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 2
   },
   {
    "nome": "Dávid Hancko",
@@ -508,6 +514,12 @@
    "n": 2
   },
   {
+   "nome": "Lucas Cepeda",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
    "nome": "Karim Adeyemi",
    "time": "83",
    "escudo": "barcelona",
@@ -544,12 +556,6 @@
    "n": 2
   },
   {
-   "nome": "Lucas Cepeda",
-   "time": "3751",
-   "escudo": "elche",
-   "n": 2
-  },
-  {
    "nome": "Jorge de Frutos",
    "time": "101",
    "escudo": "rayo",
@@ -580,6 +586,12 @@
    "n": 2
   },
   {
+   "nome": "Roy Revivo",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 2
+  },
+  {
    "nome": "Moi Gómez",
    "time": "97",
    "escudo": "osasuna",
@@ -589,18 +601,6 @@
    "nome": "Pierre-Emerick Aubameyang",
    "time": "90",
    "escudo": "deportivo",
-   "n": 2
-  },
-  {
-   "nome": "Pau Cubarsí",
-   "time": "83",
-   "escudo": "barcelona",
-   "n": 2
-  },
-  {
-   "nome": "Roy Revivo",
-   "time": "3751",
-   "escudo": "elche",
    "n": 2
   }
  ],

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:14:29",
+ "atualizado": "2026-11-24T20:00:31",
  "artilheiros": [
   {
    "nome": "Tasos Douvikas",
@@ -1128,6 +1128,12 @@
    "n": 1
   },
   {
+   "nome": "Deniz Gül",
+   "time": "432",
+   "escudo": "galatasaray",
+   "n": 1
+  },
+  {
    "nome": "Deniz Undav",
    "time": "134",
    "escudo": "stuttgart",
@@ -1876,6 +1882,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "John McGinn",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jorne Spileers",
     "time": "570",
     "escudo": "club_brugge",
@@ -1890,6 +1903,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "João Gomes",
+    "time": "362",
+    "escudo": "villa",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Kai Havertz",
     "time": "359",
     "escudo": "arsenal",
@@ -1900,6 +1920,13 @@
     "nome": "Kristoffer Haugen",
     "time": "510",
     "escudo": "viking_fk",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Krystof Danek",
+    "time": "4411",
+    "escudo": "lask_linz",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1956,6 +1983,13 @@
     "nome": "Natan",
     "time": "244",
     "escudo": "betis",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nicolas Jackson",
+    "time": "362",
+    "escudo": "villa",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2040,6 +2074,13 @@
     "nome": "Alan Varela",
     "time": "437",
     "escudo": "fc_porto",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Alexey Batrakov",
+    "time": "432",
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2527,13 +2568,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "John McGinn",
-    "time": "362",
-    "escudo": "villa",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Josha Vagnoman",
     "time": "134",
     "escudo": "stuttgart",
@@ -2555,6 +2589,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Jostein Gundersen",
+    "time": "2980",
+    "escudo": "bodoglimt",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Joy-Lance Mickels",
     "time": "21922",
     "escudo": "sabah_fk",
@@ -2565,13 +2606,6 @@
     "nome": "João Cancelo",
     "time": "83",
     "escudo": "barcelona",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "João Gomes",
-    "time": "362",
-    "escudo": "villa",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2642,13 +2676,6 @@
     "nome": "Kristoffer Askildsen",
     "time": "510",
     "escudo": "viking_fk",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Krystof Danek",
-    "time": "4411",
-    "escudo": "lask_linz",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2919,13 +2946,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Nicolas Jackson",
-    "time": "362",
-    "escudo": "villa",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Noa Lang",
     "time": "114",
     "escudo": "napoli",
@@ -3083,6 +3103,13 @@
     "nome": "Romeo Vermant",
     "time": "570",
     "escudo": "club_brugge",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Ross Barkley",
+    "time": "362",
+    "escudo": "villa",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3258,6 +3285,13 @@
     "nome": "Yann Bisseck",
     "time": "110",
     "escudo": "inter",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yunus Akgün",
+    "time": "432",
+    "escudo": "galatasaray",
     "amarelos": 1,
     "vermelhos": 0
    }

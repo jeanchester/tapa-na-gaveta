@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:16:07",
+ "atualizado": "2026-11-24T20:02:08",
  "artilheiros": [
   {
    "nome": "Donyell Malen",
@@ -11,7 +11,7 @@
    "nome": "Gustavo Varela",
    "time": "4007",
    "escudo": "monza",
-   "n": 9
+   "n": 11
   },
   {
    "nome": "Antonio Raimondo",
@@ -98,18 +98,6 @@
    "n": 5
   },
   {
-   "nome": "Gustav Isaksen",
-   "time": "112",
-   "escudo": "lazio",
-   "n": 4
-  },
-  {
-   "nome": "Kevin De Bruyne",
-   "time": "114",
-   "escudo": "napoli",
-   "n": 4
-  },
-  {
    "nome": "Franco Mastantuono",
    "time": "109",
    "escudo": "fiorentina",
@@ -119,6 +107,18 @@
    "nome": "Mateo Pellegrino",
    "time": "109",
    "escudo": "fiorentina",
+   "n": 4
+  },
+  {
+   "nome": "Gustav Isaksen",
+   "time": "112",
+   "escudo": "lazio",
+   "n": 4
+  },
+  {
+   "nome": "Kevin De Bruyne",
+   "time": "114",
+   "escudo": "napoli",
    "n": 4
   },
   {
@@ -218,6 +218,18 @@
    "n": 3
   },
   {
+   "nome": "Alieu Njie",
+   "time": "109",
+   "escudo": "fiorentina",
+   "n": 3
+  },
+  {
+   "nome": "Jay Robinson",
+   "time": "4007",
+   "escudo": "monza",
+   "n": 3
+  },
+  {
    "nome": "Hakan Çalhanoglu",
    "time": "110",
    "escudo": "inter",
@@ -227,12 +239,6 @@
    "nome": "Scott McTominay",
    "time": "114",
    "escudo": "napoli",
-   "n": 3
-  },
-  {
-   "nome": "Alieu Njie",
-   "time": "109",
-   "escudo": "fiorentina",
    "n": 3
   },
   {
@@ -293,12 +299,6 @@
    "nome": "Hassane Kamara",
    "time": "118",
    "escudo": "udinese",
-   "n": 2
-  },
-  {
-   "nome": "Romano Schmid",
-   "time": "4057",
-   "escudo": "frosinone",
    "n": 2
   }
  ],
@@ -466,6 +466,18 @@
    "n": 2
   },
   {
+   "nome": "Cher Ndour",
+   "time": "109",
+   "escudo": "fiorentina",
+   "n": 2
+  },
+  {
+   "nome": "Ricardo Mangas",
+   "time": "4007",
+   "escudo": "monza",
+   "n": 2
+  },
+  {
    "nome": "Kenneth Taylor",
    "time": "112",
    "escudo": "lazio",
@@ -514,9 +526,9 @@
    "n": 2
   },
   {
-   "nome": "Cher Ndour",
-   "time": "109",
-   "escudo": "fiorentina",
+   "nome": "Samuele Birindelli",
+   "time": "4007",
+   "escudo": "monza",
    "n": 2
   },
   {
@@ -526,9 +538,9 @@
    "n": 2
   },
   {
-   "nome": "Ricardo Mangas",
-   "time": "4007",
-   "escudo": "monza",
+   "nome": "Álex Jiménez",
+   "time": "109",
+   "escudo": "fiorentina",
    "n": 2
   },
   {
@@ -562,27 +574,21 @@
    "n": 2
   },
   {
-   "nome": "Samuele Birindelli",
-   "time": "4007",
-   "escudo": "monza",
-   "n": 2
-  },
-  {
    "nome": "Giovanni Di Lorenzo",
    "time": "114",
    "escudo": "napoli",
    "n": 2
   },
   {
-   "nome": "Álex Jiménez",
-   "time": "109",
-   "escudo": "fiorentina",
-   "n": 2
-  },
-  {
    "nome": "Gianluca Mancini",
    "time": "104",
    "escudo": "roma",
+   "n": 2
+  },
+  {
+   "nome": "Alieu Njie",
+   "time": "109",
+   "escudo": "fiorentina",
    "n": 2
   },
   {
@@ -595,12 +601,6 @@
    "nome": "Keinan Davis",
    "time": "118",
    "escudo": "udinese",
-   "n": 2
-  },
-  {
-   "nome": "Nahuel Molina",
-   "time": "104",
-   "escudo": "roma",
    "n": 2
   }
  ],

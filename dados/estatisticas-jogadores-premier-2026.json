@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:16:03",
+ "atualizado": "2026-11-24T20:02:04",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -80,6 +80,12 @@
    "n": 4
   },
   {
+   "nome": "Keane Lewis-Potter",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 4
+  },
+  {
    "nome": "Bruno Fernandes",
    "time": "360",
    "escudo": "man_united",
@@ -101,6 +107,12 @@
    "nome": "Cole Palmer",
    "time": "363",
    "escudo": "chelsea",
+   "n": 3
+  },
+  {
+   "nome": "Kiernan Dewsbury-Hall",
+   "time": "368",
+   "escudo": "everton",
    "n": 3
   },
   {
@@ -128,6 +140,12 @@
    "n": 3
   },
   {
+   "nome": "Kevin Schade",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 3
+  },
+  {
    "nome": "Pedro Neto",
    "time": "363",
    "escudo": "chelsea",
@@ -140,21 +158,15 @@
    "n": 3
   },
   {
-   "nome": "Kiernan Dewsbury-Hall",
-   "time": "368",
-   "escudo": "everton",
+   "nome": "Vitaly Janelt",
+   "time": "337",
+   "escudo": "brentford",
    "n": 3
   },
   {
    "nome": "Yasin Ayari",
    "time": "331",
    "escudo": "brighton",
-   "n": 3
-  },
-  {
-   "nome": "Kevin Schade",
-   "time": "337",
-   "escudo": "brentford",
    "n": 3
   },
   {
@@ -288,18 +300,6 @@
    "time": "337",
    "escudo": "brentford",
    "n": 2
-  },
-  {
-   "nome": "Keane Lewis-Potter",
-   "time": "337",
-   "escudo": "brentford",
-   "n": 2
-  },
-  {
-   "nome": "Alysson",
-   "time": "362",
-   "escudo": "villa",
-   "n": 2
   }
  ],
  "assistencias": [
@@ -331,6 +331,12 @@
    "nome": "John McGinn",
    "time": "362",
    "escudo": "villa",
+   "n": 4
+  },
+  {
+   "nome": "Jaidon Anthony",
+   "time": "337",
+   "escudo": "brentford",
    "n": 4
   },
   {
@@ -529,12 +535,6 @@
    "nome": "Justin Kluivert",
    "time": "349",
    "escudo": "bournemouth",
-   "n": 2
-  },
-  {
-   "nome": "Jaidon Anthony",
-   "time": "337",
-   "escudo": "brentford",
    "n": 2
   },
   {

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T05:14:19",
+ "atualizado": "2026-11-24T20:00:22",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -32,6 +32,12 @@
    "n": 13
   },
   {
+   "nome": "Renê",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 12
+  },
+  {
    "nome": "Carlos Vinícius",
    "time": "6273",
    "escudo": "gremio",
@@ -50,15 +56,15 @@
    "n": 11
   },
   {
-   "nome": "Renê",
-   "time": "3457",
-   "escudo": "vitoria",
-   "n": 11
-  },
-  {
    "nome": "José Manuel López",
    "time": "2029",
    "escudo": "palmeiras",
+   "n": 10
+  },
+  {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
    "n": 10
   },
   {
@@ -71,12 +77,6 @@
    "nome": "Maurício",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 10
-  },
-  {
-   "nome": "Jonathan Calleri",
-   "time": "2026",
-   "escudo": "sp",
    "n": 10
   },
   {
@@ -188,6 +188,12 @@
    "n": 6
   },
   {
+   "nome": "Renato Kayzer",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 6
+  },
+  {
    "nome": "Agustín Canobbio",
    "time": "3445",
    "escudo": "fluminense",
@@ -218,7 +224,19 @@
    "n": 6
   },
   {
+   "nome": "Vitinho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
    "nome": "Erick",
+   "time": "3457",
+   "escudo": "vitoria",
+   "n": 5
+  },
+  {
+   "nome": "Matheus",
    "time": "3457",
    "escudo": "vitoria",
    "n": 5
@@ -227,12 +245,6 @@
    "nome": "Andrés Gómez",
    "time": "3454",
    "escudo": "vasco",
-   "n": 5
-  },
-  {
-   "nome": "Matheus",
-   "time": "3457",
-   "escudo": "vitoria",
    "n": 5
   },
   {
@@ -272,6 +284,12 @@
    "n": 5
   },
   {
+   "nome": "Alerrando",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 5
+  },
+  {
    "nome": "Álvaro Barreal",
    "time": "2674",
    "escudo": "santos",
@@ -281,24 +299,6 @@
    "nome": "Alef Manga",
    "time": "4936",
    "escudo": "remo",
-   "n": 5
-  },
-  {
-   "nome": "Bernard",
-   "time": "7632",
-   "escudo": "atleticomg",
-   "n": 5
-  },
-  {
-   "nome": "Tomás Cuello",
-   "time": "7632",
-   "escudo": "atleticomg",
-   "n": 5
-  },
-  {
-   "nome": "Ramón Sosa",
-   "time": "2029",
-   "escudo": "palmeiras",
    "n": 5
   }
  ],
@@ -400,15 +400,15 @@
    "n": 5
   },
   {
-   "nome": "Rodrigo Nestor",
-   "time": "9967",
-   "escudo": "bahia",
-   "n": 5
-  },
-  {
    "nome": "Álvaro Montoro",
    "time": "6086",
    "escudo": "botafogo",
+   "n": 5
+  },
+  {
+   "nome": "Rodrigo Nestor",
+   "time": "9967",
+   "escudo": "bahia",
    "n": 5
   },
   {
@@ -448,21 +448,21 @@
    "n": 4
   },
   {
-   "nome": "Reinaldo",
-   "time": "9169",
-   "escudo": "mirassol",
-   "n": 4
-  },
-  {
    "nome": "Vitinho",
    "time": "6086",
    "escudo": "botafogo",
    "n": 4
   },
   {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
+   "nome": "Vitinho",
+   "time": "1936",
+   "escudo": "internacional",
+   "n": 4
+  },
+  {
+   "nome": "Reinaldo",
+   "time": "9169",
+   "escudo": "mirassol",
    "n": 4
   },
   {
@@ -484,21 +484,27 @@
    "n": 4
   },
   {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
+   "n": 4
+  },
+  {
    "nome": "Gerson",
    "time": "2022",
    "escudo": "cruzeiro",
    "n": 4
   },
   {
-   "nome": "Jean Lucas",
-   "time": "9967",
-   "escudo": "bahia",
-   "n": 4
-  },
-  {
    "nome": "Cristian Pavón",
    "time": "6273",
    "escudo": "gremio",
+   "n": 4
+  },
+  {
+   "nome": "Jean Lucas",
+   "time": "9967",
+   "escudo": "bahia",
    "n": 4
   },
   {
@@ -580,27 +586,21 @@
    "n": 3
   },
   {
-   "nome": "Vitinho",
-   "time": "1936",
-   "escudo": "internacional",
-   "n": 3
-  },
-  {
    "nome": "Kevin Viveros",
    "time": "3458",
    "escudo": "athletico",
    "n": 3
   },
   {
-   "nome": "Isidro Pitta",
-   "time": "6079",
-   "escudo": "bragantino",
+   "nome": "Gabriel Bontempo",
+   "time": "2674",
+   "escudo": "santos",
    "n": 3
   },
   {
-   "nome": "Lucas Evangelista",
-   "time": "2029",
-   "escudo": "palmeiras",
+   "nome": "Isidro Pitta",
+   "time": "6079",
+   "escudo": "bragantino",
    "n": 3
   }
  ],
@@ -8262,7 +8262,7 @@
     "pendurado": false
    },
    {
-    "nome": "Marlon",
+    "nome": "Marlon Lopes",
     "time": "4936",
     "escudo": "remo",
     "amarelos": 1,
