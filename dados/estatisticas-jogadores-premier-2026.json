@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T20:59:28",
+ "atualizado": "2026-11-24T05:16:03",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -666,6 +666,12 @@
    "n": 4
   },
   {
+   "nome": "Keane Lewis-Potter",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 4
+  },
+  {
    "nome": "Noah Okafor",
    "time": "357",
    "escudo": "leeds",
@@ -762,6 +768,12 @@
    "n": 3
   },
   {
+   "nome": "Vitaly Janelt",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 3
+  },
+  {
    "nome": "Víctor Muñoz",
    "time": "364",
    "escudo": "liverpool",
@@ -852,6 +864,12 @@
    "n": 2
   },
   {
+   "nome": "Fábio Carvalho",
+   "time": "337",
+   "escudo": "brentford",
+   "n": 2
+  },
+  {
    "nome": "Igor Thiago",
    "time": "337",
    "escudo": "brentford",
@@ -912,12 +930,6 @@
    "n": 2
   },
   {
-   "nome": "Keane Lewis-Potter",
-   "time": "337",
-   "escudo": "brentford",
-   "n": 2
-  },
-  {
    "nome": "Leif Davis",
    "time": "373",
    "escudo": "ipswich_town",
@@ -963,12 +975,6 @@
    "nome": "Tyrick Mitchell",
    "time": "384",
    "escudo": "crystal",
-   "n": 2
-  },
-  {
-   "nome": "Vitaly Janelt",
-   "time": "337",
-   "escudo": "brentford",
    "n": 2
   },
   {
@@ -1185,12 +1191,6 @@
    "nome": "Florentino",
    "time": "373",
    "escudo": "ipswich_town",
-   "n": 1
-  },
-  {
-   "nome": "Fábio Carvalho",
-   "time": "337",
-   "escudo": "brentford",
    "n": 1
   },
   {
@@ -1653,6 +1653,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "James Tarkowski",
+    "time": "368",
+    "escudo": "everton",
+    "amarelos": 2,
+    "vermelhos": 1
+   },
+   {
     "nome": "Jayden Bogle",
     "time": "357",
     "escudo": "leeds",
@@ -1947,6 +1954,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Vitaliy Mykolenko",
+    "time": "368",
+    "escudo": "everton",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Yehor Yarmoliuk",
     "time": "337",
     "escudo": "brentford",
@@ -2181,13 +2195,6 @@
     "nome": "Jair Cunha",
     "time": "393",
     "escudo": "forest",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "James Tarkowski",
-    "time": "368",
-    "escudo": "everton",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2440,13 +2447,6 @@
     "nome": "Timothy Castagne",
     "time": "370",
     "escudo": "fulham",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Vitaliy Mykolenko",
-    "time": "368",
-    "escudo": "everton",
     "amarelos": 2,
     "vermelhos": 0
    },

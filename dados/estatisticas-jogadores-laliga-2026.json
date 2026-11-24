@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T20:59:30",
+ "atualizado": "2026-11-24T05:16:05",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -888,6 +888,12 @@
    "n": 2
   },
   {
+   "nome": "Dani Requena",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 2
+  },
+  {
    "nome": "Enes Ünal",
    "time": "2922",
    "escudo": "getafe",
@@ -1143,12 +1149,6 @@
    "nome": "Dani Raba",
    "time": "94",
    "escudo": "valencia",
-   "n": 1
-  },
-  {
-   "nome": "Dani Requena",
-   "time": "1538",
-   "escudo": "levante",
    "n": 1
   },
   {
@@ -1476,6 +1476,12 @@
    "n": 1
   },
   {
+   "nome": "Roy Revivo",
+   "time": "3751",
+   "escudo": "elche",
+   "n": 1
+  },
+  {
    "nome": "Sergio Martínez",
    "time": "87",
    "escudo": "racing_santander",
@@ -1663,6 +1669,13 @@
     "vermelhos": 2
    },
    {
+    "nome": "Federico Redondo",
+    "time": "3751",
+    "escudo": "elche",
+    "amarelos": 4,
+    "vermelhos": 1
+   },
+   {
     "nome": "Lorenzo Amatucci",
     "time": "90",
     "escudo": "deportivo",
@@ -1682,13 +1695,6 @@
     "escudo": "espanyol",
     "amarelos": 5,
     "vermelhos": 0
-   },
-   {
-    "nome": "Federico Redondo",
-    "time": "3751",
-    "escudo": "elche",
-    "amarelos": 3,
-    "vermelhos": 1
    },
    {
     "nome": "Fermín López",
@@ -2041,6 +2047,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Aïssa Mandi",
+    "time": "1538",
+    "escudo": "levante",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Cala",
     "time": "88",
     "escudo": "espanyol",
@@ -2072,6 +2085,13 @@
     "nome": "Dani Raba",
     "time": "94",
     "escudo": "valencia",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Dani Requena",
+    "time": "1538",
+    "escudo": "levante",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2370,13 +2390,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Aïssa Mandi",
-    "time": "1538",
-    "escudo": "levante",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Beñat Turrientes",
     "time": "89",
     "escudo": "sociedad",
@@ -2415,13 +2428,6 @@
     "nome": "Dani Carvajal",
     "time": "2922",
     "escudo": "getafe",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Dani Requena",
-    "time": "1538",
-    "escudo": "levante",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -3448,6 +3454,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Orio Rey",
+    "time": "1538",
+    "escudo": "levante",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Pablo Fornals",
     "time": "244",
     "escudo": "betis",
@@ -3605,6 +3618,13 @@
     "nome": "Sergio Gómez",
     "time": "89",
     "escudo": "sociedad",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Thiago Fernández",
+    "time": "1538",
+    "escudo": "levante",
     "amarelos": 1,
     "vermelhos": 0
    },

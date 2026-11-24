@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "fra.1",
  "temporada": 2026,
- "baixado_em": "2026-11-23T20:59:37",
+ "baixado_em": "2026-11-24T05:16:12",
  "times": [
   {
    "id": "172",
@@ -1899,18 +1899,6 @@
    "forma_visitante": "DLLDW"
   },
   {
-   "id": "401876362",
-   "data": "2027-01-02T20:00Z",
-   "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
-   "mandante": "6851",
-   "visitante": "3236",
-   "gols_mandante": null,
-   "gols_visitante": null,
-   "forma_mandante": "WWWLW",
-   "forma_visitante": "DLLLL"
-  },
-  {
    "id": "401876361",
    "data": "2027-01-02T20:00Z",
    "horario_definido": true,
@@ -1957,6 +1945,18 @@
    "gols_visitante": null,
    "forma_mandante": "LWDWD",
    "forma_visitante": "LLWLL"
+  },
+  {
+   "id": "401876362",
+   "data": "2027-01-03T16:15Z",
+   "horario_definido": true,
+   "status": "STATUS_SCHEDULED",
+   "mandante": "6851",
+   "visitante": "3236",
+   "gols_mandante": null,
+   "gols_visitante": null,
+   "forma_mandante": "WWWLW",
+   "forma_visitante": "DLLLL"
   },
   {
    "id": "401876359",

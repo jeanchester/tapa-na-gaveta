@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T20:59:33",
+ "atualizado": "2026-11-24T05:16:07",
  "artilheiros": [
   {
    "nome": "Donyell Malen",
@@ -615,7 +615,7 @@
    "nome": "Gustavo Varela",
    "time": "4007",
    "escudo": "monza",
-   "n": 9
+   "n": 11
   },
   {
    "nome": "Antonio Raimondo",
@@ -771,6 +771,12 @@
    "nome": "Jacobo Ramón",
    "time": "2572",
    "escudo": "como",
+   "n": 3
+  },
+  {
+   "nome": "Jay Robinson",
+   "time": "4007",
+   "escudo": "monza",
    "n": 3
   },
   {
@@ -939,12 +945,6 @@
    "nome": "Hassane Kamara",
    "time": "118",
    "escudo": "udinese",
-   "n": 2
-  },
-  {
-   "nome": "Jay Robinson",
-   "time": "4007",
-   "escudo": "monza",
    "n": 2
   },
   {
@@ -1876,6 +1876,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Radu Dragusin",
+    "time": "109",
+    "escudo": "fiorentina",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Rafa Marín",
     "time": "114",
     "escudo": "napoli",
@@ -2327,13 +2334,6 @@
     "nome": "Pio Esposito",
     "time": "110",
     "escudo": "inter",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Radu Dragusin",
-    "time": "109",
-    "escudo": "fiorentina",
     "amarelos": 2,
     "vermelhos": 0
    },

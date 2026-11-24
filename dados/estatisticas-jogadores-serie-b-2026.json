@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-23T20:57:55",
+ "atualizado": "2026-11-24T05:14:28",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -1758,7 +1758,7 @@
    "n": 1
   },
   {
-   "nome": "Christian Ortíz",
+   "nome": "Christian Ortiz",
    "time": "18127",
    "escudo": "novorizontino",
    "n": 1
@@ -2275,14 +2275,14 @@
   },
   {
    "nome": "Marlon",
-   "time": "7635",
-   "escudo": "sport",
+   "time": "17313",
+   "escudo": "cuiaba",
    "n": 1
   },
   {
-   "nome": "Marlon Lopes",
-   "time": "17313",
-   "escudo": "cuiaba",
+   "nome": "Marlon",
+   "time": "7635",
+   "escudo": "sport",
    "n": 1
   },
   {
@@ -4352,7 +4352,7 @@
     "pendurado": false
    },
    {
-    "nome": "Marlon Lopes",
+    "nome": "Marlon",
     "time": "17313",
     "escudo": "cuiaba",
     "amarelos": 2,
@@ -5682,7 +5682,7 @@
     "pendurado": true
    },
    {
-    "nome": "Christian Ortíz",
+    "nome": "Christian Ortiz",
     "time": "18127",
     "escudo": "novorizontino",
     "amarelos": 2,
