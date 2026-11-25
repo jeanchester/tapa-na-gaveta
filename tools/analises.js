@@ -62,13 +62,14 @@ function gerar(o) {
   function quadros(volta) {
     const escudo = (i, t) => L.times[i].escudo ? '<img class="crest" src="' + volta + 'midia/escudos/' + esc(L.times[i].escudo) + '.png" alt="" width="' + t + '" height="' + t + '" loading="lazy">' : '';
     const link = (i) => '<a href="' + volta + 'simulador/' + L.times[i].slug + '/">' + esc(nome(i)) + '</a>';
-    const nota = '<p class="fonte">Dados de ' + esc(dataDados) + ', atualizados a cada rodada. Chances em ' + N_SIM.toLocaleString('pt-BR') + ' simulações do <a href="' + volta + 'como-funciona/">modelo do Tapa na Gaveta</a>.</p>';
+    const nota = 'Dados de ' + esc(dataDados) + ', atualizados a cada rodada. Chances em ' + N_SIM.toLocaleString('pt-BR') + ' simulações do <a href="' + volta + 'como-funciona/">modelo do Tapa na Gaveta</a>.';
     return {
+      nota, usados: 0,   // nota dos dados (uma vez, no fim do texto) e quantos quadros a página usou
       tabela(arg) {
         const [de, ate] = (arg || '1-20').split('-').map(Number);
         return '<div class="tabela-rola"><table class="tab"><thead><tr><th>#</th><th class="esq">Time</th><th>P</th><th>J</th><th>V</th><th>SG</th><th>GP</th></tr></thead><tbody>' +
           tab.slice(de - 1, ate).map((x, k) => { const p = de + k, z = zs[p - 1]; return '<tr class="' + (z ? 'z-' + z : '') + '"><td>' + p + '</td><td class="esq">' + escudo(x.i, 20) + link(x.i) + '</td><td><b>' + x.pts + '</b></td><td>' + x.j + '</td><td>' + x.v + '</td><td>' + (x.sg > 0 ? '+' : '') + x.sg + '</td><td>' + x.gp + '</td></tr>'; }).join('') +
-          '</tbody></table></div>' + nota;
+          '</tbody></table></div>';
       },
       chances(arg) {
         const z = (arg || 'rb').trim();
@@ -77,7 +78,7 @@ function gerar(o) {
         const lista = ch.filter((c) => v(c) >= 0.005).sort((a, b) => v(b) - v(a));
         return '<div class="tabela-rola"><table class="tab"><caption>Chance de ' + esc(ZNOME[z]) + '</caption><tbody>' +
           lista.map((c) => '<tr><td class="esq">' + escudo(c.i, 20) + link(c.i) + ' <small>(' + posDe[c.i] + 'º)</small></td><td class="barra-td"><span class="barra-pct" style="width:' + Math.max(2, Math.round(v(c) * 100)) + '%"></span></td><td><b>' + pct(v(c)) + '</b></td></tr>').join('') +
-          '</tbody></table></div>' + nota;
+          '</tbody></table></div>';
       },
       rodada(arg) {
         const r = Number(arg);
@@ -91,7 +92,7 @@ function gerar(o) {
             if (j.feito) return '<tr><td class="esq jogo2"><small>' + esc(dia) + '</small><br>' + escudo(j.h, 18) + link(j.h) + ' <b>' + j.gh + '</b><br>' + escudo(j.a, 18) + link(j.a) + ' <b>' + j.ga + '</b></td><td colspan="4"><small>encerrado</small></td></tr>';
             const p = M.prob(j.h, j.a);
             return '<tr><td class="esq jogo2"><small>' + esc(dia) + '</small><br>' + escudo(j.h, 18) + link(j.h) + '<br>' + escudo(j.a, 18) + link(j.a) + '</td><td>' + pct(p.ph) + '</td><td>' + pct(p.pd) + '</td><td>' + pct(p.pa) + '</td><td>' + p.provavel[0] + ' x ' + p.provavel[1] + '</td></tr>';
-          }).join('') + '</tbody></table></div>' + nota;
+          }).join('') + '</tbody></table></div>';
       },
       time(arg) {
         const i = porSigla(arg.trim()), x = tab[posDe[i] - 1], c = ch[i];
@@ -114,7 +115,7 @@ function gerar(o) {
     txt.replace(/<!--[\s\S]*?-->/g, '').split(/\n{2,}/).forEach((bloco) => {
       const b = bloco.trim(); if (!b) return;
       const q = /^\{\{\s*(\w+)\s*([^}]*)\}\}$/.exec(b);
-      if (q) { if (!Q[q[1]]) throw new Error(arq + ': quadro desconhecido {{' + q[1] + '}}'); out.push(Q[q[1]](q[2].trim())); return; }
+      if (q) { if (typeof Q[q[1]] !== 'function') throw new Error(arq + ': quadro desconhecido {{' + q[1] + '}}'); Q.usados++; out.push(Q[q[1]](q[2].trim())); return; }
       if (/^#{2,3} /.test(b)) { const n = /^(#+)/.exec(b)[1].length; out.push('<h' + n + '>' + inline(b.replace(/^#+ /, '')) + '</h' + n + '>'); return; }
       if (/^[-*] /.test(b)) { out.push('<ul>' + b.split('\n').map((l) => '<li>' + inline(l.replace(/^[-*] /, '')) + '</li>').join('') + '</ul>'); return; }
       if (/^> /.test(b)) { out.push('<blockquote>' + inline(b.replace(/^> ?/gm, '')) + '</blockquote>'); return; }
@@ -132,7 +133,8 @@ function gerar(o) {
       '<h1>' + esc(meta.titulo) + '</h1>' +
       '<p class="assinatura">Por <b>' + esc(meta.autor) + '</b> · ' + esc(dataTxt(meta.data)) + (meta.atualizado ? ' · atualizado em ' + esc(dataTxt(meta.atualizado)) : '') + '</p>' +
       md(corpo, Q, arq) +
-      '<p class="fonte">O texto é a opinião de quem assina. Os quadros saem dos dados oficiais da rodada e do <a href="' + volta + 'como-funciona/">modelo do simulador</a>; não são dicas de aposta.</p>';
+      // uma nota só, no fim (antes ia embaixo de cada quadro: até 4 vezes a mesma frase na página)
+      '<p class="fonte">O texto é a opinião de quem assina. ' + (Q.usados ? Q.nota + ' ' : '') + 'Os quadros saem dos dados oficiais da rodada e do <a href="' + volta + 'como-funciona/">modelo do simulador</a>; não são dicas de aposta.</p>';
     if (meta.rascunho) html = '<p class="aviso-rascunho">Rascunho: esta página ainda não foi publicada (não aparece no Google nem na lista de análises).</p>' + html;
     const p = { caminho: 'analises/' + slug + '/', og: meta.og || 'simulador', titulo: meta.titulo, descricao: meta.descricao, data: meta.data, autor: meta.autor };
     const ld = '<script type="application/ld+json">' + JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: meta.titulo, description: meta.descricao, datePublished: meta.data, dateModified: meta.atualizado || meta.data, author: { '@type': 'Person', name: meta.autor }, publisher: { '@type': 'Organization', name: 'Tapa na Gaveta' } }).replace(/</g, '\\u003c') + '</script>';

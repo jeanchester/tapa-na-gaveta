@@ -1,6 +1,7 @@
 // Páginas com texto de verdade, geradas no build a partir dos dados (sem JavaScript no navegador):
 //   brasileirao-2026/         panorama: tabela, chances de cada time e jogos que faltam
 //   simulador/<time>/         uma por time: situação, chances, jogos que faltam e campanha
+//                             (fora do Google e dos anúncios desde 25/11/2026: ver p.semIndice)
 //   jogar/draft|milhao|fast/  uma por jogo: como jogar (texto em textos/jogos/*.html)
 // São o que o Google e a revisão do AdSense leem. Um link de cenário compartilhado
 // (simulador/<time>/?c=...) continua indo direto para o simulador, com os placares.
@@ -201,6 +202,10 @@ function gerar(o) {
       '<h2>Os outros times</h2><ul class="times-lista">' + outros.map((u) => '<li>' + escudoRel(u.i, 20, volta) + linkTime(u.i, volta) + '</li>').join('') + '</ul>';
     const p = { caminho: 'simulador/' + t.slug + '/', og: 'simulador-' + t.slug, titulo: nm.nome + ' no Brasileirão 2026: chances e jogos que faltam',
       descricao: (sTit === 'garantido' ? nm.O + ' ' + nm.nome + ' é campeão. ' : '') + 'Chances ' + nm.do + ' ' + nm.nome + ' de título, Libertadores e rebaixamento, os jogos que faltam com as probabilidades e a campanha no Brasileirão 2026.' };
+    // 25/11/2026: fora do Google e dos anúncios. O AdSense recusou o site por "conteúdo de baixo valor" e
+    // vinte páginas do mesmo molde pesam contra ("muitas páginas semelhantes... consolide-as"). Continuam no
+    // ar para quem chega pelo simulador ou por link; para voltar ao Google, apague a linha abaixo.
+    p.semIndice = true;
     gravar(p.caminho + 'index.html', casca(p, corpo, volta, { href: volta + '#/simulador/' + t.slug, rotulo: 'Simular', redirecionarComParametros: '#/simulador/' + t.slug }));
     paginas.push(p);
   });

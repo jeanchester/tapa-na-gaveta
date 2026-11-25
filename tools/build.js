@@ -126,7 +126,9 @@ function casca(p, corpo, volta, cta) {
   const ir = cta.redirecionarComParametros
     ? '  <script>if (location.search) location.replace("' + volta + cta.redirecionarComParametros + '?" + location.search.slice(1));</script>\n' : '';
   const nav = [['brasileirao-2026/', 'Brasileirão 2026'], ['analises/', 'Análises']].concat(TEXTOS.map((x) => [x.caminho, x.curto]), [['jogar/draft/', 'Football Draft'], ['jogar/milhao/', 'Jogo do Milhão'], ['jogar/fast/', 'Fast Football']]);
-  return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n' + ir + '  ' + meta(p) +
+  // semIndice: página fora do Google (noindex), do sitemap e dos anúncios; continua no ar para quem chega por link
+  const robots = p.semIndice ? '  <meta name="robots" content="noindex, follow">\n' : '';
+  return '<!doctype html>\n<html lang="pt-BR">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width,initial-scale=1">\n' + ir + robots + '  ' + meta(p) +
     '\n  <meta name="theme-color" content="#0b1640">\n  <link rel="icon" href="' + volta + 'favicon.ico" sizes="48x48">\n  <link rel="icon" href="' + volta + 'app/icones/favicon.svg" type="image/svg+xml">\n  <link rel="icon" href="' + volta + 'app/icones/favicon-192.png" type="image/png" sizes="192x192">\n  <link rel="apple-touch-icon" href="' + volta + 'apple-touch-icon.png">\n  <link rel="stylesheet" href="' + volta + 'app/app.css">\n</head>\n<body>\n' +
     '  <header class="head"><div class="wrap head-row"><a class="marca" href="' + volta + '" aria-label="Tapa na Gaveta, início"><b style="font:900 19px var(--f-num);color:#fff;white-space:nowrap;display:inline-block;transform:skewX(-6deg)">tapa na <span style="color:#ffc23d">gaveta</span></b></a><span class="sp"></span>' +
     '<a class="btn primario" style="background:var(--gold);border-color:var(--gold);color:#0b1640;white-space:nowrap" href="' + esc(cta.href) + '">' + esc(cta.rotulo) + '</a></div></header>\n' +
@@ -186,9 +188,11 @@ if (adsense || ga) {
     if (e.isDirectory()) { if (!/^(jogos|app|shared|dados|midia|textos)$/.test(rel)) varrer(rel); return; }
     if (e.name !== 'index.html') return;
     const h = ler(rel);
-    if (h.includes('name="robots" content="noindex')) return;   // só redireciona
+    if (h.includes('http-equiv="refresh"')) return;                    // só redireciona: nem anúncio nem Analytics
     if (!h.includes('</head>')) throw new Error(rel + ': sem </head> para o AdSense/Analytics');
-    const tags = (ga ? tagAnalytics(rel === 'index.html') : '') + (ads ? (ga ? '  ' : '') + ads : '');
+    const foraDoGoogle = h.includes('name="robots" content="noindex');  // páginas dos times, rascunhos: só Analytics
+    const tags = (ga ? tagAnalytics(rel === 'index.html') : '') + (ads && !foraDoGoogle ? (ga ? '  ' : '') + ads : '');
+    if (!tags) return;
     gravar(rel, h.replace('</head>', '  ' + tags + '</head>')); k++;
   });
   varrer('');
