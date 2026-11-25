@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-25T03:59:08",
+ "atualizado": "2026-11-25T19:00:38",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -242,15 +242,15 @@
    "n": 5
   },
   {
-   "nome": "Andrés Gómez",
-   "time": "3454",
-   "escudo": "vasco",
-   "n": 5
-  },
-  {
    "nome": "Marcinho",
    "time": "9318",
    "escudo": "chapecoense",
+   "n": 5
+  },
+  {
+   "nome": "Andrés Gómez",
+   "time": "3454",
+   "escudo": "vasco",
    "n": 5
   },
   {
@@ -328,6 +328,12 @@
    "n": 9
   },
   {
+   "nome": "Giovanni Augusto",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 8
+  },
+  {
    "nome": "Erick",
    "time": "3457",
    "escudo": "vitoria",
@@ -367,12 +373,6 @@
    "nome": "Guillermo Varela",
    "time": "819",
    "escudo": "flamengo",
-   "n": 7
-  },
-  {
-   "nome": "Giovanni Augusto",
-   "time": "9318",
-   "escudo": "chapecoense",
    "n": 7
   },
   {

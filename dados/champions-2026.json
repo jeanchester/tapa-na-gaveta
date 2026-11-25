@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "uefa.champions",
  "temporada": 2026,
- "baixado_em": "2026-11-25T04:00:43",
+ "baixado_em": "2026-11-25T19:02:14",
  "times": [
   {
    "id": "887",
@@ -1704,7 +1704,7 @@
    "id": "401915378",
    "data": "2026-11-25T17:45Z",
    "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
+   "status": "STATUS_SECOND_HALF",
    "mandante": "21922",
    "visitante": "83",
    "gols_mandante": null,
@@ -1716,7 +1716,7 @@
    "id": "401915293",
    "data": "2026-11-25T17:45Z",
    "horario_definido": true,
-   "status": "STATUS_SCHEDULED",
+   "status": "STATUS_SECOND_HALF",
    "mandante": "494",
    "visitante": "102",
    "gols_mandante": null,

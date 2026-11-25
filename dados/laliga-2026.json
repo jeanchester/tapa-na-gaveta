@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "esp.1",
  "temporada": 2026,
- "baixado_em": "2026-11-25T04:00:45",
+ "baixado_em": "2026-11-25T19:02:16",
  "times": [
   {
    "id": "96",
@@ -2204,7 +2204,7 @@
    "id": "401882849",
    "data": "2026-12-09T19:00Z",
    "horario_definido": true,
-   "status": "STATUS_SUSPENDED",
+   "status": "STATUS_SCHEDULED",
    "mandante": "101",
    "visitante": "93",
    "gols_mandante": null,

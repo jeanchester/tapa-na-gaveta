@@ -1,17 +1,17 @@
 {
- "atualizado": "2026-11-25T03:59:12",
+ "atualizado": "2026-11-25T19:00:43",
  "artilheiros": [
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 6
+  },
   {
    "nome": "Tasos Douvikas",
    "time": "2572",
    "escudo": "como",
    "n": 6
-  },
-  {
-   "nome": "Nicolo Tresoldi",
-   "time": "570",
-   "escudo": "club_brugge",
-   "n": 5
   },
   {
    "nome": "Erling Haaland",
@@ -20,15 +20,27 @@
    "n": 5
   },
   {
-   "nome": "Harry Kane",
-   "time": "132",
-   "escudo": "bayern",
+   "nome": "Nicolo Tresoldi",
+   "time": "570",
+   "escudo": "club_brugge",
+   "n": 5
+  },
+  {
+   "nome": "Alexey Batrakov",
+   "time": "432",
+   "escudo": "galatasaray",
    "n": 4
   },
   {
-   "nome": "Kylian Mbappé",
-   "time": "86",
-   "escudo": "real_madrid",
+   "nome": "Serhou Guirassy",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 4
+  },
+  {
+   "nome": "Harry Kane",
+   "time": "132",
+   "escudo": "bayern",
    "n": 4
   },
   {
@@ -50,18 +62,6 @@
    "n": 4
   },
   {
-   "nome": "Alexey Batrakov",
-   "time": "432",
-   "escudo": "galatasaray",
-   "n": 4
-  },
-  {
-   "nome": "Serhou Guirassy",
-   "time": "124",
-   "escudo": "dortmund",
-   "n": 4
-  },
-  {
    "nome": "Ermedin Demirovic",
    "time": "134",
    "escudo": "stuttgart",
@@ -74,9 +74,9 @@
    "n": 4
   },
   {
-   "nome": "Lamine Yamal",
-   "time": "83",
-   "escudo": "barcelona",
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
    "n": 3
   },
   {
@@ -89,6 +89,30 @@
    "nome": "Nicolas Jackson",
    "time": "362",
    "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 3
+  },
+  {
+   "nome": "Ross Barkley",
+   "time": "362",
+   "escudo": "villa",
+   "n": 3
+  },
+  {
+   "nome": "Lamine Yamal",
+   "time": "83",
+   "escudo": "barcelona",
+   "n": 3
+  },
+  {
+   "nome": "Scott McTominay",
+   "time": "114",
+   "escudo": "napoli",
    "n": 3
   },
   {
@@ -110,21 +134,9 @@
    "n": 3
   },
   {
-   "nome": "Ross Barkley",
-   "time": "362",
-   "escudo": "villa",
-   "n": 3
-  },
-  {
    "nome": "Ferran Torres",
    "time": "160",
    "escudo": "paris",
-   "n": 3
-  },
-  {
-   "nome": "Scott McTominay",
-   "time": "114",
-   "escudo": "napoli",
    "n": 3
   },
   {
@@ -146,6 +158,72 @@
    "n": 3
   },
   {
+   "nome": "Cucho Hernández",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
+   "nome": "Stavros Pilios",
+   "time": "887",
+   "escudo": "aek_athens",
+   "n": 2
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Rayan Cherki",
+   "time": "382",
+   "escudo": "city",
+   "n": 2
+  },
+  {
+   "nome": "Gabri Veiga",
+   "time": "437",
+   "escudo": "fc_porto",
+   "n": 2
+  },
+  {
+   "nome": "Kasper Jørgensen",
+   "time": "4411",
+   "escudo": "lask_linz",
+   "n": 2
+  },
+  {
+   "nome": "Robert Ljubicic",
+   "time": "4411",
+   "escudo": "lask_linz",
+   "n": 2
+  },
+  {
+   "nome": "Viktor Gyökeres",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Martin Baturina",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Eberechi Eze",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
    "nome": "Archie Brown",
    "time": "436",
    "escudo": "fenerbahce",
@@ -155,12 +233,6 @@
    "nome": "Santiago Mouriño",
    "time": "102",
    "escudo": "villarreal",
-   "n": 2
-  },
-  {
-   "nome": "Stavros Pilios",
-   "time": "887",
-   "escudo": "aek_athens",
    "n": 2
   },
   {
@@ -206,24 +278,6 @@
    "n": 2
   },
   {
-   "nome": "Eberechi Eze",
-   "time": "359",
-   "escudo": "arsenal",
-   "n": 2
-  },
-  {
-   "nome": "Federico Valverde",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 2
-  },
-  {
-   "nome": "Gabri Veiga",
-   "time": "437",
-   "escudo": "fc_porto",
-   "n": 2
-  },
-  {
    "nome": "Alphonso Davies",
    "time": "132",
    "escudo": "bayern",
@@ -236,69 +290,15 @@
    "n": 2
   },
   {
-   "nome": "Kasper Jørgensen",
-   "time": "4411",
-   "escudo": "lask_linz",
-   "n": 2
-  },
-  {
    "nome": "Erik Botheim",
    "time": "510",
    "escudo": "viking_fk",
    "n": 2
   },
   {
-   "nome": "Isco",
-   "time": "244",
-   "escudo": "betis",
-   "n": 2
-  },
-  {
-   "nome": "Robert Ljubicic",
-   "time": "4411",
-   "escudo": "lask_linz",
-   "n": 2
-  },
-  {
-   "nome": "Martin Baturina",
-   "time": "2572",
-   "escudo": "como",
-   "n": 2
-  },
-  {
    "nome": "Georges Mikautadze",
    "time": "102",
    "escudo": "villarreal",
-   "n": 2
-  },
-  {
-   "nome": "Gleiker Mendoza",
-   "time": "493",
-   "escudo": "shakhtar_donetsk",
-   "n": 2
-  },
-  {
-   "nome": "Ruben Aguilar",
-   "time": "175",
-   "escudo": "lens",
-   "n": 2
-  },
-  {
-   "nome": "Tani Oluwaseyi",
-   "time": "102",
-   "escudo": "villarreal",
-   "n": 2
-  },
-  {
-   "nome": "Marc Bartra",
-   "time": "244",
-   "escudo": "betis",
-   "n": 2
-  },
-  {
-   "nome": "Carlos Augusto",
-   "time": "110",
-   "escudo": "inter",
    "n": 2
   }
  ],
@@ -314,6 +314,30 @@
    "time": "83",
    "escudo": "barcelona",
    "n": 4
+  },
+  {
+   "nome": "Brahim Díaz",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Arda Güler",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 4
+  },
+  {
+   "nome": "Christopher Nkunku",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 3
+  },
+  {
+   "nome": "Yvan Dibango",
+   "time": "4411",
+   "escudo": "lask_linz",
+   "n": 3
   },
   {
    "nome": "Harry Kane",
@@ -340,9 +364,9 @@
    "n": 3
   },
   {
-   "nome": "Yvan Dibango",
-   "time": "4411",
-   "escudo": "lask_linz",
+   "nome": "Iliman Ndiaye",
+   "time": "382",
+   "escudo": "city",
    "n": 3
   },
   {
@@ -352,15 +376,57 @@
    "n": 3
   },
   {
-   "nome": "Brahim Díaz",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 3
-  },
-  {
    "nome": "Jacobo Ramón",
    "time": "2572",
    "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 2
+  },
+  {
+   "nome": "Sondre Brunstad Fet",
+   "time": "2980",
+   "escudo": "bodoglimt",
+   "n": 2
+  },
+  {
+   "nome": "Noni Madueke",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Viktor Gyökeres",
+   "time": "359",
+   "escudo": "arsenal",
+   "n": 2
+  },
+  {
+   "nome": "Martin Baturina",
+   "time": "2572",
+   "escudo": "como",
+   "n": 2
+  },
+  {
+   "nome": "Isco",
+   "time": "244",
+   "escudo": "betis",
+   "n": 2
+  },
+  {
+   "nome": "Fábio Silva",
+   "time": "124",
+   "escudo": "dortmund",
+   "n": 2
+  },
+  {
+   "nome": "Yan Diomande",
+   "time": "86",
+   "escudo": "real_madrid",
    "n": 2
   },
   {
@@ -394,12 +460,6 @@
    "n": 2
   },
   {
-   "nome": "Sondre Brunstad Fet",
-   "time": "2980",
-   "escudo": "bodoglimt",
-   "n": 2
-  },
-  {
    "nome": "Donyell Malen",
    "time": "104",
    "escudo": "roma",
@@ -418,39 +478,21 @@
    "n": 2
   },
   {
-   "nome": "Christopher Nkunku",
-   "time": "11420",
-   "escudo": "leipzig",
-   "n": 2
-  },
-  {
-   "nome": "Fábio Silva",
-   "time": "124",
-   "escudo": "dortmund",
-   "n": 2
-  },
-  {
-   "nome": "Viktor Gyökeres",
-   "time": "359",
-   "escudo": "arsenal",
-   "n": 2
-  },
-  {
    "nome": "Fermín López",
    "time": "83",
    "escudo": "barcelona",
    "n": 2
   },
   {
-   "nome": "Rodrigo Mora",
-   "time": "104",
-   "escudo": "roma",
+   "nome": "Ibrahim Mbaye",
+   "time": "362",
+   "escudo": "villa",
    "n": 2
   },
   {
-   "nome": "Yan Diomande",
-   "time": "86",
-   "escudo": "real_madrid",
+   "nome": "Rodrigo Mora",
+   "time": "104",
+   "escudo": "roma",
    "n": 2
   },
   {
@@ -472,21 +514,15 @@
    "n": 2
   },
   {
+   "nome": "Leonardo Spinazzola",
+   "time": "114",
+   "escudo": "napoli",
+   "n": 2
+  },
+  {
    "nome": "João Neves",
    "time": "160",
    "escudo": "paris",
-   "n": 2
-  },
-  {
-   "nome": "Ibrahim Mbaye",
-   "time": "362",
-   "escudo": "villa",
-   "n": 2
-  },
-  {
-   "nome": "Iliman Ndiaye",
-   "time": "382",
-   "escudo": "city",
    "n": 2
   },
   {
@@ -508,12 +544,6 @@
    "n": 2
   },
   {
-   "nome": "Arda Güler",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 2
-  },
-  {
    "nome": "Mattia Liberali",
    "time": "2572",
    "escudo": "como",
@@ -526,39 +556,9 @@
    "n": 2
   },
   {
-   "nome": "Archie Brown",
-   "time": "436",
-   "escudo": "fenerbahce",
-   "n": 1
-  },
-  {
-   "nome": "Hákon Haraldsson",
-   "time": "166",
-   "escudo": "lille",
-   "n": 1
-  },
-  {
    "nome": "Stavros Pilios",
    "time": "887",
    "escudo": "aek_athens",
-   "n": 1
-  },
-  {
-   "nome": "Kristoffer Askildsen",
-   "time": "510",
-   "escudo": "viking_fk",
-   "n": 1
-  },
-  {
-   "nome": "Ivan Lepinjica",
-   "time": "21922",
-   "escudo": "sabah_fk",
-   "n": 1
-  },
-  {
-   "nome": "Tymoteusz Puchacz",
-   "time": "21922",
-   "escudo": "sabah_fk",
    "n": 1
   },
   {
@@ -574,33 +574,33 @@
    "n": 1
   },
   {
-   "nome": "Milan Skriniar",
-   "time": "436",
-   "escudo": "fenerbahce",
-   "n": 1
-  },
-  {
    "nome": "Kevin De Bruyne",
    "time": "114",
    "escudo": "napoli",
    "n": 1
   },
   {
-   "nome": "Kylian Mbappé",
-   "time": "86",
-   "escudo": "real_madrid",
+   "nome": "Pepê",
+   "time": "437",
+   "escudo": "fc_porto",
    "n": 1
   },
   {
-   "nome": "Fabián Ruiz",
-   "time": "160",
-   "escudo": "paris",
+   "nome": "Joey Veerman",
+   "time": "124",
+   "escudo": "dortmund",
    "n": 1
   },
   {
-   "nome": "Alisson Santana",
-   "time": "493",
-   "escudo": "shakhtar_donetsk",
+   "nome": "Sondre Auklend",
+   "time": "2980",
+   "escudo": "bodoglimt",
+   "n": 1
+  },
+  {
+   "nome": "Luka Jovic",
+   "time": "887",
+   "escudo": "aek_athens",
    "n": 1
   }
  ],
