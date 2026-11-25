@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T20:00:22",
+ "atualizado": "2026-11-25T03:59:08",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -87,85 +87,85 @@
    ]
   },
   "palmeiras": {
-   "jogo": "401841322",
-   "data": "2026-11-21T19:30Z",
-   "contra": "Flamengo",
+   "jogo": "401841335",
+   "data": "2026-11-24T21:00Z",
+   "contra": "Chapecoense",
    "esquema": "3-4-2-1",
    "titulares": [
     {
-     "n": "Carlos Miguel",
-     "curto": "Carlos Miguel",
-     "num": 1,
+     "n": "Marcelo Lomba",
+     "curto": "Marcelo Lomba",
+     "num": 14,
      "pos": "G",
      "lugar": 1
-    },
-    {
-     "n": "Gustavo Gómez",
-     "curto": "G. Gómez",
-     "num": 15,
-     "pos": "CD",
-     "lugar": 5
     },
     {
      "n": "Luiz Benedetti",
      "curto": "L. Benedetti",
      "num": 43,
+     "pos": "CD",
+     "lugar": 5
+    },
+    {
+     "n": "Kone Zie Mohamed",
+     "curto": "K. Mohamed",
+     "num": 44,
      "pos": "CD-L",
      "lugar": 4
     },
     {
-     "n": "Bruno Fuchs",
-     "curto": "B. Fuchs",
-     "num": 3,
+     "n": "Emiliano Martínez",
+     "curto": "E. Martínez",
+     "num": 32,
      "pos": "CD-R",
      "lugar": 6
     },
     {
-     "n": "Marlon Freitas",
-     "curto": "M. Freitas",
-     "num": 17,
+     "n": "Luis Felipe",
+     "curto": "Luis Felipe",
+     "num": 50,
      "pos": "CM-L",
      "lugar": 8
     },
     {
-     "n": "Andreas Pereira",
-     "curto": "A. Pereira",
-     "num": 8,
+     "n": "Larson",
+     "curto": "Larson",
+     "num": 48,
      "pos": "CM-R",
      "lugar": 7
     },
     {
-     "n": "Arthur Gabriel",
-     "curto": "Arthur Gabriel",
-     "num": 56,
+     "n": "Khellven",
+     "curto": "Khellven",
+     "num": 12,
      "pos": "LM",
      "lugar": 3
     },
     {
-     "n": "Agustín Giay",
-     "curto": "A. Giay",
-     "num": 4,
+     "n": "Felipe Anderson",
+     "curto": "Felipe Anderson",
+     "num": 7,
      "pos": "RM",
      "lugar": 2
     },
     {
-     "n": "Vitor Roque",
-     "curto": "V. Roque",
-     "num": 9,
+     "n": "Heittor",
+     "curto": "Heittor",
+     "num": 39,
      "pos": "F",
      "lugar": 9
     },
     {
-     "n": "Jhon Arias",
-     "curto": "J. Arias",
-     "num": 11,
+     "n": "Fabiano",
+     "curto": "Fabiano",
+     "num": 37,
      "pos": "CF-L",
      "lugar": 11
     },
     {
-     "n": "José Manuel López",
-     "curto": "J. López",
-     "num": 42,
+     "n": "Erick Machado",
+     "curto": "E. Machado",
+     "num": 45,
      "pos": "CF-R",
      "lugar": 10
     }
@@ -1617,15 +1617,15 @@
    ]
   },
   "chapecoense": {
-   "jogo": "401841325",
-   "data": "2026-11-22T00:00Z",
-   "contra": "Cruzeiro",
-   "esquema": "5-4-1",
+   "jogo": "401841335",
+   "data": "2026-11-24T21:00Z",
+   "contra": "Palmeiras",
+   "esquema": "3-4-2-1",
    "titulares": [
     {
-     "n": "Gabriel Werner",
-     "curto": "G. Werner",
-     "num": 14,
+     "n": "Matheus",
+     "curto": "Matheus",
+     "num": 30,
      "pos": "G",
      "lugar": 1
     },
@@ -1651,46 +1651,32 @@
      "lugar": 6
     },
     {
-     "n": "Bruno Pacheco",
-     "curto": "B. Pacheco",
-     "num": 91,
-     "pos": "LB",
-     "lugar": 3
-    },
-    {
-     "n": "Heitor",
-     "curto": "Heitor",
-     "num": 5,
-     "pos": "RB",
-     "lugar": 2
-    },
-    {
      "n": "David",
      "curto": "D. David",
      "num": 19,
      "pos": "CM-L",
-     "lugar": 10
+     "lugar": 8
     },
     {
      "n": "Camilo",
      "curto": "Camilo",
      "num": 27,
      "pos": "CM-R",
-     "lugar": 8
-    },
-    {
-     "n": "Max",
-     "curto": "Max",
-     "num": 22,
-     "pos": "LM",
-     "lugar": 11
-    },
-    {
-     "n": "Bruno",
-     "curto": "Bruno",
-     "num": 20,
-     "pos": "RM",
      "lugar": 7
+    },
+    {
+     "n": "Bruno Pacheco",
+     "curto": "B. Pacheco",
+     "num": 91,
+     "pos": "LM",
+     "lugar": 3
+    },
+    {
+     "n": "Heitor",
+     "curto": "Heitor",
+     "num": 5,
+     "pos": "RM",
+     "lugar": 2
     },
     {
      "n": "Túlio Eduardo Silva De Oliveira",
@@ -1698,6 +1684,20 @@
      "num": 9,
      "pos": "F",
      "lugar": 9
+    },
+    {
+     "n": "Giovanni Augusto",
+     "curto": "Giovanni Augusto",
+     "num": 10,
+     "pos": "CF-L",
+     "lugar": 11
+    },
+    {
+     "n": "Max",
+     "curto": "Max",
+     "num": 22,
+     "pos": "CF-R",
+     "lugar": 10
     }
    ]
   }

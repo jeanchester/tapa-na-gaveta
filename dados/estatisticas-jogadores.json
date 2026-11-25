@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T20:00:22",
+ "atualizado": "2026-11-25T03:59:08",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -1794,6 +1794,12 @@
    "n": 1
   },
   {
+   "nome": "Camilo",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
    "nome": "Claudio Spinelli",
    "time": "3454",
    "escudo": "vasco",
@@ -2238,6 +2244,18 @@
    "n": 1
   },
   {
+   "nome": "Max",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Miguel Carvalho",
+   "time": "9318",
+   "escudo": "chapecoense",
+   "n": 1
+  },
+  {
    "nome": "Miguel Terceros",
    "time": "2674",
    "escudo": "santos",
@@ -2508,15 +2526,16 @@
     "nome": "Camilo",
     "time": "9318",
     "escudo": "chapecoense",
-    "amarelos": 11,
+    "amarelos": 12,
     "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -2737,9 +2756,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -3381,6 +3400,22 @@
     "pendurado": false
    },
    {
+    "nome": "Bruno Pacheco",
+    "time": "9318",
+    "escudo": "chapecoense",
+    "amarelos": 6,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
+    }
+   },
+   {
     "nome": "Carlos Vinícius",
     "time": "6273",
     "escudo": "gremio",
@@ -3743,21 +3778,6 @@
     }
    },
    {
-    "nome": "Bruno Pacheco",
-    "time": "9318",
-    "escudo": "chapecoense",
-    "amarelos": 5,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
-    }
-   },
-   {
     "nome": "Caique",
     "time": "3457",
     "escudo": "vitoria",
@@ -3898,9 +3918,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -4153,9 +4173,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -4324,9 +4344,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -5641,15 +5661,9 @@
     "escudo": "chapecoense",
     "amarelos": 3,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Vini Paulista",
@@ -6081,9 +6095,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -6361,9 +6375,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -6416,9 +6430,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -6611,9 +6625,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -6686,9 +6700,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -6701,9 +6715,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -6771,9 +6785,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -6831,9 +6845,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -7021,9 +7035,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -7146,9 +7160,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -7261,9 +7275,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Chapecoense",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Coritiba",
+     "jogo": "401841343"
     }
    },
    {
@@ -7316,9 +7330,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-24T21:00Z",
-     "contra": "Palmeiras",
-     "jogo": "401841335"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Flamengo",
+     "jogo": "401841341"
     }
    },
    {
@@ -8345,6 +8359,26 @@
     "nome": "Mayke",
     "time": "2674",
     "escudo": "santos",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Miguel Bilong",
+    "time": "2029",
+    "escudo": "palmeiras",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Miguel Carvalho",
+    "time": "9318",
+    "escudo": "chapecoense",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,

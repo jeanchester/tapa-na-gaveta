@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T20:00:24",
+ "atualizado": "2026-11-25T03:59:09",
  "times": {
   "flamengo": [
    {
@@ -484,6 +484,13 @@
     "n": "André Lucas",
     "curto": "André Lucas",
     "num": 66,
+    "pos": "D",
+    "jogos": 0
+   },
+   {
+    "n": "Geovanne De Souza Soares",
+    "curto": "G. De Souza Soares",
+    "num": 40,
     "pos": "D",
     "jogos": 0
    },

@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24T20:00:31",
+ "atualizado": "2026-11-25T03:59:12",
  "artilheiros": [
   {
    "nome": "Tasos Douvikas",
@@ -606,6 +606,12 @@
  ],
  "gols_por_jogador": [
   {
+   "nome": "Kylian Mbappé",
+   "time": "86",
+   "escudo": "real_madrid",
+   "n": 6
+  },
+  {
    "nome": "Tasos Douvikas",
    "time": "2572",
    "escudo": "como",
@@ -639,12 +645,6 @@
    "nome": "Fabián Ruiz",
    "time": "160",
    "escudo": "paris",
-   "n": 4
-  },
-  {
-   "nome": "Kylian Mbappé",
-   "time": "86",
-   "escudo": "real_madrid",
    "n": 4
   },
   {
@@ -684,15 +684,33 @@
    "n": 3
   },
   {
+   "nome": "Antonio Nusa",
+   "time": "11420",
+   "escudo": "leipzig",
+   "n": 3
+  },
+  {
    "nome": "Bradley Barcola",
    "time": "364",
    "escudo": "liverpool",
    "n": 3
   },
   {
+   "nome": "Cucho Hernández",
+   "time": "244",
+   "escudo": "betis",
+   "n": 3
+  },
+  {
    "nome": "Désiré Doué",
    "time": "160",
    "escudo": "paris",
+   "n": 3
+  },
+  {
+   "nome": "Federico Valverde",
+   "time": "86",
+   "escudo": "real_madrid",
    "n": 3
   },
   {
@@ -798,12 +816,6 @@
    "n": 2
   },
   {
-   "nome": "Federico Valverde",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 2
-  },
-  {
    "nome": "Florian Flecker",
    "time": "4411",
    "escudo": "lask_linz",
@@ -831,6 +843,12 @@
    "nome": "Issa Doumbia",
    "time": "2250",
    "escudo": "sporting_cp",
+   "n": 2
+  },
+  {
+   "nome": "Jude Bellingham",
+   "time": "86",
+   "escudo": "real_madrid",
    "n": 2
   },
   {
@@ -882,6 +900,12 @@
    "n": 2
   },
   {
+   "nome": "Rayan Cherki",
+   "time": "382",
+   "escudo": "city",
+   "n": 2
+  },
+  {
    "nome": "Robert Ljubicic",
    "time": "4411",
    "escudo": "lask_linz",
@@ -921,6 +945,12 @@
    "nome": "Tani Oluwaseyi",
    "time": "102",
    "escudo": "villarreal",
+   "n": 2
+  },
+  {
+   "nome": "Viktor Gyökeres",
+   "time": "359",
+   "escudo": "arsenal",
    "n": 2
   },
   {
@@ -1044,12 +1074,6 @@
    "n": 1
   },
   {
-   "nome": "Antonio Nusa",
-   "time": "11420",
-   "escudo": "leipzig",
-   "n": 1
-  },
-  {
    "nome": "Antonio Rüdiger",
    "time": "86",
    "escudo": "real_madrid",
@@ -1065,6 +1089,12 @@
    "nome": "Ayase Ueda",
    "time": "166",
    "escudo": "lille",
+   "n": 1
+  },
+  {
+   "nome": "Ayyoub Bouaddi",
+   "time": "382",
+   "escudo": "city",
    "n": 1
   },
   {
@@ -1110,15 +1140,15 @@
    "n": 1
   },
   {
-   "nome": "Cucho Hernández",
-   "time": "244",
-   "escudo": "betis",
-   "n": 1
-  },
-  {
    "nome": "David Boly",
    "time": "160",
    "escudo": "paris",
+   "n": 1
+  },
+  {
+   "nome": "David Raum",
+   "time": "11420",
+   "escudo": "leipzig",
    "n": 1
   },
   {
@@ -1332,12 +1362,6 @@
    "n": 1
   },
   {
-   "nome": "Jude Bellingham",
-   "time": "86",
-   "escudo": "real_madrid",
-   "n": 1
-  },
-  {
    "nome": "Julián Álvarez",
    "time": "1068",
    "escudo": "atletico",
@@ -1422,6 +1446,12 @@
    "n": 1
   },
   {
+   "nome": "Luis Milla",
+   "time": "2572",
+   "escudo": "como",
+   "n": 1
+  },
+  {
    "nome": "Lukás Provod",
    "time": "494",
    "escudo": "slavia_prague",
@@ -1476,6 +1506,12 @@
    "n": 1
   },
   {
+   "nome": "Matthieu Udol",
+   "time": "175",
+   "escudo": "lens",
+   "n": 1
+  },
+  {
    "nome": "Mattia Liberali",
    "time": "2572",
    "escudo": "como",
@@ -1485,6 +1521,12 @@
    "nome": "Matìas Soulè",
    "time": "104",
    "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Maximilian Beier",
+   "time": "124",
+   "escudo": "dortmund",
    "n": 1
   },
   {
@@ -1503,6 +1545,12 @@
    "nome": "Niccolò Pisilli",
    "time": "104",
    "escudo": "roma",
+   "n": 1
+  },
+  {
+   "nome": "Noa Lang",
+   "time": "114",
+   "escudo": "napoli",
    "n": 1
   },
   {
@@ -1548,9 +1596,9 @@
    "n": 1
   },
   {
-   "nome": "Rayan Cherki",
-   "time": "382",
-   "escudo": "city",
+   "nome": "Rasmus Højlund",
+   "time": "114",
+   "escudo": "napoli",
    "n": 1
   },
   {
@@ -1662,9 +1710,9 @@
    "n": 1
   },
   {
-   "nome": "Viktor Gyökeres",
-   "time": "359",
-   "escudo": "arsenal",
+   "nome": "Vinícius Júnior",
+   "time": "86",
+   "escudo": "real_madrid",
    "n": 1
   },
   {
@@ -1701,6 +1749,12 @@
    "nome": "Yunus Akgün",
    "time": "432",
    "escudo": "galatasaray",
+   "n": 1
+  },
+  {
+   "nome": "Ivan Perisic",
+   "time": "148",
+   "escudo": "psv_eindhoven",
    "n": 1
   },
   {
@@ -1815,6 +1869,13 @@
     "nome": "Ezri Konsa",
     "time": "359",
     "escudo": "arsenal",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Facundo Bernal",
+    "time": "244",
+    "escudo": "betis",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1938,6 +1999,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Lovro Majer",
+    "time": "887",
+    "escudo": "aek_athens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Manuel Akanji",
     "time": "110",
     "escudo": "inter",
@@ -1952,11 +2020,25 @@
     "vermelhos": 1
    },
    {
+    "nome": "Matthieu Udol",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Michael Olise",
     "time": "132",
     "escudo": "bayern",
     "amarelos": 0,
     "vermelhos": 1
+   },
+   {
+    "nome": "Michal Skoras",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
    },
    {
     "nome": "Michaël Cuisance",
@@ -1987,6 +2069,20 @@
     "vermelhos": 0
    },
    {
+    "nome": "Neil El Aynaoui",
+    "time": "11420",
+    "escudo": "leipzig",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nico Paz",
+    "time": "2572",
+    "escudo": "como",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Nicolas Jackson",
     "time": "362",
     "escudo": "villa",
@@ -2001,6 +2097,20 @@
     "vermelhos": 1
    },
    {
+    "nome": "Pablo Rosario",
+    "time": "437",
+    "escudo": "fc_porto",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pierre Ganiou",
+    "time": "175",
+    "escudo": "lens",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Rafa Marín",
     "time": "114",
     "escudo": "napoli",
@@ -2011,6 +2121,13 @@
     "nome": "Ramon Hendriks",
     "time": "134",
     "escudo": "stuttgart",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Razvan Marin",
+    "time": "887",
+    "escudo": "aek_athens",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2078,6 +2195,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Alberto Costa",
+    "time": "437",
+    "escudo": "fc_porto",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Alexey Batrakov",
     "time": "432",
     "escudo": "galatasaray",
@@ -2127,6 +2251,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Antonio Rüdiger",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Antonio Vergara",
     "time": "114",
     "escudo": "napoli",
@@ -2137,6 +2268,13 @@
     "nome": "Atakan Karazor",
     "time": "134",
     "escudo": "stuttgart",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Aurélien Tchouaméni",
+    "time": "86",
+    "escudo": "real_madrid",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2179,6 +2317,13 @@
     "nome": "Billy Gilmour",
     "time": "114",
     "escudo": "napoli",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Brajan Gruda",
+    "time": "11420",
+    "escudo": "leipzig",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2323,6 +2468,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Eduardo Camavinga",
+    "time": "86",
+    "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Emanuele Lulli",
     "time": "104",
     "escudo": "roma",
@@ -2365,9 +2517,16 @@
     "vermelhos": 0
    },
    {
-    "nome": "Facundo Bernal",
-    "time": "244",
-    "escudo": "betis",
+    "nome": "Filip Kostic",
+    "time": "148",
+    "escudo": "psv_eindhoven",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Florian Sotoca",
+    "time": "175",
+    "escudo": "lens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2470,6 +2629,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Gonçalo Borges",
+    "time": "142",
+    "escudo": "feyenoord_rotterdam",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Grischa Prömel",
     "time": "134",
     "escudo": "stuttgart",
@@ -2536,6 +2702,13 @@
     "nome": "Jacobo Ramón",
     "time": "2572",
     "escudo": "como",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jakub Kiwior",
+    "time": "437",
+    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2708,13 +2881,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Lovro Majer",
-    "time": "887",
-    "escudo": "aek_athens",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Lucas Da Cunha",
     "time": "2572",
     "escudo": "como",
@@ -2753,6 +2919,13 @@
     "nome": "Marc Cucurella",
     "time": "86",
     "escudo": "real_madrid",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Marc Guéhi",
+    "time": "382",
+    "escudo": "city",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2806,13 +2979,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Matthieu Udol",
-    "time": "175",
-    "escudo": "lens",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Matìas Soulè",
     "time": "104",
     "escudo": "roma",
@@ -2858,13 +3024,6 @@
     "nome": "Mert Müldür",
     "time": "436",
     "escudo": "fenerbahce",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Michal Skoras",
-    "time": "175",
-    "escudo": "lens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2925,23 +3084,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Neil El Aynaoui",
-    "time": "11420",
-    "escudo": "leipzig",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Nelson Deossa",
     "time": "244",
     "escudo": "betis",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Nico Paz",
-    "time": "2572",
-    "escudo": "como",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2977,13 +3122,6 @@
     "nome": "Oskar Kubiak",
     "time": "494",
     "escudo": "slavia_prague",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Pablo Rosario",
-    "time": "437",
-    "escudo": "fc_porto",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3030,13 +3168,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Pierre Ganiou",
-    "time": "175",
-    "escudo": "lens",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Quentin Ndjantou",
     "time": "160",
     "escudo": "paris",
@@ -3051,6 +3182,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Rahim Ibrahim",
+    "time": "521",
+    "escudo": "slovan_bratislava",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Ramy Bensebaini",
     "time": "124",
     "escudo": "dortmund",
@@ -3061,13 +3199,6 @@
     "nome": "Raphinha",
     "time": "83",
     "escudo": "barcelona",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Razvan Marin",
-    "time": "887",
-    "escudo": "aek_athens",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3184,9 +3315,23 @@
     "vermelhos": 0
    },
    {
+    "nome": "Stavros Pilios",
+    "time": "887",
+    "escudo": "aek_athens",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Suleiman Camara",
     "time": "521",
     "escudo": "slovan_bratislava",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Thijs Kraaijeveld",
+    "time": "142",
+    "escudo": "feyenoord_rotterdam",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -3233,6 +3378,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Victor Froholdt",
+    "time": "437",
+    "escudo": "fc_porto",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Vinícius Tobias",
     "time": "493",
     "escudo": "shakhtar_donetsk",
@@ -3271,6 +3423,13 @@
     "nome": "Willi Orbán",
     "time": "11420",
     "escudo": "leipzig",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Yan Couto",
+    "time": "2572",
+    "escudo": "como",
     "amarelos": 1,
     "vermelhos": 0
    },
