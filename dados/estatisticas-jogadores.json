@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-26T03:24:52",
+ "atualizado": "2026-11-26T18:52:28",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -170,6 +170,12 @@
    "n": 7
   },
   {
+   "nome": "Kaio",
+   "time": "874",
+   "escudo": "corinthians",
+   "n": 7
+  },
+  {
    "nome": "Thiago Mendes",
    "time": "3454",
    "escudo": "vasco",
@@ -179,6 +185,12 @@
    "nome": "Luciano Acosta",
    "time": "3445",
    "escudo": "fluminense",
+   "n": 6
+  },
+  {
+   "nome": "Tomás Cuello",
+   "time": "7632",
+   "escudo": "atleticomg",
    "n": 6
   },
   {
@@ -203,12 +215,6 @@
    "nome": "Rodrigo Castillo",
    "time": "3445",
    "escudo": "fluminense",
-   "n": 6
-  },
-  {
-   "nome": "Kaio",
-   "time": "874",
-   "escudo": "corinthians",
    "n": 6
   },
   {
@@ -272,33 +278,27 @@
    "n": 5
   },
   {
-   "nome": "Alexander Bernabei",
-   "time": "1936",
-   "escudo": "internacional",
-   "n": 5
-  },
-  {
    "nome": "Matheus Bidu",
    "time": "874",
    "escudo": "corinthians",
    "n": 5
   },
   {
-   "nome": "Alerrando",
+   "nome": "Alexander Bernabei",
    "time": "1936",
    "escudo": "internacional",
    "n": 5
   },
   {
-   "nome": "Álvaro Barreal",
-   "time": "2674",
-   "escudo": "santos",
+   "nome": "Bernard",
+   "time": "7632",
+   "escudo": "atleticomg",
    "n": 5
   },
   {
-   "nome": "Alef Manga",
-   "time": "4936",
-   "escudo": "remo",
+   "nome": "Alerrando",
+   "time": "1936",
+   "escudo": "internacional",
    "n": 5
   }
  ],
@@ -3633,7 +3633,7 @@
     "pendurado": false
    },
    {
-    "nome": "Tomás Pérez",
+    "nome": "Tomas Perez",
     "time": "7632",
     "escudo": "atleticomg",
     "amarelos": 4,
@@ -3723,7 +3723,7 @@
     }
    },
    {
-    "nome": "André Oliveira",
+    "nome": "André Silva",
     "time": "2026",
     "escudo": "sp",
     "amarelos": 5,
