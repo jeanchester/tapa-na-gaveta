@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-25T19:00:38",
+ "atualizado": "2026-11-26T03:24:53",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -512,10 +512,10 @@
    ]
   },
   "atleticomg": {
-   "jogo": "401841311",
-   "data": "2026-11-14T21:30Z",
-   "contra": "Mirassol",
-   "esquema": "4-2-3-1",
+   "jogo": "401841319",
+   "data": "2026-11-25T23:00Z",
+   "contra": "Corinthians",
+   "esquema": "4-1-4-1",
    "titulares": [
     {
      "n": "Éverson",
@@ -539,6 +539,13 @@
      "lugar": 5
     },
     {
+     "n": "Tomás Pérez",
+     "curto": "T. Pérez",
+     "num": 25,
+     "pos": "DM",
+     "lugar": 4
+    },
+    {
      "n": "Renan Lodi",
      "curto": "R. Lodi",
      "num": 6,
@@ -553,46 +560,39 @@
      "lugar": 2
     },
     {
-     "n": "Fred",
-     "curto": "Fred",
-     "num": 7,
-     "pos": "AM",
-     "lugar": 10
-    },
-    {
      "n": "Kevin Castaño",
      "curto": "K. Castaño",
      "num": 15,
-     "pos": "LM",
-     "lugar": 4
+     "pos": "CM-L",
+     "lugar": 10
     },
     {
-     "n": "Igor Gomes",
-     "curto": "I. Gomes",
-     "num": 17,
-     "pos": "RM",
+     "n": "Mamady Cissé",
+     "curto": "M. Cissé",
+     "num": 39,
+     "pos": "CM-R",
      "lugar": 8
-    },
-    {
-     "n": "Mateo Casierra",
-     "curto": "M. Casierra",
-     "num": 9,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
-     "n": "Bernard",
-     "curto": "Bernard",
-     "num": 11,
-     "pos": "AM-L",
-     "lugar": 11
     },
     {
      "n": "Tomás Cuello",
      "curto": "T. Cuello",
      "num": 28,
-     "pos": "AM-R",
+     "pos": "LM",
+     "lugar": 11
+    },
+    {
+     "n": "Bernard",
+     "curto": "Bernard",
+     "num": 11,
+     "pos": "RM",
      "lugar": 7
+    },
+    {
+     "n": "Thiago Borbas",
+     "curto": "T. Borbas",
+     "num": 18,
+     "pos": "F",
+     "lugar": 9
     }
    ]
   },
@@ -1191,6 +1191,91 @@
     }
    ]
   },
+  "corinthians": {
+   "jogo": "401841319",
+   "data": "2026-11-25T23:00Z",
+   "contra": "Atlético-MG",
+   "esquema": "4-2-3-1",
+   "titulares": [
+    {
+     "n": "Hugo Souza",
+     "curto": "Hugo Souza",
+     "num": 1,
+     "pos": "G",
+     "lugar": 1
+    },
+    {
+     "n": "Gustavo Henrique",
+     "curto": "Gustavo Henrique",
+     "num": 13,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "João Pedro",
+     "curto": "João Pedro",
+     "num": 4,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "Fabrizio Angileri",
+     "curto": "F. Angileri",
+     "num": 26,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "Mateuzinho",
+     "curto": "Mateuzinho",
+     "num": 2,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Vitinho",
+     "curto": "Vitinho",
+     "num": 11,
+     "pos": "AM",
+     "lugar": 10
+    },
+    {
+     "n": "Raniele",
+     "curto": "Raniele",
+     "num": 14,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Breno Bidon",
+     "curto": "B. Bidon",
+     "num": 7,
+     "pos": "RM",
+     "lugar": 8
+    },
+    {
+     "n": "Memphis Depay",
+     "curto": "M. Depay",
+     "num": 10,
+     "pos": "F",
+     "lugar": 9
+    },
+    {
+     "n": "Matheus Bidu",
+     "curto": "M. Bidu",
+     "num": 21,
+     "pos": "AM-L",
+     "lugar": 11
+    },
+    {
+     "n": "Kaio",
+     "curto": "Kaio",
+     "num": 37,
+     "pos": "AM-R",
+     "lugar": 7
+    }
+   ]
+  },
   "gremio": {
    "jogo": "401841320",
    "data": "2026-11-24T00:00Z",
@@ -1358,91 +1443,6 @@
      "num": 33,
      "pos": "CF-R",
      "lugar": 10
-    }
-   ]
-  },
-  "corinthians": {
-   "jogo": "401841316",
-   "data": "2026-11-19T00:30Z",
-   "contra": "Botafogo",
-   "esquema": "4-2-3-1",
-   "titulares": [
-    {
-     "n": "Hugo Souza",
-     "curto": "Hugo Souza",
-     "num": 1,
-     "pos": "G",
-     "lugar": 1
-    },
-    {
-     "n": "Gustavo Henrique",
-     "curto": "Gustavo Henrique",
-     "num": 13,
-     "pos": "CD-L",
-     "lugar": 6
-    },
-    {
-     "n": "João Pedro",
-     "curto": "João Pedro",
-     "num": 4,
-     "pos": "CD-R",
-     "lugar": 5
-    },
-    {
-     "n": "Fabrizio Angileri",
-     "curto": "F. Angileri",
-     "num": 26,
-     "pos": "LB",
-     "lugar": 3
-    },
-    {
-     "n": "Mateuzinho",
-     "curto": "Mateuzinho",
-     "num": 2,
-     "pos": "RB",
-     "lugar": 2
-    },
-    {
-     "n": "Vitinho",
-     "curto": "Vitinho",
-     "num": 11,
-     "pos": "AM",
-     "lugar": 10
-    },
-    {
-     "n": "André Carrillo",
-     "curto": "A. Carrillo",
-     "num": 19,
-     "pos": "LM",
-     "lugar": 4
-    },
-    {
-     "n": "Breno Bidon",
-     "curto": "B. Bidon",
-     "num": 7,
-     "pos": "RM",
-     "lugar": 8
-    },
-    {
-     "n": "Memphis Depay",
-     "curto": "M. Depay",
-     "num": 10,
-     "pos": "F",
-     "lugar": 9
-    },
-    {
-     "n": "Matheus Bidu",
-     "curto": "M. Bidu",
-     "num": 21,
-     "pos": "AM-L",
-     "lugar": 11
-    },
-    {
-     "n": "Kaio",
-     "curto": "Kaio",
-     "num": 37,
-     "pos": "AM-R",
-     "lugar": 7
     }
    ]
   },

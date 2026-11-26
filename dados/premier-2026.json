@@ -2,7 +2,7 @@
  "fonte": "ESPN (site.api.espn.com, não oficial)",
  "liga": "eng.1",
  "temporada": 2026,
- "baixado_em": "2026-11-25T19:02:15",
+ "baixado_em": "2026-11-26T03:26:34",
  "times": [
   {
    "id": "349",
@@ -410,7 +410,7 @@
    "gols_mandante": 2,
    "gols_visitante": 0,
    "forma_mandante": "DLDDL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879300",
@@ -494,7 +494,7 @@
    "gols_mandante": 2,
    "gols_visitante": 2,
    "forma_mandante": "DDLLW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879318",
@@ -529,7 +529,7 @@
    "visitante": "393",
    "gols_mandante": 2,
    "gols_visitante": 2,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "LWLDL"
   },
   {
@@ -613,7 +613,7 @@
    "visitante": "373",
    "gols_mandante": 5,
    "gols_visitante": 2,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "LLDDL"
   },
   {
@@ -638,7 +638,7 @@
    "gols_mandante": 0,
    "gols_visitante": 2,
    "forma_mandante": "LLDDL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879286",
@@ -734,7 +734,7 @@
    "gols_mandante": 2,
    "gols_visitante": 2,
    "forma_mandante": "LWWWL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879292",
@@ -805,7 +805,7 @@
    "visitante": "370",
    "gols_mandante": 0,
    "gols_visitante": 0,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DDDLW"
   },
   {
@@ -853,7 +853,7 @@
    "visitante": "382",
    "gols_mandante": 0,
    "gols_visitante": 1,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DDLWL"
   },
   {
@@ -950,7 +950,7 @@
    "gols_mandante": 0,
    "gols_visitante": 1,
    "forma_mandante": "WWWWW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879273",
@@ -986,7 +986,7 @@
    "gols_mandante": 1,
    "gols_visitante": 1,
    "forma_mandante": "DDDLW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879268",
@@ -1057,7 +1057,7 @@
    "visitante": "367",
    "gols_mandante": 1,
    "gols_visitante": 1,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "WLWWW"
   },
   {
@@ -1093,7 +1093,7 @@
    "visitante": "382",
    "gols_mandante": 0,
    "gols_visitante": 3,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DDLWL"
   },
   {
@@ -1130,7 +1130,7 @@
    "gols_mandante": 1,
    "gols_visitante": 2,
    "forma_mandante": "WLWLD",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878770",
@@ -1202,7 +1202,7 @@
    "gols_mandante": 1,
    "gols_visitante": 1,
    "forma_mandante": "DWLDD",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878769",
@@ -1321,7 +1321,7 @@
    "visitante": "331",
    "gols_mandante": 2,
    "gols_visitante": 0,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DWWWL"
   },
   {
@@ -1333,7 +1333,7 @@
    "visitante": "349",
    "gols_mandante": 0,
    "gols_visitante": 3,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "WWWWW"
   },
   {
@@ -1358,7 +1358,7 @@
    "gols_mandante": 2,
    "gols_visitante": 0,
    "forma_mandante": "DLWLL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879251",
@@ -1453,7 +1453,7 @@
    "visitante": "359",
    "gols_mandante": 0,
    "gols_visitante": 1,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DDWWW"
   },
   {
@@ -1550,7 +1550,7 @@
    "gols_mandante": 1,
    "gols_visitante": 3,
    "forma_mandante": "LLDLW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878759",
@@ -1585,7 +1585,7 @@
    "visitante": "362",
    "gols_mandante": 4,
    "gols_visitante": 4,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "LDDLD"
   },
   {
@@ -1693,8 +1693,8 @@
    "visitante": "360",
    "gols_mandante": 4,
    "gols_visitante": 0,
-   "forma_mandante": "WWLLW",
-   "forma_visitante": "LDWLL"
+   "forma_mandante": "WWWLL",
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879237",
@@ -1741,7 +1741,7 @@
    "visitante": "337",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "WLWLD"
   },
   {
@@ -1766,7 +1766,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LWWWL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879231",
@@ -1873,7 +1873,7 @@
    "visitante": "366",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DWLLW"
   },
   {
@@ -1934,7 +1934,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDLLW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878749",
@@ -1958,7 +1958,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DLWLL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879216",
@@ -2005,7 +2005,7 @@
    "visitante": "388",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "WLWLL"
   },
   {
@@ -2101,7 +2101,7 @@
    "visitante": "357",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DWLDD"
   },
   {
@@ -2174,7 +2174,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LLDLW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879205",
@@ -2245,7 +2245,7 @@
    "visitante": "367",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "WLWWW"
   },
   {
@@ -2294,7 +2294,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDWWW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879202",
@@ -2378,7 +2378,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DLDDL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878732",
@@ -2413,7 +2413,7 @@
    "visitante": "393",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "LWLDL"
   },
   {
@@ -2509,7 +2509,7 @@
    "visitante": "366",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DWLLW"
   },
   {
@@ -2534,7 +2534,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LDDLD",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879189",
@@ -2570,7 +2570,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DWWWL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879185",
@@ -2605,7 +2605,7 @@
    "visitante": "388",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "WLWLL"
   },
   {
@@ -2726,7 +2726,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DWLLW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879175",
@@ -2785,7 +2785,7 @@
    "visitante": "361",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DDLLW"
   },
   {
@@ -2833,7 +2833,7 @@
    "visitante": "384",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "LLDLW"
   },
   {
@@ -2870,7 +2870,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LDDLD",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878726",
@@ -3013,8 +3013,8 @@
    "visitante": "364",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
-   "forma_visitante": "WWLLW"
+   "forma_mandante": "DLDWL",
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879160",
@@ -3037,7 +3037,7 @@
    "visitante": "368",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "LWWWL"
   },
   {
@@ -3146,7 +3146,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWLD",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878712",
@@ -3158,7 +3158,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDWWW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878711",
@@ -3241,7 +3241,7 @@
    "visitante": "363",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DLWLL"
   },
   {
@@ -3290,7 +3290,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWLL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878708",
@@ -3361,7 +3361,7 @@
    "visitante": "331",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DWWWL"
   },
   {
@@ -3469,7 +3469,7 @@
    "visitante": "306",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DLDDL"
   },
   {
@@ -3494,7 +3494,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LWLDL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878702",
@@ -3601,7 +3601,7 @@
    "visitante": "359",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DDWWW"
   },
   {
@@ -3626,7 +3626,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWWW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879128",
@@ -3709,7 +3709,7 @@
    "visitante": "362",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "LDDLD"
   },
   {
@@ -3746,7 +3746,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DWLLW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879121",
@@ -3829,7 +3829,7 @@
    "visitante": "373",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "LLDDL"
   },
   {
@@ -3841,7 +3841,7 @@
    "visitante": "368",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "LWWWL"
   },
   {
@@ -3926,7 +3926,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDDLW",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879110",
@@ -3962,7 +3962,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDLWL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879107",
@@ -4069,7 +4069,7 @@
    "visitante": "361",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DDLLW"
   },
   {
@@ -4081,7 +4081,7 @@
    "visitante": "306",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DLDDL"
   },
   {
@@ -4190,7 +4190,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LLDDL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879095",
@@ -4226,7 +4226,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "LWLDL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401878680",
@@ -4298,7 +4298,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DWLDD",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879091",
@@ -4309,7 +4309,7 @@
    "visitante": "384",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "LLDLW"
   },
   {
@@ -4382,7 +4382,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWLL",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879087",
@@ -4441,7 +4441,7 @@
    "visitante": "363",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "DLWLL"
   },
   {
@@ -4478,7 +4478,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WWWWW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401879082",
@@ -4550,7 +4550,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DDLWL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879080",
@@ -4681,7 +4681,7 @@
    "visitante": "337",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "WLWLD"
   },
   {
@@ -4693,7 +4693,7 @@
    "visitante": "357",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DWLDD"
   },
   {
@@ -4742,7 +4742,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "DWWWL",
-   "forma_visitante": "WWLLW"
+   "forma_visitante": "WWWLL"
   },
   {
    "id": "401879070",
@@ -4826,7 +4826,7 @@
    "gols_mandante": null,
    "gols_visitante": null,
    "forma_mandante": "WLWWW",
-   "forma_visitante": "LDWLL"
+   "forma_visitante": "DLDWL"
   },
   {
    "id": "401878660",
@@ -4921,7 +4921,7 @@
    "visitante": "349",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "WWLLW",
+   "forma_mandante": "WWWLL",
    "forma_visitante": "WWWWW"
   },
   {
@@ -4933,7 +4933,7 @@
    "visitante": "370",
    "gols_mandante": null,
    "gols_visitante": null,
-   "forma_mandante": "LDWLL",
+   "forma_mandante": "DLDWL",
    "forma_visitante": "DDDLW"
   },
   {
