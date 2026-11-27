@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T03:31:57",
+ "atualizado": "2026-11-27T18:44:34",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -32,6 +32,12 @@
    "n": 13
   },
   {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 12
+  },
+  {
    "nome": "Renê",
    "time": "3457",
    "escudo": "vitoria",
@@ -59,12 +65,6 @@
    "nome": "José Manuel López",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 10
-  },
-  {
-   "nome": "Jonathan Calleri",
-   "time": "2026",
-   "escudo": "sp",
    "n": 10
   },
   {
@@ -544,6 +544,12 @@
    "n": 4
   },
   {
+   "nome": "Damián Bobadilla",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 4
+  },
+  {
    "nome": "Lucas Romero",
    "time": "2022",
    "escudo": "cruzeiro",
@@ -580,6 +586,12 @@
    "n": 4
   },
   {
+   "nome": "Yago Pikachu",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 3
+  },
+  {
    "nome": "Lucas Barbosa",
    "time": "6079",
    "escudo": "bragantino",
@@ -589,18 +601,6 @@
    "nome": "Kevin Viveros",
    "time": "3458",
    "escudo": "athletico",
-   "n": 3
-  },
-  {
-   "nome": "Gabriel Bontempo",
-   "time": "2674",
-   "escudo": "santos",
-   "n": 3
-  },
-  {
-   "nome": "Isidro Pitta",
-   "time": "6079",
-   "escudo": "bragantino",
    "n": 3
   }
  ],
@@ -3638,7 +3638,7 @@
     "pendurado": false
    },
    {
-    "nome": "Tomas Perez",
+    "nome": "Tomás Pérez",
     "time": "7632",
     "escudo": "atleticomg",
     "amarelos": 4,

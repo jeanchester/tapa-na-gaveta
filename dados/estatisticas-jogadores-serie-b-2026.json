@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T03:32:03",
+ "atualizado": "2026-11-27T18:44:39",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -972,7 +972,7 @@
    "n": 4
   },
   {
-   "nome": "Pedro Vitor",
+   "nome": "Pedro Felipe",
    "time": "11268",
    "escudo": "saobernardo",
    "n": 4
@@ -2882,6 +2882,16 @@
     "pendurado": true
    },
    {
+    "nome": "Cunha",
+    "time": "3459",
+    "escudo": "pontepreta",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true
+   },
+   {
     "nome": "Gabriel Boschilia",
     "time": "18187",
     "escudo": "operario",
@@ -2930,16 +2940,6 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
-   },
-   {
-    "nome": "Lucas Cunha",
-    "time": "3459",
-    "escudo": "pontepreta",
-    "amarelos": 8,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true
    },
    {
     "nome": "Lucas Lovat",
@@ -4422,7 +4422,7 @@
     "pendurado": false
    },
    {
-    "nome": "Pedro Vitor",
+    "nome": "Pedro Felipe",
     "time": "11268",
     "escudo": "saobernardo",
     "amarelos": 4,
