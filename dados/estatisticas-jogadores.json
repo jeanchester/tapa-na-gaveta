@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-26T18:52:28",
+ "atualizado": "2026-11-27T03:31:57",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -642,6 +642,12 @@
    "n": 12
   },
   {
+   "nome": "Jonathan Calleri",
+   "time": "2026",
+   "escudo": "sp",
+   "n": 12
+  },
+  {
    "nome": "Matheus Pereira",
    "time": "2022",
    "escudo": "cruzeiro",
@@ -681,12 +687,6 @@
    "nome": "Maurício",
    "time": "2029",
    "escudo": "palmeiras",
-   "n": 10
-  },
-  {
-   "nome": "Jonathan Calleri",
-   "time": "2026",
-   "escudo": "sp",
    "n": 10
   },
   {
@@ -1968,6 +1968,12 @@
    "n": 1
   },
   {
+   "nome": "Gabriel Poveda",
+   "time": "4936",
+   "escudo": "remo",
+   "n": 1
+  },
+  {
    "nome": "Gastón Benavídez",
    "time": "3458",
    "escudo": "athletico",
@@ -2355,6 +2361,12 @@
    "nome": "Rubens Tadeu Hartmann Ricoldi",
    "time": "9318",
    "escudo": "chapecoense",
+   "n": 1
+  },
+  {
+   "nome": "Ryan Francisco",
+   "time": "2026",
+   "escudo": "sp",
    "n": 1
   },
   {
@@ -3263,14 +3275,13 @@
     "escudo": "sp",
     "amarelos": 5,
     "vermelhos": 1,
-    "motivo": "vermelho",
     "ciclo": 2,
-    "suspenso": true,
-    "pendurado": false,
+    "suspenso": false,
+    "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -3308,9 +3319,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -3576,15 +3587,9 @@
     "escudo": "remo",
     "amarelos": 6,
     "vermelhos": 0,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Nonato",
@@ -3732,9 +3737,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -3832,9 +3837,25 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
+    }
+   },
+   {
+    "nome": "Edson Fernando",
+    "time": "4936",
+    "escudo": "remo",
+    "amarelos": 3,
+    "vermelhos": 1,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -3913,15 +3934,9 @@
     "escudo": "remo",
     "amarelos": 3,
     "vermelhos": 1,
-    "motivo": "amarelos",
     "ciclo": 0,
-    "suspenso": true,
-    "pendurado": false,
-    "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
-    }
+    "suspenso": false,
+    "pendurado": false
    },
    {
     "nome": "Jhon Arias",
@@ -4088,9 +4103,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -4340,6 +4355,16 @@
     "pendurado": false
    },
    {
+    "nome": "Antonio Galeano",
+    "time": "4936",
+    "escudo": "remo",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
     "nome": "Arthur Gabriel",
     "time": "2029",
     "escudo": "palmeiras",
@@ -4442,21 +4467,6 @@
      "data": "2026-11-29T19:00Z",
      "contra": "Santos",
      "jogo": "401841332"
-    }
-   },
-   {
-    "nome": "Edson Fernando",
-    "time": "4936",
-    "escudo": "remo",
-    "amarelos": 2,
-    "vermelhos": 1,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
     }
    },
    {
@@ -4674,9 +4684,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -4874,9 +4884,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -4991,16 +5001,6 @@
     "pendurado": false
    },
    {
-    "nome": "Antonio Galeano",
-    "time": "4936",
-    "escudo": "remo",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Bruno Leonardo",
     "time": "9318",
     "escudo": "chapecoense",
@@ -5039,6 +5039,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Duplexe Tchamba",
+    "time": "4936",
+    "escudo": "remo",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
+    }
    },
    {
     "nome": "Emanuel Britez",
@@ -5816,9 +5832,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -5956,9 +5972,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -5984,21 +6000,6 @@
      "data": "2026-11-29T21:30Z",
      "contra": "Corinthians",
      "jogo": "401841334"
-    }
-   },
-   {
-    "nome": "Duplexe Tchamba",
-    "time": "4936",
-    "escudo": "remo",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
     }
    },
    {
@@ -6306,9 +6307,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -6496,9 +6497,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -6806,9 +6807,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -6951,9 +6952,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -7026,9 +7027,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -7056,9 +7057,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "Remo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Athletico Paranaense",
+     "jogo": "401841338"
     }
    },
    {
@@ -7311,9 +7312,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-26T23:00Z",
-     "contra": "São Paulo",
-     "jogo": "401841329"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Corinthians",
+     "jogo": "401841345"
     }
    },
    {
@@ -8250,6 +8251,16 @@
     "nome": "Lucas Taverna",
     "time": "3456",
     "escudo": "coritiba",
+    "amarelos": 1,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Lucca Marques",
+    "time": "2026",
+    "escudo": "sp",
     "amarelos": 1,
     "vermelhos": 0,
     "ciclo": 1,

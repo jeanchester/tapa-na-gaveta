@@ -552,6 +552,12 @@
         "numero": 49
       },
       {
+        "id": 176810,
+        "nome": "Lucas Villalba",
+        "posicao": "Attacker",
+        "numero": 77
+      },
+      {
         "id": 202374,
         "nome": "Tiquinho Soares",
         "posicao": "Attacker",
@@ -589,7 +595,7 @@
       },
       {
         "id": 3102504,
-        "nome": "Lucas Emanuel Jales Do Nascimento",
+        "nome": "Lucas Emanuel ",
         "posicao": "Attacker",
         "numero": 79
       }
@@ -722,6 +728,12 @@
         "numero": 48
       },
       {
+        "id": 402695,
+        "nome": "Erick Machado",
+        "posicao": "Midfielder",
+        "numero": 45
+      },
+      {
         "id": 402701,
         "nome": "Luis Felipe",
         "posicao": "Midfielder",
@@ -800,12 +812,6 @@
         "nome": "Marcelo Benevenuto",
         "posicao": "Defender",
         "numero": 5
-      },
-      {
-        "id": 292396,
-        "nome": "Claudinho",
-        "posicao": "Defender",
-        "numero": 27
       },
       {
         "id": 314836,
@@ -1286,12 +1292,6 @@
         "numero": 93
       },
       {
-        "id": 211347,
-        "nome": "Barreto",
-        "posicao": "Midfielder",
-        "numero": 88
-      },
-      {
         "id": 250824,
         "nome": "Alê",
         "posicao": "Midfielder",
@@ -1559,8 +1559,8 @@
       },
       {
         "id": 270578,
-        "nome": "André Silva",
-        "posicao": "Attacker",
+        "nome": "André Oliveira",
+        "posicao": "Midfielder",
         "numero": 17
       },
       {
@@ -2528,12 +2528,6 @@
         "numero": 80
       },
       {
-        "id": 216098,
-        "nome": "Matheus Pereira",
-        "posicao": "Midfielder",
-        "numero": 23
-      },
-      {
         "id": 223437,
         "nome": "Allan",
         "posicao": "Midfielder",
@@ -3358,12 +3352,6 @@
         "numero": 23
       },
       {
-        "id": 176810,
-        "nome": "Lucas Villalba",
-        "posicao": "Defender",
-        "numero": 25
-      },
-      {
         "id": 212077,
         "nome": "William",
         "posicao": "Defender",
@@ -3424,6 +3412,12 @@
         "numero": 11
       },
       {
+        "id": 216098,
+        "nome": "Matheus Pereira",
+        "posicao": "Midfielder",
+        "numero": 10
+      },
+      {
         "id": 268221,
         "nome": "Matheus Henrique",
         "posicao": "Midfielder",
@@ -3462,7 +3456,7 @@
       {
         "id": 118688,
         "nome": "Luciano Rodríguez",
-        "posicao": "Attacker",
+        "posicao": "Defender",
         "numero": 97
       },
       {
@@ -3679,8 +3673,8 @@
       },
       {
         "id": 321370,
-        "nome": "Ruben Ramos",
-        "posicao": "Attacker",
+        "nome": "Rúben Ismael",
+        "posicao": "Midfielder",
         "numero": 16
       },
       {
@@ -4792,12 +4786,6 @@
         "numero": 9
       },
       {
-        "id": 233577,
-        "nome": "Felipe Vizeu",
-        "posicao": "Attacker",
-        "numero": 11
-      },
-      {
         "id": 300110,
         "nome": "Léo Chú",
         "posicao": "Attacker",
@@ -5162,6 +5150,12 @@
         "numero": 14
       },
       {
+        "id": 5334106,
+        "nome": "Vitor Gabriel Boteon Martinelli",
+        "posicao": "Defender",
+        "numero": 34
+      },
+      {
         "id": 128368,
         "nome": "Sebastián Gómez",
         "posicao": "Midfielder",
@@ -5344,12 +5338,6 @@
         "numero": 2
       },
       {
-        "id": 292283,
-        "nome": "Heron",
-        "posicao": "Defender",
-        "numero": 34
-      },
-      {
         "id": 304695,
         "nome": "Gabriel Lacerda",
         "posicao": "Defender",
@@ -5420,12 +5408,6 @@
         "nome": "Victor Feitosa",
         "posicao": "Midfielder",
         "numero": 3
-      },
-      {
-        "id": 315284,
-        "nome": "Guilherme Maciel Dantas",
-        "posicao": "Midfielder",
-        "numero": 55
       },
       {
         "id": 348928,
@@ -5581,8 +5563,8 @@
       },
       {
         "id": 198784,
-        "nome": "Rodrigo Alves",
-        "posicao": "Attacker",
+        "nome": "Rodrigo",
+        "posicao": "Defender",
         "numero": 2
       },
       {
@@ -6259,7 +6241,7 @@
       },
       {
         "id": 338713,
-        "nome": "Gabriel Índio",
+        "nome": "Gabriel Indio",
         "posicao": "Defender",
         "numero": 13
       },
@@ -6290,7 +6272,7 @@
       {
         "id": 94442,
         "nome": "Índio",
-        "posicao": "Midfielder",
+        "posicao": "Attacker",
         "numero": 15
       },
       {
@@ -6325,7 +6307,7 @@
       },
       {
         "id": 317723,
-        "nome": "Patricio Núñez",
+        "nome": "Patricio Núnez",
         "posicao": "Midfielder",
         "numero": 22
       },
@@ -6900,12 +6882,6 @@
         "numero": 34
       },
       {
-        "id": 194566,
-        "nome": "Alan Empereur",
-        "posicao": "Defender",
-        "numero": 33
-      },
-      {
         "id": 231850,
         "nome": "Joao Basso",
         "posicao": "Defender",
@@ -6919,8 +6895,8 @@
       },
       {
         "id": 298951,
-        "nome": "Igor",
-        "posicao": "Defender",
+        "nome": "Igor Maduro De Oliveira",
+        "posicao": "Midfielder",
         "numero": 2
       },
       {
@@ -7518,6 +7494,12 @@
         "numero": 3
       },
       {
+        "id": 292283,
+        "nome": "Heron",
+        "posicao": "Defender",
+        "numero": null
+      },
+      {
         "id": 304538,
         "nome": "Gabriel Inocencio",
         "posicao": "Defender",
@@ -7570,6 +7552,12 @@
         "nome": "Leandro Maciel",
         "posicao": "Midfielder",
         "numero": 5
+      },
+      {
+        "id": 211347,
+        "nome": "Barreto",
+        "posicao": "Midfielder",
+        "numero": null
       },
       {
         "id": 212315,
@@ -7644,12 +7632,6 @@
         "numero": 11
       },
       {
-        "id": 307940,
-        "nome": "Wesley Pinheiro",
-        "posicao": "Attacker",
-        "numero": 23
-      },
-      {
         "id": 340094,
         "nome": "Hugo",
         "posicao": "Attacker",
@@ -7660,12 +7642,6 @@
         "nome": "Jadson",
         "posicao": "Attacker",
         "numero": 21
-      },
-      {
-        "id": 417390,
-        "nome": "Márcio Maranhão",
-        "posicao": "Attacker",
-        "numero": 19
       }
     ],
     "7834": [
@@ -8468,12 +8444,6 @@
         "numero": 21
       },
       {
-        "id": 337997,
-        "nome": "Otávio Bruno",
-        "posicao": "Attacker",
-        "numero": 7
-      },
-      {
         "id": 359193,
         "nome": "Kauan",
         "posicao": "Attacker",
@@ -8499,6 +8469,6 @@
       }
     ]
   },
-  "ultima_atualizacao": "2026-11-15T10:28:18.689Z",
+  "ultima_atualizacao": "2026-11-22T10:48:24.709Z",
   "total_times": 40
 }

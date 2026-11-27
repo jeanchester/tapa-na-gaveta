@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-26T18:52:29",
+ "atualizado": "2026-11-27T03:31:58",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -766,6 +766,91 @@
     }
    ]
   },
+  "sp": {
+   "jogo": "401841329",
+   "data": "2026-11-26T23:00Z",
+   "contra": "Remo",
+   "esquema": "4-2-3-1",
+   "titulares": [
+    {
+     "n": "Rafael",
+     "curto": "Rafael",
+     "num": 23,
+     "pos": "G",
+     "lugar": 1
+    },
+    {
+     "n": "Luis Osorio",
+     "curto": "L. Osorio",
+     "num": 54,
+     "pos": "CD-L",
+     "lugar": 6
+    },
+    {
+     "n": "Robert Arboleda",
+     "curto": "R. Arboleda",
+     "num": 5,
+     "pos": "CD-R",
+     "lugar": 5
+    },
+    {
+     "n": "Iago",
+     "curto": "Iago",
+     "num": 12,
+     "pos": "LB",
+     "lugar": 3
+    },
+    {
+     "n": "Pedro Lima",
+     "curto": "Pedro Lima",
+     "num": 32,
+     "pos": "RB",
+     "lugar": 2
+    },
+    {
+     "n": "Luciano",
+     "curto": "Luciano",
+     "num": 10,
+     "pos": "AM",
+     "lugar": 10
+    },
+    {
+     "n": "Pablo Maia",
+     "curto": "Pablo Maia",
+     "num": 29,
+     "pos": "LM",
+     "lugar": 4
+    },
+    {
+     "n": "Damián Bobadilla",
+     "curto": "D. Bobadilla",
+     "num": 16,
+     "pos": "RM",
+     "lugar": 8
+    },
+    {
+     "n": "Jonathan Calleri",
+     "curto": "J. Calleri",
+     "num": 9,
+     "pos": "F",
+     "lugar": 9
+    },
+    {
+     "n": "Lucas Moura",
+     "curto": "L. Moura",
+     "num": 7,
+     "pos": "AM-L",
+     "lugar": 11
+    },
+    {
+     "n": "Artur",
+     "curto": "Artur",
+     "num": 37,
+     "pos": "AM-R",
+     "lugar": 7
+    }
+   ]
+  },
   "vasco": {
    "jogo": "401841321",
    "data": "2026-11-22T22:30Z",
@@ -848,91 +933,6 @@
      "num": 19,
      "pos": "F",
      "lugar": 9
-    }
-   ]
-  },
-  "sp": {
-   "jogo": "401841326",
-   "data": "2026-11-23T23:00Z",
-   "contra": "Botafogo",
-   "esquema": "3-5-2",
-   "titulares": [
-    {
-     "n": "Rafael",
-     "curto": "Rafael",
-     "num": 23,
-     "pos": "G",
-     "lugar": 1
-    },
-    {
-     "n": "Robert Arboleda",
-     "curto": "R. Arboleda",
-     "num": 5,
-     "pos": "CD",
-     "lugar": 5
-    },
-    {
-     "n": "Luis Osorio",
-     "curto": "L. Osorio",
-     "num": 54,
-     "pos": "CD-L",
-     "lugar": 4
-    },
-    {
-     "n": "Newton",
-     "curto": "Newton",
-     "num": 28,
-     "pos": "CD-R",
-     "lugar": 6
-    },
-    {
-     "n": "Damián Bobadilla",
-     "curto": "D. Bobadilla",
-     "num": 16,
-     "pos": "CM-L",
-     "lugar": 8
-    },
-    {
-     "n": "Djhordney Ferreira",
-     "curto": "D. Ferreira",
-     "num": 48,
-     "pos": "CM-R",
-     "lugar": 7
-    },
-    {
-     "n": "Pablo Maia",
-     "curto": "Pablo Maia",
-     "num": 29,
-     "pos": "AM",
-     "lugar": 11
-    },
-    {
-     "n": "Iago",
-     "curto": "Iago",
-     "num": 12,
-     "pos": "LM",
-     "lugar": 3
-    },
-    {
-     "n": "Pedro Lima",
-     "curto": "Pedro Lima",
-     "num": 32,
-     "pos": "RM",
-     "lugar": 2
-    },
-    {
-     "n": "Jonathan Calleri",
-     "curto": "J. Calleri",
-     "num": 9,
-     "pos": "CF-L",
-     "lugar": 9
-    },
-    {
-     "n": "Luciano",
-     "curto": "Luciano",
-     "num": 10,
-     "pos": "CF-R",
-     "lugar": 10
     }
    ]
   },
@@ -1532,9 +1532,9 @@
    ]
   },
   "remo": {
-   "jogo": "401841318",
-   "data": "2026-11-22T19:00Z",
-   "contra": "Athletico Paranaense",
+   "jogo": "401841329",
+   "data": "2026-11-26T23:00Z",
+   "contra": "São Paulo",
    "esquema": "5-4-1",
    "titulares": [
     {
@@ -1566,37 +1566,37 @@
      "lugar": 6
     },
     {
-     "n": "Mayk",
-     "curto": "Mayk",
-     "num": 77,
+     "n": "Antonio Galeano",
+     "curto": "A. Galeano",
+     "num": 21,
      "pos": "LB",
      "lugar": 3
     },
     {
-     "n": "Marcelinho",
-     "curto": "Marcelinho",
-     "num": 79,
+     "n": "Yago Pikachu",
+     "curto": "Y. Pikachu",
+     "num": 22,
      "pos": "RB",
      "lugar": 2
-    },
-    {
-     "n": "Patrick",
-     "curto": "Patrick",
-     "num": 8,
-     "pos": "CM-L",
-     "lugar": 10
     },
     {
      "n": "Edson Fernando",
      "curto": "E. Fernando",
      "num": 35,
+     "pos": "CM-L",
+     "lugar": 10
+    },
+    {
+     "n": "Leonel Picco",
+     "curto": "L. Picco",
+     "num": 14,
      "pos": "CM-R",
      "lugar": 8
     },
     {
-     "n": "Jajá",
-     "curto": "Jajá",
-     "num": 7,
+     "n": "Gabriel Taliari",
+     "curto": "G. Taliari",
+     "num": 19,
      "pos": "LM",
      "lugar": 11
     },
@@ -1608,9 +1608,9 @@
      "lugar": 7
     },
     {
-     "n": "Gabriel Taliari",
-     "curto": "G. Taliari",
-     "num": 19,
+     "n": "Gabriel Poveda",
+     "curto": "G. Poveda",
+     "num": 9,
      "pos": "F",
      "lugar": 9
     }
