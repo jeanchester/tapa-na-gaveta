@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:44:39",
+ "atualizado": "2026-11-28T03:09:18",
  "artilheiros": [
   {
    "nome": "Mikael",
@@ -1008,6 +1008,12 @@
    "n": 4
   },
   {
+   "nome": "João Pedro Vieira",
+   "time": "9973",
+   "escudo": "vilanova",
+   "n": 4
+  },
+  {
    "nome": "Marquinhos Gabriel",
    "time": "9973",
    "escudo": "vilanova",
@@ -1257,12 +1263,6 @@
    "nome": "Guilherme",
    "time": "10357",
    "escudo": "atleticogo",
-   "n": 3
-  },
-  {
-   "nome": "João Pedro Vieira",
-   "time": "9973",
-   "escudo": "vilanova",
    "n": 3
   },
   {

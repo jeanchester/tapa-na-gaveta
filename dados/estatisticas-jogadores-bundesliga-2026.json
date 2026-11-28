@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:46:19",
+ "atualizado": "2026-11-28T03:10:56",
  "artilheiros": [
   {
    "nome": "Niclas Füllkrug",
@@ -609,7 +609,7 @@
    "nome": "Niclas Füllkrug",
    "time": "137",
    "escudo": "bremen",
-   "n": 10
+   "n": 11
   },
   {
    "nome": "Patrik Schick",
@@ -688,6 +688,12 @@
    "time": "11420",
    "escudo": "leipzig",
    "n": 5
+  },
+  {
+   "nome": "Eren Dinkci",
+   "time": "137",
+   "escudo": "bremen",
+   "n": 4
   },
   {
    "nome": "Luis Díaz",
@@ -870,12 +876,6 @@
    "n": 2
   },
   {
-   "nome": "Eren Dinkci",
-   "time": "137",
-   "escudo": "bremen",
-   "n": 2
-  },
-  {
    "nome": "Ezechiel Banzuzi",
    "time": "11420",
    "escudo": "leipzig",
@@ -891,6 +891,12 @@
    "nome": "Felix Keidel",
    "time": "10388",
    "escudo": "sv_elversberg",
+   "n": 2
+  },
+  {
+   "nome": "Franck Honorat",
+   "time": "268",
+   "escudo": "gladbach",
    "n": 2
   },
   {
@@ -1476,6 +1482,12 @@
    "n": 1
   },
   {
+   "nome": "Kevin Diks",
+   "time": "268",
+   "escudo": "gladbach",
+   "n": 1
+  },
+  {
    "nome": "Marvin Pieringer",
    "time": "3307",
    "escudo": "sc_paderborn_07",
@@ -1538,6 +1550,13 @@
     "nome": "Raphael Onyedika",
     "time": "125",
     "escudo": "eintracht",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Shuto Machino",
+    "time": "268",
+    "escudo": "gladbach",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1657,13 +1676,6 @@
     "nome": "Shafiq Nandja",
     "time": "127",
     "escudo": "hamburger",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Shuto Machino",
-    "time": "268",
-    "escudo": "gladbach",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1871,6 +1883,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Jens Castrop",
+    "time": "268",
+    "escudo": "gladbach",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Joe Scally",
     "time": "268",
     "escudo": "gladbach",
@@ -2018,6 +2037,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Niclas Füllkrug",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Nicolas Kristof",
     "time": "10388",
     "escudo": "sv_elversberg",
@@ -2056,6 +2082,13 @@
     "nome": "Philipp Lienhart",
     "time": "126",
     "escudo": "freiburg",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Philipp Sander",
+    "time": "268",
+    "escudo": "gladbach",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2431,13 +2464,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Jens Castrop",
-    "time": "268",
-    "escudo": "gladbach",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Jeong Woo-Yeong",
     "time": "598",
     "escudo": "union_berlim",
@@ -2711,6 +2737,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Mick Schmetgens",
+    "time": "137",
+    "escudo": "bremen",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Mikey Moore",
     "time": "122",
     "escudo": "koln",
@@ -2721,13 +2754,6 @@
     "nome": "Mio Backhaus",
     "time": "126",
     "escudo": "freiburg",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Niclas Füllkrug",
-    "time": "137",
-    "escudo": "bremen",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2777,13 +2803,6 @@
     "nome": "Patrik Schick",
     "time": "131",
     "escudo": "leverkusen",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Philipp Sander",
-    "time": "268",
-    "escudo": "gladbach",
     "amarelos": 1,
     "vermelhos": 0
    },

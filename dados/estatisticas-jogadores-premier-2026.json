@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:46:14",
+ "atualizado": "2026-11-28T03:10:52",
  "artilheiros": [
   {
    "nome": "Erling Haaland",
@@ -714,6 +714,12 @@
    "n": 3
   },
   {
+   "nome": "Emmanuel Emegha",
+   "time": "363",
+   "escudo": "chelsea",
+   "n": 3
+  },
+  {
    "nome": "Harvey Barnes",
    "time": "361",
    "escudo": "newcastle",
@@ -804,6 +810,12 @@
    "n": 3
   },
   {
+   "nome": "Morgan Gibbs-White",
+   "time": "393",
+   "escudo": "forest",
+   "n": 3
+  },
+  {
    "nome": "Enzo Le Fée",
    "time": "366",
    "escudo": "sunderland",
@@ -867,6 +879,12 @@
    "nome": "Fábio Carvalho",
    "time": "337",
    "escudo": "brentford",
+   "n": 2
+  },
+  {
+   "nome": "Igor Jesus",
+   "time": "393",
+   "escudo": "forest",
    "n": 2
   },
   {
@@ -1170,12 +1188,6 @@
    "n": 1
   },
   {
-   "nome": "Emmanuel Emegha",
-   "time": "363",
-   "escudo": "chelsea",
-   "n": 1
-  },
-  {
    "nome": "Enzo Fernández",
    "time": "382",
    "escudo": "city",
@@ -1203,12 +1215,6 @@
    "nome": "Gonzalo García",
    "time": "370",
    "escudo": "fulham",
-   "n": 1
-  },
-  {
-   "nome": "Igor Jesus",
-   "time": "393",
-   "escudo": "forest",
    "n": 1
   },
   {
@@ -1522,12 +1528,6 @@
    "time": "384",
    "escudo": "crystal",
    "n": 1
-  },
-  {
-   "nome": "Morgan Gibbs-White",
-   "time": "393",
-   "escudo": "forest",
-   "n": 1
   }
  ],
  "cartoes": {
@@ -1667,6 +1667,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Liam Delap",
+    "time": "393",
+    "escudo": "forest",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Marcus Tavernier",
     "time": "349",
     "escudo": "bournemouth",
@@ -1691,6 +1698,13 @@
     "nome": "Pascal Gross",
     "time": "331",
     "escudo": "brighton",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pedro Neto",
+    "time": "363",
+    "escudo": "chelsea",
     "amarelos": 4,
     "vermelhos": 0
    },
@@ -1800,13 +1814,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Liam Delap",
-    "time": "393",
-    "escudo": "forest",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Lisandro Martínez",
     "time": "360",
     "escudo": "man_united",
@@ -1905,13 +1912,6 @@
     "vermelhos": 1
    },
    {
-    "nome": "Pedro Neto",
-    "time": "363",
-    "escudo": "chelsea",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Phil Foden",
     "time": "382",
     "escudo": "city",
@@ -1957,6 +1957,13 @@
     "nome": "Vitaliy Mykolenko",
     "time": "368",
     "escudo": "everton",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Wesley Fofana",
+    "time": "363",
+    "escudo": "chelsea",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2458,13 +2465,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Wesley Fofana",
-    "time": "363",
-    "escudo": "chelsea",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Zian Flemming",
     "time": "373",
     "escudo": "ipswich_town",
@@ -2724,6 +2724,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Ibrahim Sangaré",
+    "time": "393",
+    "escudo": "forest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jack Clarke",
     "time": "373",
     "escudo": "ipswich_town",
@@ -2818,6 +2825,13 @@
     "nome": "John Egan",
     "time": "306",
     "escudo": "hull_city",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Jordan Henderson",
+    "time": "363",
+    "escudo": "chelsea",
     "amarelos": 1,
     "vermelhos": 0
    },

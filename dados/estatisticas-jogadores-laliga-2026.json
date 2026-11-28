@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:46:15",
+ "atualizado": "2026-11-28T03:10:54",
  "artilheiros": [
   {
    "nome": "Raphinha",
@@ -621,7 +621,7 @@
    "nome": "Yassir Zabiri",
    "time": "87",
    "escudo": "racing_santander",
-   "n": 11
+   "n": 12
   },
   {
    "nome": "Lamine Yamal",
@@ -708,6 +708,12 @@
    "n": 4
   },
   {
+   "nome": "Iván Romero",
+   "time": "1538",
+   "escudo": "levante",
+   "n": 4
+  },
+  {
    "nome": "Luka Sucic",
    "time": "89",
    "escudo": "sociedad",
@@ -723,6 +729,12 @@
    "nome": "Orri Óskarsson",
    "time": "89",
    "escudo": "sociedad",
+   "n": 4
+  },
+  {
+   "nome": "Pablo García",
+   "time": "87",
+   "escudo": "racing_santander",
    "n": 4
   },
   {
@@ -765,12 +777,6 @@
    "nome": "Isaac Romero",
    "time": "243",
    "escudo": "sevilla",
-   "n": 3
-  },
-  {
-   "nome": "Iván Romero",
-   "time": "1538",
-   "escudo": "levante",
    "n": 3
   },
   {
@@ -963,12 +969,6 @@
    "nome": "Nicolas Pépé",
    "time": "102",
    "escudo": "villarreal",
-   "n": 2
-  },
-  {
-   "nome": "Pablo García",
-   "time": "87",
-   "escudo": "racing_santander",
    "n": 2
   },
   {
@@ -1795,6 +1795,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Dani Requena",
+    "time": "1538",
+    "escudo": "levante",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "David Larrubia",
     "time": "99",
     "escudo": "malaga",
@@ -2089,13 +2096,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Dani Requena",
-    "time": "1538",
-    "escudo": "levante",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
     "nome": "Davinchi",
     "time": "2922",
     "escudo": "getafe",
@@ -2169,6 +2169,13 @@
     "nome": "Igor Zubeldia",
     "time": "89",
     "escudo": "sociedad",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Iker Luque",
+    "time": "87",
+    "escudo": "racing_santander",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -2502,13 +2509,6 @@
     "vermelhos": 1
    },
    {
-    "nome": "Iker Luque",
-    "time": "87",
-    "escudo": "racing_santander",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Iker Muñoz",
     "time": "97",
     "escudo": "osasuna",
@@ -2745,6 +2745,13 @@
     "escudo": "sociedad",
     "amarelos": 0,
     "vermelhos": 1
+   },
+   {
+    "nome": "Pedro Felipe ",
+    "time": "87",
+    "escudo": "racing_santander",
+    "amarelos": 2,
+    "vermelhos": 0
    },
    {
     "nome": "Pol Lozano",
@@ -3279,6 +3286,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Jon Ander Olasagasti",
+    "time": "1538",
+    "escudo": "levante",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jorge Domínguez",
     "time": "1068",
     "escudo": "atletico",
@@ -3492,13 +3506,6 @@
     "nome": "Pedri",
     "time": "83",
     "escudo": "barcelona",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Pedro Felipe ",
-    "time": "87",
-    "escudo": "racing_santander",
     "amarelos": 1,
     "vermelhos": 0
    },

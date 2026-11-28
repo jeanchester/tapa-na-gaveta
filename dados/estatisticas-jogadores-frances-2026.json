@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:46:20",
+ "atualizado": "2026-11-28T03:10:58",
  "artilheiros": [
   {
    "nome": "Lassine Sinayoko",
@@ -1188,6 +1188,12 @@
    "n": 1
   },
   {
+   "nome": "Luc Zogbe",
+   "time": "6997",
+   "escudo": "brest",
+   "n": 1
+  },
+  {
    "nome": "Lucas Buades",
    "time": "2697",
    "escudo": "le_mans",
@@ -1656,6 +1662,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Luca Koleosho",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Maurits Kjaergaard",
     "time": "166",
     "escudo": "lille",
@@ -1694,6 +1707,13 @@
     "nome": "Pape Diop",
     "time": "180",
     "escudo": "strasbourg",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Pierre Lees-Melou",
+    "time": "6851",
+    "escudo": "paris_fc",
     "amarelos": 3,
     "vermelhos": 0
    },
@@ -1866,6 +1886,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Ilan Kebbal",
+    "time": "6851",
+    "escudo": "paris_fc",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Ismael Boura",
     "time": "170",
     "escudo": "troyes",
@@ -1901,9 +1928,9 @@
     "vermelhos": 0
    },
    {
-    "nome": "Luca Koleosho",
-    "time": "6851",
-    "escudo": "paris_fc",
+    "nome": "Lucas Tousart",
+    "time": "6997",
+    "escudo": "brest",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -1988,13 +2015,6 @@
     "nome": "Paul Nardi",
     "time": "172",
     "escudo": "auxerre",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Pierre Lees-Melou",
-    "time": "6851",
-    "escudo": "paris_fc",
     "amarelos": 2,
     "vermelhos": 0
    },
@@ -2314,6 +2334,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Egil Selvik",
+    "time": "6997",
+    "escudo": "brest",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Elikya Legros",
     "time": "172",
     "escudo": "auxerre",
@@ -2394,13 +2421,6 @@
     "nome": "Igor Paixão",
     "time": "176",
     "escudo": "marseille",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Ilan Kebbal",
-    "time": "6851",
-    "escudo": "paris_fc",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2583,13 +2603,6 @@
     "nome": "Lucas Maronnier",
     "time": "170",
     "escudo": "troyes",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Lucas Tousart",
-    "time": "6997",
-    "escudo": "brest",
     "amarelos": 1,
     "vermelhos": 0
    },

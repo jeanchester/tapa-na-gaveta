@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:44:34",
+ "atualizado": "2026-11-28T03:09:10",
  "artilheiros": [
   {
    "nome": "Kevin Viveros",
@@ -627,7 +627,7 @@
    "nome": "Kaio Jorge",
    "time": "2022",
    "escudo": "cruzeiro",
-   "n": 14
+   "n": 15
   },
   {
    "nome": "Samuel Lino",
@@ -2818,9 +2818,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -2847,6 +2847,22 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Jonathan Jesus",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 6,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
+    }
    },
    {
     "nome": "Jorginho",
@@ -2882,6 +2898,21 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Luciano Acosta",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 8,
+    "vermelhos": 0,
+    "ciclo": 2,
+    "suspenso": false,
+    "pendurado": true,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
+    }
    },
    {
     "nome": "Paulinho",
@@ -3148,9 +3179,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -3172,16 +3203,6 @@
     "nome": "Luciano",
     "time": "2026",
     "escudo": "sp",
-    "amarelos": 7,
-    "vermelhos": 0,
-    "ciclo": 1,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Luciano Acosta",
-    "time": "3445",
-    "escudo": "fluminense",
     "amarelos": 7,
     "vermelhos": 0,
     "ciclo": 1,
@@ -3252,6 +3273,22 @@
      "data": "2026-11-29T22:30Z",
      "contra": "Atlético-MG",
      "jogo": "401841328"
+    }
+   },
+   {
+    "nome": "Samuel Xavier",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 5,
+    "vermelhos": 1,
+    "motivo": "vermelho",
+    "ciclo": 2,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -3535,16 +3572,6 @@
     "nome": "Jonathan Calleri",
     "time": "2026",
     "escudo": "sp",
-    "amarelos": 6,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
-    "nome": "Jonathan Jesus",
-    "time": "2022",
-    "escudo": "cruzeiro",
     "amarelos": 6,
     "vermelhos": 0,
     "ciclo": 0,
@@ -4018,9 +4045,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -4058,9 +4085,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -4118,9 +4145,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -4163,9 +4190,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -4236,21 +4263,6 @@
      "data": "2026-11-29T19:00Z",
      "contra": "Coritiba",
      "jogo": "401841333"
-    }
-   },
-   {
-    "nome": "Samuel Xavier",
-    "time": "3445",
-    "escudo": "fluminense",
-    "amarelos": 5,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
     }
    },
    {
@@ -4623,6 +4635,16 @@
     "nome": "Kanu",
     "time": "9967",
     "escudo": "bahia",
+    "amarelos": 4,
+    "vermelhos": 0,
+    "ciclo": 1,
+    "suspenso": false,
+    "pendurado": false
+   },
+   {
+    "nome": "Kauã Moraes Silva",
+    "time": "2022",
+    "escudo": "cruzeiro",
     "amarelos": 4,
     "vermelhos": 0,
     "ciclo": 1,
@@ -5367,16 +5389,6 @@
     "pendurado": false
    },
    {
-    "nome": "Kauã Moraes Silva",
-    "time": "2022",
-    "escudo": "cruzeiro",
-    "amarelos": 3,
-    "vermelhos": 0,
-    "ciclo": 0,
-    "suspenso": false,
-    "pendurado": false
-   },
-   {
     "nome": "Leonel Picco",
     "time": "4936",
     "escudo": "remo",
@@ -5557,6 +5569,22 @@
     "pendurado": false
    },
    {
+    "nome": "Otávio Costa",
+    "time": "2022",
+    "escudo": "cruzeiro",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
+    }
+   },
+   {
     "nome": "Rafael Tolói",
     "time": "2026",
     "escudo": "sp",
@@ -5585,6 +5613,38 @@
     "ciclo": 0,
     "suspenso": false,
     "pendurado": false
+   },
+   {
+    "nome": "Riquelme",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
+    }
+   },
+   {
+    "nome": "Rodrigo Castillo",
+    "time": "3445",
+    "escudo": "fluminense",
+    "amarelos": 3,
+    "vermelhos": 0,
+    "motivo": "amarelos",
+    "ciclo": 0,
+    "suspenso": true,
+    "pendurado": false,
+    "proximo": {
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
+    }
    },
    {
     "nome": "Rodriguinho",
@@ -6102,9 +6162,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -6232,9 +6292,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -6262,9 +6322,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -6722,9 +6782,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {
@@ -6967,24 +7027,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
-    }
-   },
-   {
-    "nome": "Otávio Costa",
-    "time": "2022",
-    "escudo": "cruzeiro",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -7112,24 +7157,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
-    }
-   },
-   {
-    "nome": "Riquelme",
-    "time": "3445",
-    "escudo": "fluminense",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Red Bull Bragantino",
+     "jogo": "401841344"
     }
    },
    {
@@ -7155,21 +7185,6 @@
      "data": "2026-11-29T19:00Z",
      "contra": "Vitória",
      "jogo": "401841332"
-    }
-   },
-   {
-    "nome": "Rodrigo Castillo",
-    "time": "3445",
-    "escudo": "fluminense",
-    "amarelos": 2,
-    "vermelhos": 0,
-    "ciclo": 2,
-    "suspenso": false,
-    "pendurado": true,
-    "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Cruzeiro",
-     "jogo": "401841337"
     }
    },
    {
@@ -7357,9 +7372,9 @@
     "suspenso": false,
     "pendurado": true,
     "proximo": {
-     "data": "2026-11-27T23:00Z",
-     "contra": "Fluminense",
-     "jogo": "401841337"
+     "data": "2026-12-03T00:30Z",
+     "contra": "Internacional",
+     "jogo": "401841340"
     }
    },
    {

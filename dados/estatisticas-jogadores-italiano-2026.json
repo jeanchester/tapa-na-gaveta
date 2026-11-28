@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:46:17",
+ "atualizado": "2026-11-28T03:10:55",
  "artilheiros": [
   {
    "nome": "Donyell Malen",
@@ -1715,6 +1715,13 @@
     "vermelhos": 1
    },
    {
+    "nome": "Juan Jesus",
+    "time": "17530",
+    "escudo": "venezia",
+    "amarelos": 4,
+    "vermelhos": 0
+   },
+   {
     "nome": "Kialonda Gaspar",
     "time": "113",
     "escudo": "lecce",
@@ -1813,6 +1820,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Jens Odgaard",
+    "time": "107",
+    "escudo": "bologna",
+    "amarelos": 3,
+    "vermelhos": 0
+   },
+   {
     "nome": "Jhon Lucumí",
     "time": "111",
     "escudo": "juventus",
@@ -1821,13 +1835,6 @@
    },
    {
     "nome": "Joel Schingtienne",
-    "time": "17530",
-    "escudo": "venezia",
-    "amarelos": 3,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Juan Jesus",
     "time": "17530",
     "escudo": "venezia",
     "amarelos": 3,
@@ -2135,13 +2142,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Jens Odgaard",
-    "time": "107",
-    "escudo": "bologna",
-    "amarelos": 2,
-    "vermelhos": 0
-   },
-   {
     "nome": "Kenneth Taylor",
     "time": "112",
     "escudo": "lazio",
@@ -2233,6 +2233,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Martin Vitík",
+    "time": "107",
+    "escudo": "bologna",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
     "nome": "Mateo Pellegrino",
     "time": "109",
     "escudo": "fiorentina",
@@ -2269,6 +2276,13 @@
    },
    {
     "nome": "Mikel Amondarain",
+    "time": "107",
+    "escudo": "bologna",
+    "amarelos": 2,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Nadir Zortea",
     "time": "107",
     "escudo": "bologna",
     "amarelos": 2,
@@ -2415,6 +2429,13 @@
     "vermelhos": 0
    },
    {
+    "nome": "Albion Rrahmani",
+    "time": "17530",
+    "escudo": "venezia",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
     "nome": "Aleksa Terzic",
     "time": "4057",
     "escudo": "frosinone",
@@ -2474,6 +2495,13 @@
     "nome": "Andrea Pinamonti",
     "time": "112",
     "escudo": "lazio",
+    "amarelos": 1,
+    "vermelhos": 0
+   },
+   {
+    "nome": "Antoine Hainaut",
+    "time": "17530",
+    "escudo": "venezia",
     "amarelos": 1,
     "vermelhos": 0
    },
@@ -2940,13 +2968,6 @@
     "vermelhos": 0
    },
    {
-    "nome": "Martin Vitík",
-    "time": "107",
-    "escudo": "bologna",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
     "nome": "Matteo Cancellieri",
     "time": "112",
     "escudo": "lazio",
@@ -2978,13 +2999,6 @@
     "nome": "Mohamed Kaba",
     "time": "113",
     "escudo": "lecce",
-    "amarelos": 1,
-    "vermelhos": 0
-   },
-   {
-    "nome": "Nadir Zortea",
-    "time": "107",
-    "escudo": "bologna",
     "amarelos": 1,
     "vermelhos": 0
    },

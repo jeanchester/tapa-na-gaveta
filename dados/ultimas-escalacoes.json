@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27T18:44:34",
+ "atualizado": "2026-11-28T03:09:10",
  "times": {
   "flamengo": {
    "jogo": "401841322",
@@ -172,9 +172,9 @@
    ]
   },
   "cruzeiro": {
-   "jogo": "401841325",
-   "data": "2026-11-22T00:00Z",
-   "contra": "Chapecoense",
+   "jogo": "401841337",
+   "data": "2026-11-27T23:00Z",
+   "contra": "Fluminense",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -199,16 +199,16 @@
      "lugar": 5
     },
     {
-     "n": "Gabriel Rojas",
-     "curto": "G. Rojas",
-     "num": 27,
+     "n": "Lucas Villalba",
+     "curto": "L. Villalba",
+     "num": 25,
      "pos": "LB",
      "lugar": 3
     },
     {
-     "n": "Fagner",
-     "curto": "Fagner",
-     "num": 23,
+     "n": "Kauã Moraes Silva",
+     "curto": "K. Moraes Silva",
+     "num": 2,
      "pos": "RB",
      "lugar": 2
     },
@@ -234,9 +234,9 @@
      "lugar": 8
     },
     {
-     "n": "Neyser Villareal",
-     "curto": "N. Villareal",
-     "num": 22,
+     "n": "Kaio Jorge",
+     "curto": "Kaio Jorge",
+     "num": 19,
      "pos": "F",
      "lugar": 9
     },
@@ -248,18 +248,18 @@
      "lugar": 11
     },
     {
-     "n": "Marquinhos",
-     "curto": "Marquinhos",
-     "num": 11,
+     "n": "Gerson",
+     "curto": "Gerson",
+     "num": 8,
      "pos": "AM-R",
      "lugar": 7
     }
    ]
   },
   "fluminense": {
-   "jogo": "401841324",
-   "data": "2026-11-22T21:30Z",
-   "contra": "Mirassol",
+   "jogo": "401841337",
+   "data": "2026-11-27T23:00Z",
+   "contra": "Cruzeiro",
    "esquema": "4-2-3-1",
    "titulares": [
     {
@@ -270,16 +270,16 @@
      "lugar": 1
     },
     {
-     "n": "Thiago Silva",
-     "curto": "T. Silva",
-     "num": 3,
+     "n": "Ignácio",
+     "curto": "Ignácio",
+     "num": 4,
      "pos": "CD-L",
      "lugar": 6
     },
     {
-     "n": "Ignácio",
-     "curto": "Ignácio",
-     "num": 4,
+     "n": "Thiago Silva",
+     "curto": "T. Silva",
+     "num": 3,
      "pos": "CD-R",
      "lugar": 5
     },
@@ -305,9 +305,9 @@
      "lugar": 10
     },
     {
-     "n": "Nonato",
-     "curto": "Nonato",
-     "num": 16,
+     "n": "Martinelli",
+     "curto": "Martinelli",
+     "num": 8,
      "pos": "LM",
      "lugar": 4
     },
@@ -319,9 +319,9 @@
      "lugar": 8
     },
     {
-     "n": "Hulk",
-     "curto": "Hulk",
-     "num": 7,
+     "n": "Rodrigo Castillo",
+     "curto": "R. Castillo",
+     "num": 19,
      "pos": "F",
      "lugar": 9
     },
